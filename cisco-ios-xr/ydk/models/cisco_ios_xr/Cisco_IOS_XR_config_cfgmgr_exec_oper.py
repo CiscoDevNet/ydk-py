@@ -30,67 +30,67 @@ class HistRecordEnum(Enum):
 
     Possible types of history
 
-    .. data:: CFGHIST_BAG_RECORD_ALL = 0
+    .. data:: cfghist_bag_record_all = 0
 
     	All history
 
-    .. data:: CFGHIST_BAG_RECORD_ALARM = 1
+    .. data:: cfghist_bag_record_alarm = 1
 
     	Alarm history
 
-    .. data:: CFGHIST_BAG_RECORD_CFS_CHECK = 2
+    .. data:: cfghist_bag_record_cfs_check = 2
 
     	CfgCheck history
 
-    .. data:: CFGHIST_BAG_RECORD_COMMIT = 3
+    .. data:: cfghist_bag_record_commit = 3
 
     	Commit history
 
-    .. data:: CFGHIST_BAG_RECORD_OIR = 4
+    .. data:: cfghist_bag_record_oir = 4
 
     	OIR history
 
-    .. data:: CFGHIST_BAG_RECORD_SHUTDOWN = 5
+    .. data:: cfghist_bag_record_shutdown = 5
 
     	Shutdown history
 
-    .. data:: CFGHIST_BAG_RECORD_STARTUP = 6
+    .. data:: cfghist_bag_record_startup = 6
 
     	Bootup history
 
-    .. data:: CFGHIST_BAG_RECORD_BACKUP = 7
+    .. data:: cfghist_bag_record_backup = 7
 
     	Backup history
 
-    .. data:: CFGHIST_BAG_RECORD_REBASE = 8
+    .. data:: cfghist_bag_record_rebase = 8
 
     	Rebase history
 
-    .. data:: CFGHIST_BAG_RECORD_LAST = 9
+    .. data:: cfghist_bag_record_last = 9
 
     	Last history
 
     """
 
-    CFGHIST_BAG_RECORD_ALL = 0
+    cfghist_bag_record_all = 0
 
-    CFGHIST_BAG_RECORD_ALARM = 1
+    cfghist_bag_record_alarm = 1
 
-    CFGHIST_BAG_RECORD_CFS_CHECK = 2
+    cfghist_bag_record_cfs_check = 2
 
-    CFGHIST_BAG_RECORD_COMMIT = 3
+    cfghist_bag_record_commit = 3
 
-    CFGHIST_BAG_RECORD_OIR = 4
+    cfghist_bag_record_oir = 4
 
-    CFGHIST_BAG_RECORD_SHUTDOWN = 5
+    cfghist_bag_record_shutdown = 5
 
-    CFGHIST_BAG_RECORD_STARTUP = 6
+    cfghist_bag_record_startup = 6
 
-    CFGHIST_BAG_RECORD_BACKUP = 7
+    cfghist_bag_record_backup = 7
 
-    CFGHIST_BAG_RECORD_REBASE = 8
+    cfghist_bag_record_rebase = 8
 
-    CFGHIST_BAG_RECORD_LAST = 9
+    cfghist_bag_record_last = 9
 
 
     @staticmethod
@@ -107,7 +107,7 @@ class CfgHistGl(object):
     .. attribute:: record_type
     
     	History summary information for a specific type of history
-    	**type**\: list of  :py:class:`RecordType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType>`
+    	**type**\: list of    :py:class:`RecordType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType>`
     
     
 
@@ -137,7 +137,7 @@ class CfgHistGl(object):
         .. attribute:: record
         
         	History summary information for a specific type of history
-        	**type**\: list of  :py:class:`Record <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record>`
+        	**type**\: list of    :py:class:`Record <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record>`
         
         
 
@@ -169,12 +169,12 @@ class CfgHistGl(object):
             .. attribute:: info
             
             	Content of the history
-            	**type**\:  :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info>`
+            	**type**\:   :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info>`
             
             .. attribute:: record_type
             
             	Record type
-            	**type**\:  :py:class:`HistRecordEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.HistRecordEnum>`
+            	**type**\:   :py:class:`HistRecordEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.HistRecordEnum>`
             
             .. attribute:: timestamp
             
@@ -213,42 +213,42 @@ class CfgHistGl(object):
                 .. attribute:: alarm_info
                 
                 	alarm info
-                	**type**\:  :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.AlarmInfo>`
+                	**type**\:   :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.AlarmInfo>`
                 
                 .. attribute:: backup_info
                 
                 	backup info
-                	**type**\:  :py:class:`BackupInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.BackupInfo>`
+                	**type**\:   :py:class:`BackupInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.BackupInfo>`
                 
                 .. attribute:: cfscheck_info
                 
                 	cfscheck info
-                	**type**\:  :py:class:`CfscheckInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.CfscheckInfo>`
+                	**type**\:   :py:class:`CfscheckInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.CfscheckInfo>`
                 
                 .. attribute:: commit_info
                 
                 	commit info
-                	**type**\:  :py:class:`CommitInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.CommitInfo>`
+                	**type**\:   :py:class:`CommitInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.CommitInfo>`
                 
                 .. attribute:: oir_info
                 
                 	oir info
-                	**type**\:  :py:class:`OirInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.OirInfo>`
+                	**type**\:   :py:class:`OirInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.OirInfo>`
                 
                 .. attribute:: shutdown_info
                 
                 	shutdown info
-                	**type**\:  :py:class:`ShutdownInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.ShutdownInfo>`
+                	**type**\:   :py:class:`ShutdownInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.ShutdownInfo>`
                 
                 .. attribute:: startup_info
                 
                 	startup info
-                	**type**\:  :py:class:`StartupInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.StartupInfo>`
+                	**type**\:   :py:class:`StartupInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.StartupInfo>`
                 
                 .. attribute:: type
                 
                 	type
-                	**type**\:  :py:class:`HistRecordEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.HistRecordEnum>`
+                	**type**\:   :py:class:`HistRecordEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.HistRecordEnum>`
                 
                 
 

@@ -32,7 +32,7 @@ class Dpa(object):
     .. attribute:: stats
     
     	DPA voq data
-    	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats>`
+    	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats>`
     
     
 
@@ -53,7 +53,7 @@ class Dpa(object):
         .. attribute:: nodes
         
         	DPA data for available nodes
-        	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes>`
+        	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes>`
         
         
 
@@ -75,7 +75,7 @@ class Dpa(object):
             .. attribute:: node
             
             	DPA operational data for a particular node
-            	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node>`
+            	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node>`
             
             
 
@@ -105,32 +105,32 @@ class Dpa(object):
                 .. attribute:: clear_voq_data_for_npu_numbers
                 
                 	Clear voq ingress stats for all interfaces on particular npu
-                	**type**\:  :py:class:`ClearVoqDataForNpuNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.ClearVoqDataForNpuNumbers>`
+                	**type**\:   :py:class:`ClearVoqDataForNpuNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.ClearVoqDataForNpuNumbers>`
                 
                 .. attribute:: npu_number_for_trap_data_clears
                 
                 	Trap stats for all traps
-                	**type**\:  :py:class:`NpuNumberForTrapDataClears <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumberForTrapDataClears>`
+                	**type**\:   :py:class:`NpuNumberForTrapDataClears <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumberForTrapDataClears>`
                 
                 .. attribute:: npu_number_for_trap_datas
                 
                 	Trap stats for all traps
-                	**type**\:  :py:class:`NpuNumberForTrapDatas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumberForTrapDatas>`
+                	**type**\:   :py:class:`NpuNumberForTrapDatas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumberForTrapDatas>`
                 
                 .. attribute:: npu_number_for_voq_datas
                 
                 	DPA voq ingress stats for all interfaces
-                	**type**\:  :py:class:`NpuNumberForVoqDatas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumberForVoqDatas>`
+                	**type**\:   :py:class:`NpuNumberForVoqDatas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumberForVoqDatas>`
                 
                 .. attribute:: voq_base_number_stats_clears
                 
                 	Clear DPA voq base stats 
-                	**type**\:  :py:class:`VoqBaseNumberStatsClears <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.VoqBaseNumberStatsClears>`
+                	**type**\:   :py:class:`VoqBaseNumberStatsClears <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.VoqBaseNumberStatsClears>`
                 
                 .. attribute:: voq_base_numbers
                 
                 	DPA voq base stats 
-                	**type**\:  :py:class:`VoqBaseNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.VoqBaseNumbers>`
+                	**type**\:   :py:class:`VoqBaseNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.VoqBaseNumbers>`
                 
                 
 
@@ -163,7 +163,7 @@ class Dpa(object):
                     .. attribute:: voq_base_number_stats_clear
                     
                     	Filter by npu number
-                    	**type**\: list of  :py:class:`VoqBaseNumberStatsClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.VoqBaseNumberStatsClears.VoqBaseNumberStatsClear>`
+                    	**type**\: list of    :py:class:`VoqBaseNumberStatsClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.VoqBaseNumberStatsClears.VoqBaseNumberStatsClear>`
                     
                     
 
@@ -193,7 +193,7 @@ class Dpa(object):
                         .. attribute:: voq_base_stats_clear_data
                         
                         	Clear stats  for a particular voq base number
-                        	**type**\: list of  :py:class:`VoqBaseStatsClearData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.VoqBaseNumberStatsClears.VoqBaseNumberStatsClear.VoqBaseStatsClearData>`
+                        	**type**\: list of    :py:class:`VoqBaseStatsClearData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.VoqBaseNumberStatsClears.VoqBaseNumberStatsClear.VoqBaseStatsClearData>`
                         
                         
 
@@ -335,7 +335,7 @@ class Dpa(object):
                     .. attribute:: npu_number_for_trap_data
                     
                     	All trap stats for a particular npu
-                    	**type**\: list of  :py:class:`NpuNumberForTrapData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumberForTrapDatas.NpuNumberForTrapData>`
+                    	**type**\: list of    :py:class:`NpuNumberForTrapData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumberForTrapDatas.NpuNumberForTrapData>`
                     
                     
 
@@ -365,7 +365,7 @@ class Dpa(object):
                         .. attribute:: trap_specific_stats_data
                         
                         	Filter by specific trap id
-                        	**type**\: list of  :py:class:`TrapSpecificStatsData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumberForTrapDatas.NpuNumberForTrapData.TrapSpecificStatsData>`
+                        	**type**\: list of    :py:class:`TrapSpecificStatsData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumberForTrapDatas.NpuNumberForTrapData.TrapSpecificStatsData>`
                         
                         
 
@@ -658,7 +658,7 @@ class Dpa(object):
                     .. attribute:: voq_base_number
                     
                     	Filter by npu number
-                    	**type**\: list of  :py:class:`VoqBaseNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.VoqBaseNumbers.VoqBaseNumber>`
+                    	**type**\: list of    :py:class:`VoqBaseNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.VoqBaseNumbers.VoqBaseNumber>`
                     
                     
 
@@ -688,7 +688,7 @@ class Dpa(object):
                         .. attribute:: voq_base_stats_data
                         
                         	Voq Base Number for a particular voq
-                        	**type**\: list of  :py:class:`VoqBaseStatsData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.VoqBaseNumbers.VoqBaseNumber.VoqBaseStatsData>`
+                        	**type**\: list of    :py:class:`VoqBaseStatsData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.VoqBaseNumbers.VoqBaseNumber.VoqBaseStatsData>`
                         
                         
 
@@ -806,7 +806,7 @@ class Dpa(object):
                             .. attribute:: voq_stat
                             
                             	voq stat
-                            	**type**\: list of  :py:class:`VoqStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.VoqBaseNumbers.VoqBaseNumber.VoqBaseStatsData.VoqStat>`
+                            	**type**\: list of    :py:class:`VoqStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.VoqBaseNumbers.VoqBaseNumber.VoqBaseStatsData.VoqStat>`
                             
                             
 
@@ -1050,7 +1050,7 @@ class Dpa(object):
                     .. attribute:: npu_number_for_voq_data
                     
                     	All voq stats for a particular npu
-                    	**type**\: list of  :py:class:`NpuNumberForVoqData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumberForVoqDatas.NpuNumberForVoqData>`
+                    	**type**\: list of    :py:class:`NpuNumberForVoqData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumberForVoqDatas.NpuNumberForVoqData>`
                     
                     
 
@@ -1080,7 +1080,7 @@ class Dpa(object):
                         .. attribute:: voq_specific_stats_data
                         
                         	Filter data by interface handle
-                        	**type**\: list of  :py:class:`VoqSpecificStatsData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumberForVoqDatas.NpuNumberForVoqData.VoqSpecificStatsData>`
+                        	**type**\: list of    :py:class:`VoqSpecificStatsData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumberForVoqDatas.NpuNumberForVoqData.VoqSpecificStatsData>`
                         
                         
 
@@ -1198,7 +1198,7 @@ class Dpa(object):
                             .. attribute:: voq_stat
                             
                             	voq stat
-                            	**type**\: list of  :py:class:`VoqStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumberForVoqDatas.NpuNumberForVoqData.VoqSpecificStatsData.VoqStat>`
+                            	**type**\: list of    :py:class:`VoqStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumberForVoqDatas.NpuNumberForVoqData.VoqSpecificStatsData.VoqStat>`
                             
                             
 
@@ -1443,7 +1443,7 @@ class Dpa(object):
                     .. attribute:: clear_voq_data_for_npu_number
                     
                     	Npu id on which stats will be cleared
-                    	**type**\: list of  :py:class:`ClearVoqDataForNpuNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.ClearVoqDataForNpuNumbers.ClearVoqDataForNpuNumber>`
+                    	**type**\: list of    :py:class:`ClearVoqDataForNpuNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.ClearVoqDataForNpuNumbers.ClearVoqDataForNpuNumber>`
                     
                     
 
@@ -1473,7 +1473,7 @@ class Dpa(object):
                         .. attribute:: voq_specific_stats_data_clear
                         
                         	Filter data by interface handle
-                        	**type**\: list of  :py:class:`VoqSpecificStatsDataClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.ClearVoqDataForNpuNumbers.ClearVoqDataForNpuNumber.VoqSpecificStatsDataClear>`
+                        	**type**\: list of    :py:class:`VoqSpecificStatsDataClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.ClearVoqDataForNpuNumbers.ClearVoqDataForNpuNumber.VoqSpecificStatsDataClear>`
                         
                         
 
@@ -1614,7 +1614,7 @@ class Dpa(object):
                     .. attribute:: npu_number_for_trap_data_clear
                     
                     	All trap stats for a particular npu
-                    	**type**\: list of  :py:class:`NpuNumberForTrapDataClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumberForTrapDataClears.NpuNumberForTrapDataClear>`
+                    	**type**\: list of    :py:class:`NpuNumberForTrapDataClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumberForTrapDataClears.NpuNumberForTrapDataClear>`
                     
                     
 
@@ -1644,7 +1644,7 @@ class Dpa(object):
                         .. attribute:: trap_specific_stats_data
                         
                         	Filter by specific trap id
-                        	**type**\: list of  :py:class:`TrapSpecificStatsData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumberForTrapDataClears.NpuNumberForTrapDataClear.TrapSpecificStatsData>`
+                        	**type**\: list of    :py:class:`TrapSpecificStatsData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper.Dpa.Stats.Nodes.Node.NpuNumberForTrapDataClears.NpuNumberForTrapDataClear.TrapSpecificStatsData>`
                         
                         
 

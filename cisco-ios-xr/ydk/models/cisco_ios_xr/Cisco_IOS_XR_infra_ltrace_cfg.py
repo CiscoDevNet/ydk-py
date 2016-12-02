@@ -30,19 +30,19 @@ class InfraLtraceModeEnum(Enum):
 
     Infra ltrace mode
 
-    .. data:: STATIC = 1
+    .. data:: static = 1
 
     	Set ltrace memory allocation to static mode
 
-    .. data:: DYNAMIC = 2
+    .. data:: dynamic = 2
 
     	Set ltrace memory allocation to dynamic mode
 
     """
 
-    STATIC = 1
+    static = 1
 
-    DYNAMIC = 2
+    dynamic = 2
 
 
     @staticmethod

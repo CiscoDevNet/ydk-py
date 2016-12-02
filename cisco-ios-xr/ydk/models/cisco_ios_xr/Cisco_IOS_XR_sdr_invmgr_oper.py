@@ -32,7 +32,7 @@ class SdrInventory(object):
     .. attribute:: racks
     
     	RackTable
-    	**type**\:  :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_oper.SdrInventory.Racks>`
+    	**type**\:   :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_oper.SdrInventory.Racks>`
     
     
 
@@ -53,7 +53,7 @@ class SdrInventory(object):
         .. attribute:: rack
         
         	Rack name
-        	**type**\: list of  :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_oper.SdrInventory.Racks.Rack>`
+        	**type**\: list of    :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_oper.SdrInventory.Racks.Rack>`
         
         
 
@@ -83,7 +83,7 @@ class SdrInventory(object):
             .. attribute:: slot
             
             	Slot name
-            	**type**\: list of  :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_oper.SdrInventory.Racks.Rack.Slot>`
+            	**type**\: list of    :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_oper.SdrInventory.Racks.Rack.Slot>`
             
             
 
@@ -114,7 +114,7 @@ class SdrInventory(object):
                 .. attribute:: card
                 
                 	Card
-                	**type**\: list of  :py:class:`Card <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_oper.SdrInventory.Racks.Rack.Slot.Card>`
+                	**type**\: list of    :py:class:`Card <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_oper.SdrInventory.Racks.Rack.Slot.Card>`
                 
                 
 
@@ -145,7 +145,7 @@ class SdrInventory(object):
                     .. attribute:: attributes
                     
                     	Attributes
-                    	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_oper.SdrInventory.Racks.Rack.Slot.Card.Attributes>`
+                    	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_oper.SdrInventory.Racks.Rack.Slot.Card.Attributes>`
                     
                     
 
@@ -172,12 +172,16 @@ class SdrInventory(object):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**default value**\: 0
+                        
                         .. attribute:: card_state
                         
                         	CardState
                         	**type**\:  int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**default value**\: 0
                         
                         .. attribute:: card_type
                         
@@ -186,12 +190,16 @@ class SdrInventory(object):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**default value**\: 0
+                        
                         .. attribute:: config_state
                         
                         	ConfigState
                         	**type**\:  int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**default value**\: 0
                         
                         .. attribute:: ctype
                         
@@ -200,12 +208,16 @@ class SdrInventory(object):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**default value**\: 0
+                        
                         .. attribute:: monitor
                         
                         	Monitor
                         	**type**\:  int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**default value**\: 0
                         
                         .. attribute:: pi_slot_number
                         
@@ -214,12 +226,16 @@ class SdrInventory(object):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**default value**\: 0
+                        
                         .. attribute:: power
                         
                         	Power
                         	**type**\:  int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**default value**\: 0
                         
                         .. attribute:: shutdown
                         
@@ -228,12 +244,16 @@ class SdrInventory(object):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**default value**\: 0
+                        
                         .. attribute:: vm_state
                         
                         	VM State information
                         	**type**\:  int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**default value**\: 0
                         
                         
 

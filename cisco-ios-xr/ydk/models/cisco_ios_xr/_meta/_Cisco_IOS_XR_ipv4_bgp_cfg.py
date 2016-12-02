@@ -16,105 +16,105 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'BgpOrfEnum' : _MetaInfoEnum('BgpOrfEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'none':'NONE',
-            'receive':'RECEIVE',
-            'send':'SEND',
-            'both':'BOTH',
+            'none':'none',
+            'receive':'receive',
+            'send':'send',
+            'both':'both',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BgpFlowspecValidationCfgEnum' : _MetaInfoEnum('BgpFlowspecValidationCfgEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'enable':'ENABLE',
-            'disable':'DISABLE',
-            'redirect-nexhop-disable':'REDIRECT_NEXHOP_DISABLE',
+            'enable':'enable',
+            'disable':'disable',
+            'redirect-nexhop-disable':'redirect_nexhop_disable',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BgpSignalEnum' : _MetaInfoEnum('BgpSignalEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'bgp-disable':'BGP_DISABLE',
-            'ldp-disable':'LDP_DISABLE',
+            'bgp-disable':'bgp_disable',
+            'ldp-disable':'ldp_disable',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BgpBfdEnableModeEnum' : _MetaInfoEnum('BgpBfdEnableModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'disable':'DISABLE',
-            'default':'DEFAULT',
-            'strict':'STRICT',
+            'disable':'disable',
+            'default':'default',
+            'strict':'strict',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BgpVrfRouteTargetEnum' : _MetaInfoEnum('BgpVrfRouteTargetEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'as':'AS',
-            'ipv4-address':'IPV4_ADDRESS',
-            'four-byte-as':'FOUR_BYTE_AS',
+            'as':'as_',
+            'ipv4-address':'ipv4_address',
+            'four-byte-as':'four_byte_as',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BgpClusterIdEnum' : _MetaInfoEnum('BgpClusterIdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'number':'NUMBER',
-            'ipv4-address':'IPV4_ADDRESS',
+            'number':'number',
+            'ipv4-address':'ipv4_address',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BgpEbgpSendDmzEnableModeEnum' : _MetaInfoEnum('BgpEbgpSendDmzEnableModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'disable':'DISABLE',
-            'default':'DEFAULT',
-            'cumulative':'CUMULATIVE',
+            'disable':'disable',
+            'default':'default',
+            'cumulative':'cumulative',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BgpRpkiTransportEnum' : _MetaInfoEnum('BgpRpkiTransportEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'tcp':'TCP',
-            'ssh':'SSH',
+            'tcp':'tcp',
+            'ssh':'ssh',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BgpSiteOfOriginEnum' : _MetaInfoEnum('BgpSiteOfOriginEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'as':'AS',
-            'ipv4-address':'IPV4_ADDRESS',
-            'four-byte-as':'FOUR_BYTE_AS',
+            'as':'as_',
+            'ipv4-address':'ipv4_address',
+            'four-byte-as':'four_byte_as',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BgpAfEncapsulationEnum' : _MetaInfoEnum('BgpAfEncapsulationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'vx-lan':'VX_LAN',
+            'vx-lan':'vx_lan',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BgpRouteDistinguisherEnum' : _MetaInfoEnum('BgpRouteDistinguisherEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'auto':'AUTO',
-            'as':'AS',
-            'four-byte-as':'FOUR_BYTE_AS',
-            'ipv4-address':'IPV4_ADDRESS',
+            'auto':'auto',
+            'as':'as_',
+            'four-byte-as':'four_byte_as',
+            'ipv4-address':'ipv4_address',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BgpMvpnSfsSelectEnum' : _MetaInfoEnum('BgpMvpnSfsSelectEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'all-paths':'ALL_PATHS',
-            'highest-ip-address':'HIGHEST_IP_ADDRESS',
+            'all-paths':'all_paths',
+            'highest-ip-address':'highest_ip_address',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BgpAdvRtEnum' : _MetaInfoEnum('BgpAdvRtEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'bgp-regular-rt':'BGP_REGULAR_RT',
-            'bgp-stitching-rt':'BGP_STITCHING_RT',
+            'bgp-regular-rt':'bgp_regular_rt',
+            'bgp-stitching-rt':'bgp_stitching_rt',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BgpSendMcastAttrCfgEnum' : _MetaInfoEnum('BgpSendMcastAttrCfgEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'enable':'ENABLE',
-            'disable':'DISABLE',
+            'enable':'enable',
+            'disable':'disable',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BgpTcpModeEnum' : _MetaInfoEnum('BgpTcpModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'either':'EITHER',
-            'active-only':'ACTIVE_ONLY',
-            'passive-only':'PASSIVE_ONLY',
+            'either':'either',
+            'active-only':'active_only',
+            'passive-only':'passive_only',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BgpReorgOptEnum' : _MetaInfoEnum('BgpReorgOptEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'bgp-cfg-adv':'BGP_CFG_ADV',
-            'bgp-cfg-adv-reorg':'BGP_CFG_ADV_REORG',
-            'bgp-cfg-adv-disable':'BGP_CFG_ADV_DISABLE',
-            'bgp-cfg-adv-local':'BGP_CFG_ADV_LOCAL',
-            'bgp-cfg-adv-def-imp-disable':'BGP_CFG_ADV_DEF_IMP_DISABLE',
+            'bgp-cfg-adv':'bgp_cfg_adv',
+            'bgp-cfg-adv-reorg':'bgp_cfg_adv_reorg',
+            'bgp-cfg-adv-disable':'bgp_cfg_adv_disable',
+            'bgp-cfg-adv-local':'bgp_cfg_adv_local',
+            'bgp-cfg-adv-def-imp-disable':'bgp_cfg_adv_def_imp_disable',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BgpAigpCfgPoiEnum' : _MetaInfoEnum('BgpAigpCfgPoiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'pre-best-path':'PRE_BEST_PATH',
-            'igp-cost':'IGP_COST',
+            'pre-best-path':'pre_best_path',
+            'igp-cost':'igp_cost',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BgpAigpCfgEnum' : _MetaInfoEnum('BgpAigpCfgEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'enable':'ENABLE',
-            'disable':'DISABLE',
+            'enable':'enable',
+            'disable':'disable',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.RouteDistinguisher' : {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.RouteDistinguisher',
@@ -201,6 +201,118 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
             'mvpn',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
+        ),
+    },
+    'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp',
+            False, 
+            [
+            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Order candidate multipaths by IGP
+                metric
+                ''',
+                'order_by_igp_metric',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('paths-value', ATTRIBUTE, 'int' , None, None, 
+                [('2', '32')], [], 
+                '''                Number of paths
+                ''',
+                'paths_value',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('selective', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Allow multipaths only from marked
+                neighbors
+                ''',
+                'selective',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                UNUSED
+                ''',
+                'unequal_cost',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-bgp-cfg',
+            'ebgp',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
+        ),
+    },
+    'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Eibgp' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Eibgp',
+            False, 
+            [
+            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Order candidate multipaths by IGP
+                metric
+                ''',
+                'order_by_igp_metric',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('paths-value', ATTRIBUTE, 'int' , None, None, 
+                [('2', '32')], [], 
+                '''                Number of paths
+                ''',
+                'paths_value',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('selective', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Allow multipaths only from marked
+                neighbors
+                ''',
+                'selective',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                UNUSED
+                ''',
+                'unequal_cost',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-bgp-cfg',
+            'eibgp',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
+        ),
+    },
+    'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp',
+            False, 
+            [
+            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Order candidate multipaths by IGP
+                metric
+                ''',
+                'order_by_igp_metric',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('paths-value', ATTRIBUTE, 'int' , None, None, 
+                [('2', '32')], [], 
+                '''                Number of paths
+                ''',
+                'paths_value',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('selective', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Allow multipaths only from marked
+                neighbors
+                ''',
+                'selective',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Allow multipaths to have different IGP
+                metrics
+                ''',
+                'unequal_cost',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-bgp-cfg',
+            'ibgp',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
@@ -665,76 +777,6 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp',
-            False, 
-            [
-            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Order candidate multipaths by IGP metric
-                ''',
-                'order_by_igp_metric',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('paths-value', ATTRIBUTE, 'int' , None, None, 
-                [('2', '64')], [], 
-                '''                Number of paths
-                ''',
-                'paths_value',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('selective', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Allow multipaths only from marked neighbors
-                ''',
-                'selective',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                UNUSED
-                ''',
-                'unequal_cost',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-bgp-cfg',
-            'ebgp',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
-        ),
-    },
-    'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Eibgp' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Eibgp',
-            False, 
-            [
-            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Order candidate multipaths by IGP metric
-                ''',
-                'order_by_igp_metric',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('paths-value', ATTRIBUTE, 'int' , None, None, 
-                [('2', '64')], [], 
-                '''                Number of paths
-                ''',
-                'paths_value',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('selective', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Allow multipaths only from marked neighbors
-                ''',
-                'selective',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                UNUSED
-                ''',
-                'unequal_cost',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-bgp-cfg',
-            'eibgp',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
-        ),
-    },
     'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes.OspfRoute' : {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes.OspfRoute',
             False, 
@@ -789,41 +831,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
             'ospf-routes',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
-        ),
-    },
-    'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp',
-            False, 
-            [
-            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Order candidate multipaths by IGP metric
-                ''',
-                'order_by_igp_metric',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('paths-value', ATTRIBUTE, 'int' , None, None, 
-                [('2', '64')], [], 
-                '''                Number of paths
-                ''',
-                'paths_value',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('selective', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Allow multipaths only from marked neighbors
-                ''',
-                'selective',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Allow multipaths to have different IGP metrics
-                ''',
-                'unequal_cost',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-bgp-cfg',
-            'ibgp',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
@@ -1833,8 +1840,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import',
+    'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import_' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import_',
             False, 
             [
             _MetaInfoClassMember('import-reoriginate', ATTRIBUTE, 'bool' , None, None, 
@@ -2170,7 +2177,7 @@ _meta_table = {
                 ''',
                 'flowspec_validation',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('import', REFERENCE_CLASS, 'Import' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import', 
+            _MetaInfoClassMember('import', REFERENCE_CLASS, 'Import_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import_', 
                 [], [], 
                 '''                Import Reorigination options for Routes from the
                 peer
@@ -3653,8 +3660,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import_' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import_',
             False, 
             [
             _MetaInfoClassMember('import-reoriginate', ATTRIBUTE, 'bool' , None, None, 
@@ -3990,7 +3997,7 @@ _meta_table = {
                 ''',
                 'flowspec_validation',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('import', REFERENCE_CLASS, 'Import' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import', 
+            _MetaInfoClassMember('import', REFERENCE_CLASS, 'Import_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import_', 
                 [], [], 
                 '''                Import Reorigination options for Routes from the
                 peer
@@ -5504,8 +5511,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import_' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import_',
             False, 
             [
             _MetaInfoClassMember('import-reoriginate', ATTRIBUTE, 'bool' , None, None, 
@@ -5841,7 +5848,7 @@ _meta_table = {
                 ''',
                 'flowspec_validation',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('import', REFERENCE_CLASS, 'Import' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import', 
+            _MetaInfoClassMember('import', REFERENCE_CLASS, 'Import_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import_', 
                 [], [], 
                 '''                Import Reorigination options for Routes from the
                 peer
@@ -7359,8 +7366,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import_' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import_',
             False, 
             [
             _MetaInfoClassMember('import-reoriginate', ATTRIBUTE, 'bool' , None, None, 
@@ -7695,7 +7702,7 @@ _meta_table = {
                 ''',
                 'flowspec_validation',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('import', REFERENCE_CLASS, 'Import' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import', 
+            _MetaInfoClassMember('import', REFERENCE_CLASS, 'Import_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import_', 
                 [], [], 
                 '''                Import Reorigination options for Routes from the
                 peer
@@ -8894,8 +8901,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ClusterId' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ClusterId',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ClusterId' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ClusterId',
             False, 
             [
             _MetaInfoClassMember('cluster-id-address', ATTRIBUTE, 'str' , None, None, 
@@ -8919,8 +8926,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.WriteLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.WriteLimit',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.WriteLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.WriteLimit',
             False, 
             [
             _MetaInfoClassMember('desynchronize', ATTRIBUTE, 'bool' , None, None, 
@@ -8951,8 +8958,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.UpdateDelay' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.UpdateDelay',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.UpdateDelay' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.UpdateDelay',
             False, 
             [
             _MetaInfoClassMember('always', ATTRIBUTE, 'bool' , None, None, 
@@ -8975,8 +8982,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers.Peer' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers.Peer',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague.Peers.Peer' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague.Peers.Peer',
             False, 
             [
             _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
@@ -8998,11 +9005,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague.Peers' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague.Peers',
             False, 
             [
-            _MetaInfoClassMember('peer', REFERENCE_LIST, 'Peer' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers.Peer', 
+            _MetaInfoClassMember('peer', REFERENCE_LIST, 'Peer' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague.Peers.Peer', 
                 [], [], 
                 '''                AS League Peer AS
                 ''',
@@ -9015,8 +9022,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague',
             False, 
             [
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
@@ -9025,7 +9032,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('peers', REFERENCE_CLASS, 'Peers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers', 
+            _MetaInfoClassMember('peers', REFERENCE_CLASS, 'Peers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague.Peers', 
                 [], [], 
                 '''                AS League Peers
                 ''',
@@ -9038,8 +9045,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers.RpkiServer.Transport' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers.RpkiServer.Transport',
             False, 
             [
             _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
@@ -9061,8 +9068,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers.RpkiServer' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers.RpkiServer',
             False, 
             [
             _MetaInfoClassMember('server', ATTRIBUTE, 'str' , None, None, 
@@ -9107,7 +9114,7 @@ _meta_table = {
                 ''',
                 'shutdown',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('transport', REFERENCE_CLASS, 'Transport' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport', 
+            _MetaInfoClassMember('transport', REFERENCE_CLASS, 'Transport' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers.RpkiServer.Transport', 
                 [], [], 
                 '''                RPKI server transport
                 ''',
@@ -9126,11 +9133,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers',
             False, 
             [
-            _MetaInfoClassMember('rpki-server', REFERENCE_LIST, 'RpkiServer' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer', 
+            _MetaInfoClassMember('rpki-server', REFERENCE_LIST, 'RpkiServer' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers.RpkiServer', 
                 [], [], 
                 '''                RPKI server configuration
                 ''',
@@ -9143,8 +9150,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Limits' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Limits',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.Limits' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.Limits',
             False, 
             [
             _MetaInfoClassMember('maximum-neighbors', ATTRIBUTE, 'int' , None, None, 
@@ -9161,8 +9168,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationDomain' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationDomain',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ConfederationDomain' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ConfederationDomain',
             False, 
             [
             _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
@@ -9184,8 +9191,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses.ConfederationPeerAs' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses.ConfederationPeerAs',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ConfederationPeerAses.ConfederationPeerAs' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ConfederationPeerAses.ConfederationPeerAs',
             False, 
             [
             _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
@@ -9207,11 +9214,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ConfederationPeerAses' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ConfederationPeerAses',
             False, 
             [
-            _MetaInfoClassMember('confederation-peer-as', REFERENCE_LIST, 'ConfederationPeerAs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses.ConfederationPeerAs', 
+            _MetaInfoClassMember('confederation-peer-as', REFERENCE_LIST, 'ConfederationPeerAs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ConfederationPeerAses.ConfederationPeerAs', 
                 [], [], 
                 '''                Confederation peer AS
                 ''',
@@ -9224,8 +9231,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter',
             False, 
             [
             _MetaInfoClassMember('attribute-end', ATTRIBUTE, 'int' , None, None, 
@@ -9253,11 +9260,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters',
             False, 
             [
-            _MetaInfoClassMember('attribute-filter', REFERENCE_LIST, 'AttributeFilter' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter', 
+            _MetaInfoClassMember('attribute-filter', REFERENCE_LIST, 'AttributeFilter' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter', 
                 [], [], 
                 '''                Attribute-filter group attribute
                 ''',
@@ -9270,8 +9277,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups.AttributeFilterGroup' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups.AttributeFilterGroup',
             False, 
             [
             _MetaInfoClassMember('attribute-filter-group-name', ATTRIBUTE, 'str' , None, None, 
@@ -9280,7 +9287,7 @@ _meta_table = {
                 ''',
                 'attribute_filter_group_name',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('attribute-filters', REFERENCE_CLASS, 'AttributeFilters' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters', 
+            _MetaInfoClassMember('attribute-filters', REFERENCE_CLASS, 'AttributeFilters' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters', 
                 [], [], 
                 '''                Attribute-filter group attributes list
                 ''',
@@ -9299,11 +9306,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups',
             False, 
             [
-            _MetaInfoClassMember('attribute-filter-group', REFERENCE_LIST, 'AttributeFilterGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup', 
+            _MetaInfoClassMember('attribute-filter-group', REFERENCE_LIST, 'AttributeFilterGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups.AttributeFilterGroup', 
                 [], [], 
                 '''                Attribute-filter group
                 ''',
@@ -9316,8 +9323,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalGracefulMaintenanceActivate' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalGracefulMaintenanceActivate',
             False, 
             [
             _MetaInfoClassMember('all-neighbors', ATTRIBUTE, 'bool' , None, None, 
@@ -9340,8 +9347,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes.IsisRoute' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes.IsisRoute',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.IsisRoutes.IsisRoute' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.IsisRoutes.IsisRoute',
             False, 
             [
             _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
@@ -9378,11 +9385,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.IsisRoutes' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.IsisRoutes',
             False, 
             [
-            _MetaInfoClassMember('isis-route', REFERENCE_LIST, 'IsisRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes.IsisRoute', 
+            _MetaInfoClassMember('isis-route', REFERENCE_LIST, 'IsisRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.IsisRoutes.IsisRoute', 
                 [], [], 
                 '''                Redistribute IS-IS routes
                 ''',
@@ -9395,8 +9402,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DomainDistinguisher' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DomainDistinguisher',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DomainDistinguisher' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DomainDistinguisher',
             False, 
             [
             _MetaInfoClassMember('as', ATTRIBUTE, 'int' , None, None, 
@@ -9418,8 +9425,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.VrfAll.LabelMode' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.VrfAll.LabelMode',
             False, 
             [
             _MetaInfoClassMember('label-allocation-mode', ATTRIBUTE, 'str' , None, None, 
@@ -9443,8 +9450,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.VrfAll' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.VrfAll',
             False, 
             [
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
@@ -9453,7 +9460,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('label-mode', REFERENCE_CLASS, 'LabelMode' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode', 
+            _MetaInfoClassMember('label-mode', REFERENCE_CLASS, 'LabelMode' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.VrfAll.LabelMode', 
                 [], [], 
                 '''                MPLS-VPN label allocation mode
                 ''',
@@ -9480,8 +9487,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes.ApplicationRoute' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes.ApplicationRoute',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ApplicationRoutes.ApplicationRoute' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ApplicationRoutes.ApplicationRoute',
             False, 
             [
             _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
@@ -9515,11 +9522,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ApplicationRoutes' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ApplicationRoutes',
             False, 
             [
-            _MetaInfoClassMember('application-route', REFERENCE_LIST, 'ApplicationRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes.ApplicationRoute', 
+            _MetaInfoClassMember('application-route', REFERENCE_LIST, 'ApplicationRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ApplicationRoutes.ApplicationRoute', 
                 [], [], 
                 '''                Redistribute application routes
                 ''',
@@ -9532,8 +9539,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number',
             False, 
             [
             _MetaInfoClassMember('cluster-id-number', ATTRIBUTE, 'int' , None, None, 
@@ -9549,8 +9556,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Ipv4Address' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Ipv4Address',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Ipv4Address' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Ipv4Address',
             False, 
             [
             _MetaInfoClassMember('cluster-id-address', REFERENCE_UNION, 'str' , None, None, 
@@ -9582,8 +9589,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr',
             False, 
             [
             _MetaInfoClassMember('cluster-type', REFERENCE_ENUM_CLASS, 'BgpClusterIdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpClusterIdEnum', 
@@ -9592,13 +9599,13 @@ _meta_table = {
                 ''',
                 'cluster_type',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('ipv4-address', REFERENCE_LIST, 'Ipv4Address' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Ipv4Address', 
+            _MetaInfoClassMember('ipv4-address', REFERENCE_LIST, 'Ipv4Address' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Ipv4Address', 
                 [], [], 
                 '''                ipv4 address
                 ''',
                 'ipv4_address',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('number', REFERENCE_LIST, 'Number' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number', 
+            _MetaInfoClassMember('number', REFERENCE_LIST, 'Number' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number', 
                 [], [], 
                 '''                number
                 ''',
@@ -9611,11 +9618,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs',
             False, 
             [
-            _MetaInfoClassMember('disable-cluster-client-to-client-rr', REFERENCE_LIST, 'DisableClusterClientToClientRr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr', 
+            _MetaInfoClassMember('disable-cluster-client-to-client-rr', REFERENCE_LIST, 'DisableClusterClientToClientRr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr', 
                 [], [], 
                 '''                Cluster ID for which reflection is to be
                 disbled
@@ -9629,8 +9636,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelDelay' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelDelay',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.LabelDelay' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.LabelDelay',
             False, 
             [
             _MetaInfoClassMember('milliseconds', ATTRIBUTE, 'int' , None, None, 
@@ -9652,8 +9659,80 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RetainRt' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RetainRt',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Ebgp' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Ebgp',
+            False, 
+            [
+            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Order candidate multipaths by IGP metric
+                ''',
+                'order_by_igp_metric',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('paths-value', ATTRIBUTE, 'int' , None, None, 
+                [('2', '64')], [], 
+                '''                Number of paths
+                ''',
+                'paths_value',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('selective', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Allow multipaths only from marked
+                neighbors
+                ''',
+                'selective',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                UNUSED
+                ''',
+                'unequal_cost',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-bgp-cfg',
+            'ebgp',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
+        ),
+    },
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Eibgp' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Eibgp',
+            False, 
+            [
+            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Order candidate multipaths by IGP metric
+                ''',
+                'order_by_igp_metric',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('paths-value', ATTRIBUTE, 'int' , None, None, 
+                [('2', '64')], [], 
+                '''                Number of paths
+                ''',
+                'paths_value',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('selective', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Allow multipaths only from marked
+                neighbors
+                ''',
+                'selective',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                UNUSED
+                ''',
+                'unequal_cost',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-bgp-cfg',
+            'eibgp',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
+        ),
+    },
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.RetainRt' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.RetainRt',
             False, 
             [
             _MetaInfoClassMember('all', ATTRIBUTE, 'bool' , None, None, 
@@ -9676,8 +9755,45 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ImportDelay' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ImportDelay',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Ibgp' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Ibgp',
+            False, 
+            [
+            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Order candidate multipaths by IGP metric
+                ''',
+                'order_by_igp_metric',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('paths-value', ATTRIBUTE, 'int' , None, None, 
+                [('2', '64')], [], 
+                '''                Number of paths
+                ''',
+                'paths_value',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('selective', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Allow multipaths only from marked
+                neighbors
+                ''',
+                'selective',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Allow multipaths to have different IGP
+                metrics
+                ''',
+                'unequal_cost',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-bgp-cfg',
+            'ibgp',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
+        ),
+    },
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ImportDelay' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ImportDelay',
             False, 
             [
             _MetaInfoClassMember('milliseconds', ATTRIBUTE, 'int' , None, None, 
@@ -9699,8 +9815,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses.AggregateAddress' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses.AggregateAddress',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AggregateAddresses.AggregateAddress' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AggregateAddresses.AggregateAddress',
             False, 
             [
             _MetaInfoClassMember('aggregate-addr', REFERENCE_UNION, 'str' , None, None, 
@@ -9767,11 +9883,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AggregateAddresses' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AggregateAddresses',
             False, 
             [
-            _MetaInfoClassMember('aggregate-address', REFERENCE_LIST, 'AggregateAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses.AggregateAddress', 
+            _MetaInfoClassMember('aggregate-address', REFERENCE_LIST, 'AggregateAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AggregateAddresses.AggregateAddress', 
                 [], [], 
                 '''                Aggregate address configuration
                 ''',
@@ -9784,8 +9900,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Dampening' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Dampening',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Dampening' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Dampening',
             False, 
             [
             _MetaInfoClassMember('half-life', ATTRIBUTE, 'int' , None, None, 
@@ -9828,8 +9944,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RipRoutes' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RipRoutes',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.RipRoutes' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.RipRoutes',
             False, 
             [
             _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
@@ -9857,8 +9973,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LispRoutes' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LispRoutes',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.LispRoutes' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.LispRoutes',
             False, 
             [
             _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
@@ -9880,8 +9996,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.StaticRoutes' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.StaticRoutes',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.StaticRoutes' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.StaticRoutes',
             False, 
             [
             _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
@@ -9909,8 +10025,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Distance' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Distance',
             False, 
             [
             _MetaInfoClassMember('external-routes', ATTRIBUTE, 'int' , None, None, 
@@ -9938,8 +10054,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.LabelMode' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.LabelMode',
             False, 
             [
             _MetaInfoClassMember('label-allocation-mode', ATTRIBUTE, 'str' , None, None, 
@@ -9964,8 +10080,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes.EigrpRoute' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes.EigrpRoute',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.EigrpRoutes.EigrpRoute' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.EigrpRoutes.EigrpRoute',
             False, 
             [
             _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
@@ -10001,11 +10117,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.EigrpRoutes' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.EigrpRoutes',
             False, 
             [
-            _MetaInfoClassMember('eigrp-route', REFERENCE_LIST, 'EigrpRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes.EigrpRoute', 
+            _MetaInfoClassMember('eigrp-route', REFERENCE_LIST, 'EigrpRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.EigrpRoutes.EigrpRoute', 
                 [], [], 
                 '''                Redistribute EIGRP routes
                 ''',
@@ -10018,8 +10134,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks.SourcedNetwork' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks.SourcedNetwork',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.SourcedNetworks.SourcedNetwork' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.SourcedNetworks.SourcedNetwork',
             False, 
             [
             _MetaInfoClassMember('network-addr', REFERENCE_UNION, 'str' , None, None, 
@@ -10066,11 +10182,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.SourcedNetworks' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.SourcedNetworks',
             False, 
             [
-            _MetaInfoClassMember('sourced-network', REFERENCE_LIST, 'SourcedNetwork' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks.SourcedNetwork', 
+            _MetaInfoClassMember('sourced-network', REFERENCE_LIST, 'SourcedNetwork' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.SourcedNetworks.SourcedNetwork', 
                 [], [], 
                 '''                Sourced network configuration
                 ''',
@@ -10083,8 +10199,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ConnectedRoutes' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ConnectedRoutes',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ConnectedRoutes' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ConnectedRoutes',
             False, 
             [
             _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
@@ -10112,8 +10228,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AllocateLabel' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AllocateLabel',
             False, 
             [
             _MetaInfoClassMember('all', ATTRIBUTE, 'bool' , None, None, 
@@ -10136,8 +10252,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AdditionalPathsSelection' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AdditionalPathsSelection',
             False, 
             [
             _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
@@ -10159,78 +10275,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ebgp' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ebgp',
-            False, 
-            [
-            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Order candidate multipaths by IGP metric
-                ''',
-                'order_by_igp_metric',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('paths-value', ATTRIBUTE, 'int' , None, None, 
-                [('2', '64')], [], 
-                '''                Number of paths
-                ''',
-                'paths_value',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('selective', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Allow multipaths only from marked neighbors
-                ''',
-                'selective',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                UNUSED
-                ''',
-                'unequal_cost',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-bgp-cfg',
-            'ebgp',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
-        ),
-    },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Eibgp' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Eibgp',
-            False, 
-            [
-            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Order candidate multipaths by IGP metric
-                ''',
-                'order_by_igp_metric',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('paths-value', ATTRIBUTE, 'int' , None, None, 
-                [('2', '64')], [], 
-                '''                Number of paths
-                ''',
-                'paths_value',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('selective', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Allow multipaths only from marked neighbors
-                ''',
-                'selective',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                UNUSED
-                ''',
-                'unequal_cost',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-bgp-cfg',
-            'eibgp',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
-        ),
-    },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes.OspfRoute' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes.OspfRoute',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.OspfRoutes.OspfRoute' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.OspfRoutes.OspfRoute',
             False, 
             [
             _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
@@ -10270,11 +10316,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.OspfRoutes' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.OspfRoutes',
             False, 
             [
-            _MetaInfoClassMember('ospf-route', REFERENCE_LIST, 'OspfRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes.OspfRoute', 
+            _MetaInfoClassMember('ospf-route', REFERENCE_LIST, 'OspfRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.OspfRoutes.OspfRoute', 
                 [], [], 
                 '''                Redistribute OSPF routes
                 ''',
@@ -10287,43 +10333,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ibgp' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ibgp',
-            False, 
-            [
-            _MetaInfoClassMember('order-by-igp-metric', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Order candidate multipaths by IGP metric
-                ''',
-                'order_by_igp_metric',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('paths-value', ATTRIBUTE, 'int' , None, None, 
-                [('2', '64')], [], 
-                '''                Number of paths
-                ''',
-                'paths_value',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('selective', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Allow multipaths only from marked neighbors
-                ''',
-                'selective',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('unequal-cost', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Allow multipaths to have different IGP metrics
-                ''',
-                'unequal_cost',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-bgp-cfg',
-            'ibgp',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
-        ),
-    },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.MobileRoutes' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.MobileRoutes',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.MobileRoutes' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.MobileRoutes',
             False, 
             [
             _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
@@ -10351,8 +10362,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SubscriberRoutes' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SubscriberRoutes',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.SubscriberRoutes' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.SubscriberRoutes',
             False, 
             [
             _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
@@ -10380,8 +10391,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'BgpAddressFamilyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpAddressFamilyEnum', 
@@ -10396,7 +10407,7 @@ _meta_table = {
                 ''',
                 'additional_paths_receive',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('additional-paths-selection', REFERENCE_CLASS, 'AdditionalPathsSelection' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection', 
+            _MetaInfoClassMember('additional-paths-selection', REFERENCE_CLASS, 'AdditionalPathsSelection' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AdditionalPathsSelection', 
                 [], [], 
                 '''                Configure additional paths selection
                 ''',
@@ -10408,19 +10419,19 @@ _meta_table = {
                 ''',
                 'additional_paths_send',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('aggregate-addresses', REFERENCE_CLASS, 'AggregateAddresses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses', 
+            _MetaInfoClassMember('aggregate-addresses', REFERENCE_CLASS, 'AggregateAddresses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AggregateAddresses', 
                 [], [], 
                 '''                Configure BGP aggregate entries
                 ''',
                 'aggregate_addresses',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('allocate-label', REFERENCE_CLASS, 'AllocateLabel' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel', 
+            _MetaInfoClassMember('allocate-label', REFERENCE_CLASS, 'AllocateLabel' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AllocateLabel', 
                 [], [], 
                 '''                Label allocation policy
                 ''',
                 'allocate_label',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('application-routes', REFERENCE_CLASS, 'ApplicationRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes', 
+            _MetaInfoClassMember('application-routes', REFERENCE_CLASS, 'ApplicationRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ApplicationRoutes', 
                 [], [], 
                 '''                Redistribute information for Application
                 routes.
@@ -10440,13 +10451,13 @@ _meta_table = {
                 ''',
                 'best_external',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('connected-routes', REFERENCE_CLASS, 'ConnectedRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ConnectedRoutes', 
+            _MetaInfoClassMember('connected-routes', REFERENCE_CLASS, 'ConnectedRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ConnectedRoutes', 
                 [], [], 
                 '''                Redistribute connected routes
                 ''',
                 'connected_routes',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('dampening', REFERENCE_CLASS, 'Dampening' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Dampening', 
+            _MetaInfoClassMember('dampening', REFERENCE_CLASS, 'Dampening' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Dampening', 
                 [], [], 
                 '''                Enable route-flap dampening
                 ''',
@@ -10464,7 +10475,7 @@ _meta_table = {
                 ''',
                 'disable_client_to_client_rr',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('disable-cluster-client-to-client-rrs', REFERENCE_CLASS, 'DisableClusterClientToClientRrs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs', 
+            _MetaInfoClassMember('disable-cluster-client-to-client-rrs', REFERENCE_CLASS, 'DisableClusterClientToClientRrs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs', 
                 [], [], 
                 '''                Disable client-to-client reflection for a
                 cluster
@@ -10477,13 +10488,13 @@ _meta_table = {
                 ''',
                 'disable_default_martian_check',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('distance', REFERENCE_CLASS, 'Distance' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance', 
+            _MetaInfoClassMember('distance', REFERENCE_CLASS, 'Distance' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Distance', 
                 [], [], 
                 '''                Define an administrative distance
                 ''',
                 'distance',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('domain-distinguisher', REFERENCE_CLASS, 'DomainDistinguisher' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DomainDistinguisher', 
+            _MetaInfoClassMember('domain-distinguisher', REFERENCE_CLASS, 'DomainDistinguisher' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DomainDistinguisher', 
                 [], [], 
                 '''                <ASN, router-id> tuple to use to identify
                 the link-state domain
@@ -10497,19 +10508,19 @@ _meta_table = {
                 ''',
                 'dynamic_med_interval',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('ebgp', REFERENCE_CLASS, 'Ebgp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ebgp', 
+            _MetaInfoClassMember('ebgp', REFERENCE_CLASS, 'Ebgp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Ebgp', 
                 [], [], 
                 '''                Use eBGP multipaths
                 ''',
                 'ebgp',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('eibgp', REFERENCE_CLASS, 'Eibgp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Eibgp', 
+            _MetaInfoClassMember('eibgp', REFERENCE_CLASS, 'Eibgp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Eibgp', 
                 [], [], 
                 '''                Use eiBGP multipaths
                 ''',
                 'eibgp',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('eigrp-routes', REFERENCE_CLASS, 'EigrpRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes', 
+            _MetaInfoClassMember('eigrp-routes', REFERENCE_CLASS, 'EigrpRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.EigrpRoutes', 
                 [], [], 
                 '''                Redistribute information for EIGRP routes.
                 ''',
@@ -10530,13 +10541,13 @@ _meta_table = {
                 ''',
                 'global_table_mcast',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('ibgp', REFERENCE_CLASS, 'Ibgp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ibgp', 
+            _MetaInfoClassMember('ibgp', REFERENCE_CLASS, 'Ibgp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Ibgp', 
                 [], [], 
                 '''                Use iBGP multipaths
                 ''',
                 'ibgp',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('import-delay', REFERENCE_CLASS, 'ImportDelay' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ImportDelay', 
+            _MetaInfoClassMember('import-delay', REFERENCE_CLASS, 'ImportDelay' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ImportDelay', 
                 [], [], 
                 '''                Delay timer to batch import processing.
                 ''',
@@ -10549,20 +10560,20 @@ _meta_table = {
                 ''',
                 'inter_as_install',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('isis-routes', REFERENCE_CLASS, 'IsisRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes', 
+            _MetaInfoClassMember('isis-routes', REFERENCE_CLASS, 'IsisRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.IsisRoutes', 
                 [], [], 
                 '''                Redistribute information for IS-IS routes
                 .
                 ''',
                 'isis_routes',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('label-delay', REFERENCE_CLASS, 'LabelDelay' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelDelay', 
+            _MetaInfoClassMember('label-delay', REFERENCE_CLASS, 'LabelDelay' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.LabelDelay', 
                 [], [], 
                 '''                Delay timer to batch label processing.
                 ''',
                 'label_delay',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('label-mode', REFERENCE_CLASS, 'LabelMode' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode', 
+            _MetaInfoClassMember('label-mode', REFERENCE_CLASS, 'LabelMode' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.LabelMode', 
                 [], [], 
                 '''                BGP 6PE/MPLS-VPN label allocation mode
                 ''',
@@ -10581,13 +10592,13 @@ _meta_table = {
                 ''',
                 'label_security_rpf',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('lisp-routes', REFERENCE_CLASS, 'LispRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LispRoutes', 
+            _MetaInfoClassMember('lisp-routes', REFERENCE_CLASS, 'LispRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.LispRoutes', 
                 [], [], 
                 '''                Redistribute lisp routes
                 ''',
                 'lisp_routes',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('mobile-routes', REFERENCE_CLASS, 'MobileRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.MobileRoutes', 
+            _MetaInfoClassMember('mobile-routes', REFERENCE_CLASS, 'MobileRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.MobileRoutes', 
                 [], [], 
                 '''                Redistribute mobile routes
                 ''',
@@ -10618,7 +10629,7 @@ _meta_table = {
                 ''',
                 'next_hop_route_policy',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('ospf-routes', REFERENCE_CLASS, 'OspfRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes', 
+            _MetaInfoClassMember('ospf-routes', REFERENCE_CLASS, 'OspfRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.OspfRoutes', 
                 [], [], 
                 '''                Redistribute information for OSPF routes.
                 ''',
@@ -10637,14 +10648,14 @@ _meta_table = {
                 ''',
                 'reset_weight_on_import',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('retain-rt', REFERENCE_CLASS, 'RetainRt' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RetainRt', 
+            _MetaInfoClassMember('retain-rt', REFERENCE_CLASS, 'RetainRt' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.RetainRt', 
                 [], [], 
                 '''                Accept received updates with the
                 specified attributes
                 ''',
                 'retain_rt',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rip-routes', REFERENCE_CLASS, 'RipRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RipRoutes', 
+            _MetaInfoClassMember('rip-routes', REFERENCE_CLASS, 'RipRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.RipRoutes', 
                 [], [], 
                 '''                Redistribute RIP routes
                 ''',
@@ -10687,19 +10698,19 @@ _meta_table = {
                 ''',
                 'segmented_mcast',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('sourced-networks', REFERENCE_CLASS, 'SourcedNetworks' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks', 
+            _MetaInfoClassMember('sourced-networks', REFERENCE_CLASS, 'SourcedNetworks' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.SourcedNetworks', 
                 [], [], 
                 '''                Specify a network to announce via BGP
                 ''',
                 'sourced_networks',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('static-routes', REFERENCE_CLASS, 'StaticRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.StaticRoutes', 
+            _MetaInfoClassMember('static-routes', REFERENCE_CLASS, 'StaticRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.StaticRoutes', 
                 [], [], 
                 '''                Redistribute static routes
                 ''',
                 'static_routes',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('subscriber-routes', REFERENCE_CLASS, 'SubscriberRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SubscriberRoutes', 
+            _MetaInfoClassMember('subscriber-routes', REFERENCE_CLASS, 'SubscriberRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.SubscriberRoutes', 
                 [], [], 
                 '''                Redistribute subscriber routes
                 ''',
@@ -10736,7 +10747,7 @@ _meta_table = {
                 ''',
                 'update_limit_sub_group_ibgp',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('vrf-all', REFERENCE_CLASS, 'VrfAll' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll', 
+            _MetaInfoClassMember('vrf-all', REFERENCE_CLASS, 'VrfAll' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.VrfAll', 
                 [], [], 
                 '''                Configurations to be inherited to all
                 vrfs
@@ -10757,11 +10768,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs',
             False, 
             [
-            _MetaInfoClassMember('global-af', REFERENCE_LIST, 'GlobalAf' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf', 
+            _MetaInfoClassMember('global-af', REFERENCE_LIST, 'GlobalAf' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf', 
                 [], [], 
                 '''                Global AF-specific configuration
                 ''',
@@ -10774,8 +10785,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes.RpkiStaticRoute' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes.RpkiStaticRoute',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiStaticRoutes.RpkiStaticRoute' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiStaticRoutes.RpkiStaticRoute',
             False, 
             [
             _MetaInfoClassMember('addrress', REFERENCE_UNION, 'str' , None, None, 
@@ -10822,11 +10833,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiStaticRoutes' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiStaticRoutes',
             False, 
             [
-            _MetaInfoClassMember('rpki-static-route', REFERENCE_LIST, 'RpkiStaticRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes.RpkiStaticRoute', 
+            _MetaInfoClassMember('rpki-static-route', REFERENCE_LIST, 'RpkiStaticRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiStaticRoutes.RpkiStaticRoute', 
                 [], [], 
                 '''                RPKI static route
                 ''',
@@ -10839,8 +10850,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces.MplsActivatedInterface' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces.MplsActivatedInterface',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.MplsActivatedInterfaces.MplsActivatedInterface' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.MplsActivatedInterfaces.MplsActivatedInterface',
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
@@ -10856,11 +10867,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.MplsActivatedInterfaces' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.MplsActivatedInterfaces',
             False, 
             [
-            _MetaInfoClassMember('mpls-activated-interface', REFERENCE_LIST, 'MplsActivatedInterface' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces.MplsActivatedInterface', 
+            _MetaInfoClassMember('mpls-activated-interface', REFERENCE_LIST, 'MplsActivatedInterface' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.MplsActivatedInterfaces.MplsActivatedInterface', 
                 [], [], 
                 '''                Configure a MPLS activated interface
                 ''',
@@ -10873,8 +10884,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalTimers' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalTimers',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalTimers' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalTimers',
             False, 
             [
             _MetaInfoClassMember('hold-time', ATTRIBUTE, 'int' , None, None, 
@@ -10904,8 +10915,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Bfd' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Bfd',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.Bfd' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.Bfd',
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
@@ -10928,8 +10939,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SendSocketBufferSizes' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SendSocketBufferSizes',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.SendSocketBufferSizes' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.SendSocketBufferSizes',
             False, 
             [
             _MetaInfoClassMember('bgp-send-size', ATTRIBUTE, 'int' , None, None, 
@@ -10951,8 +10962,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ReceiveSocketBufferSizes' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ReceiveSocketBufferSizes',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ReceiveSocketBufferSizes' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ReceiveSocketBufferSizes',
             False, 
             [
             _MetaInfoClassMember('bgp-receive-size', ATTRIBUTE, 'int' , None, None, 
@@ -10974,17 +10985,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg'
         ),
     },
-    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global' : {
-        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global',
+    'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_' : {
+        'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_',
             False, 
             [
-            _MetaInfoClassMember('as-league', REFERENCE_CLASS, 'AsLeague' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague', 
+            _MetaInfoClassMember('as-league', REFERENCE_CLASS, 'AsLeague' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague', 
                 [], [], 
                 '''                AS League
                 ''',
                 'as_league',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('attribute-filter-groups', REFERENCE_CLASS, 'AttributeFilterGroups' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups', 
+            _MetaInfoClassMember('attribute-filter-groups', REFERENCE_CLASS, 'AttributeFilterGroups' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups', 
                 [], [], 
                 '''                Attribute-filter groups list
                 ''',
@@ -11048,25 +11059,25 @@ _meta_table = {
                 ''',
                 'best_path_router_id',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('bfd', REFERENCE_CLASS, 'Bfd' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Bfd', 
+            _MetaInfoClassMember('bfd', REFERENCE_CLASS, 'Bfd' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.Bfd', 
                 [], [], 
                 '''                BFD configuration
                 ''',
                 'bfd',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('cluster-id', REFERENCE_CLASS, 'ClusterId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ClusterId', 
+            _MetaInfoClassMember('cluster-id', REFERENCE_CLASS, 'ClusterId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ClusterId', 
                 [], [], 
                 '''                Configure Route-Reflector Cluster-id
                 ''',
                 'cluster_id',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('confederation-domain', REFERENCE_CLASS, 'ConfederationDomain' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationDomain', 
+            _MetaInfoClassMember('confederation-domain', REFERENCE_CLASS, 'ConfederationDomain' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ConfederationDomain', 
                 [], [], 
                 '''                Set routing domain confederation AS
                 ''',
                 'confederation_domain',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('confederation-peer-ases', REFERENCE_CLASS, 'ConfederationPeerAses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses', 
+            _MetaInfoClassMember('confederation-peer-ases', REFERENCE_CLASS, 'ConfederationPeerAses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ConfederationPeerAses', 
                 [], [], 
                 '''                Define peer ASes in BGP confederation
                 ''',
@@ -11124,13 +11135,13 @@ _meta_table = {
                 ''',
                 'enforce_ibgp_out_policy',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('global-afs', REFERENCE_CLASS, 'GlobalAfs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs', 
+            _MetaInfoClassMember('global-afs', REFERENCE_CLASS, 'GlobalAfs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs', 
                 [], [], 
                 '''                Global AF-specific configuration
                 ''',
                 'global_afs',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('global-graceful-maintenance-activate', REFERENCE_CLASS, 'GlobalGracefulMaintenanceActivate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate', 
+            _MetaInfoClassMember('global-graceful-maintenance-activate', REFERENCE_CLASS, 'GlobalGracefulMaintenanceActivate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalGracefulMaintenanceActivate', 
                 [], [], 
                 '''                Activate Graceful Maintenance Mode for all
                 neighbors with graceful maintenance config
@@ -11144,7 +11155,7 @@ _meta_table = {
                 ''',
                 'global_scan_time',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('global-timers', REFERENCE_CLASS, 'GlobalTimers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalTimers', 
+            _MetaInfoClassMember('global-timers', REFERENCE_CLASS, 'GlobalTimers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalTimers', 
                 [], [], 
                 '''                Adjust routing timers.
                 ''',
@@ -11201,7 +11212,7 @@ _meta_table = {
                 ''',
                 'install_diversion',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('limits', REFERENCE_CLASS, 'Limits' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Limits', 
+            _MetaInfoClassMember('limits', REFERENCE_CLASS, 'Limits' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.Limits', 
                 [], [], 
                 '''                Maximum number that can be configured
                 ''',
@@ -11213,7 +11224,7 @@ _meta_table = {
                 ''',
                 'local_preference',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('mpls-activated-interfaces', REFERENCE_CLASS, 'MplsActivatedInterfaces' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces', 
+            _MetaInfoClassMember('mpls-activated-interfaces', REFERENCE_CLASS, 'MplsActivatedInterfaces' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.MplsActivatedInterfaces', 
                 [], [], 
                 '''                Configure list of MPLS activated interfaces
                 ''',
@@ -11261,7 +11272,7 @@ _meta_table = {
                 ''',
                 'read_only',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('receive-socket-buffer-sizes', REFERENCE_CLASS, 'ReceiveSocketBufferSizes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ReceiveSocketBufferSizes', 
+            _MetaInfoClassMember('receive-socket-buffer-sizes', REFERENCE_CLASS, 'ReceiveSocketBufferSizes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ReceiveSocketBufferSizes', 
                 [], [], 
                 '''                Set socket and BGP receive buffer sizes
                 ''',
@@ -11304,25 +11315,25 @@ _meta_table = {
                 ''',
                 'rpki_origin_as_validity_signal_ibgp',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rpki-servers', REFERENCE_CLASS, 'RpkiServers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers', 
+            _MetaInfoClassMember('rpki-servers', REFERENCE_CLASS, 'RpkiServers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers', 
                 [], [], 
                 '''                RPKI server configuration
                 ''',
                 'rpki_servers',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('rpki-static-routes', REFERENCE_CLASS, 'RpkiStaticRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes', 
+            _MetaInfoClassMember('rpki-static-routes', REFERENCE_CLASS, 'RpkiStaticRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiStaticRoutes', 
                 [], [], 
                 '''                RPKI static route configuration
                 ''',
                 'rpki_static_routes',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('send-socket-buffer-sizes', REFERENCE_CLASS, 'SendSocketBufferSizes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SendSocketBufferSizes', 
+            _MetaInfoClassMember('send-socket-buffer-sizes', REFERENCE_CLASS, 'SendSocketBufferSizes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.SendSocketBufferSizes', 
                 [], [], 
                 '''                set socket parameters
                 ''',
                 'send_socket_buffer_sizes',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('update-delay', REFERENCE_CLASS, 'UpdateDelay' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.UpdateDelay', 
+            _MetaInfoClassMember('update-delay', REFERENCE_CLASS, 'UpdateDelay' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.UpdateDelay', 
                 [], [], 
                 '''                Set the max initial delay for sending
                 updates
@@ -11370,7 +11381,7 @@ _meta_table = {
                 ''',
                 'update_out_logging',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('write-limit', REFERENCE_CLASS, 'WriteLimit' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.WriteLimit', 
+            _MetaInfoClassMember('write-limit', REFERENCE_CLASS, 'WriteLimit' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.WriteLimit', 
                 [], [], 
                 '''                Set write-queue limit for each update group
                 ''',
@@ -11394,7 +11405,7 @@ _meta_table = {
                 ''',
                 'bgp_entity',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global', 
+            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_', 
                 [], [], 
                 '''                Global default config
                 ''',
@@ -11719,6 +11730,9 @@ _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks.SourcedNetwork']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes.OspfRoute']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Mvpn']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Eibgp']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Dampening']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.RipRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf']['meta_info']
@@ -11731,10 +11745,7 @@ _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ConnectedRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AllocateLabel']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AdditionalPathsSelection']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Eibgp']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.MobileRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SubscriberRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs']['meta_info']
@@ -11759,7 +11770,7 @@ _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbo
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import_']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf']['meta_info']
@@ -11804,7 +11815,7 @@ _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.N
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV6']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV6']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import_']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.DefaultOriginate']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.SoftReconfiguration']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV4']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf']['meta_info']
@@ -11847,7 +11858,7 @@ _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGro
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SiteOfOrigin']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV6']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV6']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import_']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.DefaultOriginate']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SoftReconfiguration']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV4']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf']['meta_info']
@@ -11890,7 +11901,7 @@ _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.Af
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SiteOfOrigin']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV6']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV6']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import_']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.DefaultOriginate']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SoftReconfiguration']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV4']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf']['meta_info']
@@ -11926,72 +11937,72 @@ _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers.Peer']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses.ConfederationPeerAs']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes.IsisRoute']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes.ApplicationRoute']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Ipv4Address']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses.AggregateAddress']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes.EigrpRoute']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks.SourcedNetwork']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes.OspfRoute']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DomainDistinguisher']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelDelay']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RetainRt']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ImportDelay']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Dampening']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RipRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LispRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.StaticRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ConnectedRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ebgp']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Eibgp']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ibgp']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.MobileRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SubscriberRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes.RpkiStaticRoute']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces.MplsActivatedInterface']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ClusterId']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.WriteLimit']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.UpdateDelay']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Limits']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationDomain']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalTimers']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Bfd']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SendSocketBufferSizes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ReceiveSocketBufferSizes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague.Peers.Peer']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague.Peers']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague.Peers']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers.RpkiServer.Transport']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers.RpkiServer']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers.RpkiServer']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ConfederationPeerAses.ConfederationPeerAs']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ConfederationPeerAses']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups.AttributeFilterGroup']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups.AttributeFilterGroup']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.IsisRoutes.IsisRoute']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.IsisRoutes']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.VrfAll.LabelMode']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.VrfAll']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ApplicationRoutes.ApplicationRoute']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ApplicationRoutes']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Ipv4Address']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AggregateAddresses.AggregateAddress']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AggregateAddresses']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.EigrpRoutes.EigrpRoute']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.EigrpRoutes']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.SourcedNetworks.SourcedNetwork']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.SourcedNetworks']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.OspfRoutes.OspfRoute']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.OspfRoutes']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.IsisRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DomainDistinguisher']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.VrfAll']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ApplicationRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.LabelDelay']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Ebgp']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Eibgp']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.RetainRt']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Ibgp']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ImportDelay']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AggregateAddresses']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Dampening']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.RipRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.LispRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.StaticRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Distance']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.LabelMode']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.EigrpRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.SourcedNetworks']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ConnectedRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AllocateLabel']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AdditionalPathsSelection']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.OspfRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.MobileRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.SubscriberRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiStaticRoutes.RpkiStaticRoute']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiStaticRoutes']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.MplsActivatedInterfaces.MplsActivatedInterface']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.MplsActivatedInterfaces']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ClusterId']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.WriteLimit']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.UpdateDelay']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.Limits']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ConfederationDomain']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ConfederationPeerAses']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalGracefulMaintenanceActivate']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiStaticRoutes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.MplsActivatedInterfaces']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalTimers']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.Bfd']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.SendSocketBufferSizes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ReceiveSocketBufferSizes']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf']['meta_info']
-_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf']['meta_info']
+_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs.FourByteAs']['meta_info']
 _meta_table['Bgp.Instance.InstanceAs.FourByteAs']['meta_info'].parent =_meta_table['Bgp.Instance.InstanceAs']['meta_info']

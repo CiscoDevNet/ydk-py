@@ -34,13 +34,13 @@ class Ospfv3AddressFamilyEnum(Enum):
 
     Ospfv3 address family
 
-    .. data:: IPV6 = 1
+    .. data:: ipv6 = 1
 
     	IPv6 address family
 
     """
 
-    IPV6 = 1
+    ipv6 = 1
 
 
     @staticmethod
@@ -55,19 +55,19 @@ class Ospfv3AuthenticationEnum(Enum):
 
     Ospfv3 authentication
 
-    .. data:: MD5 = 1
+    .. data:: md5 = 1
 
     	MD5 algorithm
 
-    .. data:: SHA1 = 2
+    .. data:: sha1 = 2
 
     	SHA1 algorithm
 
     """
 
-    MD5 = 1
+    md5 = 1
 
-    SHA1 = 2
+    sha1 = 2
 
 
     @staticmethod
@@ -82,25 +82,25 @@ class Ospfv3AuthenticationType2Enum(Enum):
 
     Ospfv3 authentication type2
 
-    .. data:: NULL = 0
+    .. data:: null = 0
 
     	NULL authentication
 
-    .. data:: MD5 = 1
+    .. data:: md5 = 1
 
     	MD5 algorithm
 
-    .. data:: SHA1 = 2
+    .. data:: sha1 = 2
 
     	SHA1 algorithm
 
     """
 
-    NULL = 0
+    null = 0
 
-    MD5 = 1
+    md5 = 1
 
-    SHA1 = 2
+    sha1 = 2
 
 
     @staticmethod
@@ -115,25 +115,25 @@ class Ospfv3BfdEnableModeEnum(Enum):
 
     Ospfv3bfd enable mode
 
-    .. data:: DISABLE = 0
+    .. data:: disable = 0
 
     	Disable Mode - Prevent inheritance
 
-    .. data:: DEFAULT = 1
+    .. data:: default = 1
 
     	Default Mode - Default BFD behavior
 
-    .. data:: STRICT = 2
+    .. data:: strict = 2
 
     	Strict Mode - Hold down adj until BFD sesion up
 
     """
 
-    DISABLE = 0
+    disable = 0
 
-    DEFAULT = 1
+    default = 1
 
-    STRICT = 2
+    strict = 2
 
 
     @staticmethod
@@ -148,31 +148,31 @@ class Ospfv3DomainIdEnum(Enum):
 
     Ospfv3 domain id
 
-    .. data:: TYPE0005 = 5
+    .. data:: type0005 = 5
 
     	Type 0x0005
 
-    .. data:: TYPE0105 = 261
+    .. data:: type0105 = 261
 
     	Type 0x0105
 
-    .. data:: TYPE0205 = 517
+    .. data:: type0205 = 517
 
     	Type 0x0205
 
-    .. data:: TYPE8005 = 32773
+    .. data:: type8005 = 32773
 
     	Type 0x8005
 
     """
 
-    TYPE0005 = 5
+    type0005 = 5
 
-    TYPE0105 = 261
+    type0105 = 261
 
-    TYPE0205 = 517
+    type0205 = 517
 
-    TYPE8005 = 32773
+    type8005 = 32773
 
 
     @staticmethod
@@ -187,19 +187,19 @@ class Ospfv3EigrpRouteEnum(Enum):
 
     Ospfv3 eigrp route
 
-    .. data:: INTERNAL = 16384
+    .. data:: internal = 16384
 
     	EIGRP internal routes
 
-    .. data:: EXTERNAL = 32768
+    .. data:: external = 32768
 
     	EIGRP external routes
 
     """
 
-    INTERNAL = 16384
+    internal = 16384
 
-    EXTERNAL = 32768
+    external = 32768
 
 
     @staticmethod
@@ -214,43 +214,43 @@ class Ospfv3EncryptionAlgorithmEnum(Enum):
 
     Ospfv3 encryption algorithm
 
-    .. data:: NULL = 0
+    .. data:: null = 0
 
     	Use NULL encryption
 
-    .. data:: DES = 1
+    .. data:: des = 1
 
     	Use the DES algorithm
 
-    .. data:: Y_3DES = 2
+    .. data:: Y_3des = 2
 
     	Use the triple DES algorithm
 
-    .. data:: AES = 3
+    .. data:: aes = 3
 
     	Use the AES algorithm
 
-    .. data:: AES192 = 4
+    .. data:: aes192 = 4
 
     	Use the 192-bit AES algorithm
 
-    .. data:: AES256 = 5
+    .. data:: aes256 = 5
 
     	Use the 256-bit AES algorithm
 
     """
 
-    NULL = 0
+    null = 0
 
-    DES = 1
+    des = 1
 
-    Y_3DES = 2
+    Y_3des = 2
 
-    AES = 3
+    aes = 3
 
-    AES192 = 4
+    aes192 = 4
 
-    AES256 = 5
+    aes256 = 5
 
 
     @staticmethod
@@ -265,25 +265,25 @@ class Ospfv3ExternalRouteEnum(Enum):
 
     Ospfv3 external route
 
-    .. data:: EXTERNAL1 = 8
+    .. data:: external1 = 8
 
     	External type 1 routes
 
-    .. data:: EXTERNAL2 = 16
+    .. data:: external2 = 16
 
     	External type 2 routes
 
-    .. data:: EXTERNAL = 24
+    .. data:: external = 24
 
     	External (type 1 and 2) routes
 
     """
 
-    EXTERNAL1 = 8
+    external1 = 8
 
-    EXTERNAL2 = 16
+    external2 = 16
 
-    EXTERNAL = 24
+    external = 24
 
 
     @staticmethod
@@ -298,25 +298,25 @@ class Ospfv3FastRerouteEnum(Enum):
 
     Ospfv3 fast reroute
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	Disable
 
-    .. data:: PER_LINK = 1
+    .. data:: per_link = 1
 
     	Per link
 
-    .. data:: PER_PREFIX = 2
+    .. data:: per_prefix = 2
 
     	Per prefix
 
     """
 
-    NONE = 0
+    none = 0
 
-    PER_LINK = 1
+    per_link = 1
 
-    PER_PREFIX = 2
+    per_prefix = 2
 
 
     @staticmethod
@@ -331,31 +331,31 @@ class Ospfv3FastReroutePriorityEnum(Enum):
 
     Ospfv3 fast reroute priority
 
-    .. data:: CRITICAL = 0
+    .. data:: critical = 0
 
     	Critical
 
-    .. data:: HIGH = 1
+    .. data:: high = 1
 
     	High
 
-    .. data:: MEDIUM = 2
+    .. data:: medium = 2
 
     	Medium
 
-    .. data:: LOW = 3
+    .. data:: low = 3
 
     	Low
 
     """
 
-    CRITICAL = 0
+    critical = 0
 
-    HIGH = 1
+    high = 1
 
-    MEDIUM = 2
+    medium = 2
 
-    LOW = 3
+    low = 3
 
 
     @staticmethod
@@ -370,49 +370,49 @@ class Ospfv3FastRerouteTiebreakersEnum(Enum):
 
     Ospfv3 fast reroute tiebreakers
 
-    .. data:: DOWNSTREAM = 0
+    .. data:: downstream = 0
 
     	Downstream
 
-    .. data:: LINE_CARD_DISJOINT = 1
+    .. data:: line_card_disjoint = 1
 
     	LC Disjoint
 
-    .. data:: LOWEST_METRIC = 2
+    .. data:: lowest_metric = 2
 
     	Lowest metric
 
-    .. data:: NODE_PROTECT = 3
+    .. data:: node_protect = 3
 
     	Node protection
 
-    .. data:: PRIMARY_PATH = 4
+    .. data:: primary_path = 4
 
     	Primary path
 
-    .. data:: SECONDARY_PATH = 5
+    .. data:: secondary_path = 5
 
     	Secondar path
 
-    .. data:: SRLG_DISJOINT = 6
+    .. data:: srlg_disjoint = 6
 
     	SRLG
 
     """
 
-    DOWNSTREAM = 0
+    downstream = 0
 
-    LINE_CARD_DISJOINT = 1
+    line_card_disjoint = 1
 
-    LOWEST_METRIC = 2
+    lowest_metric = 2
 
-    NODE_PROTECT = 3
+    node_protect = 3
 
-    PRIMARY_PATH = 4
+    primary_path = 4
 
-    SECONDARY_PATH = 5
+    secondary_path = 5
 
-    SRLG_DISJOINT = 6
+    srlg_disjoint = 6
 
 
     @staticmethod
@@ -427,13 +427,13 @@ class Ospfv3InternalRouteEnum(Enum):
 
     Ospfv3 internal route
 
-    .. data:: INTERNAL = 6
+    .. data:: internal = 6
 
     	OSPFv3 internal routes
 
     """
 
-    INTERNAL = 6
+    internal = 6
 
 
     @staticmethod
@@ -448,25 +448,25 @@ class Ospfv3IsisRouteEnum(Enum):
 
     Ospfv3isis route
 
-    .. data:: LEVEL1 = 64
+    .. data:: level1 = 64
 
     	IS-IS level-1 routes
 
-    .. data:: LEVEL2 = 128
+    .. data:: level2 = 128
 
     	IS-IS level-2 routes
 
-    .. data:: LEVEL1_AND2 = 192
+    .. data:: level1_and2 = 192
 
     	IS-IS level-1 and level-2 routes
 
     """
 
-    LEVEL1 = 64
+    level1 = 64
 
-    LEVEL2 = 128
+    level2 = 128
 
-    LEVEL1_AND2 = 192
+    level1_and2 = 192
 
 
     @staticmethod
@@ -481,25 +481,25 @@ class Ospfv3LogAdjEnum(Enum):
 
     Ospfv3 log adj
 
-    .. data:: SUPPRESS = 0
+    .. data:: suppress = 0
 
     	No output
 
-    .. data:: BRIEF = 1
+    .. data:: brief = 1
 
     	Limited output
 
-    .. data:: DETAIL = 2
+    .. data:: detail = 2
 
     	Verbose output
 
     """
 
-    SUPPRESS = 0
+    suppress = 0
 
-    BRIEF = 1
+    brief = 1
 
-    DETAIL = 2
+    detail = 2
 
 
     @staticmethod
@@ -514,19 +514,19 @@ class Ospfv3MetricEnum(Enum):
 
     Ospfv3 metric
 
-    .. data:: TYPE1 = 1
+    .. data:: type1 = 1
 
     	OSPFv3 external type 1 metrics
 
-    .. data:: TYPE2 = 2
+    .. data:: type2 = 2
 
     	OSPFv3 external type 2 metrics
 
     """
 
-    TYPE1 = 1
+    type1 = 1
 
-    TYPE2 = 2
+    type2 = 2
 
 
     @staticmethod
@@ -541,37 +541,37 @@ class Ospfv3NetworkEnum(Enum):
 
     Ospfv3 network
 
-    .. data:: BROADCAST = 1
+    .. data:: broadcast = 1
 
     	Broadcast multi-access network
 
-    .. data:: NON_BROADCAST = 2
+    .. data:: non_broadcast = 2
 
     	Non-broadcast multi-access network
 
-    .. data:: POINT_TO_POINT = 3
+    .. data:: point_to_point = 3
 
     	Point-to-point network
 
-    .. data:: POINT_TO_MULTIPOINT = 4
+    .. data:: point_to_multipoint = 4
 
     	Point-to-multipoint network
 
-    .. data:: NON_BROADCAST_POINT_TO_MULTIPOINT = 5
+    .. data:: non_broadcast_point_to_multipoint = 5
 
     	Non-broadcast point-to-multipoint network
 
     """
 
-    BROADCAST = 1
+    broadcast = 1
 
-    NON_BROADCAST = 2
+    non_broadcast = 2
 
-    POINT_TO_POINT = 3
+    point_to_point = 3
 
-    POINT_TO_MULTIPOINT = 4
+    point_to_multipoint = 4
 
-    NON_BROADCAST_POINT_TO_MULTIPOINT = 5
+    non_broadcast_point_to_multipoint = 5
 
 
     @staticmethod
@@ -586,19 +586,19 @@ class Ospfv3NsrEnum(Enum):
 
     Ospfv3nsr
 
-    .. data:: TRUE = 1
+    .. data:: true = 1
 
     	Enable non-stop routing
 
-    .. data:: FALSE = 2
+    .. data:: false = 2
 
     	Disable non-stop routing
 
     """
 
-    TRUE = 1
+    true = 1
 
-    FALSE = 2
+    false = 2
 
 
     @staticmethod
@@ -613,25 +613,25 @@ class Ospfv3NssaExternalRouteEnum(Enum):
 
     Ospfv3nssa external route
 
-    .. data:: EXTERNAL1 = 4096
+    .. data:: external1 = 4096
 
     	NSSA external type 1 routes
 
-    .. data:: EXTERNAL2 = 8192
+    .. data:: external2 = 8192
 
     	NSSA external type 2 routes
 
-    .. data:: EXTERNAL = 12288
+    .. data:: external = 12288
 
     	NSSA external (type 1 and 2) routes
 
     """
 
-    EXTERNAL1 = 4096
+    external1 = 4096
 
-    EXTERNAL2 = 8192
+    external2 = 8192
 
-    EXTERNAL = 12288
+    external = 12288
 
 
     @staticmethod
@@ -646,49 +646,49 @@ class Ospfv3ProtocolEnum(Enum):
 
     Ospfv3 protocol
 
-    .. data:: ALL = 0
+    .. data:: all = 0
 
     	All
 
-    .. data:: CONNECTED = 1
+    .. data:: connected = 1
 
     	Connected
 
-    .. data:: STATIC = 3
+    .. data:: static = 3
 
     	Static
 
-    .. data:: BGP = 4
+    .. data:: bgp = 4
 
     	BGP
 
-    .. data:: ISIS = 6
+    .. data:: isis = 6
 
     	ISIS
 
-    .. data:: OSPFV3 = 7
+    .. data:: ospfv3 = 7
 
     	OSPFv3
 
-    .. data:: EIGRP = 8
+    .. data:: eigrp = 8
 
     	EIGRP
 
     """
 
-    ALL = 0
+    all = 0
 
-    CONNECTED = 1
+    connected = 1
 
-    STATIC = 3
+    static = 3
 
-    BGP = 4
+    bgp = 4
 
-    ISIS = 6
+    isis = 6
 
-    OSPFV3 = 7
+    ospfv3 = 7
 
-    EIGRP = 8
+    eigrp = 8
 
 
     @staticmethod
@@ -703,61 +703,61 @@ class Ospfv3ProtocolType2Enum(Enum):
 
     Ospfv3 protocol type2
 
-    .. data:: CONNECTED = 1
+    .. data:: connected = 1
 
     	Connected
 
-    .. data:: STATIC = 3
+    .. data:: static = 3
 
     	Static
 
-    .. data:: BGP = 4
+    .. data:: bgp = 4
 
     	BGP
 
-    .. data:: ISIS = 6
+    .. data:: isis = 6
 
     	ISIS
 
-    .. data:: OSPFV3 = 7
+    .. data:: ospfv3 = 7
 
     	OSPFv3
 
-    .. data:: EIGRP = 8
+    .. data:: eigrp = 8
 
     	EIGRP
 
-    .. data:: SUBSCRIBER = 9
+    .. data:: subscriber = 9
 
     	Subscriber
 
-    .. data:: APPLICATION = 10
+    .. data:: application = 10
 
     	Application
 
-    .. data:: MOBILE = 11
+    .. data:: mobile = 11
 
     	Mobile
 
     """
 
-    CONNECTED = 1
+    connected = 1
 
-    STATIC = 3
+    static = 3
 
-    BGP = 4
+    bgp = 4
 
-    ISIS = 6
+    isis = 6
 
-    OSPFV3 = 7
+    ospfv3 = 7
 
-    EIGRP = 8
+    eigrp = 8
 
-    SUBSCRIBER = 9
+    subscriber = 9
 
-    APPLICATION = 10
+    application = 10
 
-    MOBILE = 11
+    mobile = 11
 
 
     @staticmethod
@@ -772,13 +772,13 @@ class Ospfv3SubsequentAddressFamilyEnum(Enum):
 
     Ospfv3 subsequent address family
 
-    .. data:: UNICAST = 1
+    .. data:: unicast = 1
 
     	Unicast subsequent address family
 
     """
 
-    UNICAST = 1
+    unicast = 1
 
 
     @staticmethod
@@ -793,67 +793,67 @@ class TraceBufSizeEnum(Enum):
 
     Trace buf size
 
-    .. data:: DISABLE = 0
+    .. data:: disable = 0
 
     	Disable trace
 
-    .. data:: ONE = 256
+    .. data:: one = 256
 
     	trace buffer size 256
 
-    .. data:: TWO = 512
+    .. data:: two = 512
 
     	trace buffer size 512
 
-    .. data:: THREE = 1024
+    .. data:: three = 1024
 
     	trace buffer size 1024
 
-    .. data:: FOUR = 2048
+    .. data:: four = 2048
 
     	trace buffer size 2048
 
-    .. data:: FIVE = 4096
+    .. data:: five = 4096
 
     	trace buffer size 4096
 
-    .. data:: SIX = 8192
+    .. data:: six = 8192
 
     	trace buffer size 8192
 
-    .. data:: SEVEN = 16384
+    .. data:: seven = 16384
 
     	trace buffer size 16384
 
-    .. data:: EIGHT = 32768
+    .. data:: eight = 32768
 
     	trace buffer size 32768
 
-    .. data:: NINE = 65536
+    .. data:: nine = 65536
 
     	trace buffer size 65536
 
     """
 
-    DISABLE = 0
+    disable = 0
 
-    ONE = 256
+    one = 256
 
-    TWO = 512
+    two = 512
 
-    THREE = 1024
+    three = 1024
 
-    FOUR = 2048
+    four = 2048
 
-    FIVE = 4096
+    five = 4096
 
-    SIX = 8192
+    six = 8192
 
-    SEVEN = 16384
+    seven = 16384
 
-    EIGHT = 32768
+    eight = 32768
 
-    NINE = 65536
+    nine = 65536
 
 
     @staticmethod
@@ -870,12 +870,12 @@ class Ospfv3(object):
     .. attribute:: dns_name_lookup
     
     	Enable OSPFv3 router IDs as DNS names
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: processes
     
     	OSPFv3 processes
-    	**type**\:  :py:class:`Processes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes>`
+    	**type**\:   :py:class:`Processes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes>`
     
     
 
@@ -897,7 +897,7 @@ class Ospfv3(object):
         .. attribute:: process
         
         	An OSPFv3 process
-        	**type**\: list of  :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process>`
+        	**type**\: list of    :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process>`
         
         
 
@@ -927,37 +927,41 @@ class Ospfv3(object):
             .. attribute:: af
             
             	Address Family (AF)
-            	**type**\:  :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Af>`
+            	**type**\:   :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Af>`
+            
+            	**presence node**\: True
             
             .. attribute:: default_vrf
             
             	Default VRF related configuration
-            	**type**\:  :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf>`
+            	**type**\:   :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf>`
             
             .. attribute:: enable
             
             	Enable OSPFv3
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: nsr
             
             	Enable non\-stop routing
-            	**type**\:  :py:class:`Ospfv3NsrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NsrEnum>`
+            	**type**\:   :py:class:`Ospfv3NsrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NsrEnum>`
+            
+            	**default value**\: true
             
             .. attribute:: protocol_shutdown
             
             	Enable protocol shutdown
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: trace_bufs
             
             	Configuration to change size of trace buffer
-            	**type**\:  :py:class:`TraceBufs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.TraceBufs>`
+            	**type**\:   :py:class:`TraceBufs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.TraceBufs>`
             
             .. attribute:: vrfs
             
             	VRF related configuration
-            	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs>`
+            	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs>`
             
             
 
@@ -988,22 +992,24 @@ class Ospfv3(object):
                 .. attribute:: area_addresses
                 
                 	Area configuration
-                	**type**\:  :py:class:`AreaAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses>`
+                	**type**\:   :py:class:`AreaAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses>`
                 
                 .. attribute:: authentication
                 
                 	Authenticate OSPFv3 packets
-                	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Authentication>`
+                	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Authentication>`
                 
                 .. attribute:: auto_cost
                 
                 	Calculate interface cost according to bandwidth
-                	**type**\:  :py:class:`AutoCost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AutoCost>`
+                	**type**\:   :py:class:`AutoCost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AutoCost>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: bfd
                 
                 	Configure BFD parameters
-                	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Bfd>`
+                	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Bfd>`
                 
                 .. attribute:: cost
                 
@@ -1015,7 +1021,7 @@ class Ospfv3(object):
                 .. attribute:: database_filter
                 
                 	Database filter
-                	**type**\:  :py:class:`DatabaseFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DatabaseFilter>`
+                	**type**\:   :py:class:`DatabaseFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DatabaseFilter>`
                 
                 .. attribute:: dead_interval
                 
@@ -1024,10 +1030,12 @@ class Ospfv3(object):
                 
                 	**range:** 1..65535
                 
+                	**units**\: second
+                
                 .. attribute:: default_information
                 
                 	Control distribution of default information
-                	**type**\:  :py:class:`DefaultInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DefaultInformation>`
+                	**type**\:   :py:class:`DefaultInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DefaultInformation>`
                 
                 .. attribute:: default_metric
                 
@@ -1044,27 +1052,27 @@ class Ospfv3(object):
                 .. attribute:: distance
                 
                 	Define an administrative distance
-                	**type**\:  :py:class:`Distance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Distance>`
+                	**type**\:   :py:class:`Distance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Distance>`
                 
                 .. attribute:: distribute_list
                 
                 	Filter prefixes to/from RIB
-                	**type**\:  :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DistributeList>`
+                	**type**\:   :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DistributeList>`
                 
                 .. attribute:: distribute_list_out
                 
                 	Filter prefixes from RIB 
-                	**type**\:  :py:class:`DistributeListOut <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DistributeListOut>`
+                	**type**\:   :py:class:`DistributeListOut <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DistributeListOut>`
                 
                 .. attribute:: encryption
                 
                 	Encrypt and authenticate OSPFv3 packets
-                	**type**\:  :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Encryption>`
+                	**type**\:   :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Encryption>`
                 
                 .. attribute:: fast_reroute
                 
                 	Fast\-reroute instance scoped parameters
-                	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.FastReroute>`
+                	**type**\:   :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.FastReroute>`
                 
                 .. attribute:: flood_reduction
                 
@@ -1074,7 +1082,7 @@ class Ospfv3(object):
                 .. attribute:: graceful_restart
                 
                 	Graceful restart configuration
-                	**type**\:  :py:class:`GracefulRestart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.GracefulRestart>`
+                	**type**\:   :py:class:`GracefulRestart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.GracefulRestart>`
                 
                 .. attribute:: hello_interval
                 
@@ -1083,10 +1091,12 @@ class Ospfv3(object):
                 
                 	**range:** 1..65535
                 
+                	**units**\: second
+                
                 .. attribute:: ignore
                 
                 	Do not complain about a specified event
-                	**type**\:  :py:class:`Ignore <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Ignore>`
+                	**type**\:   :py:class:`Ignore <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Ignore>`
                 
                 .. attribute:: instance
                 
@@ -1103,12 +1113,12 @@ class Ospfv3(object):
                 .. attribute:: log_adjacency_changes
                 
                 	Log changes in adjacency state
-                	**type**\:  :py:class:`Ospfv3LogAdjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3LogAdjEnum>`
+                	**type**\:   :py:class:`Ospfv3LogAdjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3LogAdjEnum>`
                 
                 .. attribute:: maximum
                 
                 	Set OSPFv3 limits
-                	**type**\:  :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Maximum>`
+                	**type**\:   :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Maximum>`
                 
                 .. attribute:: mtu_ignore
                 
@@ -1118,7 +1128,7 @@ class Ospfv3(object):
                 .. attribute:: network
                 
                 	Specify network type
-                	**type**\:  :py:class:`Ospfv3NetworkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NetworkEnum>`
+                	**type**\:   :py:class:`Ospfv3NetworkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NetworkEnum>`
                 
                 .. attribute:: packet_size
                 
@@ -1147,12 +1157,12 @@ class Ospfv3(object):
                 .. attribute:: process_scope
                 
                 	Process scope configuration
-                	**type**\:  :py:class:`ProcessScope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope>`
+                	**type**\:   :py:class:`ProcessScope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope>`
                 
                 .. attribute:: redistributes
                 
                 	Redistribute information from another routing protocol
-                	**type**\:  :py:class:`Redistributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Redistributes>`
+                	**type**\:   :py:class:`Redistributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Redistributes>`
                 
                 .. attribute:: retransmit_interval
                 
@@ -1160,6 +1170,8 @@ class Ospfv3(object):
                 	**type**\:  int
                 
                 	**range:** 1..65535
+                
+                	**units**\: second
                 
                 .. attribute:: router_id
                 
@@ -1171,12 +1183,12 @@ class Ospfv3(object):
                 .. attribute:: snmp
                 
                 	SNMP configuration
-                	**type**\:  :py:class:`Snmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Snmp>`
+                	**type**\:   :py:class:`Snmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Snmp>`
                 
                 .. attribute:: spf_prefix_priority_disable
                 
                 	SPF prefix prioritization disabled
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: spf_prefix_priority_policy
                 
@@ -1186,17 +1198,17 @@ class Ospfv3(object):
                 .. attribute:: stub_router
                 
                 	Stub router configuration
-                	**type**\:  :py:class:`StubRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.StubRouter>`
+                	**type**\:   :py:class:`StubRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.StubRouter>`
                 
                 .. attribute:: summary_prefixes
                 
                 	Summarize redistributed routes matching prefix/length
-                	**type**\:  :py:class:`SummaryPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes>`
+                	**type**\:   :py:class:`SummaryPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes>`
                 
                 .. attribute:: timers
                 
                 	Adjust routing timers
-                	**type**\:  :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Timers>`
+                	**type**\:   :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Timers>`
                 
                 .. attribute:: transmit_delay
                 
@@ -1204,6 +1216,8 @@ class Ospfv3(object):
                 	**type**\:  int
                 
                 	**range:** 1..65535
+                
+                	**units**\: second
                 
                 
 
@@ -1282,12 +1296,12 @@ class Ospfv3(object):
                     .. attribute:: area_address
                     
                     	Configuration for a particular area
-                    	**type**\: list of  :py:class:`AreaAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress>`
+                    	**type**\: list of    :py:class:`AreaAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress>`
                     
                     .. attribute:: area_area_id
                     
                     	Configuration for a particular area
-                    	**type**\: list of  :py:class:`AreaAreaId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId>`
+                    	**type**\: list of    :py:class:`AreaAreaId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId>`
                     
                     
 
@@ -1320,17 +1334,17 @@ class Ospfv3(object):
                         .. attribute:: area_scope
                         
                         	Area Scope Configuration
-                        	**type**\:  :py:class:`AreaScope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope>`
+                        	**type**\:   :py:class:`AreaScope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope>`
                         
                         .. attribute:: authentication
                         
                         	Authenticate OSPFv3 packets
-                        	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Authentication>`
+                        	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Authentication>`
                         
                         .. attribute:: bfd
                         
                         	Configure BFD parameters
-                        	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Bfd>`
+                        	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Bfd>`
                         
                         .. attribute:: cost
                         
@@ -1342,7 +1356,7 @@ class Ospfv3(object):
                         .. attribute:: database_filter
                         
                         	Database filter
-                        	**type**\:  :py:class:`DatabaseFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter>`
+                        	**type**\:   :py:class:`DatabaseFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter>`
                         
                         .. attribute:: dead_interval
                         
@@ -1350,6 +1364,8 @@ class Ospfv3(object):
                         	**type**\:  int
                         
                         	**range:** 1..65535
+                        
+                        	**units**\: second
                         
                         .. attribute:: default_cost
                         
@@ -1366,17 +1382,17 @@ class Ospfv3(object):
                         .. attribute:: distribute_list
                         
                         	Filter prefixes to/from RIB
-                        	**type**\:  :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList>`
+                        	**type**\:   :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList>`
                         
                         .. attribute:: enable
                         
                         	Enable OSPFv3 area
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: encryption
                         
                         	Encrypt and authenticate OSPFv3 packets
-                        	**type**\:  :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Encryption>`
+                        	**type**\:   :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Encryption>`
                         
                         .. attribute:: flood_reduction
                         
@@ -1390,6 +1406,8 @@ class Ospfv3(object):
                         
                         	**range:** 1..65535
                         
+                        	**units**\: second
+                        
                         .. attribute:: instance
                         
                         	Instance ID
@@ -1400,7 +1418,7 @@ class Ospfv3(object):
                         .. attribute:: interfaces
                         
                         	OSPFv3 interfaces
-                        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces>`
+                        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces>`
                         
                         .. attribute:: ldp_sync
                         
@@ -1415,12 +1433,12 @@ class Ospfv3(object):
                         .. attribute:: network
                         
                         	Specify network type
-                        	**type**\:  :py:class:`Ospfv3NetworkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NetworkEnum>`
+                        	**type**\:   :py:class:`Ospfv3NetworkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NetworkEnum>`
                         
                         .. attribute:: nssa
                         
                         	Specify area as a NSSA area.  Allowed only in non\-backbone areas
-                        	**type**\:  :py:class:`Nssa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Nssa>`
+                        	**type**\:   :py:class:`Nssa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Nssa>`
                         
                         .. attribute:: packet_size
                         
@@ -1449,7 +1467,7 @@ class Ospfv3(object):
                         .. attribute:: ranges
                         
                         	Range configuration
-                        	**type**\:  :py:class:`Ranges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges>`
+                        	**type**\:   :py:class:`Ranges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges>`
                         
                         .. attribute:: retransmit_interval
                         
@@ -1458,10 +1476,12 @@ class Ospfv3(object):
                         
                         	**range:** 1..65535
                         
+                        	**units**\: second
+                        
                         .. attribute:: sham_links
                         
                         	Sham Link sub\-mode
-                        	**type**\:  :py:class:`ShamLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks>`
+                        	**type**\:   :py:class:`ShamLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks>`
                         
                         .. attribute:: stub
                         
@@ -1475,10 +1495,12 @@ class Ospfv3(object):
                         
                         	**range:** 1..65535
                         
+                        	**units**\: second
+                        
                         .. attribute:: virtual_links
                         
                         	Virtual link sub\-mode
-                        	**type**\:  :py:class:`VirtualLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks>`
+                        	**type**\:   :py:class:`VirtualLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks>`
                         
                         
 
@@ -1539,7 +1561,7 @@ class Ospfv3(object):
                             .. attribute:: algorithm
                             
                             	Use the MD5 or SHA1 algorithm
-                            	**type**\:  :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
+                            	**type**\:   :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
                             
                             .. attribute:: enable
                             
@@ -1622,7 +1644,7 @@ class Ospfv3(object):
                             .. attribute:: fast_detect_mode
                             
                             	Enable or disable BFD fast detection
-                            	**type**\:  :py:class:`Ospfv3BfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3BfdEnableModeEnum>`
+                            	**type**\:   :py:class:`Ospfv3BfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3BfdEnableModeEnum>`
                             
                             .. attribute:: interval
                             
@@ -1630,6 +1652,8 @@ class Ospfv3(object):
                             	**type**\:  int
                             
                             	**range:** 3..30000
+                            
+                            	**units**\: millisecond
                             
                             
 
@@ -1682,7 +1706,7 @@ class Ospfv3(object):
                             .. attribute:: range
                             
                             	Summarize inter\-area routes matching prefix/length
-                            	**type**\: list of  :py:class:`Range <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges.Range>`
+                            	**type**\: list of    :py:class:`Range <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges.Range>`
                             
                             
 
@@ -1728,6 +1752,8 @@ class Ospfv3(object):
                                 
                                 	Do not advertise address range
                                 	**type**\:  bool
+                                
+                                	**default value**\: false
                                 
                                 
 
@@ -1814,7 +1840,7 @@ class Ospfv3(object):
                             .. attribute:: authentication_algorithm
                             
                             	Use the NULL, MD5 or SHA1 algorithm
-                            	**type**\:  :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
+                            	**type**\:   :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
                             
                             .. attribute:: authentication_password
                             
@@ -1831,7 +1857,7 @@ class Ospfv3(object):
                             .. attribute:: encryption_algorithm
                             
                             	Specify the encryption algorithm
-                            	**type**\:  :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
+                            	**type**\:   :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
                             
                             .. attribute:: encryption_password
                             
@@ -1913,6 +1939,8 @@ class Ospfv3(object):
                             	Originate Type 7 default into NSSA area
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             .. attribute:: metric
                             
                             	Only valid with DefaultInfoOriginate
@@ -1923,17 +1951,19 @@ class Ospfv3(object):
                             .. attribute:: metric_type
                             
                             	Only valid with DefaultInfoOriginate
-                            	**type**\:  :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
+                            	**type**\:   :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
                             
                             .. attribute:: no_redistribution
                             
                             	No redistribution into this NSSA area
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             .. attribute:: no_summary
                             
                             	Do not send summary LSA into NSSA
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -1994,7 +2024,7 @@ class Ospfv3(object):
                             .. attribute:: all
                             
                             	All
-                            	**type**\:  :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter.All>`
+                            	**type**\:   :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter.All>`
                             
                             
 
@@ -2085,7 +2115,7 @@ class Ospfv3(object):
                             .. attribute:: in_
                             
                             	Filter prefixes installed to RIB
-                            	**type**\:  :py:class:`In <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In>`
+                            	**type**\:   :py:class:`In_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In_>`
                             
                             
 
@@ -2096,11 +2126,11 @@ class Ospfv3(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.in_ = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In()
+                                self.in_ = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In_()
                                 self.in_.parent = self
 
 
-                            class In(object):
+                            class In_(object):
                                 """
                                 Filter prefixes installed to RIB
                                 
@@ -2142,7 +2172,7 @@ class Ospfv3(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
-                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In']['meta_info']
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In_']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -2176,7 +2206,7 @@ class Ospfv3(object):
                             .. attribute:: interface
                             
                             	OSPFv3 interface
-                            	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface>`
+                            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface>`
                             
                             
 
@@ -2206,12 +2236,12 @@ class Ospfv3(object):
                                 .. attribute:: authentication
                                 
                                 	Authenticate OSPFv3 packets
-                                	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication>`
+                                	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication>`
                                 
                                 .. attribute:: bfd
                                 
                                 	Configure BFD parameters
-                                	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Bfd>`
+                                	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Bfd>`
                                 
                                 .. attribute:: cost
                                 
@@ -2223,7 +2253,7 @@ class Ospfv3(object):
                                 .. attribute:: database_filter
                                 
                                 	Database filter
-                                	**type**\:  :py:class:`DatabaseFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter>`
+                                	**type**\:   :py:class:`DatabaseFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter>`
                                 
                                 .. attribute:: dead_interval
                                 
@@ -2231,6 +2261,8 @@ class Ospfv3(object):
                                 	**type**\:  int
                                 
                                 	**range:** 1..65535
+                                
+                                	**units**\: second
                                 
                                 .. attribute:: demand_circuit
                                 
@@ -2240,22 +2272,22 @@ class Ospfv3(object):
                                 .. attribute:: distribute_list
                                 
                                 	Filter prefixes to/from RIB
-                                	**type**\:  :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList>`
+                                	**type**\:   :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList>`
                                 
                                 .. attribute:: enable
                                 
                                 	Enable OSPFv3 interface
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: encryption
                                 
                                 	Encrypt and authenticate OSPFv3 packets
-                                	**type**\:  :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Encryption>`
+                                	**type**\:   :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Encryption>`
                                 
                                 .. attribute:: fast_reroute
                                 
                                 	Fast\-reroute configuration
-                                	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute>`
+                                	**type**\:   :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute>`
                                 
                                 .. attribute:: flood_reduction
                                 
@@ -2268,6 +2300,8 @@ class Ospfv3(object):
                                 	**type**\:  int
                                 
                                 	**range:** 1..65535
+                                
+                                	**units**\: second
                                 
                                 .. attribute:: instance
                                 
@@ -2289,12 +2323,12 @@ class Ospfv3(object):
                                 .. attribute:: neighbors
                                 
                                 	Specify a neighbor router
-                                	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors>`
+                                	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors>`
                                 
                                 .. attribute:: network
                                 
                                 	Specify network type
-                                	**type**\:  :py:class:`Ospfv3NetworkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NetworkEnum>`
+                                	**type**\:   :py:class:`Ospfv3NetworkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NetworkEnum>`
                                 
                                 .. attribute:: packet_size
                                 
@@ -2327,12 +2361,16 @@ class Ospfv3(object):
                                 
                                 	**range:** 1..65535
                                 
+                                	**units**\: second
+                                
                                 .. attribute:: transmit_delay
                                 
                                 	Specify the transmit delay in seconds
                                 	**type**\:  int
                                 
                                 	**range:** 1..65535
+                                
+                                	**units**\: second
                                 
                                 
 
@@ -2383,7 +2421,7 @@ class Ospfv3(object):
                                     .. attribute:: algorithm
                                     
                                     	Use the MD5 or SHA1 algorithm
-                                    	**type**\:  :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
+                                    	**type**\:   :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
                                     
                                     .. attribute:: enable
                                     
@@ -2459,7 +2497,7 @@ class Ospfv3(object):
                                     .. attribute:: neighbor
                                     
                                     	IPv6 address
-                                    	**type**\: list of  :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor>`
+                                    	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor>`
                                     
                                     
 
@@ -2504,6 +2542,8 @@ class Ospfv3(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**units**\: second
                                         
                                         .. attribute:: priority
                                         
@@ -2608,7 +2648,7 @@ class Ospfv3(object):
                                     .. attribute:: authentication_algorithm
                                     
                                     	Use the NULL, MD5 or SHA1 algorithm
-                                    	**type**\:  :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
+                                    	**type**\:   :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
                                     
                                     .. attribute:: authentication_password
                                     
@@ -2625,7 +2665,7 @@ class Ospfv3(object):
                                     .. attribute:: encryption_algorithm
                                     
                                     	Specify the encryption algorithm
-                                    	**type**\:  :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
+                                    	**type**\:   :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
                                     
                                     .. attribute:: encryption_password
                                     
@@ -2711,7 +2751,7 @@ class Ospfv3(object):
                                     .. attribute:: fast_detect_mode
                                     
                                     	Enable or disable BFD fast detection
-                                    	**type**\:  :py:class:`Ospfv3BfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3BfdEnableModeEnum>`
+                                    	**type**\:   :py:class:`Ospfv3BfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3BfdEnableModeEnum>`
                                     
                                     .. attribute:: interval
                                     
@@ -2719,6 +2759,8 @@ class Ospfv3(object):
                                     	**type**\:  int
                                     
                                     	**range:** 3..30000
+                                    
+                                    	**units**\: millisecond
                                     
                                     
 
@@ -2771,7 +2813,7 @@ class Ospfv3(object):
                                     .. attribute:: all
                                     
                                     	All
-                                    	**type**\:  :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All>`
+                                    	**type**\:   :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All>`
                                     
                                     
 
@@ -2862,7 +2904,7 @@ class Ospfv3(object):
                                     .. attribute:: in_
                                     
                                     	Filter prefixes installed to RIB
-                                    	**type**\:  :py:class:`In <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In>`
+                                    	**type**\:   :py:class:`In_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_>`
                                     
                                     
 
@@ -2873,11 +2915,11 @@ class Ospfv3(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.in_ = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In()
+                                        self.in_ = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_()
                                         self.in_.parent = self
 
 
-                                    class In(object):
+                                    class In_(object):
                                         """
                                         Filter prefixes installed to RIB
                                         
@@ -2919,7 +2961,7 @@ class Ospfv3(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
-                                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In']['meta_info']
+                                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -2953,17 +2995,17 @@ class Ospfv3(object):
                                     .. attribute:: fast_reroute_enable
                                     
                                     	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                                    	**type**\:  :py:class:`Ospfv3FastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteEnum>`
+                                    	**type**\:   :py:class:`Ospfv3FastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteEnum>`
                                     
                                     .. attribute:: per_link
                                     
                                     	Fast\-reroute per\-link configuration
-                                    	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink>`
+                                    	**type**\:   :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink>`
                                     
                                     .. attribute:: per_prefix
                                     
                                     	Fast\-reroute per\-link configuration
-                                    	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix>`
+                                    	**type**\:   :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix>`
                                     
                                     
 
@@ -2988,17 +3030,19 @@ class Ospfv3(object):
                                         .. attribute:: candidate_interfaces
                                         
                                         	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                        	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces>`
+                                        	**type**\:   :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces>`
                                         
                                         .. attribute:: exclude_interfaces
                                         
                                         	Fast\-reroute per\-link/per\-prefix exclude interface configuration
-                                        	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces>`
+                                        	**type**\:   :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces>`
                                         
                                         .. attribute:: fast_reroute_use_candidate_only
                                         
                                         	Use only interfaces on the candidate list as a backup path
                                         	**type**\:  bool
+                                        
+                                        	**default value**\: false
                                         
                                         
 
@@ -3024,7 +3068,7 @@ class Ospfv3(object):
                                             .. attribute:: candidate_interface
                                             
                                             	Candidate backup interface
-                                            	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
+                                            	**type**\: list of    :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
                                             
                                             
 
@@ -3123,7 +3167,7 @@ class Ospfv3(object):
                                             .. attribute:: exclude_interface
                                             
                                             	Exclude an interface from becoming a backup
-                                            	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
+                                            	**type**\: list of    :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
                                             
                                             
 
@@ -3251,17 +3295,19 @@ class Ospfv3(object):
                                         .. attribute:: candidate_interfaces
                                         
                                         	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                        	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces>`
+                                        	**type**\:   :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces>`
                                         
                                         .. attribute:: exclude_interfaces
                                         
                                         	Fast\-reroute per\-link/per\-prefix exclude interface configuration
-                                        	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces>`
+                                        	**type**\:   :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces>`
                                         
                                         .. attribute:: fast_reroute_use_candidate_only
                                         
                                         	Use only interfaces on the candidate list as a backup path
                                         	**type**\:  bool
+                                        
+                                        	**default value**\: false
                                         
                                         
 
@@ -3287,7 +3333,7 @@ class Ospfv3(object):
                                             .. attribute:: candidate_interface
                                             
                                             	Candidate backup interface
-                                            	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
+                                            	**type**\: list of    :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
                                             
                                             
 
@@ -3386,7 +3432,7 @@ class Ospfv3(object):
                                             .. attribute:: exclude_interface
                                             
                                             	Exclude an interface from becoming a backup
-                                            	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
+                                            	**type**\: list of    :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
                                             
                                             
 
@@ -3665,7 +3711,7 @@ class Ospfv3(object):
                             .. attribute:: fast_reroute
                             
                             	Fast\-reroute configuration
-                            	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute>`
+                            	**type**\:   :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute>`
                             
                             
 
@@ -3687,17 +3733,17 @@ class Ospfv3(object):
                                 .. attribute:: fast_reroute_enable
                                 
                                 	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                                	**type**\:  :py:class:`Ospfv3FastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteEnum>`
+                                	**type**\:   :py:class:`Ospfv3FastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteEnum>`
                                 
                                 .. attribute:: per_link
                                 
                                 	Fast\-reroute per\-link configuration
-                                	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink>`
+                                	**type**\:   :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink>`
                                 
                                 .. attribute:: per_prefix
                                 
                                 	Fast\-reroute per\-link configuration
-                                	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix>`
+                                	**type**\:   :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix>`
                                 
                                 
 
@@ -3722,17 +3768,19 @@ class Ospfv3(object):
                                     .. attribute:: candidate_interfaces
                                     
                                     	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                    	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces>`
+                                    	**type**\:   :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces>`
                                     
                                     .. attribute:: exclude_interfaces
                                     
                                     	Fast\-reroute per\-link/per\-prefix exclude interface configuration
-                                    	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces>`
+                                    	**type**\:   :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces>`
                                     
                                     .. attribute:: fast_reroute_use_candidate_only
                                     
                                     	Use only interfaces on the candidate list as a backup path
                                     	**type**\:  bool
+                                    
+                                    	**default value**\: false
                                     
                                     
 
@@ -3758,7 +3806,7 @@ class Ospfv3(object):
                                         .. attribute:: candidate_interface
                                         
                                         	Candidate backup interface
-                                        	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
+                                        	**type**\: list of    :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
                                         
                                         
 
@@ -3857,7 +3905,7 @@ class Ospfv3(object):
                                         .. attribute:: exclude_interface
                                         
                                         	Exclude an interface from becoming a backup
-                                        	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
+                                        	**type**\: list of    :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
                                         
                                         
 
@@ -3985,17 +4033,19 @@ class Ospfv3(object):
                                     .. attribute:: candidate_interfaces
                                     
                                     	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                    	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces>`
+                                    	**type**\:   :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces>`
                                     
                                     .. attribute:: exclude_interfaces
                                     
                                     	Fast\-reroute per\-link/per\-prefix exclude interface configuration
-                                    	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces>`
+                                    	**type**\:   :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces>`
                                     
                                     .. attribute:: fast_reroute_use_candidate_only
                                     
                                     	Use only interfaces on the candidate list as a backup path
                                     	**type**\:  bool
+                                    
+                                    	**default value**\: false
                                     
                                     
 
@@ -4021,7 +4071,7 @@ class Ospfv3(object):
                                         .. attribute:: candidate_interface
                                         
                                         	Candidate backup interface
-                                        	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
+                                        	**type**\: list of    :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
                                         
                                         
 
@@ -4120,7 +4170,7 @@ class Ospfv3(object):
                                         .. attribute:: exclude_interface
                                         
                                         	Exclude an interface from becoming a backup
-                                        	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
+                                        	**type**\: list of    :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
                                         
                                         
 
@@ -4302,7 +4352,7 @@ class Ospfv3(object):
                             .. attribute:: sham_link
                             
                             	ShamLink local and remote endpoints
-                            	**type**\: list of  :py:class:`ShamLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink>`
+                            	**type**\: list of    :py:class:`ShamLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink>`
                             
                             
 
@@ -4339,7 +4389,7 @@ class Ospfv3(object):
                                 .. attribute:: authentication
                                 
                                 	Authenticate OSPFv3 packets
-                                	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication>`
+                                	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication>`
                                 
                                 .. attribute:: dead_interval
                                 
@@ -4348,15 +4398,17 @@ class Ospfv3(object):
                                 
                                 	**range:** 1..65535
                                 
+                                	**units**\: second
+                                
                                 .. attribute:: enable
                                 
                                 	Enable sham link
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: encryption
                                 
                                 	Encrypt and authenticate OSPFv3 packets
-                                	**type**\:  :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Encryption>`
+                                	**type**\:   :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Encryption>`
                                 
                                 .. attribute:: hello_interval
                                 
@@ -4365,6 +4417,8 @@ class Ospfv3(object):
                                 
                                 	**range:** 1..65535
                                 
+                                	**units**\: second
+                                
                                 .. attribute:: retransmit_interval
                                 
                                 	Specify the transmit interval in seconds
@@ -4372,12 +4426,16 @@ class Ospfv3(object):
                                 
                                 	**range:** 1..65535
                                 
+                                	**units**\: second
+                                
                                 .. attribute:: transmit_delay
                                 
                                 	Specify the transmit delay in seconds
                                 	**type**\:  int
                                 
                                 	**range:** 1..65535
+                                
+                                	**units**\: second
                                 
                                 
 
@@ -4408,7 +4466,7 @@ class Ospfv3(object):
                                     .. attribute:: algorithm
                                     
                                     	Use the MD5 or SHA1 algorithm
-                                    	**type**\:  :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
+                                    	**type**\:   :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
                                     
                                     .. attribute:: enable
                                     
@@ -4484,7 +4542,7 @@ class Ospfv3(object):
                                     .. attribute:: authentication_algorithm
                                     
                                     	Use the NULL, MD5 or SHA1 algorithm
-                                    	**type**\:  :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
+                                    	**type**\:   :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
                                     
                                     .. attribute:: authentication_password
                                     
@@ -4501,7 +4559,7 @@ class Ospfv3(object):
                                     .. attribute:: encryption_algorithm
                                     
                                     	Specify the encryption algorithm
-                                    	**type**\:  :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
+                                    	**type**\:   :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
                                     
                                     .. attribute:: encryption_password
                                     
@@ -4658,7 +4716,7 @@ class Ospfv3(object):
                             .. attribute:: virtual_link
                             
                             	Router ID of virtual link neighbor
-                            	**type**\: list of  :py:class:`VirtualLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink>`
+                            	**type**\: list of    :py:class:`VirtualLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink>`
                             
                             
 
@@ -4688,7 +4746,7 @@ class Ospfv3(object):
                                 .. attribute:: authentication
                                 
                                 	Authenticate OSPFv3 packets
-                                	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication>`
+                                	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication>`
                                 
                                 .. attribute:: dead_interval
                                 
@@ -4697,15 +4755,17 @@ class Ospfv3(object):
                                 
                                 	**range:** 1..65535
                                 
+                                	**units**\: second
+                                
                                 .. attribute:: enable
                                 
                                 	Enabled virtual link
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: encryption
                                 
                                 	Encrypt and authenticate OSPFv3 packets
-                                	**type**\:  :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Encryption>`
+                                	**type**\:   :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Encryption>`
                                 
                                 .. attribute:: hello_interval
                                 
@@ -4714,6 +4774,8 @@ class Ospfv3(object):
                                 
                                 	**range:** 1..65535
                                 
+                                	**units**\: second
+                                
                                 .. attribute:: retransmit_interval
                                 
                                 	Specify the transmit interval in seconds
@@ -4721,12 +4783,16 @@ class Ospfv3(object):
                                 
                                 	**range:** 1..65535
                                 
+                                	**units**\: second
+                                
                                 .. attribute:: transmit_delay
                                 
                                 	Specify the transmit delay in seconds
                                 	**type**\:  int
                                 
                                 	**range:** 1..65535
+                                
+                                	**units**\: second
                                 
                                 
 
@@ -4756,7 +4822,7 @@ class Ospfv3(object):
                                     .. attribute:: algorithm
                                     
                                     	Use the MD5 or SHA1 algorithm
-                                    	**type**\:  :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
+                                    	**type**\:   :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
                                     
                                     .. attribute:: enable
                                     
@@ -4832,7 +4898,7 @@ class Ospfv3(object):
                                     .. attribute:: authentication_algorithm
                                     
                                     	Use the NULL, MD5 or SHA1 algorithm
-                                    	**type**\:  :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
+                                    	**type**\:   :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
                                     
                                     .. attribute:: authentication_password
                                     
@@ -4849,7 +4915,7 @@ class Ospfv3(object):
                                     .. attribute:: encryption_algorithm
                                     
                                     	Specify the encryption algorithm
-                                    	**type**\:  :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
+                                    	**type**\:   :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
                                     
                                     .. attribute:: encryption_password
                                     
@@ -5121,17 +5187,17 @@ class Ospfv3(object):
                         .. attribute:: area_scope
                         
                         	Area Scope Configuration
-                        	**type**\:  :py:class:`AreaScope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope>`
+                        	**type**\:   :py:class:`AreaScope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope>`
                         
                         .. attribute:: authentication
                         
                         	Authenticate OSPFv3 packets
-                        	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Authentication>`
+                        	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Authentication>`
                         
                         .. attribute:: bfd
                         
                         	Configure BFD parameters
-                        	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Bfd>`
+                        	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Bfd>`
                         
                         .. attribute:: cost
                         
@@ -5143,7 +5209,7 @@ class Ospfv3(object):
                         .. attribute:: database_filter
                         
                         	Database filter
-                        	**type**\:  :py:class:`DatabaseFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter>`
+                        	**type**\:   :py:class:`DatabaseFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter>`
                         
                         .. attribute:: dead_interval
                         
@@ -5151,6 +5217,8 @@ class Ospfv3(object):
                         	**type**\:  int
                         
                         	**range:** 1..65535
+                        
+                        	**units**\: second
                         
                         .. attribute:: default_cost
                         
@@ -5167,17 +5235,17 @@ class Ospfv3(object):
                         .. attribute:: distribute_list
                         
                         	Filter prefixes to/from RIB
-                        	**type**\:  :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList>`
+                        	**type**\:   :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList>`
                         
                         .. attribute:: enable
                         
                         	Enable OSPFv3 area
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: encryption
                         
                         	Encrypt and authenticate OSPFv3 packets
-                        	**type**\:  :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Encryption>`
+                        	**type**\:   :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Encryption>`
                         
                         .. attribute:: flood_reduction
                         
@@ -5191,6 +5259,8 @@ class Ospfv3(object):
                         
                         	**range:** 1..65535
                         
+                        	**units**\: second
+                        
                         .. attribute:: instance
                         
                         	Instance ID
@@ -5201,7 +5271,7 @@ class Ospfv3(object):
                         .. attribute:: interfaces
                         
                         	OSPFv3 interfaces
-                        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces>`
+                        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces>`
                         
                         .. attribute:: ldp_sync
                         
@@ -5216,12 +5286,12 @@ class Ospfv3(object):
                         .. attribute:: network
                         
                         	Specify network type
-                        	**type**\:  :py:class:`Ospfv3NetworkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NetworkEnum>`
+                        	**type**\:   :py:class:`Ospfv3NetworkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NetworkEnum>`
                         
                         .. attribute:: nssa
                         
                         	Specify area as a NSSA area.  Allowed only in non\-backbone areas
-                        	**type**\:  :py:class:`Nssa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Nssa>`
+                        	**type**\:   :py:class:`Nssa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Nssa>`
                         
                         .. attribute:: packet_size
                         
@@ -5250,7 +5320,7 @@ class Ospfv3(object):
                         .. attribute:: ranges
                         
                         	Range configuration
-                        	**type**\:  :py:class:`Ranges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges>`
+                        	**type**\:   :py:class:`Ranges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges>`
                         
                         .. attribute:: retransmit_interval
                         
@@ -5259,10 +5329,12 @@ class Ospfv3(object):
                         
                         	**range:** 1..65535
                         
+                        	**units**\: second
+                        
                         .. attribute:: sham_links
                         
                         	Sham Link sub\-mode
-                        	**type**\:  :py:class:`ShamLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks>`
+                        	**type**\:   :py:class:`ShamLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks>`
                         
                         .. attribute:: stub
                         
@@ -5276,10 +5348,12 @@ class Ospfv3(object):
                         
                         	**range:** 1..65535
                         
+                        	**units**\: second
+                        
                         .. attribute:: virtual_links
                         
                         	Virtual link sub\-mode
-                        	**type**\:  :py:class:`VirtualLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks>`
+                        	**type**\:   :py:class:`VirtualLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks>`
                         
                         
 
@@ -5340,7 +5414,7 @@ class Ospfv3(object):
                             .. attribute:: algorithm
                             
                             	Use the MD5 or SHA1 algorithm
-                            	**type**\:  :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
+                            	**type**\:   :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
                             
                             .. attribute:: enable
                             
@@ -5423,7 +5497,7 @@ class Ospfv3(object):
                             .. attribute:: fast_detect_mode
                             
                             	Enable or disable BFD fast detection
-                            	**type**\:  :py:class:`Ospfv3BfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3BfdEnableModeEnum>`
+                            	**type**\:   :py:class:`Ospfv3BfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3BfdEnableModeEnum>`
                             
                             .. attribute:: interval
                             
@@ -5431,6 +5505,8 @@ class Ospfv3(object):
                             	**type**\:  int
                             
                             	**range:** 3..30000
+                            
+                            	**units**\: millisecond
                             
                             
 
@@ -5483,7 +5559,7 @@ class Ospfv3(object):
                             .. attribute:: range
                             
                             	Summarize inter\-area routes matching prefix/length
-                            	**type**\: list of  :py:class:`Range <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges.Range>`
+                            	**type**\: list of    :py:class:`Range <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges.Range>`
                             
                             
 
@@ -5529,6 +5605,8 @@ class Ospfv3(object):
                                 
                                 	Do not advertise address range
                                 	**type**\:  bool
+                                
+                                	**default value**\: false
                                 
                                 
 
@@ -5615,7 +5693,7 @@ class Ospfv3(object):
                             .. attribute:: authentication_algorithm
                             
                             	Use the NULL, MD5 or SHA1 algorithm
-                            	**type**\:  :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
+                            	**type**\:   :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
                             
                             .. attribute:: authentication_password
                             
@@ -5632,7 +5710,7 @@ class Ospfv3(object):
                             .. attribute:: encryption_algorithm
                             
                             	Specify the encryption algorithm
-                            	**type**\:  :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
+                            	**type**\:   :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
                             
                             .. attribute:: encryption_password
                             
@@ -5714,6 +5792,8 @@ class Ospfv3(object):
                             	Originate Type 7 default into NSSA area
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             .. attribute:: metric
                             
                             	Only valid with DefaultInfoOriginate
@@ -5724,17 +5804,19 @@ class Ospfv3(object):
                             .. attribute:: metric_type
                             
                             	Only valid with DefaultInfoOriginate
-                            	**type**\:  :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
+                            	**type**\:   :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
                             
                             .. attribute:: no_redistribution
                             
                             	No redistribution into this NSSA area
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             .. attribute:: no_summary
                             
                             	Do not send summary LSA into NSSA
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -5795,7 +5877,7 @@ class Ospfv3(object):
                             .. attribute:: all
                             
                             	All
-                            	**type**\:  :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter.All>`
+                            	**type**\:   :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter.All>`
                             
                             
 
@@ -5886,7 +5968,7 @@ class Ospfv3(object):
                             .. attribute:: in_
                             
                             	Filter prefixes installed to RIB
-                            	**type**\:  :py:class:`In <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In>`
+                            	**type**\:   :py:class:`In_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In_>`
                             
                             
 
@@ -5897,11 +5979,11 @@ class Ospfv3(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.in_ = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In()
+                                self.in_ = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In_()
                                 self.in_.parent = self
 
 
-                            class In(object):
+                            class In_(object):
                                 """
                                 Filter prefixes installed to RIB
                                 
@@ -5943,7 +6025,7 @@ class Ospfv3(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
-                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In']['meta_info']
+                                    return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In_']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -5977,7 +6059,7 @@ class Ospfv3(object):
                             .. attribute:: interface
                             
                             	OSPFv3 interface
-                            	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface>`
+                            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface>`
                             
                             
 
@@ -6007,12 +6089,12 @@ class Ospfv3(object):
                                 .. attribute:: authentication
                                 
                                 	Authenticate OSPFv3 packets
-                                	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication>`
+                                	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication>`
                                 
                                 .. attribute:: bfd
                                 
                                 	Configure BFD parameters
-                                	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Bfd>`
+                                	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Bfd>`
                                 
                                 .. attribute:: cost
                                 
@@ -6024,7 +6106,7 @@ class Ospfv3(object):
                                 .. attribute:: database_filter
                                 
                                 	Database filter
-                                	**type**\:  :py:class:`DatabaseFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter>`
+                                	**type**\:   :py:class:`DatabaseFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter>`
                                 
                                 .. attribute:: dead_interval
                                 
@@ -6032,6 +6114,8 @@ class Ospfv3(object):
                                 	**type**\:  int
                                 
                                 	**range:** 1..65535
+                                
+                                	**units**\: second
                                 
                                 .. attribute:: demand_circuit
                                 
@@ -6041,22 +6125,22 @@ class Ospfv3(object):
                                 .. attribute:: distribute_list
                                 
                                 	Filter prefixes to/from RIB
-                                	**type**\:  :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList>`
+                                	**type**\:   :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList>`
                                 
                                 .. attribute:: enable
                                 
                                 	Enable OSPFv3 interface
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: encryption
                                 
                                 	Encrypt and authenticate OSPFv3 packets
-                                	**type**\:  :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Encryption>`
+                                	**type**\:   :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Encryption>`
                                 
                                 .. attribute:: fast_reroute
                                 
                                 	Fast\-reroute configuration
-                                	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute>`
+                                	**type**\:   :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute>`
                                 
                                 .. attribute:: flood_reduction
                                 
@@ -6069,6 +6153,8 @@ class Ospfv3(object):
                                 	**type**\:  int
                                 
                                 	**range:** 1..65535
+                                
+                                	**units**\: second
                                 
                                 .. attribute:: instance
                                 
@@ -6090,12 +6176,12 @@ class Ospfv3(object):
                                 .. attribute:: neighbors
                                 
                                 	Specify a neighbor router
-                                	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors>`
+                                	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors>`
                                 
                                 .. attribute:: network
                                 
                                 	Specify network type
-                                	**type**\:  :py:class:`Ospfv3NetworkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NetworkEnum>`
+                                	**type**\:   :py:class:`Ospfv3NetworkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NetworkEnum>`
                                 
                                 .. attribute:: packet_size
                                 
@@ -6128,12 +6214,16 @@ class Ospfv3(object):
                                 
                                 	**range:** 1..65535
                                 
+                                	**units**\: second
+                                
                                 .. attribute:: transmit_delay
                                 
                                 	Specify the transmit delay in seconds
                                 	**type**\:  int
                                 
                                 	**range:** 1..65535
+                                
+                                	**units**\: second
                                 
                                 
 
@@ -6184,7 +6274,7 @@ class Ospfv3(object):
                                     .. attribute:: algorithm
                                     
                                     	Use the MD5 or SHA1 algorithm
-                                    	**type**\:  :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
+                                    	**type**\:   :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
                                     
                                     .. attribute:: enable
                                     
@@ -6260,7 +6350,7 @@ class Ospfv3(object):
                                     .. attribute:: neighbor
                                     
                                     	IPv6 address
-                                    	**type**\: list of  :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor>`
+                                    	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor>`
                                     
                                     
 
@@ -6305,6 +6395,8 @@ class Ospfv3(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**units**\: second
                                         
                                         .. attribute:: priority
                                         
@@ -6409,7 +6501,7 @@ class Ospfv3(object):
                                     .. attribute:: authentication_algorithm
                                     
                                     	Use the NULL, MD5 or SHA1 algorithm
-                                    	**type**\:  :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
+                                    	**type**\:   :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
                                     
                                     .. attribute:: authentication_password
                                     
@@ -6426,7 +6518,7 @@ class Ospfv3(object):
                                     .. attribute:: encryption_algorithm
                                     
                                     	Specify the encryption algorithm
-                                    	**type**\:  :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
+                                    	**type**\:   :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
                                     
                                     .. attribute:: encryption_password
                                     
@@ -6512,7 +6604,7 @@ class Ospfv3(object):
                                     .. attribute:: fast_detect_mode
                                     
                                     	Enable or disable BFD fast detection
-                                    	**type**\:  :py:class:`Ospfv3BfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3BfdEnableModeEnum>`
+                                    	**type**\:   :py:class:`Ospfv3BfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3BfdEnableModeEnum>`
                                     
                                     .. attribute:: interval
                                     
@@ -6520,6 +6612,8 @@ class Ospfv3(object):
                                     	**type**\:  int
                                     
                                     	**range:** 3..30000
+                                    
+                                    	**units**\: millisecond
                                     
                                     
 
@@ -6572,7 +6666,7 @@ class Ospfv3(object):
                                     .. attribute:: all
                                     
                                     	All
-                                    	**type**\:  :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All>`
+                                    	**type**\:   :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All>`
                                     
                                     
 
@@ -6663,7 +6757,7 @@ class Ospfv3(object):
                                     .. attribute:: in_
                                     
                                     	Filter prefixes installed to RIB
-                                    	**type**\:  :py:class:`In <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In>`
+                                    	**type**\:   :py:class:`In_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_>`
                                     
                                     
 
@@ -6674,11 +6768,11 @@ class Ospfv3(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.in_ = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In()
+                                        self.in_ = Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_()
                                         self.in_.parent = self
 
 
-                                    class In(object):
+                                    class In_(object):
                                         """
                                         Filter prefixes installed to RIB
                                         
@@ -6720,7 +6814,7 @@ class Ospfv3(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
-                                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In']['meta_info']
+                                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -6754,17 +6848,17 @@ class Ospfv3(object):
                                     .. attribute:: fast_reroute_enable
                                     
                                     	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                                    	**type**\:  :py:class:`Ospfv3FastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteEnum>`
+                                    	**type**\:   :py:class:`Ospfv3FastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteEnum>`
                                     
                                     .. attribute:: per_link
                                     
                                     	Fast\-reroute per\-link configuration
-                                    	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink>`
+                                    	**type**\:   :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink>`
                                     
                                     .. attribute:: per_prefix
                                     
                                     	Fast\-reroute per\-link configuration
-                                    	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix>`
+                                    	**type**\:   :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix>`
                                     
                                     
 
@@ -6789,17 +6883,19 @@ class Ospfv3(object):
                                         .. attribute:: candidate_interfaces
                                         
                                         	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                        	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces>`
+                                        	**type**\:   :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces>`
                                         
                                         .. attribute:: exclude_interfaces
                                         
                                         	Fast\-reroute per\-link/per\-prefix exclude interface configuration
-                                        	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces>`
+                                        	**type**\:   :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces>`
                                         
                                         .. attribute:: fast_reroute_use_candidate_only
                                         
                                         	Use only interfaces on the candidate list as a backup path
                                         	**type**\:  bool
+                                        
+                                        	**default value**\: false
                                         
                                         
 
@@ -6825,7 +6921,7 @@ class Ospfv3(object):
                                             .. attribute:: candidate_interface
                                             
                                             	Candidate backup interface
-                                            	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
+                                            	**type**\: list of    :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
                                             
                                             
 
@@ -6924,7 +7020,7 @@ class Ospfv3(object):
                                             .. attribute:: exclude_interface
                                             
                                             	Exclude an interface from becoming a backup
-                                            	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
+                                            	**type**\: list of    :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
                                             
                                             
 
@@ -7052,17 +7148,19 @@ class Ospfv3(object):
                                         .. attribute:: candidate_interfaces
                                         
                                         	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                        	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces>`
+                                        	**type**\:   :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces>`
                                         
                                         .. attribute:: exclude_interfaces
                                         
                                         	Fast\-reroute per\-link/per\-prefix exclude interface configuration
-                                        	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces>`
+                                        	**type**\:   :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces>`
                                         
                                         .. attribute:: fast_reroute_use_candidate_only
                                         
                                         	Use only interfaces on the candidate list as a backup path
                                         	**type**\:  bool
+                                        
+                                        	**default value**\: false
                                         
                                         
 
@@ -7088,7 +7186,7 @@ class Ospfv3(object):
                                             .. attribute:: candidate_interface
                                             
                                             	Candidate backup interface
-                                            	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
+                                            	**type**\: list of    :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
                                             
                                             
 
@@ -7187,7 +7285,7 @@ class Ospfv3(object):
                                             .. attribute:: exclude_interface
                                             
                                             	Exclude an interface from becoming a backup
-                                            	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
+                                            	**type**\: list of    :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
                                             
                                             
 
@@ -7466,7 +7564,7 @@ class Ospfv3(object):
                             .. attribute:: fast_reroute
                             
                             	Fast\-reroute configuration
-                            	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute>`
+                            	**type**\:   :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute>`
                             
                             
 
@@ -7488,17 +7586,17 @@ class Ospfv3(object):
                                 .. attribute:: fast_reroute_enable
                                 
                                 	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                                	**type**\:  :py:class:`Ospfv3FastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteEnum>`
+                                	**type**\:   :py:class:`Ospfv3FastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteEnum>`
                                 
                                 .. attribute:: per_link
                                 
                                 	Fast\-reroute per\-link configuration
-                                	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink>`
+                                	**type**\:   :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink>`
                                 
                                 .. attribute:: per_prefix
                                 
                                 	Fast\-reroute per\-link configuration
-                                	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix>`
+                                	**type**\:   :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix>`
                                 
                                 
 
@@ -7523,17 +7621,19 @@ class Ospfv3(object):
                                     .. attribute:: candidate_interfaces
                                     
                                     	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                    	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces>`
+                                    	**type**\:   :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces>`
                                     
                                     .. attribute:: exclude_interfaces
                                     
                                     	Fast\-reroute per\-link/per\-prefix exclude interface configuration
-                                    	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces>`
+                                    	**type**\:   :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces>`
                                     
                                     .. attribute:: fast_reroute_use_candidate_only
                                     
                                     	Use only interfaces on the candidate list as a backup path
                                     	**type**\:  bool
+                                    
+                                    	**default value**\: false
                                     
                                     
 
@@ -7559,7 +7659,7 @@ class Ospfv3(object):
                                         .. attribute:: candidate_interface
                                         
                                         	Candidate backup interface
-                                        	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
+                                        	**type**\: list of    :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
                                         
                                         
 
@@ -7658,7 +7758,7 @@ class Ospfv3(object):
                                         .. attribute:: exclude_interface
                                         
                                         	Exclude an interface from becoming a backup
-                                        	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
+                                        	**type**\: list of    :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
                                         
                                         
 
@@ -7786,17 +7886,19 @@ class Ospfv3(object):
                                     .. attribute:: candidate_interfaces
                                     
                                     	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                    	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces>`
+                                    	**type**\:   :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces>`
                                     
                                     .. attribute:: exclude_interfaces
                                     
                                     	Fast\-reroute per\-link/per\-prefix exclude interface configuration
-                                    	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces>`
+                                    	**type**\:   :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces>`
                                     
                                     .. attribute:: fast_reroute_use_candidate_only
                                     
                                     	Use only interfaces on the candidate list as a backup path
                                     	**type**\:  bool
+                                    
+                                    	**default value**\: false
                                     
                                     
 
@@ -7822,7 +7924,7 @@ class Ospfv3(object):
                                         .. attribute:: candidate_interface
                                         
                                         	Candidate backup interface
-                                        	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
+                                        	**type**\: list of    :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
                                         
                                         
 
@@ -7921,7 +8023,7 @@ class Ospfv3(object):
                                         .. attribute:: exclude_interface
                                         
                                         	Exclude an interface from becoming a backup
-                                        	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
+                                        	**type**\: list of    :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
                                         
                                         
 
@@ -8103,7 +8205,7 @@ class Ospfv3(object):
                             .. attribute:: sham_link
                             
                             	ShamLink local and remote endpoints
-                            	**type**\: list of  :py:class:`ShamLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink>`
+                            	**type**\: list of    :py:class:`ShamLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink>`
                             
                             
 
@@ -8140,7 +8242,7 @@ class Ospfv3(object):
                                 .. attribute:: authentication
                                 
                                 	Authenticate OSPFv3 packets
-                                	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication>`
+                                	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication>`
                                 
                                 .. attribute:: dead_interval
                                 
@@ -8149,15 +8251,17 @@ class Ospfv3(object):
                                 
                                 	**range:** 1..65535
                                 
+                                	**units**\: second
+                                
                                 .. attribute:: enable
                                 
                                 	Enable sham link
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: encryption
                                 
                                 	Encrypt and authenticate OSPFv3 packets
-                                	**type**\:  :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Encryption>`
+                                	**type**\:   :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Encryption>`
                                 
                                 .. attribute:: hello_interval
                                 
@@ -8166,6 +8270,8 @@ class Ospfv3(object):
                                 
                                 	**range:** 1..65535
                                 
+                                	**units**\: second
+                                
                                 .. attribute:: retransmit_interval
                                 
                                 	Specify the transmit interval in seconds
@@ -8173,12 +8279,16 @@ class Ospfv3(object):
                                 
                                 	**range:** 1..65535
                                 
+                                	**units**\: second
+                                
                                 .. attribute:: transmit_delay
                                 
                                 	Specify the transmit delay in seconds
                                 	**type**\:  int
                                 
                                 	**range:** 1..65535
+                                
+                                	**units**\: second
                                 
                                 
 
@@ -8209,7 +8319,7 @@ class Ospfv3(object):
                                     .. attribute:: algorithm
                                     
                                     	Use the MD5 or SHA1 algorithm
-                                    	**type**\:  :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
+                                    	**type**\:   :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
                                     
                                     .. attribute:: enable
                                     
@@ -8285,7 +8395,7 @@ class Ospfv3(object):
                                     .. attribute:: authentication_algorithm
                                     
                                     	Use the NULL, MD5 or SHA1 algorithm
-                                    	**type**\:  :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
+                                    	**type**\:   :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
                                     
                                     .. attribute:: authentication_password
                                     
@@ -8302,7 +8412,7 @@ class Ospfv3(object):
                                     .. attribute:: encryption_algorithm
                                     
                                     	Specify the encryption algorithm
-                                    	**type**\:  :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
+                                    	**type**\:   :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
                                     
                                     .. attribute:: encryption_password
                                     
@@ -8459,7 +8569,7 @@ class Ospfv3(object):
                             .. attribute:: virtual_link
                             
                             	Router ID of virtual link neighbor
-                            	**type**\: list of  :py:class:`VirtualLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink>`
+                            	**type**\: list of    :py:class:`VirtualLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink>`
                             
                             
 
@@ -8489,7 +8599,7 @@ class Ospfv3(object):
                                 .. attribute:: authentication
                                 
                                 	Authenticate OSPFv3 packets
-                                	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication>`
+                                	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication>`
                                 
                                 .. attribute:: dead_interval
                                 
@@ -8498,15 +8608,17 @@ class Ospfv3(object):
                                 
                                 	**range:** 1..65535
                                 
+                                	**units**\: second
+                                
                                 .. attribute:: enable
                                 
                                 	Enabled virtual link
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: encryption
                                 
                                 	Encrypt and authenticate OSPFv3 packets
-                                	**type**\:  :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Encryption>`
+                                	**type**\:   :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Encryption>`
                                 
                                 .. attribute:: hello_interval
                                 
@@ -8515,6 +8627,8 @@ class Ospfv3(object):
                                 
                                 	**range:** 1..65535
                                 
+                                	**units**\: second
+                                
                                 .. attribute:: retransmit_interval
                                 
                                 	Specify the transmit interval in seconds
@@ -8522,12 +8636,16 @@ class Ospfv3(object):
                                 
                                 	**range:** 1..65535
                                 
+                                	**units**\: second
+                                
                                 .. attribute:: transmit_delay
                                 
                                 	Specify the transmit delay in seconds
                                 	**type**\:  int
                                 
                                 	**range:** 1..65535
+                                
+                                	**units**\: second
                                 
                                 
 
@@ -8557,7 +8675,7 @@ class Ospfv3(object):
                                     .. attribute:: algorithm
                                     
                                     	Use the MD5 or SHA1 algorithm
-                                    	**type**\:  :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
+                                    	**type**\:   :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
                                     
                                     .. attribute:: enable
                                     
@@ -8633,7 +8751,7 @@ class Ospfv3(object):
                                     .. attribute:: authentication_algorithm
                                     
                                     	Use the NULL, MD5 or SHA1 algorithm
-                                    	**type**\:  :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
+                                    	**type**\:   :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
                                     
                                     .. attribute:: authentication_password
                                     
@@ -8650,7 +8768,7 @@ class Ospfv3(object):
                                     .. attribute:: encryption_algorithm
                                     
                                     	Specify the encryption algorithm
-                                    	**type**\:  :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
+                                    	**type**\:   :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
                                     
                                     .. attribute:: encryption_password
                                     
@@ -8946,17 +9064,17 @@ class Ospfv3(object):
                     .. attribute:: lsa_timers
                     
                     	LSA timers
-                    	**type**\:  :py:class:`LsaTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Timers.LsaTimers>`
+                    	**type**\:   :py:class:`LsaTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Timers.LsaTimers>`
                     
                     .. attribute:: pacing
                     
                     	Pacing timers
-                    	**type**\:  :py:class:`Pacing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Timers.Pacing>`
+                    	**type**\:   :py:class:`Pacing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Timers.Pacing>`
                     
                     .. attribute:: throttle
                     
                     	Throttle timers
-                    	**type**\:  :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle>`
+                    	**type**\:   :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle>`
                     
                     
 
@@ -8986,12 +9104,16 @@ class Ospfv3(object):
                         
                         	**range:** 5..100
                         
+                        	**units**\: millisecond
+                        
                         .. attribute:: lsa_group
                         
                         	Interval in seconds at which LSAs are grouped and refreshed, checksummed, or aged
                         	**type**\:  int
                         
                         	**range:** 10..1800
+                        
+                        	**units**\: second
                         
                         .. attribute:: retransmission
                         
@@ -9055,6 +9177,8 @@ class Ospfv3(object):
                         
                         	**range:** 0..60000
                         
+                        	**units**\: millisecond
+                        
                         
 
                         """
@@ -9098,12 +9222,12 @@ class Ospfv3(object):
                         .. attribute:: lsa
                         
                         	LSA throttle timers for all types of OSPF LSAs
-                        	**type**\:  :py:class:`Lsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Lsa>`
+                        	**type**\:   :py:class:`Lsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Lsa>`
                         
                         .. attribute:: spf
                         
                         	SPF throttle timers
-                        	**type**\:  :py:class:`Spf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Spf>`
+                        	**type**\:   :py:class:`Spf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Timers.Throttle.Spf>`
                         
                         
 
@@ -9131,6 +9255,8 @@ class Ospfv3(object):
                             
                             	**range:** 0..600000
                             
+                            	**units**\: millisecond
+                            
                             .. attribute:: maximum_delay
                             
                             	Maximum delay between originating the same LSA in milliseconds
@@ -9138,12 +9264,16 @@ class Ospfv3(object):
                             
                             	**range:** 1..600000
                             
+                            	**units**\: millisecond
+                            
                             .. attribute:: minimum_delay
                             
                             	Minimum delay between originating the same LSA in milliseconds
                             	**type**\:  int
                             
                             	**range:** 1..600000
+                            
+                            	**units**\: millisecond
                             
                             
 
@@ -9323,7 +9453,7 @@ class Ospfv3(object):
                     .. attribute:: summary_prefix
                     
                     	IPv6 address
-                    	**type**\: list of  :py:class:`SummaryPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes.SummaryPrefix>`
+                    	**type**\: list of    :py:class:`SummaryPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes.SummaryPrefix>`
                     
                     
 
@@ -9459,7 +9589,7 @@ class Ospfv3(object):
                     .. attribute:: trap_rate_limit
                     
                     	SNMP trap rate configuration
-                    	**type**\:  :py:class:`TrapRateLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Snmp.TrapRateLimit>`
+                    	**type**\:   :py:class:`TrapRateLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Snmp.TrapRateLimit>`
                     
                     
 
@@ -9567,12 +9697,12 @@ class Ospfv3(object):
                     .. attribute:: per_link
                     
                     	Fast\-reroute per\-link global configuration
-                    	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerLink>`
+                    	**type**\:   :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerLink>`
                     
                     .. attribute:: per_prefix
                     
                     	Fast\-reroute per\-prefix global configuration
-                    	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix>`
+                    	**type**\:   :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix>`
                     
                     
 
@@ -9596,7 +9726,7 @@ class Ospfv3(object):
                         .. attribute:: priority
                         
                         	Fast\-reroute per\-link/per\-prefix priority\-limit command
-                        	**type**\:  :py:class:`Ospfv3FastReroutePriorityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastReroutePriorityEnum>`
+                        	**type**\:   :py:class:`Ospfv3FastReroutePriorityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastReroutePriorityEnum>`
                         
                         
 
@@ -9641,17 +9771,17 @@ class Ospfv3(object):
                         .. attribute:: load_sharing_disable
                         
                         	Disable load sharing between multiple backups
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: priority
                         
                         	Fast\-reroute per\-link/per\-prefix priority\-limit command
-                        	**type**\:  :py:class:`Ospfv3FastReroutePriorityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastReroutePriorityEnum>`
+                        	**type**\:   :py:class:`Ospfv3FastReroutePriorityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastReroutePriorityEnum>`
                         
                         .. attribute:: tiebreakers
                         
                         	Fast\-reroute tiebreakers configurations
-                        	**type**\:  :py:class:`Tiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers>`
+                        	**type**\:   :py:class:`Tiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers>`
                         
                         
 
@@ -9675,7 +9805,7 @@ class Ospfv3(object):
                             .. attribute:: tiebreaker
                             
                             	Fast\-reroute tiebreakers configuration
-                            	**type**\: list of  :py:class:`Tiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker>`
+                            	**type**\: list of    :py:class:`Tiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker>`
                             
                             
 
@@ -9698,7 +9828,7 @@ class Ospfv3(object):
                                 .. attribute:: tiebreaker_type  <key>
                                 
                                 	Tiebreaker type
-                                	**type**\:  :py:class:`Ospfv3FastRerouteTiebreakersEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteTiebreakersEnum>`
+                                	**type**\:   :py:class:`Ospfv3FastRerouteTiebreakersEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteTiebreakersEnum>`
                                 
                                 .. attribute:: tiebreaker_index
                                 
@@ -9848,7 +9978,7 @@ class Ospfv3(object):
                     .. attribute:: ospfv3
                     
                     	OSPFv3 administrative distance
-                    	**type**\:  :py:class:`Ospfv3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3>`
+                    	**type**\:   :py:class:`Ospfv3_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3_>`
                     
                     
 
@@ -9860,11 +9990,11 @@ class Ospfv3(object):
                     def __init__(self):
                         self.parent = None
                         self.administrative = None
-                        self.ospfv3 = Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3()
+                        self.ospfv3 = Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3_()
                         self.ospfv3.parent = self
 
 
-                    class Ospfv3(object):
+                    class Ospfv3_(object):
                         """
                         OSPFv3 administrative distance
                         
@@ -9930,7 +10060,7 @@ class Ospfv3(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
-                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3']['meta_info']
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3_']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -9981,7 +10111,7 @@ class Ospfv3(object):
                     .. attribute:: redistributed_prefixes
                     
                     	Limit number of redistributed prefixes
-                    	**type**\:  :py:class:`RedistributedPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Maximum.RedistributedPrefixes>`
+                    	**type**\:   :py:class:`RedistributedPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Maximum.RedistributedPrefixes>`
                     
                     
 
@@ -10019,7 +10149,7 @@ class Ospfv3(object):
                         .. attribute:: warning_only
                         
                         	Only give warning message when limit is exceeded
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -10103,7 +10233,7 @@ class Ospfv3(object):
                     .. attribute:: redistribute
                     
                     	Redistribute information from another routing protocol
-                    	**type**\: list of  :py:class:`Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute>`
+                    	**type**\: list of    :py:class:`Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute>`
                     
                     
 
@@ -10127,27 +10257,29 @@ class Ospfv3(object):
                         .. attribute:: protocol_name  <key>
                         
                         	Protocol
-                        	**type**\:  :py:class:`Ospfv3ProtocolType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ProtocolType2Enum>`
+                        	**type**\:   :py:class:`Ospfv3ProtocolType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ProtocolType2Enum>`
                         
                         .. attribute:: bgp
                         
                         	bgp
-                        	**type**\: list of  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Bgp>`
+                        	**type**\: list of    :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Bgp>`
                         
                         .. attribute:: connected_or_static_or_subscriber_or_mobile
                         
                         	connected or static or subscriber or mobile
-                        	**type**\:  :py:class:`ConnectedOrStaticOrSubscriberOrMobile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile>`
+                        	**type**\:   :py:class:`ConnectedOrStaticOrSubscriberOrMobile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile>`
+                        
+                        	**presence node**\: True
                         
                         .. attribute:: eigrp
                         
                         	eigrp
-                        	**type**\: list of  :py:class:`Eigrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Eigrp>`
+                        	**type**\: list of    :py:class:`Eigrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Eigrp>`
                         
                         .. attribute:: ospfv3_or_isis_or_application
                         
                         	ospfv3 or isis or application
-                        	**type**\: list of  :py:class:`Ospfv3OrIsisOrApplication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication>`
+                        	**type**\: list of    :py:class:`Ospfv3OrIsisOrApplication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication>`
                         
                         
 
@@ -10185,42 +10317,42 @@ class Ospfv3(object):
                             .. attribute:: eigrp_route_type
                             
                             	EIGRP route type
-                            	**type**\:  :py:class:`Ospfv3EigrpRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EigrpRouteEnum>`
+                            	**type**\:   :py:class:`Ospfv3EigrpRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EigrpRouteEnum>`
                             
                             .. attribute:: external_route_type
                             
                             	Redistribute OSPFv3 external routes
-                            	**type**\:  :py:class:`Ospfv3ExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ExternalRouteEnum>`
+                            	**type**\:   :py:class:`Ospfv3ExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ExternalRouteEnum>`
                             
                             .. attribute:: internal_route_type
                             
                             	Redistribute OSPFv3 routes
-                            	**type**\:  :py:class:`Ospfv3InternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3InternalRouteEnum>`
+                            	**type**\:   :py:class:`Ospfv3InternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3InternalRouteEnum>`
                             
                             .. attribute:: isis_route_type
                             
                             	ISIS route type
-                            	**type**\:  :py:class:`Ospfv3IsisRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3IsisRouteEnum>`
+                            	**type**\:   :py:class:`Ospfv3IsisRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3IsisRouteEnum>`
                             
                             .. attribute:: metric_type
                             
                             	OSPFv3 exterior metric type for redistributed routes
-                            	**type**\:  :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
+                            	**type**\:   :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
                             
                             .. attribute:: nssa_external_route_type
                             
                             	Redistribute OSPFv3 NSSA external routes
-                            	**type**\:  :py:class:`Ospfv3NssaExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NssaExternalRouteEnum>`
+                            	**type**\:   :py:class:`Ospfv3NssaExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NssaExternalRouteEnum>`
                             
                             .. attribute:: preserve_med
                             
                             	Preserve (Multi\-Exit Discriminator) of BGP routes
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: preserve_med_info
                             
                             	Preserve Information (Multi\-Exit Discriminator) of BGP routes
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: redistribute_route
                             
@@ -10357,42 +10489,42 @@ class Ospfv3(object):
                             .. attribute:: eigrp_route_type
                             
                             	EIGRP route type
-                            	**type**\:  :py:class:`Ospfv3EigrpRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EigrpRouteEnum>`
+                            	**type**\:   :py:class:`Ospfv3EigrpRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EigrpRouteEnum>`
                             
                             .. attribute:: external_route_type
                             
                             	Redistribute OSPFv3 external routes
-                            	**type**\:  :py:class:`Ospfv3ExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ExternalRouteEnum>`
+                            	**type**\:   :py:class:`Ospfv3ExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ExternalRouteEnum>`
                             
                             .. attribute:: internal_route_type
                             
                             	Redistribute OSPFv3 routes
-                            	**type**\:  :py:class:`Ospfv3InternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3InternalRouteEnum>`
+                            	**type**\:   :py:class:`Ospfv3InternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3InternalRouteEnum>`
                             
                             .. attribute:: isis_route_type
                             
                             	ISIS route type
-                            	**type**\:  :py:class:`Ospfv3IsisRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3IsisRouteEnum>`
+                            	**type**\:   :py:class:`Ospfv3IsisRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3IsisRouteEnum>`
                             
                             .. attribute:: metric_type
                             
                             	OSPFv3 exterior metric type for redistributed routes
-                            	**type**\:  :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
+                            	**type**\:   :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
                             
                             .. attribute:: nssa_external_route_type
                             
                             	Redistribute OSPFv3 NSSA external routes
-                            	**type**\:  :py:class:`Ospfv3NssaExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NssaExternalRouteEnum>`
+                            	**type**\:   :py:class:`Ospfv3NssaExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NssaExternalRouteEnum>`
                             
                             .. attribute:: preserve_med
                             
                             	Preserve (Multi\-Exit Discriminator) of BGP routes
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: preserve_med_info
                             
                             	Preserve Information (Multi\-Exit Discriminator) of BGP routes
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: redistribute_route
                             
@@ -10524,42 +10656,42 @@ class Ospfv3(object):
                             .. attribute:: eigrp_route_type
                             
                             	EIGRP route type
-                            	**type**\:  :py:class:`Ospfv3EigrpRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EigrpRouteEnum>`
+                            	**type**\:   :py:class:`Ospfv3EigrpRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EigrpRouteEnum>`
                             
                             .. attribute:: external_route_type
                             
                             	Redistribute OSPFv3 external routes
-                            	**type**\:  :py:class:`Ospfv3ExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ExternalRouteEnum>`
+                            	**type**\:   :py:class:`Ospfv3ExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ExternalRouteEnum>`
                             
                             .. attribute:: internal_route_type
                             
                             	Redistribute OSPFv3 routes
-                            	**type**\:  :py:class:`Ospfv3InternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3InternalRouteEnum>`
+                            	**type**\:   :py:class:`Ospfv3InternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3InternalRouteEnum>`
                             
                             .. attribute:: isis_route_type
                             
                             	ISIS route type
-                            	**type**\:  :py:class:`Ospfv3IsisRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3IsisRouteEnum>`
+                            	**type**\:   :py:class:`Ospfv3IsisRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3IsisRouteEnum>`
                             
                             .. attribute:: metric_type
                             
                             	OSPFv3 exterior metric type for redistributed routes
-                            	**type**\:  :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
+                            	**type**\:   :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
                             
                             .. attribute:: nssa_external_route_type
                             
                             	Redistribute OSPFv3 NSSA external routes
-                            	**type**\:  :py:class:`Ospfv3NssaExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NssaExternalRouteEnum>`
+                            	**type**\:   :py:class:`Ospfv3NssaExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NssaExternalRouteEnum>`
                             
                             .. attribute:: preserve_med
                             
                             	Preserve (Multi\-Exit Discriminator) of BGP routes
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: preserve_med_info
                             
                             	Preserve Information (Multi\-Exit Discriminator) of BGP routes
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: redistribute_route
                             
@@ -10685,42 +10817,42 @@ class Ospfv3(object):
                             .. attribute:: eigrp_route_type
                             
                             	EIGRP route type
-                            	**type**\:  :py:class:`Ospfv3EigrpRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EigrpRouteEnum>`
+                            	**type**\:   :py:class:`Ospfv3EigrpRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EigrpRouteEnum>`
                             
                             .. attribute:: external_route_type
                             
                             	Redistribute OSPFv3 external routes
-                            	**type**\:  :py:class:`Ospfv3ExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ExternalRouteEnum>`
+                            	**type**\:   :py:class:`Ospfv3ExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ExternalRouteEnum>`
                             
                             .. attribute:: internal_route_type
                             
                             	Redistribute OSPFv3 routes
-                            	**type**\:  :py:class:`Ospfv3InternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3InternalRouteEnum>`
+                            	**type**\:   :py:class:`Ospfv3InternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3InternalRouteEnum>`
                             
                             .. attribute:: isis_route_type
                             
                             	ISIS route type
-                            	**type**\:  :py:class:`Ospfv3IsisRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3IsisRouteEnum>`
+                            	**type**\:   :py:class:`Ospfv3IsisRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3IsisRouteEnum>`
                             
                             .. attribute:: metric_type
                             
                             	OSPFv3 exterior metric type for redistributed routes
-                            	**type**\:  :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
+                            	**type**\:   :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
                             
                             .. attribute:: nssa_external_route_type
                             
                             	Redistribute OSPFv3 NSSA external routes
-                            	**type**\:  :py:class:`Ospfv3NssaExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NssaExternalRouteEnum>`
+                            	**type**\:   :py:class:`Ospfv3NssaExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NssaExternalRouteEnum>`
                             
                             .. attribute:: preserve_med
                             
                             	Preserve (Multi\-Exit Discriminator) of BGP routes
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: preserve_med_info
                             
                             	Preserve Information (Multi\-Exit Discriminator) of BGP routes
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: redistribute_route
                             
@@ -10902,7 +11034,7 @@ class Ospfv3(object):
                     .. attribute:: lsa
                     
                     	Do not complain upon receiving LSA of the specified type
-                    	**type**\:  :py:class:`Lsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Ignore.Lsa>`
+                    	**type**\:   :py:class:`Lsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.Ignore.Lsa>`
                     
                     
 
@@ -10925,7 +11057,7 @@ class Ospfv3(object):
                         .. attribute:: mospf
                         
                         	Enable ignore of MOSPF type 6 LSA
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -10994,7 +11126,7 @@ class Ospfv3(object):
                     .. attribute:: distribute_outs
                     
                     	Filter generated type\-5 LSAs
-                    	**type**\:  :py:class:`DistributeOuts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts>`
+                    	**type**\:   :py:class:`DistributeOuts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts>`
                     
                     
 
@@ -11016,7 +11148,7 @@ class Ospfv3(object):
                         .. attribute:: distribute_out
                         
                         	Filter generated type\-5 LSAs
-                        	**type**\: list of  :py:class:`DistributeOut <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut>`
+                        	**type**\: list of    :py:class:`DistributeOut <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut>`
                         
                         
 
@@ -11039,12 +11171,12 @@ class Ospfv3(object):
                             .. attribute:: protocol_name  <key>
                             
                             	none
-                            	**type**\:  :py:class:`Ospfv3ProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ProtocolEnum>`
+                            	**type**\:   :py:class:`Ospfv3ProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ProtocolEnum>`
                             
                             .. attribute:: as_yy_and_as_xx_and_process_name
                             
                             	keys\: as\-yy, as\-xx, process\-name
-                            	**type**\: list of  :py:class:`AsYyAndAsXxAndProcessName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.AsYyAndAsXxAndProcessName>`
+                            	**type**\: list of    :py:class:`AsYyAndAsXxAndProcessName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.AsYyAndAsXxAndProcessName>`
                             
                             
 
@@ -11235,7 +11367,7 @@ class Ospfv3(object):
                     .. attribute:: in_
                     
                     	Filter prefixes installed to RIB
-                    	**type**\:  :py:class:`In <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DistributeList.In>`
+                    	**type**\:   :py:class:`In_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DistributeList.In_>`
                     
                     
 
@@ -11246,11 +11378,11 @@ class Ospfv3(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.in_ = Ospfv3.Processes.Process.DefaultVrf.DistributeList.In()
+                        self.in_ = Ospfv3.Processes.Process.DefaultVrf.DistributeList.In_()
                         self.in_.parent = self
 
 
-                    class In(object):
+                    class In_(object):
                         """
                         Filter prefixes installed to RIB
                         
@@ -11292,7 +11424,7 @@ class Ospfv3(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
-                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.DistributeList.In']['meta_info']
+                            return meta._meta_table['Ospfv3.Processes.Process.DefaultVrf.DistributeList.In_']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -11326,17 +11458,17 @@ class Ospfv3(object):
                     .. attribute:: max_metric
                     
                     	Stub router max\-metric configuration
-                    	**type**\:  :py:class:`MaxMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric>`
+                    	**type**\:   :py:class:`MaxMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric>`
                     
                     .. attribute:: rbit
                     
                     	Stub router R\-bit configuration
-                    	**type**\:  :py:class:`Rbit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit>`
+                    	**type**\:   :py:class:`Rbit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit>`
                     
                     .. attribute:: v6bit
                     
                     	Stub router V6\-bit configuration
-                    	**type**\:  :py:class:`V6Bit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit>`
+                    	**type**\:   :py:class:`V6Bit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit>`
                     
                     
 
@@ -11362,12 +11494,12 @@ class Ospfv3(object):
                         .. attribute:: always
                         
                         	Unconditionally enter stub router operational state
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: enable
                         
                         	Enabled stub router configuration mode
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: external_lsa
                         
@@ -11376,10 +11508,12 @@ class Ospfv3(object):
                         
                         	**range:** 1..16777214
                         
+                        	**default value**\: 16711680
+                        
                         .. attribute:: include_stub
                         
                         	Advertise stub links with maximum metric in stub router mode
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: on_proc_migration
                         
@@ -11388,6 +11522,8 @@ class Ospfv3(object):
                         
                         	**range:** 5..86400
                         
+                        	**units**\: second
+                        
                         .. attribute:: on_proc_restart
                         
                         	Time (in seconds) to stay in stub router operational state
@@ -11395,10 +11531,12 @@ class Ospfv3(object):
                         
                         	**range:** 5..86400
                         
+                        	**units**\: second
+                        
                         .. attribute:: on_startup
                         
                         	Enter stub router operational state on startup
-                        	**type**\:  :py:class:`OnStartup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit.OnStartup>`
+                        	**type**\:   :py:class:`OnStartup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit.OnStartup>`
                         
                         .. attribute:: on_switchover
                         
@@ -11407,12 +11545,16 @@ class Ospfv3(object):
                         
                         	**range:** 5..86400
                         
+                        	**units**\: second
+                        
                         .. attribute:: summary_lsa
                         
                         	Advertise summary LSAs with modified metric in stub router mode
                         	**type**\:  int
                         
                         	**range:** 1..16777214
+                        
+                        	**default value**\: 16711680
                         
                         
 
@@ -11444,12 +11586,16 @@ class Ospfv3(object):
                             	Wait until BGP converges (only applicable to default VRF)
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             .. attribute:: wait_time
                             
                             	Time (in seconds) to stay in stub router operational state
                             	**type**\:  int
                             
                             	**range:** 5..86400
+                            
+                            	**units**\: second
                             
                             
 
@@ -11546,12 +11692,12 @@ class Ospfv3(object):
                         .. attribute:: always
                         
                         	Unconditionally enter stub router operational state
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: enable
                         
                         	Enabled stub router configuration mode
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: external_lsa
                         
@@ -11560,10 +11706,12 @@ class Ospfv3(object):
                         
                         	**range:** 1..16777214
                         
+                        	**default value**\: 16711680
+                        
                         .. attribute:: include_stub
                         
                         	Advertise stub links with maximum metric in stub router mode
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: on_proc_migration
                         
@@ -11572,6 +11720,8 @@ class Ospfv3(object):
                         
                         	**range:** 5..86400
                         
+                        	**units**\: second
+                        
                         .. attribute:: on_proc_restart
                         
                         	Time (in seconds) to stay in stub router operational state
@@ -11579,10 +11729,12 @@ class Ospfv3(object):
                         
                         	**range:** 5..86400
                         
+                        	**units**\: second
+                        
                         .. attribute:: on_startup
                         
                         	Enter stub router operational state on startup
-                        	**type**\:  :py:class:`OnStartup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit.OnStartup>`
+                        	**type**\:   :py:class:`OnStartup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit.OnStartup>`
                         
                         .. attribute:: on_switchover
                         
@@ -11591,12 +11743,16 @@ class Ospfv3(object):
                         
                         	**range:** 5..86400
                         
+                        	**units**\: second
+                        
                         .. attribute:: summary_lsa
                         
                         	Advertise summary LSAs with modified metric in stub router mode
                         	**type**\:  int
                         
                         	**range:** 1..16777214
+                        
+                        	**default value**\: 16711680
                         
                         
 
@@ -11628,12 +11784,16 @@ class Ospfv3(object):
                             	Wait until BGP converges (only applicable to default VRF)
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             .. attribute:: wait_time
                             
                             	Time (in seconds) to stay in stub router operational state
                             	**type**\:  int
                             
                             	**range:** 5..86400
+                            
+                            	**units**\: second
                             
                             
 
@@ -11730,12 +11890,12 @@ class Ospfv3(object):
                         .. attribute:: always
                         
                         	Unconditionally enter stub router operational state
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: enable
                         
                         	Enabled stub router configuration mode
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: external_lsa
                         
@@ -11744,10 +11904,12 @@ class Ospfv3(object):
                         
                         	**range:** 1..16777214
                         
+                        	**default value**\: 16711680
+                        
                         .. attribute:: include_stub
                         
                         	Advertise stub links with maximum metric in stub router mode
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: on_proc_migration
                         
@@ -11756,6 +11918,8 @@ class Ospfv3(object):
                         
                         	**range:** 5..86400
                         
+                        	**units**\: second
+                        
                         .. attribute:: on_proc_restart
                         
                         	Time (in seconds) to stay in stub router operational state
@@ -11763,10 +11927,12 @@ class Ospfv3(object):
                         
                         	**range:** 5..86400
                         
+                        	**units**\: second
+                        
                         .. attribute:: on_startup
                         
                         	Enter stub router operational state on startup
-                        	**type**\:  :py:class:`OnStartup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric.OnStartup>`
+                        	**type**\:   :py:class:`OnStartup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric.OnStartup>`
                         
                         .. attribute:: on_switchover
                         
@@ -11775,12 +11941,16 @@ class Ospfv3(object):
                         
                         	**range:** 5..86400
                         
+                        	**units**\: second
+                        
                         .. attribute:: summary_lsa
                         
                         	Advertise summary LSAs with modified metric in stub router mode
                         	**type**\:  int
                         
                         	**range:** 1..16777214
+                        
+                        	**default value**\: 16711680
                         
                         
 
@@ -11812,12 +11982,16 @@ class Ospfv3(object):
                             	Wait until BGP converges (only applicable to default VRF)
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             .. attribute:: wait_time
                             
                             	Time (in seconds) to stay in stub router operational state
                             	**type**\:  int
                             
                             	**range:** 5..86400
+                            
+                            	**units**\: second
                             
                             
 
@@ -11951,7 +12125,7 @@ class Ospfv3(object):
                     .. attribute:: fast_detect_mode
                     
                     	Enable or disable BFD fast detection
-                    	**type**\:  :py:class:`Ospfv3BfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3BfdEnableModeEnum>`
+                    	**type**\:   :py:class:`Ospfv3BfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3BfdEnableModeEnum>`
                     
                     .. attribute:: interval
                     
@@ -11959,6 +12133,8 @@ class Ospfv3(object):
                     	**type**\:  int
                     
                     	**range:** 3..30000
+                    
+                    	**units**\: millisecond
                     
                     
 
@@ -12011,7 +12187,7 @@ class Ospfv3(object):
                     .. attribute:: all
                     
                     	All
-                    	**type**\:  :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DatabaseFilter.All>`
+                    	**type**\:   :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DatabaseFilter.All>`
                     
                     
 
@@ -12033,7 +12209,7 @@ class Ospfv3(object):
                         .. attribute:: out
                         
                         	Enable out
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -12102,7 +12278,7 @@ class Ospfv3(object):
                     .. attribute:: algorithm
                     
                     	Use the MD5 or SHA1 algorithm
-                    	**type**\:  :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
+                    	**type**\:   :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
                     
                     .. attribute:: enable
                     
@@ -12178,12 +12354,12 @@ class Ospfv3(object):
                     .. attribute:: enable
                     
                     	Enable graceful restart
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: helper
                     
                     	Disable router's helper support
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: interval
                     
@@ -12192,6 +12368,8 @@ class Ospfv3(object):
                     
                     	**range:** 90..3600
                     
+                    	**units**\: second
+                    
                     .. attribute:: lifetime
                     
                     	Maximum route lifetime following restart (seconds)
@@ -12199,10 +12377,12 @@ class Ospfv3(object):
                     
                     	**range:** 90..1800
                     
+                    	**units**\: second
+                    
                     .. attribute:: strict_lsa_checking
                     
                     	Terminate graceful restart helper mode if LSA changed
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -12263,7 +12443,9 @@ class Ospfv3(object):
                     .. attribute:: originate
                     
                     	Distribute a default route
-                    	**type**\:  :py:class:`Originate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DefaultInformation.Originate>`
+                    	**type**\:   :py:class:`Originate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.DefaultInformation.Originate>`
+                    
+                    	**presence node**\: True
                     
                     
 
@@ -12407,7 +12589,7 @@ class Ospfv3(object):
                     .. attribute:: fast_reroute
                     
                     	Fast\-reroute configuration
-                    	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute>`
+                    	**type**\:   :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute>`
                     
                     
 
@@ -12429,17 +12611,17 @@ class Ospfv3(object):
                         .. attribute:: fast_reroute_enable
                         
                         	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                        	**type**\:  :py:class:`Ospfv3FastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteEnum>`
+                        	**type**\:   :py:class:`Ospfv3FastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteEnum>`
                         
                         .. attribute:: per_link
                         
                         	Fast\-reroute per\-link configuration
-                        	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink>`
+                        	**type**\:   :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink>`
                         
                         .. attribute:: per_prefix
                         
                         	Fast\-reroute per\-link configuration
-                        	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix>`
+                        	**type**\:   :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix>`
                         
                         
 
@@ -12464,17 +12646,19 @@ class Ospfv3(object):
                             .. attribute:: candidate_interfaces
                             
                             	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                            	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces>`
+                            	**type**\:   :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces>`
                             
                             .. attribute:: exclude_interfaces
                             
                             	Fast\-reroute per\-link/per\-prefix exclude interface configuration
-                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces>`
+                            	**type**\:   :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces>`
                             
                             .. attribute:: fast_reroute_use_candidate_only
                             
                             	Use only interfaces on the candidate list as a backup path
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             
 
@@ -12500,7 +12684,7 @@ class Ospfv3(object):
                                 .. attribute:: candidate_interface
                                 
                                 	Candidate backup interface
-                                	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
+                                	**type**\: list of    :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
                                 
                                 
 
@@ -12599,7 +12783,7 @@ class Ospfv3(object):
                                 .. attribute:: exclude_interface
                                 
                                 	Exclude an interface from becoming a backup
-                                	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
+                                	**type**\: list of    :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
                                 
                                 
 
@@ -12727,17 +12911,19 @@ class Ospfv3(object):
                             .. attribute:: candidate_interfaces
                             
                             	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                            	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces>`
+                            	**type**\:   :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces>`
                             
                             .. attribute:: exclude_interfaces
                             
                             	Fast\-reroute per\-link/per\-prefix exclude interface configuration
-                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces>`
+                            	**type**\:   :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces>`
                             
                             .. attribute:: fast_reroute_use_candidate_only
                             
                             	Use only interfaces on the candidate list as a backup path
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             
 
@@ -12763,7 +12949,7 @@ class Ospfv3(object):
                                 .. attribute:: candidate_interface
                                 
                                 	Candidate backup interface
-                                	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
+                                	**type**\: list of    :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
                                 
                                 
 
@@ -12862,7 +13048,7 @@ class Ospfv3(object):
                                 .. attribute:: exclude_interface
                                 
                                 	Exclude an interface from becoming a backup
-                                	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
+                                	**type**\: list of    :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
                                 
                                 
 
@@ -13044,7 +13230,7 @@ class Ospfv3(object):
                     .. attribute:: authentication_algorithm
                     
                     	Use the NULL, MD5 or SHA1 algorithm
-                    	**type**\:  :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
+                    	**type**\:   :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
                     
                     .. attribute:: authentication_password
                     
@@ -13061,7 +13247,7 @@ class Ospfv3(object):
                     .. attribute:: encryption_algorithm
                     
                     	Specify the encryption algorithm
-                    	**type**\:  :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
+                    	**type**\:   :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
                     
                     .. attribute:: encryption_password
                     
@@ -13140,7 +13326,7 @@ class Ospfv3(object):
                     .. attribute:: disable
                     
                     	Specify 'true' to assign cost based on interface type
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: reference_bandwidth
                     
@@ -13148,6 +13334,8 @@ class Ospfv3(object):
                     	**type**\:  int
                     
                     	**range:** 1..4294967
+                    
+                    	**units**\: Mbit/s
                     
                     .. attribute:: _is_presence
                     
@@ -13347,7 +13535,7 @@ class Ospfv3(object):
                 .. attribute:: vrf
                 
                 	Configuration for a particular OSPF VRF
-                	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf>`
+                	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf>`
                 
                 
 
@@ -13377,27 +13565,29 @@ class Ospfv3(object):
                     .. attribute:: area_addresses
                     
                     	Area configuration
-                    	**type**\:  :py:class:`AreaAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses>`
+                    	**type**\:   :py:class:`AreaAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses>`
                     
                     .. attribute:: authentication
                     
                     	Authenticate OSPFv3 packets
-                    	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Authentication>`
+                    	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Authentication>`
                     
                     .. attribute:: auto_cost
                     
                     	Calculate interface cost according to bandwidth
-                    	**type**\:  :py:class:`AutoCost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AutoCost>`
+                    	**type**\:   :py:class:`AutoCost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AutoCost>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: bfd
                     
                     	Configure BFD parameters
-                    	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Bfd>`
+                    	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Bfd>`
                     
                     .. attribute:: capability
                     
                     	OSPFv3 Capability
-                    	**type**\:  :py:class:`Capability <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Capability>`
+                    	**type**\:   :py:class:`Capability <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Capability>`
                     
                     .. attribute:: cost
                     
@@ -13409,7 +13599,7 @@ class Ospfv3(object):
                     .. attribute:: database_filter
                     
                     	Database filter
-                    	**type**\:  :py:class:`DatabaseFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DatabaseFilter>`
+                    	**type**\:   :py:class:`DatabaseFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DatabaseFilter>`
                     
                     .. attribute:: dead_interval
                     
@@ -13418,10 +13608,12 @@ class Ospfv3(object):
                     
                     	**range:** 1..65535
                     
+                    	**units**\: second
+                    
                     .. attribute:: default_information
                     
                     	Control distribution of default information
-                    	**type**\:  :py:class:`DefaultInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DefaultInformation>`
+                    	**type**\:   :py:class:`DefaultInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DefaultInformation>`
                     
                     .. attribute:: default_metric
                     
@@ -13438,37 +13630,37 @@ class Ospfv3(object):
                     .. attribute:: distance
                     
                     	Define an administrative distance
-                    	**type**\:  :py:class:`Distance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Distance>`
+                    	**type**\:   :py:class:`Distance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Distance>`
                     
                     .. attribute:: distribute_list
                     
                     	Filter prefixes to/from RIB
-                    	**type**\:  :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList>`
+                    	**type**\:   :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList>`
                     
                     .. attribute:: distribute_list_out
                     
                     	Filter prefixes from RIB 
-                    	**type**\:  :py:class:`DistributeListOut <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut>`
+                    	**type**\:   :py:class:`DistributeListOut <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut>`
                     
                     .. attribute:: domain_id
                     
                     	OSPFv3 Domain ID
-                    	**type**\:  :py:class:`DomainId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DomainId>`
+                    	**type**\:   :py:class:`DomainId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DomainId>`
                     
                     .. attribute:: enable
                     
                     	Enable OSPFv3 VRF configuration
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: encryption
                     
                     	Encrypt and authenticate OSPFv3 packets
-                    	**type**\:  :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Encryption>`
+                    	**type**\:   :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Encryption>`
                     
                     .. attribute:: fast_reroute
                     
                     	Fast\-reroute instance scoped parameters
-                    	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute>`
+                    	**type**\:   :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute>`
                     
                     .. attribute:: flood_reduction
                     
@@ -13478,7 +13670,7 @@ class Ospfv3(object):
                     .. attribute:: graceful_restart
                     
                     	Graceful restart configuration
-                    	**type**\:  :py:class:`GracefulRestart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.GracefulRestart>`
+                    	**type**\:   :py:class:`GracefulRestart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.GracefulRestart>`
                     
                     .. attribute:: hello_interval
                     
@@ -13487,10 +13679,12 @@ class Ospfv3(object):
                     
                     	**range:** 1..65535
                     
+                    	**units**\: second
+                    
                     .. attribute:: ignore
                     
                     	Do not complain about a specified event
-                    	**type**\:  :py:class:`Ignore <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Ignore>`
+                    	**type**\:   :py:class:`Ignore <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Ignore>`
                     
                     .. attribute:: instance
                     
@@ -13502,12 +13696,12 @@ class Ospfv3(object):
                     .. attribute:: log_adjacency_changes
                     
                     	Log changes in adjacency state
-                    	**type**\:  :py:class:`Ospfv3LogAdjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3LogAdjEnum>`
+                    	**type**\:   :py:class:`Ospfv3LogAdjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3LogAdjEnum>`
                     
                     .. attribute:: maximum
                     
                     	Set OSPFv3 limits
-                    	**type**\:  :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Maximum>`
+                    	**type**\:   :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Maximum>`
                     
                     .. attribute:: mtu_ignore
                     
@@ -13517,7 +13711,7 @@ class Ospfv3(object):
                     .. attribute:: network
                     
                     	Specify network type
-                    	**type**\:  :py:class:`Ospfv3NetworkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NetworkEnum>`
+                    	**type**\:   :py:class:`Ospfv3NetworkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NetworkEnum>`
                     
                     .. attribute:: packet_size
                     
@@ -13546,12 +13740,12 @@ class Ospfv3(object):
                     .. attribute:: process_scope
                     
                     	Process scope configuration
-                    	**type**\:  :py:class:`ProcessScope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope>`
+                    	**type**\:   :py:class:`ProcessScope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope>`
                     
                     .. attribute:: redistributes
                     
                     	Redistribute information from another routing protocol
-                    	**type**\:  :py:class:`Redistributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes>`
+                    	**type**\:   :py:class:`Redistributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes>`
                     
                     .. attribute:: retransmit_interval
                     
@@ -13559,6 +13753,8 @@ class Ospfv3(object):
                     	**type**\:  int
                     
                     	**range:** 1..65535
+                    
+                    	**units**\: second
                     
                     .. attribute:: router_id
                     
@@ -13570,12 +13766,12 @@ class Ospfv3(object):
                     .. attribute:: snmp
                     
                     	SNMP configuration
-                    	**type**\:  :py:class:`Snmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Snmp>`
+                    	**type**\:   :py:class:`Snmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Snmp>`
                     
                     .. attribute:: snmpvrf_trap
                     
                     	Enable SNMP trap configuration in a VRF
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: spf_prefix_priority_policy
                     
@@ -13585,17 +13781,17 @@ class Ospfv3(object):
                     .. attribute:: stub_router
                     
                     	Stub router configuration
-                    	**type**\:  :py:class:`StubRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter>`
+                    	**type**\:   :py:class:`StubRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter>`
                     
                     .. attribute:: summary_prefixes
                     
                     	Summarize redistributed routes matching prefix/length
-                    	**type**\:  :py:class:`SummaryPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes>`
+                    	**type**\:   :py:class:`SummaryPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes>`
                     
                     .. attribute:: timers
                     
                     	Adjust routing timers
-                    	**type**\:  :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Timers>`
+                    	**type**\:   :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Timers>`
                     
                     .. attribute:: transmit_delay
                     
@@ -13603,6 +13799,8 @@ class Ospfv3(object):
                     	**type**\:  int
                     
                     	**range:** 1..65535
+                    
+                    	**units**\: second
                     
                     
 
@@ -13731,12 +13929,12 @@ class Ospfv3(object):
                         .. attribute:: primary_domain_id
                         
                         	OSPF Primary domain ID
-                        	**type**\:  :py:class:`PrimaryDomainId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.PrimaryDomainId>`
+                        	**type**\:   :py:class:`PrimaryDomainId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.PrimaryDomainId>`
                         
                         .. attribute:: secondary_domain_ids
                         
                         	Secondary domain ID Table
-                        	**type**\:  :py:class:`SecondaryDomainIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds>`
+                        	**type**\:   :py:class:`SecondaryDomainIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds>`
                         
                         
 
@@ -13760,7 +13958,7 @@ class Ospfv3(object):
                             .. attribute:: secondary_domain_id
                             
                             	OSPF Secondary domain ID
-                            	**type**\: list of  :py:class:`SecondaryDomainId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds.SecondaryDomainId>`
+                            	**type**\: list of    :py:class:`SecondaryDomainId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds.SecondaryDomainId>`
                             
                             
 
@@ -13790,7 +13988,7 @@ class Ospfv3(object):
                                 .. attribute:: domain_id_type  <key>
                                 
                                 	Secondary domain ID type
-                                	**type**\:  :py:class:`Ospfv3DomainIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3DomainIdEnum>`
+                                	**type**\:   :py:class:`Ospfv3DomainIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3DomainIdEnum>`
                                 
                                 
 
@@ -13874,7 +14072,7 @@ class Ospfv3(object):
                             .. attribute:: domain_id_type
                             
                             	Primary domain ID type
-                            	**type**\:  :py:class:`Ospfv3DomainIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3DomainIdEnum>`
+                            	**type**\:   :py:class:`Ospfv3DomainIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3DomainIdEnum>`
                             
                             
 
@@ -13950,12 +14148,12 @@ class Ospfv3(object):
                         .. attribute:: area_address
                         
                         	Configuration for a particular area
-                        	**type**\: list of  :py:class:`AreaAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress>`
+                        	**type**\: list of    :py:class:`AreaAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress>`
                         
                         .. attribute:: area_area_id
                         
                         	Configuration for a particular area
-                        	**type**\: list of  :py:class:`AreaAreaId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId>`
+                        	**type**\: list of    :py:class:`AreaAreaId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId>`
                         
                         
 
@@ -13988,17 +14186,17 @@ class Ospfv3(object):
                             .. attribute:: area_scope
                             
                             	Area Scope Configuration
-                            	**type**\:  :py:class:`AreaScope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope>`
+                            	**type**\:   :py:class:`AreaScope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope>`
                             
                             .. attribute:: authentication
                             
                             	Authenticate OSPFv3 packets
-                            	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Authentication>`
+                            	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Authentication>`
                             
                             .. attribute:: bfd
                             
                             	Configure BFD parameters
-                            	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Bfd>`
+                            	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Bfd>`
                             
                             .. attribute:: cost
                             
@@ -14010,7 +14208,7 @@ class Ospfv3(object):
                             .. attribute:: database_filter
                             
                             	Database filter
-                            	**type**\:  :py:class:`DatabaseFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter>`
+                            	**type**\:   :py:class:`DatabaseFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter>`
                             
                             .. attribute:: dead_interval
                             
@@ -14018,6 +14216,8 @@ class Ospfv3(object):
                             	**type**\:  int
                             
                             	**range:** 1..65535
+                            
+                            	**units**\: second
                             
                             .. attribute:: default_cost
                             
@@ -14034,17 +14234,17 @@ class Ospfv3(object):
                             .. attribute:: distribute_list
                             
                             	Filter prefixes to/from RIB
-                            	**type**\:  :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList>`
+                            	**type**\:   :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList>`
                             
                             .. attribute:: enable
                             
                             	Enable OSPFv3 area
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: encryption
                             
                             	Encrypt and authenticate OSPFv3 packets
-                            	**type**\:  :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Encryption>`
+                            	**type**\:   :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Encryption>`
                             
                             .. attribute:: flood_reduction
                             
@@ -14058,6 +14258,8 @@ class Ospfv3(object):
                             
                             	**range:** 1..65535
                             
+                            	**units**\: second
+                            
                             .. attribute:: instance
                             
                             	Instance ID
@@ -14068,7 +14270,7 @@ class Ospfv3(object):
                             .. attribute:: interfaces
                             
                             	OSPFv3 interfaces
-                            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces>`
+                            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces>`
                             
                             .. attribute:: ldp_sync
                             
@@ -14083,12 +14285,12 @@ class Ospfv3(object):
                             .. attribute:: network
                             
                             	Specify network type
-                            	**type**\:  :py:class:`Ospfv3NetworkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NetworkEnum>`
+                            	**type**\:   :py:class:`Ospfv3NetworkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NetworkEnum>`
                             
                             .. attribute:: nssa
                             
                             	Specify area as a NSSA area.  Allowed only in non\-backbone areas
-                            	**type**\:  :py:class:`Nssa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Nssa>`
+                            	**type**\:   :py:class:`Nssa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Nssa>`
                             
                             .. attribute:: packet_size
                             
@@ -14117,7 +14319,7 @@ class Ospfv3(object):
                             .. attribute:: ranges
                             
                             	Range configuration
-                            	**type**\:  :py:class:`Ranges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges>`
+                            	**type**\:   :py:class:`Ranges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges>`
                             
                             .. attribute:: retransmit_interval
                             
@@ -14126,10 +14328,12 @@ class Ospfv3(object):
                             
                             	**range:** 1..65535
                             
+                            	**units**\: second
+                            
                             .. attribute:: sham_links
                             
                             	Sham Link sub\-mode
-                            	**type**\:  :py:class:`ShamLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks>`
+                            	**type**\:   :py:class:`ShamLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks>`
                             
                             .. attribute:: stub
                             
@@ -14143,10 +14347,12 @@ class Ospfv3(object):
                             
                             	**range:** 1..65535
                             
+                            	**units**\: second
+                            
                             .. attribute:: virtual_links
                             
                             	Virtual link sub\-mode
-                            	**type**\:  :py:class:`VirtualLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks>`
+                            	**type**\:   :py:class:`VirtualLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks>`
                             
                             
 
@@ -14207,7 +14413,7 @@ class Ospfv3(object):
                                 .. attribute:: algorithm
                                 
                                 	Use the MD5 or SHA1 algorithm
-                                	**type**\:  :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
+                                	**type**\:   :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
                                 
                                 .. attribute:: enable
                                 
@@ -14290,7 +14496,7 @@ class Ospfv3(object):
                                 .. attribute:: fast_detect_mode
                                 
                                 	Enable or disable BFD fast detection
-                                	**type**\:  :py:class:`Ospfv3BfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3BfdEnableModeEnum>`
+                                	**type**\:   :py:class:`Ospfv3BfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3BfdEnableModeEnum>`
                                 
                                 .. attribute:: interval
                                 
@@ -14298,6 +14504,8 @@ class Ospfv3(object):
                                 	**type**\:  int
                                 
                                 	**range:** 3..30000
+                                
+                                	**units**\: millisecond
                                 
                                 
 
@@ -14350,7 +14558,7 @@ class Ospfv3(object):
                                 .. attribute:: range
                                 
                                 	Summarize inter\-area routes matching prefix/length
-                                	**type**\: list of  :py:class:`Range <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges.Range>`
+                                	**type**\: list of    :py:class:`Range <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges.Range>`
                                 
                                 
 
@@ -14396,6 +14604,8 @@ class Ospfv3(object):
                                     
                                     	Do not advertise address range
                                     	**type**\:  bool
+                                    
+                                    	**default value**\: false
                                     
                                     
 
@@ -14482,7 +14692,7 @@ class Ospfv3(object):
                                 .. attribute:: authentication_algorithm
                                 
                                 	Use the NULL, MD5 or SHA1 algorithm
-                                	**type**\:  :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
+                                	**type**\:   :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
                                 
                                 .. attribute:: authentication_password
                                 
@@ -14499,7 +14709,7 @@ class Ospfv3(object):
                                 .. attribute:: encryption_algorithm
                                 
                                 	Specify the encryption algorithm
-                                	**type**\:  :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
+                                	**type**\:   :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
                                 
                                 .. attribute:: encryption_password
                                 
@@ -14581,6 +14791,8 @@ class Ospfv3(object):
                                 	Originate Type 7 default into NSSA area
                                 	**type**\:  bool
                                 
+                                	**default value**\: false
+                                
                                 .. attribute:: metric
                                 
                                 	Only valid with DefaultInfoOriginate
@@ -14591,17 +14803,19 @@ class Ospfv3(object):
                                 .. attribute:: metric_type
                                 
                                 	Only valid with DefaultInfoOriginate
-                                	**type**\:  :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
+                                	**type**\:   :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
                                 
                                 .. attribute:: no_redistribution
                                 
                                 	No redistribution into this NSSA area
                                 	**type**\:  bool
                                 
+                                	**default value**\: false
+                                
                                 .. attribute:: no_summary
                                 
                                 	Do not send summary LSA into NSSA
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -14662,7 +14876,7 @@ class Ospfv3(object):
                                 .. attribute:: all
                                 
                                 	All
-                                	**type**\:  :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter.All>`
+                                	**type**\:   :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter.All>`
                                 
                                 
 
@@ -14753,7 +14967,7 @@ class Ospfv3(object):
                                 .. attribute:: in_
                                 
                                 	Filter prefixes installed to RIB
-                                	**type**\:  :py:class:`In <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In>`
+                                	**type**\:   :py:class:`In_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In_>`
                                 
                                 
 
@@ -14764,11 +14978,11 @@ class Ospfv3(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.in_ = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In()
+                                    self.in_ = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In_()
                                     self.in_.parent = self
 
 
-                                class In(object):
+                                class In_(object):
                                     """
                                     Filter prefixes installed to RIB
                                     
@@ -14810,7 +15024,7 @@ class Ospfv3(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
-                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In']['meta_info']
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In_']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -14844,7 +15058,7 @@ class Ospfv3(object):
                                 .. attribute:: interface
                                 
                                 	OSPFv3 interface
-                                	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface>`
+                                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface>`
                                 
                                 
 
@@ -14874,12 +15088,12 @@ class Ospfv3(object):
                                     .. attribute:: authentication
                                     
                                     	Authenticate OSPFv3 packets
-                                    	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication>`
+                                    	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Authentication>`
                                     
                                     .. attribute:: bfd
                                     
                                     	Configure BFD parameters
-                                    	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Bfd>`
+                                    	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Bfd>`
                                     
                                     .. attribute:: cost
                                     
@@ -14891,7 +15105,7 @@ class Ospfv3(object):
                                     .. attribute:: database_filter
                                     
                                     	Database filter
-                                    	**type**\:  :py:class:`DatabaseFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter>`
+                                    	**type**\:   :py:class:`DatabaseFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter>`
                                     
                                     .. attribute:: dead_interval
                                     
@@ -14899,6 +15113,8 @@ class Ospfv3(object):
                                     	**type**\:  int
                                     
                                     	**range:** 1..65535
+                                    
+                                    	**units**\: second
                                     
                                     .. attribute:: demand_circuit
                                     
@@ -14908,22 +15124,22 @@ class Ospfv3(object):
                                     .. attribute:: distribute_list
                                     
                                     	Filter prefixes to/from RIB
-                                    	**type**\:  :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList>`
+                                    	**type**\:   :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList>`
                                     
                                     .. attribute:: enable
                                     
                                     	Enable OSPFv3 interface
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: encryption
                                     
                                     	Encrypt and authenticate OSPFv3 packets
-                                    	**type**\:  :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Encryption>`
+                                    	**type**\:   :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Encryption>`
                                     
                                     .. attribute:: fast_reroute
                                     
                                     	Fast\-reroute configuration
-                                    	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute>`
+                                    	**type**\:   :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute>`
                                     
                                     .. attribute:: flood_reduction
                                     
@@ -14936,6 +15152,8 @@ class Ospfv3(object):
                                     	**type**\:  int
                                     
                                     	**range:** 1..65535
+                                    
+                                    	**units**\: second
                                     
                                     .. attribute:: instance
                                     
@@ -14957,12 +15175,12 @@ class Ospfv3(object):
                                     .. attribute:: neighbors
                                     
                                     	Specify a neighbor router
-                                    	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors>`
+                                    	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors>`
                                     
                                     .. attribute:: network
                                     
                                     	Specify network type
-                                    	**type**\:  :py:class:`Ospfv3NetworkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NetworkEnum>`
+                                    	**type**\:   :py:class:`Ospfv3NetworkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NetworkEnum>`
                                     
                                     .. attribute:: packet_size
                                     
@@ -14995,12 +15213,16 @@ class Ospfv3(object):
                                     
                                     	**range:** 1..65535
                                     
+                                    	**units**\: second
+                                    
                                     .. attribute:: transmit_delay
                                     
                                     	Specify the transmit delay in seconds
                                     	**type**\:  int
                                     
                                     	**range:** 1..65535
+                                    
+                                    	**units**\: second
                                     
                                     
 
@@ -15051,7 +15273,7 @@ class Ospfv3(object):
                                         .. attribute:: algorithm
                                         
                                         	Use the MD5 or SHA1 algorithm
-                                        	**type**\:  :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
+                                        	**type**\:   :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
                                         
                                         .. attribute:: enable
                                         
@@ -15127,7 +15349,7 @@ class Ospfv3(object):
                                         .. attribute:: neighbor
                                         
                                         	IPv6 address
-                                        	**type**\: list of  :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor>`
+                                        	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor>`
                                         
                                         
 
@@ -15172,6 +15394,8 @@ class Ospfv3(object):
                                             	**type**\:  int
                                             
                                             	**range:** 0..65535
+                                            
+                                            	**units**\: second
                                             
                                             .. attribute:: priority
                                             
@@ -15276,7 +15500,7 @@ class Ospfv3(object):
                                         .. attribute:: authentication_algorithm
                                         
                                         	Use the NULL, MD5 or SHA1 algorithm
-                                        	**type**\:  :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
+                                        	**type**\:   :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
                                         
                                         .. attribute:: authentication_password
                                         
@@ -15293,7 +15517,7 @@ class Ospfv3(object):
                                         .. attribute:: encryption_algorithm
                                         
                                         	Specify the encryption algorithm
-                                        	**type**\:  :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
+                                        	**type**\:   :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
                                         
                                         .. attribute:: encryption_password
                                         
@@ -15379,7 +15603,7 @@ class Ospfv3(object):
                                         .. attribute:: fast_detect_mode
                                         
                                         	Enable or disable BFD fast detection
-                                        	**type**\:  :py:class:`Ospfv3BfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3BfdEnableModeEnum>`
+                                        	**type**\:   :py:class:`Ospfv3BfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3BfdEnableModeEnum>`
                                         
                                         .. attribute:: interval
                                         
@@ -15387,6 +15611,8 @@ class Ospfv3(object):
                                         	**type**\:  int
                                         
                                         	**range:** 3..30000
+                                        
+                                        	**units**\: millisecond
                                         
                                         
 
@@ -15439,7 +15665,7 @@ class Ospfv3(object):
                                         .. attribute:: all
                                         
                                         	All
-                                        	**type**\:  :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All>`
+                                        	**type**\:   :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All>`
                                         
                                         
 
@@ -15530,7 +15756,7 @@ class Ospfv3(object):
                                         .. attribute:: in_
                                         
                                         	Filter prefixes installed to RIB
-                                        	**type**\:  :py:class:`In <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In>`
+                                        	**type**\:   :py:class:`In_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_>`
                                         
                                         
 
@@ -15541,11 +15767,11 @@ class Ospfv3(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.in_ = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In()
+                                            self.in_ = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_()
                                             self.in_.parent = self
 
 
-                                        class In(object):
+                                        class In_(object):
                                             """
                                             Filter prefixes installed to RIB
                                             
@@ -15587,7 +15813,7 @@ class Ospfv3(object):
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
-                                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In']['meta_info']
+                                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -15621,17 +15847,17 @@ class Ospfv3(object):
                                         .. attribute:: fast_reroute_enable
                                         
                                         	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                                        	**type**\:  :py:class:`Ospfv3FastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteEnum>`
+                                        	**type**\:   :py:class:`Ospfv3FastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteEnum>`
                                         
                                         .. attribute:: per_link
                                         
                                         	Fast\-reroute per\-link configuration
-                                        	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink>`
+                                        	**type**\:   :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink>`
                                         
                                         .. attribute:: per_prefix
                                         
                                         	Fast\-reroute per\-link configuration
-                                        	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix>`
+                                        	**type**\:   :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix>`
                                         
                                         
 
@@ -15656,17 +15882,19 @@ class Ospfv3(object):
                                             .. attribute:: candidate_interfaces
                                             
                                             	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                            	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces>`
+                                            	**type**\:   :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces>`
                                             
                                             .. attribute:: exclude_interfaces
                                             
                                             	Fast\-reroute per\-link/per\-prefix exclude interface configuration
-                                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces>`
+                                            	**type**\:   :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces>`
                                             
                                             .. attribute:: fast_reroute_use_candidate_only
                                             
                                             	Use only interfaces on the candidate list as a backup path
                                             	**type**\:  bool
+                                            
+                                            	**default value**\: false
                                             
                                             
 
@@ -15692,7 +15920,7 @@ class Ospfv3(object):
                                                 .. attribute:: candidate_interface
                                                 
                                                 	Candidate backup interface
-                                                	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
+                                                	**type**\: list of    :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
                                                 
                                                 
 
@@ -15791,7 +16019,7 @@ class Ospfv3(object):
                                                 .. attribute:: exclude_interface
                                                 
                                                 	Exclude an interface from becoming a backup
-                                                	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
+                                                	**type**\: list of    :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
                                                 
                                                 
 
@@ -15919,17 +16147,19 @@ class Ospfv3(object):
                                             .. attribute:: candidate_interfaces
                                             
                                             	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                            	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces>`
+                                            	**type**\:   :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces>`
                                             
                                             .. attribute:: exclude_interfaces
                                             
                                             	Fast\-reroute per\-link/per\-prefix exclude interface configuration
-                                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces>`
+                                            	**type**\:   :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces>`
                                             
                                             .. attribute:: fast_reroute_use_candidate_only
                                             
                                             	Use only interfaces on the candidate list as a backup path
                                             	**type**\:  bool
+                                            
+                                            	**default value**\: false
                                             
                                             
 
@@ -15955,7 +16185,7 @@ class Ospfv3(object):
                                                 .. attribute:: candidate_interface
                                                 
                                                 	Candidate backup interface
-                                                	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
+                                                	**type**\: list of    :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
                                                 
                                                 
 
@@ -16054,7 +16284,7 @@ class Ospfv3(object):
                                                 .. attribute:: exclude_interface
                                                 
                                                 	Exclude an interface from becoming a backup
-                                                	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
+                                                	**type**\: list of    :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
                                                 
                                                 
 
@@ -16333,7 +16563,7 @@ class Ospfv3(object):
                                 .. attribute:: fast_reroute
                                 
                                 	Fast\-reroute configuration
-                                	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute>`
+                                	**type**\:   :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute>`
                                 
                                 
 
@@ -16355,17 +16585,17 @@ class Ospfv3(object):
                                     .. attribute:: fast_reroute_enable
                                     
                                     	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                                    	**type**\:  :py:class:`Ospfv3FastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteEnum>`
+                                    	**type**\:   :py:class:`Ospfv3FastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteEnum>`
                                     
                                     .. attribute:: per_link
                                     
                                     	Fast\-reroute per\-link configuration
-                                    	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink>`
+                                    	**type**\:   :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink>`
                                     
                                     .. attribute:: per_prefix
                                     
                                     	Fast\-reroute per\-link configuration
-                                    	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix>`
+                                    	**type**\:   :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix>`
                                     
                                     
 
@@ -16390,17 +16620,19 @@ class Ospfv3(object):
                                         .. attribute:: candidate_interfaces
                                         
                                         	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                        	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces>`
+                                        	**type**\:   :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces>`
                                         
                                         .. attribute:: exclude_interfaces
                                         
                                         	Fast\-reroute per\-link/per\-prefix exclude interface configuration
-                                        	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces>`
+                                        	**type**\:   :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces>`
                                         
                                         .. attribute:: fast_reroute_use_candidate_only
                                         
                                         	Use only interfaces on the candidate list as a backup path
                                         	**type**\:  bool
+                                        
+                                        	**default value**\: false
                                         
                                         
 
@@ -16426,7 +16658,7 @@ class Ospfv3(object):
                                             .. attribute:: candidate_interface
                                             
                                             	Candidate backup interface
-                                            	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
+                                            	**type**\: list of    :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
                                             
                                             
 
@@ -16525,7 +16757,7 @@ class Ospfv3(object):
                                             .. attribute:: exclude_interface
                                             
                                             	Exclude an interface from becoming a backup
-                                            	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
+                                            	**type**\: list of    :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
                                             
                                             
 
@@ -16653,17 +16885,19 @@ class Ospfv3(object):
                                         .. attribute:: candidate_interfaces
                                         
                                         	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                        	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces>`
+                                        	**type**\:   :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces>`
                                         
                                         .. attribute:: exclude_interfaces
                                         
                                         	Fast\-reroute per\-link/per\-prefix exclude interface configuration
-                                        	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces>`
+                                        	**type**\:   :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces>`
                                         
                                         .. attribute:: fast_reroute_use_candidate_only
                                         
                                         	Use only interfaces on the candidate list as a backup path
                                         	**type**\:  bool
+                                        
+                                        	**default value**\: false
                                         
                                         
 
@@ -16689,7 +16923,7 @@ class Ospfv3(object):
                                             .. attribute:: candidate_interface
                                             
                                             	Candidate backup interface
-                                            	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
+                                            	**type**\: list of    :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
                                             
                                             
 
@@ -16788,7 +17022,7 @@ class Ospfv3(object):
                                             .. attribute:: exclude_interface
                                             
                                             	Exclude an interface from becoming a backup
-                                            	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
+                                            	**type**\: list of    :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
                                             
                                             
 
@@ -16970,7 +17204,7 @@ class Ospfv3(object):
                                 .. attribute:: sham_link
                                 
                                 	ShamLink local and remote endpoints
-                                	**type**\: list of  :py:class:`ShamLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink>`
+                                	**type**\: list of    :py:class:`ShamLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink>`
                                 
                                 
 
@@ -17007,7 +17241,7 @@ class Ospfv3(object):
                                     .. attribute:: authentication
                                     
                                     	Authenticate OSPFv3 packets
-                                    	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication>`
+                                    	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Authentication>`
                                     
                                     .. attribute:: dead_interval
                                     
@@ -17016,15 +17250,17 @@ class Ospfv3(object):
                                     
                                     	**range:** 1..65535
                                     
+                                    	**units**\: second
+                                    
                                     .. attribute:: enable
                                     
                                     	Enable sham link
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: encryption
                                     
                                     	Encrypt and authenticate OSPFv3 packets
-                                    	**type**\:  :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Encryption>`
+                                    	**type**\:   :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinks.ShamLink.Encryption>`
                                     
                                     .. attribute:: hello_interval
                                     
@@ -17033,6 +17269,8 @@ class Ospfv3(object):
                                     
                                     	**range:** 1..65535
                                     
+                                    	**units**\: second
+                                    
                                     .. attribute:: retransmit_interval
                                     
                                     	Specify the transmit interval in seconds
@@ -17040,12 +17278,16 @@ class Ospfv3(object):
                                     
                                     	**range:** 1..65535
                                     
+                                    	**units**\: second
+                                    
                                     .. attribute:: transmit_delay
                                     
                                     	Specify the transmit delay in seconds
                                     	**type**\:  int
                                     
                                     	**range:** 1..65535
+                                    
+                                    	**units**\: second
                                     
                                     
 
@@ -17076,7 +17318,7 @@ class Ospfv3(object):
                                         .. attribute:: algorithm
                                         
                                         	Use the MD5 or SHA1 algorithm
-                                        	**type**\:  :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
+                                        	**type**\:   :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
                                         
                                         .. attribute:: enable
                                         
@@ -17152,7 +17394,7 @@ class Ospfv3(object):
                                         .. attribute:: authentication_algorithm
                                         
                                         	Use the NULL, MD5 or SHA1 algorithm
-                                        	**type**\:  :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
+                                        	**type**\:   :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
                                         
                                         .. attribute:: authentication_password
                                         
@@ -17169,7 +17411,7 @@ class Ospfv3(object):
                                         .. attribute:: encryption_algorithm
                                         
                                         	Specify the encryption algorithm
-                                        	**type**\:  :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
+                                        	**type**\:   :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
                                         
                                         .. attribute:: encryption_password
                                         
@@ -17326,7 +17568,7 @@ class Ospfv3(object):
                                 .. attribute:: virtual_link
                                 
                                 	Router ID of virtual link neighbor
-                                	**type**\: list of  :py:class:`VirtualLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink>`
+                                	**type**\: list of    :py:class:`VirtualLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink>`
                                 
                                 
 
@@ -17356,7 +17598,7 @@ class Ospfv3(object):
                                     .. attribute:: authentication
                                     
                                     	Authenticate OSPFv3 packets
-                                    	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication>`
+                                    	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Authentication>`
                                     
                                     .. attribute:: dead_interval
                                     
@@ -17365,15 +17607,17 @@ class Ospfv3(object):
                                     
                                     	**range:** 1..65535
                                     
+                                    	**units**\: second
+                                    
                                     .. attribute:: enable
                                     
                                     	Enabled virtual link
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: encryption
                                     
                                     	Encrypt and authenticate OSPFv3 packets
-                                    	**type**\:  :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Encryption>`
+                                    	**type**\:   :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks.VirtualLink.Encryption>`
                                     
                                     .. attribute:: hello_interval
                                     
@@ -17382,6 +17626,8 @@ class Ospfv3(object):
                                     
                                     	**range:** 1..65535
                                     
+                                    	**units**\: second
+                                    
                                     .. attribute:: retransmit_interval
                                     
                                     	Specify the transmit interval in seconds
@@ -17389,12 +17635,16 @@ class Ospfv3(object):
                                     
                                     	**range:** 1..65535
                                     
+                                    	**units**\: second
+                                    
                                     .. attribute:: transmit_delay
                                     
                                     	Specify the transmit delay in seconds
                                     	**type**\:  int
                                     
                                     	**range:** 1..65535
+                                    
+                                    	**units**\: second
                                     
                                     
 
@@ -17424,7 +17674,7 @@ class Ospfv3(object):
                                         .. attribute:: algorithm
                                         
                                         	Use the MD5 or SHA1 algorithm
-                                        	**type**\:  :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
+                                        	**type**\:   :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
                                         
                                         .. attribute:: enable
                                         
@@ -17500,7 +17750,7 @@ class Ospfv3(object):
                                         .. attribute:: authentication_algorithm
                                         
                                         	Use the NULL, MD5 or SHA1 algorithm
-                                        	**type**\:  :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
+                                        	**type**\:   :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
                                         
                                         .. attribute:: authentication_password
                                         
@@ -17517,7 +17767,7 @@ class Ospfv3(object):
                                         .. attribute:: encryption_algorithm
                                         
                                         	Specify the encryption algorithm
-                                        	**type**\:  :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
+                                        	**type**\:   :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
                                         
                                         .. attribute:: encryption_password
                                         
@@ -17789,17 +18039,17 @@ class Ospfv3(object):
                             .. attribute:: area_scope
                             
                             	Area Scope Configuration
-                            	**type**\:  :py:class:`AreaScope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope>`
+                            	**type**\:   :py:class:`AreaScope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope>`
                             
                             .. attribute:: authentication
                             
                             	Authenticate OSPFv3 packets
-                            	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Authentication>`
+                            	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Authentication>`
                             
                             .. attribute:: bfd
                             
                             	Configure BFD parameters
-                            	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Bfd>`
+                            	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Bfd>`
                             
                             .. attribute:: cost
                             
@@ -17811,7 +18061,7 @@ class Ospfv3(object):
                             .. attribute:: database_filter
                             
                             	Database filter
-                            	**type**\:  :py:class:`DatabaseFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter>`
+                            	**type**\:   :py:class:`DatabaseFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter>`
                             
                             .. attribute:: dead_interval
                             
@@ -17819,6 +18069,8 @@ class Ospfv3(object):
                             	**type**\:  int
                             
                             	**range:** 1..65535
+                            
+                            	**units**\: second
                             
                             .. attribute:: default_cost
                             
@@ -17835,17 +18087,17 @@ class Ospfv3(object):
                             .. attribute:: distribute_list
                             
                             	Filter prefixes to/from RIB
-                            	**type**\:  :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList>`
+                            	**type**\:   :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList>`
                             
                             .. attribute:: enable
                             
                             	Enable OSPFv3 area
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: encryption
                             
                             	Encrypt and authenticate OSPFv3 packets
-                            	**type**\:  :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Encryption>`
+                            	**type**\:   :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Encryption>`
                             
                             .. attribute:: flood_reduction
                             
@@ -17859,6 +18111,8 @@ class Ospfv3(object):
                             
                             	**range:** 1..65535
                             
+                            	**units**\: second
+                            
                             .. attribute:: instance
                             
                             	Instance ID
@@ -17869,7 +18123,7 @@ class Ospfv3(object):
                             .. attribute:: interfaces
                             
                             	OSPFv3 interfaces
-                            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces>`
+                            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces>`
                             
                             .. attribute:: ldp_sync
                             
@@ -17884,12 +18138,12 @@ class Ospfv3(object):
                             .. attribute:: network
                             
                             	Specify network type
-                            	**type**\:  :py:class:`Ospfv3NetworkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NetworkEnum>`
+                            	**type**\:   :py:class:`Ospfv3NetworkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NetworkEnum>`
                             
                             .. attribute:: nssa
                             
                             	Specify area as a NSSA area.  Allowed only in non\-backbone areas
-                            	**type**\:  :py:class:`Nssa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Nssa>`
+                            	**type**\:   :py:class:`Nssa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Nssa>`
                             
                             .. attribute:: packet_size
                             
@@ -17918,7 +18172,7 @@ class Ospfv3(object):
                             .. attribute:: ranges
                             
                             	Range configuration
-                            	**type**\:  :py:class:`Ranges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges>`
+                            	**type**\:   :py:class:`Ranges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges>`
                             
                             .. attribute:: retransmit_interval
                             
@@ -17927,10 +18181,12 @@ class Ospfv3(object):
                             
                             	**range:** 1..65535
                             
+                            	**units**\: second
+                            
                             .. attribute:: sham_links
                             
                             	Sham Link sub\-mode
-                            	**type**\:  :py:class:`ShamLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks>`
+                            	**type**\:   :py:class:`ShamLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks>`
                             
                             .. attribute:: stub
                             
@@ -17944,10 +18200,12 @@ class Ospfv3(object):
                             
                             	**range:** 1..65535
                             
+                            	**units**\: second
+                            
                             .. attribute:: virtual_links
                             
                             	Virtual link sub\-mode
-                            	**type**\:  :py:class:`VirtualLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks>`
+                            	**type**\:   :py:class:`VirtualLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks>`
                             
                             
 
@@ -18008,7 +18266,7 @@ class Ospfv3(object):
                                 .. attribute:: algorithm
                                 
                                 	Use the MD5 or SHA1 algorithm
-                                	**type**\:  :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
+                                	**type**\:   :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
                                 
                                 .. attribute:: enable
                                 
@@ -18091,7 +18349,7 @@ class Ospfv3(object):
                                 .. attribute:: fast_detect_mode
                                 
                                 	Enable or disable BFD fast detection
-                                	**type**\:  :py:class:`Ospfv3BfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3BfdEnableModeEnum>`
+                                	**type**\:   :py:class:`Ospfv3BfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3BfdEnableModeEnum>`
                                 
                                 .. attribute:: interval
                                 
@@ -18099,6 +18357,8 @@ class Ospfv3(object):
                                 	**type**\:  int
                                 
                                 	**range:** 3..30000
+                                
+                                	**units**\: millisecond
                                 
                                 
 
@@ -18151,7 +18411,7 @@ class Ospfv3(object):
                                 .. attribute:: range
                                 
                                 	Summarize inter\-area routes matching prefix/length
-                                	**type**\: list of  :py:class:`Range <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges.Range>`
+                                	**type**\: list of    :py:class:`Range <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges.Range>`
                                 
                                 
 
@@ -18197,6 +18457,8 @@ class Ospfv3(object):
                                     
                                     	Do not advertise address range
                                     	**type**\:  bool
+                                    
+                                    	**default value**\: false
                                     
                                     
 
@@ -18283,7 +18545,7 @@ class Ospfv3(object):
                                 .. attribute:: authentication_algorithm
                                 
                                 	Use the NULL, MD5 or SHA1 algorithm
-                                	**type**\:  :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
+                                	**type**\:   :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
                                 
                                 .. attribute:: authentication_password
                                 
@@ -18300,7 +18562,7 @@ class Ospfv3(object):
                                 .. attribute:: encryption_algorithm
                                 
                                 	Specify the encryption algorithm
-                                	**type**\:  :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
+                                	**type**\:   :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
                                 
                                 .. attribute:: encryption_password
                                 
@@ -18382,6 +18644,8 @@ class Ospfv3(object):
                                 	Originate Type 7 default into NSSA area
                                 	**type**\:  bool
                                 
+                                	**default value**\: false
+                                
                                 .. attribute:: metric
                                 
                                 	Only valid with DefaultInfoOriginate
@@ -18392,17 +18656,19 @@ class Ospfv3(object):
                                 .. attribute:: metric_type
                                 
                                 	Only valid with DefaultInfoOriginate
-                                	**type**\:  :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
+                                	**type**\:   :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
                                 
                                 .. attribute:: no_redistribution
                                 
                                 	No redistribution into this NSSA area
                                 	**type**\:  bool
                                 
+                                	**default value**\: false
+                                
                                 .. attribute:: no_summary
                                 
                                 	Do not send summary LSA into NSSA
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -18463,7 +18729,7 @@ class Ospfv3(object):
                                 .. attribute:: all
                                 
                                 	All
-                                	**type**\:  :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter.All>`
+                                	**type**\:   :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter.All>`
                                 
                                 
 
@@ -18554,7 +18820,7 @@ class Ospfv3(object):
                                 .. attribute:: in_
                                 
                                 	Filter prefixes installed to RIB
-                                	**type**\:  :py:class:`In <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In>`
+                                	**type**\:   :py:class:`In_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In_>`
                                 
                                 
 
@@ -18565,11 +18831,11 @@ class Ospfv3(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.in_ = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In()
+                                    self.in_ = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In_()
                                     self.in_.parent = self
 
 
-                                class In(object):
+                                class In_(object):
                                     """
                                     Filter prefixes installed to RIB
                                     
@@ -18611,7 +18877,7 @@ class Ospfv3(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
-                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In']['meta_info']
+                                        return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In_']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -18645,7 +18911,7 @@ class Ospfv3(object):
                                 .. attribute:: interface
                                 
                                 	OSPFv3 interface
-                                	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface>`
+                                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface>`
                                 
                                 
 
@@ -18675,12 +18941,12 @@ class Ospfv3(object):
                                     .. attribute:: authentication
                                     
                                     	Authenticate OSPFv3 packets
-                                    	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication>`
+                                    	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Authentication>`
                                     
                                     .. attribute:: bfd
                                     
                                     	Configure BFD parameters
-                                    	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Bfd>`
+                                    	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Bfd>`
                                     
                                     .. attribute:: cost
                                     
@@ -18692,7 +18958,7 @@ class Ospfv3(object):
                                     .. attribute:: database_filter
                                     
                                     	Database filter
-                                    	**type**\:  :py:class:`DatabaseFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter>`
+                                    	**type**\:   :py:class:`DatabaseFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter>`
                                     
                                     .. attribute:: dead_interval
                                     
@@ -18700,6 +18966,8 @@ class Ospfv3(object):
                                     	**type**\:  int
                                     
                                     	**range:** 1..65535
+                                    
+                                    	**units**\: second
                                     
                                     .. attribute:: demand_circuit
                                     
@@ -18709,22 +18977,22 @@ class Ospfv3(object):
                                     .. attribute:: distribute_list
                                     
                                     	Filter prefixes to/from RIB
-                                    	**type**\:  :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList>`
+                                    	**type**\:   :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList>`
                                     
                                     .. attribute:: enable
                                     
                                     	Enable OSPFv3 interface
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: encryption
                                     
                                     	Encrypt and authenticate OSPFv3 packets
-                                    	**type**\:  :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Encryption>`
+                                    	**type**\:   :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Encryption>`
                                     
                                     .. attribute:: fast_reroute
                                     
                                     	Fast\-reroute configuration
-                                    	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute>`
+                                    	**type**\:   :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute>`
                                     
                                     .. attribute:: flood_reduction
                                     
@@ -18737,6 +19005,8 @@ class Ospfv3(object):
                                     	**type**\:  int
                                     
                                     	**range:** 1..65535
+                                    
+                                    	**units**\: second
                                     
                                     .. attribute:: instance
                                     
@@ -18758,12 +19028,12 @@ class Ospfv3(object):
                                     .. attribute:: neighbors
                                     
                                     	Specify a neighbor router
-                                    	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors>`
+                                    	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors>`
                                     
                                     .. attribute:: network
                                     
                                     	Specify network type
-                                    	**type**\:  :py:class:`Ospfv3NetworkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NetworkEnum>`
+                                    	**type**\:   :py:class:`Ospfv3NetworkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NetworkEnum>`
                                     
                                     .. attribute:: packet_size
                                     
@@ -18796,12 +19066,16 @@ class Ospfv3(object):
                                     
                                     	**range:** 1..65535
                                     
+                                    	**units**\: second
+                                    
                                     .. attribute:: transmit_delay
                                     
                                     	Specify the transmit delay in seconds
                                     	**type**\:  int
                                     
                                     	**range:** 1..65535
+                                    
+                                    	**units**\: second
                                     
                                     
 
@@ -18852,7 +19126,7 @@ class Ospfv3(object):
                                         .. attribute:: algorithm
                                         
                                         	Use the MD5 or SHA1 algorithm
-                                        	**type**\:  :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
+                                        	**type**\:   :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
                                         
                                         .. attribute:: enable
                                         
@@ -18928,7 +19202,7 @@ class Ospfv3(object):
                                         .. attribute:: neighbor
                                         
                                         	IPv6 address
-                                        	**type**\: list of  :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor>`
+                                        	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor>`
                                         
                                         
 
@@ -18973,6 +19247,8 @@ class Ospfv3(object):
                                             	**type**\:  int
                                             
                                             	**range:** 0..65535
+                                            
+                                            	**units**\: second
                                             
                                             .. attribute:: priority
                                             
@@ -19077,7 +19353,7 @@ class Ospfv3(object):
                                         .. attribute:: authentication_algorithm
                                         
                                         	Use the NULL, MD5 or SHA1 algorithm
-                                        	**type**\:  :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
+                                        	**type**\:   :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
                                         
                                         .. attribute:: authentication_password
                                         
@@ -19094,7 +19370,7 @@ class Ospfv3(object):
                                         .. attribute:: encryption_algorithm
                                         
                                         	Specify the encryption algorithm
-                                        	**type**\:  :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
+                                        	**type**\:   :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
                                         
                                         .. attribute:: encryption_password
                                         
@@ -19180,7 +19456,7 @@ class Ospfv3(object):
                                         .. attribute:: fast_detect_mode
                                         
                                         	Enable or disable BFD fast detection
-                                        	**type**\:  :py:class:`Ospfv3BfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3BfdEnableModeEnum>`
+                                        	**type**\:   :py:class:`Ospfv3BfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3BfdEnableModeEnum>`
                                         
                                         .. attribute:: interval
                                         
@@ -19188,6 +19464,8 @@ class Ospfv3(object):
                                         	**type**\:  int
                                         
                                         	**range:** 3..30000
+                                        
+                                        	**units**\: millisecond
                                         
                                         
 
@@ -19240,7 +19518,7 @@ class Ospfv3(object):
                                         .. attribute:: all
                                         
                                         	All
-                                        	**type**\:  :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All>`
+                                        	**type**\:   :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All>`
                                         
                                         
 
@@ -19331,7 +19609,7 @@ class Ospfv3(object):
                                         .. attribute:: in_
                                         
                                         	Filter prefixes installed to RIB
-                                        	**type**\:  :py:class:`In <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In>`
+                                        	**type**\:   :py:class:`In_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_>`
                                         
                                         
 
@@ -19342,11 +19620,11 @@ class Ospfv3(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.in_ = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In()
+                                            self.in_ = Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_()
                                             self.in_.parent = self
 
 
-                                        class In(object):
+                                        class In_(object):
                                             """
                                             Filter prefixes installed to RIB
                                             
@@ -19388,7 +19666,7 @@ class Ospfv3(object):
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
-                                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In']['meta_info']
+                                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -19422,17 +19700,17 @@ class Ospfv3(object):
                                         .. attribute:: fast_reroute_enable
                                         
                                         	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                                        	**type**\:  :py:class:`Ospfv3FastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteEnum>`
+                                        	**type**\:   :py:class:`Ospfv3FastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteEnum>`
                                         
                                         .. attribute:: per_link
                                         
                                         	Fast\-reroute per\-link configuration
-                                        	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink>`
+                                        	**type**\:   :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink>`
                                         
                                         .. attribute:: per_prefix
                                         
                                         	Fast\-reroute per\-link configuration
-                                        	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix>`
+                                        	**type**\:   :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix>`
                                         
                                         
 
@@ -19457,17 +19735,19 @@ class Ospfv3(object):
                                             .. attribute:: candidate_interfaces
                                             
                                             	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                            	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces>`
+                                            	**type**\:   :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces>`
                                             
                                             .. attribute:: exclude_interfaces
                                             
                                             	Fast\-reroute per\-link/per\-prefix exclude interface configuration
-                                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces>`
+                                            	**type**\:   :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces>`
                                             
                                             .. attribute:: fast_reroute_use_candidate_only
                                             
                                             	Use only interfaces on the candidate list as a backup path
                                             	**type**\:  bool
+                                            
+                                            	**default value**\: false
                                             
                                             
 
@@ -19493,7 +19773,7 @@ class Ospfv3(object):
                                                 .. attribute:: candidate_interface
                                                 
                                                 	Candidate backup interface
-                                                	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
+                                                	**type**\: list of    :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
                                                 
                                                 
 
@@ -19592,7 +19872,7 @@ class Ospfv3(object):
                                                 .. attribute:: exclude_interface
                                                 
                                                 	Exclude an interface from becoming a backup
-                                                	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
+                                                	**type**\: list of    :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
                                                 
                                                 
 
@@ -19720,17 +20000,19 @@ class Ospfv3(object):
                                             .. attribute:: candidate_interfaces
                                             
                                             	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                            	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces>`
+                                            	**type**\:   :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces>`
                                             
                                             .. attribute:: exclude_interfaces
                                             
                                             	Fast\-reroute per\-link/per\-prefix exclude interface configuration
-                                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces>`
+                                            	**type**\:   :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces>`
                                             
                                             .. attribute:: fast_reroute_use_candidate_only
                                             
                                             	Use only interfaces on the candidate list as a backup path
                                             	**type**\:  bool
+                                            
+                                            	**default value**\: false
                                             
                                             
 
@@ -19756,7 +20038,7 @@ class Ospfv3(object):
                                                 .. attribute:: candidate_interface
                                                 
                                                 	Candidate backup interface
-                                                	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
+                                                	**type**\: list of    :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
                                                 
                                                 
 
@@ -19855,7 +20137,7 @@ class Ospfv3(object):
                                                 .. attribute:: exclude_interface
                                                 
                                                 	Exclude an interface from becoming a backup
-                                                	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
+                                                	**type**\: list of    :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
                                                 
                                                 
 
@@ -20134,7 +20416,7 @@ class Ospfv3(object):
                                 .. attribute:: fast_reroute
                                 
                                 	Fast\-reroute configuration
-                                	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute>`
+                                	**type**\:   :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute>`
                                 
                                 
 
@@ -20156,17 +20438,17 @@ class Ospfv3(object):
                                     .. attribute:: fast_reroute_enable
                                     
                                     	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                                    	**type**\:  :py:class:`Ospfv3FastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteEnum>`
+                                    	**type**\:   :py:class:`Ospfv3FastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteEnum>`
                                     
                                     .. attribute:: per_link
                                     
                                     	Fast\-reroute per\-link configuration
-                                    	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink>`
+                                    	**type**\:   :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink>`
                                     
                                     .. attribute:: per_prefix
                                     
                                     	Fast\-reroute per\-link configuration
-                                    	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix>`
+                                    	**type**\:   :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix>`
                                     
                                     
 
@@ -20191,17 +20473,19 @@ class Ospfv3(object):
                                         .. attribute:: candidate_interfaces
                                         
                                         	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                        	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces>`
+                                        	**type**\:   :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces>`
                                         
                                         .. attribute:: exclude_interfaces
                                         
                                         	Fast\-reroute per\-link/per\-prefix exclude interface configuration
-                                        	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces>`
+                                        	**type**\:   :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces>`
                                         
                                         .. attribute:: fast_reroute_use_candidate_only
                                         
                                         	Use only interfaces on the candidate list as a backup path
                                         	**type**\:  bool
+                                        
+                                        	**default value**\: false
                                         
                                         
 
@@ -20227,7 +20511,7 @@ class Ospfv3(object):
                                             .. attribute:: candidate_interface
                                             
                                             	Candidate backup interface
-                                            	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
+                                            	**type**\: list of    :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
                                             
                                             
 
@@ -20326,7 +20610,7 @@ class Ospfv3(object):
                                             .. attribute:: exclude_interface
                                             
                                             	Exclude an interface from becoming a backup
-                                            	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
+                                            	**type**\: list of    :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
                                             
                                             
 
@@ -20454,17 +20738,19 @@ class Ospfv3(object):
                                         .. attribute:: candidate_interfaces
                                         
                                         	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                        	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces>`
+                                        	**type**\:   :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces>`
                                         
                                         .. attribute:: exclude_interfaces
                                         
                                         	Fast\-reroute per\-link/per\-prefix exclude interface configuration
-                                        	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces>`
+                                        	**type**\:   :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces>`
                                         
                                         .. attribute:: fast_reroute_use_candidate_only
                                         
                                         	Use only interfaces on the candidate list as a backup path
                                         	**type**\:  bool
+                                        
+                                        	**default value**\: false
                                         
                                         
 
@@ -20490,7 +20776,7 @@ class Ospfv3(object):
                                             .. attribute:: candidate_interface
                                             
                                             	Candidate backup interface
-                                            	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
+                                            	**type**\: list of    :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
                                             
                                             
 
@@ -20589,7 +20875,7 @@ class Ospfv3(object):
                                             .. attribute:: exclude_interface
                                             
                                             	Exclude an interface from becoming a backup
-                                            	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
+                                            	**type**\: list of    :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
                                             
                                             
 
@@ -20771,7 +21057,7 @@ class Ospfv3(object):
                                 .. attribute:: sham_link
                                 
                                 	ShamLink local and remote endpoints
-                                	**type**\: list of  :py:class:`ShamLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink>`
+                                	**type**\: list of    :py:class:`ShamLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink>`
                                 
                                 
 
@@ -20808,7 +21094,7 @@ class Ospfv3(object):
                                     .. attribute:: authentication
                                     
                                     	Authenticate OSPFv3 packets
-                                    	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication>`
+                                    	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Authentication>`
                                     
                                     .. attribute:: dead_interval
                                     
@@ -20817,15 +21103,17 @@ class Ospfv3(object):
                                     
                                     	**range:** 1..65535
                                     
+                                    	**units**\: second
+                                    
                                     .. attribute:: enable
                                     
                                     	Enable sham link
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: encryption
                                     
                                     	Encrypt and authenticate OSPFv3 packets
-                                    	**type**\:  :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Encryption>`
+                                    	**type**\:   :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinks.ShamLink.Encryption>`
                                     
                                     .. attribute:: hello_interval
                                     
@@ -20834,6 +21122,8 @@ class Ospfv3(object):
                                     
                                     	**range:** 1..65535
                                     
+                                    	**units**\: second
+                                    
                                     .. attribute:: retransmit_interval
                                     
                                     	Specify the transmit interval in seconds
@@ -20841,12 +21131,16 @@ class Ospfv3(object):
                                     
                                     	**range:** 1..65535
                                     
+                                    	**units**\: second
+                                    
                                     .. attribute:: transmit_delay
                                     
                                     	Specify the transmit delay in seconds
                                     	**type**\:  int
                                     
                                     	**range:** 1..65535
+                                    
+                                    	**units**\: second
                                     
                                     
 
@@ -20877,7 +21171,7 @@ class Ospfv3(object):
                                         .. attribute:: algorithm
                                         
                                         	Use the MD5 or SHA1 algorithm
-                                        	**type**\:  :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
+                                        	**type**\:   :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
                                         
                                         .. attribute:: enable
                                         
@@ -20953,7 +21247,7 @@ class Ospfv3(object):
                                         .. attribute:: authentication_algorithm
                                         
                                         	Use the NULL, MD5 or SHA1 algorithm
-                                        	**type**\:  :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
+                                        	**type**\:   :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
                                         
                                         .. attribute:: authentication_password
                                         
@@ -20970,7 +21264,7 @@ class Ospfv3(object):
                                         .. attribute:: encryption_algorithm
                                         
                                         	Specify the encryption algorithm
-                                        	**type**\:  :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
+                                        	**type**\:   :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
                                         
                                         .. attribute:: encryption_password
                                         
@@ -21127,7 +21421,7 @@ class Ospfv3(object):
                                 .. attribute:: virtual_link
                                 
                                 	Router ID of virtual link neighbor
-                                	**type**\: list of  :py:class:`VirtualLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink>`
+                                	**type**\: list of    :py:class:`VirtualLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink>`
                                 
                                 
 
@@ -21157,7 +21451,7 @@ class Ospfv3(object):
                                     .. attribute:: authentication
                                     
                                     	Authenticate OSPFv3 packets
-                                    	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication>`
+                                    	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Authentication>`
                                     
                                     .. attribute:: dead_interval
                                     
@@ -21166,15 +21460,17 @@ class Ospfv3(object):
                                     
                                     	**range:** 1..65535
                                     
+                                    	**units**\: second
+                                    
                                     .. attribute:: enable
                                     
                                     	Enabled virtual link
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: encryption
                                     
                                     	Encrypt and authenticate OSPFv3 packets
-                                    	**type**\:  :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Encryption>`
+                                    	**type**\:   :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinks.VirtualLink.Encryption>`
                                     
                                     .. attribute:: hello_interval
                                     
@@ -21183,6 +21479,8 @@ class Ospfv3(object):
                                     
                                     	**range:** 1..65535
                                     
+                                    	**units**\: second
+                                    
                                     .. attribute:: retransmit_interval
                                     
                                     	Specify the transmit interval in seconds
@@ -21190,12 +21488,16 @@ class Ospfv3(object):
                                     
                                     	**range:** 1..65535
                                     
+                                    	**units**\: second
+                                    
                                     .. attribute:: transmit_delay
                                     
                                     	Specify the transmit delay in seconds
                                     	**type**\:  int
                                     
                                     	**range:** 1..65535
+                                    
+                                    	**units**\: second
                                     
                                     
 
@@ -21225,7 +21527,7 @@ class Ospfv3(object):
                                         .. attribute:: algorithm
                                         
                                         	Use the MD5 or SHA1 algorithm
-                                        	**type**\:  :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
+                                        	**type**\:   :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
                                         
                                         .. attribute:: enable
                                         
@@ -21301,7 +21603,7 @@ class Ospfv3(object):
                                         .. attribute:: authentication_algorithm
                                         
                                         	Use the NULL, MD5 or SHA1 algorithm
-                                        	**type**\:  :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
+                                        	**type**\:   :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
                                         
                                         .. attribute:: authentication_password
                                         
@@ -21318,7 +21620,7 @@ class Ospfv3(object):
                                         .. attribute:: encryption_algorithm
                                         
                                         	Specify the encryption algorithm
-                                        	**type**\:  :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
+                                        	**type**\:   :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
                                         
                                         .. attribute:: encryption_password
                                         
@@ -21614,17 +21916,17 @@ class Ospfv3(object):
                         .. attribute:: lsa_timers
                         
                         	LSA timers
-                        	**type**\:  :py:class:`LsaTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Timers.LsaTimers>`
+                        	**type**\:   :py:class:`LsaTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Timers.LsaTimers>`
                         
                         .. attribute:: pacing
                         
                         	Pacing timers
-                        	**type**\:  :py:class:`Pacing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Pacing>`
+                        	**type**\:   :py:class:`Pacing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Pacing>`
                         
                         .. attribute:: throttle
                         
                         	Throttle timers
-                        	**type**\:  :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle>`
+                        	**type**\:   :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle>`
                         
                         
 
@@ -21654,12 +21956,16 @@ class Ospfv3(object):
                             
                             	**range:** 5..100
                             
+                            	**units**\: millisecond
+                            
                             .. attribute:: lsa_group
                             
                             	Interval in seconds at which LSAs are grouped and refreshed, checksummed, or aged
                             	**type**\:  int
                             
                             	**range:** 10..1800
+                            
+                            	**units**\: second
                             
                             .. attribute:: retransmission
                             
@@ -21723,6 +22029,8 @@ class Ospfv3(object):
                             
                             	**range:** 0..60000
                             
+                            	**units**\: millisecond
+                            
                             
 
                             """
@@ -21766,12 +22074,12 @@ class Ospfv3(object):
                             .. attribute:: lsa
                             
                             	LSA throttle timers for all types of OSPF LSAs
-                            	**type**\:  :py:class:`Lsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Lsa>`
+                            	**type**\:   :py:class:`Lsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Lsa>`
                             
                             .. attribute:: spf
                             
                             	SPF throttle timers
-                            	**type**\:  :py:class:`Spf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Spf>`
+                            	**type**\:   :py:class:`Spf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Timers.Throttle.Spf>`
                             
                             
 
@@ -21799,6 +22107,8 @@ class Ospfv3(object):
                                 
                                 	**range:** 0..600000
                                 
+                                	**units**\: millisecond
+                                
                                 .. attribute:: maximum_delay
                                 
                                 	Maximum delay between originating the same LSA in milliseconds
@@ -21806,12 +22116,16 @@ class Ospfv3(object):
                                 
                                 	**range:** 1..600000
                                 
+                                	**units**\: millisecond
+                                
                                 .. attribute:: minimum_delay
                                 
                                 	Minimum delay between originating the same LSA in milliseconds
                                 	**type**\:  int
                                 
                                 	**range:** 1..600000
+                                
+                                	**units**\: millisecond
                                 
                                 
 
@@ -21991,7 +22305,7 @@ class Ospfv3(object):
                         .. attribute:: summary_prefix
                         
                         	IPv6 address
-                        	**type**\: list of  :py:class:`SummaryPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes.SummaryPrefix>`
+                        	**type**\: list of    :py:class:`SummaryPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes.SummaryPrefix>`
                         
                         
 
@@ -22127,7 +22441,7 @@ class Ospfv3(object):
                         .. attribute:: trap_rate_limit
                         
                         	SNMP trap rate configuration
-                        	**type**\:  :py:class:`TrapRateLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Snmp.TrapRateLimit>`
+                        	**type**\:   :py:class:`TrapRateLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Snmp.TrapRateLimit>`
                         
                         
 
@@ -22235,12 +22549,12 @@ class Ospfv3(object):
                         .. attribute:: per_link
                         
                         	Fast\-reroute per\-link global configuration
-                        	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerLink>`
+                        	**type**\:   :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerLink>`
                         
                         .. attribute:: per_prefix
                         
                         	Fast\-reroute per\-prefix global configuration
-                        	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix>`
+                        	**type**\:   :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix>`
                         
                         
 
@@ -22264,7 +22578,7 @@ class Ospfv3(object):
                             .. attribute:: priority
                             
                             	Fast\-reroute per\-link/per\-prefix priority\-limit command
-                            	**type**\:  :py:class:`Ospfv3FastReroutePriorityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastReroutePriorityEnum>`
+                            	**type**\:   :py:class:`Ospfv3FastReroutePriorityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastReroutePriorityEnum>`
                             
                             
 
@@ -22309,17 +22623,17 @@ class Ospfv3(object):
                             .. attribute:: load_sharing_disable
                             
                             	Disable load sharing between multiple backups
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: priority
                             
                             	Fast\-reroute per\-link/per\-prefix priority\-limit command
-                            	**type**\:  :py:class:`Ospfv3FastReroutePriorityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastReroutePriorityEnum>`
+                            	**type**\:   :py:class:`Ospfv3FastReroutePriorityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastReroutePriorityEnum>`
                             
                             .. attribute:: tiebreakers
                             
                             	Fast\-reroute tiebreakers configurations
-                            	**type**\:  :py:class:`Tiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers>`
+                            	**type**\:   :py:class:`Tiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers>`
                             
                             
 
@@ -22343,7 +22657,7 @@ class Ospfv3(object):
                                 .. attribute:: tiebreaker
                                 
                                 	Fast\-reroute tiebreakers configuration
-                                	**type**\: list of  :py:class:`Tiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker>`
+                                	**type**\: list of    :py:class:`Tiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker>`
                                 
                                 
 
@@ -22366,7 +22680,7 @@ class Ospfv3(object):
                                     .. attribute:: tiebreaker_type  <key>
                                     
                                     	Tiebreaker type
-                                    	**type**\:  :py:class:`Ospfv3FastRerouteTiebreakersEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteTiebreakersEnum>`
+                                    	**type**\:   :py:class:`Ospfv3FastRerouteTiebreakersEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteTiebreakersEnum>`
                                     
                                     .. attribute:: tiebreaker_index
                                     
@@ -22516,7 +22830,7 @@ class Ospfv3(object):
                         .. attribute:: ospfv3
                         
                         	OSPFv3 administrative distance
-                        	**type**\:  :py:class:`Ospfv3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3>`
+                        	**type**\:   :py:class:`Ospfv3_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3_>`
                         
                         
 
@@ -22528,11 +22842,11 @@ class Ospfv3(object):
                         def __init__(self):
                             self.parent = None
                             self.administrative = None
-                            self.ospfv3 = Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3()
+                            self.ospfv3 = Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3_()
                             self.ospfv3.parent = self
 
 
-                        class Ospfv3(object):
+                        class Ospfv3_(object):
                             """
                             OSPFv3 administrative distance
                             
@@ -22598,7 +22912,7 @@ class Ospfv3(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
-                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3']['meta_info']
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3_']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -22649,7 +22963,7 @@ class Ospfv3(object):
                         .. attribute:: redistributed_prefixes
                         
                         	Limit number of redistributed prefixes
-                        	**type**\:  :py:class:`RedistributedPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Maximum.RedistributedPrefixes>`
+                        	**type**\:   :py:class:`RedistributedPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Maximum.RedistributedPrefixes>`
                         
                         
 
@@ -22687,7 +23001,7 @@ class Ospfv3(object):
                             .. attribute:: warning_only
                             
                             	Only give warning message when limit is exceeded
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -22771,7 +23085,7 @@ class Ospfv3(object):
                         .. attribute:: redistribute
                         
                         	Redistribute information from another routing protocol
-                        	**type**\: list of  :py:class:`Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute>`
+                        	**type**\: list of    :py:class:`Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute>`
                         
                         
 
@@ -22795,27 +23109,29 @@ class Ospfv3(object):
                             .. attribute:: protocol_name  <key>
                             
                             	Protocol
-                            	**type**\:  :py:class:`Ospfv3ProtocolType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ProtocolType2Enum>`
+                            	**type**\:   :py:class:`Ospfv3ProtocolType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ProtocolType2Enum>`
                             
                             .. attribute:: bgp
                             
                             	bgp
-                            	**type**\: list of  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Bgp>`
+                            	**type**\: list of    :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Bgp>`
                             
                             .. attribute:: connected_or_static_or_subscriber_or_mobile
                             
                             	connected or static or subscriber or mobile
-                            	**type**\:  :py:class:`ConnectedOrStaticOrSubscriberOrMobile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile>`
+                            	**type**\:   :py:class:`ConnectedOrStaticOrSubscriberOrMobile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile>`
+                            
+                            	**presence node**\: True
                             
                             .. attribute:: eigrp
                             
                             	eigrp
-                            	**type**\: list of  :py:class:`Eigrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Eigrp>`
+                            	**type**\: list of    :py:class:`Eigrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Eigrp>`
                             
                             .. attribute:: ospfv3_or_isis_or_application
                             
                             	ospfv3 or isis or application
-                            	**type**\: list of  :py:class:`Ospfv3OrIsisOrApplication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication>`
+                            	**type**\: list of    :py:class:`Ospfv3OrIsisOrApplication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Ospfv3OrIsisOrApplication>`
                             
                             
 
@@ -22853,42 +23169,42 @@ class Ospfv3(object):
                                 .. attribute:: eigrp_route_type
                                 
                                 	EIGRP route type
-                                	**type**\:  :py:class:`Ospfv3EigrpRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EigrpRouteEnum>`
+                                	**type**\:   :py:class:`Ospfv3EigrpRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EigrpRouteEnum>`
                                 
                                 .. attribute:: external_route_type
                                 
                                 	Redistribute OSPFv3 external routes
-                                	**type**\:  :py:class:`Ospfv3ExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ExternalRouteEnum>`
+                                	**type**\:   :py:class:`Ospfv3ExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ExternalRouteEnum>`
                                 
                                 .. attribute:: internal_route_type
                                 
                                 	Redistribute OSPFv3 routes
-                                	**type**\:  :py:class:`Ospfv3InternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3InternalRouteEnum>`
+                                	**type**\:   :py:class:`Ospfv3InternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3InternalRouteEnum>`
                                 
                                 .. attribute:: isis_route_type
                                 
                                 	ISIS route type
-                                	**type**\:  :py:class:`Ospfv3IsisRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3IsisRouteEnum>`
+                                	**type**\:   :py:class:`Ospfv3IsisRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3IsisRouteEnum>`
                                 
                                 .. attribute:: metric_type
                                 
                                 	OSPFv3 exterior metric type for redistributed routes
-                                	**type**\:  :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
+                                	**type**\:   :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
                                 
                                 .. attribute:: nssa_external_route_type
                                 
                                 	Redistribute OSPFv3 NSSA external routes
-                                	**type**\:  :py:class:`Ospfv3NssaExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NssaExternalRouteEnum>`
+                                	**type**\:   :py:class:`Ospfv3NssaExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NssaExternalRouteEnum>`
                                 
                                 .. attribute:: preserve_med
                                 
                                 	Preserve (Multi\-Exit Discriminator) of BGP routes
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: preserve_med_info
                                 
                                 	Preserve Information (Multi\-Exit Discriminator) of BGP routes
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: redistribute_route
                                 
@@ -23025,42 +23341,42 @@ class Ospfv3(object):
                                 .. attribute:: eigrp_route_type
                                 
                                 	EIGRP route type
-                                	**type**\:  :py:class:`Ospfv3EigrpRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EigrpRouteEnum>`
+                                	**type**\:   :py:class:`Ospfv3EigrpRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EigrpRouteEnum>`
                                 
                                 .. attribute:: external_route_type
                                 
                                 	Redistribute OSPFv3 external routes
-                                	**type**\:  :py:class:`Ospfv3ExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ExternalRouteEnum>`
+                                	**type**\:   :py:class:`Ospfv3ExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ExternalRouteEnum>`
                                 
                                 .. attribute:: internal_route_type
                                 
                                 	Redistribute OSPFv3 routes
-                                	**type**\:  :py:class:`Ospfv3InternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3InternalRouteEnum>`
+                                	**type**\:   :py:class:`Ospfv3InternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3InternalRouteEnum>`
                                 
                                 .. attribute:: isis_route_type
                                 
                                 	ISIS route type
-                                	**type**\:  :py:class:`Ospfv3IsisRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3IsisRouteEnum>`
+                                	**type**\:   :py:class:`Ospfv3IsisRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3IsisRouteEnum>`
                                 
                                 .. attribute:: metric_type
                                 
                                 	OSPFv3 exterior metric type for redistributed routes
-                                	**type**\:  :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
+                                	**type**\:   :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
                                 
                                 .. attribute:: nssa_external_route_type
                                 
                                 	Redistribute OSPFv3 NSSA external routes
-                                	**type**\:  :py:class:`Ospfv3NssaExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NssaExternalRouteEnum>`
+                                	**type**\:   :py:class:`Ospfv3NssaExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NssaExternalRouteEnum>`
                                 
                                 .. attribute:: preserve_med
                                 
                                 	Preserve (Multi\-Exit Discriminator) of BGP routes
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: preserve_med_info
                                 
                                 	Preserve Information (Multi\-Exit Discriminator) of BGP routes
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: redistribute_route
                                 
@@ -23192,42 +23508,42 @@ class Ospfv3(object):
                                 .. attribute:: eigrp_route_type
                                 
                                 	EIGRP route type
-                                	**type**\:  :py:class:`Ospfv3EigrpRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EigrpRouteEnum>`
+                                	**type**\:   :py:class:`Ospfv3EigrpRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EigrpRouteEnum>`
                                 
                                 .. attribute:: external_route_type
                                 
                                 	Redistribute OSPFv3 external routes
-                                	**type**\:  :py:class:`Ospfv3ExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ExternalRouteEnum>`
+                                	**type**\:   :py:class:`Ospfv3ExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ExternalRouteEnum>`
                                 
                                 .. attribute:: internal_route_type
                                 
                                 	Redistribute OSPFv3 routes
-                                	**type**\:  :py:class:`Ospfv3InternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3InternalRouteEnum>`
+                                	**type**\:   :py:class:`Ospfv3InternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3InternalRouteEnum>`
                                 
                                 .. attribute:: isis_route_type
                                 
                                 	ISIS route type
-                                	**type**\:  :py:class:`Ospfv3IsisRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3IsisRouteEnum>`
+                                	**type**\:   :py:class:`Ospfv3IsisRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3IsisRouteEnum>`
                                 
                                 .. attribute:: metric_type
                                 
                                 	OSPFv3 exterior metric type for redistributed routes
-                                	**type**\:  :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
+                                	**type**\:   :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
                                 
                                 .. attribute:: nssa_external_route_type
                                 
                                 	Redistribute OSPFv3 NSSA external routes
-                                	**type**\:  :py:class:`Ospfv3NssaExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NssaExternalRouteEnum>`
+                                	**type**\:   :py:class:`Ospfv3NssaExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NssaExternalRouteEnum>`
                                 
                                 .. attribute:: preserve_med
                                 
                                 	Preserve (Multi\-Exit Discriminator) of BGP routes
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: preserve_med_info
                                 
                                 	Preserve Information (Multi\-Exit Discriminator) of BGP routes
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: redistribute_route
                                 
@@ -23353,42 +23669,42 @@ class Ospfv3(object):
                                 .. attribute:: eigrp_route_type
                                 
                                 	EIGRP route type
-                                	**type**\:  :py:class:`Ospfv3EigrpRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EigrpRouteEnum>`
+                                	**type**\:   :py:class:`Ospfv3EigrpRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EigrpRouteEnum>`
                                 
                                 .. attribute:: external_route_type
                                 
                                 	Redistribute OSPFv3 external routes
-                                	**type**\:  :py:class:`Ospfv3ExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ExternalRouteEnum>`
+                                	**type**\:   :py:class:`Ospfv3ExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ExternalRouteEnum>`
                                 
                                 .. attribute:: internal_route_type
                                 
                                 	Redistribute OSPFv3 routes
-                                	**type**\:  :py:class:`Ospfv3InternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3InternalRouteEnum>`
+                                	**type**\:   :py:class:`Ospfv3InternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3InternalRouteEnum>`
                                 
                                 .. attribute:: isis_route_type
                                 
                                 	ISIS route type
-                                	**type**\:  :py:class:`Ospfv3IsisRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3IsisRouteEnum>`
+                                	**type**\:   :py:class:`Ospfv3IsisRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3IsisRouteEnum>`
                                 
                                 .. attribute:: metric_type
                                 
                                 	OSPFv3 exterior metric type for redistributed routes
-                                	**type**\:  :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
+                                	**type**\:   :py:class:`Ospfv3MetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3MetricEnum>`
                                 
                                 .. attribute:: nssa_external_route_type
                                 
                                 	Redistribute OSPFv3 NSSA external routes
-                                	**type**\:  :py:class:`Ospfv3NssaExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NssaExternalRouteEnum>`
+                                	**type**\:   :py:class:`Ospfv3NssaExternalRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3NssaExternalRouteEnum>`
                                 
                                 .. attribute:: preserve_med
                                 
                                 	Preserve (Multi\-Exit Discriminator) of BGP routes
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: preserve_med_info
                                 
                                 	Preserve Information (Multi\-Exit Discriminator) of BGP routes
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: redistribute_route
                                 
@@ -23570,7 +23886,7 @@ class Ospfv3(object):
                         .. attribute:: lsa
                         
                         	Do not complain upon receiving LSA of the specified type
-                        	**type**\:  :py:class:`Lsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Ignore.Lsa>`
+                        	**type**\:   :py:class:`Lsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.Ignore.Lsa>`
                         
                         
 
@@ -23593,7 +23909,7 @@ class Ospfv3(object):
                             .. attribute:: mospf
                             
                             	Enable ignore of MOSPF type 6 LSA
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -23662,7 +23978,7 @@ class Ospfv3(object):
                         .. attribute:: distribute_outs
                         
                         	Filter generated type\-5 LSAs
-                        	**type**\:  :py:class:`DistributeOuts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts>`
+                        	**type**\:   :py:class:`DistributeOuts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts>`
                         
                         
 
@@ -23684,7 +24000,7 @@ class Ospfv3(object):
                             .. attribute:: distribute_out
                             
                             	Filter generated type\-5 LSAs
-                            	**type**\: list of  :py:class:`DistributeOut <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut>`
+                            	**type**\: list of    :py:class:`DistributeOut <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut>`
                             
                             
 
@@ -23707,12 +24023,12 @@ class Ospfv3(object):
                                 .. attribute:: protocol_name  <key>
                                 
                                 	none
-                                	**type**\:  :py:class:`Ospfv3ProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ProtocolEnum>`
+                                	**type**\:   :py:class:`Ospfv3ProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3ProtocolEnum>`
                                 
                                 .. attribute:: as_yy_and_as_xx_and_process_name
                                 
                                 	keys\: as\-yy, as\-xx, process\-name
-                                	**type**\: list of  :py:class:`AsYyAndAsXxAndProcessName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.AsYyAndAsXxAndProcessName>`
+                                	**type**\: list of    :py:class:`AsYyAndAsXxAndProcessName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.AsYyAndAsXxAndProcessName>`
                                 
                                 
 
@@ -23903,7 +24219,7 @@ class Ospfv3(object):
                         .. attribute:: in_
                         
                         	Filter prefixes installed to RIB
-                        	**type**\:  :py:class:`In <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In>`
+                        	**type**\:   :py:class:`In_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In_>`
                         
                         
 
@@ -23914,11 +24230,11 @@ class Ospfv3(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.in_ = Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In()
+                            self.in_ = Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In_()
                             self.in_.parent = self
 
 
-                        class In(object):
+                        class In_(object):
                             """
                             Filter prefixes installed to RIB
                             
@@ -23960,7 +24276,7 @@ class Ospfv3(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ospfv3_cfg as meta
-                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In']['meta_info']
+                                return meta._meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In_']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -23994,17 +24310,17 @@ class Ospfv3(object):
                         .. attribute:: max_metric
                         
                         	Stub router max\-metric configuration
-                        	**type**\:  :py:class:`MaxMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric>`
+                        	**type**\:   :py:class:`MaxMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric>`
                         
                         .. attribute:: rbit
                         
                         	Stub router R\-bit configuration
-                        	**type**\:  :py:class:`Rbit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit>`
+                        	**type**\:   :py:class:`Rbit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit>`
                         
                         .. attribute:: v6bit
                         
                         	Stub router V6\-bit configuration
-                        	**type**\:  :py:class:`V6Bit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit>`
+                        	**type**\:   :py:class:`V6Bit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit>`
                         
                         
 
@@ -24030,12 +24346,12 @@ class Ospfv3(object):
                             .. attribute:: always
                             
                             	Unconditionally enter stub router operational state
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: enable
                             
                             	Enabled stub router configuration mode
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: external_lsa
                             
@@ -24044,10 +24360,12 @@ class Ospfv3(object):
                             
                             	**range:** 1..16777214
                             
+                            	**default value**\: 16711680
+                            
                             .. attribute:: include_stub
                             
                             	Advertise stub links with maximum metric in stub router mode
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: on_proc_migration
                             
@@ -24056,6 +24374,8 @@ class Ospfv3(object):
                             
                             	**range:** 5..86400
                             
+                            	**units**\: second
+                            
                             .. attribute:: on_proc_restart
                             
                             	Time (in seconds) to stay in stub router operational state
@@ -24063,10 +24383,12 @@ class Ospfv3(object):
                             
                             	**range:** 5..86400
                             
+                            	**units**\: second
+                            
                             .. attribute:: on_startup
                             
                             	Enter stub router operational state on startup
-                            	**type**\:  :py:class:`OnStartup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit.OnStartup>`
+                            	**type**\:   :py:class:`OnStartup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit.OnStartup>`
                             
                             .. attribute:: on_switchover
                             
@@ -24075,12 +24397,16 @@ class Ospfv3(object):
                             
                             	**range:** 5..86400
                             
+                            	**units**\: second
+                            
                             .. attribute:: summary_lsa
                             
                             	Advertise summary LSAs with modified metric in stub router mode
                             	**type**\:  int
                             
                             	**range:** 1..16777214
+                            
+                            	**default value**\: 16711680
                             
                             
 
@@ -24112,12 +24438,16 @@ class Ospfv3(object):
                                 	Wait until BGP converges (only applicable to default VRF)
                                 	**type**\:  bool
                                 
+                                	**default value**\: false
+                                
                                 .. attribute:: wait_time
                                 
                                 	Time (in seconds) to stay in stub router operational state
                                 	**type**\:  int
                                 
                                 	**range:** 5..86400
+                                
+                                	**units**\: second
                                 
                                 
 
@@ -24214,12 +24544,12 @@ class Ospfv3(object):
                             .. attribute:: always
                             
                             	Unconditionally enter stub router operational state
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: enable
                             
                             	Enabled stub router configuration mode
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: external_lsa
                             
@@ -24228,10 +24558,12 @@ class Ospfv3(object):
                             
                             	**range:** 1..16777214
                             
+                            	**default value**\: 16711680
+                            
                             .. attribute:: include_stub
                             
                             	Advertise stub links with maximum metric in stub router mode
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: on_proc_migration
                             
@@ -24240,6 +24572,8 @@ class Ospfv3(object):
                             
                             	**range:** 5..86400
                             
+                            	**units**\: second
+                            
                             .. attribute:: on_proc_restart
                             
                             	Time (in seconds) to stay in stub router operational state
@@ -24247,10 +24581,12 @@ class Ospfv3(object):
                             
                             	**range:** 5..86400
                             
+                            	**units**\: second
+                            
                             .. attribute:: on_startup
                             
                             	Enter stub router operational state on startup
-                            	**type**\:  :py:class:`OnStartup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit.OnStartup>`
+                            	**type**\:   :py:class:`OnStartup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit.OnStartup>`
                             
                             .. attribute:: on_switchover
                             
@@ -24259,12 +24595,16 @@ class Ospfv3(object):
                             
                             	**range:** 5..86400
                             
+                            	**units**\: second
+                            
                             .. attribute:: summary_lsa
                             
                             	Advertise summary LSAs with modified metric in stub router mode
                             	**type**\:  int
                             
                             	**range:** 1..16777214
+                            
+                            	**default value**\: 16711680
                             
                             
 
@@ -24296,12 +24636,16 @@ class Ospfv3(object):
                                 	Wait until BGP converges (only applicable to default VRF)
                                 	**type**\:  bool
                                 
+                                	**default value**\: false
+                                
                                 .. attribute:: wait_time
                                 
                                 	Time (in seconds) to stay in stub router operational state
                                 	**type**\:  int
                                 
                                 	**range:** 5..86400
+                                
+                                	**units**\: second
                                 
                                 
 
@@ -24398,12 +24742,12 @@ class Ospfv3(object):
                             .. attribute:: always
                             
                             	Unconditionally enter stub router operational state
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: enable
                             
                             	Enabled stub router configuration mode
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: external_lsa
                             
@@ -24412,10 +24756,12 @@ class Ospfv3(object):
                             
                             	**range:** 1..16777214
                             
+                            	**default value**\: 16711680
+                            
                             .. attribute:: include_stub
                             
                             	Advertise stub links with maximum metric in stub router mode
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: on_proc_migration
                             
@@ -24424,6 +24770,8 @@ class Ospfv3(object):
                             
                             	**range:** 5..86400
                             
+                            	**units**\: second
+                            
                             .. attribute:: on_proc_restart
                             
                             	Time (in seconds) to stay in stub router operational state
@@ -24431,10 +24779,12 @@ class Ospfv3(object):
                             
                             	**range:** 5..86400
                             
+                            	**units**\: second
+                            
                             .. attribute:: on_startup
                             
                             	Enter stub router operational state on startup
-                            	**type**\:  :py:class:`OnStartup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric.OnStartup>`
+                            	**type**\:   :py:class:`OnStartup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric.OnStartup>`
                             
                             .. attribute:: on_switchover
                             
@@ -24443,12 +24793,16 @@ class Ospfv3(object):
                             
                             	**range:** 5..86400
                             
+                            	**units**\: second
+                            
                             .. attribute:: summary_lsa
                             
                             	Advertise summary LSAs with modified metric in stub router mode
                             	**type**\:  int
                             
                             	**range:** 1..16777214
+                            
+                            	**default value**\: 16711680
                             
                             
 
@@ -24480,12 +24834,16 @@ class Ospfv3(object):
                                 	Wait until BGP converges (only applicable to default VRF)
                                 	**type**\:  bool
                                 
+                                	**default value**\: false
+                                
                                 .. attribute:: wait_time
                                 
                                 	Time (in seconds) to stay in stub router operational state
                                 	**type**\:  int
                                 
                                 	**range:** 5..86400
+                                
+                                	**units**\: second
                                 
                                 
 
@@ -24619,7 +24977,7 @@ class Ospfv3(object):
                         .. attribute:: fast_detect_mode
                         
                         	Enable or disable BFD fast detection
-                        	**type**\:  :py:class:`Ospfv3BfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3BfdEnableModeEnum>`
+                        	**type**\:   :py:class:`Ospfv3BfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3BfdEnableModeEnum>`
                         
                         .. attribute:: interval
                         
@@ -24627,6 +24985,8 @@ class Ospfv3(object):
                         	**type**\:  int
                         
                         	**range:** 3..30000
+                        
+                        	**units**\: millisecond
                         
                         
 
@@ -24679,7 +25039,7 @@ class Ospfv3(object):
                         .. attribute:: all
                         
                         	All
-                        	**type**\:  :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DatabaseFilter.All>`
+                        	**type**\:   :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DatabaseFilter.All>`
                         
                         
 
@@ -24701,7 +25061,7 @@ class Ospfv3(object):
                             .. attribute:: out
                             
                             	Enable out
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -24770,7 +25130,7 @@ class Ospfv3(object):
                         .. attribute:: algorithm
                         
                         	Use the MD5 or SHA1 algorithm
-                        	**type**\:  :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
+                        	**type**\:   :py:class:`Ospfv3AuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationEnum>`
                         
                         .. attribute:: enable
                         
@@ -24846,12 +25206,12 @@ class Ospfv3(object):
                         .. attribute:: enable
                         
                         	Enable graceful restart
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: helper
                         
                         	Disable router's helper support
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: interval
                         
@@ -24860,6 +25220,8 @@ class Ospfv3(object):
                         
                         	**range:** 90..3600
                         
+                        	**units**\: second
+                        
                         .. attribute:: lifetime
                         
                         	Maximum route lifetime following restart (seconds)
@@ -24867,10 +25229,12 @@ class Ospfv3(object):
                         
                         	**range:** 90..1800
                         
+                        	**units**\: second
+                        
                         .. attribute:: strict_lsa_checking
                         
                         	Terminate graceful restart helper mode if LSA changed
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -24931,7 +25295,9 @@ class Ospfv3(object):
                         .. attribute:: originate
                         
                         	Distribute a default route
-                        	**type**\:  :py:class:`Originate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DefaultInformation.Originate>`
+                        	**type**\:   :py:class:`Originate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.DefaultInformation.Originate>`
+                        
+                        	**presence node**\: True
                         
                         
 
@@ -25075,7 +25441,7 @@ class Ospfv3(object):
                         .. attribute:: fast_reroute
                         
                         	Fast\-reroute configuration
-                        	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute>`
+                        	**type**\:   :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute>`
                         
                         
 
@@ -25097,17 +25463,17 @@ class Ospfv3(object):
                             .. attribute:: fast_reroute_enable
                             
                             	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                            	**type**\:  :py:class:`Ospfv3FastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteEnum>`
+                            	**type**\:   :py:class:`Ospfv3FastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3FastRerouteEnum>`
                             
                             .. attribute:: per_link
                             
                             	Fast\-reroute per\-link configuration
-                            	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink>`
+                            	**type**\:   :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink>`
                             
                             .. attribute:: per_prefix
                             
                             	Fast\-reroute per\-link configuration
-                            	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix>`
+                            	**type**\:   :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix>`
                             
                             
 
@@ -25132,17 +25498,19 @@ class Ospfv3(object):
                                 .. attribute:: candidate_interfaces
                                 
                                 	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces>`
+                                	**type**\:   :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces>`
                                 
                                 .. attribute:: exclude_interfaces
                                 
                                 	Fast\-reroute per\-link/per\-prefix exclude interface configuration
-                                	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces>`
+                                	**type**\:   :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces>`
                                 
                                 .. attribute:: fast_reroute_use_candidate_only
                                 
                                 	Use only interfaces on the candidate list as a backup path
                                 	**type**\:  bool
+                                
+                                	**default value**\: false
                                 
                                 
 
@@ -25168,7 +25536,7 @@ class Ospfv3(object):
                                     .. attribute:: candidate_interface
                                     
                                     	Candidate backup interface
-                                    	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
+                                    	**type**\: list of    :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
                                     
                                     
 
@@ -25267,7 +25635,7 @@ class Ospfv3(object):
                                     .. attribute:: exclude_interface
                                     
                                     	Exclude an interface from becoming a backup
-                                    	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
+                                    	**type**\: list of    :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
                                     
                                     
 
@@ -25395,17 +25763,19 @@ class Ospfv3(object):
                                 .. attribute:: candidate_interfaces
                                 
                                 	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces>`
+                                	**type**\:   :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces>`
                                 
                                 .. attribute:: exclude_interfaces
                                 
                                 	Fast\-reroute per\-link/per\-prefix exclude interface configuration
-                                	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces>`
+                                	**type**\:   :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces>`
                                 
                                 .. attribute:: fast_reroute_use_candidate_only
                                 
                                 	Use only interfaces on the candidate list as a backup path
                                 	**type**\:  bool
+                                
+                                	**default value**\: false
                                 
                                 
 
@@ -25431,7 +25801,7 @@ class Ospfv3(object):
                                     .. attribute:: candidate_interface
                                     
                                     	Candidate backup interface
-                                    	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
+                                    	**type**\: list of    :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
                                     
                                     
 
@@ -25530,7 +25900,7 @@ class Ospfv3(object):
                                     .. attribute:: exclude_interface
                                     
                                     	Exclude an interface from becoming a backup
-                                    	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
+                                    	**type**\: list of    :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
                                     
                                     
 
@@ -25712,7 +26082,7 @@ class Ospfv3(object):
                         .. attribute:: authentication_algorithm
                         
                         	Use the NULL, MD5 or SHA1 algorithm
-                        	**type**\:  :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
+                        	**type**\:   :py:class:`Ospfv3AuthenticationType2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AuthenticationType2Enum>`
                         
                         .. attribute:: authentication_password
                         
@@ -25729,7 +26099,7 @@ class Ospfv3(object):
                         .. attribute:: encryption_algorithm
                         
                         	Specify the encryption algorithm
-                        	**type**\:  :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
+                        	**type**\:   :py:class:`Ospfv3EncryptionAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3EncryptionAlgorithmEnum>`
                         
                         .. attribute:: encryption_password
                         
@@ -25808,7 +26178,7 @@ class Ospfv3(object):
                         .. attribute:: disable
                         
                         	Specify 'true' to assign cost based on interface type
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: reference_bandwidth
                         
@@ -25816,6 +26186,8 @@ class Ospfv3(object):
                         	**type**\:  int
                         
                         	**range:** 1..4294967
+                        
+                        	**units**\: Mbit/s
                         
                         .. attribute:: _is_presence
                         
@@ -26052,14 +26424,14 @@ class Ospfv3(object):
                 .. attribute:: af_name
                 
                 	Address Family (AF) identifier
-                	**type**\:  :py:class:`Ospfv3AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AddressFamilyEnum>`
+                	**type**\:   :py:class:`Ospfv3AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3AddressFamilyEnum>`
                 
                 	**mandatory**\: True
                 
                 .. attribute:: saf_name
                 
                 	Subsequent Address Family (SAF) identifier
-                	**type**\:  :py:class:`Ospfv3SubsequentAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3SubsequentAddressFamilyEnum>`
+                	**type**\:   :py:class:`Ospfv3SubsequentAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3SubsequentAddressFamilyEnum>`
                 
                 .. attribute:: _is_presence
                 
@@ -26118,7 +26490,7 @@ class Ospfv3(object):
                 .. attribute:: trace_buf
                 
                 	Changes the size of the specified trace buffer
-                	**type**\: list of  :py:class:`TraceBuf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.TraceBufs.TraceBuf>`
+                	**type**\: list of    :py:class:`TraceBuf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.Ospfv3.Processes.Process.TraceBufs.TraceBuf>`
                 
                 
 
@@ -26149,7 +26521,7 @@ class Ospfv3(object):
                     .. attribute:: bufsize
                     
                     	Buffer size
-                    	**type**\:  :py:class:`TraceBufSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.TraceBufSizeEnum>`
+                    	**type**\:   :py:class:`TraceBufSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg.TraceBufSizeEnum>`
                     
                     	**mandatory**\: True
                     

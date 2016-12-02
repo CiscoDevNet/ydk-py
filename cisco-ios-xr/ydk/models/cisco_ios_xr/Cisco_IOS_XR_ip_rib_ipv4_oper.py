@@ -33,12 +33,12 @@ class RibStdby(object):
     .. attribute:: rib_table_ids
     
     	RIB table
-    	**type**\:  :py:class:`RibTableIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds>`
+    	**type**\:   :py:class:`RibTableIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds>`
     
     .. attribute:: vrfs
     
     	VRF table
-    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs>`
+    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs>`
     
     
 
@@ -61,7 +61,7 @@ class RibStdby(object):
         .. attribute:: vrf
         
         	Specific VRF
-        	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf>`
+        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf>`
         
         
 
@@ -91,7 +91,7 @@ class RibStdby(object):
             .. attribute:: afs
             
             	Address Family (AF) table
-            	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs>`
+            	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs>`
             
             
 
@@ -114,7 +114,7 @@ class RibStdby(object):
                 .. attribute:: af
                 
                 	Specific AF information
-                	**type**\: list of  :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af>`
+                	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af>`
                 
                 
 
@@ -144,7 +144,7 @@ class RibStdby(object):
                     .. attribute:: safs
                     
                     	Subsequent Address Family (SAF) table
-                    	**type**\:  :py:class:`Safs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs>`
+                    	**type**\:   :py:class:`Safs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs>`
                     
                     
 
@@ -167,7 +167,7 @@ class RibStdby(object):
                         .. attribute:: saf
                         
                         	Specific SAF information
-                        	**type**\: list of  :py:class:`Saf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf>`
+                        	**type**\: list of    :py:class:`Saf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf>`
                         
                         
 
@@ -197,7 +197,7 @@ class RibStdby(object):
                             .. attribute:: ip_rib_route_table_names
                             
                             	Global container of routes
-                            	**type**\:  :py:class:`IpRibRouteTableNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames>`
+                            	**type**\:   :py:class:`IpRibRouteTableNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames>`
                             
                             
 
@@ -220,7 +220,7 @@ class RibStdby(object):
                                 .. attribute:: ip_rib_route_table_name
                                 
                                 	IP RIB Route table name for a topology
-                                	**type**\: list of  :py:class:`IpRibRouteTableName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName>`
+                                	**type**\: list of    :py:class:`IpRibRouteTableName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName>`
                                 
                                 
 
@@ -250,42 +250,42 @@ class RibStdby(object):
                                     .. attribute:: adverts
                                     
                                     	Route advertiser information 
-                                    	**type**\:  :py:class:`Adverts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Adverts>`
+                                    	**type**\:   :py:class:`Adverts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Adverts>`
                                     
                                     .. attribute:: backup_routes
                                     
                                     	Backup route information for the given table
-                                    	**type**\:  :py:class:`BackupRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.BackupRoutes>`
+                                    	**type**\:   :py:class:`BackupRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.BackupRoutes>`
                                     
                                     .. attribute:: deleted_routes
                                     
                                     	Deleted
-                                    	**type**\:  :py:class:`DeletedRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DeletedRoutes>`
+                                    	**type**\:   :py:class:`DeletedRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DeletedRoutes>`
                                     
                                     .. attribute:: destination_kw
                                     
                                     	Destination KW
-                                    	**type**\:  :py:class:`DestinationKw <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw>`
+                                    	**type**\:   :py:class:`DestinationKw <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw>`
                                     
                                     .. attribute:: opaques
                                     
                                     	Opaque information 
-                                    	**type**\:  :py:class:`Opaques <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Opaques>`
+                                    	**type**\:   :py:class:`Opaques <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Opaques>`
                                     
                                     .. attribute:: protocol
                                     
                                     	Contains the classification of routes by protocol
-                                    	**type**\:  :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol>`
+                                    	**type**\:   :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol>`
                                     
                                     .. attribute:: q_routes
                                     
                                     	Quarantine
-                                    	**type**\:  :py:class:`QRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.QRoutes>`
+                                    	**type**\:   :py:class:`QRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.QRoutes>`
                                     
                                     .. attribute:: routes
                                     
                                     	Route information 
-                                    	**type**\:  :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Routes>`
+                                    	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Routes>`
                                     
                                     
 
@@ -322,7 +322,7 @@ class RibStdby(object):
                                         .. attribute:: route
                                         
                                         	Route information of a specific Network Address 
-                                        	**type**\: list of  :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Routes.Route>`
+                                        	**type**\: list of    :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Routes.Route>`
                                         
                                         
 
@@ -515,6 +515,8 @@ class RibStdby(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**units**\: second
+                                            
                                             .. attribute:: route_label
                                             
                                             	Local label of the route
@@ -529,10 +531,12 @@ class RibStdby(object):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**units**\: nanosecond
+                                            
                                             .. attribute:: route_path
                                             
                                             	Path(s) of the route
-                                            	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Routes.Route.RoutePath>`
+                                            	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Routes.Route.RoutePath>`
                                             
                                             .. attribute:: route_precedence
                                             
@@ -646,7 +650,7 @@ class RibStdby(object):
                                                 .. attribute:: ipv4_rib_edm_path
                                                 
                                                 	ipv4 rib edm path
-                                                	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Routes.Route.RoutePath.Ipv4RibEdmPath>`
+                                                	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Routes.Route.RoutePath.Ipv4RibEdmPath>`
                                                 
                                                 
 
@@ -1282,7 +1286,7 @@ class RibStdby(object):
                                         .. attribute:: deleted_route
                                         
                                         	Route information for a specific deleted address 
-                                        	**type**\: list of  :py:class:`DeletedRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DeletedRoutes.DeletedRoute>`
+                                        	**type**\: list of    :py:class:`DeletedRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DeletedRoutes.DeletedRoute>`
                                         
                                         
 
@@ -1461,6 +1465,8 @@ class RibStdby(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**units**\: second
+                                            
                                             .. attribute:: route_label
                                             
                                             	Local label of the route
@@ -1475,10 +1481,12 @@ class RibStdby(object):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**units**\: nanosecond
+                                            
                                             .. attribute:: route_path
                                             
                                             	Path(s) of the route
-                                            	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DeletedRoutes.DeletedRoute.RoutePath>`
+                                            	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DeletedRoutes.DeletedRoute.RoutePath>`
                                             
                                             .. attribute:: route_precedence
                                             
@@ -1590,7 +1598,7 @@ class RibStdby(object):
                                                 .. attribute:: ipv4_rib_edm_path
                                                 
                                                 	ipv4 rib edm path
-                                                	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DeletedRoutes.DeletedRoute.RoutePath.Ipv4RibEdmPath>`
+                                                	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DeletedRoutes.DeletedRoute.RoutePath.Ipv4RibEdmPath>`
                                                 
                                                 
 
@@ -2220,22 +2228,22 @@ class RibStdby(object):
                                         .. attribute:: dest_backup_routes
                                         
                                         	Backup
-                                        	**type**\:  :py:class:`DestBackupRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBackupRoutes>`
+                                        	**type**\:   :py:class:`DestBackupRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBackupRoutes>`
                                         
                                         .. attribute:: dest_best_routes
                                         
                                         	Best Local
-                                        	**type**\:  :py:class:`DestBestRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBestRoutes>`
+                                        	**type**\:   :py:class:`DestBestRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBestRoutes>`
                                         
                                         .. attribute:: dest_next_hop_routes
                                         
                                         	Resolving next hop
-                                        	**type**\:  :py:class:`DestNextHopRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestNextHopRoutes>`
+                                        	**type**\:   :py:class:`DestNextHopRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestNextHopRoutes>`
                                         
                                         .. attribute:: dest_q_routes
                                         
                                         	Quarantine
-                                        	**type**\:  :py:class:`DestQRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestQRoutes>`
+                                        	**type**\:   :py:class:`DestQRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestQRoutes>`
                                         
                                         
 
@@ -2263,7 +2271,7 @@ class RibStdby(object):
                                             .. attribute:: dest_best_route
                                             
                                             	Best local route information for a specific Address 
-                                            	**type**\: list of  :py:class:`DestBestRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBestRoutes.DestBestRoute>`
+                                            	**type**\: list of    :py:class:`DestBestRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBestRoutes.DestBestRoute>`
                                             
                                             
 
@@ -2435,6 +2443,8 @@ class RibStdby(object):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**units**\: second
+                                                
                                                 .. attribute:: route_label
                                                 
                                                 	Local label of the route
@@ -2449,10 +2459,12 @@ class RibStdby(object):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**units**\: nanosecond
+                                                
                                                 .. attribute:: route_path
                                                 
                                                 	Path(s) of the route
-                                                	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBestRoutes.DestBestRoute.RoutePath>`
+                                                	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBestRoutes.DestBestRoute.RoutePath>`
                                                 
                                                 .. attribute:: route_precedence
                                                 
@@ -2563,7 +2575,7 @@ class RibStdby(object):
                                                     .. attribute:: ipv4_rib_edm_path
                                                     
                                                     	ipv4 rib edm path
-                                                    	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBestRoutes.DestBestRoute.RoutePath.Ipv4RibEdmPath>`
+                                                    	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBestRoutes.DestBestRoute.RoutePath.Ipv4RibEdmPath>`
                                                     
                                                     
 
@@ -3192,7 +3204,7 @@ class RibStdby(object):
                                             .. attribute:: dest_q_route
                                             
                                             	Route information of a specific Backup Address 
-                                            	**type**\: list of  :py:class:`DestQRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestQRoutes.DestQRoute>`
+                                            	**type**\: list of    :py:class:`DestQRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestQRoutes.DestQRoute>`
                                             
                                             
 
@@ -3371,6 +3383,8 @@ class RibStdby(object):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**units**\: second
+                                                
                                                 .. attribute:: route_label
                                                 
                                                 	Local label of the route
@@ -3385,10 +3399,12 @@ class RibStdby(object):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**units**\: nanosecond
+                                                
                                                 .. attribute:: route_path
                                                 
                                                 	Path(s) of the route
-                                                	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestQRoutes.DestQRoute.RoutePath>`
+                                                	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestQRoutes.DestQRoute.RoutePath>`
                                                 
                                                 .. attribute:: route_precedence
                                                 
@@ -3500,7 +3516,7 @@ class RibStdby(object):
                                                     .. attribute:: ipv4_rib_edm_path
                                                     
                                                     	ipv4 rib edm path
-                                                    	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestQRoutes.DestQRoute.RoutePath.Ipv4RibEdmPath>`
+                                                    	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestQRoutes.DestQRoute.RoutePath.Ipv4RibEdmPath>`
                                                     
                                                     
 
@@ -4130,7 +4146,7 @@ class RibStdby(object):
                                             .. attribute:: dest_backup_route
                                             
                                             	Route information of a specific Backup Address 
-                                            	**type**\: list of  :py:class:`DestBackupRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBackupRoutes.DestBackupRoute>`
+                                            	**type**\: list of    :py:class:`DestBackupRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBackupRoutes.DestBackupRoute>`
                                             
                                             
 
@@ -4309,6 +4325,8 @@ class RibStdby(object):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**units**\: second
+                                                
                                                 .. attribute:: route_label
                                                 
                                                 	Local label of the route
@@ -4323,10 +4341,12 @@ class RibStdby(object):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**units**\: nanosecond
+                                                
                                                 .. attribute:: route_path
                                                 
                                                 	Path(s) of the route
-                                                	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBackupRoutes.DestBackupRoute.RoutePath>`
+                                                	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBackupRoutes.DestBackupRoute.RoutePath>`
                                                 
                                                 .. attribute:: route_precedence
                                                 
@@ -4438,7 +4458,7 @@ class RibStdby(object):
                                                     .. attribute:: ipv4_rib_edm_path
                                                     
                                                     	ipv4 rib edm path
-                                                    	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBackupRoutes.DestBackupRoute.RoutePath.Ipv4RibEdmPath>`
+                                                    	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBackupRoutes.DestBackupRoute.RoutePath.Ipv4RibEdmPath>`
                                                     
                                                     
 
@@ -5068,7 +5088,7 @@ class RibStdby(object):
                                             .. attribute:: dest_next_hop_route
                                             
                                             	Nexthop information for a specific address
-                                            	**type**\: list of  :py:class:`DestNextHopRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestNextHopRoutes.DestNextHopRoute>`
+                                            	**type**\: list of    :py:class:`DestNextHopRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestNextHopRoutes.DestNextHopRoute>`
                                             
                                             
 
@@ -5240,6 +5260,8 @@ class RibStdby(object):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**units**\: second
+                                                
                                                 .. attribute:: route_label
                                                 
                                                 	Local label of the route
@@ -5254,10 +5276,12 @@ class RibStdby(object):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**units**\: nanosecond
+                                                
                                                 .. attribute:: route_path
                                                 
                                                 	Path(s) of the route
-                                                	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestNextHopRoutes.DestNextHopRoute.RoutePath>`
+                                                	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestNextHopRoutes.DestNextHopRoute.RoutePath>`
                                                 
                                                 .. attribute:: route_precedence
                                                 
@@ -5368,7 +5392,7 @@ class RibStdby(object):
                                                     .. attribute:: ipv4_rib_edm_path
                                                     
                                                     	ipv4 rib edm path
-                                                    	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestNextHopRoutes.DestNextHopRoute.RoutePath.Ipv4RibEdmPath>`
+                                                    	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestNextHopRoutes.DestNextHopRoute.RoutePath.Ipv4RibEdmPath>`
                                                     
                                                     
 
@@ -6030,7 +6054,7 @@ class RibStdby(object):
                                         .. attribute:: opaque
                                         
                                         	Opaque item 
-                                        	**type**\: list of  :py:class:`Opaque <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Opaques.Opaque>`
+                                        	**type**\: list of    :py:class:`Opaque <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Opaques.Opaque>`
                                         
                                         
 
@@ -6204,72 +6228,72 @@ class RibStdby(object):
                                         .. attribute:: application
                                         
                                         	Application Protocol
-                                        	**type**\:  :py:class:`Application <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application>`
+                                        	**type**\:   :py:class:`Application <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application>`
                                         
                                         .. attribute:: bgp
                                         
                                         	BGP Protocol
-                                        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp>`
+                                        	**type**\:   :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp>`
                                         
                                         .. attribute:: connected
                                         
                                         	Connected Protocol
-                                        	**type**\:  :py:class:`Connected <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected>`
+                                        	**type**\:   :py:class:`Connected <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected>`
                                         
                                         .. attribute:: dagr
                                         
                                         	DAGR Protocol(Direct\-Attached Gateway Redundancy) Protocol
-                                        	**type**\:  :py:class:`Dagr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr>`
+                                        	**type**\:   :py:class:`Dagr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr>`
                                         
                                         .. attribute:: eigrp
                                         
                                         	EIGRP Protocol
-                                        	**type**\:  :py:class:`Eigrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp>`
+                                        	**type**\:   :py:class:`Eigrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp>`
                                         
                                         .. attribute:: isis
                                         
                                         	ISIS Protocol
-                                        	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis>`
+                                        	**type**\:   :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis>`
                                         
                                         .. attribute:: local
                                         
                                         	Local Protocol
-                                        	**type**\:  :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local>`
+                                        	**type**\:   :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local>`
                                         
                                         .. attribute:: mobile
                                         
                                         	Mobile Protocol
-                                        	**type**\:  :py:class:`Mobile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile>`
+                                        	**type**\:   :py:class:`Mobile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile>`
                                         
                                         .. attribute:: ospf
                                         
                                         	OSPF Protocol
-                                        	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf>`
+                                        	**type**\:   :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf>`
                                         
                                         .. attribute:: rip
                                         
                                         	RIP Protocol
-                                        	**type**\:  :py:class:`Rip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip>`
+                                        	**type**\:   :py:class:`Rip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip>`
                                         
                                         .. attribute:: rpl
                                         
                                         	RPL Protocol
-                                        	**type**\:  :py:class:`Rpl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl>`
+                                        	**type**\:   :py:class:`Rpl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl>`
                                         
                                         .. attribute:: static
                                         
                                         	Static Protocol
-                                        	**type**\:  :py:class:`Static <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static>`
+                                        	**type**\:   :py:class:`Static <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static>`
                                         
                                         .. attribute:: subscriber
                                         
                                         	Subscriber Protocol
-                                        	**type**\:  :py:class:`Subscriber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber>`
+                                        	**type**\:   :py:class:`Subscriber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber>`
                                         
                                         .. attribute:: te_client
                                         
                                         	TEClient Protocol
-                                        	**type**\:  :py:class:`TeClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient>`
+                                        	**type**\:   :py:class:`TeClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient>`
                                         
                                         
 
@@ -6317,7 +6341,7 @@ class RibStdby(object):
                                             .. attribute:: non_as
                                             
                                             	Non Autonomous System of protocol
-                                            	**type**\:  :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs>`
+                                            	**type**\:   :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs>`
                                             
                                             
 
@@ -6339,12 +6363,12 @@ class RibStdby(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes>`
                                                 
                                                 
 
@@ -6368,7 +6392,7 @@ class RibStdby(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -6547,6 +6571,8 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -6561,10 +6587,12 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -6676,7 +6704,7 @@ class RibStdby(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -7355,6 +7383,8 @@ class RibStdby(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**units**\: byte
+                                                    
                                                     .. attribute:: redistribution_client_count
                                                     
                                                     	Number of redist clients
@@ -7510,7 +7540,7 @@ class RibStdby(object):
                                             .. attribute:: non_as
                                             
                                             	Non Autonomous System of protocol
-                                            	**type**\:  :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs>`
+                                            	**type**\:   :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs>`
                                             
                                             
 
@@ -7532,12 +7562,12 @@ class RibStdby(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.ProtocolRoutes>`
                                                 
                                                 
 
@@ -7561,7 +7591,7 @@ class RibStdby(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -7740,6 +7770,8 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -7754,10 +7786,12 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -7869,7 +7903,7 @@ class RibStdby(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -8548,6 +8582,8 @@ class RibStdby(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**units**\: byte
+                                                    
                                                     .. attribute:: redistribution_client_count
                                                     
                                                     	Number of redist clients
@@ -8703,7 +8739,7 @@ class RibStdby(object):
                                             .. attribute:: non_as
                                             
                                             	Non Autonomous System of protocol
-                                            	**type**\:  :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs>`
+                                            	**type**\:   :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs>`
                                             
                                             
 
@@ -8725,12 +8761,12 @@ class RibStdby(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs.ProtocolRoutes>`
                                                 
                                                 
 
@@ -8754,7 +8790,7 @@ class RibStdby(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -8933,6 +8969,8 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -8947,10 +8985,12 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -9062,7 +9102,7 @@ class RibStdby(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -9741,6 +9781,8 @@ class RibStdby(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**units**\: byte
+                                                    
                                                     .. attribute:: redistribution_client_count
                                                     
                                                     	Number of redist clients
@@ -9897,7 +9939,7 @@ class RibStdby(object):
                                             .. attribute:: non_as
                                             
                                             	Non Autonomous System of protocol
-                                            	**type**\:  :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs>`
+                                            	**type**\:   :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs>`
                                             
                                             
 
@@ -9919,12 +9961,12 @@ class RibStdby(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs.ProtocolRoutes>`
                                                 
                                                 
 
@@ -9948,7 +9990,7 @@ class RibStdby(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -10127,6 +10169,8 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -10141,10 +10185,12 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -10256,7 +10302,7 @@ class RibStdby(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -10935,6 +10981,8 @@ class RibStdby(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**units**\: byte
+                                                    
                                                     .. attribute:: redistribution_client_count
                                                     
                                                     	Number of redist clients
@@ -11090,7 +11138,7 @@ class RibStdby(object):
                                             .. attribute:: non_as
                                             
                                             	Non Autonomous System of protocol
-                                            	**type**\:  :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs>`
+                                            	**type**\:   :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs>`
                                             
                                             
 
@@ -11112,12 +11160,12 @@ class RibStdby(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs.ProtocolRoutes>`
                                                 
                                                 
 
@@ -11141,7 +11189,7 @@ class RibStdby(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -11320,6 +11368,8 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -11334,10 +11384,12 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -11449,7 +11501,7 @@ class RibStdby(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -12128,6 +12180,8 @@ class RibStdby(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**units**\: byte
+                                                    
                                                     .. attribute:: redistribution_client_count
                                                     
                                                     	Number of redist clients
@@ -12283,7 +12337,7 @@ class RibStdby(object):
                                             .. attribute:: as_
                                             
                                             	Autonomous System of protocol
-                                            	**type**\: list of  :py:class:`As <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As>`
+                                            	**type**\: list of    :py:class:`As_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_>`
                                             
                                             
 
@@ -12299,7 +12353,7 @@ class RibStdby(object):
                                                 self.as_.name = 'as_'
 
 
-                                            class As(object):
+                                            class As_(object):
                                                 """
                                                 Autonomous System of protocol
                                                 
@@ -12313,12 +12367,12 @@ class RibStdby(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes>`
                                                 
                                                 
 
@@ -12330,9 +12384,9 @@ class RibStdby(object):
                                                 def __init__(self):
                                                     self.parent = None
                                                     self.as_ = None
-                                                    self.information = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.Information()
+                                                    self.information = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.Information()
                                                     self.information.parent = self
-                                                    self.protocol_routes = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes()
+                                                    self.protocol_routes = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes()
                                                     self.protocol_routes.parent = self
 
 
@@ -12343,7 +12397,7 @@ class RibStdby(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -12522,6 +12576,8 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -12536,10 +12592,12 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -12632,7 +12690,7 @@ class RibStdby(object):
                                                             self.route_age = None
                                                             self.route_label = None
                                                             self.route_modify_time = None
-                                                            self.route_path = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath()
+                                                            self.route_path = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath()
                                                             self.route_path.parent = self
                                                             self.route_precedence = None
                                                             self.route_type = None
@@ -12651,7 +12709,7 @@ class RibStdby(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -13093,7 +13151,7 @@ class RibStdby(object):
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                                    return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath']['meta_info']
+                                                                    return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath']['meta_info']
 
                                                             @property
                                                             def _common_path(self):
@@ -13119,7 +13177,7 @@ class RibStdby(object):
                                                             @staticmethod
                                                             def _meta_info():
                                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                                return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
+                                                                return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
 
                                                         @property
                                                         def _common_path(self):
@@ -13245,7 +13303,7 @@ class RibStdby(object):
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                            return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute']['meta_info']
+                                                            return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute']['meta_info']
 
                                                     @property
                                                     def _common_path(self):
@@ -13271,7 +13329,7 @@ class RibStdby(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                        return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes']['meta_info']
+                                                        return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes']['meta_info']
 
 
                                                 class Information(object):
@@ -13329,6 +13387,8 @@ class RibStdby(object):
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**units**\: byte
                                                     
                                                     .. attribute:: redistribution_client_count
                                                     
@@ -13424,7 +13484,7 @@ class RibStdby(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                        return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.Information']['meta_info']
+                                                        return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.Information']['meta_info']
 
                                                 @property
                                                 def _common_path(self):
@@ -13456,7 +13516,7 @@ class RibStdby(object):
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                    return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As']['meta_info']
+                                                    return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_']['meta_info']
 
                                             @property
                                             def _common_path(self):
@@ -13492,7 +13552,7 @@ class RibStdby(object):
                                             .. attribute:: non_as
                                             
                                             	Non Autonomous System of protocol
-                                            	**type**\:  :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs>`
+                                            	**type**\:   :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs>`
                                             
                                             
 
@@ -13514,12 +13574,12 @@ class RibStdby(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes>`
                                                 
                                                 
 
@@ -13543,7 +13603,7 @@ class RibStdby(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -13722,6 +13782,8 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -13736,10 +13798,12 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -13851,7 +13915,7 @@ class RibStdby(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -14530,6 +14594,8 @@ class RibStdby(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**units**\: byte
+                                                    
                                                     .. attribute:: redistribution_client_count
                                                     
                                                     	Number of redist clients
@@ -14685,7 +14751,7 @@ class RibStdby(object):
                                             .. attribute:: as_
                                             
                                             	Autonomous System of protocol
-                                            	**type**\: list of  :py:class:`As <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As>`
+                                            	**type**\: list of    :py:class:`As_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_>`
                                             
                                             
 
@@ -14701,7 +14767,7 @@ class RibStdby(object):
                                                 self.as_.name = 'as_'
 
 
-                                            class As(object):
+                                            class As_(object):
                                                 """
                                                 Autonomous System of protocol
                                                 
@@ -14715,12 +14781,12 @@ class RibStdby(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes>`
                                                 
                                                 
 
@@ -14732,9 +14798,9 @@ class RibStdby(object):
                                                 def __init__(self):
                                                     self.parent = None
                                                     self.as_ = None
-                                                    self.information = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.Information()
+                                                    self.information = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.Information()
                                                     self.information.parent = self
-                                                    self.protocol_routes = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes()
+                                                    self.protocol_routes = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes()
                                                     self.protocol_routes.parent = self
 
 
@@ -14745,7 +14811,7 @@ class RibStdby(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -14924,6 +14990,8 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -14938,10 +15006,12 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -15034,7 +15104,7 @@ class RibStdby(object):
                                                             self.route_age = None
                                                             self.route_label = None
                                                             self.route_modify_time = None
-                                                            self.route_path = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath()
+                                                            self.route_path = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath()
                                                             self.route_path.parent = self
                                                             self.route_precedence = None
                                                             self.route_type = None
@@ -15053,7 +15123,7 @@ class RibStdby(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -15495,7 +15565,7 @@ class RibStdby(object):
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                                    return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath']['meta_info']
+                                                                    return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath']['meta_info']
 
                                                             @property
                                                             def _common_path(self):
@@ -15521,7 +15591,7 @@ class RibStdby(object):
                                                             @staticmethod
                                                             def _meta_info():
                                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                                return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
+                                                                return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
 
                                                         @property
                                                         def _common_path(self):
@@ -15647,7 +15717,7 @@ class RibStdby(object):
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                            return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute']['meta_info']
+                                                            return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute']['meta_info']
 
                                                     @property
                                                     def _common_path(self):
@@ -15673,7 +15743,7 @@ class RibStdby(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                        return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes']['meta_info']
+                                                        return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes']['meta_info']
 
 
                                                 class Information(object):
@@ -15731,6 +15801,8 @@ class RibStdby(object):
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**units**\: byte
                                                     
                                                     .. attribute:: redistribution_client_count
                                                     
@@ -15826,7 +15898,7 @@ class RibStdby(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                        return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.Information']['meta_info']
+                                                        return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.Information']['meta_info']
 
                                                 @property
                                                 def _common_path(self):
@@ -15858,7 +15930,7 @@ class RibStdby(object):
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                    return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As']['meta_info']
+                                                    return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_']['meta_info']
 
                                             @property
                                             def _common_path(self):
@@ -15894,7 +15966,7 @@ class RibStdby(object):
                                             .. attribute:: non_as
                                             
                                             	Non Autonomous System of protocol
-                                            	**type**\:  :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs>`
+                                            	**type**\:   :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs>`
                                             
                                             
 
@@ -15916,12 +15988,12 @@ class RibStdby(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs.ProtocolRoutes>`
                                                 
                                                 
 
@@ -15945,7 +16017,7 @@ class RibStdby(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -16124,6 +16196,8 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -16138,10 +16212,12 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -16253,7 +16329,7 @@ class RibStdby(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -16932,6 +17008,8 @@ class RibStdby(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**units**\: byte
+                                                    
                                                     .. attribute:: redistribution_client_count
                                                     
                                                     	Number of redist clients
@@ -17087,7 +17165,7 @@ class RibStdby(object):
                                             .. attribute:: non_as
                                             
                                             	Non Autonomous System of protocol
-                                            	**type**\:  :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs>`
+                                            	**type**\:   :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs>`
                                             
                                             
 
@@ -17109,12 +17187,12 @@ class RibStdby(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs.ProtocolRoutes>`
                                                 
                                                 
 
@@ -17138,7 +17216,7 @@ class RibStdby(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -17317,6 +17395,8 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -17331,10 +17411,12 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -17446,7 +17528,7 @@ class RibStdby(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -18125,6 +18207,8 @@ class RibStdby(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**units**\: byte
+                                                    
                                                     .. attribute:: redistribution_client_count
                                                     
                                                     	Number of redist clients
@@ -18280,7 +18364,7 @@ class RibStdby(object):
                                             .. attribute:: as_
                                             
                                             	Autonomous System of protocol
-                                            	**type**\: list of  :py:class:`As <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As>`
+                                            	**type**\: list of    :py:class:`As_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_>`
                                             
                                             
 
@@ -18296,7 +18380,7 @@ class RibStdby(object):
                                                 self.as_.name = 'as_'
 
 
-                                            class As(object):
+                                            class As_(object):
                                                 """
                                                 Autonomous System of protocol
                                                 
@@ -18310,12 +18394,12 @@ class RibStdby(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes>`
                                                 
                                                 
 
@@ -18327,9 +18411,9 @@ class RibStdby(object):
                                                 def __init__(self):
                                                     self.parent = None
                                                     self.as_ = None
-                                                    self.information = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.Information()
+                                                    self.information = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.Information()
                                                     self.information.parent = self
-                                                    self.protocol_routes = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes()
+                                                    self.protocol_routes = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes()
                                                     self.protocol_routes.parent = self
 
 
@@ -18340,7 +18424,7 @@ class RibStdby(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -18519,6 +18603,8 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -18533,10 +18619,12 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -18629,7 +18717,7 @@ class RibStdby(object):
                                                             self.route_age = None
                                                             self.route_label = None
                                                             self.route_modify_time = None
-                                                            self.route_path = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath()
+                                                            self.route_path = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath()
                                                             self.route_path.parent = self
                                                             self.route_precedence = None
                                                             self.route_type = None
@@ -18648,7 +18736,7 @@ class RibStdby(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -19090,7 +19178,7 @@ class RibStdby(object):
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                                    return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath']['meta_info']
+                                                                    return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath']['meta_info']
 
                                                             @property
                                                             def _common_path(self):
@@ -19116,7 +19204,7 @@ class RibStdby(object):
                                                             @staticmethod
                                                             def _meta_info():
                                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                                return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
+                                                                return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
 
                                                         @property
                                                         def _common_path(self):
@@ -19242,7 +19330,7 @@ class RibStdby(object):
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                            return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute']['meta_info']
+                                                            return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute']['meta_info']
 
                                                     @property
                                                     def _common_path(self):
@@ -19268,7 +19356,7 @@ class RibStdby(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                        return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes']['meta_info']
+                                                        return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes']['meta_info']
 
 
                                                 class Information(object):
@@ -19326,6 +19414,8 @@ class RibStdby(object):
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**units**\: byte
                                                     
                                                     .. attribute:: redistribution_client_count
                                                     
@@ -19421,7 +19511,7 @@ class RibStdby(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                        return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.Information']['meta_info']
+                                                        return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.Information']['meta_info']
 
                                                 @property
                                                 def _common_path(self):
@@ -19453,7 +19543,7 @@ class RibStdby(object):
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                    return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As']['meta_info']
+                                                    return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_']['meta_info']
 
                                             @property
                                             def _common_path(self):
@@ -19489,17 +19579,17 @@ class RibStdby(object):
                                             .. attribute:: lspv
                                             
                                             	LSPV(Label Switched Path Verification) Protocol
-                                            	**type**\:  :py:class:`Lspv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv>`
+                                            	**type**\:   :py:class:`Lspv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv>`
                                             
                                             .. attribute:: non_as
                                             
                                             	Non Autonomous System of protocol
-                                            	**type**\:  :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs>`
+                                            	**type**\:   :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs>`
                                             
                                             .. attribute:: smiap
                                             
                                             	SMIAP
-                                            	**type**\:  :py:class:`Smiap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap>`
+                                            	**type**\:   :py:class:`Smiap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap>`
                                             
                                             
 
@@ -19525,12 +19615,12 @@ class RibStdby(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap.ProtocolRoutes>`
                                                 
                                                 
 
@@ -19554,7 +19644,7 @@ class RibStdby(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -19733,6 +19823,8 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -19747,10 +19839,12 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -19862,7 +19956,7 @@ class RibStdby(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -20541,6 +20635,8 @@ class RibStdby(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**units**\: byte
+                                                    
                                                     .. attribute:: redistribution_client_count
                                                     
                                                     	Number of redist clients
@@ -20673,12 +20769,12 @@ class RibStdby(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv.ProtocolRoutes>`
                                                 
                                                 
 
@@ -20702,7 +20798,7 @@ class RibStdby(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -20881,6 +20977,8 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -20895,10 +20993,12 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -21010,7 +21110,7 @@ class RibStdby(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -21689,6 +21789,8 @@ class RibStdby(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**units**\: byte
+                                                    
                                                     .. attribute:: redistribution_client_count
                                                     
                                                     	Number of redist clients
@@ -21820,12 +21922,12 @@ class RibStdby(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs.ProtocolRoutes>`
                                                 
                                                 
 
@@ -21849,7 +21951,7 @@ class RibStdby(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -22028,6 +22130,8 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -22042,10 +22146,12 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -22157,7 +22263,7 @@ class RibStdby(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -22836,6 +22942,8 @@ class RibStdby(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**units**\: byte
+                                                    
                                                     .. attribute:: redistribution_client_count
                                                     
                                                     	Number of redist clients
@@ -22997,7 +23105,7 @@ class RibStdby(object):
                                             .. attribute:: as_
                                             
                                             	Autonomous System of protocol
-                                            	**type**\: list of  :py:class:`As <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As>`
+                                            	**type**\: list of    :py:class:`As_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_>`
                                             
                                             
 
@@ -23013,7 +23121,7 @@ class RibStdby(object):
                                                 self.as_.name = 'as_'
 
 
-                                            class As(object):
+                                            class As_(object):
                                                 """
                                                 Autonomous System of protocol
                                                 
@@ -23027,12 +23135,12 @@ class RibStdby(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes>`
                                                 
                                                 
 
@@ -23044,9 +23152,9 @@ class RibStdby(object):
                                                 def __init__(self):
                                                     self.parent = None
                                                     self.as_ = None
-                                                    self.information = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.Information()
+                                                    self.information = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.Information()
                                                     self.information.parent = self
-                                                    self.protocol_routes = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes()
+                                                    self.protocol_routes = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes()
                                                     self.protocol_routes.parent = self
 
 
@@ -23057,7 +23165,7 @@ class RibStdby(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -23236,6 +23344,8 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -23250,10 +23360,12 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -23346,7 +23458,7 @@ class RibStdby(object):
                                                             self.route_age = None
                                                             self.route_label = None
                                                             self.route_modify_time = None
-                                                            self.route_path = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath()
+                                                            self.route_path = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath()
                                                             self.route_path.parent = self
                                                             self.route_precedence = None
                                                             self.route_type = None
@@ -23365,7 +23477,7 @@ class RibStdby(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -23807,7 +23919,7 @@ class RibStdby(object):
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                                    return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath']['meta_info']
+                                                                    return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath']['meta_info']
 
                                                             @property
                                                             def _common_path(self):
@@ -23833,7 +23945,7 @@ class RibStdby(object):
                                                             @staticmethod
                                                             def _meta_info():
                                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                                return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
+                                                                return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
 
                                                         @property
                                                         def _common_path(self):
@@ -23959,7 +24071,7 @@ class RibStdby(object):
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                            return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute']['meta_info']
+                                                            return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute']['meta_info']
 
                                                     @property
                                                     def _common_path(self):
@@ -23985,7 +24097,7 @@ class RibStdby(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                        return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes']['meta_info']
+                                                        return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes']['meta_info']
 
 
                                                 class Information(object):
@@ -24043,6 +24155,8 @@ class RibStdby(object):
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**units**\: byte
                                                     
                                                     .. attribute:: redistribution_client_count
                                                     
@@ -24138,7 +24252,7 @@ class RibStdby(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                        return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.Information']['meta_info']
+                                                        return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.Information']['meta_info']
 
                                                 @property
                                                 def _common_path(self):
@@ -24170,7 +24284,7 @@ class RibStdby(object):
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                    return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As']['meta_info']
+                                                    return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_']['meta_info']
 
                                             @property
                                             def _common_path(self):
@@ -24206,7 +24320,7 @@ class RibStdby(object):
                                             .. attribute:: as_
                                             
                                             	Autonomous System of protocol
-                                            	**type**\: list of  :py:class:`As <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As>`
+                                            	**type**\: list of    :py:class:`As_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_>`
                                             
                                             
 
@@ -24222,7 +24336,7 @@ class RibStdby(object):
                                                 self.as_.name = 'as_'
 
 
-                                            class As(object):
+                                            class As_(object):
                                                 """
                                                 Autonomous System of protocol
                                                 
@@ -24236,12 +24350,12 @@ class RibStdby(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes>`
                                                 
                                                 
 
@@ -24253,9 +24367,9 @@ class RibStdby(object):
                                                 def __init__(self):
                                                     self.parent = None
                                                     self.as_ = None
-                                                    self.information = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.Information()
+                                                    self.information = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.Information()
                                                     self.information.parent = self
-                                                    self.protocol_routes = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes()
+                                                    self.protocol_routes = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes()
                                                     self.protocol_routes.parent = self
 
 
@@ -24266,7 +24380,7 @@ class RibStdby(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -24445,6 +24559,8 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -24459,10 +24575,12 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -24555,7 +24673,7 @@ class RibStdby(object):
                                                             self.route_age = None
                                                             self.route_label = None
                                                             self.route_modify_time = None
-                                                            self.route_path = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath()
+                                                            self.route_path = RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath()
                                                             self.route_path.parent = self
                                                             self.route_precedence = None
                                                             self.route_type = None
@@ -24574,7 +24692,7 @@ class RibStdby(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -25016,7 +25134,7 @@ class RibStdby(object):
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                                    return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath']['meta_info']
+                                                                    return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath']['meta_info']
 
                                                             @property
                                                             def _common_path(self):
@@ -25042,7 +25160,7 @@ class RibStdby(object):
                                                             @staticmethod
                                                             def _meta_info():
                                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                                return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
+                                                                return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
 
                                                         @property
                                                         def _common_path(self):
@@ -25168,7 +25286,7 @@ class RibStdby(object):
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                            return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute']['meta_info']
+                                                            return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute']['meta_info']
 
                                                     @property
                                                     def _common_path(self):
@@ -25194,7 +25312,7 @@ class RibStdby(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                        return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes']['meta_info']
+                                                        return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes']['meta_info']
 
 
                                                 class Information(object):
@@ -25252,6 +25370,8 @@ class RibStdby(object):
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**units**\: byte
                                                     
                                                     .. attribute:: redistribution_client_count
                                                     
@@ -25347,7 +25467,7 @@ class RibStdby(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                        return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.Information']['meta_info']
+                                                        return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.Information']['meta_info']
 
                                                 @property
                                                 def _common_path(self):
@@ -25379,7 +25499,7 @@ class RibStdby(object):
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                    return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As']['meta_info']
+                                                    return meta._meta_table['RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_']['meta_info']
 
                                             @property
                                             def _common_path(self):
@@ -25478,7 +25598,7 @@ class RibStdby(object):
                                         .. attribute:: q_route
                                         
                                         	Route information for a specific quarantined address 
-                                        	**type**\: list of  :py:class:`QRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.QRoutes.QRoute>`
+                                        	**type**\: list of    :py:class:`QRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.QRoutes.QRoute>`
                                         
                                         
 
@@ -25657,6 +25777,8 @@ class RibStdby(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**units**\: second
+                                            
                                             .. attribute:: route_label
                                             
                                             	Local label of the route
@@ -25671,10 +25793,12 @@ class RibStdby(object):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**units**\: nanosecond
+                                            
                                             .. attribute:: route_path
                                             
                                             	Path(s) of the route
-                                            	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.QRoutes.QRoute.RoutePath>`
+                                            	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.QRoutes.QRoute.RoutePath>`
                                             
                                             .. attribute:: route_precedence
                                             
@@ -25786,7 +25910,7 @@ class RibStdby(object):
                                                 .. attribute:: ipv4_rib_edm_path
                                                 
                                                 	ipv4 rib edm path
-                                                	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.QRoutes.QRoute.RoutePath.Ipv4RibEdmPath>`
+                                                	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.QRoutes.QRoute.RoutePath.Ipv4RibEdmPath>`
                                                 
                                                 
 
@@ -26417,7 +26541,7 @@ class RibStdby(object):
                                         .. attribute:: backup_route
                                         
                                         	Route information for a specific backup address 
-                                        	**type**\: list of  :py:class:`BackupRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.BackupRoutes.BackupRoute>`
+                                        	**type**\: list of    :py:class:`BackupRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.BackupRoutes.BackupRoute>`
                                         
                                         
 
@@ -26603,6 +26727,8 @@ class RibStdby(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**units**\: second
+                                            
                                             .. attribute:: route_label
                                             
                                             	Local label of the route
@@ -26617,10 +26743,12 @@ class RibStdby(object):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**units**\: nanosecond
+                                            
                                             .. attribute:: route_path
                                             
                                             	Path(s) of the route
-                                            	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.BackupRoutes.BackupRoute.RoutePath>`
+                                            	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.BackupRoutes.BackupRoute.RoutePath>`
                                             
                                             .. attribute:: route_precedence
                                             
@@ -26733,7 +26861,7 @@ class RibStdby(object):
                                                 .. attribute:: ipv4_rib_edm_path
                                                 
                                                 	ipv4 rib edm path
-                                                	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.BackupRoutes.BackupRoute.RoutePath.Ipv4RibEdmPath>`
+                                                	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.BackupRoutes.BackupRoute.RoutePath.Ipv4RibEdmPath>`
                                                 
                                                 
 
@@ -27366,7 +27494,7 @@ class RibStdby(object):
                                         .. attribute:: advert
                                         
                                         	Route information of a specific Network Address 
-                                        	**type**\: list of  :py:class:`Advert <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Adverts.Advert>`
+                                        	**type**\: list of    :py:class:`Advert <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Adverts.Advert>`
                                         
                                         
 
@@ -27397,7 +27525,7 @@ class RibStdby(object):
                                             .. attribute:: ipv4_rib_edm_advert
                                             
                                             	ipv4 rib edm advert
-                                            	**type**\: list of  :py:class:`Ipv4RibEdmAdvert <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Adverts.Advert.Ipv4RibEdmAdvert>`
+                                            	**type**\: list of    :py:class:`Ipv4RibEdmAdvert <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Adverts.Advert.Ipv4RibEdmAdvert>`
                                             
                                             .. attribute:: prefix_length
                                             
@@ -27848,7 +27976,7 @@ class RibStdby(object):
         .. attribute:: rib_table_id
         
         	Specific Table
-        	**type**\: list of  :py:class:`RibTableId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId>`
+        	**type**\: list of    :py:class:`RibTableId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId>`
         
         
 
@@ -27878,12 +28006,12 @@ class RibStdby(object):
             .. attribute:: rib_table_itf_hndls
             
             	RIB table interface
-            	**type**\:  :py:class:`RibTableItfHndls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.RibTableItfHndls>`
+            	**type**\:   :py:class:`RibTableItfHndls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.RibTableItfHndls>`
             
             .. attribute:: summary_protos
             
             	RIB table summary
-            	**type**\:  :py:class:`SummaryProtos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos>`
+            	**type**\:   :py:class:`SummaryProtos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos>`
             
             
 
@@ -27908,7 +28036,7 @@ class RibStdby(object):
                 .. attribute:: summary_proto
                 
                 	Route summary information for a specific table/protocol 
-                	**type**\: list of  :py:class:`SummaryProto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto>`
+                	**type**\: list of    :py:class:`SummaryProto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto>`
                 
                 
 
@@ -27949,92 +28077,92 @@ class RibStdby(object):
                     .. attribute:: proto_route_count
                     
                     	Count for proto. instance
-                    	**type**\:  :py:class:`ProtoRouteCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.ProtoRouteCount>`
+                    	**type**\:   :py:class:`ProtoRouteCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.ProtoRouteCount>`
                     
                     .. attribute:: rtype_bgp_ext
                     
                     	eBGP route
-                    	**type**\:  :py:class:`RtypeBgpExt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeBgpExt>`
+                    	**type**\:   :py:class:`RtypeBgpExt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeBgpExt>`
                     
                     .. attribute:: rtype_bgp_int
                     
                     	iBGP route
-                    	**type**\:  :py:class:`RtypeBgpInt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeBgpInt>`
+                    	**type**\:   :py:class:`RtypeBgpInt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeBgpInt>`
                     
                     .. attribute:: rtype_bgp_loc
                     
                     	BGP local route
-                    	**type**\:  :py:class:`RtypeBgpLoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeBgpLoc>`
+                    	**type**\:   :py:class:`RtypeBgpLoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeBgpLoc>`
                     
                     .. attribute:: rtype_igrp2_ext
                     
                     	EIGRP external route
-                    	**type**\:  :py:class:`RtypeIgrp2Ext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIgrp2Ext>`
+                    	**type**\:   :py:class:`RtypeIgrp2Ext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIgrp2Ext>`
                     
                     .. attribute:: rtype_igrp2_int
                     
                     	EIGRP internal route
-                    	**type**\:  :py:class:`RtypeIgrp2Int <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIgrp2Int>`
+                    	**type**\:   :py:class:`RtypeIgrp2Int <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIgrp2Int>`
                     
                     .. attribute:: rtype_isis_l1
                     
                     	IS\-IS level 1 route
-                    	**type**\:  :py:class:`RtypeIsisL1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIsisL1>`
+                    	**type**\:   :py:class:`RtypeIsisL1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIsisL1>`
                     
                     .. attribute:: rtype_isis_l1_ia
                     
                     	IS\-IS level1 inter\-area route
-                    	**type**\:  :py:class:`RtypeIsisL1Ia <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIsisL1Ia>`
+                    	**type**\:   :py:class:`RtypeIsisL1Ia <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIsisL1Ia>`
                     
                     .. attribute:: rtype_isis_l2
                     
                     	IS\-IS level 2 route
-                    	**type**\:  :py:class:`RtypeIsisL2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIsisL2>`
+                    	**type**\:   :py:class:`RtypeIsisL2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIsisL2>`
                     
                     .. attribute:: rtype_isis_sum
                     
                     	IS\-IS summary route
-                    	**type**\:  :py:class:`RtypeIsisSum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIsisSum>`
+                    	**type**\:   :py:class:`RtypeIsisSum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIsisSum>`
                     
                     .. attribute:: rtype_none
                     
                     	No route type
-                    	**type**\:  :py:class:`RtypeNone <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeNone>`
+                    	**type**\:   :py:class:`RtypeNone <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeNone>`
                     
                     .. attribute:: rtype_ospf_extern1
                     
                     	OSPF external route of type 1
-                    	**type**\:  :py:class:`RtypeOspfExtern1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfExtern1>`
+                    	**type**\:   :py:class:`RtypeOspfExtern1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfExtern1>`
                     
                     .. attribute:: rtype_ospf_extern2
                     
                     	OSPF external route of type 2
-                    	**type**\:  :py:class:`RtypeOspfExtern2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfExtern2>`
+                    	**type**\:   :py:class:`RtypeOspfExtern2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfExtern2>`
                     
                     .. attribute:: rtype_ospf_inter
                     
                     	OSPF route across diff. areas
-                    	**type**\:  :py:class:`RtypeOspfInter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfInter>`
+                    	**type**\:   :py:class:`RtypeOspfInter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfInter>`
                     
                     .. attribute:: rtype_ospf_intra
                     
                     	OSPF route within an area
-                    	**type**\:  :py:class:`RtypeOspfIntra <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfIntra>`
+                    	**type**\:   :py:class:`RtypeOspfIntra <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfIntra>`
                     
                     .. attribute:: rtype_ospf_nssa1
                     
                     	OSPF NSSA ext. route type 1
-                    	**type**\:  :py:class:`RtypeOspfNssa1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfNssa1>`
+                    	**type**\:   :py:class:`RtypeOspfNssa1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfNssa1>`
                     
                     .. attribute:: rtype_ospf_nssa2
                     
                     	OSPF NSSA ext. route type 2
-                    	**type**\:  :py:class:`RtypeOspfNssa2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfNssa2>`
+                    	**type**\:   :py:class:`RtypeOspfNssa2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfNssa2>`
                     
                     .. attribute:: rtype_other
                     
                     	Unknown route type
-                    	**type**\:  :py:class:`RtypeOther <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOther>`
+                    	**type**\:   :py:class:`RtypeOther <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOther>`
                     
                     
 
@@ -29645,7 +29773,7 @@ class RibStdby(object):
                 .. attribute:: rib_table_itf_hndl
                 
                 	Interface handle
-                	**type**\: list of  :py:class:`RibTableItfHndl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.RibTableItfHndls.RibTableItfHndl>`
+                	**type**\: list of    :py:class:`RibTableItfHndl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.RibTableItfHndls.RibTableItfHndl>`
                 
                 
 
@@ -29675,7 +29803,7 @@ class RibStdby(object):
                     .. attribute:: itf_route
                     
                     	Route information for a specific table/interface 
-                    	**type**\: list of  :py:class:`ItfRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.RibTableItfHndls.RibTableItfHndl.ItfRoute>`
+                    	**type**\: list of    :py:class:`ItfRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.RibTableItfHndls.RibTableItfHndl.ItfRoute>`
                     
                     
 
@@ -29848,6 +29976,8 @@ class RibStdby(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: route_label
                         
                         	Local label of the route
@@ -29862,10 +29992,12 @@ class RibStdby(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: route_path
                         
                         	Path(s) of the route
-                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.RibTableItfHndls.RibTableItfHndl.ItfRoute.RoutePath>`
+                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.RibTableItfHndls.RibTableItfHndl.ItfRoute.RoutePath>`
                         
                         .. attribute:: route_precedence
                         
@@ -29976,7 +30108,7 @@ class RibStdby(object):
                             .. attribute:: ipv4_rib_edm_path
                             
                             	ipv4 rib edm path
-                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.RibTableItfHndls.RibTableItfHndl.ItfRoute.RoutePath.Ipv4RibEdmPath>`
+                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.RibStdby.RibTableIds.RibTableId.RibTableItfHndls.RibTableItfHndl.ItfRoute.RoutePath.Ipv4RibEdmPath>`
                             
                             
 
@@ -30715,12 +30847,12 @@ class Rib(object):
     .. attribute:: rib_table_ids
     
     	RIB table
-    	**type**\:  :py:class:`RibTableIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds>`
+    	**type**\:   :py:class:`RibTableIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds>`
     
     .. attribute:: vrfs
     
     	VRF table
-    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs>`
+    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs>`
     
     
 
@@ -30743,7 +30875,7 @@ class Rib(object):
         .. attribute:: vrf
         
         	Specific VRF
-        	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf>`
+        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf>`
         
         
 
@@ -30773,7 +30905,7 @@ class Rib(object):
             .. attribute:: afs
             
             	Address Family (AF) table
-            	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs>`
+            	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs>`
             
             
 
@@ -30796,7 +30928,7 @@ class Rib(object):
                 .. attribute:: af
                 
                 	Specific AF information
-                	**type**\: list of  :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af>`
+                	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af>`
                 
                 
 
@@ -30826,7 +30958,7 @@ class Rib(object):
                     .. attribute:: safs
                     
                     	Subsequent Address Family (SAF) table
-                    	**type**\:  :py:class:`Safs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs>`
+                    	**type**\:   :py:class:`Safs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs>`
                     
                     
 
@@ -30849,7 +30981,7 @@ class Rib(object):
                         .. attribute:: saf
                         
                         	Specific SAF information
-                        	**type**\: list of  :py:class:`Saf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf>`
+                        	**type**\: list of    :py:class:`Saf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf>`
                         
                         
 
@@ -30879,7 +31011,7 @@ class Rib(object):
                             .. attribute:: ip_rib_route_table_names
                             
                             	Global container of routes
-                            	**type**\:  :py:class:`IpRibRouteTableNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames>`
+                            	**type**\:   :py:class:`IpRibRouteTableNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames>`
                             
                             
 
@@ -30902,7 +31034,7 @@ class Rib(object):
                                 .. attribute:: ip_rib_route_table_name
                                 
                                 	IP RIB Route table name for a topology
-                                	**type**\: list of  :py:class:`IpRibRouteTableName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName>`
+                                	**type**\: list of    :py:class:`IpRibRouteTableName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName>`
                                 
                                 
 
@@ -30932,42 +31064,42 @@ class Rib(object):
                                     .. attribute:: adverts
                                     
                                     	Route advertiser information 
-                                    	**type**\:  :py:class:`Adverts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Adverts>`
+                                    	**type**\:   :py:class:`Adverts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Adverts>`
                                     
                                     .. attribute:: backup_routes
                                     
                                     	Backup route information for the given table
-                                    	**type**\:  :py:class:`BackupRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.BackupRoutes>`
+                                    	**type**\:   :py:class:`BackupRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.BackupRoutes>`
                                     
                                     .. attribute:: deleted_routes
                                     
                                     	Deleted
-                                    	**type**\:  :py:class:`DeletedRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DeletedRoutes>`
+                                    	**type**\:   :py:class:`DeletedRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DeletedRoutes>`
                                     
                                     .. attribute:: destination_kw
                                     
                                     	Destination KW
-                                    	**type**\:  :py:class:`DestinationKw <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw>`
+                                    	**type**\:   :py:class:`DestinationKw <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw>`
                                     
                                     .. attribute:: opaques
                                     
                                     	Opaque information 
-                                    	**type**\:  :py:class:`Opaques <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Opaques>`
+                                    	**type**\:   :py:class:`Opaques <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Opaques>`
                                     
                                     .. attribute:: protocol
                                     
                                     	Contains the classification of routes by protocol
-                                    	**type**\:  :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol>`
+                                    	**type**\:   :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol>`
                                     
                                     .. attribute:: q_routes
                                     
                                     	Quarantine
-                                    	**type**\:  :py:class:`QRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.QRoutes>`
+                                    	**type**\:   :py:class:`QRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.QRoutes>`
                                     
                                     .. attribute:: routes
                                     
                                     	Route information 
-                                    	**type**\:  :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Routes>`
+                                    	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Routes>`
                                     
                                     
 
@@ -31004,7 +31136,7 @@ class Rib(object):
                                         .. attribute:: route
                                         
                                         	Route information of a specific Network Address 
-                                        	**type**\: list of  :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Routes.Route>`
+                                        	**type**\: list of    :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Routes.Route>`
                                         
                                         
 
@@ -31197,6 +31329,8 @@ class Rib(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**units**\: second
+                                            
                                             .. attribute:: route_label
                                             
                                             	Local label of the route
@@ -31211,10 +31345,12 @@ class Rib(object):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**units**\: nanosecond
+                                            
                                             .. attribute:: route_path
                                             
                                             	Path(s) of the route
-                                            	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Routes.Route.RoutePath>`
+                                            	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Routes.Route.RoutePath>`
                                             
                                             .. attribute:: route_precedence
                                             
@@ -31328,7 +31464,7 @@ class Rib(object):
                                                 .. attribute:: ipv4_rib_edm_path
                                                 
                                                 	ipv4 rib edm path
-                                                	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Routes.Route.RoutePath.Ipv4RibEdmPath>`
+                                                	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Routes.Route.RoutePath.Ipv4RibEdmPath>`
                                                 
                                                 
 
@@ -31964,7 +32100,7 @@ class Rib(object):
                                         .. attribute:: deleted_route
                                         
                                         	Route information for a specific deleted address 
-                                        	**type**\: list of  :py:class:`DeletedRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DeletedRoutes.DeletedRoute>`
+                                        	**type**\: list of    :py:class:`DeletedRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DeletedRoutes.DeletedRoute>`
                                         
                                         
 
@@ -32143,6 +32279,8 @@ class Rib(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**units**\: second
+                                            
                                             .. attribute:: route_label
                                             
                                             	Local label of the route
@@ -32157,10 +32295,12 @@ class Rib(object):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**units**\: nanosecond
+                                            
                                             .. attribute:: route_path
                                             
                                             	Path(s) of the route
-                                            	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DeletedRoutes.DeletedRoute.RoutePath>`
+                                            	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DeletedRoutes.DeletedRoute.RoutePath>`
                                             
                                             .. attribute:: route_precedence
                                             
@@ -32272,7 +32412,7 @@ class Rib(object):
                                                 .. attribute:: ipv4_rib_edm_path
                                                 
                                                 	ipv4 rib edm path
-                                                	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DeletedRoutes.DeletedRoute.RoutePath.Ipv4RibEdmPath>`
+                                                	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DeletedRoutes.DeletedRoute.RoutePath.Ipv4RibEdmPath>`
                                                 
                                                 
 
@@ -32902,22 +33042,22 @@ class Rib(object):
                                         .. attribute:: dest_backup_routes
                                         
                                         	Backup
-                                        	**type**\:  :py:class:`DestBackupRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBackupRoutes>`
+                                        	**type**\:   :py:class:`DestBackupRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBackupRoutes>`
                                         
                                         .. attribute:: dest_best_routes
                                         
                                         	Best Local
-                                        	**type**\:  :py:class:`DestBestRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBestRoutes>`
+                                        	**type**\:   :py:class:`DestBestRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBestRoutes>`
                                         
                                         .. attribute:: dest_next_hop_routes
                                         
                                         	Resolving next hop
-                                        	**type**\:  :py:class:`DestNextHopRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestNextHopRoutes>`
+                                        	**type**\:   :py:class:`DestNextHopRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestNextHopRoutes>`
                                         
                                         .. attribute:: dest_q_routes
                                         
                                         	Quarantine
-                                        	**type**\:  :py:class:`DestQRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestQRoutes>`
+                                        	**type**\:   :py:class:`DestQRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestQRoutes>`
                                         
                                         
 
@@ -32945,7 +33085,7 @@ class Rib(object):
                                             .. attribute:: dest_best_route
                                             
                                             	Best local route information for a specific Address 
-                                            	**type**\: list of  :py:class:`DestBestRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBestRoutes.DestBestRoute>`
+                                            	**type**\: list of    :py:class:`DestBestRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBestRoutes.DestBestRoute>`
                                             
                                             
 
@@ -33117,6 +33257,8 @@ class Rib(object):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**units**\: second
+                                                
                                                 .. attribute:: route_label
                                                 
                                                 	Local label of the route
@@ -33131,10 +33273,12 @@ class Rib(object):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**units**\: nanosecond
+                                                
                                                 .. attribute:: route_path
                                                 
                                                 	Path(s) of the route
-                                                	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBestRoutes.DestBestRoute.RoutePath>`
+                                                	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBestRoutes.DestBestRoute.RoutePath>`
                                                 
                                                 .. attribute:: route_precedence
                                                 
@@ -33245,7 +33389,7 @@ class Rib(object):
                                                     .. attribute:: ipv4_rib_edm_path
                                                     
                                                     	ipv4 rib edm path
-                                                    	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBestRoutes.DestBestRoute.RoutePath.Ipv4RibEdmPath>`
+                                                    	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBestRoutes.DestBestRoute.RoutePath.Ipv4RibEdmPath>`
                                                     
                                                     
 
@@ -33874,7 +34018,7 @@ class Rib(object):
                                             .. attribute:: dest_q_route
                                             
                                             	Route information of a specific Backup Address 
-                                            	**type**\: list of  :py:class:`DestQRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestQRoutes.DestQRoute>`
+                                            	**type**\: list of    :py:class:`DestQRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestQRoutes.DestQRoute>`
                                             
                                             
 
@@ -34053,6 +34197,8 @@ class Rib(object):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**units**\: second
+                                                
                                                 .. attribute:: route_label
                                                 
                                                 	Local label of the route
@@ -34067,10 +34213,12 @@ class Rib(object):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**units**\: nanosecond
+                                                
                                                 .. attribute:: route_path
                                                 
                                                 	Path(s) of the route
-                                                	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestQRoutes.DestQRoute.RoutePath>`
+                                                	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestQRoutes.DestQRoute.RoutePath>`
                                                 
                                                 .. attribute:: route_precedence
                                                 
@@ -34182,7 +34330,7 @@ class Rib(object):
                                                     .. attribute:: ipv4_rib_edm_path
                                                     
                                                     	ipv4 rib edm path
-                                                    	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestQRoutes.DestQRoute.RoutePath.Ipv4RibEdmPath>`
+                                                    	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestQRoutes.DestQRoute.RoutePath.Ipv4RibEdmPath>`
                                                     
                                                     
 
@@ -34812,7 +34960,7 @@ class Rib(object):
                                             .. attribute:: dest_backup_route
                                             
                                             	Route information of a specific Backup Address 
-                                            	**type**\: list of  :py:class:`DestBackupRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBackupRoutes.DestBackupRoute>`
+                                            	**type**\: list of    :py:class:`DestBackupRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBackupRoutes.DestBackupRoute>`
                                             
                                             
 
@@ -34991,6 +35139,8 @@ class Rib(object):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**units**\: second
+                                                
                                                 .. attribute:: route_label
                                                 
                                                 	Local label of the route
@@ -35005,10 +35155,12 @@ class Rib(object):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**units**\: nanosecond
+                                                
                                                 .. attribute:: route_path
                                                 
                                                 	Path(s) of the route
-                                                	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBackupRoutes.DestBackupRoute.RoutePath>`
+                                                	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBackupRoutes.DestBackupRoute.RoutePath>`
                                                 
                                                 .. attribute:: route_precedence
                                                 
@@ -35120,7 +35272,7 @@ class Rib(object):
                                                     .. attribute:: ipv4_rib_edm_path
                                                     
                                                     	ipv4 rib edm path
-                                                    	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBackupRoutes.DestBackupRoute.RoutePath.Ipv4RibEdmPath>`
+                                                    	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestBackupRoutes.DestBackupRoute.RoutePath.Ipv4RibEdmPath>`
                                                     
                                                     
 
@@ -35750,7 +35902,7 @@ class Rib(object):
                                             .. attribute:: dest_next_hop_route
                                             
                                             	Nexthop information for a specific address
-                                            	**type**\: list of  :py:class:`DestNextHopRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestNextHopRoutes.DestNextHopRoute>`
+                                            	**type**\: list of    :py:class:`DestNextHopRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestNextHopRoutes.DestNextHopRoute>`
                                             
                                             
 
@@ -35922,6 +36074,8 @@ class Rib(object):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**units**\: second
+                                                
                                                 .. attribute:: route_label
                                                 
                                                 	Local label of the route
@@ -35936,10 +36090,12 @@ class Rib(object):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**units**\: nanosecond
+                                                
                                                 .. attribute:: route_path
                                                 
                                                 	Path(s) of the route
-                                                	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestNextHopRoutes.DestNextHopRoute.RoutePath>`
+                                                	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestNextHopRoutes.DestNextHopRoute.RoutePath>`
                                                 
                                                 .. attribute:: route_precedence
                                                 
@@ -36050,7 +36206,7 @@ class Rib(object):
                                                     .. attribute:: ipv4_rib_edm_path
                                                     
                                                     	ipv4 rib edm path
-                                                    	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestNextHopRoutes.DestNextHopRoute.RoutePath.Ipv4RibEdmPath>`
+                                                    	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.DestinationKw.DestNextHopRoutes.DestNextHopRoute.RoutePath.Ipv4RibEdmPath>`
                                                     
                                                     
 
@@ -36712,7 +36868,7 @@ class Rib(object):
                                         .. attribute:: opaque
                                         
                                         	Opaque item 
-                                        	**type**\: list of  :py:class:`Opaque <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Opaques.Opaque>`
+                                        	**type**\: list of    :py:class:`Opaque <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Opaques.Opaque>`
                                         
                                         
 
@@ -36886,72 +37042,72 @@ class Rib(object):
                                         .. attribute:: application
                                         
                                         	Application Protocol
-                                        	**type**\:  :py:class:`Application <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application>`
+                                        	**type**\:   :py:class:`Application <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application>`
                                         
                                         .. attribute:: bgp
                                         
                                         	BGP Protocol
-                                        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp>`
+                                        	**type**\:   :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp>`
                                         
                                         .. attribute:: connected
                                         
                                         	Connected Protocol
-                                        	**type**\:  :py:class:`Connected <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected>`
+                                        	**type**\:   :py:class:`Connected <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected>`
                                         
                                         .. attribute:: dagr
                                         
                                         	DAGR Protocol(Direct\-Attached Gateway Redundancy) Protocol
-                                        	**type**\:  :py:class:`Dagr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr>`
+                                        	**type**\:   :py:class:`Dagr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr>`
                                         
                                         .. attribute:: eigrp
                                         
                                         	EIGRP Protocol
-                                        	**type**\:  :py:class:`Eigrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp>`
+                                        	**type**\:   :py:class:`Eigrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp>`
                                         
                                         .. attribute:: isis
                                         
                                         	ISIS Protocol
-                                        	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis>`
+                                        	**type**\:   :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis>`
                                         
                                         .. attribute:: local
                                         
                                         	Local Protocol
-                                        	**type**\:  :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local>`
+                                        	**type**\:   :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local>`
                                         
                                         .. attribute:: mobile
                                         
                                         	Mobile Protocol
-                                        	**type**\:  :py:class:`Mobile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile>`
+                                        	**type**\:   :py:class:`Mobile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile>`
                                         
                                         .. attribute:: ospf
                                         
                                         	OSPF Protocol
-                                        	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf>`
+                                        	**type**\:   :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf>`
                                         
                                         .. attribute:: rip
                                         
                                         	RIP Protocol
-                                        	**type**\:  :py:class:`Rip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip>`
+                                        	**type**\:   :py:class:`Rip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip>`
                                         
                                         .. attribute:: rpl
                                         
                                         	RPL Protocol
-                                        	**type**\:  :py:class:`Rpl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl>`
+                                        	**type**\:   :py:class:`Rpl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl>`
                                         
                                         .. attribute:: static
                                         
                                         	Static Protocol
-                                        	**type**\:  :py:class:`Static <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static>`
+                                        	**type**\:   :py:class:`Static <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static>`
                                         
                                         .. attribute:: subscriber
                                         
                                         	Subscriber Protocol
-                                        	**type**\:  :py:class:`Subscriber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber>`
+                                        	**type**\:   :py:class:`Subscriber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber>`
                                         
                                         .. attribute:: te_client
                                         
                                         	TEClient Protocol
-                                        	**type**\:  :py:class:`TeClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient>`
+                                        	**type**\:   :py:class:`TeClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient>`
                                         
                                         
 
@@ -36999,7 +37155,7 @@ class Rib(object):
                                             .. attribute:: non_as
                                             
                                             	Non Autonomous System of protocol
-                                            	**type**\:  :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs>`
+                                            	**type**\:   :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs>`
                                             
                                             
 
@@ -37021,12 +37177,12 @@ class Rib(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes>`
                                                 
                                                 
 
@@ -37050,7 +37206,7 @@ class Rib(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -37229,6 +37385,8 @@ class Rib(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -37243,10 +37401,12 @@ class Rib(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -37358,7 +37518,7 @@ class Rib(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -38037,6 +38197,8 @@ class Rib(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**units**\: byte
+                                                    
                                                     .. attribute:: redistribution_client_count
                                                     
                                                     	Number of redist clients
@@ -38192,7 +38354,7 @@ class Rib(object):
                                             .. attribute:: non_as
                                             
                                             	Non Autonomous System of protocol
-                                            	**type**\:  :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs>`
+                                            	**type**\:   :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs>`
                                             
                                             
 
@@ -38214,12 +38376,12 @@ class Rib(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.ProtocolRoutes>`
                                                 
                                                 
 
@@ -38243,7 +38405,7 @@ class Rib(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -38422,6 +38584,8 @@ class Rib(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -38436,10 +38600,12 @@ class Rib(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -38551,7 +38717,7 @@ class Rib(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -39230,6 +39396,8 @@ class Rib(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**units**\: byte
+                                                    
                                                     .. attribute:: redistribution_client_count
                                                     
                                                     	Number of redist clients
@@ -39385,7 +39553,7 @@ class Rib(object):
                                             .. attribute:: non_as
                                             
                                             	Non Autonomous System of protocol
-                                            	**type**\:  :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs>`
+                                            	**type**\:   :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs>`
                                             
                                             
 
@@ -39407,12 +39575,12 @@ class Rib(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs.ProtocolRoutes>`
                                                 
                                                 
 
@@ -39436,7 +39604,7 @@ class Rib(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -39615,6 +39783,8 @@ class Rib(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -39629,10 +39799,12 @@ class Rib(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -39744,7 +39916,7 @@ class Rib(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -40423,6 +40595,8 @@ class Rib(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**units**\: byte
+                                                    
                                                     .. attribute:: redistribution_client_count
                                                     
                                                     	Number of redist clients
@@ -40579,7 +40753,7 @@ class Rib(object):
                                             .. attribute:: non_as
                                             
                                             	Non Autonomous System of protocol
-                                            	**type**\:  :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs>`
+                                            	**type**\:   :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs>`
                                             
                                             
 
@@ -40601,12 +40775,12 @@ class Rib(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs.ProtocolRoutes>`
                                                 
                                                 
 
@@ -40630,7 +40804,7 @@ class Rib(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -40809,6 +40983,8 @@ class Rib(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -40823,10 +40999,12 @@ class Rib(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -40938,7 +41116,7 @@ class Rib(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Dagr.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -41617,6 +41795,8 @@ class Rib(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**units**\: byte
+                                                    
                                                     .. attribute:: redistribution_client_count
                                                     
                                                     	Number of redist clients
@@ -41772,7 +41952,7 @@ class Rib(object):
                                             .. attribute:: non_as
                                             
                                             	Non Autonomous System of protocol
-                                            	**type**\:  :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs>`
+                                            	**type**\:   :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs>`
                                             
                                             
 
@@ -41794,12 +41974,12 @@ class Rib(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs.ProtocolRoutes>`
                                                 
                                                 
 
@@ -41823,7 +42003,7 @@ class Rib(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -42002,6 +42182,8 @@ class Rib(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -42016,10 +42198,12 @@ class Rib(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -42131,7 +42315,7 @@ class Rib(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rip.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -42810,6 +42994,8 @@ class Rib(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**units**\: byte
+                                                    
                                                     .. attribute:: redistribution_client_count
                                                     
                                                     	Number of redist clients
@@ -42965,7 +43151,7 @@ class Rib(object):
                                             .. attribute:: as_
                                             
                                             	Autonomous System of protocol
-                                            	**type**\: list of  :py:class:`As <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As>`
+                                            	**type**\: list of    :py:class:`As_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_>`
                                             
                                             
 
@@ -42981,7 +43167,7 @@ class Rib(object):
                                                 self.as_.name = 'as_'
 
 
-                                            class As(object):
+                                            class As_(object):
                                                 """
                                                 Autonomous System of protocol
                                                 
@@ -42995,12 +43181,12 @@ class Rib(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes>`
                                                 
                                                 
 
@@ -43012,9 +43198,9 @@ class Rib(object):
                                                 def __init__(self):
                                                     self.parent = None
                                                     self.as_ = None
-                                                    self.information = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.Information()
+                                                    self.information = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.Information()
                                                     self.information.parent = self
-                                                    self.protocol_routes = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes()
+                                                    self.protocol_routes = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes()
                                                     self.protocol_routes.parent = self
 
 
@@ -43025,7 +43211,7 @@ class Rib(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -43204,6 +43390,8 @@ class Rib(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -43218,10 +43406,12 @@ class Rib(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -43314,7 +43504,7 @@ class Rib(object):
                                                             self.route_age = None
                                                             self.route_label = None
                                                             self.route_modify_time = None
-                                                            self.route_path = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath()
+                                                            self.route_path = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath()
                                                             self.route_path.parent = self
                                                             self.route_precedence = None
                                                             self.route_type = None
@@ -43333,7 +43523,7 @@ class Rib(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -43775,7 +43965,7 @@ class Rib(object):
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                                    return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath']['meta_info']
+                                                                    return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath']['meta_info']
 
                                                             @property
                                                             def _common_path(self):
@@ -43801,7 +43991,7 @@ class Rib(object):
                                                             @staticmethod
                                                             def _meta_info():
                                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                                return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
+                                                                return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
 
                                                         @property
                                                         def _common_path(self):
@@ -43927,7 +44117,7 @@ class Rib(object):
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                            return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute']['meta_info']
+                                                            return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute']['meta_info']
 
                                                     @property
                                                     def _common_path(self):
@@ -43953,7 +44143,7 @@ class Rib(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                        return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes']['meta_info']
+                                                        return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes']['meta_info']
 
 
                                                 class Information(object):
@@ -44011,6 +44201,8 @@ class Rib(object):
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**units**\: byte
                                                     
                                                     .. attribute:: redistribution_client_count
                                                     
@@ -44106,7 +44298,7 @@ class Rib(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                        return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.Information']['meta_info']
+                                                        return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.Information']['meta_info']
 
                                                 @property
                                                 def _common_path(self):
@@ -44138,7 +44330,7 @@ class Rib(object):
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                    return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As']['meta_info']
+                                                    return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_']['meta_info']
 
                                             @property
                                             def _common_path(self):
@@ -44174,7 +44366,7 @@ class Rib(object):
                                             .. attribute:: non_as
                                             
                                             	Non Autonomous System of protocol
-                                            	**type**\:  :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs>`
+                                            	**type**\:   :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs>`
                                             
                                             
 
@@ -44196,12 +44388,12 @@ class Rib(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes>`
                                                 
                                                 
 
@@ -44225,7 +44417,7 @@ class Rib(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -44404,6 +44596,8 @@ class Rib(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -44418,10 +44612,12 @@ class Rib(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -44533,7 +44729,7 @@ class Rib(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -45212,6 +45408,8 @@ class Rib(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**units**\: byte
+                                                    
                                                     .. attribute:: redistribution_client_count
                                                     
                                                     	Number of redist clients
@@ -45367,7 +45565,7 @@ class Rib(object):
                                             .. attribute:: as_
                                             
                                             	Autonomous System of protocol
-                                            	**type**\: list of  :py:class:`As <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As>`
+                                            	**type**\: list of    :py:class:`As_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_>`
                                             
                                             
 
@@ -45383,7 +45581,7 @@ class Rib(object):
                                                 self.as_.name = 'as_'
 
 
-                                            class As(object):
+                                            class As_(object):
                                                 """
                                                 Autonomous System of protocol
                                                 
@@ -45397,12 +45595,12 @@ class Rib(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes>`
                                                 
                                                 
 
@@ -45414,9 +45612,9 @@ class Rib(object):
                                                 def __init__(self):
                                                     self.parent = None
                                                     self.as_ = None
-                                                    self.information = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.Information()
+                                                    self.information = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.Information()
                                                     self.information.parent = self
-                                                    self.protocol_routes = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes()
+                                                    self.protocol_routes = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes()
                                                     self.protocol_routes.parent = self
 
 
@@ -45427,7 +45625,7 @@ class Rib(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -45606,6 +45804,8 @@ class Rib(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -45620,10 +45820,12 @@ class Rib(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -45716,7 +45918,7 @@ class Rib(object):
                                                             self.route_age = None
                                                             self.route_label = None
                                                             self.route_modify_time = None
-                                                            self.route_path = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath()
+                                                            self.route_path = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath()
                                                             self.route_path.parent = self
                                                             self.route_precedence = None
                                                             self.route_type = None
@@ -45735,7 +45937,7 @@ class Rib(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -46177,7 +46379,7 @@ class Rib(object):
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                                    return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath']['meta_info']
+                                                                    return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath']['meta_info']
 
                                                             @property
                                                             def _common_path(self):
@@ -46203,7 +46405,7 @@ class Rib(object):
                                                             @staticmethod
                                                             def _meta_info():
                                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                                return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
+                                                                return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
 
                                                         @property
                                                         def _common_path(self):
@@ -46329,7 +46531,7 @@ class Rib(object):
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                            return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute']['meta_info']
+                                                            return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute']['meta_info']
 
                                                     @property
                                                     def _common_path(self):
@@ -46355,7 +46557,7 @@ class Rib(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                        return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes']['meta_info']
+                                                        return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes']['meta_info']
 
 
                                                 class Information(object):
@@ -46413,6 +46615,8 @@ class Rib(object):
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**units**\: byte
                                                     
                                                     .. attribute:: redistribution_client_count
                                                     
@@ -46508,7 +46712,7 @@ class Rib(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                        return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.Information']['meta_info']
+                                                        return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.Information']['meta_info']
 
                                                 @property
                                                 def _common_path(self):
@@ -46540,7 +46744,7 @@ class Rib(object):
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                    return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As']['meta_info']
+                                                    return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_']['meta_info']
 
                                             @property
                                             def _common_path(self):
@@ -46576,7 +46780,7 @@ class Rib(object):
                                             .. attribute:: non_as
                                             
                                             	Non Autonomous System of protocol
-                                            	**type**\:  :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs>`
+                                            	**type**\:   :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs>`
                                             
                                             
 
@@ -46598,12 +46802,12 @@ class Rib(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs.ProtocolRoutes>`
                                                 
                                                 
 
@@ -46627,7 +46831,7 @@ class Rib(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -46806,6 +47010,8 @@ class Rib(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -46820,10 +47026,12 @@ class Rib(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -46935,7 +47143,7 @@ class Rib(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Application.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -47614,6 +47822,8 @@ class Rib(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**units**\: byte
+                                                    
                                                     .. attribute:: redistribution_client_count
                                                     
                                                     	Number of redist clients
@@ -47769,7 +47979,7 @@ class Rib(object):
                                             .. attribute:: non_as
                                             
                                             	Non Autonomous System of protocol
-                                            	**type**\:  :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs>`
+                                            	**type**\:   :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs>`
                                             
                                             
 
@@ -47791,12 +48001,12 @@ class Rib(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs.ProtocolRoutes>`
                                                 
                                                 
 
@@ -47820,7 +48030,7 @@ class Rib(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -47999,6 +48209,8 @@ class Rib(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -48013,10 +48225,12 @@ class Rib(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -48128,7 +48342,7 @@ class Rib(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.TeClient.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -48807,6 +49021,8 @@ class Rib(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**units**\: byte
+                                                    
                                                     .. attribute:: redistribution_client_count
                                                     
                                                     	Number of redist clients
@@ -48962,7 +49178,7 @@ class Rib(object):
                                             .. attribute:: as_
                                             
                                             	Autonomous System of protocol
-                                            	**type**\: list of  :py:class:`As <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As>`
+                                            	**type**\: list of    :py:class:`As_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_>`
                                             
                                             
 
@@ -48978,7 +49194,7 @@ class Rib(object):
                                                 self.as_.name = 'as_'
 
 
-                                            class As(object):
+                                            class As_(object):
                                                 """
                                                 Autonomous System of protocol
                                                 
@@ -48992,12 +49208,12 @@ class Rib(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes>`
                                                 
                                                 
 
@@ -49009,9 +49225,9 @@ class Rib(object):
                                                 def __init__(self):
                                                     self.parent = None
                                                     self.as_ = None
-                                                    self.information = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.Information()
+                                                    self.information = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.Information()
                                                     self.information.parent = self
-                                                    self.protocol_routes = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes()
+                                                    self.protocol_routes = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes()
                                                     self.protocol_routes.parent = self
 
 
@@ -49022,7 +49238,7 @@ class Rib(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -49201,6 +49417,8 @@ class Rib(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -49215,10 +49433,12 @@ class Rib(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -49311,7 +49531,7 @@ class Rib(object):
                                                             self.route_age = None
                                                             self.route_label = None
                                                             self.route_modify_time = None
-                                                            self.route_path = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath()
+                                                            self.route_path = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath()
                                                             self.route_path.parent = self
                                                             self.route_precedence = None
                                                             self.route_type = None
@@ -49330,7 +49550,7 @@ class Rib(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -49772,7 +49992,7 @@ class Rib(object):
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                                    return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath']['meta_info']
+                                                                    return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath']['meta_info']
 
                                                             @property
                                                             def _common_path(self):
@@ -49798,7 +50018,7 @@ class Rib(object):
                                                             @staticmethod
                                                             def _meta_info():
                                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                                return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
+                                                                return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
 
                                                         @property
                                                         def _common_path(self):
@@ -49924,7 +50144,7 @@ class Rib(object):
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                            return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute']['meta_info']
+                                                            return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute']['meta_info']
 
                                                     @property
                                                     def _common_path(self):
@@ -49950,7 +50170,7 @@ class Rib(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                        return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes']['meta_info']
+                                                        return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes']['meta_info']
 
 
                                                 class Information(object):
@@ -50008,6 +50228,8 @@ class Rib(object):
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**units**\: byte
                                                     
                                                     .. attribute:: redistribution_client_count
                                                     
@@ -50103,7 +50325,7 @@ class Rib(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                        return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.Information']['meta_info']
+                                                        return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.Information']['meta_info']
 
                                                 @property
                                                 def _common_path(self):
@@ -50135,7 +50357,7 @@ class Rib(object):
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                    return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As']['meta_info']
+                                                    return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_']['meta_info']
 
                                             @property
                                             def _common_path(self):
@@ -50171,17 +50393,17 @@ class Rib(object):
                                             .. attribute:: lspv
                                             
                                             	LSPV(Label Switched Path Verification) Protocol
-                                            	**type**\:  :py:class:`Lspv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv>`
+                                            	**type**\:   :py:class:`Lspv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv>`
                                             
                                             .. attribute:: non_as
                                             
                                             	Non Autonomous System of protocol
-                                            	**type**\:  :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs>`
+                                            	**type**\:   :py:class:`NonAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs>`
                                             
                                             .. attribute:: smiap
                                             
                                             	SMIAP
-                                            	**type**\:  :py:class:`Smiap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap>`
+                                            	**type**\:   :py:class:`Smiap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap>`
                                             
                                             
 
@@ -50207,12 +50429,12 @@ class Rib(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap.ProtocolRoutes>`
                                                 
                                                 
 
@@ -50236,7 +50458,7 @@ class Rib(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -50415,6 +50637,8 @@ class Rib(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -50429,10 +50653,12 @@ class Rib(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -50544,7 +50770,7 @@ class Rib(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Smiap.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -51223,6 +51449,8 @@ class Rib(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**units**\: byte
+                                                    
                                                     .. attribute:: redistribution_client_count
                                                     
                                                     	Number of redist clients
@@ -51355,12 +51583,12 @@ class Rib(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv.ProtocolRoutes>`
                                                 
                                                 
 
@@ -51384,7 +51612,7 @@ class Rib(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -51563,6 +51791,8 @@ class Rib(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -51577,10 +51807,12 @@ class Rib(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -51692,7 +51924,7 @@ class Rib(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -52371,6 +52603,8 @@ class Rib(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**units**\: byte
+                                                    
                                                     .. attribute:: redistribution_client_count
                                                     
                                                     	Number of redist clients
@@ -52502,12 +52736,12 @@ class Rib(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs.ProtocolRoutes>`
                                                 
                                                 
 
@@ -52531,7 +52765,7 @@ class Rib(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -52710,6 +52944,8 @@ class Rib(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -52724,10 +52960,12 @@ class Rib(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -52839,7 +53077,7 @@ class Rib(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -53518,6 +53756,8 @@ class Rib(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**units**\: byte
+                                                    
                                                     .. attribute:: redistribution_client_count
                                                     
                                                     	Number of redist clients
@@ -53679,7 +53919,7 @@ class Rib(object):
                                             .. attribute:: as_
                                             
                                             	Autonomous System of protocol
-                                            	**type**\: list of  :py:class:`As <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As>`
+                                            	**type**\: list of    :py:class:`As_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_>`
                                             
                                             
 
@@ -53695,7 +53935,7 @@ class Rib(object):
                                                 self.as_.name = 'as_'
 
 
-                                            class As(object):
+                                            class As_(object):
                                                 """
                                                 Autonomous System of protocol
                                                 
@@ -53709,12 +53949,12 @@ class Rib(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes>`
                                                 
                                                 
 
@@ -53726,9 +53966,9 @@ class Rib(object):
                                                 def __init__(self):
                                                     self.parent = None
                                                     self.as_ = None
-                                                    self.information = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.Information()
+                                                    self.information = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.Information()
                                                     self.information.parent = self
-                                                    self.protocol_routes = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes()
+                                                    self.protocol_routes = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes()
                                                     self.protocol_routes.parent = self
 
 
@@ -53739,7 +53979,7 @@ class Rib(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -53918,6 +54158,8 @@ class Rib(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -53932,10 +54174,12 @@ class Rib(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -54028,7 +54272,7 @@ class Rib(object):
                                                             self.route_age = None
                                                             self.route_label = None
                                                             self.route_modify_time = None
-                                                            self.route_path = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath()
+                                                            self.route_path = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath()
                                                             self.route_path.parent = self
                                                             self.route_precedence = None
                                                             self.route_type = None
@@ -54047,7 +54291,7 @@ class Rib(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -54489,7 +54733,7 @@ class Rib(object):
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                                    return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath']['meta_info']
+                                                                    return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath']['meta_info']
 
                                                             @property
                                                             def _common_path(self):
@@ -54515,7 +54759,7 @@ class Rib(object):
                                                             @staticmethod
                                                             def _meta_info():
                                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                                return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
+                                                                return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
 
                                                         @property
                                                         def _common_path(self):
@@ -54641,7 +54885,7 @@ class Rib(object):
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                            return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute']['meta_info']
+                                                            return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute']['meta_info']
 
                                                     @property
                                                     def _common_path(self):
@@ -54667,7 +54911,7 @@ class Rib(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                        return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes']['meta_info']
+                                                        return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes']['meta_info']
 
 
                                                 class Information(object):
@@ -54725,6 +54969,8 @@ class Rib(object):
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**units**\: byte
                                                     
                                                     .. attribute:: redistribution_client_count
                                                     
@@ -54820,7 +55066,7 @@ class Rib(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                        return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.Information']['meta_info']
+                                                        return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.Information']['meta_info']
 
                                                 @property
                                                 def _common_path(self):
@@ -54852,7 +55098,7 @@ class Rib(object):
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                    return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As']['meta_info']
+                                                    return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_']['meta_info']
 
                                             @property
                                             def _common_path(self):
@@ -54888,7 +55134,7 @@ class Rib(object):
                                             .. attribute:: as_
                                             
                                             	Autonomous System of protocol
-                                            	**type**\: list of  :py:class:`As <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As>`
+                                            	**type**\: list of    :py:class:`As_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_>`
                                             
                                             
 
@@ -54904,7 +55150,7 @@ class Rib(object):
                                                 self.as_.name = 'as_'
 
 
-                                            class As(object):
+                                            class As_(object):
                                                 """
                                                 Autonomous System of protocol
                                                 
@@ -54918,12 +55164,12 @@ class Rib(object):
                                                 .. attribute:: information
                                                 
                                                 	Protocol related Information
-                                                	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.Information>`
+                                                	**type**\:   :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.Information>`
                                                 
                                                 .. attribute:: protocol_routes
                                                 
                                                 	Protocol specific Route
-                                                	**type**\:  :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes>`
+                                                	**type**\:   :py:class:`ProtocolRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes>`
                                                 
                                                 
 
@@ -54935,9 +55181,9 @@ class Rib(object):
                                                 def __init__(self):
                                                     self.parent = None
                                                     self.as_ = None
-                                                    self.information = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.Information()
+                                                    self.information = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.Information()
                                                     self.information.parent = self
-                                                    self.protocol_routes = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes()
+                                                    self.protocol_routes = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes()
                                                     self.protocol_routes.parent = self
 
 
@@ -54948,7 +55194,7 @@ class Rib(object):
                                                     .. attribute:: protocol_route
                                                     
                                                     	 Route information of a specific Network Address 
-                                                    	**type**\: list of  :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute>`
+                                                    	**type**\: list of    :py:class:`ProtocolRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute>`
                                                     
                                                     
 
@@ -55127,6 +55373,8 @@ class Rib(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**units**\: second
+                                                        
                                                         .. attribute:: route_label
                                                         
                                                         	Local label of the route
@@ -55141,10 +55389,12 @@ class Rib(object):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: route_path
                                                         
                                                         	Path(s) of the route
-                                                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath>`
+                                                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath>`
                                                         
                                                         .. attribute:: route_precedence
                                                         
@@ -55237,7 +55487,7 @@ class Rib(object):
                                                             self.route_age = None
                                                             self.route_label = None
                                                             self.route_modify_time = None
-                                                            self.route_path = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath()
+                                                            self.route_path = Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath()
                                                             self.route_path.parent = self
                                                             self.route_precedence = None
                                                             self.route_type = None
@@ -55256,7 +55506,7 @@ class Rib(object):
                                                             .. attribute:: ipv4_rib_edm_path
                                                             
                                                             	ipv4 rib edm path
-                                                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
+                                                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath>`
                                                             
                                                             
 
@@ -55698,7 +55948,7 @@ class Rib(object):
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                                    return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath']['meta_info']
+                                                                    return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv4RibEdmPath']['meta_info']
 
                                                             @property
                                                             def _common_path(self):
@@ -55724,7 +55974,7 @@ class Rib(object):
                                                             @staticmethod
                                                             def _meta_info():
                                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                                return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
+                                                                return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
 
                                                         @property
                                                         def _common_path(self):
@@ -55850,7 +56100,7 @@ class Rib(object):
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                            return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute']['meta_info']
+                                                            return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute']['meta_info']
 
                                                     @property
                                                     def _common_path(self):
@@ -55876,7 +56126,7 @@ class Rib(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                        return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes']['meta_info']
+                                                        return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes']['meta_info']
 
 
                                                 class Information(object):
@@ -55934,6 +56184,8 @@ class Rib(object):
                                                     	**type**\:  int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**units**\: byte
                                                     
                                                     .. attribute:: redistribution_client_count
                                                     
@@ -56029,7 +56281,7 @@ class Rib(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                        return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.Information']['meta_info']
+                                                        return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.Information']['meta_info']
 
                                                 @property
                                                 def _common_path(self):
@@ -56061,7 +56313,7 @@ class Rib(object):
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rib_ipv4_oper as meta
-                                                    return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As']['meta_info']
+                                                    return meta._meta_table['Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_']['meta_info']
 
                                             @property
                                             def _common_path(self):
@@ -56160,7 +56412,7 @@ class Rib(object):
                                         .. attribute:: q_route
                                         
                                         	Route information for a specific quarantined address 
-                                        	**type**\: list of  :py:class:`QRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.QRoutes.QRoute>`
+                                        	**type**\: list of    :py:class:`QRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.QRoutes.QRoute>`
                                         
                                         
 
@@ -56339,6 +56591,8 @@ class Rib(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**units**\: second
+                                            
                                             .. attribute:: route_label
                                             
                                             	Local label of the route
@@ -56353,10 +56607,12 @@ class Rib(object):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**units**\: nanosecond
+                                            
                                             .. attribute:: route_path
                                             
                                             	Path(s) of the route
-                                            	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.QRoutes.QRoute.RoutePath>`
+                                            	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.QRoutes.QRoute.RoutePath>`
                                             
                                             .. attribute:: route_precedence
                                             
@@ -56468,7 +56724,7 @@ class Rib(object):
                                                 .. attribute:: ipv4_rib_edm_path
                                                 
                                                 	ipv4 rib edm path
-                                                	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.QRoutes.QRoute.RoutePath.Ipv4RibEdmPath>`
+                                                	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.QRoutes.QRoute.RoutePath.Ipv4RibEdmPath>`
                                                 
                                                 
 
@@ -57099,7 +57355,7 @@ class Rib(object):
                                         .. attribute:: backup_route
                                         
                                         	Route information for a specific backup address 
-                                        	**type**\: list of  :py:class:`BackupRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.BackupRoutes.BackupRoute>`
+                                        	**type**\: list of    :py:class:`BackupRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.BackupRoutes.BackupRoute>`
                                         
                                         
 
@@ -57285,6 +57541,8 @@ class Rib(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**units**\: second
+                                            
                                             .. attribute:: route_label
                                             
                                             	Local label of the route
@@ -57299,10 +57557,12 @@ class Rib(object):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**units**\: nanosecond
+                                            
                                             .. attribute:: route_path
                                             
                                             	Path(s) of the route
-                                            	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.BackupRoutes.BackupRoute.RoutePath>`
+                                            	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.BackupRoutes.BackupRoute.RoutePath>`
                                             
                                             .. attribute:: route_precedence
                                             
@@ -57415,7 +57675,7 @@ class Rib(object):
                                                 .. attribute:: ipv4_rib_edm_path
                                                 
                                                 	ipv4 rib edm path
-                                                	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.BackupRoutes.BackupRoute.RoutePath.Ipv4RibEdmPath>`
+                                                	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.BackupRoutes.BackupRoute.RoutePath.Ipv4RibEdmPath>`
                                                 
                                                 
 
@@ -58048,7 +58308,7 @@ class Rib(object):
                                         .. attribute:: advert
                                         
                                         	Route information of a specific Network Address 
-                                        	**type**\: list of  :py:class:`Advert <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Adverts.Advert>`
+                                        	**type**\: list of    :py:class:`Advert <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Adverts.Advert>`
                                         
                                         
 
@@ -58079,7 +58339,7 @@ class Rib(object):
                                             .. attribute:: ipv4_rib_edm_advert
                                             
                                             	ipv4 rib edm advert
-                                            	**type**\: list of  :py:class:`Ipv4RibEdmAdvert <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Adverts.Advert.Ipv4RibEdmAdvert>`
+                                            	**type**\: list of    :py:class:`Ipv4RibEdmAdvert <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Adverts.Advert.Ipv4RibEdmAdvert>`
                                             
                                             .. attribute:: prefix_length
                                             
@@ -58530,7 +58790,7 @@ class Rib(object):
         .. attribute:: rib_table_id
         
         	Specific Table
-        	**type**\: list of  :py:class:`RibTableId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId>`
+        	**type**\: list of    :py:class:`RibTableId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId>`
         
         
 
@@ -58560,12 +58820,12 @@ class Rib(object):
             .. attribute:: rib_table_itf_hndls
             
             	RIB table interface
-            	**type**\:  :py:class:`RibTableItfHndls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.RibTableItfHndls>`
+            	**type**\:   :py:class:`RibTableItfHndls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.RibTableItfHndls>`
             
             .. attribute:: summary_protos
             
             	RIB table summary
-            	**type**\:  :py:class:`SummaryProtos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos>`
+            	**type**\:   :py:class:`SummaryProtos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos>`
             
             
 
@@ -58590,7 +58850,7 @@ class Rib(object):
                 .. attribute:: summary_proto
                 
                 	Route summary information for a specific table/protocol 
-                	**type**\: list of  :py:class:`SummaryProto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto>`
+                	**type**\: list of    :py:class:`SummaryProto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto>`
                 
                 
 
@@ -58631,92 +58891,92 @@ class Rib(object):
                     .. attribute:: proto_route_count
                     
                     	Count for proto. instance
-                    	**type**\:  :py:class:`ProtoRouteCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.ProtoRouteCount>`
+                    	**type**\:   :py:class:`ProtoRouteCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.ProtoRouteCount>`
                     
                     .. attribute:: rtype_bgp_ext
                     
                     	eBGP route
-                    	**type**\:  :py:class:`RtypeBgpExt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeBgpExt>`
+                    	**type**\:   :py:class:`RtypeBgpExt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeBgpExt>`
                     
                     .. attribute:: rtype_bgp_int
                     
                     	iBGP route
-                    	**type**\:  :py:class:`RtypeBgpInt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeBgpInt>`
+                    	**type**\:   :py:class:`RtypeBgpInt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeBgpInt>`
                     
                     .. attribute:: rtype_bgp_loc
                     
                     	BGP local route
-                    	**type**\:  :py:class:`RtypeBgpLoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeBgpLoc>`
+                    	**type**\:   :py:class:`RtypeBgpLoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeBgpLoc>`
                     
                     .. attribute:: rtype_igrp2_ext
                     
                     	EIGRP external route
-                    	**type**\:  :py:class:`RtypeIgrp2Ext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIgrp2Ext>`
+                    	**type**\:   :py:class:`RtypeIgrp2Ext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIgrp2Ext>`
                     
                     .. attribute:: rtype_igrp2_int
                     
                     	EIGRP internal route
-                    	**type**\:  :py:class:`RtypeIgrp2Int <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIgrp2Int>`
+                    	**type**\:   :py:class:`RtypeIgrp2Int <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIgrp2Int>`
                     
                     .. attribute:: rtype_isis_l1
                     
                     	IS\-IS level 1 route
-                    	**type**\:  :py:class:`RtypeIsisL1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIsisL1>`
+                    	**type**\:   :py:class:`RtypeIsisL1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIsisL1>`
                     
                     .. attribute:: rtype_isis_l1_ia
                     
                     	IS\-IS level1 inter\-area route
-                    	**type**\:  :py:class:`RtypeIsisL1Ia <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIsisL1Ia>`
+                    	**type**\:   :py:class:`RtypeIsisL1Ia <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIsisL1Ia>`
                     
                     .. attribute:: rtype_isis_l2
                     
                     	IS\-IS level 2 route
-                    	**type**\:  :py:class:`RtypeIsisL2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIsisL2>`
+                    	**type**\:   :py:class:`RtypeIsisL2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIsisL2>`
                     
                     .. attribute:: rtype_isis_sum
                     
                     	IS\-IS summary route
-                    	**type**\:  :py:class:`RtypeIsisSum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIsisSum>`
+                    	**type**\:   :py:class:`RtypeIsisSum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeIsisSum>`
                     
                     .. attribute:: rtype_none
                     
                     	No route type
-                    	**type**\:  :py:class:`RtypeNone <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeNone>`
+                    	**type**\:   :py:class:`RtypeNone <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeNone>`
                     
                     .. attribute:: rtype_ospf_extern1
                     
                     	OSPF external route of type 1
-                    	**type**\:  :py:class:`RtypeOspfExtern1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfExtern1>`
+                    	**type**\:   :py:class:`RtypeOspfExtern1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfExtern1>`
                     
                     .. attribute:: rtype_ospf_extern2
                     
                     	OSPF external route of type 2
-                    	**type**\:  :py:class:`RtypeOspfExtern2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfExtern2>`
+                    	**type**\:   :py:class:`RtypeOspfExtern2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfExtern2>`
                     
                     .. attribute:: rtype_ospf_inter
                     
                     	OSPF route across diff. areas
-                    	**type**\:  :py:class:`RtypeOspfInter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfInter>`
+                    	**type**\:   :py:class:`RtypeOspfInter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfInter>`
                     
                     .. attribute:: rtype_ospf_intra
                     
                     	OSPF route within an area
-                    	**type**\:  :py:class:`RtypeOspfIntra <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfIntra>`
+                    	**type**\:   :py:class:`RtypeOspfIntra <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfIntra>`
                     
                     .. attribute:: rtype_ospf_nssa1
                     
                     	OSPF NSSA ext. route type 1
-                    	**type**\:  :py:class:`RtypeOspfNssa1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfNssa1>`
+                    	**type**\:   :py:class:`RtypeOspfNssa1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfNssa1>`
                     
                     .. attribute:: rtype_ospf_nssa2
                     
                     	OSPF NSSA ext. route type 2
-                    	**type**\:  :py:class:`RtypeOspfNssa2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfNssa2>`
+                    	**type**\:   :py:class:`RtypeOspfNssa2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOspfNssa2>`
                     
                     .. attribute:: rtype_other
                     
                     	Unknown route type
-                    	**type**\:  :py:class:`RtypeOther <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOther>`
+                    	**type**\:   :py:class:`RtypeOther <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.SummaryProtos.SummaryProto.RtypeOther>`
                     
                     
 
@@ -60327,7 +60587,7 @@ class Rib(object):
                 .. attribute:: rib_table_itf_hndl
                 
                 	Interface handle
-                	**type**\: list of  :py:class:`RibTableItfHndl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.RibTableItfHndls.RibTableItfHndl>`
+                	**type**\: list of    :py:class:`RibTableItfHndl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.RibTableItfHndls.RibTableItfHndl>`
                 
                 
 
@@ -60357,7 +60617,7 @@ class Rib(object):
                     .. attribute:: itf_route
                     
                     	Route information for a specific table/interface 
-                    	**type**\: list of  :py:class:`ItfRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.RibTableItfHndls.RibTableItfHndl.ItfRoute>`
+                    	**type**\: list of    :py:class:`ItfRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.RibTableItfHndls.RibTableItfHndl.ItfRoute>`
                     
                     
 
@@ -60530,6 +60790,8 @@ class Rib(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: route_label
                         
                         	Local label of the route
@@ -60544,10 +60806,12 @@ class Rib(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: route_path
                         
                         	Path(s) of the route
-                        	**type**\:  :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.RibTableItfHndls.RibTableItfHndl.ItfRoute.RoutePath>`
+                        	**type**\:   :py:class:`RoutePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.RibTableItfHndls.RibTableItfHndl.ItfRoute.RoutePath>`
                         
                         .. attribute:: route_precedence
                         
@@ -60658,7 +60922,7 @@ class Rib(object):
                             .. attribute:: ipv4_rib_edm_path
                             
                             	ipv4 rib edm path
-                            	**type**\: list of  :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.RibTableItfHndls.RibTableItfHndl.ItfRoute.RoutePath.Ipv4RibEdmPath>`
+                            	**type**\: list of    :py:class:`Ipv4RibEdmPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv4_oper.Rib.RibTableIds.RibTableId.RibTableItfHndls.RibTableItfHndl.ItfRoute.RoutePath.Ipv4RibEdmPath>`
                             
                             
 

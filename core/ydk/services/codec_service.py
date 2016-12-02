@@ -36,16 +36,18 @@ class CodecService(Service):
         if None in (encoder, entity):
             msg = "'encoder' and 'entity' cannot be None"
             raise YPYServiceError(error_msg=msg)
+        self.service_logger.info('Encoding operation initiated')
         payload = self.operate_on_object_or_dictionary(entity, CodecService._encode_entity, [encoder])
-        self.service_logger.info('Encoding operation completed\n')
+        self.service_logger.info('Encoding operation completed')
         return payload
 
     def decode(self, decoder, payload):
         if None in (decoder, payload):
             msg = "'decoder' and 'payload' cannot be None"
             raise YPYServiceError(error_msg=msg)
+        self.service_logger.info('Decoding operation initiated')
         entity = self.operate_on_object_or_dictionary(payload, CodecService._decode_payload, [decoder])
-        self.service_logger.info('Decoding operation completed\n')
+        self.service_logger.info('Decoding operation completed')
         return entity
 
     @staticmethod

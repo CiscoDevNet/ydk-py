@@ -30,211 +30,211 @@ class EndPortEnum(Enum):
 
     End port
 
-    .. data:: ECHO = 7
+    .. data:: echo = 7
 
     	Echo (7)
 
-    .. data:: DISCARD = 9
+    .. data:: discard = 9
 
     	Discard (9)
 
-    .. data:: DAYTIME = 13
+    .. data:: daytime = 13
 
     	Daytime (13)
 
-    .. data:: CHARGEN = 19
+    .. data:: chargen = 19
 
     	Character generator (19)
 
-    .. data:: FTP_DATA = 20
+    .. data:: ftp_data = 20
 
     	FTP data connections (used infrequently, 20)
 
-    .. data:: FTP = 21
+    .. data:: ftp = 21
 
     	File Transfer Protocol (21)
 
-    .. data:: SSH = 22
+    .. data:: ssh = 22
 
     	Secure Shell (22)
 
-    .. data:: TELNET = 23
+    .. data:: telnet = 23
 
     	Telnet (23)
 
-    .. data:: SMTP = 25
+    .. data:: smtp = 25
 
     	Simple Mail Transport Protocol (25)
 
-    .. data:: TIME = 37
+    .. data:: time = 37
 
     	Time (37)
 
-    .. data:: NICNAME = 43
+    .. data:: nicname = 43
 
     	Nicname (43)
 
-    .. data:: TACACS = 49
+    .. data:: tacacs = 49
 
     	TAC Access Control System (49)
 
-    .. data:: DOMAIN = 53
+    .. data:: domain = 53
 
     	Domain Name Service (53)
 
-    .. data:: GOPHER = 70
+    .. data:: gopher = 70
 
     	Gopher (70)
 
-    .. data:: FINGER = 79
+    .. data:: finger = 79
 
     	Finger (79)
 
-    .. data:: WWW = 80
+    .. data:: www = 80
 
     	World Wide Web (HTTP, 80)
 
-    .. data:: HOST_NAME = 101
+    .. data:: host_name = 101
 
     	NIC hostname server (101)
 
-    .. data:: POP2 = 109
+    .. data:: pop2 = 109
 
     	Post Office Protocol v2 (109)
 
-    .. data:: POP3 = 110
+    .. data:: pop3 = 110
 
     	Post Office Protocol v3 (110)
 
-    .. data:: SUN_RPC = 111
+    .. data:: sun_rpc = 111
 
     	Sun Remote Procedure Call (111)
 
-    .. data:: IDENT = 113
+    .. data:: ident = 113
 
     	Ident Protocol (113)
 
-    .. data:: NNTP = 119
+    .. data:: nntp = 119
 
     	Network News Transport Protocol (119)
 
-    .. data:: BGP = 179
+    .. data:: bgp = 179
 
     	Border Gateway Protocol (179)
 
-    .. data:: IRC = 194
+    .. data:: irc = 194
 
     	Internet Relay Chat (194)
 
-    .. data:: PIM_AUTO_RP = 496
+    .. data:: pim_auto_rp = 496
 
     	PIM Auto-RP (496)
 
-    .. data:: EXEC = 512
+    .. data:: exec_ = 512
 
     	Exec (rsh, 512)
 
-    .. data:: LOGIN = 513
+    .. data:: login = 513
 
     	Login (rlogin, 513)
 
-    .. data:: CMD = 514
+    .. data:: cmd = 514
 
     	Remote commands (rcmd, 514)
 
-    .. data:: LPD = 515
+    .. data:: lpd = 515
 
     	Printer service (515)
 
-    .. data:: UUCP = 540
+    .. data:: uucp = 540
 
     	Unix-to-Unix Copy Program (540)
 
-    .. data:: KLOGIN = 543
+    .. data:: klogin = 543
 
     	Kerberos login (543)
 
-    .. data:: KSHELL = 544
+    .. data:: kshell = 544
 
     	Kerberos shell (544)
 
-    .. data:: TALK = 517
+    .. data:: talk = 517
 
     	Talk (517)
 
-    .. data:: LDP = 646
+    .. data:: ldp = 646
 
     	LDP session connection attempts (MPLS, 646)
 
     """
 
-    ECHO = 7
+    echo = 7
 
-    DISCARD = 9
+    discard = 9
 
-    DAYTIME = 13
+    daytime = 13
 
-    CHARGEN = 19
+    chargen = 19
 
-    FTP_DATA = 20
+    ftp_data = 20
 
-    FTP = 21
+    ftp = 21
 
-    SSH = 22
+    ssh = 22
 
-    TELNET = 23
+    telnet = 23
 
-    SMTP = 25
+    smtp = 25
 
-    TIME = 37
+    time = 37
 
-    NICNAME = 43
+    nicname = 43
 
-    TACACS = 49
+    tacacs = 49
 
-    DOMAIN = 53
+    domain = 53
 
-    GOPHER = 70
+    gopher = 70
 
-    FINGER = 79
+    finger = 79
 
-    WWW = 80
+    www = 80
 
-    HOST_NAME = 101
+    host_name = 101
 
-    POP2 = 109
+    pop2 = 109
 
-    POP3 = 110
+    pop3 = 110
 
-    SUN_RPC = 111
+    sun_rpc = 111
 
-    IDENT = 113
+    ident = 113
 
-    NNTP = 119
+    nntp = 119
 
-    BGP = 179
+    bgp = 179
 
-    IRC = 194
+    irc = 194
 
-    PIM_AUTO_RP = 496
+    pim_auto_rp = 496
 
-    EXEC = 512
+    exec_ = 512
 
-    LOGIN = 513
+    login = 513
 
-    CMD = 514
+    cmd = 514
 
-    LPD = 515
+    lpd = 515
 
-    UUCP = 540
+    uucp = 540
 
-    KLOGIN = 543
+    klogin = 543
 
-    KSHELL = 544
+    kshell = 544
 
-    TALK = 517
+    talk = 517
 
-    LDP = 646
+    ldp = 646
 
 
     @staticmethod
@@ -249,211 +249,211 @@ class PortEnum(Enum):
 
     Port
 
-    .. data:: ECHO = 7
+    .. data:: echo = 7
 
     	Echo (7)
 
-    .. data:: DISCARD = 9
+    .. data:: discard = 9
 
     	Discard (9)
 
-    .. data:: DAYTIME = 13
+    .. data:: daytime = 13
 
     	Daytime (13)
 
-    .. data:: CHARGEN = 19
+    .. data:: chargen = 19
 
     	Character generator (19)
 
-    .. data:: FTP_DATA = 20
+    .. data:: ftp_data = 20
 
     	FTP data connections (used infrequently, 20)
 
-    .. data:: FTP = 21
+    .. data:: ftp = 21
 
     	File Transfer Protocol (21)
 
-    .. data:: SSH = 22
+    .. data:: ssh = 22
 
     	Secure Shell (22)
 
-    .. data:: TELNET = 23
+    .. data:: telnet = 23
 
     	Telnet (23)
 
-    .. data:: SMTP = 25
+    .. data:: smtp = 25
 
     	Simple Mail Transport Protocol (25)
 
-    .. data:: TIME = 37
+    .. data:: time = 37
 
     	Time (37)
 
-    .. data:: NICNAME = 43
+    .. data:: nicname = 43
 
     	Nicname (43)
 
-    .. data:: TACACS = 49
+    .. data:: tacacs = 49
 
     	TAC Access Control System (49)
 
-    .. data:: DOMAIN = 53
+    .. data:: domain = 53
 
     	Domain Name Service (53)
 
-    .. data:: GOPHER = 70
+    .. data:: gopher = 70
 
     	Gopher (70)
 
-    .. data:: FINGER = 79
+    .. data:: finger = 79
 
     	Finger (79)
 
-    .. data:: WWW = 80
+    .. data:: www = 80
 
     	World Wide Web (HTTP, 80)
 
-    .. data:: HOST_NAME = 101
+    .. data:: host_name = 101
 
     	NIC hostname server (101)
 
-    .. data:: POP2 = 109
+    .. data:: pop2 = 109
 
     	Post Office Protocol v2 (109)
 
-    .. data:: POP3 = 110
+    .. data:: pop3 = 110
 
     	Post Office Protocol v3 (110)
 
-    .. data:: SUN_RPC = 111
+    .. data:: sun_rpc = 111
 
     	Sun Remote Procedure Call (111)
 
-    .. data:: IDENT = 113
+    .. data:: ident = 113
 
     	Ident Protocol (113)
 
-    .. data:: NNTP = 119
+    .. data:: nntp = 119
 
     	Network News Transport Protocol (119)
 
-    .. data:: BGP = 179
+    .. data:: bgp = 179
 
     	Border Gateway Protocol (179)
 
-    .. data:: IRC = 194
+    .. data:: irc = 194
 
     	Internet Relay Chat (194)
 
-    .. data:: PIM_AUTO_RP = 496
+    .. data:: pim_auto_rp = 496
 
     	PIM Auto-RP (496)
 
-    .. data:: EXEC = 512
+    .. data:: exec_ = 512
 
     	Exec (rsh, 512)
 
-    .. data:: LOGIN = 513
+    .. data:: login = 513
 
     	Login (rlogin, 513)
 
-    .. data:: CMD = 514
+    .. data:: cmd = 514
 
     	Remote commands (rcmd, 514)
 
-    .. data:: LPD = 515
+    .. data:: lpd = 515
 
     	Printer service (515)
 
-    .. data:: UUCP = 540
+    .. data:: uucp = 540
 
     	Unix-to-Unix Copy Program (540)
 
-    .. data:: KLOGIN = 543
+    .. data:: klogin = 543
 
     	Kerberos login (543)
 
-    .. data:: KSHELL = 544
+    .. data:: kshell = 544
 
     	Kerberos shell (544)
 
-    .. data:: TALK = 517
+    .. data:: talk = 517
 
     	Talk (517)
 
-    .. data:: LDP = 646
+    .. data:: ldp = 646
 
     	LDP session connection attempts (MPLS, 646)
 
     """
 
-    ECHO = 7
+    echo = 7
 
-    DISCARD = 9
+    discard = 9
 
-    DAYTIME = 13
+    daytime = 13
 
-    CHARGEN = 19
+    chargen = 19
 
-    FTP_DATA = 20
+    ftp_data = 20
 
-    FTP = 21
+    ftp = 21
 
-    SSH = 22
+    ssh = 22
 
-    TELNET = 23
+    telnet = 23
 
-    SMTP = 25
+    smtp = 25
 
-    TIME = 37
+    time = 37
 
-    NICNAME = 43
+    nicname = 43
 
-    TACACS = 49
+    tacacs = 49
 
-    DOMAIN = 53
+    domain = 53
 
-    GOPHER = 70
+    gopher = 70
 
-    FINGER = 79
+    finger = 79
 
-    WWW = 80
+    www = 80
 
-    HOST_NAME = 101
+    host_name = 101
 
-    POP2 = 109
+    pop2 = 109
 
-    POP3 = 110
+    pop3 = 110
 
-    SUN_RPC = 111
+    sun_rpc = 111
 
-    IDENT = 113
+    ident = 113
 
-    NNTP = 119
+    nntp = 119
 
-    BGP = 179
+    bgp = 179
 
-    IRC = 194
+    irc = 194
 
-    PIM_AUTO_RP = 496
+    pim_auto_rp = 496
 
-    EXEC = 512
+    exec_ = 512
 
-    LOGIN = 513
+    login = 513
 
-    CMD = 514
+    cmd = 514
 
-    LPD = 515
+    lpd = 515
 
-    UUCP = 540
+    uucp = 540
 
-    KLOGIN = 543
+    klogin = 543
 
-    KSHELL = 544
+    kshell = 544
 
-    TALK = 517
+    talk = 517
 
-    LDP = 646
+    ldp = 646
 
 
     @staticmethod
@@ -468,25 +468,25 @@ class PortOperatorEnum(Enum):
 
     Port operator
 
-    .. data:: EQUAL = 0
+    .. data:: equal = 0
 
     	Match packets on ports equal to entered port
 
     	number
 
-    .. data:: NOT_EQUAL = 1
+    .. data:: not_equal = 1
 
     	Match packets on ports not equal to entered
 
     	port number
 
-    .. data:: GREATER_THAN = 2
+    .. data:: greater_than = 2
 
     	Match packets on ports greater than entered
 
     	port number
 
-    .. data:: LESS_THAN = 3
+    .. data:: less_than = 3
 
     	Match packets on ports less than entered port
 
@@ -494,13 +494,13 @@ class PortOperatorEnum(Enum):
 
     """
 
-    EQUAL = 0
+    equal = 0
 
-    NOT_EQUAL = 1
+    not_equal = 1
 
-    GREATER_THAN = 2
+    greater_than = 2
 
-    LESS_THAN = 3
+    less_than = 3
 
 
     @staticmethod
@@ -515,211 +515,211 @@ class StartPortEnum(Enum):
 
     Start port
 
-    .. data:: ECHO = 7
+    .. data:: echo = 7
 
     	Echo (7)
 
-    .. data:: DISCARD = 9
+    .. data:: discard = 9
 
     	Discard (9)
 
-    .. data:: DAYTIME = 13
+    .. data:: daytime = 13
 
     	Daytime (13)
 
-    .. data:: CHARGEN = 19
+    .. data:: chargen = 19
 
     	Character generator (19)
 
-    .. data:: FTP_DATA = 20
+    .. data:: ftp_data = 20
 
     	FTP data connections (used infrequently, 20)
 
-    .. data:: FTP = 21
+    .. data:: ftp = 21
 
     	File Transfer Protocol (21)
 
-    .. data:: SSH = 22
+    .. data:: ssh = 22
 
     	Secure Shell (22)
 
-    .. data:: TELNET = 23
+    .. data:: telnet = 23
 
     	Telnet (23)
 
-    .. data:: SMTP = 25
+    .. data:: smtp = 25
 
     	Simple Mail Transport Protocol (25)
 
-    .. data:: TIME = 37
+    .. data:: time = 37
 
     	Time (37)
 
-    .. data:: NICNAME = 43
+    .. data:: nicname = 43
 
     	Nicname (43)
 
-    .. data:: TACACS = 49
+    .. data:: tacacs = 49
 
     	TAC Access Control System (49)
 
-    .. data:: DOMAIN = 53
+    .. data:: domain = 53
 
     	Domain Name Service (53)
 
-    .. data:: GOPHER = 70
+    .. data:: gopher = 70
 
     	Gopher (70)
 
-    .. data:: FINGER = 79
+    .. data:: finger = 79
 
     	Finger (79)
 
-    .. data:: WWW = 80
+    .. data:: www = 80
 
     	World Wide Web (HTTP, 80)
 
-    .. data:: HOST_NAME = 101
+    .. data:: host_name = 101
 
     	NIC hostname server (101)
 
-    .. data:: POP2 = 109
+    .. data:: pop2 = 109
 
     	Post Office Protocol v2 (109)
 
-    .. data:: POP3 = 110
+    .. data:: pop3 = 110
 
     	Post Office Protocol v3 (110)
 
-    .. data:: SUN_RPC = 111
+    .. data:: sun_rpc = 111
 
     	Sun Remote Procedure Call (111)
 
-    .. data:: IDENT = 113
+    .. data:: ident = 113
 
     	Ident Protocol (113)
 
-    .. data:: NNTP = 119
+    .. data:: nntp = 119
 
     	Network News Transport Protocol (119)
 
-    .. data:: BGP = 179
+    .. data:: bgp = 179
 
     	Border Gateway Protocol (179)
 
-    .. data:: IRC = 194
+    .. data:: irc = 194
 
     	Internet Relay Chat (194)
 
-    .. data:: PIM_AUTO_RP = 496
+    .. data:: pim_auto_rp = 496
 
     	PIM Auto-RP (496)
 
-    .. data:: EXEC = 512
+    .. data:: exec_ = 512
 
     	Exec (rsh, 512)
 
-    .. data:: LOGIN = 513
+    .. data:: login = 513
 
     	Login (rlogin, 513)
 
-    .. data:: CMD = 514
+    .. data:: cmd = 514
 
     	Remote commands (rcmd, 514)
 
-    .. data:: LPD = 515
+    .. data:: lpd = 515
 
     	Printer service (515)
 
-    .. data:: UUCP = 540
+    .. data:: uucp = 540
 
     	Unix-to-Unix Copy Program (540)
 
-    .. data:: KLOGIN = 543
+    .. data:: klogin = 543
 
     	Kerberos login (543)
 
-    .. data:: KSHELL = 544
+    .. data:: kshell = 544
 
     	Kerberos shell (544)
 
-    .. data:: TALK = 517
+    .. data:: talk = 517
 
     	Talk (517)
 
-    .. data:: LDP = 646
+    .. data:: ldp = 646
 
     	LDP session connection attempts (MPLS, 646)
 
     """
 
-    ECHO = 7
+    echo = 7
 
-    DISCARD = 9
+    discard = 9
 
-    DAYTIME = 13
+    daytime = 13
 
-    CHARGEN = 19
+    chargen = 19
 
-    FTP_DATA = 20
+    ftp_data = 20
 
-    FTP = 21
+    ftp = 21
 
-    SSH = 22
+    ssh = 22
 
-    TELNET = 23
+    telnet = 23
 
-    SMTP = 25
+    smtp = 25
 
-    TIME = 37
+    time = 37
 
-    NICNAME = 43
+    nicname = 43
 
-    TACACS = 49
+    tacacs = 49
 
-    DOMAIN = 53
+    domain = 53
 
-    GOPHER = 70
+    gopher = 70
 
-    FINGER = 79
+    finger = 79
 
-    WWW = 80
+    www = 80
 
-    HOST_NAME = 101
+    host_name = 101
 
-    POP2 = 109
+    pop2 = 109
 
-    POP3 = 110
+    pop3 = 110
 
-    SUN_RPC = 111
+    sun_rpc = 111
 
-    IDENT = 113
+    ident = 113
 
-    NNTP = 119
+    nntp = 119
 
-    BGP = 179
+    bgp = 179
 
-    IRC = 194
+    irc = 194
 
-    PIM_AUTO_RP = 496
+    pim_auto_rp = 496
 
-    EXEC = 512
+    exec_ = 512
 
-    LOGIN = 513
+    login = 513
 
-    CMD = 514
+    cmd = 514
 
-    LPD = 515
+    lpd = 515
 
-    UUCP = 540
+    uucp = 540
 
-    KLOGIN = 543
+    klogin = 543
 
-    KSHELL = 544
+    kshell = 544
 
-    TALK = 517
+    talk = 517
 
-    LDP = 646
+    ldp = 646
 
 
     @staticmethod
@@ -736,12 +736,12 @@ class ObjectGroup(object):
     .. attribute:: network
     
     	Network object group
-    	**type**\:  :py:class:`Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network>`
+    	**type**\:   :py:class:`Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network>`
     
     .. attribute:: port
     
     	Port object group
-    	**type**\:  :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port>`
+    	**type**\:   :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port>`
     
     
 
@@ -764,7 +764,7 @@ class ObjectGroup(object):
         .. attribute:: objects
         
         	Table of port objects groups
-        	**type**\:  :py:class:`Objects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects>`
+        	**type**\:   :py:class:`Objects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects>`
         
         
 
@@ -786,7 +786,7 @@ class ObjectGroup(object):
             .. attribute:: object
             
             	Port object group
-            	**type**\: list of  :py:class:`Object <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object>`
+            	**type**\: list of    :py:class:`Object <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object>`
             
             
 
@@ -823,17 +823,17 @@ class ObjectGroup(object):
                 .. attribute:: nested_groups
                 
                 	Table of nested port object groups
-                	**type**\:  :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.NestedGroups>`
+                	**type**\:   :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.NestedGroups>`
                 
                 .. attribute:: operators
                 
                 	Table of port operators
-                	**type**\:  :py:class:`Operators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.Operators>`
+                	**type**\:   :py:class:`Operators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.Operators>`
                 
                 .. attribute:: port_ranges
                 
                 	Table of port range addresses
-                	**type**\:  :py:class:`PortRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.PortRanges>`
+                	**type**\:   :py:class:`PortRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.PortRanges>`
                 
                 
 
@@ -858,10 +858,10 @@ class ObjectGroup(object):
                     """
                     Table of port operators
                     
-                    .. attribute:: operator_
+                    .. attribute:: operator
                     
                     	op class
-                    	**type**\: list of  :py:class:`Operator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.Operators.Operator>`
+                    	**type**\: list of    :py:class:`Operator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.Operators.Operator>`
                     
                     
 
@@ -872,9 +872,9 @@ class ObjectGroup(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.operator_ = YList()
-                        self.operator_.parent = self
-                        self.operator_.name = 'operator_'
+                        self.operator = YList()
+                        self.operator.parent = self
+                        self.operator.name = 'operator'
 
 
                     class Operator(object):
@@ -884,14 +884,14 @@ class ObjectGroup(object):
                         .. attribute:: operator_type  <key>
                         
                         	operation for ports
-                        	**type**\:  :py:class:`PortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.PortOperatorEnum>`
+                        	**type**\:   :py:class:`PortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.PortOperatorEnum>`
                         
                         .. attribute:: port  <key>
                         
                         	Port number
                         	**type**\: one of the below types:
                         
-                        	**type**\:  :py:class:`PortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.PortEnum>`
+                        	**type**\:   :py:class:`PortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.PortEnum>`
                         
                         
                         ----
@@ -958,8 +958,8 @@ class ObjectGroup(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.operator_ is not None:
-                            for child_ref in self.operator_:
+                        if self.operator is not None:
+                            for child_ref in self.operator:
                                 if child_ref._has_data():
                                     return True
 
@@ -978,7 +978,7 @@ class ObjectGroup(object):
                     .. attribute:: nested_group
                     
                     	nested object group
-                    	**type**\: list of  :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.NestedGroups.NestedGroup>`
+                    	**type**\: list of    :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.NestedGroups.NestedGroup>`
                     
                     
 
@@ -1076,7 +1076,7 @@ class ObjectGroup(object):
                     .. attribute:: port_range
                     
                     	Match only packets on a given port range
-                    	**type**\: list of  :py:class:`PortRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.PortRanges.PortRange>`
+                    	**type**\: list of    :py:class:`PortRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.PortRanges.PortRange>`
                     
                     
 
@@ -1101,7 +1101,7 @@ class ObjectGroup(object):
                         	Port number
                         	**type**\: one of the below types:
                         
-                        	**type**\:  :py:class:`EndPortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.EndPortEnum>`
+                        	**type**\:   :py:class:`EndPortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.EndPortEnum>`
                         
                         
                         ----
@@ -1116,7 +1116,7 @@ class ObjectGroup(object):
                         	Port number
                         	**type**\: one of the below types:
                         
-                        	**type**\:  :py:class:`StartPortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.StartPortEnum>`
+                        	**type**\:   :py:class:`StartPortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.StartPortEnum>`
                         
                         
                         ----
@@ -1285,12 +1285,12 @@ class ObjectGroup(object):
         .. attribute:: ipv4
         
         	IPv4 object group
-        	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4>`
+        	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4>`
         
         .. attribute:: ipv6
         
         	IPv6 object group
-        	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6>`
+        	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6>`
         
         
 
@@ -1314,7 +1314,7 @@ class ObjectGroup(object):
             .. attribute:: objects
             
             	Table of ipv6 object groups
-            	**type**\:  :py:class:`Objects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects>`
+            	**type**\:   :py:class:`Objects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects>`
             
             
 
@@ -1336,7 +1336,7 @@ class ObjectGroup(object):
                 .. attribute:: object
                 
                 	IPv6 object group
-                	**type**\: list of  :py:class:`Object <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object>`
+                	**type**\: list of    :py:class:`Object <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object>`
                 
                 
 
@@ -1366,12 +1366,12 @@ class ObjectGroup(object):
                     .. attribute:: address_ranges
                     
                     	Table of ipv6 address ranges
-                    	**type**\:  :py:class:`AddressRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges>`
+                    	**type**\:   :py:class:`AddressRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges>`
                     
                     .. attribute:: addresses
                     
                     	Table of ipv6 addresses
-                    	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.Addresses>`
+                    	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.Addresses>`
                     
                     .. attribute:: description
                     
@@ -1383,12 +1383,12 @@ class ObjectGroup(object):
                     .. attribute:: hosts
                     
                     	Table of ipv6 host addresses
-                    	**type**\:  :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.Hosts>`
+                    	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.Hosts>`
                     
                     .. attribute:: nested_groups
                     
                     	Table of nested ipv6 object groups
-                    	**type**\:  :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups>`
+                    	**type**\:   :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups>`
                     
                     
 
@@ -1418,7 +1418,7 @@ class ObjectGroup(object):
                         .. attribute:: nested_group
                         
                         	nested object group
-                        	**type**\: list of  :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups.NestedGroup>`
+                        	**type**\: list of    :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups.NestedGroup>`
                         
                         
 
@@ -1516,7 +1516,7 @@ class ObjectGroup(object):
                         .. attribute:: address_range
                         
                         	Range of host addresses
-                        	**type**\: list of  :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges.AddressRange>`
+                        	**type**\: list of    :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges.AddressRange>`
                         
                         
 
@@ -1647,7 +1647,7 @@ class ObjectGroup(object):
                         .. attribute:: address
                         
                         	IPv6 address
-                        	**type**\: list of  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.Addresses.Address>`
+                        	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.Addresses.Address>`
                         
                         
 
@@ -1768,7 +1768,7 @@ class ObjectGroup(object):
                         .. attribute:: host
                         
                         	A single host address
-                        	**type**\: list of  :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.Hosts.Host>`
+                        	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.Hosts.Host>`
                         
                         
 
@@ -1961,7 +1961,7 @@ class ObjectGroup(object):
             .. attribute:: objects
             
             	Table of ipv4 object groups
-            	**type**\:  :py:class:`Objects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects>`
+            	**type**\:   :py:class:`Objects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects>`
             
             
 
@@ -1983,7 +1983,7 @@ class ObjectGroup(object):
                 .. attribute:: object
                 
                 	IPv4 object group
-                	**type**\: list of  :py:class:`Object <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object>`
+                	**type**\: list of    :py:class:`Object <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object>`
                 
                 
 
@@ -2013,12 +2013,12 @@ class ObjectGroup(object):
                     .. attribute:: address_ranges
                     
                     	Table of ipv4 host address ranges
-                    	**type**\:  :py:class:`AddressRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges>`
+                    	**type**\:   :py:class:`AddressRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges>`
                     
                     .. attribute:: addresses
                     
                     	Table of addresses
-                    	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.Addresses>`
+                    	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.Addresses>`
                     
                     .. attribute:: description
                     
@@ -2030,12 +2030,12 @@ class ObjectGroup(object):
                     .. attribute:: hosts
                     
                     	Table of host addresses
-                    	**type**\:  :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.Hosts>`
+                    	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.Hosts>`
                     
                     .. attribute:: nested_groups
                     
                     	Table of nested ipv4 object groups
-                    	**type**\:  :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups>`
+                    	**type**\:   :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups>`
                     
                     
 
@@ -2065,7 +2065,7 @@ class ObjectGroup(object):
                         .. attribute:: nested_group
                         
                         	Nested object group
-                        	**type**\: list of  :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups.NestedGroup>`
+                        	**type**\: list of    :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups.NestedGroup>`
                         
                         
 
@@ -2163,7 +2163,7 @@ class ObjectGroup(object):
                         .. attribute:: address_range
                         
                         	Range of host addresses
-                        	**type**\: list of  :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges.AddressRange>`
+                        	**type**\: list of    :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges.AddressRange>`
                         
                         
 
@@ -2294,7 +2294,7 @@ class ObjectGroup(object):
                         .. attribute:: address
                         
                         	IPv4 address
-                        	**type**\: list of  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.Addresses.Address>`
+                        	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.Addresses.Address>`
                         
                         
 
@@ -2415,7 +2415,7 @@ class ObjectGroup(object):
                         .. attribute:: host
                         
                         	A single host address
-                        	**type**\: list of  :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.Hosts.Host>`
+                        	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.Hosts.Host>`
                         
                         
 

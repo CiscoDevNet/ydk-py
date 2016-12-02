@@ -30,25 +30,25 @@ class Ipv6NdBndlStateEnum(Enum):
 
     IPv6 ND Bundle State
 
-    .. data:: RUN = 0
+    .. data:: run = 0
 
     	Running state
 
-    .. data:: ERROR = 1
+    .. data:: error = 1
 
     	Error state
 
-    .. data:: WAIT = 2
+    .. data:: wait = 2
 
     	Wait state
 
     """
 
-    RUN = 0
+    run = 0
 
-    ERROR = 1
+    error = 1
 
-    WAIT = 2
+    wait = 2
 
 
     @staticmethod
@@ -63,85 +63,85 @@ class Ipv6NdMediaEncapEnum(Enum):
 
     IPv6 ND Media Encapsulation Type
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	No encapsulation
 
-    .. data:: ARPA = 1
+    .. data:: arpa = 1
 
     	ARPA encapsulation
 
-    .. data:: SNAP = 2
+    .. data:: snap = 2
 
     	SNAP encapsulation
 
-    .. data:: IEEE802_1Q = 3
+    .. data:: ieee802_1q = 3
 
     	802_1Q encapsulation
 
-    .. data:: SRP = 4
+    .. data:: srp = 4
 
     	SRP encapsulation
 
-    .. data:: SRPA = 5
+    .. data:: srpa = 5
 
     	SRPA encapsulation
 
-    .. data:: SRPB = 6
+    .. data:: srpb = 6
 
     	SRPB encapsulation
 
-    .. data:: PPP = 7
+    .. data:: ppp = 7
 
     	PPP encapsulation
 
-    .. data:: HDLC = 8
+    .. data:: hdlc = 8
 
     	HDLC encapsulation
 
-    .. data:: CHDLC = 9
+    .. data:: chdlc = 9
 
     	CHDLC encapsulation
 
-    .. data:: DOT1Q = 10
+    .. data:: dot1q = 10
 
     	DOT1Q encapsulation
 
-    .. data:: FR = 11
+    .. data:: fr = 11
 
     	FR encapsulation
 
-    .. data:: GRE = 12
+    .. data:: gre = 12
 
     	GRE encapsulation
 
     """
 
-    NONE = 0
+    none = 0
 
-    ARPA = 1
+    arpa = 1
 
-    SNAP = 2
+    snap = 2
 
-    IEEE802_1Q = 3
+    ieee802_1q = 3
 
-    SRP = 4
+    srp = 4
 
-    SRPA = 5
+    srpa = 5
 
-    SRPB = 6
+    srpb = 6
 
-    PPP = 7
+    ppp = 7
 
-    HDLC = 8
+    hdlc = 8
 
-    CHDLC = 9
+    chdlc = 9
 
-    DOT1Q = 10
+    dot1q = 10
 
-    FR = 11
+    fr = 11
 
-    GRE = 12
+    gre = 12
 
 
     @staticmethod
@@ -156,25 +156,25 @@ class Ipv6NdNeighborOriginEnum(Enum):
 
     IPv6 ND Neighbor Origin Type
 
-    .. data:: OTHER = 0
+    .. data:: other = 0
 
     	Other Address
 
-    .. data:: STATIC = 1
+    .. data:: static = 1
 
     	Static Address
 
-    .. data:: DYNAMIC = 2
+    .. data:: dynamic = 2
 
     	Dynamic Address
 
     """
 
-    OTHER = 0
+    other = 0
 
-    STATIC = 1
+    static = 1
 
-    DYNAMIC = 2
+    dynamic = 2
 
 
     @staticmethod
@@ -189,49 +189,49 @@ class Ipv6NdShStateEnum(Enum):
 
     IPv6 ND Neighbor Reachability State
 
-    .. data:: INCOMPLETE = 0
+    .. data:: incomplete = 0
 
     	Incomplete
 
-    .. data:: REACHABLE = 1
+    .. data:: reachable = 1
 
     	Reachable
 
-    .. data:: STALE = 2
+    .. data:: stale = 2
 
     	Stale
 
-    .. data:: GLEAN = 3
+    .. data:: glean = 3
 
     	Glean
 
-    .. data:: DELAY = 4
+    .. data:: delay = 4
 
     	Delay
 
-    .. data:: PROBE = 5
+    .. data:: probe = 5
 
     	Probe
 
-    .. data:: DELETE = 6
+    .. data:: delete = 6
 
     	Delete
 
     """
 
-    INCOMPLETE = 0
+    incomplete = 0
 
-    REACHABLE = 1
+    reachable = 1
 
-    STALE = 2
+    stale = 2
 
-    GLEAN = 3
+    glean = 3
 
-    DELAY = 4
+    delay = 4
 
-    PROBE = 5
+    probe = 5
 
-    DELETE = 6
+    delete = 6
 
 
     @staticmethod
@@ -246,19 +246,19 @@ class Ipv6NdShVrFlagsEnum(Enum):
 
     IPv6 ND VR Entry Flags Type 
 
-    .. data:: NO_FLAGS = 0
+    .. data:: no_flags = 0
 
     	None
 
-    .. data:: FINAL_RA = 1
+    .. data:: final_ra = 1
 
     	Final RA
 
     """
 
-    NO_FLAGS = 0
+    no_flags = 0
 
-    FINAL_RA = 1
+    final_ra = 1
 
 
     @staticmethod
@@ -273,25 +273,25 @@ class Ipv6NdShVrStateEnum(Enum):
 
     IPv6 ND VR Entry State Type 
 
-    .. data:: DELETED = 0
+    .. data:: deleted = 0
 
     	Delete
 
-    .. data:: STANDBY = 1
+    .. data:: standby = 1
 
     	Standby
 
-    .. data:: ACTIVE = 2
+    .. data:: active = 2
 
     	Active
 
     """
 
-    DELETED = 0
+    deleted = 0
 
-    STANDBY = 1
+    standby = 1
 
-    ACTIVE = 2
+    active = 2
 
 
     @staticmethod
@@ -308,7 +308,7 @@ class Ipv6NodeDiscovery(object):
     .. attribute:: nodes
     
     	IPv6 node discovery list of nodes
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes>`
     
     
 
@@ -329,7 +329,7 @@ class Ipv6NodeDiscovery(object):
         .. attribute:: node
         
         	IPv6 node discovery operational data for a particular node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node>`
         
         
 
@@ -360,32 +360,32 @@ class Ipv6NodeDiscovery(object):
             .. attribute:: bundle_interfaces
             
             	IPv6 ND list of bundle interfaces for a specific node
-            	**type**\:  :py:class:`BundleInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces>`
+            	**type**\:   :py:class:`BundleInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces>`
             
             .. attribute:: bundle_nodes
             
             	IPv6 ND list of bundle nodes for a specific node
-            	**type**\:  :py:class:`BundleNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleNodes>`
+            	**type**\:   :py:class:`BundleNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleNodes>`
             
             .. attribute:: interfaces
             
             	IPv6 node discovery list of interfaces for a specific node
-            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.Interfaces>`
+            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.Interfaces>`
             
             .. attribute:: nd_virtual_routers
             
             	IPv6 ND virtual router information for a specific interface
-            	**type**\:  :py:class:`NdVirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters>`
+            	**type**\:   :py:class:`NdVirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters>`
             
             .. attribute:: neighbor_interfaces
             
             	IPv6 node discovery list of neighbor interfaces
-            	**type**\:  :py:class:`NeighborInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces>`
+            	**type**\:   :py:class:`NeighborInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces>`
             
             .. attribute:: neighbor_summary
             
             	IPv6 Neighbor summary
-            	**type**\:  :py:class:`NeighborSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary>`
+            	**type**\:   :py:class:`NeighborSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary>`
             
             
 
@@ -419,7 +419,7 @@ class Ipv6NodeDiscovery(object):
                 .. attribute:: neighbor_interface
                 
                 	IPv6 node discovery neighbor interface
-                	**type**\: list of  :py:class:`NeighborInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface>`
+                	**type**\: list of    :py:class:`NeighborInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface>`
                 
                 
 
@@ -449,7 +449,7 @@ class Ipv6NodeDiscovery(object):
                     .. attribute:: host_addresses
                     
                     	IPv6 node discovery list of neighbor host addresses
-                    	**type**\:  :py:class:`HostAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses>`
+                    	**type**\:   :py:class:`HostAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses>`
                     
                     
 
@@ -473,7 +473,7 @@ class Ipv6NodeDiscovery(object):
                         .. attribute:: host_address
                         
                         	IPv6 Neighbor detailed information
-                        	**type**\: list of  :py:class:`HostAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress>`
+                        	**type**\: list of    :py:class:`HostAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress>`
                         
                         
 
@@ -503,7 +503,7 @@ class Ipv6NodeDiscovery(object):
                             .. attribute:: encapsulation
                             
                             	Preferred media encap type
-                            	**type**\:  :py:class:`Ipv6NdMediaEncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdMediaEncapEnum>`
+                            	**type**\:   :py:class:`Ipv6NdMediaEncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdMediaEncapEnum>`
                             
                             .. attribute:: interface_name
                             
@@ -518,7 +518,7 @@ class Ipv6NodeDiscovery(object):
                             .. attribute:: last_reached_time
                             
                             	Last time of reachability
-                            	**type**\:  :py:class:`LastReachedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime>`
+                            	**type**\:   :py:class:`LastReachedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime>`
                             
                             .. attribute:: link_layer_address
                             
@@ -537,17 +537,17 @@ class Ipv6NodeDiscovery(object):
                             .. attribute:: origin_encapsulation
                             
                             	Neighbor origin
-                            	**type**\:  :py:class:`Ipv6NdNeighborOriginEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdNeighborOriginEnum>`
+                            	**type**\:   :py:class:`Ipv6NdNeighborOriginEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdNeighborOriginEnum>`
                             
                             .. attribute:: reachability_state
                             
                             	Current state
-                            	**type**\:  :py:class:`Ipv6NdShStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShStateEnum>`
+                            	**type**\:   :py:class:`Ipv6NdShStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShStateEnum>`
                             
                             .. attribute:: selected_encapsulation
                             
                             	Selected media encap
-                            	**type**\:  :py:class:`Ipv6NdMediaEncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdMediaEncapEnum>`
+                            	**type**\:   :py:class:`Ipv6NdMediaEncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdMediaEncapEnum>`
                             
                             
 
@@ -581,6 +581,8 @@ class Ipv6NodeDiscovery(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**units**\: second
                                 
                                 
 
@@ -759,17 +761,17 @@ class Ipv6NodeDiscovery(object):
                 .. attribute:: dynamic
                 
                 	Dynamic neighbor summary
-                	**type**\:  :py:class:`Dynamic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic>`
+                	**type**\:   :py:class:`Dynamic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic>`
                 
                 .. attribute:: multicast
                 
                 	Multicast neighbor summary
-                	**type**\:  :py:class:`Multicast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast>`
+                	**type**\:   :py:class:`Multicast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast>`
                 
                 .. attribute:: static
                 
                 	Static neighbor summary
-                	**type**\:  :py:class:`Static <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static>`
+                	**type**\:   :py:class:`Static <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static>`
                 
                 .. attribute:: total_neighbor_entries
                 
@@ -1176,7 +1178,7 @@ class Ipv6NodeDiscovery(object):
                 .. attribute:: bundle_node
                 
                 	IPv6 ND operational data for a specific bundle node
-                	**type**\: list of  :py:class:`BundleNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode>`
+                	**type**\: list of    :py:class:`BundleNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode>`
                 
                 
 
@@ -1207,7 +1209,7 @@ class Ipv6NodeDiscovery(object):
                     .. attribute:: age
                     
                     	Uptime of node (secs)
-                    	**type**\:  :py:class:`Age <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age>`
+                    	**type**\:   :py:class:`Age <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age>`
                     
                     .. attribute:: group_id
                     
@@ -1252,7 +1254,7 @@ class Ipv6NodeDiscovery(object):
                     .. attribute:: state
                     
                     	State
-                    	**type**\:  :py:class:`Ipv6NdBndlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdBndlStateEnum>`
+                    	**type**\:   :py:class:`Ipv6NdBndlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdBndlStateEnum>`
                     
                     .. attribute:: state_changes
                     
@@ -1293,6 +1295,8 @@ class Ipv6NodeDiscovery(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         
 
@@ -1417,7 +1421,7 @@ class Ipv6NodeDiscovery(object):
                 .. attribute:: bundle_interface
                 
                 	IPv6 ND operational data for a specific bundler interface
-                	**type**\: list of  :py:class:`BundleInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface>`
+                	**type**\: list of    :py:class:`BundleInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface>`
                 
                 
 
@@ -1455,7 +1459,7 @@ class Ipv6NodeDiscovery(object):
                     .. attribute:: global_address
                     
                     	List of ND global addresses
-                    	**type**\: list of  :py:class:`GlobalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress>`
+                    	**type**\: list of    :py:class:`GlobalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress>`
                     
                     .. attribute:: iftype
                     
@@ -1482,7 +1486,7 @@ class Ipv6NodeDiscovery(object):
                     .. attribute:: local_address
                     
                     	Link local address
-                    	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress>`
+                    	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress>`
                     
                     .. attribute:: mac_addr
                     
@@ -1508,7 +1512,7 @@ class Ipv6NodeDiscovery(object):
                     .. attribute:: member_node
                     
                     	List of member nodes
-                    	**type**\: list of  :py:class:`MemberNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode>`
+                    	**type**\: list of    :py:class:`MemberNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode>`
                     
                     .. attribute:: mtu
                     
@@ -1520,7 +1524,7 @@ class Ipv6NodeDiscovery(object):
                     .. attribute:: nd_parameters
                     
                     	ND interface parameters
-                    	**type**\:  :py:class:`NdParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters>`
+                    	**type**\:   :py:class:`NdParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters>`
                     
                     .. attribute:: parent_interface_name
                     
@@ -2058,7 +2062,7 @@ class Ipv6NodeDiscovery(object):
                 .. attribute:: interface
                 
                 	IPv6  node discovery operational data for a specific node and interface
-                	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface>`
+                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface>`
                 
                 
 
@@ -2346,7 +2350,7 @@ class Ipv6NodeDiscovery(object):
                 .. attribute:: nd_virtual_router
                 
                 	IPv6 ND virtual  router operational data for a specific interface
-                	**type**\: list of  :py:class:`NdVirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter>`
+                	**type**\: list of    :py:class:`NdVirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter>`
                 
                 
 
@@ -2384,7 +2388,7 @@ class Ipv6NodeDiscovery(object):
                     .. attribute:: flags
                     
                     	VR Flags
-                    	**type**\:  :py:class:`Ipv6NdShVrFlagsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShVrFlagsEnum>`
+                    	**type**\:   :py:class:`Ipv6NdShVrFlagsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShVrFlagsEnum>`
                     
                     .. attribute:: link_layer_address
                     
@@ -2396,12 +2400,12 @@ class Ipv6NodeDiscovery(object):
                     .. attribute:: local_address
                     
                     	Link local address
-                    	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress>`
+                    	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress>`
                     
                     .. attribute:: state
                     
                     	VR state
-                    	**type**\:  :py:class:`Ipv6NdShVrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShVrStateEnum>`
+                    	**type**\:   :py:class:`Ipv6NdShVrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShVrStateEnum>`
                     
                     .. attribute:: vr_gl_addr_ct
                     
@@ -2413,7 +2417,7 @@ class Ipv6NodeDiscovery(object):
                     .. attribute:: vr_global_address
                     
                     	List of ND global addresses
-                    	**type**\: list of  :py:class:`VrGlobalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress>`
+                    	**type**\: list of    :py:class:`VrGlobalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress>`
                     
                     
 

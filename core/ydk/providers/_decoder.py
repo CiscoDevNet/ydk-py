@@ -193,7 +193,7 @@ class XmlDecoder(object):
                     float(rt[0].text)
                     return Decimal64(rt[0].text)
                 except ValueError:
-                    ydk_logger = logging.getLogger('ydk.providers.NetconfServiceProvider')
+                    ydk_logger = logging.getLogger(__name__)
                     ydk_logger.error('Got a ValueError converting a Decimal64 type to float')
                 pass
             elif contained_member.ptype == 'Empty' and rt[0].text is None:
@@ -217,7 +217,7 @@ class XmlDecoder(object):
         meta_info = enum_clazz._meta_info()
         enum_literal_key = elem.text
         if enum_literal_key not in meta_info.literal_map:
-            sp_logger = logging.getLogger('ydk.providers.NetconfServiceProvider')
+            sp_logger = logging.getLogger(__name__)
             values = ','.join(meta_info.literal_map)
             sp_logger.error('Cannot find enum literal with name %s in enum clazz %s(%s) trying with different case',
                             enum_literal_key, member.clazz_name, values)
@@ -254,7 +254,7 @@ class XmlDecoder(object):
         py_mod_name = None
         if not (identity_mod_name, identity_name) in _yang_ns._identity_map:
             # this is a hack on some platforms the identity mod_name is not available
-            sp_logger = logging.getLogger('ydk.providers.NetconfServiceProvider')
+            sp_logger = logging.getLogger(__name__)
             sp_logger.error('Could not find identity tuple (%s, %s) in identity_map, trying secondary mechanism', identity_mod_name, identity_name)
             identities_with_name = [(x, y) for (x, y) in _yang_ns._identity_map if y == identity_name]
             if len(identities_with_name) == 0:

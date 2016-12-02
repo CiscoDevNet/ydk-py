@@ -16,8 +16,8 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'LldpL3AddrProtocolEnum' : _MetaInfoEnum('LldpL3AddrProtocolEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper',
         {
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-ethernet-lldp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-lldp-oper']),
     'Lldp.GlobalLldp.LldpInfo' : {
         'meta_info' : _MetaInfoClass('Lldp.GlobalLldp.LldpInfo',
@@ -510,8 +510,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper'
         ),
     },
-    'Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address' : {
-        'meta_info' : _MetaInfoClass('Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address',
+    'Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry.Address' : {
+        'meta_info' : _MetaInfoClass('Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry.Address',
             False, 
             [
             _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'LldpL3AddrProtocolEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper', 'LldpL3AddrProtocolEnum', 
@@ -539,11 +539,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper'
         ),
     },
-    'Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry' : {
-        'meta_info' : _MetaInfoClass('Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry',
+    'Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry' : {
+        'meta_info' : _MetaInfoClass('Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry',
             False, 
             [
-            _MetaInfoClassMember('address', REFERENCE_CLASS, 'Address' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper', 'Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address', 
+            _MetaInfoClassMember('address', REFERENCE_CLASS, 'Address' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper', 'Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry.Address', 
                 [], [], 
                 '''                Network layer address
                 ''',
@@ -568,11 +568,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper'
         ),
     },
-    'Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses' : {
-        'meta_info' : _MetaInfoClass('Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses',
+    'Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses' : {
+        'meta_info' : _MetaInfoClass('Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses',
             False, 
             [
-            _MetaInfoClassMember('lldp-addr-entry', REFERENCE_LIST, 'LldpAddrEntry' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper', 'Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry', 
+            _MetaInfoClassMember('lldp-addr-entry', REFERENCE_LIST, 'LldpAddrEntry' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper', 'Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry', 
                 [], [], 
                 '''                lldp addr entry
                 ''',
@@ -585,8 +585,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper'
         ),
     },
-    'Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail' : {
-        'meta_info' : _MetaInfoClass('Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail',
+    'Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_' : {
+        'meta_info' : _MetaInfoClass('Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_',
             False, 
             [
             _MetaInfoClassMember('auto-negotiation', ATTRIBUTE, 'str' , None, None, 
@@ -607,7 +607,7 @@ _meta_table = {
                 ''',
                 'media_attachment_unit_type',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
-            _MetaInfoClassMember('network-addresses', REFERENCE_CLASS, 'NetworkAddresses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper', 'Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses', 
+            _MetaInfoClassMember('network-addresses', REFERENCE_CLASS, 'NetworkAddresses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper', 'Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses', 
                 [], [], 
                 '''                Management Addresses
                 ''',
@@ -835,7 +835,7 @@ _meta_table = {
                 ''',
                 'chassis_id',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
-            _MetaInfoClassMember('detail', REFERENCE_CLASS, 'Detail' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper', 'Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail', 
+            _MetaInfoClassMember('detail', REFERENCE_CLASS, 'Detail_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper', 'Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_', 
                 [], [], 
                 '''                Detailed neighbor info
                 ''',
@@ -1756,14 +1756,14 @@ _meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail']['met
 _meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib']['meta_info'].parent =_meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor']['meta_info']
 _meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor']['meta_info'].parent =_meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device']['meta_info']
 _meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device']['meta_info'].parent =_meta_table['Lldp.Nodes.Node.Neighbors.Devices']['meta_info']
-_meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address']['meta_info'].parent =_meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry']['meta_info']
-_meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry']['meta_info'].parent =_meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses']['meta_info']
-_meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail.NetworkAddresses']['meta_info'].parent =_meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail']['meta_info']
+_meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry.Address']['meta_info'].parent =_meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry']['meta_info']
+_meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry']['meta_info'].parent =_meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses']['meta_info']
+_meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses']['meta_info'].parent =_meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_']['meta_info']
 _meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry']['meta_info'].parent =_meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList']['meta_info']
 _meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry']['meta_info'].parent =_meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList']['meta_info']
 _meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList']['meta_info'].parent =_meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib']['meta_info']
 _meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList']['meta_info'].parent =_meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib']['meta_info']
-_meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail']['meta_info'].parent =_meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor']['meta_info']
+_meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_']['meta_info'].parent =_meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor']['meta_info']
 _meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib']['meta_info'].parent =_meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor']['meta_info']
 _meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor']['meta_info'].parent =_meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail']['meta_info']
 _meta_table['Lldp.Nodes.Node.Neighbors.Details.Detail']['meta_info'].parent =_meta_table['Lldp.Nodes.Node.Neighbors.Details']['meta_info']

@@ -16,12 +16,12 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'AlarmLoggerSeverityLevelEnum' : _MetaInfoEnum('AlarmLoggerSeverityLevelEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_datatypes',
         {
-            'emergency':'EMERGENCY',
-            'alert':'ALERT',
-            'critical':'CRITICAL',
-            'error':'ERROR',
-            'warning':'WARNING',
-            'notice':'NOTICE',
-            'informational':'INFORMATIONAL',
+            'emergency':'emergency',
+            'alert':'alert',
+            'critical':'critical',
+            'error':'error',
+            'warning':'warning',
+            'notice':'notice',
+            'informational':'informational',
         }, 'Cisco-IOS-XR-infra-alarm-logger-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-infra-alarm-logger-datatypes']),
 }

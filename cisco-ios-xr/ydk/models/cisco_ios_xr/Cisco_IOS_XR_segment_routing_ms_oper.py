@@ -30,25 +30,25 @@ class SrmsMiAfEBEnum(Enum):
 
     Srms mi af e b
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	None
 
-    .. data:: IPV4 = 1
+    .. data:: ipv4 = 1
 
     	IPv4
 
-    .. data:: IPV6 = 2
+    .. data:: ipv6 = 2
 
     	IPv6
 
     """
 
-    NONE = 0
+    none = 0
 
-    IPV4 = 1
+    ipv4 = 1
 
-    IPV6 = 2
+    ipv6 = 2
 
 
     @staticmethod
@@ -63,19 +63,19 @@ class SrmsMiFlagEBEnum(Enum):
 
     Srms mi flag e b
 
-    .. data:: FALSE = 0
+    .. data:: false = 0
 
     	False
 
-    .. data:: TRUE = 1
+    .. data:: true = 1
 
     	True
 
     """
 
-    FALSE = 0
+    false = 0
 
-    TRUE = 1
+    true = 1
 
 
     @staticmethod
@@ -90,25 +90,25 @@ class SrmsMiSrcEBEnum(Enum):
 
     Srms mi src e b
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	None
 
-    .. data:: LOCAL = 1
+    .. data:: local = 1
 
     	Local
 
-    .. data:: REMOTE = 2
+    .. data:: remote = 2
 
     	Remote
 
     """
 
-    NONE = 0
+    none = 0
 
-    LOCAL = 1
+    local = 1
 
-    REMOTE = 2
+    remote = 2
 
 
     @staticmethod
@@ -125,12 +125,12 @@ class Srms(object):
     .. attribute:: mapping
     
     	IP prefix to SID mappings
-    	**type**\:  :py:class:`Mapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping>`
+    	**type**\:   :py:class:`Mapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping>`
     
     .. attribute:: policy
     
     	Policy operational data
-    	**type**\:  :py:class:`Policy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy>`
+    	**type**\:   :py:class:`Policy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy>`
     
     
 
@@ -153,12 +153,12 @@ class Srms(object):
         .. attribute:: mapping_ipv4
         
         	IPv4 prefix to SID mappings
-        	**type**\:  :py:class:`MappingIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv4>`
+        	**type**\:   :py:class:`MappingIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv4>`
         
         .. attribute:: mapping_ipv6
         
         	IPv6 prefix to SID mappings
-        	**type**\:  :py:class:`MappingIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv6>`
+        	**type**\:   :py:class:`MappingIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv6>`
         
         
 
@@ -182,7 +182,7 @@ class Srms(object):
             .. attribute:: mapping_mi
             
             	IP prefix to SID mapping item. It's not possible to list all of the IP prefix to SID mappings, as the set of valid prefixes could be very large. Instead, SID map information must be retrieved individually for each prefix of interest
-            	**type**\: list of  :py:class:`MappingMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv4.MappingMi>`
+            	**type**\: list of    :py:class:`MappingMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv4.MappingMi>`
             
             
 
@@ -209,7 +209,7 @@ class Srms(object):
                 .. attribute:: addr
                 
                 	addr
-                	**type**\:  :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv4.MappingMi.Addr>`
+                	**type**\:   :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv4.MappingMi.Addr>`
                 
                 .. attribute:: area
                 
@@ -221,7 +221,7 @@ class Srms(object):
                 .. attribute:: flag_attached
                 
                 	Attached flag
-                	**type**\:  :py:class:`SrmsMiFlagEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEBEnum>`
+                	**type**\:   :py:class:`SrmsMiFlagEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEBEnum>`
                 
                 .. attribute:: ip
                 
@@ -282,7 +282,7 @@ class Srms(object):
                 .. attribute:: src
                 
                 	src
-                	**type**\:  :py:class:`SrmsMiSrcEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
+                	**type**\:   :py:class:`SrmsMiSrcEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
                 
                 
 
@@ -315,7 +315,7 @@ class Srms(object):
                     .. attribute:: af
                     
                     	AF
-                    	**type**\:  :py:class:`SrmsMiAfEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEBEnum>`
+                    	**type**\:   :py:class:`SrmsMiAfEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEBEnum>`
                     
                     .. attribute:: ipv4
                     
@@ -459,7 +459,7 @@ class Srms(object):
             .. attribute:: mapping_mi
             
             	IP prefix to SID mapping item. It's not possible to list all of the IP prefix to SID mappings, as the set of valid prefixes could be very large. Instead, SID map information must be retrieved individually for each prefix of interest
-            	**type**\: list of  :py:class:`MappingMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv6.MappingMi>`
+            	**type**\: list of    :py:class:`MappingMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv6.MappingMi>`
             
             
 
@@ -486,7 +486,7 @@ class Srms(object):
                 .. attribute:: addr
                 
                 	addr
-                	**type**\:  :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv6.MappingMi.Addr>`
+                	**type**\:   :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv6.MappingMi.Addr>`
                 
                 .. attribute:: area
                 
@@ -498,7 +498,7 @@ class Srms(object):
                 .. attribute:: flag_attached
                 
                 	Attached flag
-                	**type**\:  :py:class:`SrmsMiFlagEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEBEnum>`
+                	**type**\:   :py:class:`SrmsMiFlagEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEBEnum>`
                 
                 .. attribute:: ip
                 
@@ -559,7 +559,7 @@ class Srms(object):
                 .. attribute:: src
                 
                 	src
-                	**type**\:  :py:class:`SrmsMiSrcEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
+                	**type**\:   :py:class:`SrmsMiSrcEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
                 
                 
 
@@ -592,7 +592,7 @@ class Srms(object):
                     .. attribute:: af
                     
                     	AF
-                    	**type**\:  :py:class:`SrmsMiAfEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEBEnum>`
+                    	**type**\:   :py:class:`SrmsMiAfEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEBEnum>`
                     
                     .. attribute:: ipv4
                     
@@ -761,12 +761,12 @@ class Srms(object):
         .. attribute:: policy_ipv4
         
         	IPv4 policy operational data
-        	**type**\:  :py:class:`PolicyIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4>`
+        	**type**\:   :py:class:`PolicyIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4>`
         
         .. attribute:: policy_ipv6
         
         	IPv6 policy operational data
-        	**type**\:  :py:class:`PolicyIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6>`
+        	**type**\:   :py:class:`PolicyIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6>`
         
         
 
@@ -790,12 +790,12 @@ class Srms(object):
             .. attribute:: policy_ipv4_active
             
             	IPv4 active policy operational data
-            	**type**\:  :py:class:`PolicyIpv4Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Active>`
+            	**type**\:   :py:class:`PolicyIpv4Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Active>`
             
             .. attribute:: policy_ipv4_backup
             
             	IPv4 backup policy operational data
-            	**type**\:  :py:class:`PolicyIpv4Backup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Backup>`
+            	**type**\:   :py:class:`PolicyIpv4Backup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Backup>`
             
             
 
@@ -819,7 +819,7 @@ class Srms(object):
                 .. attribute:: policy_mi
                 
                 	Mapping Item
-                	**type**\: list of  :py:class:`PolicyMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi>`
+                	**type**\: list of    :py:class:`PolicyMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi>`
                 
                 
 
@@ -849,7 +849,7 @@ class Srms(object):
                     .. attribute:: addr
                     
                     	addr
-                    	**type**\:  :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr>`
+                    	**type**\:   :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr>`
                     
                     .. attribute:: area
                     
@@ -861,7 +861,7 @@ class Srms(object):
                     .. attribute:: flag_attached
                     
                     	Attached flag
-                    	**type**\:  :py:class:`SrmsMiFlagEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEBEnum>`
+                    	**type**\:   :py:class:`SrmsMiFlagEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEBEnum>`
                     
                     .. attribute:: last_prefix
                     
@@ -908,7 +908,7 @@ class Srms(object):
                     .. attribute:: src
                     
                     	src
-                    	**type**\:  :py:class:`SrmsMiSrcEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
+                    	**type**\:   :py:class:`SrmsMiSrcEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
                     
                     
 
@@ -940,7 +940,7 @@ class Srms(object):
                         .. attribute:: af
                         
                         	AF
-                        	**type**\:  :py:class:`SrmsMiAfEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEBEnum>`
+                        	**type**\:   :py:class:`SrmsMiAfEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEBEnum>`
                         
                         .. attribute:: ipv4
                         
@@ -1085,7 +1085,7 @@ class Srms(object):
                 .. attribute:: policy_mi
                 
                 	Mapping Item
-                	**type**\: list of  :py:class:`PolicyMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi>`
+                	**type**\: list of    :py:class:`PolicyMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi>`
                 
                 
 
@@ -1115,7 +1115,7 @@ class Srms(object):
                     .. attribute:: addr
                     
                     	addr
-                    	**type**\:  :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr>`
+                    	**type**\:   :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr>`
                     
                     .. attribute:: area
                     
@@ -1127,7 +1127,7 @@ class Srms(object):
                     .. attribute:: flag_attached
                     
                     	Attached flag
-                    	**type**\:  :py:class:`SrmsMiFlagEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEBEnum>`
+                    	**type**\:   :py:class:`SrmsMiFlagEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEBEnum>`
                     
                     .. attribute:: last_prefix
                     
@@ -1174,7 +1174,7 @@ class Srms(object):
                     .. attribute:: src
                     
                     	src
-                    	**type**\:  :py:class:`SrmsMiSrcEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
+                    	**type**\:   :py:class:`SrmsMiSrcEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
                     
                     
 
@@ -1206,7 +1206,7 @@ class Srms(object):
                         .. attribute:: af
                         
                         	AF
-                        	**type**\:  :py:class:`SrmsMiAfEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEBEnum>`
+                        	**type**\:   :py:class:`SrmsMiAfEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEBEnum>`
                         
                         .. attribute:: ipv4
                         
@@ -1376,12 +1376,12 @@ class Srms(object):
             .. attribute:: policy_ipv6_active
             
             	IPv6 active policy operational data
-            	**type**\:  :py:class:`PolicyIpv6Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Active>`
+            	**type**\:   :py:class:`PolicyIpv6Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Active>`
             
             .. attribute:: policy_ipv6_backup
             
             	IPv6 backup policy operational data
-            	**type**\:  :py:class:`PolicyIpv6Backup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Backup>`
+            	**type**\:   :py:class:`PolicyIpv6Backup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Backup>`
             
             
 
@@ -1405,7 +1405,7 @@ class Srms(object):
                 .. attribute:: policy_mi
                 
                 	Mapping Item
-                	**type**\: list of  :py:class:`PolicyMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi>`
+                	**type**\: list of    :py:class:`PolicyMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi>`
                 
                 
 
@@ -1435,7 +1435,7 @@ class Srms(object):
                     .. attribute:: addr
                     
                     	addr
-                    	**type**\:  :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr>`
+                    	**type**\:   :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr>`
                     
                     .. attribute:: area
                     
@@ -1447,7 +1447,7 @@ class Srms(object):
                     .. attribute:: flag_attached
                     
                     	Attached flag
-                    	**type**\:  :py:class:`SrmsMiFlagEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEBEnum>`
+                    	**type**\:   :py:class:`SrmsMiFlagEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEBEnum>`
                     
                     .. attribute:: last_prefix
                     
@@ -1494,7 +1494,7 @@ class Srms(object):
                     .. attribute:: src
                     
                     	src
-                    	**type**\:  :py:class:`SrmsMiSrcEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
+                    	**type**\:   :py:class:`SrmsMiSrcEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
                     
                     
 
@@ -1526,7 +1526,7 @@ class Srms(object):
                         .. attribute:: af
                         
                         	AF
-                        	**type**\:  :py:class:`SrmsMiAfEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEBEnum>`
+                        	**type**\:   :py:class:`SrmsMiAfEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEBEnum>`
                         
                         .. attribute:: ipv4
                         
@@ -1671,7 +1671,7 @@ class Srms(object):
                 .. attribute:: policy_mi
                 
                 	Mapping Item
-                	**type**\: list of  :py:class:`PolicyMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi>`
+                	**type**\: list of    :py:class:`PolicyMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi>`
                 
                 
 
@@ -1701,7 +1701,7 @@ class Srms(object):
                     .. attribute:: addr
                     
                     	addr
-                    	**type**\:  :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr>`
+                    	**type**\:   :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr>`
                     
                     .. attribute:: area
                     
@@ -1713,7 +1713,7 @@ class Srms(object):
                     .. attribute:: flag_attached
                     
                     	Attached flag
-                    	**type**\:  :py:class:`SrmsMiFlagEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEBEnum>`
+                    	**type**\:   :py:class:`SrmsMiFlagEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEBEnum>`
                     
                     .. attribute:: last_prefix
                     
@@ -1760,7 +1760,7 @@ class Srms(object):
                     .. attribute:: src
                     
                     	src
-                    	**type**\:  :py:class:`SrmsMiSrcEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
+                    	**type**\:   :py:class:`SrmsMiSrcEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEBEnum>`
                     
                     
 
@@ -1792,7 +1792,7 @@ class Srms(object):
                         .. attribute:: af
                         
                         	AF
-                        	**type**\:  :py:class:`SrmsMiAfEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEBEnum>`
+                        	**type**\:   :py:class:`SrmsMiAfEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEBEnum>`
                         
                         .. attribute:: ipv4
                         

@@ -30,37 +30,37 @@ class AlarmClientEnum(Enum):
 
     Alarm client
 
-    .. data:: UNKNOWN = 1
+    .. data:: unknown = 1
 
     	Client type unknown
 
-    .. data:: PRODUCER = 2
+    .. data:: producer = 2
 
     	Client type producer
 
-    .. data:: CONSUMER = 4
+    .. data:: consumer = 4
 
     	Client type consumer
 
-    .. data:: SUBSCRIBER = 8
+    .. data:: subscriber = 8
 
     	Client type subscriber
 
-    .. data:: CLIENT_LAST = 16
+    .. data:: client_last = 16
 
     	Client type last
 
     """
 
-    UNKNOWN = 1
+    unknown = 1
 
-    PRODUCER = 2
+    producer = 2
 
-    CONSUMER = 4
+    consumer = 4
 
-    SUBSCRIBER = 8
+    subscriber = 8
 
-    CLIENT_LAST = 16
+    client_last = 16
 
 
     @staticmethod
@@ -75,49 +75,49 @@ class AlarmClientStateEnum(Enum):
 
     Alarm client state
 
-    .. data:: START = 0
+    .. data:: start = 0
 
     	Starting state. Should be 0
 
-    .. data:: INIT = 1
+    .. data:: init = 1
 
     	Client initalized
 
-    .. data:: CONNECTING = 2
+    .. data:: connecting = 2
 
     	Sent connect request
 
-    .. data:: CONNECTED = 3
+    .. data:: connected = 3
 
     	Initial connected
 
-    .. data:: REGISTERED = 4
+    .. data:: registered = 4
 
     	Has sent registration message
 
-    .. data:: DISCONNECTED = 5
+    .. data:: disconnected = 5
 
     	Has been disconnected due to request of error
 
-    .. data:: READY = 6
+    .. data:: ready = 6
 
     	The client is ready
 
     """
 
-    START = 0
+    start = 0
 
-    INIT = 1
+    init = 1
 
-    CONNECTING = 2
+    connecting = 2
 
-    CONNECTED = 3
+    connected = 3
 
-    REGISTERED = 4
+    registered = 4
 
-    DISCONNECTED = 5
+    disconnected = 5
 
-    READY = 6
+    ready = 6
 
 
     @staticmethod
@@ -132,31 +132,31 @@ class AlarmDirectionEnum(Enum):
 
     Alarm direction
 
-    .. data:: NOT_SPECIFIED = 0
+    .. data:: not_specified = 0
 
     	Direction Not Specified
 
-    .. data:: SEND = 1
+    .. data:: send = 1
 
     	Direction Send
 
-    .. data:: RECEIVE = 2
+    .. data:: receive = 2
 
     	Direction Receive
 
-    .. data:: SEND_RECEIVE = 3
+    .. data:: send_receive = 3
 
     	Direction Send and Receive
 
     """
 
-    NOT_SPECIFIED = 0
+    not_specified = 0
 
-    SEND = 1
+    send = 1
 
-    RECEIVE = 2
+    receive = 2
 
-    SEND_RECEIVE = 3
+    send_receive = 3
 
 
     @staticmethod
@@ -171,25 +171,25 @@ class AlarmEventEnum(Enum):
 
     Alarm event
 
-    .. data:: DEFAULT = 0
+    .. data:: default = 0
 
     	Default Alarm Event Type
 
-    .. data:: NOTIFICATION = 1
+    .. data:: notification = 1
 
     	Alarm Notifcation Event Type
 
-    .. data:: LAST = 2
+    .. data:: last = 2
 
     	Last Event Type
 
     """
 
-    DEFAULT = 0
+    default = 0
 
-    NOTIFICATION = 1
+    notification = 1
 
-    LAST = 2
+    last = 2
 
 
     @staticmethod
@@ -204,103 +204,115 @@ class AlarmGroupsEnum(Enum):
 
     Alarm groups
 
-    .. data:: UNKNOWN = 0
+    .. data:: unknown = 0
 
     	An unknown alarm group
 
-    .. data:: ENVIRON = 1
+    .. data:: environ = 1
 
     	Environomental alarm group
 
-    .. data:: ETHERNET = 2
+    .. data:: ethernet = 2
 
     	Ethernet alarm group
 
-    .. data:: FABRIC = 3
+    .. data:: fabric = 3
 
     	Fabric related alarm group
 
-    .. data:: POWER = 4
+    .. data:: power = 4
 
     	Power and PEM group of alarms
 
-    .. data:: SOFTWARE = 5
+    .. data:: software = 5
 
     	Software group of alarms
 
-    .. data:: SLICE = 6
+    .. data:: slice = 6
 
     	Slice group of alarms
 
-    .. data:: CPU = 7
+    .. data:: cpu = 7
 
     	CPU group of alarms
 
-    .. data:: CONTROLLER = 8
+    .. data:: controller = 8
 
     	Controller group of alarms
 
-    .. data:: SONET = 9
+    .. data:: sonet = 9
 
     	Sonet group of alarms
 
-    .. data:: OTN = 10
+    .. data:: otn = 10
 
     	OTN group of alarms
 
-    .. data:: SDH_CONTROLLER = 11
+    .. data:: sdh_controller = 11
 
     	SDH group of alarms
 
-    .. data:: ASIC = 12
+    .. data:: asic = 12
 
     	ASIC group of alarms
 
-    .. data:: FPD_INFRA = 13
+    .. data:: fpd_infra = 13
 
     	FPD group of alarms
 
-    .. data:: SHELF = 14
+    .. data:: shelf = 14
 
     	Shelf group of alarms
 
-    .. data:: LAST = 15
+    .. data:: mpa = 15
+
+    	MPA group of alarms
+
+    .. data:: ots = 16
+
+    	Ots group of alarms
+
+    .. data:: last = 17
 
     	Last unused group
 
     """
 
-    UNKNOWN = 0
+    unknown = 0
 
-    ENVIRON = 1
+    environ = 1
 
-    ETHERNET = 2
+    ethernet = 2
 
-    FABRIC = 3
+    fabric = 3
 
-    POWER = 4
+    power = 4
 
-    SOFTWARE = 5
+    software = 5
 
-    SLICE = 6
+    slice = 6
 
-    CPU = 7
+    cpu = 7
 
-    CONTROLLER = 8
+    controller = 8
 
-    SONET = 9
+    sonet = 9
 
-    OTN = 10
+    otn = 10
 
-    SDH_CONTROLLER = 11
+    sdh_controller = 11
 
-    ASIC = 12
+    asic = 12
 
-    FPD_INFRA = 13
+    fpd_infra = 13
 
-    SHELF = 14
+    shelf = 14
 
-    LAST = 15
+    mpa = 15
+
+    ots = 16
+
+    last = 17
 
 
     @staticmethod
@@ -315,25 +327,25 @@ class AlarmNotificationSrcEnum(Enum):
 
     Alarm notification src
 
-    .. data:: NOT_SPECIFIED = 0
+    .. data:: not_specified = 0
 
     	Notification src not specified
 
-    .. data:: NEAR_END = 1
+    .. data:: near_end = 1
 
     	Notification src near end
 
-    .. data:: FAR_END = 2
+    .. data:: far_end = 2
 
     	Notification src far end
 
     """
 
-    NOT_SPECIFIED = 0
+    not_specified = 0
 
-    NEAR_END = 1
+    near_end = 1
 
-    FAR_END = 2
+    far_end = 2
 
 
     @staticmethod
@@ -348,27 +360,27 @@ class AlarmServiceAffectingEnum(Enum):
 
     Alarm service affecting
 
-    .. data:: UNKNOWN = 0
+    .. data:: unknown = 0
 
     	Unknown whether alarm severity is service
 
     	affecting
 
-    .. data:: NOT_SERVICE_AFFECTING = 1
+    .. data:: not_service_affecting = 1
 
     	Alarm severity is not service affecting
 
-    .. data:: SERVICE_AFFECTING = 2
+    .. data:: service_affecting = 2
 
     	Alarm severity is service affecting
 
     """
 
-    UNKNOWN = 0
+    unknown = 0
 
-    NOT_SERVICE_AFFECTING = 1
+    not_service_affecting = 1
 
-    SERVICE_AFFECTING = 2
+    service_affecting = 2
 
 
     @staticmethod
@@ -383,59 +395,59 @@ class AlarmSeverityEnum(Enum):
 
     Alarm severity
 
-    .. data:: UNKNOWN = 0
+    .. data:: unknown = 0
 
     	Unknown severity level
 
-    .. data:: NOT_REPORTED = 1
+    .. data:: not_reported = 1
 
     	Severity level not reported will not raise an
 
     	alarm
 
-    .. data:: NOT_ALARMED = 2
+    .. data:: not_alarmed = 2
 
     	Severity level of info to cater to events such
 
     	as Performance TCAS
 
-    .. data:: MINOR = 3
+    .. data:: minor = 3
 
     	Severity level of minor fault not traffic
 
     	affecting
 
-    .. data:: MAJOR = 4
+    .. data:: major = 4
 
     	Severity level of major fault leading to
 
     	service disruption
 
-    .. data:: CRITICAL = 5
+    .. data:: critical = 5
 
     	Severity level of critical leading to drops
 
     	,route loss, loss of service etc.
 
-    .. data:: SEVERITY_LAST = 6
+    .. data:: severity_last = 6
 
     	Last severity level
 
     """
 
-    UNKNOWN = 0
+    unknown = 0
 
-    NOT_REPORTED = 1
+    not_reported = 1
 
-    NOT_ALARMED = 2
+    not_alarmed = 2
 
-    MINOR = 3
+    minor = 3
 
-    MAJOR = 4
+    major = 4
 
-    CRITICAL = 5
+    critical = 5
 
-    SEVERITY_LAST = 6
+    severity_last = 6
 
 
     @staticmethod
@@ -450,43 +462,43 @@ class AlarmStatusEnum(Enum):
 
     Alarm status
 
-    .. data:: UNKNOWN = 0
+    .. data:: unknown = 0
 
     	Unknown alarm status level
 
-    .. data:: SET = 1
+    .. data:: set = 1
 
     	Status of active alarm that is SET by the
 
     	controller
 
-    .. data:: CLEAR = 2
+    .. data:: clear = 2
 
     	Status of cleared alarm that is done by the
 
     	controller
 
-    .. data:: SUPPRESS = 3
+    .. data:: suppress = 3
 
     	Status of suppressed alarm that is done by the
 
     	controller
 
-    .. data:: LAST = 4
+    .. data:: last = 4
 
     	Last status level
 
     """
 
-    UNKNOWN = 0
+    unknown = 0
 
-    SET = 1
+    set = 1
 
-    CLEAR = 2
+    clear = 2
 
-    SUPPRESS = 3
+    suppress = 3
 
-    LAST = 4
+    last = 4
 
 
     @staticmethod
@@ -501,25 +513,25 @@ class TimingBucketEnum(Enum):
 
     Timing bucket
 
-    .. data:: NOT_SPECIFIED = 0
+    .. data:: not_specified = 0
 
     	Bucket Type not applicable
 
-    .. data:: FIFTEEN_MIN = 1
+    .. data:: fifteen_min = 1
 
     	Fifteen minute time bucket
 
-    .. data:: ONE_DAY = 2
+    .. data:: one_day = 2
 
     	One day time bucket
 
     """
 
-    NOT_SPECIFIED = 0
+    not_specified = 0
 
-    FIFTEEN_MIN = 1
+    fifteen_min = 1
 
-    ONE_DAY = 2
+    one_day = 2
 
 
     @staticmethod
@@ -536,12 +548,12 @@ class Alarms(object):
     .. attribute:: brief
     
     	A set of brief alarm commands
-    	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief>`
+    	**type**\:   :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief>`
     
     .. attribute:: detail
     
     	A set of detail alarm commands
-    	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail>`
+    	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail>`
     
     
 
@@ -564,12 +576,12 @@ class Alarms(object):
         .. attribute:: detail_card
         
         	Show detail card scope alarm related data
-        	**type**\:  :py:class:`DetailCard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard>`
+        	**type**\:   :py:class:`DetailCard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard>`
         
         .. attribute:: detail_system
         
         	show detail system scope alarm related data
-        	**type**\:  :py:class:`DetailSystem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem>`
+        	**type**\:   :py:class:`DetailSystem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem>`
         
         
 
@@ -593,27 +605,27 @@ class Alarms(object):
             .. attribute:: active
             
             	Show the active alarms at this scope
-            	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Active>`
+            	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Active>`
             
             .. attribute:: clients
             
             	Show the clients associated with this service
-            	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Clients>`
+            	**type**\:   :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Clients>`
             
             .. attribute:: history
             
             	Show the history alarms at this scope
-            	**type**\:  :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.History>`
+            	**type**\:   :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.History>`
             
             .. attribute:: stats
             
             	Show the service statistics
-            	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Stats>`
+            	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Stats>`
             
             .. attribute:: suppressed
             
             	Show the suppressed alarms at this scope
-            	**type**\:  :py:class:`Suppressed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Suppressed>`
+            	**type**\:   :py:class:`Suppressed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Suppressed>`
             
             
 
@@ -643,7 +655,7 @@ class Alarms(object):
                 .. attribute:: alarm_info
                 
                 	Alarm List
-                	**type**\: list of  :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Active.AlarmInfo>`
+                	**type**\: list of    :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Active.AlarmInfo>`
                 
                 
 
@@ -708,7 +720,7 @@ class Alarms(object):
                     .. attribute:: group
                     
                     	Alarm group
-                    	**type**\:  :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
+                    	**type**\:   :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
                     
                     .. attribute:: interface
                     
@@ -734,7 +746,7 @@ class Alarms(object):
                     .. attribute:: otn
                     
                     	OTN feature specific alarm attributes
-                    	**type**\:  :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Active.AlarmInfo.Otn>`
+                    	**type**\:   :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Active.AlarmInfo.Otn>`
                     
                     .. attribute:: pending_sync
                     
@@ -751,7 +763,7 @@ class Alarms(object):
                     .. attribute:: service_affecting
                     
                     	Alarm service affecting
-                    	**type**\:  :py:class:`AlarmServiceAffectingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffectingEnum>`
+                    	**type**\:   :py:class:`AlarmServiceAffectingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffectingEnum>`
                     
                     .. attribute:: set_time
                     
@@ -770,12 +782,12 @@ class Alarms(object):
                     .. attribute:: severity
                     
                     	Alarm severity
-                    	**type**\:  :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
+                    	**type**\:   :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
                     
                     .. attribute:: status
                     
                     	Alarm status
-                    	**type**\:  :py:class:`AlarmStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatusEnum>`
+                    	**type**\:   :py:class:`AlarmStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatusEnum>`
                     
                     .. attribute:: tag
                     
@@ -787,12 +799,12 @@ class Alarms(object):
                     .. attribute:: tca
                     
                     	TCA feature specific alarm attributes
-                    	**type**\:  :py:class:`Tca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Active.AlarmInfo.Tca>`
+                    	**type**\:   :py:class:`Tca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Active.AlarmInfo.Tca>`
                     
                     .. attribute:: type
                     
                     	alarm event type
-                    	**type**\:  :py:class:`AlarmEventEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmEventEnum>`
+                    	**type**\:   :py:class:`AlarmEventEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmEventEnum>`
                     
                     
 
@@ -835,12 +847,12 @@ class Alarms(object):
                         .. attribute:: direction
                         
                         	Alarm direction 
-                        	**type**\:  :py:class:`AlarmDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirectionEnum>`
+                        	**type**\:   :py:class:`AlarmDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirectionEnum>`
                         
                         .. attribute:: notification_source
                         
                         	Source of Alarm
-                        	**type**\:  :py:class:`AlarmNotificationSrcEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrcEnum>`
+                        	**type**\:   :py:class:`AlarmNotificationSrcEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrcEnum>`
                         
                         
 
@@ -887,7 +899,7 @@ class Alarms(object):
                         .. attribute:: bucket_type
                         
                         	Timing Bucket
-                        	**type**\:  :py:class:`TimingBucketEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.TimingBucketEnum>`
+                        	**type**\:   :py:class:`TimingBucketEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.TimingBucketEnum>`
                         
                         .. attribute:: current_value
                         
@@ -1058,7 +1070,7 @@ class Alarms(object):
                 .. attribute:: alarm_info
                 
                 	Alarm List
-                	**type**\: list of  :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.History.AlarmInfo>`
+                	**type**\: list of    :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.History.AlarmInfo>`
                 
                 
 
@@ -1123,7 +1135,7 @@ class Alarms(object):
                     .. attribute:: group
                     
                     	Alarm group
-                    	**type**\:  :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
+                    	**type**\:   :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
                     
                     .. attribute:: interface
                     
@@ -1149,7 +1161,7 @@ class Alarms(object):
                     .. attribute:: otn
                     
                     	OTN feature specific alarm attributes
-                    	**type**\:  :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.History.AlarmInfo.Otn>`
+                    	**type**\:   :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.History.AlarmInfo.Otn>`
                     
                     .. attribute:: pending_sync
                     
@@ -1166,7 +1178,7 @@ class Alarms(object):
                     .. attribute:: service_affecting
                     
                     	Alarm service affecting
-                    	**type**\:  :py:class:`AlarmServiceAffectingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffectingEnum>`
+                    	**type**\:   :py:class:`AlarmServiceAffectingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffectingEnum>`
                     
                     .. attribute:: set_time
                     
@@ -1185,12 +1197,12 @@ class Alarms(object):
                     .. attribute:: severity
                     
                     	Alarm severity
-                    	**type**\:  :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
+                    	**type**\:   :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
                     
                     .. attribute:: status
                     
                     	Alarm status
-                    	**type**\:  :py:class:`AlarmStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatusEnum>`
+                    	**type**\:   :py:class:`AlarmStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatusEnum>`
                     
                     .. attribute:: tag
                     
@@ -1202,12 +1214,12 @@ class Alarms(object):
                     .. attribute:: tca
                     
                     	TCA feature specific alarm attributes
-                    	**type**\:  :py:class:`Tca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.History.AlarmInfo.Tca>`
+                    	**type**\:   :py:class:`Tca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.History.AlarmInfo.Tca>`
                     
                     .. attribute:: type
                     
                     	alarm event type
-                    	**type**\:  :py:class:`AlarmEventEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmEventEnum>`
+                    	**type**\:   :py:class:`AlarmEventEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmEventEnum>`
                     
                     
 
@@ -1250,12 +1262,12 @@ class Alarms(object):
                         .. attribute:: direction
                         
                         	Alarm direction 
-                        	**type**\:  :py:class:`AlarmDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirectionEnum>`
+                        	**type**\:   :py:class:`AlarmDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirectionEnum>`
                         
                         .. attribute:: notification_source
                         
                         	Source of Alarm
-                        	**type**\:  :py:class:`AlarmNotificationSrcEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrcEnum>`
+                        	**type**\:   :py:class:`AlarmNotificationSrcEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrcEnum>`
                         
                         
 
@@ -1302,7 +1314,7 @@ class Alarms(object):
                         .. attribute:: bucket_type
                         
                         	Timing Bucket
-                        	**type**\:  :py:class:`TimingBucketEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.TimingBucketEnum>`
+                        	**type**\:   :py:class:`TimingBucketEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.TimingBucketEnum>`
                         
                         .. attribute:: current_value
                         
@@ -1473,7 +1485,7 @@ class Alarms(object):
                 .. attribute:: suppressed_info
                 
                 	Suppressed Alarm List
-                	**type**\: list of  :py:class:`SuppressedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Suppressed.SuppressedInfo>`
+                	**type**\: list of    :py:class:`SuppressedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Suppressed.SuppressedInfo>`
                 
                 
 
@@ -1524,7 +1536,7 @@ class Alarms(object):
                     .. attribute:: group
                     
                     	Alarm group
-                    	**type**\:  :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
+                    	**type**\:   :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
                     
                     .. attribute:: interface
                     
@@ -1550,7 +1562,7 @@ class Alarms(object):
                     .. attribute:: otn
                     
                     	OTN feature specific alarm attributes
-                    	**type**\:  :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Suppressed.SuppressedInfo.Otn>`
+                    	**type**\:   :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Suppressed.SuppressedInfo.Otn>`
                     
                     .. attribute:: pending_sync
                     
@@ -1567,7 +1579,7 @@ class Alarms(object):
                     .. attribute:: service_affecting
                     
                     	Alarm service affecting 
-                    	**type**\:  :py:class:`AlarmServiceAffectingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffectingEnum>`
+                    	**type**\:   :py:class:`AlarmServiceAffectingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffectingEnum>`
                     
                     .. attribute:: set_time
                     
@@ -1586,12 +1598,12 @@ class Alarms(object):
                     .. attribute:: severity
                     
                     	Alarm severity
-                    	**type**\:  :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
+                    	**type**\:   :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
                     
                     .. attribute:: status
                     
                     	Alarm status
-                    	**type**\:  :py:class:`AlarmStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatusEnum>`
+                    	**type**\:   :py:class:`AlarmStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatusEnum>`
                     
                     .. attribute:: suppressed_time
                     
@@ -1652,12 +1664,12 @@ class Alarms(object):
                         .. attribute:: direction
                         
                         	Alarm direction 
-                        	**type**\:  :py:class:`AlarmDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirectionEnum>`
+                        	**type**\:   :py:class:`AlarmDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirectionEnum>`
                         
                         .. attribute:: notification_source
                         
                         	Source of Alarm
-                        	**type**\:  :py:class:`AlarmNotificationSrcEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrcEnum>`
+                        	**type**\:   :py:class:`AlarmNotificationSrcEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrcEnum>`
                         
                         
 
@@ -2003,7 +2015,7 @@ class Alarms(object):
                 .. attribute:: client_info
                 
                 	Client List
-                	**type**\: list of  :py:class:`ClientInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Clients.ClientInfo>`
+                	**type**\: list of    :py:class:`ClientInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailSystem.Clients.ClientInfo>`
                 
                 
 
@@ -2045,17 +2057,17 @@ class Alarms(object):
                     .. attribute:: filter_group
                     
                     	The filter used for alarm group
-                    	**type**\:  :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
+                    	**type**\:   :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
                     
                     .. attribute:: filter_severity
                     
                     	The filter used for alarm severity
-                    	**type**\:  :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
+                    	**type**\:   :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
                     
                     .. attribute:: filter_state
                     
                     	The filter used for alarm bi\-state state+
-                    	**type**\:  :py:class:`AlarmStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatusEnum>`
+                    	**type**\:   :py:class:`AlarmStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatusEnum>`
                     
                     .. attribute:: get_count
                     
@@ -2102,7 +2114,7 @@ class Alarms(object):
                     .. attribute:: state
                     
                     	The current state of the client
-                    	**type**\:  :py:class:`AlarmClientStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmClientStateEnum>`
+                    	**type**\:   :py:class:`AlarmClientStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmClientStateEnum>`
                     
                     .. attribute:: subscribe_count
                     
@@ -2121,7 +2133,7 @@ class Alarms(object):
                     .. attribute:: type
                     
                     	The type of the client
-                    	**type**\:  :py:class:`AlarmClientEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmClientEnum>`
+                    	**type**\:   :py:class:`AlarmClientEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmClientEnum>`
                     
                     
 
@@ -2282,7 +2294,7 @@ class Alarms(object):
             .. attribute:: detail_locations
             
             	Table of DetailLocation
-            	**type**\:  :py:class:`DetailLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations>`
+            	**type**\:   :py:class:`DetailLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations>`
             
             
 
@@ -2304,7 +2316,7 @@ class Alarms(object):
                 .. attribute:: detail_location
                 
                 	Specify a card location for alarms
-                	**type**\: list of  :py:class:`DetailLocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation>`
+                	**type**\: list of    :py:class:`DetailLocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation>`
                 
                 
 
@@ -2334,27 +2346,27 @@ class Alarms(object):
                     .. attribute:: active
                     
                     	Show the active alarms at this scope
-                    	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active>`
+                    	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active>`
                     
                     .. attribute:: clients
                     
                     	Show the clients associated with this service
-                    	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Clients>`
+                    	**type**\:   :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Clients>`
                     
                     .. attribute:: history
                     
                     	Show the history alarms at this scope
-                    	**type**\:  :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History>`
+                    	**type**\:   :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History>`
                     
                     .. attribute:: stats
                     
                     	Show the service statistics
-                    	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Stats>`
+                    	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Stats>`
                     
                     .. attribute:: suppressed
                     
                     	Show the suppressed alarms at this scope
-                    	**type**\:  :py:class:`Suppressed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed>`
+                    	**type**\:   :py:class:`Suppressed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed>`
                     
                     
 
@@ -2385,7 +2397,7 @@ class Alarms(object):
                         .. attribute:: alarm_info
                         
                         	Alarm List
-                        	**type**\: list of  :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo>`
+                        	**type**\: list of    :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo>`
                         
                         
 
@@ -2450,7 +2462,7 @@ class Alarms(object):
                             .. attribute:: group
                             
                             	Alarm group
-                            	**type**\:  :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
+                            	**type**\:   :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
                             
                             .. attribute:: interface
                             
@@ -2476,7 +2488,7 @@ class Alarms(object):
                             .. attribute:: otn
                             
                             	OTN feature specific alarm attributes
-                            	**type**\:  :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo.Otn>`
+                            	**type**\:   :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo.Otn>`
                             
                             .. attribute:: pending_sync
                             
@@ -2493,7 +2505,7 @@ class Alarms(object):
                             .. attribute:: service_affecting
                             
                             	Alarm service affecting
-                            	**type**\:  :py:class:`AlarmServiceAffectingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffectingEnum>`
+                            	**type**\:   :py:class:`AlarmServiceAffectingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffectingEnum>`
                             
                             .. attribute:: set_time
                             
@@ -2512,12 +2524,12 @@ class Alarms(object):
                             .. attribute:: severity
                             
                             	Alarm severity
-                            	**type**\:  :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
+                            	**type**\:   :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
                             
                             .. attribute:: status
                             
                             	Alarm status
-                            	**type**\:  :py:class:`AlarmStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatusEnum>`
+                            	**type**\:   :py:class:`AlarmStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatusEnum>`
                             
                             .. attribute:: tag
                             
@@ -2529,12 +2541,12 @@ class Alarms(object):
                             .. attribute:: tca
                             
                             	TCA feature specific alarm attributes
-                            	**type**\:  :py:class:`Tca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo.Tca>`
+                            	**type**\:   :py:class:`Tca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Active.AlarmInfo.Tca>`
                             
                             .. attribute:: type
                             
                             	alarm event type
-                            	**type**\:  :py:class:`AlarmEventEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmEventEnum>`
+                            	**type**\:   :py:class:`AlarmEventEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmEventEnum>`
                             
                             
 
@@ -2577,12 +2589,12 @@ class Alarms(object):
                                 .. attribute:: direction
                                 
                                 	Alarm direction 
-                                	**type**\:  :py:class:`AlarmDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirectionEnum>`
+                                	**type**\:   :py:class:`AlarmDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirectionEnum>`
                                 
                                 .. attribute:: notification_source
                                 
                                 	Source of Alarm
-                                	**type**\:  :py:class:`AlarmNotificationSrcEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrcEnum>`
+                                	**type**\:   :py:class:`AlarmNotificationSrcEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrcEnum>`
                                 
                                 
 
@@ -2631,7 +2643,7 @@ class Alarms(object):
                                 .. attribute:: bucket_type
                                 
                                 	Timing Bucket
-                                	**type**\:  :py:class:`TimingBucketEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.TimingBucketEnum>`
+                                	**type**\:   :py:class:`TimingBucketEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.TimingBucketEnum>`
                                 
                                 .. attribute:: current_value
                                 
@@ -2808,7 +2820,7 @@ class Alarms(object):
                         .. attribute:: alarm_info
                         
                         	Alarm List
-                        	**type**\: list of  :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo>`
+                        	**type**\: list of    :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo>`
                         
                         
 
@@ -2873,7 +2885,7 @@ class Alarms(object):
                             .. attribute:: group
                             
                             	Alarm group
-                            	**type**\:  :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
+                            	**type**\:   :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
                             
                             .. attribute:: interface
                             
@@ -2899,7 +2911,7 @@ class Alarms(object):
                             .. attribute:: otn
                             
                             	OTN feature specific alarm attributes
-                            	**type**\:  :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo.Otn>`
+                            	**type**\:   :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo.Otn>`
                             
                             .. attribute:: pending_sync
                             
@@ -2916,7 +2928,7 @@ class Alarms(object):
                             .. attribute:: service_affecting
                             
                             	Alarm service affecting
-                            	**type**\:  :py:class:`AlarmServiceAffectingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffectingEnum>`
+                            	**type**\:   :py:class:`AlarmServiceAffectingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffectingEnum>`
                             
                             .. attribute:: set_time
                             
@@ -2935,12 +2947,12 @@ class Alarms(object):
                             .. attribute:: severity
                             
                             	Alarm severity
-                            	**type**\:  :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
+                            	**type**\:   :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
                             
                             .. attribute:: status
                             
                             	Alarm status
-                            	**type**\:  :py:class:`AlarmStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatusEnum>`
+                            	**type**\:   :py:class:`AlarmStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatusEnum>`
                             
                             .. attribute:: tag
                             
@@ -2952,12 +2964,12 @@ class Alarms(object):
                             .. attribute:: tca
                             
                             	TCA feature specific alarm attributes
-                            	**type**\:  :py:class:`Tca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo.Tca>`
+                            	**type**\:   :py:class:`Tca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.History.AlarmInfo.Tca>`
                             
                             .. attribute:: type
                             
                             	alarm event type
-                            	**type**\:  :py:class:`AlarmEventEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmEventEnum>`
+                            	**type**\:   :py:class:`AlarmEventEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmEventEnum>`
                             
                             
 
@@ -3000,12 +3012,12 @@ class Alarms(object):
                                 .. attribute:: direction
                                 
                                 	Alarm direction 
-                                	**type**\:  :py:class:`AlarmDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirectionEnum>`
+                                	**type**\:   :py:class:`AlarmDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirectionEnum>`
                                 
                                 .. attribute:: notification_source
                                 
                                 	Source of Alarm
-                                	**type**\:  :py:class:`AlarmNotificationSrcEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrcEnum>`
+                                	**type**\:   :py:class:`AlarmNotificationSrcEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrcEnum>`
                                 
                                 
 
@@ -3054,7 +3066,7 @@ class Alarms(object):
                                 .. attribute:: bucket_type
                                 
                                 	Timing Bucket
-                                	**type**\:  :py:class:`TimingBucketEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.TimingBucketEnum>`
+                                	**type**\:   :py:class:`TimingBucketEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.TimingBucketEnum>`
                                 
                                 .. attribute:: current_value
                                 
@@ -3231,7 +3243,7 @@ class Alarms(object):
                         .. attribute:: suppressed_info
                         
                         	Suppressed Alarm List
-                        	**type**\: list of  :py:class:`SuppressedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed.SuppressedInfo>`
+                        	**type**\: list of    :py:class:`SuppressedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed.SuppressedInfo>`
                         
                         
 
@@ -3282,7 +3294,7 @@ class Alarms(object):
                             .. attribute:: group
                             
                             	Alarm group
-                            	**type**\:  :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
+                            	**type**\:   :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
                             
                             .. attribute:: interface
                             
@@ -3308,7 +3320,7 @@ class Alarms(object):
                             .. attribute:: otn
                             
                             	OTN feature specific alarm attributes
-                            	**type**\:  :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed.SuppressedInfo.Otn>`
+                            	**type**\:   :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Suppressed.SuppressedInfo.Otn>`
                             
                             .. attribute:: pending_sync
                             
@@ -3325,7 +3337,7 @@ class Alarms(object):
                             .. attribute:: service_affecting
                             
                             	Alarm service affecting 
-                            	**type**\:  :py:class:`AlarmServiceAffectingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffectingEnum>`
+                            	**type**\:   :py:class:`AlarmServiceAffectingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmServiceAffectingEnum>`
                             
                             .. attribute:: set_time
                             
@@ -3344,12 +3356,12 @@ class Alarms(object):
                             .. attribute:: severity
                             
                             	Alarm severity
-                            	**type**\:  :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
+                            	**type**\:   :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
                             
                             .. attribute:: status
                             
                             	Alarm status
-                            	**type**\:  :py:class:`AlarmStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatusEnum>`
+                            	**type**\:   :py:class:`AlarmStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatusEnum>`
                             
                             .. attribute:: suppressed_time
                             
@@ -3410,12 +3422,12 @@ class Alarms(object):
                                 .. attribute:: direction
                                 
                                 	Alarm direction 
-                                	**type**\:  :py:class:`AlarmDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirectionEnum>`
+                                	**type**\:   :py:class:`AlarmDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmDirectionEnum>`
                                 
                                 .. attribute:: notification_source
                                 
                                 	Source of Alarm
-                                	**type**\:  :py:class:`AlarmNotificationSrcEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrcEnum>`
+                                	**type**\:   :py:class:`AlarmNotificationSrcEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmNotificationSrcEnum>`
                                 
                                 
 
@@ -3770,7 +3782,7 @@ class Alarms(object):
                         .. attribute:: client_info
                         
                         	Client List
-                        	**type**\: list of  :py:class:`ClientInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Clients.ClientInfo>`
+                        	**type**\: list of    :py:class:`ClientInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Detail.DetailCard.DetailLocations.DetailLocation.Clients.ClientInfo>`
                         
                         
 
@@ -3812,17 +3824,17 @@ class Alarms(object):
                             .. attribute:: filter_group
                             
                             	The filter used for alarm group
-                            	**type**\:  :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
+                            	**type**\:   :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
                             
                             .. attribute:: filter_severity
                             
                             	The filter used for alarm severity
-                            	**type**\:  :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
+                            	**type**\:   :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
                             
                             .. attribute:: filter_state
                             
                             	The filter used for alarm bi\-state state+
-                            	**type**\:  :py:class:`AlarmStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatusEnum>`
+                            	**type**\:   :py:class:`AlarmStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmStatusEnum>`
                             
                             .. attribute:: get_count
                             
@@ -3869,7 +3881,7 @@ class Alarms(object):
                             .. attribute:: state
                             
                             	The current state of the client
-                            	**type**\:  :py:class:`AlarmClientStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmClientStateEnum>`
+                            	**type**\:   :py:class:`AlarmClientStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmClientStateEnum>`
                             
                             .. attribute:: subscribe_count
                             
@@ -3888,7 +3900,7 @@ class Alarms(object):
                             .. attribute:: type
                             
                             	The type of the client
-                            	**type**\:  :py:class:`AlarmClientEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmClientEnum>`
+                            	**type**\:   :py:class:`AlarmClientEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmClientEnum>`
                             
                             
 
@@ -4129,12 +4141,12 @@ class Alarms(object):
         .. attribute:: brief_card
         
         	Show brief card scope alarm related data
-        	**type**\:  :py:class:`BriefCard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard>`
+        	**type**\:   :py:class:`BriefCard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard>`
         
         .. attribute:: brief_system
         
         	Show brief system scope alarm related data
-        	**type**\:  :py:class:`BriefSystem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem>`
+        	**type**\:   :py:class:`BriefSystem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem>`
         
         
 
@@ -4158,7 +4170,7 @@ class Alarms(object):
             .. attribute:: brief_locations
             
             	Table of BriefLocation
-            	**type**\:  :py:class:`BriefLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations>`
+            	**type**\:   :py:class:`BriefLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations>`
             
             
 
@@ -4180,7 +4192,7 @@ class Alarms(object):
                 .. attribute:: brief_location
                 
                 	Specify a card location for alarms
-                	**type**\: list of  :py:class:`BriefLocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation>`
+                	**type**\: list of    :py:class:`BriefLocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation>`
                 
                 
 
@@ -4210,17 +4222,17 @@ class Alarms(object):
                     .. attribute:: active
                     
                     	Show the active alarms at this scope
-                    	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Active>`
+                    	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Active>`
                     
                     .. attribute:: history
                     
                     	Show the history alarms at this scope
-                    	**type**\:  :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.History>`
+                    	**type**\:   :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.History>`
                     
                     .. attribute:: suppressed
                     
                     	Show the suppressed alarms at this scope
-                    	**type**\:  :py:class:`Suppressed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Suppressed>`
+                    	**type**\:   :py:class:`Suppressed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Suppressed>`
                     
                     
 
@@ -4247,7 +4259,7 @@ class Alarms(object):
                         .. attribute:: alarm_info
                         
                         	Alarm List
-                        	**type**\: list of  :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Active.AlarmInfo>`
+                        	**type**\: list of    :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Active.AlarmInfo>`
                         
                         
 
@@ -4291,7 +4303,7 @@ class Alarms(object):
                             .. attribute:: group
                             
                             	Alarm group
-                            	**type**\:  :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
+                            	**type**\:   :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
                             
                             .. attribute:: location
                             
@@ -4317,7 +4329,7 @@ class Alarms(object):
                             .. attribute:: severity
                             
                             	Alarm severity
-                            	**type**\:  :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
+                            	**type**\:   :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
                             
                             
 
@@ -4416,7 +4428,7 @@ class Alarms(object):
                         .. attribute:: alarm_info
                         
                         	Alarm List
-                        	**type**\: list of  :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.History.AlarmInfo>`
+                        	**type**\: list of    :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.History.AlarmInfo>`
                         
                         
 
@@ -4460,7 +4472,7 @@ class Alarms(object):
                             .. attribute:: group
                             
                             	Alarm group
-                            	**type**\:  :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
+                            	**type**\:   :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
                             
                             .. attribute:: location
                             
@@ -4486,7 +4498,7 @@ class Alarms(object):
                             .. attribute:: severity
                             
                             	Alarm severity
-                            	**type**\:  :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
+                            	**type**\:   :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
                             
                             
 
@@ -4585,7 +4597,7 @@ class Alarms(object):
                         .. attribute:: suppressed_info
                         
                         	Suppressed Alarm List
-                        	**type**\: list of  :py:class:`SuppressedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Suppressed.SuppressedInfo>`
+                        	**type**\: list of    :py:class:`SuppressedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefCard.BriefLocations.BriefLocation.Suppressed.SuppressedInfo>`
                         
                         
 
@@ -4615,7 +4627,7 @@ class Alarms(object):
                             .. attribute:: group
                             
                             	Alarm group
-                            	**type**\:  :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
+                            	**type**\:   :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
                             
                             .. attribute:: location
                             
@@ -4641,7 +4653,7 @@ class Alarms(object):
                             .. attribute:: severity
                             
                             	Alarm severity
-                            	**type**\:  :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
+                            	**type**\:   :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
                             
                             .. attribute:: suppressed_time
                             
@@ -4833,17 +4845,17 @@ class Alarms(object):
             .. attribute:: active
             
             	Show the active alarms at this scope
-            	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.Active>`
+            	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.Active>`
             
             .. attribute:: history
             
             	Show the history alarms at this scope
-            	**type**\:  :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.History>`
+            	**type**\:   :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.History>`
             
             .. attribute:: suppressed
             
             	Show the suppressed alarms at this scope
-            	**type**\:  :py:class:`Suppressed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.Suppressed>`
+            	**type**\:   :py:class:`Suppressed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.Suppressed>`
             
             
 
@@ -4869,7 +4881,7 @@ class Alarms(object):
                 .. attribute:: alarm_info
                 
                 	Alarm List
-                	**type**\: list of  :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.Active.AlarmInfo>`
+                	**type**\: list of    :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.Active.AlarmInfo>`
                 
                 
 
@@ -4913,7 +4925,7 @@ class Alarms(object):
                     .. attribute:: group
                     
                     	Alarm group
-                    	**type**\:  :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
+                    	**type**\:   :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
                     
                     .. attribute:: location
                     
@@ -4939,7 +4951,7 @@ class Alarms(object):
                     .. attribute:: severity
                     
                     	Alarm severity
-                    	**type**\:  :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
+                    	**type**\:   :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
                     
                     
 
@@ -5034,7 +5046,7 @@ class Alarms(object):
                 .. attribute:: alarm_info
                 
                 	Alarm List
-                	**type**\: list of  :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.History.AlarmInfo>`
+                	**type**\: list of    :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.History.AlarmInfo>`
                 
                 
 
@@ -5078,7 +5090,7 @@ class Alarms(object):
                     .. attribute:: group
                     
                     	Alarm group
-                    	**type**\:  :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
+                    	**type**\:   :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
                     
                     .. attribute:: location
                     
@@ -5104,7 +5116,7 @@ class Alarms(object):
                     .. attribute:: severity
                     
                     	Alarm severity
-                    	**type**\:  :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
+                    	**type**\:   :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
                     
                     
 
@@ -5199,7 +5211,7 @@ class Alarms(object):
                 .. attribute:: suppressed_info
                 
                 	Suppressed Alarm List
-                	**type**\: list of  :py:class:`SuppressedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.Suppressed.SuppressedInfo>`
+                	**type**\: list of    :py:class:`SuppressedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.Alarms.Brief.BriefSystem.Suppressed.SuppressedInfo>`
                 
                 
 
@@ -5229,7 +5241,7 @@ class Alarms(object):
                     .. attribute:: group
                     
                     	Alarm group
-                    	**type**\:  :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
+                    	**type**\:   :py:class:`AlarmGroupsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmGroupsEnum>`
                     
                     .. attribute:: location
                     
@@ -5255,7 +5267,7 @@ class Alarms(object):
                     .. attribute:: severity
                     
                     	Alarm severity
-                    	**type**\:  :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
+                    	**type**\:   :py:class:`AlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_alarmgr_server_oper.AlarmSeverityEnum>`
                     
                     .. attribute:: suppressed_time
                     

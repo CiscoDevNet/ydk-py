@@ -16,23 +16,23 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'IgmpEdmProtocolEnum' : _MetaInfoEnum('IgmpEdmProtocolEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper',
         {
-            'no-route':'NO_ROUTE',
-            'sm':'SM',
-            'dm':'DM',
-            'bidir':'BIDIR',
-            'ssm':'SSM',
-            'any':'ANY',
+            'no-route':'no_route',
+            'sm':'sm',
+            'dm':'dm',
+            'bidir':'bidir',
+            'ssm':'ssm',
+            'any':'any',
         }, 'Cisco-IOS-XR-ipv4-igmp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-oper']),
     'IgmpAfiEnum' : _MetaInfoEnum('IgmpAfiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper',
         {
-            'ipv4-unicast':'IPV4_UNICAST',
-            'ipv6-unicast':'IPV6_UNICAST',
+            'ipv4-unicast':'ipv4_unicast',
+            'ipv6-unicast':'ipv6_unicast',
         }, 'Cisco-IOS-XR-ipv4-igmp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-oper']),
     'IgmpssmMapEnum' : _MetaInfoEnum('IgmpssmMapEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper',
         {
-            'static':'STATIC',
-            'dns':'DNS',
-            'all':'ALL',
+            'static':'static',
+            'dns':'dns',
+            'all':'all',
         }, 'Cisco-IOS-XR-ipv4-igmp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-oper']),
     'Mld.Standby.Vrfs.Vrf.Summary.Interface' : {
         'meta_info' : _MetaInfoClass('Mld.Standby.Vrfs.Vrf.Summary.Interface',
@@ -977,8 +977,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.GroupAddress' : {
-        'meta_info' : _MetaInfoClass('Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.GroupAddress',
+    'Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress' : {
+        'meta_info' : _MetaInfoClass('Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'IgmpAfiEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'IgmpAfiEnum', 
@@ -1006,8 +1006,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.SourceAddress' : {
-        'meta_info' : _MetaInfoClass('Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.SourceAddress',
+    'Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress' : {
+        'meta_info' : _MetaInfoClass('Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'IgmpAfiEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'IgmpAfiEnum', 
@@ -1035,11 +1035,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups' : {
-        'meta_info' : _MetaInfoClass('Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups',
+    'Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_' : {
+        'meta_info' : _MetaInfoClass('Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_',
             False, 
             [
-            _MetaInfoClassMember('group-address', REFERENCE_CLASS, 'GroupAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.GroupAddress', 
+            _MetaInfoClassMember('group-address', REFERENCE_CLASS, 'GroupAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress', 
                 [], [], 
                 '''                Group Address
                 ''',
@@ -1057,7 +1057,7 @@ _meta_table = {
                 ''',
                 'reason_for_non_activity',
                 'Cisco-IOS-XR-ipv4-igmp-oper', False),
-            _MetaInfoClassMember('source-address', REFERENCE_CLASS, 'SourceAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.SourceAddress', 
+            _MetaInfoClassMember('source-address', REFERENCE_CLASS, 'SourceAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress', 
                 [], [], 
                 '''                Source Address
                 ''',
@@ -1074,7 +1074,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mld.Standby.Vrfs.Vrf.NonActiveGroups',
             False, 
             [
-            _MetaInfoClassMember('non-active-groups', REFERENCE_LIST, 'NonActiveGroups' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups', 
+            _MetaInfoClassMember('non-active-groups', REFERENCE_LIST, 'NonActiveGroups_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_', 
                 [], [], 
                 '''                List of non-active groups
                 ''',
@@ -7743,8 +7743,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups.GroupAddress' : {
-        'meta_info' : _MetaInfoClass('Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups.GroupAddress',
+    'Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress' : {
+        'meta_info' : _MetaInfoClass('Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'IgmpAfiEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'IgmpAfiEnum', 
@@ -7772,8 +7772,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups.SourceAddress' : {
-        'meta_info' : _MetaInfoClass('Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups.SourceAddress',
+    'Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress' : {
+        'meta_info' : _MetaInfoClass('Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'IgmpAfiEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'IgmpAfiEnum', 
@@ -7801,11 +7801,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups' : {
-        'meta_info' : _MetaInfoClass('Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups',
+    'Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_' : {
+        'meta_info' : _MetaInfoClass('Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_',
             False, 
             [
-            _MetaInfoClassMember('group-address', REFERENCE_CLASS, 'GroupAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups.GroupAddress', 
+            _MetaInfoClassMember('group-address', REFERENCE_CLASS, 'GroupAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress', 
                 [], [], 
                 '''                Group Address
                 ''',
@@ -7823,7 +7823,7 @@ _meta_table = {
                 ''',
                 'reason_for_non_activity',
                 'Cisco-IOS-XR-ipv4-igmp-oper', False),
-            _MetaInfoClassMember('source-address', REFERENCE_CLASS, 'SourceAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups.SourceAddress', 
+            _MetaInfoClassMember('source-address', REFERENCE_CLASS, 'SourceAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress', 
                 [], [], 
                 '''                Source Address
                 ''',
@@ -7840,7 +7840,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mld.Standby.DefaultContext.NonActiveGroups',
             False, 
             [
-            _MetaInfoClassMember('non-active-groups', REFERENCE_LIST, 'NonActiveGroups' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups', 
+            _MetaInfoClassMember('non-active-groups', REFERENCE_LIST, 'NonActiveGroups_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_', 
                 [], [], 
                 '''                List of non-active groups
                 ''',
@@ -13783,8 +13783,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.GroupAddress' : {
-        'meta_info' : _MetaInfoClass('Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.GroupAddress',
+    'Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress' : {
+        'meta_info' : _MetaInfoClass('Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'IgmpAfiEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'IgmpAfiEnum', 
@@ -13812,8 +13812,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.SourceAddress' : {
-        'meta_info' : _MetaInfoClass('Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.SourceAddress',
+    'Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress' : {
+        'meta_info' : _MetaInfoClass('Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'IgmpAfiEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'IgmpAfiEnum', 
@@ -13841,11 +13841,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups' : {
-        'meta_info' : _MetaInfoClass('Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups',
+    'Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_' : {
+        'meta_info' : _MetaInfoClass('Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_',
             False, 
             [
-            _MetaInfoClassMember('group-address', REFERENCE_CLASS, 'GroupAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.GroupAddress', 
+            _MetaInfoClassMember('group-address', REFERENCE_CLASS, 'GroupAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress', 
                 [], [], 
                 '''                Group Address
                 ''',
@@ -13863,7 +13863,7 @@ _meta_table = {
                 ''',
                 'reason_for_non_activity',
                 'Cisco-IOS-XR-ipv4-igmp-oper', False),
-            _MetaInfoClassMember('source-address', REFERENCE_CLASS, 'SourceAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.SourceAddress', 
+            _MetaInfoClassMember('source-address', REFERENCE_CLASS, 'SourceAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress', 
                 [], [], 
                 '''                Source Address
                 ''',
@@ -13880,7 +13880,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mld.Active.Vrfs.Vrf.NonActiveGroups',
             False, 
             [
-            _MetaInfoClassMember('non-active-groups', REFERENCE_LIST, 'NonActiveGroups' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups', 
+            _MetaInfoClassMember('non-active-groups', REFERENCE_LIST, 'NonActiveGroups_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_', 
                 [], [], 
                 '''                List of non-active groups
                 ''',
@@ -20549,8 +20549,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups.GroupAddress' : {
-        'meta_info' : _MetaInfoClass('Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups.GroupAddress',
+    'Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress' : {
+        'meta_info' : _MetaInfoClass('Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'IgmpAfiEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'IgmpAfiEnum', 
@@ -20578,8 +20578,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups.SourceAddress' : {
-        'meta_info' : _MetaInfoClass('Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups.SourceAddress',
+    'Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress' : {
+        'meta_info' : _MetaInfoClass('Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'IgmpAfiEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'IgmpAfiEnum', 
@@ -20607,11 +20607,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups' : {
-        'meta_info' : _MetaInfoClass('Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups',
+    'Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_' : {
+        'meta_info' : _MetaInfoClass('Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_',
             False, 
             [
-            _MetaInfoClassMember('group-address', REFERENCE_CLASS, 'GroupAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups.GroupAddress', 
+            _MetaInfoClassMember('group-address', REFERENCE_CLASS, 'GroupAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress', 
                 [], [], 
                 '''                Group Address
                 ''',
@@ -20629,7 +20629,7 @@ _meta_table = {
                 ''',
                 'reason_for_non_activity',
                 'Cisco-IOS-XR-ipv4-igmp-oper', False),
-            _MetaInfoClassMember('source-address', REFERENCE_CLASS, 'SourceAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups.SourceAddress', 
+            _MetaInfoClassMember('source-address', REFERENCE_CLASS, 'SourceAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress', 
                 [], [], 
                 '''                Source Address
                 ''',
@@ -20646,7 +20646,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mld.Active.DefaultContext.NonActiveGroups',
             False, 
             [
-            _MetaInfoClassMember('non-active-groups', REFERENCE_LIST, 'NonActiveGroups' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups', 
+            _MetaInfoClassMember('non-active-groups', REFERENCE_LIST, 'NonActiveGroups_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_', 
                 [], [], 
                 '''                List of non-active groups
                 ''',
@@ -26612,8 +26612,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.GroupAddress' : {
-        'meta_info' : _MetaInfoClass('Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.GroupAddress',
+    'Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress' : {
+        'meta_info' : _MetaInfoClass('Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'IgmpAfiEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'IgmpAfiEnum', 
@@ -26641,8 +26641,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.SourceAddress' : {
-        'meta_info' : _MetaInfoClass('Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.SourceAddress',
+    'Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress' : {
+        'meta_info' : _MetaInfoClass('Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'IgmpAfiEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'IgmpAfiEnum', 
@@ -26670,11 +26670,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups' : {
-        'meta_info' : _MetaInfoClass('Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups',
+    'Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_' : {
+        'meta_info' : _MetaInfoClass('Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_',
             False, 
             [
-            _MetaInfoClassMember('group-address', REFERENCE_CLASS, 'GroupAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.GroupAddress', 
+            _MetaInfoClassMember('group-address', REFERENCE_CLASS, 'GroupAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress', 
                 [], [], 
                 '''                Group Address
                 ''',
@@ -26692,7 +26692,7 @@ _meta_table = {
                 ''',
                 'reason_for_non_activity',
                 'Cisco-IOS-XR-ipv4-igmp-oper', False),
-            _MetaInfoClassMember('source-address', REFERENCE_CLASS, 'SourceAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.SourceAddress', 
+            _MetaInfoClassMember('source-address', REFERENCE_CLASS, 'SourceAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress', 
                 [], [], 
                 '''                Source Address
                 ''',
@@ -26709,7 +26709,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Igmp.Standby.Vrfs.Vrf.NonActiveGroups',
             False, 
             [
-            _MetaInfoClassMember('non-active-groups', REFERENCE_LIST, 'NonActiveGroups' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups', 
+            _MetaInfoClassMember('non-active-groups', REFERENCE_LIST, 'NonActiveGroups_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_', 
                 [], [], 
                 '''                List of non-active groups
                 ''',
@@ -33378,8 +33378,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups.GroupAddress' : {
-        'meta_info' : _MetaInfoClass('Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups.GroupAddress',
+    'Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress' : {
+        'meta_info' : _MetaInfoClass('Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'IgmpAfiEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'IgmpAfiEnum', 
@@ -33407,8 +33407,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups.SourceAddress' : {
-        'meta_info' : _MetaInfoClass('Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups.SourceAddress',
+    'Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress' : {
+        'meta_info' : _MetaInfoClass('Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'IgmpAfiEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'IgmpAfiEnum', 
@@ -33436,11 +33436,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups' : {
-        'meta_info' : _MetaInfoClass('Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups',
+    'Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_' : {
+        'meta_info' : _MetaInfoClass('Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_',
             False, 
             [
-            _MetaInfoClassMember('group-address', REFERENCE_CLASS, 'GroupAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups.GroupAddress', 
+            _MetaInfoClassMember('group-address', REFERENCE_CLASS, 'GroupAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress', 
                 [], [], 
                 '''                Group Address
                 ''',
@@ -33458,7 +33458,7 @@ _meta_table = {
                 ''',
                 'reason_for_non_activity',
                 'Cisco-IOS-XR-ipv4-igmp-oper', False),
-            _MetaInfoClassMember('source-address', REFERENCE_CLASS, 'SourceAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups.SourceAddress', 
+            _MetaInfoClassMember('source-address', REFERENCE_CLASS, 'SourceAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress', 
                 [], [], 
                 '''                Source Address
                 ''',
@@ -33475,7 +33475,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Igmp.Standby.DefaultContext.NonActiveGroups',
             False, 
             [
-            _MetaInfoClassMember('non-active-groups', REFERENCE_LIST, 'NonActiveGroups' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups', 
+            _MetaInfoClassMember('non-active-groups', REFERENCE_LIST, 'NonActiveGroups_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_', 
                 [], [], 
                 '''                List of non-active groups
                 ''',
@@ -39418,8 +39418,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.GroupAddress' : {
-        'meta_info' : _MetaInfoClass('Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.GroupAddress',
+    'Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress' : {
+        'meta_info' : _MetaInfoClass('Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'IgmpAfiEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'IgmpAfiEnum', 
@@ -39447,8 +39447,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.SourceAddress' : {
-        'meta_info' : _MetaInfoClass('Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.SourceAddress',
+    'Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress' : {
+        'meta_info' : _MetaInfoClass('Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'IgmpAfiEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'IgmpAfiEnum', 
@@ -39476,11 +39476,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups' : {
-        'meta_info' : _MetaInfoClass('Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups',
+    'Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_' : {
+        'meta_info' : _MetaInfoClass('Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_',
             False, 
             [
-            _MetaInfoClassMember('group-address', REFERENCE_CLASS, 'GroupAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.GroupAddress', 
+            _MetaInfoClassMember('group-address', REFERENCE_CLASS, 'GroupAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress', 
                 [], [], 
                 '''                Group Address
                 ''',
@@ -39498,7 +39498,7 @@ _meta_table = {
                 ''',
                 'reason_for_non_activity',
                 'Cisco-IOS-XR-ipv4-igmp-oper', False),
-            _MetaInfoClassMember('source-address', REFERENCE_CLASS, 'SourceAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.SourceAddress', 
+            _MetaInfoClassMember('source-address', REFERENCE_CLASS, 'SourceAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress', 
                 [], [], 
                 '''                Source Address
                 ''',
@@ -39515,7 +39515,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Igmp.Active.Vrfs.Vrf.NonActiveGroups',
             False, 
             [
-            _MetaInfoClassMember('non-active-groups', REFERENCE_LIST, 'NonActiveGroups' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups', 
+            _MetaInfoClassMember('non-active-groups', REFERENCE_LIST, 'NonActiveGroups_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_', 
                 [], [], 
                 '''                List of non-active groups
                 ''',
@@ -46184,8 +46184,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups.GroupAddress' : {
-        'meta_info' : _MetaInfoClass('Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups.GroupAddress',
+    'Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress' : {
+        'meta_info' : _MetaInfoClass('Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'IgmpAfiEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'IgmpAfiEnum', 
@@ -46213,8 +46213,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups.SourceAddress' : {
-        'meta_info' : _MetaInfoClass('Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups.SourceAddress',
+    'Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress' : {
+        'meta_info' : _MetaInfoClass('Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'IgmpAfiEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'IgmpAfiEnum', 
@@ -46242,11 +46242,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper'
         ),
     },
-    'Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups' : {
-        'meta_info' : _MetaInfoClass('Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups',
+    'Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_' : {
+        'meta_info' : _MetaInfoClass('Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_',
             False, 
             [
-            _MetaInfoClassMember('group-address', REFERENCE_CLASS, 'GroupAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups.GroupAddress', 
+            _MetaInfoClassMember('group-address', REFERENCE_CLASS, 'GroupAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress', 
                 [], [], 
                 '''                Group Address
                 ''',
@@ -46264,7 +46264,7 @@ _meta_table = {
                 ''',
                 'reason_for_non_activity',
                 'Cisco-IOS-XR-ipv4-igmp-oper', False),
-            _MetaInfoClassMember('source-address', REFERENCE_CLASS, 'SourceAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups.SourceAddress', 
+            _MetaInfoClassMember('source-address', REFERENCE_CLASS, 'SourceAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress', 
                 [], [], 
                 '''                Source Address
                 ''',
@@ -46281,7 +46281,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Igmp.Active.DefaultContext.NonActiveGroups',
             False, 
             [
-            _MetaInfoClassMember('non-active-groups', REFERENCE_LIST, 'NonActiveGroups' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups', 
+            _MetaInfoClassMember('non-active-groups', REFERENCE_LIST, 'NonActiveGroups_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_oper', 'Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_', 
                 [], [], 
                 '''                List of non-active groups
                 ''',
@@ -51317,9 +51317,9 @@ _meta_table['Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress'
 _meta_table['Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo']['meta_info'].parent =_meta_table['Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup']['meta_info']
 _meta_table['Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source']['meta_info'].parent =_meta_table['Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup']['meta_info']
 _meta_table['Mld.Standby.Vrfs.Vrf.DetailGroups.DetailGroup']['meta_info'].parent =_meta_table['Mld.Standby.Vrfs.Vrf.DetailGroups']['meta_info']
-_meta_table['Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.GroupAddress']['meta_info'].parent =_meta_table['Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups']['meta_info']
-_meta_table['Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.SourceAddress']['meta_info'].parent =_meta_table['Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups']['meta_info']
-_meta_table['Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups']['meta_info'].parent =_meta_table['Mld.Standby.Vrfs.Vrf.NonActiveGroups']['meta_info']
+_meta_table['Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress']['meta_info'].parent =_meta_table['Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_']['meta_info']
+_meta_table['Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress']['meta_info'].parent =_meta_table['Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_']['meta_info']
+_meta_table['Mld.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_']['meta_info'].parent =_meta_table['Mld.Standby.Vrfs.Vrf.NonActiveGroups']['meta_info']
 _meta_table['Mld.Standby.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr']['meta_info'].parent =_meta_table['Mld.Standby.Vrfs.Vrf.SsmMaps.SsmMap']['meta_info']
 _meta_table['Mld.Standby.Vrfs.Vrf.SsmMaps.SsmMap']['meta_info'].parent =_meta_table['Mld.Standby.Vrfs.Vrf.SsmMaps']['meta_info']
 _meta_table['Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr']['meta_info'].parent =_meta_table['Mld.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo']['meta_info']
@@ -51422,9 +51422,9 @@ _meta_table['Mld.Standby.DefaultContext.DetailGroups.DetailGroup.Source.SourceAd
 _meta_table['Mld.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo']['meta_info'].parent =_meta_table['Mld.Standby.DefaultContext.DetailGroups.DetailGroup']['meta_info']
 _meta_table['Mld.Standby.DefaultContext.DetailGroups.DetailGroup.Source']['meta_info'].parent =_meta_table['Mld.Standby.DefaultContext.DetailGroups.DetailGroup']['meta_info']
 _meta_table['Mld.Standby.DefaultContext.DetailGroups.DetailGroup']['meta_info'].parent =_meta_table['Mld.Standby.DefaultContext.DetailGroups']['meta_info']
-_meta_table['Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups.GroupAddress']['meta_info'].parent =_meta_table['Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups']['meta_info']
-_meta_table['Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups.SourceAddress']['meta_info'].parent =_meta_table['Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups']['meta_info']
-_meta_table['Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups']['meta_info'].parent =_meta_table['Mld.Standby.DefaultContext.NonActiveGroups']['meta_info']
+_meta_table['Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress']['meta_info'].parent =_meta_table['Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_']['meta_info']
+_meta_table['Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress']['meta_info'].parent =_meta_table['Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_']['meta_info']
+_meta_table['Mld.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_']['meta_info'].parent =_meta_table['Mld.Standby.DefaultContext.NonActiveGroups']['meta_info']
 _meta_table['Mld.Standby.DefaultContext.SsmMaps.SsmMap.GroupAddressXr']['meta_info'].parent =_meta_table['Mld.Standby.DefaultContext.SsmMaps.SsmMap']['meta_info']
 _meta_table['Mld.Standby.DefaultContext.SsmMaps.SsmMap']['meta_info'].parent =_meta_table['Mld.Standby.DefaultContext.SsmMaps']['meta_info']
 _meta_table['Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr']['meta_info'].parent =_meta_table['Mld.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo']['meta_info']
@@ -51522,9 +51522,9 @@ _meta_table['Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress']
 _meta_table['Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo']['meta_info'].parent =_meta_table['Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup']['meta_info']
 _meta_table['Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source']['meta_info'].parent =_meta_table['Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup']['meta_info']
 _meta_table['Mld.Active.Vrfs.Vrf.DetailGroups.DetailGroup']['meta_info'].parent =_meta_table['Mld.Active.Vrfs.Vrf.DetailGroups']['meta_info']
-_meta_table['Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.GroupAddress']['meta_info'].parent =_meta_table['Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups']['meta_info']
-_meta_table['Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.SourceAddress']['meta_info'].parent =_meta_table['Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups']['meta_info']
-_meta_table['Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups']['meta_info'].parent =_meta_table['Mld.Active.Vrfs.Vrf.NonActiveGroups']['meta_info']
+_meta_table['Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress']['meta_info'].parent =_meta_table['Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_']['meta_info']
+_meta_table['Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress']['meta_info'].parent =_meta_table['Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_']['meta_info']
+_meta_table['Mld.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_']['meta_info'].parent =_meta_table['Mld.Active.Vrfs.Vrf.NonActiveGroups']['meta_info']
 _meta_table['Mld.Active.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr']['meta_info'].parent =_meta_table['Mld.Active.Vrfs.Vrf.SsmMaps.SsmMap']['meta_info']
 _meta_table['Mld.Active.Vrfs.Vrf.SsmMaps.SsmMap']['meta_info'].parent =_meta_table['Mld.Active.Vrfs.Vrf.SsmMaps']['meta_info']
 _meta_table['Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr']['meta_info'].parent =_meta_table['Mld.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo']['meta_info']
@@ -51627,9 +51627,9 @@ _meta_table['Mld.Active.DefaultContext.DetailGroups.DetailGroup.Source.SourceAdd
 _meta_table['Mld.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo']['meta_info'].parent =_meta_table['Mld.Active.DefaultContext.DetailGroups.DetailGroup']['meta_info']
 _meta_table['Mld.Active.DefaultContext.DetailGroups.DetailGroup.Source']['meta_info'].parent =_meta_table['Mld.Active.DefaultContext.DetailGroups.DetailGroup']['meta_info']
 _meta_table['Mld.Active.DefaultContext.DetailGroups.DetailGroup']['meta_info'].parent =_meta_table['Mld.Active.DefaultContext.DetailGroups']['meta_info']
-_meta_table['Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups.GroupAddress']['meta_info'].parent =_meta_table['Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups']['meta_info']
-_meta_table['Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups.SourceAddress']['meta_info'].parent =_meta_table['Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups']['meta_info']
-_meta_table['Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups']['meta_info'].parent =_meta_table['Mld.Active.DefaultContext.NonActiveGroups']['meta_info']
+_meta_table['Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress']['meta_info'].parent =_meta_table['Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_']['meta_info']
+_meta_table['Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress']['meta_info'].parent =_meta_table['Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_']['meta_info']
+_meta_table['Mld.Active.DefaultContext.NonActiveGroups.NonActiveGroups_']['meta_info'].parent =_meta_table['Mld.Active.DefaultContext.NonActiveGroups']['meta_info']
 _meta_table['Mld.Active.DefaultContext.SsmMaps.SsmMap.GroupAddressXr']['meta_info'].parent =_meta_table['Mld.Active.DefaultContext.SsmMaps.SsmMap']['meta_info']
 _meta_table['Mld.Active.DefaultContext.SsmMaps.SsmMap']['meta_info'].parent =_meta_table['Mld.Active.DefaultContext.SsmMaps']['meta_info']
 _meta_table['Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr']['meta_info'].parent =_meta_table['Mld.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo']['meta_info']
@@ -51729,9 +51729,9 @@ _meta_table['Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress
 _meta_table['Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo']['meta_info'].parent =_meta_table['Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup']['meta_info']
 _meta_table['Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup.Source']['meta_info'].parent =_meta_table['Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup']['meta_info']
 _meta_table['Igmp.Standby.Vrfs.Vrf.DetailGroups.DetailGroup']['meta_info'].parent =_meta_table['Igmp.Standby.Vrfs.Vrf.DetailGroups']['meta_info']
-_meta_table['Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.GroupAddress']['meta_info'].parent =_meta_table['Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups']['meta_info']
-_meta_table['Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.SourceAddress']['meta_info'].parent =_meta_table['Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups']['meta_info']
-_meta_table['Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups']['meta_info'].parent =_meta_table['Igmp.Standby.Vrfs.Vrf.NonActiveGroups']['meta_info']
+_meta_table['Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress']['meta_info'].parent =_meta_table['Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_']['meta_info']
+_meta_table['Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress']['meta_info'].parent =_meta_table['Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_']['meta_info']
+_meta_table['Igmp.Standby.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_']['meta_info'].parent =_meta_table['Igmp.Standby.Vrfs.Vrf.NonActiveGroups']['meta_info']
 _meta_table['Igmp.Standby.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr']['meta_info'].parent =_meta_table['Igmp.Standby.Vrfs.Vrf.SsmMaps.SsmMap']['meta_info']
 _meta_table['Igmp.Standby.Vrfs.Vrf.SsmMaps.SsmMap']['meta_info'].parent =_meta_table['Igmp.Standby.Vrfs.Vrf.SsmMaps']['meta_info']
 _meta_table['Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr']['meta_info'].parent =_meta_table['Igmp.Standby.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo']['meta_info']
@@ -51834,9 +51834,9 @@ _meta_table['Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.Source.SourceA
 _meta_table['Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.GroupInfo']['meta_info'].parent =_meta_table['Igmp.Standby.DefaultContext.DetailGroups.DetailGroup']['meta_info']
 _meta_table['Igmp.Standby.DefaultContext.DetailGroups.DetailGroup.Source']['meta_info'].parent =_meta_table['Igmp.Standby.DefaultContext.DetailGroups.DetailGroup']['meta_info']
 _meta_table['Igmp.Standby.DefaultContext.DetailGroups.DetailGroup']['meta_info'].parent =_meta_table['Igmp.Standby.DefaultContext.DetailGroups']['meta_info']
-_meta_table['Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups.GroupAddress']['meta_info'].parent =_meta_table['Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups']['meta_info']
-_meta_table['Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups.SourceAddress']['meta_info'].parent =_meta_table['Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups']['meta_info']
-_meta_table['Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups']['meta_info'].parent =_meta_table['Igmp.Standby.DefaultContext.NonActiveGroups']['meta_info']
+_meta_table['Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress']['meta_info'].parent =_meta_table['Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_']['meta_info']
+_meta_table['Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress']['meta_info'].parent =_meta_table['Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_']['meta_info']
+_meta_table['Igmp.Standby.DefaultContext.NonActiveGroups.NonActiveGroups_']['meta_info'].parent =_meta_table['Igmp.Standby.DefaultContext.NonActiveGroups']['meta_info']
 _meta_table['Igmp.Standby.DefaultContext.SsmMaps.SsmMap.GroupAddressXr']['meta_info'].parent =_meta_table['Igmp.Standby.DefaultContext.SsmMaps.SsmMap']['meta_info']
 _meta_table['Igmp.Standby.DefaultContext.SsmMaps.SsmMap']['meta_info'].parent =_meta_table['Igmp.Standby.DefaultContext.SsmMaps']['meta_info']
 _meta_table['Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr']['meta_info'].parent =_meta_table['Igmp.Standby.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo']['meta_info']
@@ -51934,9 +51934,9 @@ _meta_table['Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source.SourceAddress'
 _meta_table['Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.GroupInfo']['meta_info'].parent =_meta_table['Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup']['meta_info']
 _meta_table['Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup.Source']['meta_info'].parent =_meta_table['Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup']['meta_info']
 _meta_table['Igmp.Active.Vrfs.Vrf.DetailGroups.DetailGroup']['meta_info'].parent =_meta_table['Igmp.Active.Vrfs.Vrf.DetailGroups']['meta_info']
-_meta_table['Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.GroupAddress']['meta_info'].parent =_meta_table['Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups']['meta_info']
-_meta_table['Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups.SourceAddress']['meta_info'].parent =_meta_table['Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups']['meta_info']
-_meta_table['Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups']['meta_info'].parent =_meta_table['Igmp.Active.Vrfs.Vrf.NonActiveGroups']['meta_info']
+_meta_table['Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.GroupAddress']['meta_info'].parent =_meta_table['Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_']['meta_info']
+_meta_table['Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_.SourceAddress']['meta_info'].parent =_meta_table['Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_']['meta_info']
+_meta_table['Igmp.Active.Vrfs.Vrf.NonActiveGroups.NonActiveGroups_']['meta_info'].parent =_meta_table['Igmp.Active.Vrfs.Vrf.NonActiveGroups']['meta_info']
 _meta_table['Igmp.Active.Vrfs.Vrf.SsmMaps.SsmMap.GroupAddressXr']['meta_info'].parent =_meta_table['Igmp.Active.Vrfs.Vrf.SsmMaps.SsmMap']['meta_info']
 _meta_table['Igmp.Active.Vrfs.Vrf.SsmMaps.SsmMap']['meta_info'].parent =_meta_table['Igmp.Active.Vrfs.Vrf.SsmMaps']['meta_info']
 _meta_table['Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr']['meta_info'].parent =_meta_table['Igmp.Active.Vrfs.Vrf.ExplicitGroups.ExplicitGroup.GroupInfo']['meta_info']
@@ -52039,9 +52039,9 @@ _meta_table['Igmp.Active.DefaultContext.DetailGroups.DetailGroup.Source.SourceAd
 _meta_table['Igmp.Active.DefaultContext.DetailGroups.DetailGroup.GroupInfo']['meta_info'].parent =_meta_table['Igmp.Active.DefaultContext.DetailGroups.DetailGroup']['meta_info']
 _meta_table['Igmp.Active.DefaultContext.DetailGroups.DetailGroup.Source']['meta_info'].parent =_meta_table['Igmp.Active.DefaultContext.DetailGroups.DetailGroup']['meta_info']
 _meta_table['Igmp.Active.DefaultContext.DetailGroups.DetailGroup']['meta_info'].parent =_meta_table['Igmp.Active.DefaultContext.DetailGroups']['meta_info']
-_meta_table['Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups.GroupAddress']['meta_info'].parent =_meta_table['Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups']['meta_info']
-_meta_table['Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups.SourceAddress']['meta_info'].parent =_meta_table['Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups']['meta_info']
-_meta_table['Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups']['meta_info'].parent =_meta_table['Igmp.Active.DefaultContext.NonActiveGroups']['meta_info']
+_meta_table['Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.GroupAddress']['meta_info'].parent =_meta_table['Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_']['meta_info']
+_meta_table['Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_.SourceAddress']['meta_info'].parent =_meta_table['Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_']['meta_info']
+_meta_table['Igmp.Active.DefaultContext.NonActiveGroups.NonActiveGroups_']['meta_info'].parent =_meta_table['Igmp.Active.DefaultContext.NonActiveGroups']['meta_info']
 _meta_table['Igmp.Active.DefaultContext.SsmMaps.SsmMap.GroupAddressXr']['meta_info'].parent =_meta_table['Igmp.Active.DefaultContext.SsmMaps.SsmMap']['meta_info']
 _meta_table['Igmp.Active.DefaultContext.SsmMaps.SsmMap']['meta_info'].parent =_meta_table['Igmp.Active.DefaultContext.SsmMaps']['meta_info']
 _meta_table['Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo.GroupAddressXr']['meta_info'].parent =_meta_table['Igmp.Active.DefaultContext.ExplicitGroups.ExplicitGroup.GroupInfo']['meta_info']

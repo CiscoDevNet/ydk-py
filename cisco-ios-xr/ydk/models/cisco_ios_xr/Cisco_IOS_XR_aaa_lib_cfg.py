@@ -30,19 +30,19 @@ class AaaAccountingBroadcastEnum(Enum):
 
     Aaa accounting broadcast
 
-    .. data:: NOT_SET = 0
+    .. data:: not_set = 0
 
     	Not Set
 
-    .. data:: SET = 1
+    .. data:: set = 1
 
     	broadcast
 
     """
 
-    NOT_SET = 0
+    not_set = 0
 
-    SET = 1
+    set = 1
 
 
     @staticmethod
@@ -57,25 +57,25 @@ class AaaAccountingEnum(Enum):
 
     Aaa accounting
 
-    .. data:: NOT_SET = 0
+    .. data:: not_set = 0
 
     	Not Set
 
-    .. data:: START_STOP = 1
+    .. data:: start_stop = 1
 
     	Start Stop
 
-    .. data:: STOP_ONLY = 2
+    .. data:: stop_only = 2
 
     	Stop Only
 
     """
 
-    NOT_SET = 0
+    not_set = 0
 
-    START_STOP = 1
+    start_stop = 1
 
-    STOP_ONLY = 2
+    stop_only = 2
 
 
     @staticmethod
@@ -90,19 +90,19 @@ class AaaAccountingRpFailoverEnum(Enum):
 
     Aaa accounting rp failover
 
-    .. data:: NOT_SET = 0
+    .. data:: not_set = 0
 
     	Not Set
 
-    .. data:: SET = 1
+    .. data:: set = 1
 
     	rpfailover
 
     """
 
-    NOT_SET = 0
+    not_set = 0
 
-    SET = 1
+    set = 1
 
 
     @staticmethod
@@ -117,27 +117,27 @@ class AaaAccountingUpdateEnum(Enum):
 
     Aaa accounting update
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	Not Set
 
-    .. data:: NEWINFO = 3
+    .. data:: newinfo = 3
 
     	Update records for new accountable information
 
     	only
 
-    .. data:: PERIODIC = 4
+    .. data:: periodic = 4
 
     	Update records at periodic intervals
 
     """
 
-    NONE = 0
+    none = 0
 
-    NEWINFO = 3
+    newinfo = 3
 
-    PERIODIC = 4
+    periodic = 4
 
 
     @staticmethod
@@ -152,109 +152,109 @@ class AaaMethodEnum(Enum):
 
     Aaa method
 
-    .. data:: NOT_SET = 0
+    .. data:: not_set = 0
 
     	Not Set
 
-    .. data:: NONE = 1
+    .. data:: none = 1
 
     	None
 
-    .. data:: LOCAL = 2
+    .. data:: local = 2
 
     	Local
 
-    .. data:: RADIUS = 3
+    .. data:: radius = 3
 
     	Radius
 
-    .. data:: TACACS_PLUS = 4
+    .. data:: tacacs_plus = 4
 
     	TACACS+
 
-    .. data:: DSMD = 5
+    .. data:: dsmd = 5
 
     	DSMD
 
-    .. data:: SGBP = 6
+    .. data:: sgbp = 6
 
     	SGBP
 
-    .. data:: ACCT_D = 7
+    .. data:: acct_d = 7
 
     	AcctD
 
-    .. data:: ERROR = 8
+    .. data:: error = 8
 
     	Error
 
-    .. data:: IF_AUTHENTICATED = 9
+    .. data:: if_authenticated = 9
 
     	If Authenticated
 
-    .. data:: SERVER_GROUP = 10
+    .. data:: server_group = 10
 
     	Server Group
 
-    .. data:: SERVER_GROUP_NOT_DEFINED = 11
+    .. data:: server_group_not_defined = 11
 
     	Server Group Not Defined
 
-    .. data:: LINE = 12
+    .. data:: line = 12
 
     	Line
 
-    .. data:: ENABLE = 13
+    .. data:: enable = 13
 
     	Enable
 
-    .. data:: KERBEROS = 14
+    .. data:: kerberos = 14
 
     	Kerberos
 
-    .. data:: DIAMETER = 15
+    .. data:: diameter = 15
 
     	Diameter
 
-    .. data:: LAST = 16
+    .. data:: last = 16
 
     	Last
 
     """
 
-    NOT_SET = 0
+    not_set = 0
 
-    NONE = 1
+    none = 1
 
-    LOCAL = 2
+    local = 2
 
-    RADIUS = 3
+    radius = 3
 
-    TACACS_PLUS = 4
+    tacacs_plus = 4
 
-    DSMD = 5
+    dsmd = 5
 
-    SGBP = 6
+    sgbp = 6
 
-    ACCT_D = 7
+    acct_d = 7
 
-    ERROR = 8
+    error = 8
 
-    IF_AUTHENTICATED = 9
+    if_authenticated = 9
 
-    SERVER_GROUP = 10
+    server_group = 10
 
-    SERVER_GROUP_NOT_DEFINED = 11
+    server_group_not_defined = 11
 
-    LINE = 12
+    line = 12
 
-    ENABLE = 13
+    enable = 13
 
-    KERBEROS = 14
+    kerberos = 14
 
-    DIAMETER = 15
+    diameter = 15
 
-    LAST = 16
+    last = 16
 
 
     @staticmethod
@@ -271,22 +271,24 @@ class Aaa(object):
     .. attribute:: accounting_update
     
     	Configuration related to 'update' accounting
-    	**type**\:  :py:class:`AccountingUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AccountingUpdate>`
+    	**type**\:   :py:class:`AccountingUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AccountingUpdate>`
+    
+    	**presence node**\: True
     
     .. attribute:: accountings
     
     	AAA accounting
-    	**type**\:  :py:class:`Accountings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Accountings>`
+    	**type**\:   :py:class:`Accountings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Accountings>`
     
     .. attribute:: authentications
     
     	AAA authentication
-    	**type**\:  :py:class:`Authentications <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Authentications>`
+    	**type**\:   :py:class:`Authentications <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Authentications>`
     
     .. attribute:: authorizations
     
     	AAA authorization
-    	**type**\:  :py:class:`Authorizations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Authorizations>`
+    	**type**\:   :py:class:`Authorizations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Authorizations>`
     
     .. attribute:: default_taskgroup
     
@@ -296,32 +298,32 @@ class Aaa(object):
     .. attribute:: radius
     
     	Remote Access Dial\-In User Service
-    	**type**\:  :py:class:`Radius <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius>`
+    	**type**\:   :py:class:`Radius <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius>`
     
     .. attribute:: server_groups
     
     	AAA group definitions
-    	**type**\:  :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups>`
+    	**type**\:   :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups>`
     
     .. attribute:: tacacs
     
     	Modify TACACS+ query parameters
-    	**type**\:  :py:class:`Tacacs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs>`
+    	**type**\:   :py:class:`Tacacs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs>`
     
     .. attribute:: taskgroups
     
     	Specify a taskgroup to inherit from
-    	**type**\:  :py:class:`Taskgroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups>`
+    	**type**\:   :py:class:`Taskgroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups>`
     
     .. attribute:: usergroups
     
     	Specify a Usergroup to inherit from
-    	**type**\:  :py:class:`Usergroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups>`
+    	**type**\:   :py:class:`Usergroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups>`
     
     .. attribute:: usernames
     
     	Configure local usernames
-    	**type**\:  :py:class:`Usernames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usernames>`
+    	**type**\:   :py:class:`Usernames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usernames>`
     
     
 
@@ -360,7 +362,7 @@ class Aaa(object):
         .. attribute:: accounting
         
         	Configurations related to accounting
-        	**type**\: list of  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Accountings.Accounting>`
+        	**type**\: list of    :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Accountings.Accounting>`
         
         
 
@@ -397,17 +399,17 @@ class Aaa(object):
             .. attribute:: broadcast
             
             	Broadcast
-            	**type**\:  :py:class:`AaaAccountingBroadcastEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.AaaAccountingBroadcastEnum>`
+            	**type**\:   :py:class:`AaaAccountingBroadcastEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.AaaAccountingBroadcastEnum>`
             
             .. attribute:: method
             
             	Method Types
-            	**type**\:  list of :py:class:`AaaMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.AaaMethodEnum>`
+            	**type**\:  list of   :py:class:`AaaMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.AaaMethodEnum>`
             
             .. attribute:: rp_failover
             
             	rpfailover
-            	**type**\:  :py:class:`AaaAccountingRpFailoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.AaaAccountingRpFailoverEnum>`
+            	**type**\:   :py:class:`AaaAccountingRpFailoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.AaaAccountingRpFailoverEnum>`
             
             .. attribute:: server_group_name
             
@@ -417,7 +419,7 @@ class Aaa(object):
             .. attribute:: type_xr
             
             	Stop only/Start Stop
-            	**type**\:  :py:class:`AaaAccountingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.AaaAccountingEnum>`
+            	**type**\:   :py:class:`AaaAccountingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.AaaAccountingEnum>`
             
             
 
@@ -520,7 +522,7 @@ class Aaa(object):
         .. attribute:: authorization
         
         	Configurations related to authorization
-        	**type**\: list of  :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Authorizations.Authorization>`
+        	**type**\: list of    :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Authorizations.Authorization>`
         
         
 
@@ -557,7 +559,7 @@ class Aaa(object):
             .. attribute:: method
             
             	Methods
-            	**type**\:  list of :py:class:`AaaMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.AaaMethodEnum>`
+            	**type**\:  list of   :py:class:`AaaMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.AaaMethodEnum>`
             
             .. attribute:: server_group_name
             
@@ -657,10 +659,12 @@ class Aaa(object):
         
         	**range:** 0..35791394
         
+        	**units**\: minute
+        
         .. attribute:: type
         
         	newinfo/periodic
-        	**type**\:  :py:class:`AaaAccountingUpdateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.AaaAccountingUpdateEnum>`
+        	**type**\:   :py:class:`AaaAccountingUpdateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.AaaAccountingUpdateEnum>`
         
         	**mandatory**\: True
         
@@ -719,7 +723,7 @@ class Aaa(object):
         .. attribute:: authentication
         
         	Configurations related to authentication
-        	**type**\: list of  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Authentications.Authentication>`
+        	**type**\: list of    :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Authentications.Authentication>`
         
         
 
@@ -756,7 +760,7 @@ class Aaa(object):
             .. attribute:: method
             
             	Methods
-            	**type**\:  list of :py:class:`AaaMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.AaaMethodEnum>`
+            	**type**\:  list of   :py:class:`AaaMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.AaaMethodEnum>`
             
             .. attribute:: server_group_name
             
@@ -852,12 +856,12 @@ class Aaa(object):
         .. attribute:: radius_server_groups
         
         	RADIUS server group definition
-        	**type**\:  :py:class:`RadiusServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups>`
+        	**type**\:   :py:class:`RadiusServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups>`
         
         .. attribute:: tacacs_server_groups
         
         	TACACS+ server\-group definition
-        	**type**\:  :py:class:`TacacsServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups>`
+        	**type**\:   :py:class:`TacacsServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups>`
         
         
 
@@ -881,7 +885,7 @@ class Aaa(object):
             .. attribute:: radius_server_group
             
             	RADIUS server group name
-            	**type**\: list of  :py:class:`RadiusServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup>`
+            	**type**\: list of    :py:class:`RadiusServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup>`
             
             
 
@@ -911,12 +915,12 @@ class Aaa(object):
                 .. attribute:: accounting
                 
                 	List of filters in server group
-                	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting>`
+                	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting>`
                 
                 .. attribute:: authorization
                 
                 	List of filters in server group
-                	**type**\:  :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization>`
+                	**type**\:   :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization>`
                 
                 .. attribute:: dead_time
                 
@@ -925,25 +929,27 @@ class Aaa(object):
                 
                 	**range:** 1..1440
                 
+                	**units**\: minute
+                
                 .. attribute:: load_balance
                 
                 	Radius load\-balancing options
-                	**type**\:  :py:class:`LoadBalance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance>`
+                	**type**\:   :py:class:`LoadBalance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance>`
                 
                 .. attribute:: private_servers
                 
                 	List of private RADIUS servers present in the group
-                	**type**\:  :py:class:`PrivateServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.PrivateServers>`
+                	**type**\:   :py:class:`PrivateServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.PrivateServers>`
                 
                 .. attribute:: server_group_throttle
                 
                 	Radius throttling options
-                	**type**\:  :py:class:`ServerGroupThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.ServerGroupThrottle>`
+                	**type**\:   :py:class:`ServerGroupThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.ServerGroupThrottle>`
                 
                 .. attribute:: servers
                 
                 	List of RADIUS servers present in the group
-                	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers>`
+                	**type**\:   :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers>`
                 
                 .. attribute:: source_interface
                 
@@ -991,12 +997,12 @@ class Aaa(object):
                     .. attribute:: reply
                     
                     	Specify a filter in server group
-                    	**type**\:  :py:class:`Reply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Reply>`
+                    	**type**\:   :py:class:`Reply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Reply>`
                     
                     .. attribute:: request
                     
                     	Specify a filter in server group
-                    	**type**\:  :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Request>`
+                    	**type**\:   :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Request>`
                     
                     
 
@@ -1020,7 +1026,7 @@ class Aaa(object):
                         .. attribute:: action
                         
                         	Specify the attribute list type accept or reject
-                        	**type**\:  :py:class:`AaaActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaActionEnum>`
+                        	**type**\:   :py:class:`AaaActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaActionEnum>`
                         
                         .. attribute:: attribute_list_name
                         
@@ -1074,7 +1080,7 @@ class Aaa(object):
                         .. attribute:: action
                         
                         	Specify the attribute list type accept or reject
-                        	**type**\:  :py:class:`AaaActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaActionEnum>`
+                        	**type**\:   :py:class:`AaaActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaActionEnum>`
                         
                         .. attribute:: attribute_list_name
                         
@@ -1155,7 +1161,7 @@ class Aaa(object):
                     .. attribute:: server
                     
                     	A server to include in the server group
-                    	**type**\: list of  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers.Server>`
+                    	**type**\: list of    :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers.Server>`
                     
                     
 
@@ -1303,7 +1309,7 @@ class Aaa(object):
                     .. attribute:: private_server
                     
                     	A private server to include in the server group
-                    	**type**\: list of  :py:class:`PrivateServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.PrivateServers.PrivateServer>`
+                    	**type**\: list of    :py:class:`PrivateServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.PrivateServers.PrivateServer>`
                     
                     
 
@@ -1369,6 +1375,8 @@ class Aaa(object):
                         
                         	**range:** 1..60
                         
+                        	**default value**\: 5
+                        
                         .. attribute:: ignore_accounting_port
                         
                         	Ignore Accounting port
@@ -1393,12 +1401,16 @@ class Aaa(object):
                         
                         	**range:** 1..100
                         
+                        	**default value**\: 3
+                        
                         .. attribute:: private_timeout
                         
                         	Time to wait for a RADIUS server to reply
                         	**type**\:  int
                         
                         	**range:** 1..1000
+                        
+                        	**default value**\: 5
                         
                         .. attribute:: username
                         
@@ -1526,6 +1538,8 @@ class Aaa(object):
                     
                     	**range:** 0..65535
                     
+                    	**default value**\: 0
+                    
                     .. attribute:: access_timeout
                     
                     	Specify the number of timeouts exceeding which a throttled access request is dropped
@@ -1533,12 +1547,16 @@ class Aaa(object):
                     
                     	**range:** 1..10
                     
+                    	**default value**\: 3
+                    
                     .. attribute:: accounting
                     
                     	To flow control the number of accounting requests sent to a radius server
                     	**type**\:  int
                     
                     	**range:** 0..65535
+                    
+                    	**default value**\: 0
                     
                     
 
@@ -1591,7 +1609,7 @@ class Aaa(object):
                     .. attribute:: method
                     
                     	Method by which the next host will be picked
-                    	**type**\:  :py:class:`Method <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance.Method>`
+                    	**type**\:   :py:class:`Method <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance.Method>`
                     
                     
 
@@ -1613,7 +1631,7 @@ class Aaa(object):
                         .. attribute:: name
                         
                         	Batch size for selection of the server
-                        	**type**\:  :py:class:`Name <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance.Method.Name>`
+                        	**type**\:   :py:class:`Name <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance.Method.Name>`
                         
                         
 
@@ -1639,6 +1657,8 @@ class Aaa(object):
                             
                             	**range:** 1..1500
                             
+                            	**default value**\: 25
+                            
                             .. attribute:: ignore_preferred_server
                             
                             	Disable preferred server for this Server Group
@@ -1646,12 +1666,16 @@ class Aaa(object):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**default value**\: 1
+                            
                             .. attribute:: least_outstanding
                             
                             	Pick the server with the least transactions outstanding
                             	**type**\:  int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**default value**\: 4
                             
                             
 
@@ -1752,12 +1776,12 @@ class Aaa(object):
                     .. attribute:: reply
                     
                     	Specify a filter in server group
-                    	**type**\:  :py:class:`Reply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Reply>`
+                    	**type**\:   :py:class:`Reply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Reply>`
                     
                     .. attribute:: request
                     
                     	Specify a filter in server group
-                    	**type**\:  :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Request>`
+                    	**type**\:   :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization.Request>`
                     
                     
 
@@ -1781,7 +1805,7 @@ class Aaa(object):
                         .. attribute:: action
                         
                         	Specify the attribute list type accept or reject
-                        	**type**\:  :py:class:`AaaActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaActionEnum>`
+                        	**type**\:   :py:class:`AaaActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaActionEnum>`
                         
                         .. attribute:: attribute_list_name
                         
@@ -1835,7 +1859,7 @@ class Aaa(object):
                         .. attribute:: action
                         
                         	Specify the attribute list type accept or reject
-                        	**type**\:  :py:class:`AaaActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaActionEnum>`
+                        	**type**\:   :py:class:`AaaActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaActionEnum>`
                         
                         .. attribute:: attribute_list_name
                         
@@ -1991,7 +2015,7 @@ class Aaa(object):
             .. attribute:: tacacs_server_group
             
             	TACACS+ Server group name
-            	**type**\: list of  :py:class:`TacacsServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup>`
+            	**type**\: list of    :py:class:`TacacsServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup>`
             
             
 
@@ -2021,12 +2045,12 @@ class Aaa(object):
                 .. attribute:: private_servers
                 
                 	List of private TACACS servers present in the group
-                	**type**\:  :py:class:`PrivateServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers>`
+                	**type**\:   :py:class:`PrivateServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers>`
                 
                 .. attribute:: servers
                 
                 	Specify a TACACS+ server
-                	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers>`
+                	**type**\:   :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers>`
                 
                 .. attribute:: vrf
                 
@@ -2057,7 +2081,7 @@ class Aaa(object):
                     .. attribute:: server
                     
                     	A server to include in the server group
-                    	**type**\: list of  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server>`
+                    	**type**\: list of    :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server>`
                     
                     
 
@@ -2179,7 +2203,7 @@ class Aaa(object):
                     .. attribute:: private_server
                     
                     	A private server to include in the server group
-                    	**type**\: list of  :py:class:`PrivateServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer>`
+                    	**type**\: list of    :py:class:`PrivateServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer>`
                     
                     
 
@@ -2244,6 +2268,8 @@ class Aaa(object):
                         	**type**\:  int
                         
                         	**range:** 1..1000
+                        
+                        	**default value**\: 5
                         
                         
 
@@ -2418,7 +2444,7 @@ class Aaa(object):
         .. attribute:: username
         
         	Local username
-        	**type**\: list of  :py:class:`Username <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usernames.Username>`
+        	**type**\: list of    :py:class:`Username <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usernames.Username>`
         
         
 
@@ -2467,7 +2493,7 @@ class Aaa(object):
             .. attribute:: usergroup_under_usernames
             
             	Specify the usergroup to which this user belongs
-            	**type**\:  :py:class:`UsergroupUnderUsernames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames>`
+            	**type**\:   :py:class:`UsergroupUnderUsernames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames>`
             
             
 
@@ -2494,7 +2520,7 @@ class Aaa(object):
                 .. attribute:: usergroup_under_username
                 
                 	Name of the usergroup
-                	**type**\: list of  :py:class:`UsergroupUnderUsername <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername>`
+                	**type**\: list of    :py:class:`UsergroupUnderUsername <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername>`
                 
                 
 
@@ -2654,7 +2680,7 @@ class Aaa(object):
         .. attribute:: taskgroup
         
         	Taskgroup name
-        	**type**\: list of  :py:class:`Taskgroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups.Taskgroup>`
+        	**type**\: list of    :py:class:`Taskgroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups.Taskgroup>`
         
         
 
@@ -2687,12 +2713,12 @@ class Aaa(object):
             .. attribute:: taskgroup_under_taskgroups
             
             	Specify a taskgroup to inherit from
-            	**type**\:  :py:class:`TaskgroupUnderTaskgroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups.Taskgroup.TaskgroupUnderTaskgroups>`
+            	**type**\:   :py:class:`TaskgroupUnderTaskgroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups.Taskgroup.TaskgroupUnderTaskgroups>`
             
             .. attribute:: tasks
             
             	Specify task IDs to be part of this group
-            	**type**\:  :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups.Taskgroup.Tasks>`
+            	**type**\:   :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups.Taskgroup.Tasks>`
             
             
 
@@ -2718,7 +2744,7 @@ class Aaa(object):
                 .. attribute:: taskgroup_under_taskgroup
                 
                 	Name of the task group to include
-                	**type**\: list of  :py:class:`TaskgroupUnderTaskgroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups.Taskgroup.TaskgroupUnderTaskgroups.TaskgroupUnderTaskgroup>`
+                	**type**\: list of    :py:class:`TaskgroupUnderTaskgroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups.Taskgroup.TaskgroupUnderTaskgroups.TaskgroupUnderTaskgroup>`
                 
                 
 
@@ -2816,7 +2842,7 @@ class Aaa(object):
                 .. attribute:: task
                 
                 	Task ID to be included
-                	**type**\: list of  :py:class:`Task <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups.Taskgroup.Tasks.Task>`
+                	**type**\: list of    :py:class:`Task <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Taskgroups.Taskgroup.Tasks.Task>`
                 
                 
 
@@ -2844,7 +2870,7 @@ class Aaa(object):
                     .. attribute:: type  <key>
                     
                     	This specifies the operation permitted for this task eg\: read/write/execute/debug
-                    	**type**\:  :py:class:`AaaLocaldTaskClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_cfg.AaaLocaldTaskClassEnum>`
+                    	**type**\:   :py:class:`AaaLocaldTaskClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_cfg.AaaLocaldTaskClassEnum>`
                     
                     
 
@@ -2980,7 +3006,7 @@ class Aaa(object):
         .. attribute:: usergroup
         
         	Usergroup name
-        	**type**\: list of  :py:class:`Usergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups.Usergroup>`
+        	**type**\: list of    :py:class:`Usergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups.Usergroup>`
         
         
 
@@ -3013,12 +3039,12 @@ class Aaa(object):
             .. attribute:: taskgroup_under_usergroups
             
             	Task group associated with this group
-            	**type**\:  :py:class:`TaskgroupUnderUsergroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups.Usergroup.TaskgroupUnderUsergroups>`
+            	**type**\:   :py:class:`TaskgroupUnderUsergroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups.Usergroup.TaskgroupUnderUsergroups>`
             
             .. attribute:: usergroup_under_usergroups
             
             	User group to be inherited by this group
-            	**type**\:  :py:class:`UsergroupUnderUsergroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups.Usergroup.UsergroupUnderUsergroups>`
+            	**type**\:   :py:class:`UsergroupUnderUsergroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups.Usergroup.UsergroupUnderUsergroups>`
             
             
 
@@ -3044,7 +3070,7 @@ class Aaa(object):
                 .. attribute:: taskgroup_under_usergroup
                 
                 	Name of the task group
-                	**type**\: list of  :py:class:`TaskgroupUnderUsergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups.Usergroup.TaskgroupUnderUsergroups.TaskgroupUnderUsergroup>`
+                	**type**\: list of    :py:class:`TaskgroupUnderUsergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups.Usergroup.TaskgroupUnderUsergroups.TaskgroupUnderUsergroup>`
                 
                 
 
@@ -3142,7 +3168,7 @@ class Aaa(object):
                 .. attribute:: usergroup_under_usergroup
                 
                 	Name of the user group
-                	**type**\: list of  :py:class:`UsergroupUnderUsergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups.Usergroup.UsergroupUnderUsergroups.UsergroupUnderUsergroup>`
+                	**type**\: list of    :py:class:`UsergroupUnderUsergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Usergroups.Usergroup.UsergroupUnderUsergroups.UsergroupUnderUsergroup>`
                 
                 
 
@@ -3297,12 +3323,12 @@ class Aaa(object):
         .. attribute:: attributes
         
         	Table of attribute list
-        	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Attributes>`
+        	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Attributes>`
         
         .. attribute:: dead_criteria
         
         	RADIUS server dead criteria
-        	**type**\:  :py:class:`DeadCriteria <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DeadCriteria>`
+        	**type**\:   :py:class:`DeadCriteria <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DeadCriteria>`
         
         .. attribute:: dead_time
         
@@ -3311,20 +3337,22 @@ class Aaa(object):
         
         	**range:** 1..1440
         
+        	**units**\: minute
+        
         .. attribute:: disallow
         
         	disallow null\-username
-        	**type**\:  :py:class:`Disallow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Disallow>`
+        	**type**\:   :py:class:`Disallow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Disallow>`
         
         .. attribute:: dynamic_authorization
         
         	RADIUS dynamic authorization
-        	**type**\:  :py:class:`DynamicAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DynamicAuthorization>`
+        	**type**\:   :py:class:`DynamicAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DynamicAuthorization>`
         
         .. attribute:: hosts
         
         	List of RADIUS servers
-        	**type**\:  :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Hosts>`
+        	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Hosts>`
         
         .. attribute:: idle_time
         
@@ -3332,6 +3360,8 @@ class Aaa(object):
         	**type**\:  int
         
         	**range:** 1..1000
+        
+        	**default value**\: 5
         
         .. attribute:: ignore_accounting_port
         
@@ -3346,12 +3376,12 @@ class Aaa(object):
         .. attribute:: ipv4
         
         	IPv4 configuration
-        	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Ipv4>`
+        	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Ipv4>`
         
         .. attribute:: ipv6
         
         	IPv6 configuration
-        	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Ipv6>`
+        	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Ipv6>`
         
         .. attribute:: key
         
@@ -3363,12 +3393,12 @@ class Aaa(object):
         .. attribute:: load_balance_options
         
         	Radius load\-balancing options
-        	**type**\:  :py:class:`LoadBalanceOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.LoadBalanceOptions>`
+        	**type**\:   :py:class:`LoadBalanceOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.LoadBalanceOptions>`
         
         .. attribute:: radius_attribute
         
         	attribute
-        	**type**\:  :py:class:`RadiusAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute>`
+        	**type**\:   :py:class:`RadiusAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute>`
         
         .. attribute:: retransmit
         
@@ -3377,15 +3407,17 @@ class Aaa(object):
         
         	**range:** 1..100
         
+        	**default value**\: 3
+        
         .. attribute:: source_port
         
         	Source port
-        	**type**\:  :py:class:`SourcePort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.SourcePort>`
+        	**type**\:   :py:class:`SourcePort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.SourcePort>`
         
         .. attribute:: throttle
         
         	Radius throttling options
-        	**type**\:  :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Throttle>`
+        	**type**\:   :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Throttle>`
         
         .. attribute:: timeout
         
@@ -3393,6 +3425,8 @@ class Aaa(object):
         	**type**\:  int
         
         	**range:** 1..1000
+        
+        	**default value**\: 5
         
         .. attribute:: username
         
@@ -3402,12 +3436,12 @@ class Aaa(object):
         .. attribute:: vrfs
         
         	List of VRFs
-        	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vrfs>`
+        	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vrfs>`
         
         .. attribute:: vsa
         
         	Unknown VSA (Vendor Specific Attribute) ignore configuration for RADIUS server
-        	**type**\:  :py:class:`Vsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vsa>`
+        	**type**\:   :py:class:`Vsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vsa>`
         
         
 
@@ -3461,7 +3495,7 @@ class Aaa(object):
             .. attribute:: host
             
             	Instance of a RADIUS server
-            	**type**\: list of  :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Hosts.Host>`
+            	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Hosts.Host>`
             
             
 
@@ -3533,6 +3567,8 @@ class Aaa(object):
                 
                 	**range:** 1..100
                 
+                	**default value**\: 3
+                
                 .. attribute:: host_timeout
                 
                 	Time to wait for a RADIUS server to reply
@@ -3540,12 +3576,16 @@ class Aaa(object):
                 
                 	**range:** 1..1000
                 
+                	**default value**\: 5
+                
                 .. attribute:: idle_time
                 
                 	Idle time for RADIUS server
                 	**type**\:  int
                 
                 	**range:** 1..1000
+                
+                	**default value**\: 5
                 
                 .. attribute:: ignore_accounting_port
                 
@@ -3778,7 +3818,7 @@ class Aaa(object):
             	Specify the DSCP value
             	**type**\: one of the below types:
             
-            	**type**\:  :py:class:`AaaDscpValueEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaDscpValueEnum>`
+            	**type**\:   :py:class:`AaaDscpValueEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaDscpValueEnum>`
             
             
             ----
@@ -3829,17 +3869,17 @@ class Aaa(object):
             .. attribute:: authentication_type
             
             	RADIUS  dynamic  authorization  type
-            	**type**\:  :py:class:`AaaAuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaAuthenticationEnum>`
+            	**type**\:   :py:class:`AaaAuthenticationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaAuthenticationEnum>`
             
             .. attribute:: clients
             
             	Client data
-            	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DynamicAuthorization.Clients>`
+            	**type**\:   :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DynamicAuthorization.Clients>`
             
             .. attribute:: ignore
             
             	Ignore option for server key or session key
-            	**type**\:  :py:class:`AaaSelectKeyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaSelectKeyEnum>`
+            	**type**\:   :py:class:`AaaSelectKeyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaSelectKeyEnum>`
             
             .. attribute:: port
             
@@ -3879,12 +3919,12 @@ class Aaa(object):
                 .. attribute:: client
                 
                 	Client data
-                	**type**\: list of  :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DynamicAuthorization.Clients.Client>`
+                	**type**\: list of    :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DynamicAuthorization.Clients.Client>`
                 
                 .. attribute:: client_vrf_name
                 
                 	Client data
-                	**type**\: list of  :py:class:`ClientVrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DynamicAuthorization.Clients.ClientVrfName>`
+                	**type**\: list of    :py:class:`ClientVrfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.DynamicAuthorization.Clients.ClientVrfName>`
                 
                 
 
@@ -4122,7 +4162,7 @@ class Aaa(object):
             .. attribute:: load_balance_method
             
             	Method by which the next host will be picked
-            	**type**\:  :py:class:`LoadBalanceMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.LoadBalanceOptions.LoadBalanceMethod>`
+            	**type**\:   :py:class:`LoadBalanceMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.LoadBalanceOptions.LoadBalanceMethod>`
             
             
 
@@ -4144,7 +4184,7 @@ class Aaa(object):
                 .. attribute:: batch_size
                 
                 	Batch size for selection of the server
-                	**type**\:  :py:class:`BatchSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.LoadBalanceOptions.LoadBalanceMethod.BatchSize>`
+                	**type**\:   :py:class:`BatchSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.LoadBalanceOptions.LoadBalanceMethod.BatchSize>`
                 
                 
 
@@ -4170,12 +4210,16 @@ class Aaa(object):
                     
                     	**range:** 1..1500
                     
+                    	**default value**\: 25
+                    
                     .. attribute:: ignore_preferred_server
                     
                     	Disable preferred server for this Server Group
                     	**type**\:  int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**default value**\: 1
                     
                     
 
@@ -4266,7 +4310,7 @@ class Aaa(object):
             .. attribute:: vrf
             
             	A VRF
-            	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vrfs.Vrf>`
+            	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vrfs.Vrf>`
             
             
 
@@ -4375,6 +4419,8 @@ class Aaa(object):
             
             	**range:** 0..65535
             
+            	**default value**\: 0
+            
             .. attribute:: access_timeout
             
             	Specify the number of timeouts exceeding which a throttled access request is dropped
@@ -4382,12 +4428,16 @@ class Aaa(object):
             
             	**range:** 1..10
             
+            	**default value**\: 3
+            
             .. attribute:: accounting
             
             	To flow control the number of accounting requests sent to a radius server
             	**type**\:  int
             
             	**range:** 0..65535
+            
+            	**default value**\: 0
             
             
 
@@ -4439,7 +4489,7 @@ class Aaa(object):
             .. attribute:: attribute
             
             	Vendor Specific Attribute
-            	**type**\:  :py:class:`Attribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vsa.Attribute>`
+            	**type**\:   :py:class:`Attribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vsa.Attribute>`
             
             
 
@@ -4461,7 +4511,7 @@ class Aaa(object):
                 .. attribute:: ignore
                 
                 	Ignore the VSA
-                	**type**\:  :py:class:`Ignore <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vsa.Attribute.Ignore>`
+                	**type**\:   :py:class:`Ignore <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vsa.Attribute.Ignore>`
                 
                 
 
@@ -4483,7 +4533,7 @@ class Aaa(object):
                     .. attribute:: unknown
                     
                     	Ignore the VSA and no prefix will reject the unknown VSA
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -4572,7 +4622,7 @@ class Aaa(object):
             	Specify the DSCP value
             	**type**\: one of the below types:
             
-            	**type**\:  :py:class:`AaaDscpValueEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaDscpValueEnum>`
+            	**type**\:   :py:class:`AaaDscpValueEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaDscpValueEnum>`
             
             
             ----
@@ -4623,12 +4673,12 @@ class Aaa(object):
             .. attribute:: acct_multi_session_id
             
             	Acct\-Session\-Id attribute(44)
-            	**type**\:  :py:class:`AcctMultiSessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute.AcctMultiSessionId>`
+            	**type**\:   :py:class:`AcctMultiSessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute.AcctMultiSessionId>`
             
             .. attribute:: acct_session_id
             
             	Acct\-Session\-Id attribute(44)
-            	**type**\:  :py:class:`AcctSessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute.AcctSessionId>`
+            	**type**\:   :py:class:`AcctSessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute.AcctSessionId>`
             
             
 
@@ -4652,7 +4702,7 @@ class Aaa(object):
                 .. attribute:: include_parent_session_id
                 
                 	Prepend Acct\-Session\-Id attribute with Nas\-Port\-Id
-                	**type**\:  :py:class:`IncludeParentSessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute.AcctMultiSessionId.IncludeParentSessionId>`
+                	**type**\:   :py:class:`IncludeParentSessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute.AcctMultiSessionId.IncludeParentSessionId>`
                 
                 
 
@@ -4675,7 +4725,7 @@ class Aaa(object):
                     .. attribute:: config
                     
                     	false/true
-                    	**type**\:  :py:class:`AaaConfigEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaConfigEnum>`
+                    	**type**\:   :py:class:`AaaConfigEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaConfigEnum>`
                     
                     
 
@@ -4740,7 +4790,7 @@ class Aaa(object):
                 .. attribute:: prepend_nas_port_id
                 
                 	Prepend Acct\-Session\-Id attribute with Nas\-Port\-Id
-                	**type**\:  :py:class:`PrependNasPortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute.AcctSessionId.PrependNasPortId>`
+                	**type**\:   :py:class:`PrependNasPortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.RadiusAttribute.AcctSessionId.PrependNasPortId>`
                 
                 
 
@@ -4763,7 +4813,7 @@ class Aaa(object):
                     .. attribute:: config
                     
                     	false/true
-                    	**type**\:  :py:class:`AaaConfigEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaConfigEnum>`
+                    	**type**\:   :py:class:`AaaConfigEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg.AaaConfigEnum>`
                     
                     
 
@@ -4853,7 +4903,7 @@ class Aaa(object):
             .. attribute:: attribute
             
             	Attribute list name
-            	**type**\: list of  :py:class:`Attribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Attributes.Attribute>`
+            	**type**\: list of    :py:class:`Attribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Attributes.Attribute>`
             
             
 
@@ -4956,7 +5006,7 @@ class Aaa(object):
             .. attribute:: extended
             
             	Enable source\-port extend 
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -5081,17 +5131,17 @@ class Aaa(object):
         .. attribute:: hosts
         
         	Specify a TACACS+ server
-        	**type**\:  :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Hosts>`
+        	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Hosts>`
         
         .. attribute:: ipv4
         
         	IPv4 configuration
-        	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Ipv4>`
+        	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Ipv4>`
         
         .. attribute:: ipv6
         
         	IPv6 configuration
-        	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Ipv6>`
+        	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Ipv6>`
         
         .. attribute:: key
         
@@ -5105,6 +5155,8 @@ class Aaa(object):
         	Use a single connection for all sessions for a given TACACS+ server
         	**type**\:  bool
         
+        	**default value**\: false
+        
         .. attribute:: timeout
         
         	Time to wait for a TACACS+ server to reply
@@ -5112,10 +5164,12 @@ class Aaa(object):
         
         	**range:** 1..1000
         
+        	**default value**\: 5
+        
         .. attribute:: vrfs
         
         	List of VRFs
-        	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Vrfs>`
+        	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Vrfs>`
         
         
 
@@ -5148,7 +5202,7 @@ class Aaa(object):
             	Specify the DSCP value
             	**type**\: one of the below types:
             
-            	**type**\:  :py:class:`TacacsDscpValueEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_tacacs_cfg.TacacsDscpValueEnum>`
+            	**type**\:   :py:class:`TacacsDscpValueEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_tacacs_cfg.TacacsDscpValueEnum>`
             
             
             ----
@@ -5199,7 +5253,7 @@ class Aaa(object):
             .. attribute:: host
             
             	One of the TACACS+ servers
-            	**type**\: list of  :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Hosts.Host>`
+            	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Hosts.Host>`
             
             
 
@@ -5262,12 +5316,16 @@ class Aaa(object):
                 	Use a single connection for all sessions for a given TACACS+ server
                 	**type**\:  bool
                 
+                	**default value**\: false
+                
                 .. attribute:: timeout
                 
                 	Time to wait for a TACACS+ server to reply
                 	**type**\:  int
                 
                 	**range:** 1..1000
+                
+                	**default value**\: 5
                 
                 
 
@@ -5362,7 +5420,7 @@ class Aaa(object):
             	Specify the DSCP value
             	**type**\: one of the below types:
             
-            	**type**\:  :py:class:`TacacsDscpValueEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_tacacs_cfg.TacacsDscpValueEnum>`
+            	**type**\:   :py:class:`TacacsDscpValueEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_tacacs_cfg.TacacsDscpValueEnum>`
             
             
             ----
@@ -5413,7 +5471,7 @@ class Aaa(object):
             .. attribute:: vrf
             
             	A VRF
-            	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Vrfs.Vrf>`
+            	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Vrfs.Vrf>`
             
             
 

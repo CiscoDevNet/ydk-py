@@ -32,7 +32,7 @@ class Vty(object):
     .. attribute:: vty_pools
     
     	List of VTY Pools
-    	**type**\:  :py:class:`VtyPools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_vty_cfg.Vty.VtyPools>`
+    	**type**\:   :py:class:`VtyPools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_vty_cfg.Vty.VtyPools>`
     
     
 
@@ -53,7 +53,7 @@ class Vty(object):
         .. attribute:: vty_pool
         
         	VTY Pool
-        	**type**\: list of  :py:class:`VtyPool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_vty_cfg.Vty.VtyPools.VtyPool>`
+        	**type**\: list of    :py:class:`VtyPool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_vty_cfg.Vty.VtyPools.VtyPool>`
         
         
 

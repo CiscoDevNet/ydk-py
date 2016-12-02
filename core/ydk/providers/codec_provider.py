@@ -55,7 +55,6 @@ class CodecServiceProvider(ServiceProvider):
 
     def _encode(self, entity):
         """ Encodes the entity into the desired encoding format """
-        self.logger.info('Encoding object: \n{0}'.format(entity))
         payload = self.encoder.encode(entity)
         self.logger.info('Result of encoding: \n{0}'.format(payload))
         return payload

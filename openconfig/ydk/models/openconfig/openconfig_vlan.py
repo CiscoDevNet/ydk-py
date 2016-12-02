@@ -53,7 +53,7 @@ class Vlans(object):
     .. attribute:: vlan
     
     	Configured VLANs keyed by id
-    	**type**\: list of  :py:class:`Vlan <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan>`
+    	**type**\: list of    :py:class:`Vlan <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan>`
     
     
 
@@ -79,17 +79,17 @@ class Vlans(object):
         
         	**range:** 1..4094
         
-        	**refers to**\: :py:class:`vlan_id <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Config>`
+        	**refers to**\:  :py:class:`vlan_id <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Config>`
         
         .. attribute:: config
         
         	Configuration parameters for VLANs
-        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Config>`
+        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Config>`
         
         .. attribute:: state
         
         	State variables for VLANs
-        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.State>`
+        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.State>`
         
         
 
@@ -119,7 +119,9 @@ class Vlans(object):
             .. attribute:: status
             
             	Admin state of the VLAN
-            	**type**\:  :py:class:`StatusEnum <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Config.StatusEnum>`
+            	**type**\:   :py:class:`StatusEnum <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Config.StatusEnum>`
+            
+            	**default value**\: ACTIVE
             
             .. attribute:: vlan_id
             
@@ -208,7 +210,7 @@ class Vlans(object):
             	List of current member ports including access ports and trunk ports that support this vlan
             	**type**\:  list of str
             
-            	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
             
             .. attribute:: name
             
@@ -218,7 +220,9 @@ class Vlans(object):
             .. attribute:: status
             
             	Admin state of the VLAN
-            	**type**\:  :py:class:`StatusEnum <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.State.StatusEnum>`
+            	**type**\:   :py:class:`StatusEnum <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.State.StatusEnum>`
+            
+            	**default value**\: ACTIVE
             
             .. attribute:: vlan_id
             

@@ -33,25 +33,25 @@ class CfmLmCountersCfgEnum(Enum):
 
     Cfm lm counters cfg
 
-    .. data:: AGGREGATE = 1
+    .. data:: aggregate = 1
 
     	Aggregate Counters
 
-    .. data:: LIST = 2
+    .. data:: list = 2
 
     	List of per-CoS counters
 
-    .. data:: RANGE = 3
+    .. data:: range = 3
 
     	Range of per-CoS counters
 
     """
 
-    AGGREGATE = 1
+    aggregate = 1
 
-    LIST = 2
+    list = 2
 
-    RANGE = 3
+    range = 3
 
 
     @staticmethod
@@ -66,31 +66,31 @@ class CfmMdidFormatEnum(Enum):
 
     Cfm mdid format
 
-    .. data:: NULL = 1
+    .. data:: null = 1
 
     	Null MDID
 
-    .. data:: DNS_LIKE = 2
+    .. data:: dns_like = 2
 
     	DNS-like MDID
 
-    .. data:: MAC_ADDRESS = 3
+    .. data:: mac_address = 3
 
     	MDID Comprising MAC Address and 16-bit integer
 
-    .. data:: STRING = 4
+    .. data:: string = 4
 
     	String MDID
 
     """
 
-    NULL = 1
+    null = 1
 
-    DNS_LIKE = 2
+    dns_like = 2
 
-    MAC_ADDRESS = 3
+    mac_address = 3
 
-    STRING = 4
+    string = 4
 
 
     @staticmethod
@@ -105,13 +105,13 @@ class CfmMipPolicyEnum(Enum):
 
     Cfm mip policy
 
-    .. data:: ALL = 2
+    .. data:: all = 2
 
     	Create MIPs on all ports in the Bridge Domain
 
     	or Cross-connect
 
-    .. data:: LOWER_MEP_ONLY = 3
+    .. data:: lower_mep_only = 3
 
     	Create MIPs on ports which have a MEP at a
 
@@ -119,9 +119,9 @@ class CfmMipPolicyEnum(Enum):
 
     """
 
-    ALL = 2
+    all = 2
 
-    LOWER_MEP_ONLY = 3
+    lower_mep_only = 3
 
 
     @staticmethod
@@ -136,37 +136,37 @@ class CfmServiceEnum(Enum):
 
     Cfm service
 
-    .. data:: BRIDGE_DOMAIN = 1
+    .. data:: bridge_domain = 1
 
     	Use a Bridge Domain - all MEPs will be Up MEPs
 
     	and MIPs are permitted
 
-    .. data:: P2P_CROSS_CONNECT = 2
+    .. data:: p2p_cross_connect = 2
 
     	Use a P2P Cross Connect - all MEPs will be Up
 
     	MEPs and MIPs are permitted
 
-    .. data:: MP2MP_CROSS_CONNECT = 3
+    .. data:: mp2mp_cross_connect = 3
 
     	Use a MP2MP Cross Connect - all MEPs will be Up
 
     	MEPs and MIPs are permitted
 
-    .. data:: DOWN_MEPS = 4
+    .. data:: down_meps = 4
 
     	Down MEPs - no MIPs permitted
 
     """
 
-    BRIDGE_DOMAIN = 1
+    bridge_domain = 1
 
-    P2P_CROSS_CONNECT = 2
+    p2p_cross_connect = 2
 
-    MP2MP_CROSS_CONNECT = 3
+    mp2mp_cross_connect = 3
 
-    DOWN_MEPS = 4
+    down_meps = 4
 
 
     @staticmethod
@@ -181,37 +181,37 @@ class CfmShortMaNameFormatEnum(Enum):
 
     Cfm short ma name format
 
-    .. data:: VLAN_ID = 1
+    .. data:: vlan_id = 1
 
     	VLAN ID
 
-    .. data:: STRING = 2
+    .. data:: string = 2
 
     	String Short MA Name
 
-    .. data:: NUMBER = 3
+    .. data:: number = 3
 
     	Numeric Short MA Name
 
-    .. data:: VPN_ID = 4
+    .. data:: vpn_id = 4
 
     	RFC 2685 VPN ID
 
-    .. data:: ICC_BASED = 32
+    .. data:: icc_based = 32
 
     	ICC-based format
 
     """
 
-    VLAN_ID = 1
+    vlan_id = 1
 
-    STRING = 2
+    string = 2
 
-    NUMBER = 3
+    number = 3
 
-    VPN_ID = 4
+    vpn_id = 4
 
-    ICC_BASED = 32
+    icc_based = 32
 
 
     @staticmethod

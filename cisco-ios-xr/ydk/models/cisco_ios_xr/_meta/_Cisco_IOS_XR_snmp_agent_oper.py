@@ -16,19 +16,19 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'SnmpCorrVbindMatchEnum' : _MetaInfoEnum('SnmpCorrVbindMatchEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper',
         {
-            'index':'INDEX',
-            'value':'VALUE',
+            'index':'index',
+            'value':'value',
         }, 'Cisco-IOS-XR-snmp-agent-oper', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-oper']),
     'SnmpCorrRuleStateEnum' : _MetaInfoEnum('SnmpCorrRuleStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper',
         {
-            'rule-unapplied':'RULE_UNAPPLIED',
-            'rule-applied':'RULE_APPLIED',
-            'rule-applied-all':'RULE_APPLIED_ALL',
+            'rule-unapplied':'rule_unapplied',
+            'rule-applied':'rule_applied',
+            'rule-applied-all':'rule_applied_all',
         }, 'Cisco-IOS-XR-snmp-agent-oper', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-oper']),
     'DupReqDropStatusEnum' : _MetaInfoEnum('DupReqDropStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper',
         {
-            'disabled':'DISABLED',
-            'enabled':'ENABLED',
+            'disabled':'disabled',
+            'enabled':'enabled',
         }, 'Cisco-IOS-XR-snmp-agent-oper', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-oper']),
     'Snmp.TrapServers.TrapServer' : {
         'meta_info' : _MetaInfoClass('Snmp.TrapServers.TrapServer',
@@ -193,11 +193,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Information.SystemUpTime',
             False, 
             [
-            _MetaInfoClassMember('system-up-time', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
+            _MetaInfoClassMember('system-up-time-edm', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
                 '''                sysUpTime  1.3.6.1.2.1.1.3
                 ''',
-                'system_up_time',
+                'system_up_time_edm',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             ],
             'Cisco-IOS-XR-snmp-agent-oper',

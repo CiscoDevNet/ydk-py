@@ -16,7 +16,7 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'ObjectTrackingBooleanSignEnum' : _MetaInfoEnum('ObjectTrackingBooleanSignEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_datatypes',
         {
-            'without-not':'WITHOUT_NOT',
-            'with-not':'WITH_NOT',
+            'without-not':'without_not',
+            'with-not':'with_not',
         }, 'Cisco-IOS-XR-manageability-object-tracking-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-manageability-object-tracking-datatypes']),
 }

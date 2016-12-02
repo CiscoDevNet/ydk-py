@@ -5131,8 +5131,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.Information' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.Information',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.Information' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.Information',
             False, 
             [
             _MetaInfoClassMember('active-routes-count', ATTRIBUTE, 'int' , None, None, 
@@ -5211,8 +5211,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath',
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
@@ -5444,11 +5444,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath',
             False, 
             [
-            _MetaInfoClassMember('ipv6-rib-edm-path', REFERENCE_LIST, 'Ipv6RibEdmPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath', 
+            _MetaInfoClassMember('ipv6-rib-edm-path', REFERENCE_LIST, 'Ipv6RibEdmPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath', 
                 [], [], 
                 '''                ipv6 rib edm path
                 ''',
@@ -5461,8 +5461,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute',
             False, 
             [
             _MetaInfoClassMember('active', ATTRIBUTE, 'bool' , None, None, 
@@ -5621,7 +5621,7 @@ _meta_table = {
                 ''',
                 'route_modify_time',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
-            _MetaInfoClassMember('route-path', REFERENCE_CLASS, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath', 
+            _MetaInfoClassMember('route-path', REFERENCE_CLASS, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath', 
                 [], [], 
                 '''                Path(s) of the route
                 ''',
@@ -5682,11 +5682,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes',
             False, 
             [
-            _MetaInfoClassMember('protocol-route', REFERENCE_LIST, 'ProtocolRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute', 
+            _MetaInfoClassMember('protocol-route', REFERENCE_LIST, 'ProtocolRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute', 
                 [], [], 
                 '''                Route information of a specific Network Address
                 ''',
@@ -5699,8 +5699,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_',
             False, 
             [
             _MetaInfoClassMember('as', ATTRIBUTE, 'str' , None, None, 
@@ -5709,13 +5709,13 @@ _meta_table = {
                 ''',
                 'as_',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', True),
-            _MetaInfoClassMember('information', REFERENCE_CLASS, 'Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.Information', 
+            _MetaInfoClassMember('information', REFERENCE_CLASS, 'Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.Information', 
                 [], [], 
                 '''                Protocol related Information
                 ''',
                 'information',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
-            _MetaInfoClassMember('protocol-routes', REFERENCE_CLASS, 'ProtocolRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes', 
+            _MetaInfoClassMember('protocol-routes', REFERENCE_CLASS, 'ProtocolRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes', 
                 [], [], 
                 '''                Protocol specific Route
                 ''',
@@ -5732,7 +5732,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp',
             False, 
             [
-            _MetaInfoClassMember('as', REFERENCE_LIST, 'As' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As', 
+            _MetaInfoClassMember('as', REFERENCE_LIST, 'As_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_', 
                 [], [], 
                 '''                Autonomous System of protocol
                 ''',
@@ -6353,8 +6353,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.Information' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.Information',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.Information' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.Information',
             False, 
             [
             _MetaInfoClassMember('active-routes-count', ATTRIBUTE, 'int' , None, None, 
@@ -6433,8 +6433,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath',
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
@@ -6666,11 +6666,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath',
             False, 
             [
-            _MetaInfoClassMember('ipv6-rib-edm-path', REFERENCE_LIST, 'Ipv6RibEdmPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath', 
+            _MetaInfoClassMember('ipv6-rib-edm-path', REFERENCE_LIST, 'Ipv6RibEdmPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath', 
                 [], [], 
                 '''                ipv6 rib edm path
                 ''',
@@ -6683,8 +6683,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute',
             False, 
             [
             _MetaInfoClassMember('active', ATTRIBUTE, 'bool' , None, None, 
@@ -6843,7 +6843,7 @@ _meta_table = {
                 ''',
                 'route_modify_time',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
-            _MetaInfoClassMember('route-path', REFERENCE_CLASS, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath', 
+            _MetaInfoClassMember('route-path', REFERENCE_CLASS, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath', 
                 [], [], 
                 '''                Path(s) of the route
                 ''',
@@ -6904,11 +6904,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes',
             False, 
             [
-            _MetaInfoClassMember('protocol-route', REFERENCE_LIST, 'ProtocolRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute', 
+            _MetaInfoClassMember('protocol-route', REFERENCE_LIST, 'ProtocolRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute', 
                 [], [], 
                 '''                Route information of a specific Network Address
                 ''',
@@ -6921,8 +6921,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_',
             False, 
             [
             _MetaInfoClassMember('as', ATTRIBUTE, 'str' , None, None, 
@@ -6931,13 +6931,13 @@ _meta_table = {
                 ''',
                 'as_',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', True),
-            _MetaInfoClassMember('information', REFERENCE_CLASS, 'Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.Information', 
+            _MetaInfoClassMember('information', REFERENCE_CLASS, 'Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.Information', 
                 [], [], 
                 '''                Protocol related Information
                 ''',
                 'information',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
-            _MetaInfoClassMember('protocol-routes', REFERENCE_CLASS, 'ProtocolRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes', 
+            _MetaInfoClassMember('protocol-routes', REFERENCE_CLASS, 'ProtocolRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes', 
                 [], [], 
                 '''                Protocol specific Route
                 ''',
@@ -6954,7 +6954,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp',
             False, 
             [
-            _MetaInfoClassMember('as', REFERENCE_LIST, 'As' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As', 
+            _MetaInfoClassMember('as', REFERENCE_LIST, 'As_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_', 
                 [], [], 
                 '''                Autonomous System of protocol
                 ''',
@@ -6967,8 +6967,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.Information' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.Information',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.Information' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.Information',
             False, 
             [
             _MetaInfoClassMember('active-routes-count', ATTRIBUTE, 'int' , None, None, 
@@ -7047,8 +7047,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath',
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
@@ -7280,11 +7280,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath',
             False, 
             [
-            _MetaInfoClassMember('ipv6-rib-edm-path', REFERENCE_LIST, 'Ipv6RibEdmPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath', 
+            _MetaInfoClassMember('ipv6-rib-edm-path', REFERENCE_LIST, 'Ipv6RibEdmPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath', 
                 [], [], 
                 '''                ipv6 rib edm path
                 ''',
@@ -7297,8 +7297,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute',
             False, 
             [
             _MetaInfoClassMember('active', ATTRIBUTE, 'bool' , None, None, 
@@ -7457,7 +7457,7 @@ _meta_table = {
                 ''',
                 'route_modify_time',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
-            _MetaInfoClassMember('route-path', REFERENCE_CLASS, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath', 
+            _MetaInfoClassMember('route-path', REFERENCE_CLASS, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath', 
                 [], [], 
                 '''                Path(s) of the route
                 ''',
@@ -7518,11 +7518,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes',
             False, 
             [
-            _MetaInfoClassMember('protocol-route', REFERENCE_LIST, 'ProtocolRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute', 
+            _MetaInfoClassMember('protocol-route', REFERENCE_LIST, 'ProtocolRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute', 
                 [], [], 
                 '''                Route information of a specific Network Address
                 ''',
@@ -7535,8 +7535,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_',
             False, 
             [
             _MetaInfoClassMember('as', ATTRIBUTE, 'str' , None, None, 
@@ -7545,13 +7545,13 @@ _meta_table = {
                 ''',
                 'as_',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', True),
-            _MetaInfoClassMember('information', REFERENCE_CLASS, 'Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.Information', 
+            _MetaInfoClassMember('information', REFERENCE_CLASS, 'Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.Information', 
                 [], [], 
                 '''                Protocol related Information
                 ''',
                 'information',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
-            _MetaInfoClassMember('protocol-routes', REFERENCE_CLASS, 'ProtocolRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes', 
+            _MetaInfoClassMember('protocol-routes', REFERENCE_CLASS, 'ProtocolRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes', 
                 [], [], 
                 '''                Protocol specific Route
                 ''',
@@ -7568,7 +7568,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl',
             False, 
             [
-            _MetaInfoClassMember('as', REFERENCE_LIST, 'As' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As', 
+            _MetaInfoClassMember('as', REFERENCE_LIST, 'As_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_', 
                 [], [], 
                 '''                Autonomous System of protocol
                 ''',
@@ -9405,8 +9405,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.Information' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.Information',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.Information' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.Information',
             False, 
             [
             _MetaInfoClassMember('active-routes-count', ATTRIBUTE, 'int' , None, None, 
@@ -9485,8 +9485,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath',
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
@@ -9718,11 +9718,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath',
             False, 
             [
-            _MetaInfoClassMember('ipv6-rib-edm-path', REFERENCE_LIST, 'Ipv6RibEdmPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath', 
+            _MetaInfoClassMember('ipv6-rib-edm-path', REFERENCE_LIST, 'Ipv6RibEdmPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath', 
                 [], [], 
                 '''                ipv6 rib edm path
                 ''',
@@ -9735,8 +9735,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute',
             False, 
             [
             _MetaInfoClassMember('active', ATTRIBUTE, 'bool' , None, None, 
@@ -9895,7 +9895,7 @@ _meta_table = {
                 ''',
                 'route_modify_time',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
-            _MetaInfoClassMember('route-path', REFERENCE_CLASS, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath', 
+            _MetaInfoClassMember('route-path', REFERENCE_CLASS, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath', 
                 [], [], 
                 '''                Path(s) of the route
                 ''',
@@ -9956,11 +9956,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes',
             False, 
             [
-            _MetaInfoClassMember('protocol-route', REFERENCE_LIST, 'ProtocolRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute', 
+            _MetaInfoClassMember('protocol-route', REFERENCE_LIST, 'ProtocolRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute', 
                 [], [], 
                 '''                Route information of a specific Network Address
                 ''',
@@ -9973,8 +9973,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_',
             False, 
             [
             _MetaInfoClassMember('as', ATTRIBUTE, 'str' , None, None, 
@@ -9983,13 +9983,13 @@ _meta_table = {
                 ''',
                 'as_',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', True),
-            _MetaInfoClassMember('information', REFERENCE_CLASS, 'Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.Information', 
+            _MetaInfoClassMember('information', REFERENCE_CLASS, 'Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.Information', 
                 [], [], 
                 '''                Protocol related Information
                 ''',
                 'information',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
-            _MetaInfoClassMember('protocol-routes', REFERENCE_CLASS, 'ProtocolRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes', 
+            _MetaInfoClassMember('protocol-routes', REFERENCE_CLASS, 'ProtocolRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes', 
                 [], [], 
                 '''                Protocol specific Route
                 ''',
@@ -10006,7 +10006,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf',
             False, 
             [
-            _MetaInfoClassMember('as', REFERENCE_LIST, 'As' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As', 
+            _MetaInfoClassMember('as', REFERENCE_LIST, 'As_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_', 
                 [], [], 
                 '''                Autonomous System of protocol
                 ''',
@@ -11224,8 +11224,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.Information' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.Information',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.Information' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.Information',
             False, 
             [
             _MetaInfoClassMember('active-routes-count', ATTRIBUTE, 'int' , None, None, 
@@ -11304,8 +11304,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath',
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
@@ -11537,11 +11537,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath',
             False, 
             [
-            _MetaInfoClassMember('ipv6-rib-edm-path', REFERENCE_LIST, 'Ipv6RibEdmPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath', 
+            _MetaInfoClassMember('ipv6-rib-edm-path', REFERENCE_LIST, 'Ipv6RibEdmPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath', 
                 [], [], 
                 '''                ipv6 rib edm path
                 ''',
@@ -11554,8 +11554,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute',
             False, 
             [
             _MetaInfoClassMember('active', ATTRIBUTE, 'bool' , None, None, 
@@ -11714,7 +11714,7 @@ _meta_table = {
                 ''',
                 'route_modify_time',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
-            _MetaInfoClassMember('route-path', REFERENCE_CLASS, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath', 
+            _MetaInfoClassMember('route-path', REFERENCE_CLASS, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath', 
                 [], [], 
                 '''                Path(s) of the route
                 ''',
@@ -11775,11 +11775,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes',
             False, 
             [
-            _MetaInfoClassMember('protocol-route', REFERENCE_LIST, 'ProtocolRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute', 
+            _MetaInfoClassMember('protocol-route', REFERENCE_LIST, 'ProtocolRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute', 
                 [], [], 
                 '''                Route information of a specific Network Address
                 ''',
@@ -11792,8 +11792,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As' : {
-        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As',
+    'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_' : {
+        'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_',
             False, 
             [
             _MetaInfoClassMember('as', ATTRIBUTE, 'str' , None, None, 
@@ -11802,13 +11802,13 @@ _meta_table = {
                 ''',
                 'as_',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', True),
-            _MetaInfoClassMember('information', REFERENCE_CLASS, 'Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.Information', 
+            _MetaInfoClassMember('information', REFERENCE_CLASS, 'Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.Information', 
                 [], [], 
                 '''                Protocol related Information
                 ''',
                 'information',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
-            _MetaInfoClassMember('protocol-routes', REFERENCE_CLASS, 'ProtocolRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes', 
+            _MetaInfoClassMember('protocol-routes', REFERENCE_CLASS, 'ProtocolRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes', 
                 [], [], 
                 '''                Protocol specific Route
                 ''',
@@ -11825,7 +11825,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis',
             False, 
             [
-            _MetaInfoClassMember('as', REFERENCE_LIST, 'As' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As', 
+            _MetaInfoClassMember('as', REFERENCE_LIST, 'As_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_', 
                 [], [], 
                 '''                Autonomous System of protocol
                 ''',
@@ -18738,8 +18738,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.Information' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.Information',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.Information' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.Information',
             False, 
             [
             _MetaInfoClassMember('active-routes-count', ATTRIBUTE, 'int' , None, None, 
@@ -18818,8 +18818,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath',
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
@@ -19051,11 +19051,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath',
             False, 
             [
-            _MetaInfoClassMember('ipv6-rib-edm-path', REFERENCE_LIST, 'Ipv6RibEdmPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath', 
+            _MetaInfoClassMember('ipv6-rib-edm-path', REFERENCE_LIST, 'Ipv6RibEdmPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath', 
                 [], [], 
                 '''                ipv6 rib edm path
                 ''',
@@ -19068,8 +19068,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute',
             False, 
             [
             _MetaInfoClassMember('active', ATTRIBUTE, 'bool' , None, None, 
@@ -19228,7 +19228,7 @@ _meta_table = {
                 ''',
                 'route_modify_time',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
-            _MetaInfoClassMember('route-path', REFERENCE_CLASS, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath', 
+            _MetaInfoClassMember('route-path', REFERENCE_CLASS, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath', 
                 [], [], 
                 '''                Path(s) of the route
                 ''',
@@ -19289,11 +19289,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes',
             False, 
             [
-            _MetaInfoClassMember('protocol-route', REFERENCE_LIST, 'ProtocolRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute', 
+            _MetaInfoClassMember('protocol-route', REFERENCE_LIST, 'ProtocolRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute', 
                 [], [], 
                 '''                Route information of a specific Network Address
                 ''',
@@ -19306,8 +19306,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_',
             False, 
             [
             _MetaInfoClassMember('as', ATTRIBUTE, 'str' , None, None, 
@@ -19316,13 +19316,13 @@ _meta_table = {
                 ''',
                 'as_',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', True),
-            _MetaInfoClassMember('information', REFERENCE_CLASS, 'Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.Information', 
+            _MetaInfoClassMember('information', REFERENCE_CLASS, 'Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.Information', 
                 [], [], 
                 '''                Protocol related Information
                 ''',
                 'information',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
-            _MetaInfoClassMember('protocol-routes', REFERENCE_CLASS, 'ProtocolRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes', 
+            _MetaInfoClassMember('protocol-routes', REFERENCE_CLASS, 'ProtocolRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes', 
                 [], [], 
                 '''                Protocol specific Route
                 ''',
@@ -19339,7 +19339,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp',
             False, 
             [
-            _MetaInfoClassMember('as', REFERENCE_LIST, 'As' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As', 
+            _MetaInfoClassMember('as', REFERENCE_LIST, 'As_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_', 
                 [], [], 
                 '''                Autonomous System of protocol
                 ''',
@@ -19960,8 +19960,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.Information' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.Information',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.Information' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.Information',
             False, 
             [
             _MetaInfoClassMember('active-routes-count', ATTRIBUTE, 'int' , None, None, 
@@ -20040,8 +20040,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath',
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
@@ -20273,11 +20273,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath',
             False, 
             [
-            _MetaInfoClassMember('ipv6-rib-edm-path', REFERENCE_LIST, 'Ipv6RibEdmPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath', 
+            _MetaInfoClassMember('ipv6-rib-edm-path', REFERENCE_LIST, 'Ipv6RibEdmPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath', 
                 [], [], 
                 '''                ipv6 rib edm path
                 ''',
@@ -20290,8 +20290,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute',
             False, 
             [
             _MetaInfoClassMember('active', ATTRIBUTE, 'bool' , None, None, 
@@ -20450,7 +20450,7 @@ _meta_table = {
                 ''',
                 'route_modify_time',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
-            _MetaInfoClassMember('route-path', REFERENCE_CLASS, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath', 
+            _MetaInfoClassMember('route-path', REFERENCE_CLASS, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath', 
                 [], [], 
                 '''                Path(s) of the route
                 ''',
@@ -20511,11 +20511,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes',
             False, 
             [
-            _MetaInfoClassMember('protocol-route', REFERENCE_LIST, 'ProtocolRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute', 
+            _MetaInfoClassMember('protocol-route', REFERENCE_LIST, 'ProtocolRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute', 
                 [], [], 
                 '''                Route information of a specific Network Address
                 ''',
@@ -20528,8 +20528,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_',
             False, 
             [
             _MetaInfoClassMember('as', ATTRIBUTE, 'str' , None, None, 
@@ -20538,13 +20538,13 @@ _meta_table = {
                 ''',
                 'as_',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', True),
-            _MetaInfoClassMember('information', REFERENCE_CLASS, 'Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.Information', 
+            _MetaInfoClassMember('information', REFERENCE_CLASS, 'Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.Information', 
                 [], [], 
                 '''                Protocol related Information
                 ''',
                 'information',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
-            _MetaInfoClassMember('protocol-routes', REFERENCE_CLASS, 'ProtocolRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes', 
+            _MetaInfoClassMember('protocol-routes', REFERENCE_CLASS, 'ProtocolRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes', 
                 [], [], 
                 '''                Protocol specific Route
                 ''',
@@ -20561,7 +20561,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp',
             False, 
             [
-            _MetaInfoClassMember('as', REFERENCE_LIST, 'As' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As', 
+            _MetaInfoClassMember('as', REFERENCE_LIST, 'As_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_', 
                 [], [], 
                 '''                Autonomous System of protocol
                 ''',
@@ -20574,8 +20574,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.Information' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.Information',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.Information' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.Information',
             False, 
             [
             _MetaInfoClassMember('active-routes-count', ATTRIBUTE, 'int' , None, None, 
@@ -20654,8 +20654,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath',
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
@@ -20887,11 +20887,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath',
             False, 
             [
-            _MetaInfoClassMember('ipv6-rib-edm-path', REFERENCE_LIST, 'Ipv6RibEdmPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath', 
+            _MetaInfoClassMember('ipv6-rib-edm-path', REFERENCE_LIST, 'Ipv6RibEdmPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath', 
                 [], [], 
                 '''                ipv6 rib edm path
                 ''',
@@ -20904,8 +20904,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute',
             False, 
             [
             _MetaInfoClassMember('active', ATTRIBUTE, 'bool' , None, None, 
@@ -21064,7 +21064,7 @@ _meta_table = {
                 ''',
                 'route_modify_time',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
-            _MetaInfoClassMember('route-path', REFERENCE_CLASS, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath', 
+            _MetaInfoClassMember('route-path', REFERENCE_CLASS, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath', 
                 [], [], 
                 '''                Path(s) of the route
                 ''',
@@ -21125,11 +21125,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes',
             False, 
             [
-            _MetaInfoClassMember('protocol-route', REFERENCE_LIST, 'ProtocolRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute', 
+            _MetaInfoClassMember('protocol-route', REFERENCE_LIST, 'ProtocolRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute', 
                 [], [], 
                 '''                Route information of a specific Network Address
                 ''',
@@ -21142,8 +21142,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_',
             False, 
             [
             _MetaInfoClassMember('as', ATTRIBUTE, 'str' , None, None, 
@@ -21152,13 +21152,13 @@ _meta_table = {
                 ''',
                 'as_',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', True),
-            _MetaInfoClassMember('information', REFERENCE_CLASS, 'Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.Information', 
+            _MetaInfoClassMember('information', REFERENCE_CLASS, 'Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.Information', 
                 [], [], 
                 '''                Protocol related Information
                 ''',
                 'information',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
-            _MetaInfoClassMember('protocol-routes', REFERENCE_CLASS, 'ProtocolRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes', 
+            _MetaInfoClassMember('protocol-routes', REFERENCE_CLASS, 'ProtocolRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes', 
                 [], [], 
                 '''                Protocol specific Route
                 ''',
@@ -21175,7 +21175,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl',
             False, 
             [
-            _MetaInfoClassMember('as', REFERENCE_LIST, 'As' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As', 
+            _MetaInfoClassMember('as', REFERENCE_LIST, 'As_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_', 
                 [], [], 
                 '''                Autonomous System of protocol
                 ''',
@@ -23012,8 +23012,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.Information' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.Information',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.Information' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.Information',
             False, 
             [
             _MetaInfoClassMember('active-routes-count', ATTRIBUTE, 'int' , None, None, 
@@ -23092,8 +23092,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath',
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
@@ -23325,11 +23325,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath',
             False, 
             [
-            _MetaInfoClassMember('ipv6-rib-edm-path', REFERENCE_LIST, 'Ipv6RibEdmPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath', 
+            _MetaInfoClassMember('ipv6-rib-edm-path', REFERENCE_LIST, 'Ipv6RibEdmPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath', 
                 [], [], 
                 '''                ipv6 rib edm path
                 ''',
@@ -23342,8 +23342,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute',
             False, 
             [
             _MetaInfoClassMember('active', ATTRIBUTE, 'bool' , None, None, 
@@ -23502,7 +23502,7 @@ _meta_table = {
                 ''',
                 'route_modify_time',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
-            _MetaInfoClassMember('route-path', REFERENCE_CLASS, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath', 
+            _MetaInfoClassMember('route-path', REFERENCE_CLASS, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath', 
                 [], [], 
                 '''                Path(s) of the route
                 ''',
@@ -23563,11 +23563,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes',
             False, 
             [
-            _MetaInfoClassMember('protocol-route', REFERENCE_LIST, 'ProtocolRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute', 
+            _MetaInfoClassMember('protocol-route', REFERENCE_LIST, 'ProtocolRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute', 
                 [], [], 
                 '''                Route information of a specific Network Address
                 ''',
@@ -23580,8 +23580,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_',
             False, 
             [
             _MetaInfoClassMember('as', ATTRIBUTE, 'str' , None, None, 
@@ -23590,13 +23590,13 @@ _meta_table = {
                 ''',
                 'as_',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', True),
-            _MetaInfoClassMember('information', REFERENCE_CLASS, 'Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.Information', 
+            _MetaInfoClassMember('information', REFERENCE_CLASS, 'Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.Information', 
                 [], [], 
                 '''                Protocol related Information
                 ''',
                 'information',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
-            _MetaInfoClassMember('protocol-routes', REFERENCE_CLASS, 'ProtocolRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes', 
+            _MetaInfoClassMember('protocol-routes', REFERENCE_CLASS, 'ProtocolRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes', 
                 [], [], 
                 '''                Protocol specific Route
                 ''',
@@ -23613,7 +23613,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf',
             False, 
             [
-            _MetaInfoClassMember('as', REFERENCE_LIST, 'As' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As', 
+            _MetaInfoClassMember('as', REFERENCE_LIST, 'As_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_', 
                 [], [], 
                 '''                Autonomous System of protocol
                 ''',
@@ -24831,8 +24831,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.Information' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.Information',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.Information' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.Information',
             False, 
             [
             _MetaInfoClassMember('active-routes-count', ATTRIBUTE, 'int' , None, None, 
@@ -24911,8 +24911,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath',
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
@@ -25144,11 +25144,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath',
             False, 
             [
-            _MetaInfoClassMember('ipv6-rib-edm-path', REFERENCE_LIST, 'Ipv6RibEdmPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath', 
+            _MetaInfoClassMember('ipv6-rib-edm-path', REFERENCE_LIST, 'Ipv6RibEdmPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath', 
                 [], [], 
                 '''                ipv6 rib edm path
                 ''',
@@ -25161,8 +25161,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute',
             False, 
             [
             _MetaInfoClassMember('active', ATTRIBUTE, 'bool' , None, None, 
@@ -25321,7 +25321,7 @@ _meta_table = {
                 ''',
                 'route_modify_time',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
-            _MetaInfoClassMember('route-path', REFERENCE_CLASS, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath', 
+            _MetaInfoClassMember('route-path', REFERENCE_CLASS, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath', 
                 [], [], 
                 '''                Path(s) of the route
                 ''',
@@ -25382,11 +25382,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes',
             False, 
             [
-            _MetaInfoClassMember('protocol-route', REFERENCE_LIST, 'ProtocolRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute', 
+            _MetaInfoClassMember('protocol-route', REFERENCE_LIST, 'ProtocolRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute', 
                 [], [], 
                 '''                Route information of a specific Network Address
                 ''',
@@ -25399,8 +25399,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper'
         ),
     },
-    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As' : {
-        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As',
+    'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_' : {
+        'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_',
             False, 
             [
             _MetaInfoClassMember('as', ATTRIBUTE, 'str' , None, None, 
@@ -25409,13 +25409,13 @@ _meta_table = {
                 ''',
                 'as_',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', True),
-            _MetaInfoClassMember('information', REFERENCE_CLASS, 'Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.Information', 
+            _MetaInfoClassMember('information', REFERENCE_CLASS, 'Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.Information', 
                 [], [], 
                 '''                Protocol related Information
                 ''',
                 'information',
                 'Cisco-IOS-XR-ip-rib-ipv6-oper', False),
-            _MetaInfoClassMember('protocol-routes', REFERENCE_CLASS, 'ProtocolRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes', 
+            _MetaInfoClassMember('protocol-routes', REFERENCE_CLASS, 'ProtocolRoutes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes', 
                 [], [], 
                 '''                Protocol specific Route
                 ''',
@@ -25432,7 +25432,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis',
             False, 
             [
-            _MetaInfoClassMember('as', REFERENCE_LIST, 'As' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As', 
+            _MetaInfoClassMember('as', REFERENCE_LIST, 'As_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_ipv6_oper', 'Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_', 
                 [], [], 
                 '''                Autonomous System of protocol
                 ''',
@@ -27288,30 +27288,30 @@ _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTab
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs']['meta_info']
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local']['meta_info']
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.Information']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.Information']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp']['meta_info']
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes.ProtocolRoute']['meta_info']
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes']['meta_info']
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.Information']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs']['meta_info']
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs']['meta_info']
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.Information']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.Information']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.Information']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.Information']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl']['meta_info']
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes.ProtocolRoute']['meta_info']
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes']['meta_info']
@@ -27330,12 +27330,12 @@ _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTab
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.Information']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs']['meta_info']
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs']['meta_info']
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.Information']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.Information']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf']['meta_info']
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute']['meta_info']
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes']['meta_info']
@@ -27348,12 +27348,12 @@ _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTab
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs']['meta_info']
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected']['meta_info']
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.Information']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As']['meta_info']
-_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.Information']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_']['meta_info']
+_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis']['meta_info']
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol']['meta_info']
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol']['meta_info']
 _meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile']['meta_info'].parent =_meta_table['Ipv6Rib.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol']['meta_info']
@@ -27449,30 +27449,30 @@ _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRou
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs']['meta_info']
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.Lspv']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local']['meta_info']
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local.NonAs']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.Information']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.Information']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp.As_']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp']['meta_info']
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes.ProtocolRoute']['meta_info']
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes']['meta_info']
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.Information']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs']['meta_info']
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs']['meta_info']
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile.NonAs']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.Information']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.Information']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.Information']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp.As_']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Eigrp']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.Information']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl.As_']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Rpl']['meta_info']
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes.ProtocolRoute']['meta_info']
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Static.NonAs.ProtocolRoutes']['meta_info']
@@ -27491,12 +27491,12 @@ _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRou
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.Information']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs']['meta_info']
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs']['meta_info']
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber.NonAs']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Subscriber']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.Information']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.Information']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf.As_']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Ospf']['meta_info']
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute']['meta_info']
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn.ProtocolRoutes']['meta_info']
@@ -27509,12 +27509,12 @@ _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRou
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs']['meta_info']
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.L2Vpn']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected']['meta_info']
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected.NonAs']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Connected']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.Information']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As']['meta_info']
-_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath.Ipv6RibEdmPath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute.RoutePath']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes.ProtocolRoute']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.Information']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_.ProtocolRoutes']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_']['meta_info']
+_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis.As_']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Isis']['meta_info']
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Local']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol']['meta_info']
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Bgp']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol']['meta_info']
 _meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol.Mobile']['meta_info'].parent =_meta_table['Ipv6RibStdby.Vrfs.Vrf.Afs.Af.Safs.Saf.IpRibRouteTableNames.IpRibRouteTableName.Protocol']['meta_info']

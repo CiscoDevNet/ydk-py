@@ -236,7 +236,7 @@ def _validate_number(meta, value, parent, errors):
     return value
 
 def _handle_error(meta, parent, errors, errmsg=None, errcode=None):
-    services_logger = logging.getLogger('ydk.providers.NetconfServiceProvider')
+    services_logger = logging.getLogger(__name__)
     path = '%s.%s' % (parent.i_meta.name, meta.presentation_name)
 
     if errcode is None:

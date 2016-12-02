@@ -16,15 +16,15 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'AtmVpiBitsModeEnum' : _MetaInfoEnum('AtmVpiBitsModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_cfg',
         {
-            'twelve':'TWELVE',
+            'twelve':'twelve',
         }, 'Cisco-IOS-XR-atm-vcm-cfg', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-cfg']),
     'AtmPvcTestModeEnum' : _MetaInfoEnum('AtmPvcTestModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_cfg',
         {
-            'loop':'LOOP',
-            'reserved':'RESERVED',
+            'loop':'loop',
+            'reserved':'reserved',
         }, 'Cisco-IOS-XR-atm-vcm-cfg', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-cfg']),
     'AtmPvpTestModeEnum' : _MetaInfoEnum('AtmPvpTestModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_cfg',
         {
-            'loop':'LOOP',
+            'loop':'loop',
         }, 'Cisco-IOS-XR-atm-vcm-cfg', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-cfg']),
 }

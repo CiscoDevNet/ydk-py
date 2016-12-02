@@ -16,19 +16,13 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'ProtoTypeEnum' : _MetaInfoEnum('ProtoTypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg',
         {
-            'grpc':'GRPC',
-            'tcp':'TCP',
+            'grpc':'grpc',
+            'tcp':'tcp',
         }, 'Cisco-IOS-XR-telemetry-model-driven-cfg', _yang_ns._namespaces['Cisco-IOS-XR-telemetry-model-driven-cfg']),
     'EncodeTypeEnum' : _MetaInfoEnum('EncodeTypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg',
         {
-            'gpb':'GPB',
-            'self-describing-gpb':'SELF_DESCRIBING_GPB',
-            'json':'JSON',
-        }, 'Cisco-IOS-XR-telemetry-model-driven-cfg', _yang_ns._namespaces['Cisco-IOS-XR-telemetry-model-driven-cfg']),
-    'AfEnum' : _MetaInfoEnum('AfEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg',
-        {
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
+            'gpb':'gpb',
+            'self-describing-gpb':'self_describing_gpb',
         }, 'Cisco-IOS-XR-telemetry-model-driven-cfg', _yang_ns._namespaces['Cisco-IOS-XR-telemetry-model-driven-cfg']),
     'TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths.SensorPath' : {
         'meta_info' : _MetaInfoClass('TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths.SensorPath',
@@ -74,12 +68,6 @@ _meta_table = {
                 ''',
                 'sensor_group_identifier',
                 'Cisco-IOS-XR-telemetry-model-driven-cfg', True),
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable Sensor Group
-                ''',
-                'enable',
-                'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
             _MetaInfoClassMember('sensor-paths', REFERENCE_CLASS, 'SensorPaths' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths', 
                 [], [], 
                 '''                Sensor path configuration
@@ -110,35 +98,6 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg'
         ),
     },
-    'TelemetryModelDriven.Subscriptions.Subscription.SourceAddress' : {
-        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Subscriptions.Subscription.SourceAddress',
-            False, 
-            [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'AfEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'AfEnum', 
-                [], [], 
-                '''                Address Family type, IPv4|IPv6
-                ''',
-                'address_family',
-                'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
-            _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Source IPv4 address
-                ''',
-                'ip_address',
-                'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
-            _MetaInfoClassMember('ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                IPV6 address of the Source
-                ''',
-                'ipv6_address',
-                'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
-            ],
-            'Cisco-IOS-XR-telemetry-model-driven-cfg',
-            'source-address',
-            _yang_ns._namespaces['Cisco-IOS-XR-telemetry-model-driven-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg'
-        ),
-    },
     'TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles.SensorProfile' : {
         'meta_info' : _MetaInfoClass('TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles.SensorProfile',
             False, 
@@ -149,23 +108,11 @@ _meta_table = {
                 ''',
                 'sensorgroupid',
                 'Cisco-IOS-XR-telemetry-model-driven-cfg', True),
-            _MetaInfoClassMember('heartbeat-interval', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Heartbeat interval in Seconds
-                ''',
-                'heartbeat_interval',
-                'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
             _MetaInfoClassMember('sample-interval', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Sample interval in milliseconds
                 ''',
                 'sample_interval',
-                'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
-            _MetaInfoClassMember('supress-redundant', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Supress Redundant updates
-                ''',
-                'supress_redundant',
                 'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
             ],
             'Cisco-IOS-XR-telemetry-model-driven-cfg',
@@ -202,12 +149,6 @@ _meta_table = {
                 ''',
                 'destination_id',
                 'Cisco-IOS-XR-telemetry-model-driven-cfg', True),
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Associate destintion id with Subscription
-                ''',
-                'enable',
-                'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
             ],
             'Cisco-IOS-XR-telemetry-model-driven-cfg',
             'destination-profile',
@@ -254,19 +195,6 @@ _meta_table = {
                 ''',
                 'sensor_profiles',
                 'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
-            _MetaInfoClassMember('source-address', REFERENCE_CLASS, 'SourceAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'TelemetryModelDriven.Subscriptions.Subscription.SourceAddress', 
-                [], [], 
-                '''                Source address to use for streaming telemetry
-                information
-                ''',
-                'source_address',
-                'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
-            _MetaInfoClassMember('source-qos-marking', ATTRIBUTE, 'int' , None, None, 
-                [('10', '300')], [], 
-                '''                Outgoing DSCP value
-                ''',
-                'source_qos_marking',
-                'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
             ],
             'Cisco-IOS-XR-telemetry-model-driven-cfg',
             'subscription',
@@ -291,8 +219,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg'
         ),
     },
-    'TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv4.Protocol' : {
-        'meta_info' : _MetaInfoClass('TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv4.Protocol',
+    'TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination.Protocol' : {
+        'meta_info' : _MetaInfoClass('TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination.Protocol',
             False, 
             [
             _MetaInfoClassMember('no-tls', ATTRIBUTE, 'int' , None, None, 
@@ -320,87 +248,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg'
         ),
     },
-    'TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv4' : {
-        'meta_info' : _MetaInfoClass('TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv4',
-            False, 
-            [
-            _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [('1', '65535')], [], 
-                '''                destination port
-                ''',
-                'destination_port',
-                'Cisco-IOS-XR-telemetry-model-driven-cfg', True),
-            _MetaInfoClassMember('ipv4-address', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Destination IPv4 address
-                ''',
-                'ipv4_address',
-                'Cisco-IOS-XR-telemetry-model-driven-cfg', True, [
-                    _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        Destination IPv4 address
-                        ''',
-                        'ipv4_address',
-                        'Cisco-IOS-XR-telemetry-model-driven-cfg', True),
-                    _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        Destination IPv4 address
-                        ''',
-                        'ipv4_address',
-                        'Cisco-IOS-XR-telemetry-model-driven-cfg', True),
-                ]),
-            _MetaInfoClassMember('encoding', REFERENCE_ENUM_CLASS, 'EncodeTypeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'EncodeTypeEnum', 
-                [], [], 
-                '''                Encoding used to transmit telemetry data to
-                the collector
-                ''',
-                'encoding',
-                'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
-            _MetaInfoClassMember('protocol', REFERENCE_CLASS, 'Protocol' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv4.Protocol', 
-                [], [], 
-                '''                Transport Protocol used to transmit
-                telemetry data to the collector
-                ''',
-                'protocol',
-                'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
-            ],
-            'Cisco-IOS-XR-telemetry-model-driven-cfg',
-            'ipv4',
-            _yang_ns._namespaces['Cisco-IOS-XR-telemetry-model-driven-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg'
-        ),
-    },
-    'TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv6.Protocol' : {
-        'meta_info' : _MetaInfoClass('TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv6.Protocol',
-            False, 
-            [
-            _MetaInfoClassMember('no-tls', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                no tls
-                ''',
-                'no_tls',
-                'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
-            _MetaInfoClassMember('protocol', REFERENCE_ENUM_CLASS, 'ProtoTypeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'ProtoTypeEnum', 
-                [], [], 
-                '''                protocol
-                ''',
-                'protocol',
-                'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
-            _MetaInfoClassMember('tls-hostname', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                tls hostname
-                ''',
-                'tls_hostname',
-                'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
-            ],
-            'Cisco-IOS-XR-telemetry-model-driven-cfg',
-            'protocol',
-            _yang_ns._namespaces['Cisco-IOS-XR-telemetry-model-driven-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg'
-        ),
-    },
-    'TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv6' : {
-        'meta_info' : _MetaInfoClass('TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv6',
+    'TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination' : {
+        'meta_info' : _MetaInfoClass('TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination',
             False, 
             [
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
@@ -410,74 +259,128 @@ _meta_table = {
                 'destination_port',
                 'Cisco-IOS-XR-telemetry-model-driven-cfg', True),
             _MetaInfoClassMember('ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                IPV6 address of the destination
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                Destination IPv6 address
                 ''',
                 'ipv6_address',
                 'Cisco-IOS-XR-telemetry-model-driven-cfg', True),
             _MetaInfoClassMember('encoding', REFERENCE_ENUM_CLASS, 'EncodeTypeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'EncodeTypeEnum', 
                 [], [], 
-                '''                Encoding used to transmit telemetry data to
-                the collector
+                '''                Encoding used to transmit telemetry data to the
+                collector
                 ''',
                 'encoding',
                 'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
-            _MetaInfoClassMember('protocol', REFERENCE_CLASS, 'Protocol' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv6.Protocol', 
+            _MetaInfoClassMember('protocol', REFERENCE_CLASS, 'Protocol' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination.Protocol', 
                 [], [], 
-                '''                Transport Protocol used to transmit
-                telemetry data to the collector
+                '''                Transport Protocol used to transmit telemetry
+                data to the collector
                 ''',
                 'protocol',
                 'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
             ],
             'Cisco-IOS-XR-telemetry-model-driven-cfg',
-            'ipv6',
+            'ipv6-destination',
             _yang_ns._namespaces['Cisco-IOS-XR-telemetry-model-driven-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg'
         ),
     },
-    'TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination' : {
-        'meta_info' : _MetaInfoClass('TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination',
+    'TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations' : {
+        'meta_info' : _MetaInfoClass('TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations',
             False, 
             [
-            _MetaInfoClassMember('address-family', REFERENCE_ENUM_CLASS, 'AfEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'AfEnum', 
+            _MetaInfoClassMember('ipv6-destination', REFERENCE_LIST, 'Ipv6Destination' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination', 
                 [], [], 
-                '''                Address Family type, IPv4|IPv6
+                '''                destination IP address
                 ''',
-                'address_family',
+                'ipv6_destination',
+                'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
+            ],
+            'Cisco-IOS-XR-telemetry-model-driven-cfg',
+            'ipv6-destinations',
+            _yang_ns._namespaces['Cisco-IOS-XR-telemetry-model-driven-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg'
+        ),
+    },
+    'TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination.Protocol' : {
+        'meta_info' : _MetaInfoClass('TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination.Protocol',
+            False, 
+            [
+            _MetaInfoClassMember('no-tls', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                no tls
+                ''',
+                'no_tls',
+                'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
+            _MetaInfoClassMember('protocol', REFERENCE_ENUM_CLASS, 'ProtoTypeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'ProtoTypeEnum', 
+                [], [], 
+                '''                protocol
+                ''',
+                'protocol',
+                'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
+            _MetaInfoClassMember('tls-hostname', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                tls hostname
+                ''',
+                'tls_hostname',
+                'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
+            ],
+            'Cisco-IOS-XR-telemetry-model-driven-cfg',
+            'protocol',
+            _yang_ns._namespaces['Cisco-IOS-XR-telemetry-model-driven-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg'
+        ),
+    },
+    'TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination' : {
+        'meta_info' : _MetaInfoClass('TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination',
+            False, 
+            [
+            _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
+                [('1', '65535')], [], 
+                '''                destination port
+                ''',
+                'destination_port',
                 'Cisco-IOS-XR-telemetry-model-driven-cfg', True),
-            _MetaInfoClassMember('ipv4', REFERENCE_LIST, 'Ipv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv4', 
-                [], [], 
-                '''                ipv4
+            _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Destination IPv4 address
                 ''',
-                'ipv4',
+                'ipv4_address',
+                'Cisco-IOS-XR-telemetry-model-driven-cfg', True),
+            _MetaInfoClassMember('encoding', REFERENCE_ENUM_CLASS, 'EncodeTypeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'EncodeTypeEnum', 
+                [], [], 
+                '''                Encoding used to transmit telemetry data to the
+                collector
+                ''',
+                'encoding',
                 'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
-            _MetaInfoClassMember('ipv6', REFERENCE_LIST, 'Ipv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv6', 
+            _MetaInfoClassMember('protocol', REFERENCE_CLASS, 'Protocol' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination.Protocol', 
                 [], [], 
-                '''                ipv6
+                '''                Transport Protocol used to transmit telemetry
+                data to the collector
                 ''',
-                'ipv6',
+                'protocol',
                 'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
             ],
             'Cisco-IOS-XR-telemetry-model-driven-cfg',
-            'destination',
+            'ipv4-destination',
             _yang_ns._namespaces['Cisco-IOS-XR-telemetry-model-driven-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg'
         ),
     },
-    'TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations' : {
-        'meta_info' : _MetaInfoClass('TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations',
+    'TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations' : {
+        'meta_info' : _MetaInfoClass('TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations',
             False, 
             [
-            _MetaInfoClassMember('destination', REFERENCE_LIST, 'Destination' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination', 
+            _MetaInfoClassMember('ipv4-destination', REFERENCE_LIST, 'Ipv4Destination' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination', 
                 [], [], 
-                '''                Destination address configuration
+                '''                destination IP address
                 ''',
-                'destination',
+                'ipv4_destination',
                 'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
             ],
             'Cisco-IOS-XR-telemetry-model-driven-cfg',
-            'destinations',
+            'ipv4-destinations',
             _yang_ns._namespaces['Cisco-IOS-XR-telemetry-model-driven-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg'
         ),
@@ -492,11 +395,17 @@ _meta_table = {
                 ''',
                 'destination_id',
                 'Cisco-IOS-XR-telemetry-model-driven-cfg', True),
-            _MetaInfoClassMember('destinations', REFERENCE_CLASS, 'Destinations' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations', 
+            _MetaInfoClassMember('ipv4-destinations', REFERENCE_CLASS, 'Ipv4Destinations' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations', 
                 [], [], 
-                '''                Destination configuration
+                '''                Destination address configuration
                 ''',
-                'destinations',
+                'ipv4_destinations',
+                'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
+            _MetaInfoClassMember('ipv6-destinations', REFERENCE_CLASS, 'Ipv6Destinations' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations', 
+                [], [], 
+                '''                Destination address configuration
+                ''',
+                'ipv6_destinations',
                 'Cisco-IOS-XR-telemetry-model-driven-cfg', False),
             ],
             'Cisco-IOS-XR-telemetry-model-driven-cfg',
@@ -563,16 +472,15 @@ _meta_table['TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths']['meta_i
 _meta_table['TelemetryModelDriven.SensorGroups.SensorGroup']['meta_info'].parent =_meta_table['TelemetryModelDriven.SensorGroups']['meta_info']
 _meta_table['TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles.SensorProfile']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles']['meta_info']
 _meta_table['TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles.DestinationProfile']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles']['meta_info']
-_meta_table['TelemetryModelDriven.Subscriptions.Subscription.SourceAddress']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions.Subscription']['meta_info']
 _meta_table['TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions.Subscription']['meta_info']
 _meta_table['TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions.Subscription']['meta_info']
 _meta_table['TelemetryModelDriven.Subscriptions.Subscription']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions']['meta_info']
-_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv4.Protocol']['meta_info'].parent =_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv4']['meta_info']
-_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv6.Protocol']['meta_info'].parent =_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv6']['meta_info']
-_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv4']['meta_info'].parent =_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination']['meta_info']
-_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv6']['meta_info'].parent =_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination']['meta_info']
-_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination']['meta_info'].parent =_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations']['meta_info']
-_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations']['meta_info'].parent =_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup']['meta_info']
+_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination.Protocol']['meta_info'].parent =_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination']['meta_info']
+_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination']['meta_info'].parent =_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations']['meta_info']
+_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination.Protocol']['meta_info'].parent =_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination']['meta_info']
+_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination']['meta_info'].parent =_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations']['meta_info']
+_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations']['meta_info'].parent =_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup']['meta_info']
+_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations']['meta_info'].parent =_meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup']['meta_info']
 _meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup']['meta_info'].parent =_meta_table['TelemetryModelDriven.DestinationGroups']['meta_info']
 _meta_table['TelemetryModelDriven.SensorGroups']['meta_info'].parent =_meta_table['TelemetryModelDriven']['meta_info']
 _meta_table['TelemetryModelDriven.Subscriptions']['meta_info'].parent =_meta_table['TelemetryModelDriven']['meta_info']

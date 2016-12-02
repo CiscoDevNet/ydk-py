@@ -16,25 +16,25 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'MplsStaticOutLabelTypesEnum' : _MetaInfoEnum('MplsStaticOutLabelTypesEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg',
         {
-            'none':'NONE',
-            'out-label':'OUT_LABEL',
-            'pop':'POP',
-            'exp-null':'EXP_NULL',
+            'none':'none',
+            'out-label':'out_label',
+            'pop':'pop',
+            'exp-null':'exp_null',
         }, 'Cisco-IOS-XR-mpls-static-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-cfg']),
     'MplsStaticLabelModeEnum' : _MetaInfoEnum('MplsStaticLabelModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg',
         {
-            'per-vrf':'PER_VRF',
-            'per-prefix':'PER_PREFIX',
-            'lsp':'LSP',
+            'per-vrf':'per_vrf',
+            'per-prefix':'per_prefix',
+            'lsp':'lsp',
         }, 'Cisco-IOS-XR-mpls-static-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-cfg']),
     'MplsStaticPathEnum' : _MetaInfoEnum('MplsStaticPathEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg',
         {
-            'pop-and-lookup':'POP_AND_LOOKUP',
-            'cross-connect':'CROSS_CONNECT',
+            'pop-and-lookup':'pop_and_lookup',
+            'cross-connect':'cross_connect',
         }, 'Cisco-IOS-XR-mpls-static-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-cfg']),
     'MplsStaticAddressFamilyEnum' : _MetaInfoEnum('MplsStaticAddressFamilyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg',
         {
-            'ipv4-unicast':'IPV4_UNICAST',
+            'ipv4-unicast':'ipv4_unicast',
         }, 'Cisco-IOS-XR-mpls-static-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-cfg']),
     'MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel' : {
         'meta_info' : _MetaInfoClass('MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel',

@@ -35,31 +35,31 @@ class SpanDestinationEnum(Enum):
 
     Span destination
 
-    .. data:: INTERFACE = 0
+    .. data:: interface = 0
 
     	Destination Interface
 
-    .. data:: PSEUDOWIRE = 1
+    .. data:: pseudowire = 1
 
     	Destination Pseudowire
 
-    .. data:: IPV4_ADDRESS = 2
+    .. data:: ipv4_address = 2
 
     	Destination next-hop IPv4 address
 
-    .. data:: IPV6_ADDRESS = 3
+    .. data:: ipv6_address = 3
 
     	Destination next-hop IPv6 address
 
     """
 
-    INTERFACE = 0
+    interface = 0
 
-    PSEUDOWIRE = 1
+    pseudowire = 1
 
-    IPV4_ADDRESS = 2
+    ipv4_address = 2
 
-    IPV6_ADDRESS = 3
+    ipv6_address = 3
 
 
     @staticmethod
@@ -78,23 +78,23 @@ class SpanMirrorIntervalEnum(Enum):
 
     	Mirror 1 in every 512 packets
 
-    .. data:: Y_1K = 2
+    .. data:: Y_1k = 2
 
     	Mirror 1 in every 1024 packets
 
-    .. data:: Y_2K = 3
+    .. data:: Y_2k = 3
 
     	Mirror 1 in every 2048 packets
 
-    .. data:: Y_4K = 4
+    .. data:: Y_4k = 4
 
     	Mirror 1 in every 4096 packets
 
-    .. data:: Y_8K = 5
+    .. data:: Y_8k = 5
 
     	Mirror 1 in every 8192 packets
 
-    .. data:: Y_16K = 6
+    .. data:: Y_16k = 6
 
     	Mirror 1 in every 16384 packets
 
@@ -102,15 +102,15 @@ class SpanMirrorIntervalEnum(Enum):
 
     Y_512 = 1
 
-    Y_1K = 2
+    Y_1k = 2
 
-    Y_2K = 3
+    Y_2k = 3
 
-    Y_4K = 4
+    Y_4k = 4
 
-    Y_8K = 5
+    Y_8k = 5
 
-    Y_16K = 6
+    Y_16k = 6
 
 
     @staticmethod
@@ -125,19 +125,19 @@ class SpanTrafficDirectionEnum(Enum):
 
     Span traffic direction
 
-    .. data:: RX_ONLY = 1
+    .. data:: rx_only = 1
 
     	Replicate only received (ingress) traffic
 
-    .. data:: TX_ONLY = 2
+    .. data:: tx_only = 2
 
     	Replicate only transmitted (egress) traffic
 
     """
 
-    RX_ONLY = 1
+    rx_only = 1
 
-    TX_ONLY = 2
+    tx_only = 2
 
 
     @staticmethod
@@ -154,7 +154,7 @@ class SpanMonitorSession(object):
     .. attribute:: sessions
     
     	Monitor\-session configuration commands
-    	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMonitorSession.Sessions>`
+    	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMonitorSession.Sessions>`
     
     
 
@@ -175,7 +175,7 @@ class SpanMonitorSession(object):
         .. attribute:: session
         
         	Configuration for a particular Monitor Session
-        	**type**\: list of  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMonitorSession.Sessions.Session>`
+        	**type**\: list of    :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMonitorSession.Sessions.Session>`
         
         
 
@@ -205,12 +205,14 @@ class SpanMonitorSession(object):
             .. attribute:: class_
             
             	Enable a Monitor Session.  Setting this item causes the Monitor Session to be created
-            	**type**\:  :py:class:`SpanSessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
+            	**type**\:   :py:class:`SpanSessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
+            
+            	**default value**\: ethernet
             
             .. attribute:: destination
             
             	Specify a destination
-            	**type**\:  :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMonitorSession.Sessions.Session.Destination>`
+            	**type**\:   :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMonitorSession.Sessions.Session.Destination>`
             
             
 
@@ -255,7 +257,7 @@ class SpanMonitorSession(object):
                 .. attribute:: destination_type
                 
                 	Specify the type of destination
-                	**type**\:  :py:class:`SpanDestinationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanDestinationEnum>`
+                	**type**\:   :py:class:`SpanDestinationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanDestinationEnum>`
                 
                 
 

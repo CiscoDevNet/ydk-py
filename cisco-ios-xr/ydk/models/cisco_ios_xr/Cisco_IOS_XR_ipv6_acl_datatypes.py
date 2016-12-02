@@ -26,133 +26,133 @@ class Ipv6AclDscpNumberEnum(Enum):
 
     Ipv6 acl dscp number
 
-    .. data:: DEFAULT = 0
+    .. data:: default = 0
 
     	Default DSCP
 
-    .. data:: AF11 = 10
+    .. data:: af11 = 10
 
     	Match packets with AF11 DSCP
 
-    .. data:: AF12 = 12
+    .. data:: af12 = 12
 
     	Match packets with AF12 DSCP
 
-    .. data:: AF13 = 14
+    .. data:: af13 = 14
 
     	Match packets with AF13 DSCP
 
-    .. data:: AF21 = 18
+    .. data:: af21 = 18
 
     	Match packets with AF21 DSCP
 
-    .. data:: AF22 = 20
+    .. data:: af22 = 20
 
     	Match packets with AF22 DSCP
 
-    .. data:: AF23 = 22
+    .. data:: af23 = 22
 
     	Match packets with AF23 DSCP
 
-    .. data:: AF31 = 26
+    .. data:: af31 = 26
 
     	Match packets with AF31 DSCP
 
-    .. data:: AF32 = 28
+    .. data:: af32 = 28
 
     	Match packets with AF32 DSCP
 
-    .. data:: AF33 = 30
+    .. data:: af33 = 30
 
     	Match packets with AF33 DSCP
 
-    .. data:: AF41 = 34
+    .. data:: af41 = 34
 
     	Match packets with AF41 DSCP
 
-    .. data:: AF42 = 36
+    .. data:: af42 = 36
 
     	Match packets with AF42 DSCP
 
-    .. data:: AF43 = 38
+    .. data:: af43 = 38
 
     	Match packets with AF43 DSCP
 
-    .. data:: CS1 = 8
+    .. data:: cs1 = 8
 
     	Match packets with CS1 (precedence 1) DSCP
 
-    .. data:: CS2 = 16
+    .. data:: cs2 = 16
 
     	Match packets with CS2 (precedence 2) DSCP
 
-    .. data:: CS3 = 24
+    .. data:: cs3 = 24
 
     	Match packets with CS3 (precedence 3) DSCP
 
-    .. data:: CS4 = 32
+    .. data:: cs4 = 32
 
     	Match packets with CS4 (precedence 4) DSCP
 
-    .. data:: CS5 = 40
+    .. data:: cs5 = 40
 
     	Match packets with CS5 (precedence 5) DSCP
 
-    .. data:: CS6 = 48
+    .. data:: cs6 = 48
 
     	Match packets with CS6 (precedence 6) DSCP
 
-    .. data:: CS7 = 56
+    .. data:: cs7 = 56
 
     	Match packets with CS7 (precedence 7) DSCP
 
-    .. data:: EF = 46
+    .. data:: ef = 46
 
     	Match packets with EF DSCP
 
     """
 
-    DEFAULT = 0
+    default = 0
 
-    AF11 = 10
+    af11 = 10
 
-    AF12 = 12
+    af12 = 12
 
-    AF13 = 14
+    af13 = 14
 
-    AF21 = 18
+    af21 = 18
 
-    AF22 = 20
+    af22 = 20
 
-    AF23 = 22
+    af23 = 22
 
-    AF31 = 26
+    af31 = 26
 
-    AF32 = 28
+    af32 = 28
 
-    AF33 = 30
+    af33 = 30
 
-    AF41 = 34
+    af41 = 34
 
-    AF42 = 36
+    af42 = 36
 
-    AF43 = 38
+    af43 = 38
 
-    CS1 = 8
+    cs1 = 8
 
-    CS2 = 16
+    cs2 = 16
 
-    CS3 = 24
+    cs3 = 24
 
-    CS4 = 32
+    cs4 = 32
 
-    CS5 = 40
+    cs5 = 40
 
-    CS6 = 48
+    cs6 = 48
 
-    CS7 = 56
+    cs7 = 56
 
-    EF = 46
+    ef = 46
 
 
     @staticmethod
@@ -167,19 +167,19 @@ class Ipv6AclGrantEnumEnum(Enum):
 
     Ipv6 acl grant enum
 
-    .. data:: DENY = 0
+    .. data:: deny = 0
 
     	Deny
 
-    .. data:: PERMIT = 1
+    .. data:: permit = 1
 
     	Permit
 
     """
 
-    DENY = 0
+    deny = 0
 
-    PERMIT = 1
+    permit = 1
 
 
     @staticmethod
@@ -194,223 +194,223 @@ class Ipv6AclIcmpTypeCodeEnumEnum(Enum):
 
     Ipv6 acl icmp type code enum
 
-    .. data:: NO_ROUTE_TO_DESTINATION = 65536
+    .. data:: no_route_to_destination = 65536
 
     	No route to destination
 
-    .. data:: ADMINISTRATIVELY_PROHIBITED = 65537
+    .. data:: administratively_prohibited = 65537
 
     	Administratively prohibited
 
-    .. data:: BEYOND_SCOPE_OF_SOURCE_ADDRESS = 65538
+    .. data:: beyond_scope_of_source_address = 65538
 
     	Unreachable beyond scope of address
 
-    .. data:: HOST_UNREACHABLE = 65539
+    .. data:: host_unreachable = 65539
 
     	Host unreachable
 
-    .. data:: PORT_UNREACHABLE = 65540
+    .. data:: port_unreachable = 65540
 
     	Port unreachable
 
-    .. data:: UNREACHABLE = 131071
+    .. data:: unreachable = 131071
 
     	All unreachables
 
-    .. data:: PACKET_TOO_BIG = 131072
+    .. data:: packet_too_big = 131072
 
     	packet too big
 
-    .. data:: TTL_EXCEEDED = 196608
+    .. data:: ttl_exceeded = 196608
 
     	TTL exceeded
 
-    .. data:: REASSEMBLY_TIMEOUT = 196609
+    .. data:: reassembly_timeout = 196609
 
     	Reassembly timeout
 
-    .. data:: TIME_EXCEEDED = 262143
+    .. data:: time_exceeded = 262143
 
     	All time exceeds
 
-    .. data:: ERRONENOUS_HEADER_FIELD = 262144
+    .. data:: erronenous_header_field = 262144
 
     	Erroneous header field
 
-    .. data:: OPTION_MISSING = 262145
+    .. data:: option_missing = 262145
 
     	Parameter required but not present
 
-    .. data:: NO_ROOM_FOR_OPTION = 262146
+    .. data:: no_room_for_option = 262146
 
     	Parameter required but no room
 
-    .. data:: PARAMETER_PROBLEM = 327679
+    .. data:: parameter_problem = 327679
 
     	All parameter problems
 
-    .. data:: ECHO = 8388608
+    .. data:: echo = 8388608
 
     	Echo ping
 
-    .. data:: ECHO_REPLY = 8454144
+    .. data:: echo_reply = 8454144
 
     	Echo reply
 
-    .. data:: GROUP_MEMBERSHIP_QUERY = 8585215
+    .. data:: group_membership_query = 8585215
 
     	Multicast listener query
 
-    .. data:: GROUP_MEMBERSHIP_REPORT = 8650751
+    .. data:: group_membership_report = 8650751
 
     	Multicast listener report
 
-    .. data:: GROUP_MEMBERSHIP_REDUCTION = 8716287
+    .. data:: group_membership_reduction = 8716287
 
     	Multicast listener done
 
-    .. data:: ROUTER_SOLICITATION = 8716288
+    .. data:: router_solicitation = 8716288
 
     	Router discovery solicitations
 
-    .. data:: ROUTER_ADVERTISEMENT = 8781824
+    .. data:: router_advertisement = 8781824
 
     	Router discovery advertisements
 
-    .. data:: NEIGHBOR_SOLICITATION = 8847360
+    .. data:: neighbor_solicitation = 8847360
 
     	Neighbor discovery neighbor solicitations
 
-    .. data:: NEIGHBOR_ADVERTISEMENT = 8912896
+    .. data:: neighbor_advertisement = 8912896
 
     	Neighbor discovery neighbor advertisements
 
-    .. data:: REDIRECT = 8978432
+    .. data:: redirect = 8978432
 
     	All redirects
 
-    .. data:: RR_COMMAND = 9043968
+    .. data:: rr_command = 9043968
 
     	Router renumbering command
 
-    .. data:: RR_RESULT = 9043969
+    .. data:: rr_result = 9043969
 
     	Router renumbering result
 
-    .. data:: RR_SEQNUM_RESET = 9044223
+    .. data:: rr_seqnum_reset = 9044223
 
     	Router renumbering seqnum
 
-    .. data:: ROUTER_RENUMBERING = 9109503
+    .. data:: router_renumbering = 9109503
 
     	Router renumbering
 
-    .. data:: QUERY_SUBJECT_IS_IPV6_ADDRESS = 9109504
+    .. data:: query_subject_is_ipv6_address = 9109504
 
     	Query subject is ipv6 address
 
-    .. data:: QUERY_SUBJECT_IS_DOMAIN_NAME = 9109505
+    .. data:: query_subject_is_domain_name = 9109505
 
     	Query subject is domain name
 
-    .. data:: QUERY_SUBJECT_IS_IPV4_ADDRESS = 9109506
+    .. data:: query_subject_is_ipv4_address = 9109506
 
     	Query subject is ipv4 address
 
-    .. data:: WHO_ARE_YOU_REQUEST = 9175039
+    .. data:: who_are_you_request = 9175039
 
     	Who are you request
 
-    .. data:: NODE_INFORMATION_SUCCESSFUL_REPLY = 9175040
+    .. data:: node_information_successful_reply = 9175040
 
     	Node information successful reply
 
-    .. data:: NODE_INFORMATION_REQUEST_IS_REFUSED = 9175041
+    .. data:: node_information_request_is_refused = 9175041
 
     	Node information reply rejected
 
-    .. data:: UNKNOWN_QUERY_TYPE = 9175042
+    .. data:: unknown_query_type = 9175042
 
     	Unknown query type
 
-    .. data:: WHO_ARE_YOU_REPLY = 9240575
+    .. data:: who_are_you_reply = 9240575
 
     	Who are you reply
 
     """
 
-    NO_ROUTE_TO_DESTINATION = 65536
+    no_route_to_destination = 65536
 
-    ADMINISTRATIVELY_PROHIBITED = 65537
+    administratively_prohibited = 65537
 
-    BEYOND_SCOPE_OF_SOURCE_ADDRESS = 65538
+    beyond_scope_of_source_address = 65538
 
-    HOST_UNREACHABLE = 65539
+    host_unreachable = 65539
 
-    PORT_UNREACHABLE = 65540
+    port_unreachable = 65540
 
-    UNREACHABLE = 131071
+    unreachable = 131071
 
-    PACKET_TOO_BIG = 131072
+    packet_too_big = 131072
 
-    TTL_EXCEEDED = 196608
+    ttl_exceeded = 196608
 
-    REASSEMBLY_TIMEOUT = 196609
+    reassembly_timeout = 196609
 
-    TIME_EXCEEDED = 262143
+    time_exceeded = 262143
 
-    ERRONENOUS_HEADER_FIELD = 262144
+    erronenous_header_field = 262144
 
-    OPTION_MISSING = 262145
+    option_missing = 262145
 
-    NO_ROOM_FOR_OPTION = 262146
+    no_room_for_option = 262146
 
-    PARAMETER_PROBLEM = 327679
+    parameter_problem = 327679
 
-    ECHO = 8388608
+    echo = 8388608
 
-    ECHO_REPLY = 8454144
+    echo_reply = 8454144
 
-    GROUP_MEMBERSHIP_QUERY = 8585215
+    group_membership_query = 8585215
 
-    GROUP_MEMBERSHIP_REPORT = 8650751
+    group_membership_report = 8650751
 
-    GROUP_MEMBERSHIP_REDUCTION = 8716287
+    group_membership_reduction = 8716287
 
-    ROUTER_SOLICITATION = 8716288
+    router_solicitation = 8716288
 
-    ROUTER_ADVERTISEMENT = 8781824
+    router_advertisement = 8781824
 
-    NEIGHBOR_SOLICITATION = 8847360
+    neighbor_solicitation = 8847360
 
-    NEIGHBOR_ADVERTISEMENT = 8912896
+    neighbor_advertisement = 8912896
 
-    REDIRECT = 8978432
+    redirect = 8978432
 
-    RR_COMMAND = 9043968
+    rr_command = 9043968
 
-    RR_RESULT = 9043969
+    rr_result = 9043969
 
-    RR_SEQNUM_RESET = 9044223
+    rr_seqnum_reset = 9044223
 
-    ROUTER_RENUMBERING = 9109503
+    router_renumbering = 9109503
 
-    QUERY_SUBJECT_IS_IPV6_ADDRESS = 9109504
+    query_subject_is_ipv6_address = 9109504
 
-    QUERY_SUBJECT_IS_DOMAIN_NAME = 9109505
+    query_subject_is_domain_name = 9109505
 
-    QUERY_SUBJECT_IS_IPV4_ADDRESS = 9109506
+    query_subject_is_ipv4_address = 9109506
 
-    WHO_ARE_YOU_REQUEST = 9175039
+    who_are_you_request = 9175039
 
-    NODE_INFORMATION_SUCCESSFUL_REPLY = 9175040
+    node_information_successful_reply = 9175040
 
-    NODE_INFORMATION_REQUEST_IS_REFUSED = 9175041
+    node_information_request_is_refused = 9175041
 
-    UNKNOWN_QUERY_TYPE = 9175042
+    unknown_query_type = 9175042
 
-    WHO_ARE_YOU_REPLY = 9240575
+    who_are_you_reply = 9240575
 
 
     @staticmethod
@@ -425,11 +425,11 @@ class Ipv6AclLoggingEnumEnum(Enum):
 
     Ipv6 acl logging enum
 
-    .. data:: LOG = 1
+    .. data:: log = 1
 
     	Log matches against this entry
 
-    .. data:: LOG_INPUT = 2
+    .. data:: log_input = 2
 
     	Log matches against this entry, including input
 
@@ -437,9 +437,9 @@ class Ipv6AclLoggingEnumEnum(Enum):
 
     """
 
-    LOG = 1
+    log = 1
 
-    LOG_INPUT = 2
+    log_input = 2
 
 
     @staticmethod
@@ -454,37 +454,37 @@ class Ipv6AclOperatorEnumEnum(Enum):
 
     Ipv6 acl operator enum
 
-    .. data:: EQUAL = 1
+    .. data:: equal = 1
 
     	Match only packets on a given port number
 
-    .. data:: GREATER_THAN = 2
+    .. data:: greater_than = 2
 
     	Match only packet with a greater port number
 
-    .. data:: LESS_THAN = 3
+    .. data:: less_than = 3
 
     	Match only packet with a lower port number
 
-    .. data:: NOT_EQUAL = 4
+    .. data:: not_equal = 4
 
     	Match only packets not on a given port number
 
-    .. data:: RANGE = 5
+    .. data:: range = 5
 
     	Match only packets in the range of port numbers
 
     """
 
-    EQUAL = 1
+    equal = 1
 
-    GREATER_THAN = 2
+    greater_than = 2
 
-    LESS_THAN = 3
+    less_than = 3
 
-    NOT_EQUAL = 4
+    not_equal = 4
 
-    RANGE = 5
+    range = 5
 
 
     @staticmethod
@@ -499,351 +499,351 @@ class Ipv6AclPortNumberEnum(Enum):
 
     Ipv6 acl port number
 
-    .. data:: ECHO = 7
+    .. data:: echo = 7
 
     	Match on the 'echo' port number
 
-    .. data:: DISCARD = 9
+    .. data:: discard = 9
 
     	Match on the 'discard' port number
 
-    .. data:: DAYTIME = 13
+    .. data:: daytime = 13
 
     	Match on the 'daytime' port number (TCP/SCTP
 
     	only)
 
-    .. data:: CHAR_GEN = 19
+    .. data:: char_gen = 19
 
     	Match on the 'chargen' port number (TCP/SCTP
 
     	only)
 
-    .. data:: FTP_DATA = 20
+    .. data:: ftp_data = 20
 
     	Match on the FTP data connections port number
 
     	(TCP/SCTP only)
 
-    .. data:: FTP = 21
+    .. data:: ftp = 21
 
     	Match on the 'ftp' port number (TCP/SCTP only)
 
-    .. data:: TELNET = 23
+    .. data:: telnet = 23
 
     	Match on the 'telnet' port number (TCP/SCTP
 
     	only)
 
-    .. data:: SMTP = 25
+    .. data:: smtp = 25
 
     	Match on the 'smtp' port number (TCP/SCTP
 
     	only)
 
-    .. data:: TIME = 37
+    .. data:: time = 37
 
     	Match on the 'time' port number
 
-    .. data:: NAME_SERVER = 42
+    .. data:: name_server = 42
 
     	Match on the IEN116 name service port number
 
     	(UDP only)
 
-    .. data:: WHO_IS = 43
+    .. data:: who_is = 43
 
     	Match on the 'nicname' port number (TCP/SCTP
 
     	only)
 
-    .. data:: TACACS = 49
+    .. data:: tacacs = 49
 
     	Match on the 'tacacs' port number
 
-    .. data:: DNS = 53
+    .. data:: dns = 53
 
     	Match on the 'dns' port number
 
-    .. data:: BOOT_PS = 67
+    .. data:: boot_ps = 67
 
     	Match on the Bootstrap Protocol server port
 
     	number (UDP only)
 
-    .. data:: BOOT_PC = 68
+    .. data:: boot_pc = 68
 
     	Match on the Bootstrap Protocol client port
 
     	number (UDP only)
 
-    .. data:: TFTP = 69
+    .. data:: tftp = 69
 
     	Match on the 'tftp' port number (UDP only)
 
-    .. data:: GOPHER = 70
+    .. data:: gopher = 70
 
     	Match on the 'gopher' port number (TCP/SCTP
 
     	only)
 
-    .. data:: FINGER = 79
+    .. data:: finger = 79
 
     	Match on the 'finger' port number (TCP/SCTP
 
     	only)
 
-    .. data:: WWW = 80
+    .. data:: www = 80
 
     	Match on the 'http' port number (TCP/SCTP
 
     	only)
 
-    .. data:: HOST_NAME = 101
+    .. data:: host_name = 101
 
     	Match on the NIC hostname server port number
 
     	(TCP/SCTP only)
 
-    .. data:: POP2 = 109
+    .. data:: pop2 = 109
 
     	Match on the 'pop2' port number (TCP/SCTP
 
     	only)
 
-    .. data:: POP3 = 110
+    .. data:: pop3 = 110
 
     	Match on the 'pop3' port number (TCP/SCTP
 
     	only)
 
-    .. data:: SUN_RPC = 111
+    .. data:: sun_rpc = 111
 
     	Match on the Sun RPC port number
 
-    .. data:: IDENT = 113
+    .. data:: ident = 113
 
     	Match on the 'ident' port number (TCP/SCTP
 
     	only)
 
-    .. data:: NNTP = 119
+    .. data:: nntp = 119
 
     	Match on the 'nntp' port number (TCP/SCTP
 
     	only)
 
-    .. data:: NTP = 123
+    .. data:: ntp = 123
 
     	Match on the 'ntp' port number (UDP only)
 
-    .. data:: NET_BIOS_NS = 137
+    .. data:: net_bios_ns = 137
 
     	Match on the NetBIOS name service port number
 
     	(UDP only)
 
-    .. data:: NET_BIOS_DGS = 138
+    .. data:: net_bios_dgs = 138
 
     	Match on the NetBIOS datagram service port
 
     	number (UDP only)
 
-    .. data:: NET_BIOS_SS = 139
+    .. data:: net_bios_ss = 139
 
     	Match on the NetBIOS session service port
 
     	number (UDP only)
 
-    .. data:: SNMP = 161
+    .. data:: snmp = 161
 
     	Match on the 'snmp' port number (UDP only)
 
-    .. data:: SNMP_TRAP = 162
+    .. data:: snmp_trap = 162
 
     	Match on the SNMP traps port number (UDP only)
 
-    .. data:: XDMCP = 177
+    .. data:: xdmcp = 177
 
     	Match on the 'xdmcp' port number (UDP only)
 
-    .. data:: BGP = 179
+    .. data:: bgp = 179
 
     	Match on the 'bgp' port number (TCP/SCTP only)
 
-    .. data:: IRC = 194
+    .. data:: irc = 194
 
     	Match on the 'irc' port number (TCP/SCTP only)
 
-    .. data:: DNSIX = 195
+    .. data:: dnsix = 195
 
     	Match on the DNSIX security protocol auditing
 
     	port number (UDP only)
 
-    .. data:: MOBILE_IP = 434
+    .. data:: mobile_ip = 434
 
     	Match on the mobile IP registration port
 
     	number (UDP only)
 
-    .. data:: PIM_AUTO_RP = 496
+    .. data:: pim_auto_rp = 496
 
     	Match on the PIM Auto-RP port number
 
-    .. data:: ISAKMP = 500
+    .. data:: isakmp = 500
 
     	Match on the 'isakmp' port number (UDP only)
 
-    .. data:: EXEC_OR_BIFF = 512
+    .. data:: exec_or_biff = 512
 
     	Match on the port used by TCP/SCTP for 'exec'
 
     	and by UDP for 'biff'
 
-    .. data:: LOGIN_OR_WHO = 513
+    .. data:: login_or_who = 513
 
     	Match on the port used by TCP/SCTP for 'login'
 
     	and by UDP for 'rwho'
 
-    .. data:: CMD_OR_SYSLOG = 514
+    .. data:: cmd_or_syslog = 514
 
     	Match on the port used by TCP/SCTP for 'rcmd'
 
     	and by UDP for 'syslog'
 
-    .. data:: LPD = 515
+    .. data:: lpd = 515
 
     	Match on the 'lpd' port number (TCP/SCTP only)
 
-    .. data:: TALK = 517
+    .. data:: talk = 517
 
     	Match on the 'talk' port number
 
-    .. data:: RIP = 520
+    .. data:: rip = 520
 
     	Match on the 'rip' port number (UDP only)
 
-    .. data:: UUCP = 540
+    .. data:: uucp = 540
 
     	Match on the 'uucp' port number (TCP/SCTP
 
     	only)
 
-    .. data:: KLOGIN = 543
+    .. data:: klogin = 543
 
     	Match on the Kerberos login port number
 
     	(TCP/SCTP only)
 
-    .. data:: KSHELL = 544
+    .. data:: kshell = 544
 
     	Match on the Kerberos shell port number
 
     	(TCP/SCTP only)
 
-    .. data:: LDP = 646
+    .. data:: ldp = 646
 
     	Match on the LDP port
 
     """
 
-    ECHO = 7
+    echo = 7
 
-    DISCARD = 9
+    discard = 9
 
-    DAYTIME = 13
+    daytime = 13
 
-    CHAR_GEN = 19
+    char_gen = 19
 
-    FTP_DATA = 20
+    ftp_data = 20
 
-    FTP = 21
+    ftp = 21
 
-    TELNET = 23
+    telnet = 23
 
-    SMTP = 25
+    smtp = 25
 
-    TIME = 37
+    time = 37
 
-    NAME_SERVER = 42
+    name_server = 42
 
-    WHO_IS = 43
+    who_is = 43
 
-    TACACS = 49
+    tacacs = 49
 
-    DNS = 53
+    dns = 53
 
-    BOOT_PS = 67
+    boot_ps = 67
 
-    BOOT_PC = 68
+    boot_pc = 68
 
-    TFTP = 69
+    tftp = 69
 
-    GOPHER = 70
+    gopher = 70
 
-    FINGER = 79
+    finger = 79
 
-    WWW = 80
+    www = 80
 
-    HOST_NAME = 101
+    host_name = 101
 
-    POP2 = 109
+    pop2 = 109
 
-    POP3 = 110
+    pop3 = 110
 
-    SUN_RPC = 111
+    sun_rpc = 111
 
-    IDENT = 113
+    ident = 113
 
-    NNTP = 119
+    nntp = 119
 
-    NTP = 123
+    ntp = 123
 
-    NET_BIOS_NS = 137
+    net_bios_ns = 137
 
-    NET_BIOS_DGS = 138
+    net_bios_dgs = 138
 
-    NET_BIOS_SS = 139
+    net_bios_ss = 139
 
-    SNMP = 161
+    snmp = 161
 
-    SNMP_TRAP = 162
+    snmp_trap = 162
 
-    XDMCP = 177
+    xdmcp = 177
 
-    BGP = 179
+    bgp = 179
 
-    IRC = 194
+    irc = 194
 
-    DNSIX = 195
+    dnsix = 195
 
-    MOBILE_IP = 434
+    mobile_ip = 434
 
-    PIM_AUTO_RP = 496
+    pim_auto_rp = 496
 
-    ISAKMP = 500
+    isakmp = 500
 
-    EXEC_OR_BIFF = 512
+    exec_or_biff = 512
 
-    LOGIN_OR_WHO = 513
+    login_or_who = 513
 
-    CMD_OR_SYSLOG = 514
+    cmd_or_syslog = 514
 
-    LPD = 515
+    lpd = 515
 
-    TALK = 517
+    talk = 517
 
-    RIP = 520
+    rip = 520
 
-    UUCP = 540
+    uucp = 540
 
-    KLOGIN = 543
+    klogin = 543
 
-    KSHELL = 544
+    kshell = 544
 
-    LDP = 646
+    ldp = 646
 
 
     @staticmethod
@@ -858,57 +858,57 @@ class Ipv6AclPrecedenceNumberEnum(Enum):
 
     Ipv6 acl precedence number
 
-    .. data:: CRITICAL = 5
+    .. data:: critical = 5
 
     	Match packets with critical precedence
 
-    .. data:: FLASH = 3
+    .. data:: flash = 3
 
     	Match packets with flash precedence
 
-    .. data:: FLASH_OVERRIDE = 4
+    .. data:: flash_override = 4
 
     	Match packets with flash override precedence
 
-    .. data:: IMMEDIATE = 2
+    .. data:: immediate = 2
 
     	Match packets with immediate precedence
 
-    .. data:: INTERNET = 6
+    .. data:: internet = 6
 
     	Match packets with internetwork control
 
     	precedence
 
-    .. data:: NETWORK = 7
+    .. data:: network = 7
 
     	Match packets with network control precedence
 
-    .. data:: PRIORITY = 1
+    .. data:: priority = 1
 
     	Match packets with priority precedence
 
-    .. data:: ROUTINE = 0
+    .. data:: routine = 0
 
     	Match packets with routine precedence
 
     """
 
-    CRITICAL = 5
+    critical = 5
 
-    FLASH = 3
+    flash = 3
 
-    FLASH_OVERRIDE = 4
+    flash_override = 4
 
-    IMMEDIATE = 2
+    immediate = 2
 
-    INTERNET = 6
+    internet = 6
 
-    NETWORK = 7
+    network = 7
 
-    PRIORITY = 1
+    priority = 1
 
-    ROUTINE = 0
+    routine = 0
 
 
     @staticmethod
@@ -923,103 +923,103 @@ class Ipv6AclProtocolNumberEnum(Enum):
 
     Ipv6 acl protocol number
 
-    .. data:: IP = 0
+    .. data:: ip = 0
 
     	Any IP protocol
 
-    .. data:: ICMP = 1
+    .. data:: icmp = 1
 
     	Internet Control Message Protocol
 
-    .. data:: IGMP = 2
+    .. data:: igmp = 2
 
     	Internet Gateway Message Protocol
 
-    .. data:: IP_IN_IP = 4
+    .. data:: ip_in_ip = 4
 
     	IP in IP tunneling
 
-    .. data:: TCP = 6
+    .. data:: tcp = 6
 
     	Transport Control Protocol
 
-    .. data:: IGRP = 9
+    .. data:: igrp = 9
 
     	Cisco's IGRP Routing Protocol
 
-    .. data:: UDP = 17
+    .. data:: udp = 17
 
     	User Datagram Protocol
 
-    .. data:: GRE = 47
+    .. data:: gre = 47
 
     	Cisco's GRE tunneling
 
-    .. data:: ESP = 50
+    .. data:: esp = 50
 
     	Encapsulation Security Protocol
 
-    .. data:: AHP = 51
+    .. data:: ahp = 51
 
     	Authentication Header Protocol
 
-    .. data:: EIGRP = 88
+    .. data:: eigrp = 88
 
     	Cisco's EIGRP Routing Protocol
 
-    .. data:: OSPF = 89
+    .. data:: ospf = 89
 
     	OSPF Routing Protocol
 
-    .. data:: NOS = 94
+    .. data:: nos = 94
 
     	KA9Q NOS Compatible IP over IP tunneling
 
-    .. data:: PIM = 103
+    .. data:: pim = 103
 
     	Protocol Independent Multicast
 
-    .. data:: PCP = 108
+    .. data:: pcp = 108
 
     	Payload Compression Protocol
 
-    .. data:: SCTP = 132
+    .. data:: sctp = 132
 
     	Stream Control Transmission Protocol
 
     """
 
-    IP = 0
+    ip = 0
 
-    ICMP = 1
+    icmp = 1
 
-    IGMP = 2
+    igmp = 2
 
-    IP_IN_IP = 4
+    ip_in_ip = 4
 
-    TCP = 6
+    tcp = 6
 
-    IGRP = 9
+    igrp = 9
 
-    UDP = 17
+    udp = 17
 
-    GRE = 47
+    gre = 47
 
-    ESP = 50
+    esp = 50
 
-    AHP = 51
+    ahp = 51
 
-    EIGRP = 88
+    eigrp = 88
 
-    OSPF = 89
+    ospf = 89
 
-    NOS = 94
+    nos = 94
 
-    PIM = 103
+    pim = 103
 
-    PCP = 108
+    pcp = 108
 
-    SCTP = 132
+    sctp = 132
 
 
     @staticmethod
@@ -1034,19 +1034,19 @@ class Ipv6AclStatusEnumEnum(Enum):
 
     Ipv6 acl status enum
 
-    .. data:: DISABLED = 0
+    .. data:: disabled = 0
 
     	Disabled
 
-    .. data:: ENABLED = 1
+    .. data:: enabled = 1
 
     	Enabled
 
     """
 
-    DISABLED = 0
+    disabled = 0
 
-    ENABLED = 1
+    enabled = 1
 
 
     @staticmethod
@@ -1061,49 +1061,49 @@ class Ipv6AclTcpBitsNumberEnum(Enum):
 
     Ipv6 acl tcp bits number
 
-    .. data:: ESTABLISHED = 20
+    .. data:: established = 20
 
     	Match established connections (0x14)
 
-    .. data:: ACK = 16
+    .. data:: ack = 16
 
     	Match on the ACK bit (0x10)
 
-    .. data:: RST = 4
+    .. data:: rst = 4
 
     	Match on the RST bit (0x04)
 
-    .. data:: FIN = 1
+    .. data:: fin = 1
 
     	Match on the FIN bit (0x01)
 
-    .. data:: PSH = 8
+    .. data:: psh = 8
 
     	Match on the PSH bit (0x08)
 
-    .. data:: SYN = 2
+    .. data:: syn = 2
 
     	Match on the SYN bit (0x02)
 
-    .. data:: URG = 32
+    .. data:: urg = 32
 
     	Match on the URG bit (0x20)
 
     """
 
-    ESTABLISHED = 20
+    established = 20
 
-    ACK = 16
+    ack = 16
 
-    RST = 4
+    rst = 4
 
-    FIN = 1
+    fin = 1
 
-    PSH = 8
+    psh = 8
 
-    SYN = 2
+    syn = 2
 
-    URG = 32
+    urg = 32
 
 
     @staticmethod
@@ -1118,11 +1118,11 @@ class Ipv6AclTcpMatchOperatorEnumEnum(Enum):
 
     Ipv6 acl tcp match operator enum
 
-    .. data:: MATCH_ALL = 1
+    .. data:: match_all = 1
 
     	Match only packet with all the given TCP bits
 
-    .. data:: MATCH_ANY = 3
+    .. data:: match_any = 3
 
     	Match only packet with any of the given TCP
 
@@ -1130,9 +1130,9 @@ class Ipv6AclTcpMatchOperatorEnumEnum(Enum):
 
     """
 
-    MATCH_ALL = 1
+    match_all = 1
 
-    MATCH_ANY = 3
+    match_any = 3
 
 
     @staticmethod
@@ -1147,19 +1147,19 @@ class Ipv6AclTypeEnumEnum(Enum):
 
     Ipv6 acl type enum
 
-    .. data:: ACL = 1
+    .. data:: acl = 1
 
     	ACL
 
-    .. data:: PREFIX_LIST = 2
+    .. data:: prefix_list = 2
 
     	Prefix List
 
     """
 
-    ACL = 1
+    acl = 1
 
-    PREFIX_LIST = 2
+    prefix_list = 2
 
 
     @staticmethod
@@ -1174,13 +1174,13 @@ class Ipv6PrefixMatchExactLengthEnum(Enum):
 
     Ipv6 prefix match exact length
 
-    .. data:: MATCH_EXACT_LENGTH = 1
+    .. data:: match_exact_length = 1
 
     	Prefix Length Exact match
 
     """
 
-    MATCH_EXACT_LENGTH = 1
+    match_exact_length = 1
 
 
     @staticmethod
@@ -1195,7 +1195,7 @@ class Ipv6PrefixMatchMaxLengthEnum(Enum):
 
     Ipv6 prefix match max length
 
-    .. data:: MATCH_MAX_LENGTH = 3
+    .. data:: match_max_length = 3
 
     	Enable matching of Prefix Lengths lesser than
 
@@ -1203,7 +1203,7 @@ class Ipv6PrefixMatchMaxLengthEnum(Enum):
 
     """
 
-    MATCH_MAX_LENGTH = 3
+    match_max_length = 3
 
 
     @staticmethod
@@ -1218,7 +1218,7 @@ class Ipv6PrefixMatchMinLengthEnum(Enum):
 
     Ipv6 prefix match min length
 
-    .. data:: MATCH_MIN_LENGTH = 2
+    .. data:: match_min_length = 2
 
     	Enable matching of Prefix Lengths greater than
 
@@ -1226,7 +1226,7 @@ class Ipv6PrefixMatchMinLengthEnum(Enum):
 
     """
 
-    MATCH_MIN_LENGTH = 2
+    match_min_length = 2
 
 
     @staticmethod

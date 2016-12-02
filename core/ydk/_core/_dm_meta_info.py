@@ -31,7 +31,7 @@ class _MetaInfoClassMember(object):
                  pmodule_name, clazz_name,
                  prange, pattern, doc,
                  presentation_name, module_name, is_key,
-                 members=None, max_elements=None, min_elements=None):
+                 members=[], max_elements=None, min_elements=None):
         self._name = name
         self._mtype = mtype
         self._ptype = ptype

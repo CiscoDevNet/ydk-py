@@ -16,118 +16,118 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'SnmpHashAlgorithmEnum' : _MetaInfoEnum('SnmpHashAlgorithmEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg',
         {
-            'none':'NONE',
-            'md5':'MD5',
-            'sha':'SHA',
+            'none':'none',
+            'md5':'md5',
+            'sha':'sha',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
     'SnmpAccessLevelEnum' : _MetaInfoEnum('SnmpAccessLevelEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg',
         {
-            'read-only':'READ_ONLY',
-            'read-write':'READ_WRITE',
+            'read-only':'read_only',
+            'read-write':'read_write',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
     'SnmpBulkstatSchemaEnum' : _MetaInfoEnum('SnmpBulkstatSchemaEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg',
         {
-            'exact-interface':'EXACT_INTERFACE',
-            'exact-oid':'EXACT_OID',
-            'wild-interface':'WILD_INTERFACE',
-            'wild-oid':'WILD_OID',
-            'range-oid':'RANGE_OID',
-            'repeat-oid':'REPEAT_OID',
+            'exact-interface':'exact_interface',
+            'exact-oid':'exact_oid',
+            'wild-interface':'wild_interface',
+            'wild-oid':'wild_oid',
+            'range-oid':'range_oid',
+            'repeat-oid':'repeat_oid',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
     'GroupSnmpVersionEnum' : _MetaInfoEnum('GroupSnmpVersionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg',
         {
-            'v1':'V1',
-            'v2c':'V2C',
-            'v3':'V3',
+            'v1':'v1',
+            'v2c':'v2c',
+            'v3':'v3',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
     'SnmpOwnerAccessEnum' : _MetaInfoEnum('SnmpOwnerAccessEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg',
         {
-            'sdr-owner':'SDR_OWNER',
-            'system-owner':'SYSTEM_OWNER',
+            'sdr-owner':'sdr_owner',
+            'system-owner':'system_owner',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
     'SnmpBulkstatFileFormatEnum' : _MetaInfoEnum('SnmpBulkstatFileFormatEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg',
         {
-            'schema-ascii':'SCHEMA_ASCII',
-            'bulk-ascii':'BULK_ASCII',
-            'bulk-binary':'BULK_BINARY',
+            'schema-ascii':'schema_ascii',
+            'bulk-ascii':'bulk_ascii',
+            'bulk-binary':'bulk_binary',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
     'SnmpSecurityModelEnum' : _MetaInfoEnum('SnmpSecurityModelEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg',
         {
-            'no-authentication':'NO_AUTHENTICATION',
-            'authentication':'AUTHENTICATION',
-            'privacy':'PRIVACY',
+            'no-authentication':'no_authentication',
+            'authentication':'authentication',
+            'privacy':'privacy',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
     'SnmpTosEnum' : _MetaInfoEnum('SnmpTosEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg',
         {
-            'precedence':'PRECEDENCE',
-            'dscp':'DSCP',
+            'precedence':'precedence',
+            'dscp':'dscp',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
     'SnmpaclEnum' : _MetaInfoEnum('SnmpaclEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg',
         {
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
     'SnmpDscpValueEnum' : _MetaInfoEnum('SnmpDscpValueEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg',
         {
-            'default':'DEFAULT',
-            'af11':'AF11',
-            'af12':'AF12',
-            'af13':'AF13',
-            'af21':'AF21',
-            'af22':'AF22',
-            'af23':'AF23',
-            'af31':'AF31',
-            'af32':'AF32',
-            'af33':'AF33',
-            'af41':'AF41',
-            'af42':'AF42',
-            'af43':'AF43',
-            'ef':'EF',
-            'cs1':'CS1',
-            'cs2':'CS2',
-            'cs3':'CS3',
-            'cs4':'CS4',
-            'cs5':'CS5',
-            'cs6':'CS6',
-            'cs7':'CS7',
+            'default':'default',
+            'af11':'af11',
+            'af12':'af12',
+            'af13':'af13',
+            'af21':'af21',
+            'af22':'af22',
+            'af23':'af23',
+            'af31':'af31',
+            'af32':'af32',
+            'af33':'af33',
+            'af41':'af41',
+            'af42':'af42',
+            'af43':'af43',
+            'ef':'ef',
+            'cs1':'cs1',
+            'cs2':'cs2',
+            'cs3':'cs3',
+            'cs4':'cs4',
+            'cs5':'cs5',
+            'cs6':'cs6',
+            'cs7':'cs7',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
     'UserSnmpVersionEnum' : _MetaInfoEnum('UserSnmpVersionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg',
         {
-            'v1':'V1',
-            'v2c':'V2C',
-            'v3':'V3',
+            'v1':'v1',
+            'v2c':'v2c',
+            'v3':'v3',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
     'SnmpPrecedenceValue1Enum' : _MetaInfoEnum('SnmpPrecedenceValue1Enum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg',
         {
-            'routine':'ROUTINE',
-            'priority':'PRIORITY',
-            'immediate':'IMMEDIATE',
-            'flash':'FLASH',
-            'flash-override':'FLASH_OVERRIDE',
-            'critical':'CRITICAL',
-            'internet':'INTERNET',
-            'network':'NETWORK',
+            'routine':'routine',
+            'priority':'priority',
+            'immediate':'immediate',
+            'flash':'flash',
+            'flash-override':'flash_override',
+            'critical':'critical',
+            'internet':'internet',
+            'network':'network',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
     'SnmpPrivAlgorithmEnum' : _MetaInfoEnum('SnmpPrivAlgorithmEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg',
         {
-            'none':'NONE',
-            'des':'DES',
-            '3des':'Y_3DES',
-            'aes128':'AES128',
-            'aes192':'AES192',
-            'aes256':'AES256',
+            'none':'none',
+            'des':'des',
+            '3des':'Y_3des',
+            'aes128':'aes128',
+            'aes192':'aes192',
+            'aes256':'aes256',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
     'SnmpMibViewInclusionEnum' : _MetaInfoEnum('SnmpMibViewInclusionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg',
         {
-            'included':'INCLUDED',
-            'excluded':'EXCLUDED',
+            'included':'included',
+            'excluded':'excluded',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
     'SnmpContextEnum' : _MetaInfoEnum('SnmpContextEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg',
         {
-            'vrf':'VRF',
-            'bridge':'BRIDGE',
-            'ospf':'OSPF',
-            'ospfv3':'OSPFV3',
+            'vrf':'vrf',
+            'bridge':'bridge',
+            'ospf':'ospf',
+            'ospfv3':'ospfv3',
         }, 'Cisco-IOS-XR-snmp-agent-cfg', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-cfg']),
     'Snmp.EncryptedCommunityMaps.EncryptedCommunityMap' : {
         'meta_info' : _MetaInfoClass('Snmp.EncryptedCommunityMaps.EncryptedCommunityMap',
@@ -747,8 +747,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
-    'Snmp.Target.Targets.Target.VrfNames.VrfName' : {
-        'meta_info' : _MetaInfoClass('Snmp.Target.Targets.Target.VrfNames.VrfName',
+    'Snmp.Target.Targets.Target_.VrfNames.VrfName' : {
+        'meta_info' : _MetaInfoClass('Snmp.Target.Targets.Target_.VrfNames.VrfName',
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
@@ -764,11 +764,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
-    'Snmp.Target.Targets.Target.VrfNames' : {
-        'meta_info' : _MetaInfoClass('Snmp.Target.Targets.Target.VrfNames',
+    'Snmp.Target.Targets.Target_.VrfNames' : {
+        'meta_info' : _MetaInfoClass('Snmp.Target.Targets.Target_.VrfNames',
             False, 
             [
-            _MetaInfoClassMember('vrf-name', REFERENCE_LIST, 'VrfName' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Target.Targets.Target.VrfNames.VrfName', 
+            _MetaInfoClassMember('vrf-name', REFERENCE_LIST, 'VrfName' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Target.Targets.Target_.VrfNames.VrfName', 
                 [], [], 
                 '''                VRF name of the target
                 ''',
@@ -781,8 +781,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
-    'Snmp.Target.Targets.Target.TargetAddresses.TargetAddress' : {
-        'meta_info' : _MetaInfoClass('Snmp.Target.Targets.Target.TargetAddresses.TargetAddress',
+    'Snmp.Target.Targets.Target_.TargetAddresses.TargetAddress' : {
+        'meta_info' : _MetaInfoClass('Snmp.Target.Targets.Target_.TargetAddresses.TargetAddress',
             False, 
             [
             _MetaInfoClassMember('ip-address', REFERENCE_UNION, 'str' , None, None, 
@@ -811,11 +811,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
-    'Snmp.Target.Targets.Target.TargetAddresses' : {
-        'meta_info' : _MetaInfoClass('Snmp.Target.Targets.Target.TargetAddresses',
+    'Snmp.Target.Targets.Target_.TargetAddresses' : {
+        'meta_info' : _MetaInfoClass('Snmp.Target.Targets.Target_.TargetAddresses',
             False, 
             [
-            _MetaInfoClassMember('target-address', REFERENCE_LIST, 'TargetAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Target.Targets.Target.TargetAddresses.TargetAddress', 
+            _MetaInfoClassMember('target-address', REFERENCE_LIST, 'TargetAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Target.Targets.Target_.TargetAddresses.TargetAddress', 
                 [], [], 
                 '''                IP Address to be configured for the Target
                 ''',
@@ -828,8 +828,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
-    'Snmp.Target.Targets.Target' : {
-        'meta_info' : _MetaInfoClass('Snmp.Target.Targets.Target',
+    'Snmp.Target.Targets.Target_' : {
+        'meta_info' : _MetaInfoClass('Snmp.Target.Targets.Target_',
             False, 
             [
             _MetaInfoClassMember('target-list-name', ATTRIBUTE, 'str' , None, None, 
@@ -838,13 +838,13 @@ _meta_table = {
                 ''',
                 'target_list_name',
                 'Cisco-IOS-XR-snmp-agent-cfg', True),
-            _MetaInfoClassMember('target-addresses', REFERENCE_CLASS, 'TargetAddresses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Target.Targets.Target.TargetAddresses', 
+            _MetaInfoClassMember('target-addresses', REFERENCE_CLASS, 'TargetAddresses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Target.Targets.Target_.TargetAddresses', 
                 [], [], 
                 '''                SNMP Target address configurations
                 ''',
                 'target_addresses',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
-            _MetaInfoClassMember('vrf-names', REFERENCE_CLASS, 'VrfNames' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Target.Targets.Target.VrfNames', 
+            _MetaInfoClassMember('vrf-names', REFERENCE_CLASS, 'VrfNames' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Target.Targets.Target_.VrfNames', 
                 [], [], 
                 '''                List of VRF Name for a target list
                 ''',
@@ -861,7 +861,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Snmp.Target.Targets',
             False, 
             [
-            _MetaInfoClassMember('target', REFERENCE_LIST, 'Target' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Target.Targets.Target', 
+            _MetaInfoClassMember('target', REFERENCE_LIST, 'Target_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Target.Targets.Target_', 
                 [], [], 
                 '''                Name of the target list
                 ''',
@@ -891,8 +891,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
-    'Snmp.Notification.Snmp' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.Snmp',
+    'Snmp.Notification.Snmp_' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.Snmp_',
             False, 
             [
             _MetaInfoClassMember('authentication', ATTRIBUTE, 'Empty' , None, None, 
@@ -1237,6 +1237,23 @@ _meta_table = {
             'Cisco-IOS-XR-infra-ceredundancymib-cfg',
             'entity-redundancy',
             _yang_ns._namespaces['Cisco-IOS-XR-infra-ceredundancymib-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.ConfigCopy' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.ConfigCopy',
+            False, 
+            [
+            _MetaInfoClassMember('completion', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ccCopyCompletion notification
+                ''',
+                'completion',
+                'Cisco-IOS-XR-infra-confcopymib-cfg', False),
+            ],
+            'Cisco-IOS-XR-infra-confcopymib-cfg',
+            'config-copy',
+            _yang_ns._namespaces['Cisco-IOS-XR-infra-confcopymib-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
@@ -2060,6 +2077,12 @@ _meta_table = {
                 ''',
                 'cfm',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
+            _MetaInfoClassMember('config-copy', REFERENCE_CLASS, 'ConfigCopy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.ConfigCopy', 
+                [], [], 
+                '''                CISCO-CONFIG-COPY-MIB notification configuration
+                ''',
+                'config_copy',
+                'Cisco-IOS-XR-infra-confcopymib-cfg', False),
             _MetaInfoClassMember('config-man', REFERENCE_CLASS, 'ConfigMan' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.ConfigMan', 
                 [], [], 
                 '''                CISCO-CONFIG-MAN-MIB notification configurations
@@ -2197,7 +2220,7 @@ _meta_table = {
                 ''',
                 'sensor',
                 'Cisco-IOS-XR-snmp-ciscosensormib-cfg', False),
-            _MetaInfoClassMember('snmp', REFERENCE_CLASS, 'Snmp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.Snmp', 
+            _MetaInfoClassMember('snmp', REFERENCE_CLASS, 'Snmp_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.Snmp_', 
                 [], [], 
                 '''                SNMP notification configuration
                 ''',
@@ -2898,8 +2921,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
-    'Snmp.BulkStats.Objects.Object.Objects.Object' : {
-        'meta_info' : _MetaInfoClass('Snmp.BulkStats.Objects.Object.Objects.Object',
+    'Snmp.BulkStats.Objects.Object.Objects_.Object_' : {
+        'meta_info' : _MetaInfoClass('Snmp.BulkStats.Objects.Object.Objects_.Object_',
             False, 
             [
             _MetaInfoClassMember('oid', ATTRIBUTE, 'str' , None, None, 
@@ -2915,11 +2938,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
-    'Snmp.BulkStats.Objects.Object.Objects' : {
-        'meta_info' : _MetaInfoClass('Snmp.BulkStats.Objects.Object.Objects',
+    'Snmp.BulkStats.Objects.Object.Objects_' : {
+        'meta_info' : _MetaInfoClass('Snmp.BulkStats.Objects.Object.Objects_',
             False, 
             [
-            _MetaInfoClassMember('object', REFERENCE_LIST, 'Object' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.BulkStats.Objects.Object.Objects.Object', 
+            _MetaInfoClassMember('object', REFERENCE_LIST, 'Object_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.BulkStats.Objects.Object.Objects_.Object_', 
                 [], [], 
                 '''                Object name or OID
                 ''',
@@ -2942,7 +2965,7 @@ _meta_table = {
                 ''',
                 'object_list_name',
                 'Cisco-IOS-XR-snmp-agent-cfg', True),
-            _MetaInfoClassMember('objects', REFERENCE_CLASS, 'Objects' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.BulkStats.Objects.Object.Objects', 
+            _MetaInfoClassMember('objects', REFERENCE_CLASS, 'Objects_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.BulkStats.Objects.Object.Objects_', 
                 [], [], 
                 '''                Configure an object List
                 ''',
@@ -4754,6 +4777,13 @@ _meta_table = {
                 ''',
                 'trap_source',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
+            _MetaInfoClassMember('trap-source-ipv4', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Assign an interface for the source address of
+                all traps
+                ''',
+                'trap_source_ipv4',
+                'Cisco-IOS-XR-snmp-agent-cfg', False),
             _MetaInfoClassMember('trap-source-ipv6', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Assign an interface for the source IPV6 address
@@ -5229,11 +5259,11 @@ _meta_table['Snmp.Agent.EngineId.Remotes']['meta_info'].parent =_meta_table['Snm
 _meta_table['Snmp.Agent.EngineId']['meta_info'].parent =_meta_table['Snmp.Agent']['meta_info']
 _meta_table['Snmp.Ipv6.Tos']['meta_info'].parent =_meta_table['Snmp.Ipv6']['meta_info']
 _meta_table['Snmp.Ipv4.Tos']['meta_info'].parent =_meta_table['Snmp.Ipv4']['meta_info']
-_meta_table['Snmp.Target.Targets.Target.VrfNames.VrfName']['meta_info'].parent =_meta_table['Snmp.Target.Targets.Target.VrfNames']['meta_info']
-_meta_table['Snmp.Target.Targets.Target.TargetAddresses.TargetAddress']['meta_info'].parent =_meta_table['Snmp.Target.Targets.Target.TargetAddresses']['meta_info']
-_meta_table['Snmp.Target.Targets.Target.VrfNames']['meta_info'].parent =_meta_table['Snmp.Target.Targets.Target']['meta_info']
-_meta_table['Snmp.Target.Targets.Target.TargetAddresses']['meta_info'].parent =_meta_table['Snmp.Target.Targets.Target']['meta_info']
-_meta_table['Snmp.Target.Targets.Target']['meta_info'].parent =_meta_table['Snmp.Target.Targets']['meta_info']
+_meta_table['Snmp.Target.Targets.Target_.VrfNames.VrfName']['meta_info'].parent =_meta_table['Snmp.Target.Targets.Target_.VrfNames']['meta_info']
+_meta_table['Snmp.Target.Targets.Target_.TargetAddresses.TargetAddress']['meta_info'].parent =_meta_table['Snmp.Target.Targets.Target_.TargetAddresses']['meta_info']
+_meta_table['Snmp.Target.Targets.Target_.VrfNames']['meta_info'].parent =_meta_table['Snmp.Target.Targets.Target_']['meta_info']
+_meta_table['Snmp.Target.Targets.Target_.TargetAddresses']['meta_info'].parent =_meta_table['Snmp.Target.Targets.Target_']['meta_info']
+_meta_table['Snmp.Target.Targets.Target_']['meta_info'].parent =_meta_table['Snmp.Target.Targets']['meta_info']
 _meta_table['Snmp.Target.Targets']['meta_info'].parent =_meta_table['Snmp.Target']['meta_info']
 _meta_table['Snmp.Notification.Bgp.Bgp4Mib']['meta_info'].parent =_meta_table['Snmp.Notification.Bgp']['meta_info']
 _meta_table['Snmp.Notification.Bgp.CiscoBgp4Mib']['meta_info'].parent =_meta_table['Snmp.Notification.Bgp']['meta_info']
@@ -5244,7 +5274,7 @@ _meta_table['Snmp.Notification.Ospf.Error']['meta_info'].parent =_meta_table['Sn
 _meta_table['Snmp.Notification.Ospfv3.Error']['meta_info'].parent =_meta_table['Snmp.Notification.Ospfv3']['meta_info']
 _meta_table['Snmp.Notification.Ospfv3.StateChange']['meta_info'].parent =_meta_table['Snmp.Notification.Ospfv3']['meta_info']
 _meta_table['Snmp.Notification.MplsTe.CiscoExtension']['meta_info'].parent =_meta_table['Snmp.Notification.MplsTe']['meta_info']
-_meta_table['Snmp.Notification.Snmp']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.Snmp_']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.Vpls']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.L2Vpn']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.Isis']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
@@ -5253,6 +5283,7 @@ _meta_table['Snmp.Notification.Cfm']['meta_info'].parent =_meta_table['Snmp.Noti
 _meta_table['Snmp.Notification.Oam']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.Flash']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.EntityRedundancy']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.ConfigCopy']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.SelectiveVrfDownload']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.System']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.Bfd']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
@@ -5299,8 +5330,8 @@ _meta_table['Snmp.Correlator.Rules']['meta_info'].parent =_meta_table['Snmp.Corr
 _meta_table['Snmp.Correlator.RuleSets']['meta_info'].parent =_meta_table['Snmp.Correlator']['meta_info']
 _meta_table['Snmp.BulkStats.Schemas.Schema.Instance']['meta_info'].parent =_meta_table['Snmp.BulkStats.Schemas.Schema']['meta_info']
 _meta_table['Snmp.BulkStats.Schemas.Schema']['meta_info'].parent =_meta_table['Snmp.BulkStats.Schemas']['meta_info']
-_meta_table['Snmp.BulkStats.Objects.Object.Objects.Object']['meta_info'].parent =_meta_table['Snmp.BulkStats.Objects.Object.Objects']['meta_info']
-_meta_table['Snmp.BulkStats.Objects.Object.Objects']['meta_info'].parent =_meta_table['Snmp.BulkStats.Objects.Object']['meta_info']
+_meta_table['Snmp.BulkStats.Objects.Object.Objects_.Object_']['meta_info'].parent =_meta_table['Snmp.BulkStats.Objects.Object.Objects_']['meta_info']
+_meta_table['Snmp.BulkStats.Objects.Object.Objects_']['meta_info'].parent =_meta_table['Snmp.BulkStats.Objects.Object']['meta_info']
 _meta_table['Snmp.BulkStats.Objects.Object']['meta_info'].parent =_meta_table['Snmp.BulkStats.Objects']['meta_info']
 _meta_table['Snmp.BulkStats.Transfers.Transfer.TransferSchemas.TransferSchema']['meta_info'].parent =_meta_table['Snmp.BulkStats.Transfers.Transfer.TransferSchemas']['meta_info']
 _meta_table['Snmp.BulkStats.Transfers.Transfer.TransferSchemas']['meta_info'].parent =_meta_table['Snmp.BulkStats.Transfers.Transfer']['meta_info']

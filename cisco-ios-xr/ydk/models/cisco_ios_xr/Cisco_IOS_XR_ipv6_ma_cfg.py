@@ -30,13 +30,13 @@ class Ipv6DefaultPingEnum(Enum):
 
     Ipv6 default ping
 
-    .. data:: DISABLED = 0
+    .. data:: disabled = 0
 
     	Default route is not allowed to match when
 
     	checking source address
 
-    .. data:: ENABLED = 1
+    .. data:: enabled = 1
 
     	Allow default route to match when checking
 
@@ -44,9 +44,9 @@ class Ipv6DefaultPingEnum(Enum):
 
     """
 
-    DISABLED = 0
+    disabled = 0
 
-    ENABLED = 1
+    enabled = 1
 
 
     @staticmethod
@@ -61,19 +61,19 @@ class Ipv6QppbEnum(Enum):
 
     Ipv6 qppb
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	No QPPB configuration
 
-    .. data:: IP_PRECEDENCE = 1
+    .. data:: ip_precedence = 1
 
     	Enable ip-precedence based QPPB
 
-    .. data:: QOS_GROUP = 2
+    .. data:: qos_group = 2
 
     	Enable qos-group based QPPB
 
-    .. data:: BOTH = 3
+    .. data:: both = 3
 
     	Enable both ip-precedence and qos-group based
 
@@ -81,13 +81,13 @@ class Ipv6QppbEnum(Enum):
 
     """
 
-    NONE = 0
+    none = 0
 
-    IP_PRECEDENCE = 1
+    ip_precedence = 1
 
-    QOS_GROUP = 2
+    qos_group = 2
 
-    BOTH = 3
+    both = 3
 
 
     @staticmethod
@@ -102,11 +102,11 @@ class Ipv6ReachableEnum(Enum):
 
     Ipv6 reachable
 
-    .. data:: ANY = 0
+    .. data:: any = 0
 
     	Source is reachable via any interface
 
-    .. data:: RECEIVED = 1
+    .. data:: received = 1
 
     	Source is reachable via interface on which
 
@@ -114,9 +114,9 @@ class Ipv6ReachableEnum(Enum):
 
     """
 
-    ANY = 0
+    any = 0
 
-    RECEIVED = 1
+    received = 1
 
 
     @staticmethod
@@ -131,19 +131,19 @@ class Ipv6SelfPingEnum(Enum):
 
     Ipv6 self ping
 
-    .. data:: DISABLED = 0
+    .. data:: disabled = 0
 
     	Doesn't allow router to ping itself
 
-    .. data:: ENABLED = 1
+    .. data:: enabled = 1
 
     	Allow router to ping itself
 
     """
 
-    DISABLED = 0
+    disabled = 0
 
-    ENABLED = 1
+    enabled = 1
 
 
     @staticmethod

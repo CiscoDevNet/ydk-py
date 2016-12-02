@@ -36,7 +36,7 @@ class Radius(object):
     .. attribute:: nodes
     
     	Contains all the nodes
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes>`
     
     
 
@@ -57,7 +57,7 @@ class Radius(object):
         .. attribute:: node
         
         	RADIUS operational data for a particular node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node>`
         
         
 
@@ -87,32 +87,32 @@ class Radius(object):
             .. attribute:: accounting
             
             	RADIUS accounting data
-            	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Accounting>`
+            	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Accounting>`
             
             .. attribute:: authentication
             
             	RADIUS authentication data
-            	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Authentication>`
+            	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Authentication>`
             
             .. attribute:: client
             
             	RADIUS client data
-            	**type**\:  :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Client>`
+            	**type**\:   :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Client>`
             
             .. attribute:: dead_criteria
             
             	RADIUS dead criteria information
-            	**type**\:  :py:class:`DeadCriteria <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria>`
+            	**type**\:   :py:class:`DeadCriteria <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria>`
             
             .. attribute:: dynamic_authorization
             
             	Dynamic authorization data
-            	**type**\:  :py:class:`DynamicAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DynamicAuthorization>`
+            	**type**\:   :py:class:`DynamicAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DynamicAuthorization>`
             
             .. attribute:: server_groups
             
             	RADIUS server group table
-            	**type**\:  :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups>`
+            	**type**\:   :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups>`
             
             
 
@@ -212,7 +212,7 @@ class Radius(object):
                 .. attribute:: hosts
                 
                 	RADIUS server dead criteria host table
-                	**type**\:  :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria.Hosts>`
+                	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria.Hosts>`
                 
                 
 
@@ -234,7 +234,7 @@ class Radius(object):
                     .. attribute:: host
                     
                     	RADIUS Server
-                    	**type**\: list of  :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria.Hosts.Host>`
+                    	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria.Hosts.Host>`
                     
                     
 
@@ -288,12 +288,12 @@ class Radius(object):
                         .. attribute:: time
                         
                         	Time in seconds
-                        	**type**\:  :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time>`
+                        	**type**\:   :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time>`
                         
                         .. attribute:: tries
                         
                         	Number of tries
-                        	**type**\:  :py:class:`Tries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries>`
+                        	**type**\:   :py:class:`Tries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries>`
                         
                         
 
@@ -518,7 +518,7 @@ class Radius(object):
                 .. attribute:: authentication_group
                 
                 	List of authentication groups
-                	**type**\: list of  :py:class:`AuthenticationGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Authentication.AuthenticationGroup>`
+                	**type**\: list of    :py:class:`AuthenticationGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Authentication.AuthenticationGroup>`
                 
                 
 
@@ -541,7 +541,7 @@ class Radius(object):
                     .. attribute:: authentication
                     
                     	Authentication data
-                    	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication>`
+                    	**type**\:   :py:class:`Authentication_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_>`
                     
                     .. attribute:: family
                     
@@ -576,7 +576,7 @@ class Radius(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.authentication = Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication()
+                        self.authentication = Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_()
                         self.authentication.parent = self
                         self.family = None
                         self.ip_address = None
@@ -584,7 +584,7 @@ class Radius(object):
                         self.server_address = None
 
 
-                    class Authentication(object):
+                    class Authentication_(object):
                         """
                         Authentication data
                         
@@ -707,6 +707,8 @@ class Radius(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: millisecond
+                        
                         .. attribute:: unknown_access_types
                         
                         	Number of packets received with unknown type from authentication server
@@ -815,7 +817,7 @@ class Radius(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
-                            return meta._meta_table['Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication']['meta_info']
+                            return meta._meta_table['Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -887,7 +889,7 @@ class Radius(object):
                 .. attribute:: accounting_group
                 
                 	List of accounting groups
-                	**type**\: list of  :py:class:`AccountingGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Accounting.AccountingGroup>`
+                	**type**\: list of    :py:class:`AccountingGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Accounting.AccountingGroup>`
                 
                 
 
@@ -910,7 +912,7 @@ class Radius(object):
                     .. attribute:: accounting
                     
                     	Accounting data
-                    	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Accounting.AccountingGroup.Accounting>`
+                    	**type**\:   :py:class:`Accounting_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_>`
                     
                     .. attribute:: family
                     
@@ -945,7 +947,7 @@ class Radius(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.accounting = Radius.Nodes.Node.Accounting.AccountingGroup.Accounting()
+                        self.accounting = Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_()
                         self.accounting.parent = self
                         self.family = None
                         self.ip_address = None
@@ -953,7 +955,7 @@ class Radius(object):
                         self.server_address = None
 
 
-                    class Accounting(object):
+                    class Accounting_(object):
                         """
                         Accounting data
                         
@@ -1054,6 +1056,8 @@ class Radius(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: millisecond
                         
                         .. attribute:: timeouts
                         
@@ -1162,7 +1166,7 @@ class Radius(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
-                            return meta._meta_table['Radius.Nodes.Node.Accounting.AccountingGroup.Accounting']['meta_info']
+                            return meta._meta_table['Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -1234,7 +1238,7 @@ class Radius(object):
                 .. attribute:: server_group
                 
                 	RADIUS server group data
-                	**type**\: list of  :py:class:`ServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup>`
+                	**type**\: list of    :py:class:`ServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup>`
                 
                 
 
@@ -1268,6 +1272,8 @@ class Radius(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: minute
+                    
                     .. attribute:: groups
                     
                     	Number of groups
@@ -1278,7 +1284,7 @@ class Radius(object):
                     .. attribute:: server_group
                     
                     	Server groups
-                    	**type**\: list of  :py:class:`ServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup>`
+                    	**type**\: list of    :py:class:`ServerGroup_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_>`
                     
                     .. attribute:: servers
                     
@@ -1311,14 +1317,14 @@ class Radius(object):
                         self.vrf_name = None
 
 
-                    class ServerGroup(object):
+                    class ServerGroup_(object):
                         """
                         Server groups
                         
                         .. attribute:: accounting
                         
                         	Accounting data
-                        	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Accounting>`
+                        	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting>`
                         
                         .. attribute:: accounting_port
                         
@@ -1330,7 +1336,7 @@ class Radius(object):
                         .. attribute:: authentication
                         
                         	Authentication data
-                        	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authentication>`
+                        	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication>`
                         
                         .. attribute:: authentication_port
                         
@@ -1342,7 +1348,7 @@ class Radius(object):
                         .. attribute:: authorization
                         
                         	Authorization data
-                        	**type**\:  :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authorization>`
+                        	**type**\:   :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization>`
                         
                         .. attribute:: family
                         
@@ -1375,13 +1381,13 @@ class Radius(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.accounting = Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Accounting()
+                            self.accounting = Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting()
                             self.accounting.parent = self
                             self.accounting_port = None
-                            self.authentication = Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authentication()
+                            self.authentication = Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication()
                             self.authentication.parent = self
                             self.authentication_port = None
-                            self.authorization = Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authorization()
+                            self.authorization = Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization()
                             self.authorization.parent = self
                             self.family = None
                             self.ip_address = None
@@ -1491,6 +1497,8 @@ class Radius(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: millisecond
+                            
                             .. attribute:: timeouts
                             
                             	Number of accounting packets timed\-out
@@ -1598,7 +1606,7 @@ class Radius(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
-                                return meta._meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Accounting']['meta_info']
+                                return meta._meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting']['meta_info']
 
 
                         class Authentication(object):
@@ -1724,6 +1732,8 @@ class Radius(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: millisecond
+                            
                             .. attribute:: unknown_access_types
                             
                             	Number of packets received with unknown type from authentication server
@@ -1832,7 +1842,7 @@ class Radius(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
-                                return meta._meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authentication']['meta_info']
+                                return meta._meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication']['meta_info']
 
 
                         class Authorization(object):
@@ -1956,7 +1966,7 @@ class Radius(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
-                                return meta._meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authorization']['meta_info']
+                                return meta._meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -2004,7 +2014,7 @@ class Radius(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_oper as meta
-                            return meta._meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup']['meta_info']
+                            return meta._meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_']['meta_info']
 
                     @property
                     def _common_path(self):

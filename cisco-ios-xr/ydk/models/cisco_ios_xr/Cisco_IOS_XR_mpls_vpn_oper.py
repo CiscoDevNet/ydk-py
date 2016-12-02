@@ -30,19 +30,19 @@ class MplsVpnAfiEnum(Enum):
 
     Layer 3 VPN Address Family Type
 
-    .. data:: IPV4 = 1
+    .. data:: ipv4 = 1
 
     	VRF IPv4 address family
 
-    .. data:: IPV6 = 2
+    .. data:: ipv6 = 2
 
     	VRF IPv6 address family
 
     """
 
-    IPV4 = 1
+    ipv4 = 1
 
-    IPV6 = 2
+    ipv6 = 2
 
 
     @staticmethod
@@ -57,25 +57,25 @@ class MplsVpnRtEnum(Enum):
 
     Layer 3 VPN Route Target Type
 
-    .. data:: IMPORT = 1
+    .. data:: import_ = 1
 
     	VRF Route Target Type Import
 
-    .. data:: EXPORT = 2
+    .. data:: export = 2
 
     	VRF Route Target Type Export
 
-    .. data:: BOTH = 3
+    .. data:: both = 3
 
     	VRF Route Target Type Import and Export
 
     """
 
-    IMPORT = 1
+    import_ = 1
 
-    EXPORT = 2
+    export = 2
 
-    BOTH = 3
+    both = 3
 
 
     @staticmethod
@@ -90,25 +90,25 @@ class MplsVpnSafiEnum(Enum):
 
     Layer 3 VPN Sub\-Address Family Type
 
-    .. data:: UNICAST = 1
+    .. data:: unicast = 1
 
     	VRF Unicast sub-address family
 
-    .. data:: MULTICAST = 2
+    .. data:: multicast = 2
 
     	VRF Multicast sub-address family
 
-    .. data:: FLOWSPEC = 133
+    .. data:: flowspec = 133
 
     	VRF Flowspec sub-address family
 
     """
 
-    UNICAST = 1
+    unicast = 1
 
-    MULTICAST = 2
+    multicast = 2
 
-    FLOWSPEC = 133
+    flowspec = 133
 
 
     @staticmethod
@@ -125,12 +125,12 @@ class L3Vpn(object):
     .. attribute:: invalid_vrfs
     
     	Invalid VRF Table (VRFs that are forward referenced)
-    	**type**\:  :py:class:`InvalidVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs>`
+    	**type**\:   :py:class:`InvalidVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs>`
     
     .. attribute:: vrfs
     
     	VRF Table
-    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs>`
+    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs>`
     
     
 
@@ -154,7 +154,7 @@ class L3Vpn(object):
         .. attribute:: invalid_vrf
         
         	Invalid VRF (VRF that is forward referenced)
-        	**type**\: list of  :py:class:`InvalidVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs.InvalidVrf>`
+        	**type**\: list of    :py:class:`InvalidVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs.InvalidVrf>`
         
         
 
@@ -182,12 +182,12 @@ class L3Vpn(object):
             .. attribute:: af
             
             	AF/SAF information
-            	**type**\: list of  :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs.InvalidVrf.Af>`
+            	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs.InvalidVrf.Af>`
             
             .. attribute:: interface
             
             	Interfaces in VRF
-            	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs.InvalidVrf.Interface>`
+            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs.InvalidVrf.Interface>`
             
             .. attribute:: is_big_vrf
             
@@ -283,7 +283,7 @@ class L3Vpn(object):
                 .. attribute:: af_name
                 
                 	AF name
-                	**type**\:  :py:class:`MplsVpnAfiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfiEnum>`
+                	**type**\:   :py:class:`MplsVpnAfiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfiEnum>`
                 
                 .. attribute:: export_route_policy
                 
@@ -298,12 +298,12 @@ class L3Vpn(object):
                 .. attribute:: route_target
                 
                 	Route Targets
-                	**type**\: list of  :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget>`
+                	**type**\: list of    :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget>`
                 
                 .. attribute:: saf_name
                 
                 	SAF name
-                	**type**\:  :py:class:`MplsVpnSafiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafiEnum>`
+                	**type**\:   :py:class:`MplsVpnSafiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafiEnum>`
                 
                 
 
@@ -330,12 +330,12 @@ class L3Vpn(object):
                     .. attribute:: af_name
                     
                     	AF name
-                    	**type**\:  :py:class:`MplsVpnAfiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfiEnum>`
+                    	**type**\:   :py:class:`MplsVpnAfiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfiEnum>`
                     
                     .. attribute:: route_target_type
                     
                     	Route Target Type
-                    	**type**\:  :py:class:`MplsVpnRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnRtEnum>`
+                    	**type**\:   :py:class:`MplsVpnRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnRtEnum>`
                     
                     .. attribute:: route_target_value
                     
@@ -345,7 +345,7 @@ class L3Vpn(object):
                     .. attribute:: saf_name
                     
                     	SAF name
-                    	**type**\:  :py:class:`MplsVpnSafiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafiEnum>`
+                    	**type**\:   :py:class:`MplsVpnSafiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafiEnum>`
                     
                     
 
@@ -510,7 +510,7 @@ class L3Vpn(object):
         .. attribute:: vrf
         
         	VRF
-        	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs.Vrf>`
+        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs.Vrf>`
         
         
 
@@ -538,12 +538,12 @@ class L3Vpn(object):
             .. attribute:: af
             
             	AF/SAF information
-            	**type**\: list of  :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs.Vrf.Af>`
+            	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs.Vrf.Af>`
             
             .. attribute:: interface
             
             	Interfaces in VRF
-            	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs.Vrf.Interface>`
+            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs.Vrf.Interface>`
             
             .. attribute:: is_big_vrf
             
@@ -639,7 +639,7 @@ class L3Vpn(object):
                 .. attribute:: af_name
                 
                 	AF name
-                	**type**\:  :py:class:`MplsVpnAfiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfiEnum>`
+                	**type**\:   :py:class:`MplsVpnAfiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfiEnum>`
                 
                 .. attribute:: export_route_policy
                 
@@ -654,12 +654,12 @@ class L3Vpn(object):
                 .. attribute:: route_target
                 
                 	Route Targets
-                	**type**\: list of  :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs.Vrf.Af.RouteTarget>`
+                	**type**\: list of    :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3Vpn.Vrfs.Vrf.Af.RouteTarget>`
                 
                 .. attribute:: saf_name
                 
                 	SAF name
-                	**type**\:  :py:class:`MplsVpnSafiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafiEnum>`
+                	**type**\:   :py:class:`MplsVpnSafiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafiEnum>`
                 
                 
 
@@ -686,12 +686,12 @@ class L3Vpn(object):
                     .. attribute:: af_name
                     
                     	AF name
-                    	**type**\:  :py:class:`MplsVpnAfiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfiEnum>`
+                    	**type**\:   :py:class:`MplsVpnAfiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfiEnum>`
                     
                     .. attribute:: route_target_type
                     
                     	Route Target Type
-                    	**type**\:  :py:class:`MplsVpnRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnRtEnum>`
+                    	**type**\:   :py:class:`MplsVpnRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnRtEnum>`
                     
                     .. attribute:: route_target_value
                     
@@ -701,7 +701,7 @@ class L3Vpn(object):
                     .. attribute:: saf_name
                     
                     	SAF name
-                    	**type**\:  :py:class:`MplsVpnSafiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafiEnum>`
+                    	**type**\:   :py:class:`MplsVpnSafiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafiEnum>`
                     
                     
 

@@ -77,8 +77,12 @@ class NativeNetconfServiceProvider(ServiceProvider):
     def close(self):
         """ Closes the netconf session """
         self.sp_instance.disconnect()
-        self.netconf_sp_logger.info('NativeNetconfServiceProvider disconnected from %s:%s using %s'
-                               % (self.address, self.port, self.protocol))
+        if self.port is not None:
+            self.netconf_sp_logger.info('NativeNetconfServiceProvider disconnected from %s:%s using %s'
+                                        % (self.address, self.port, self.protocol))
+        else:
+            self.netconf_sp_logger.info('NativeNetconfServiceProvider disconnected from %s using %s'
+                                        % (self.address, self.protocol))
 
     def encode(self, entity, operation, only_config=False):
         return self.sp_instance.encode(entity, operation, only_config)

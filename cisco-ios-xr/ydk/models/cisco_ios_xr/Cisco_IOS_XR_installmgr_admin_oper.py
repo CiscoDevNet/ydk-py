@@ -32,37 +32,37 @@ class InstallmgrIsmNodeConformingEnum(Enum):
 
     ISSU manage node inventory type
 
-    .. data:: CONFORMING = 0
+    .. data:: conforming = 0
 
     	Conforming Nodes
 
-    .. data:: NONE_CONFORMING = 1
+    .. data:: none_conforming = 1
 
     	Non-conforming nodes
 
-    .. data:: UPGRADE_FAIL = 2
+    .. data:: upgrade_fail = 2
 
     	Node Upgrade failed
 
-    .. data:: NONE_CONFORMING_SPA = 3
+    .. data:: none_conforming_spa = 3
 
     	Non-conforming SPAs
 
-    .. data:: SPA_UPGRADE_FAIL = 4
+    .. data:: spa_upgrade_fail = 4
 
     	SPA Upgrade failed
 
     """
 
-    CONFORMING = 0
+    conforming = 0
 
-    NONE_CONFORMING = 1
+    none_conforming = 1
 
-    UPGRADE_FAIL = 2
+    upgrade_fail = 2
 
-    NONE_CONFORMING_SPA = 3
+    none_conforming_spa = 3
 
-    SPA_UPGRADE_FAIL = 4
+    spa_upgrade_fail = 4
 
 
     @staticmethod
@@ -77,31 +77,31 @@ class InstmgrBagAbortStateEnum(Enum):
 
     The abortable state of an install command
 
-    .. data:: ABORTABLE = 1
+    .. data:: abortable = 1
 
     	Operation can be aborted
 
-    .. data:: NO_LONGER_ABORTABLE = 2
+    .. data:: no_longer_abortable = 2
 
     	Operation can no longer be aborted
 
-    .. data:: NEVER_ABORTABLE = 3
+    .. data:: never_abortable = 3
 
     	Operation cannot be aborted
 
-    .. data:: ALREADY_ABORTED = 4
+    .. data:: already_aborted = 4
 
     	Operation has been aborted
 
     """
 
-    ABORTABLE = 1
+    abortable = 1
 
-    NO_LONGER_ABORTABLE = 2
+    no_longer_abortable = 2
 
-    NEVER_ABORTABLE = 3
+    never_abortable = 3
 
-    ALREADY_ABORTED = 4
+    already_aborted = 4
 
 
     @staticmethod
@@ -116,25 +116,25 @@ class InstmgrBagIiDirectionEnum(Enum):
 
     The Incremental Install direction
 
-    .. data:: NOT_INCREMENTAL = 0
+    .. data:: not_incremental = 0
 
     	Not incremental install operation
 
-    .. data:: INSTALLING = 1
+    .. data:: installing = 1
 
     	Installing
 
-    .. data:: UNWINDING = 2
+    .. data:: unwinding = 2
 
     	Unwinding
 
     """
 
-    NOT_INCREMENTAL = 0
+    not_incremental = 0
 
-    INSTALLING = 1
+    installing = 1
 
-    UNWINDING = 2
+    unwinding = 2
 
 
     @staticmethod
@@ -149,37 +149,37 @@ class InstmgrBagIiStateEnum(Enum):
 
     The Incremental Install state of an install
 
-    .. data:: IDLE = 1
+    .. data:: idle = 1
 
     	Node to be upraded
 
-    .. data:: IN_PROGRESS = 2
+    .. data:: in_progress = 2
 
     	Node is being upraded
 
-    .. data:: COMPLETED = 3
+    .. data:: completed = 3
 
     	Node upgraded successfully
 
-    .. data:: ABORTED = 4
+    .. data:: aborted = 4
 
     	Node reverted to the old S/W
 
-    .. data:: REBOOTED = 5
+    .. data:: rebooted = 5
 
     	Node rebooted and held in MBI
 
     """
 
-    IDLE = 1
+    idle = 1
 
-    IN_PROGRESS = 2
+    in_progress = 2
 
-    COMPLETED = 3
+    completed = 3
 
-    ABORTED = 4
+    aborted = 4
 
-    REBOOTED = 5
+    rebooted = 5
 
 
     @staticmethod
@@ -194,55 +194,55 @@ class InstmgrBagLogEntryUserMsgCategoryEnum(Enum):
 
     Category type
 
-    .. data:: USER_ERROR = 1
+    .. data:: user_error = 1
 
     	User error
 
-    .. data:: NON_SPECIFIC = 2
+    .. data:: non_specific = 2
 
     	Non-specific message
 
-    .. data:: WARNING = 3
+    .. data:: warning = 3
 
     	Warning message
 
-    .. data:: INFORMATION = 4
+    .. data:: information = 4
 
     	Information message
 
-    .. data:: USER_PROMPT = 5
+    .. data:: user_prompt = 5
 
     	User prompt
 
-    .. data:: LOG = 6
+    .. data:: log = 6
 
     	Log message
 
-    .. data:: SYSTEM_ERROR = 7
+    .. data:: system_error = 7
 
     	System error
 
-    .. data:: USER_RESPONSE = 8
+    .. data:: user_response = 8
 
     	User response
 
     """
 
-    USER_ERROR = 1
+    user_error = 1
 
-    NON_SPECIFIC = 2
+    non_specific = 2
 
-    WARNING = 3
+    warning = 3
 
-    INFORMATION = 4
+    information = 4
 
-    USER_PROMPT = 5
+    user_prompt = 5
 
-    LOG = 6
+    log = 6
 
-    SYSTEM_ERROR = 7
+    system_error = 7
 
-    USER_RESPONSE = 8
+    user_response = 8
 
 
     @staticmethod
@@ -257,19 +257,19 @@ class InstmgrBagRequestTriggerEnum(Enum):
 
     The trigger type of an install request
 
-    .. data:: CLI = 1
+    .. data:: cli = 1
 
     	Request triggered by CLI
 
-    .. data:: XR_XML = 2
+    .. data:: xr_xml = 2
 
     	Request triggered by XML
 
     """
 
-    CLI = 1
+    cli = 1
 
-    XR_XML = 2
+    xr_xml = 2
 
 
     @staticmethod
@@ -284,55 +284,55 @@ class InstmgrBagUserMsgCategoryEnum(Enum):
 
     Instmgr bag user msg category
 
-    .. data:: USER_ERROR = 1
+    .. data:: user_error = 1
 
     	User error
 
-    .. data:: NON_SPECIFIC = 2
+    .. data:: non_specific = 2
 
     	Non-specific message
 
-    .. data:: WARNING = 3
+    .. data:: warning = 3
 
     	Warning message
 
-    .. data:: INFORMATION = 4
+    .. data:: information = 4
 
     	Information message
 
-    .. data:: USER_PROMPT = 5
+    .. data:: user_prompt = 5
 
     	User prompt
 
-    .. data:: LOG = 6
+    .. data:: log = 6
 
     	Log message
 
-    .. data:: SYSTEM_ERROR = 7
+    .. data:: system_error = 7
 
     	System error
 
-    .. data:: USER_RESPONSE = 8
+    .. data:: user_response = 8
 
     	User response
 
     """
 
-    USER_ERROR = 1
+    user_error = 1
 
-    NON_SPECIFIC = 2
+    non_specific = 2
 
-    WARNING = 3
+    warning = 3
 
-    INFORMATION = 4
+    information = 4
 
-    USER_PROMPT = 5
+    user_prompt = 5
 
-    LOG = 6
+    log = 6
 
-    SYSTEM_ERROR = 7
+    system_error = 7
 
-    USER_RESPONSE = 8
+    user_response = 8
 
 
     @staticmethod
@@ -347,235 +347,235 @@ class InstmgrCardStateEnum(Enum):
 
     Instmgr card state
 
-    .. data:: INSTMGR_CARD_NOT_PRESENT = 0
+    .. data:: instmgr_card_not_present = 0
 
     	instmgr card not present
 
-    .. data:: INSTMGR_CARD_PRESENT = 1
+    .. data:: instmgr_card_present = 1
 
     	instmgr card present
 
-    .. data:: INSTMGR_CARD_RESET = 2
+    .. data:: instmgr_card_reset = 2
 
     	instmgr card reset
 
-    .. data:: INSTMGR_CARD_BOOTING = 3
+    .. data:: instmgr_card_booting = 3
 
     	instmgr card booting
 
-    .. data:: INSTMGR_CARD_MBI_BOOTING = 4
+    .. data:: instmgr_card_mbi_booting = 4
 
     	instmgr card mbi booting
 
-    .. data:: INSTMGR_CARD_RUNNING_MBI = 5
+    .. data:: instmgr_card_running_mbi = 5
 
     	instmgr card running mbi
 
-    .. data:: INSTMGR_CARD_RUNNING_ENA = 6
+    .. data:: instmgr_card_running_ena = 6
 
     	instmgr card running ena
 
-    .. data:: INSTMGR_CARD_BRING_DOWN = 7
+    .. data:: instmgr_card_bring_down = 7
 
     	instmgr card bring down
 
-    .. data:: INSTMGR_CARD_ENA_FAILURE = 8
+    .. data:: instmgr_card_ena_failure = 8
 
     	instmgr card ena failure
 
-    .. data:: INSTMGR_CARD_F_DIAG_RUN = 9
+    .. data:: instmgr_card_f_diag_run = 9
 
     	instmgr card f diag run
 
-    .. data:: INSTMGR_CARD_F_DIAG_FAILURE = 10
+    .. data:: instmgr_card_f_diag_failure = 10
 
     	instmgr card f diag failure
 
-    .. data:: INSTMGR_CARD_POWERED = 11
+    .. data:: instmgr_card_powered = 11
 
     	instmgr card powered
 
-    .. data:: INSTMGR_CARD_UNPOWERED = 12
+    .. data:: instmgr_card_unpowered = 12
 
     	instmgr card unpowered
 
-    .. data:: INSTMGR_CARD_MDR = 13
+    .. data:: instmgr_card_mdr = 13
 
     	instmgr card mdr
 
-    .. data:: INSTMGR_CARD_MDR_RUNNING_MBI = 14
+    .. data:: instmgr_card_mdr_running_mbi = 14
 
     	instmgr card mdr running mbi
 
-    .. data:: INSTMGR_CARD_MAIN_T_MODE = 15
+    .. data:: instmgr_card_main_t_mode = 15
 
     	instmgr card main t mode
 
-    .. data:: INSTMGR_CARD_ADMIN_DOWN = 16
+    .. data:: instmgr_card_admin_down = 16
 
     	instmgr card admin down
 
-    .. data:: INSTMGR_CARD_NO_MON = 17
+    .. data:: instmgr_card_no_mon = 17
 
     	instmgr card no mon
 
-    .. data:: INSTMGR_CARD_UNKNOWN = 18
+    .. data:: instmgr_card_unknown = 18
 
     	instmgr card unknown
 
-    .. data:: INSTMGR_CARD_FAILED = 19
+    .. data:: instmgr_card_failed = 19
 
     	instmgr card failed
 
-    .. data:: INSTMGR_CARD_OK = 20
+    .. data:: instmgr_card_ok = 20
 
     	instmgr card ok
 
-    .. data:: INSTMGR_CARD_MISSING = 21
+    .. data:: instmgr_card_missing = 21
 
     	instmgr card missing
 
-    .. data:: INSTMGR_CARD_FIELD_DIAG_DOWNLOADING = 22
+    .. data:: instmgr_card_field_diag_downloading = 22
 
     	instmgr card field diag downloading
 
-    .. data:: INSTMGR_CARD_FIELD_DIAG_UNMONITOR = 23
+    .. data:: instmgr_card_field_diag_unmonitor = 23
 
     	instmgr card field diag unmonitor
 
-    .. data:: INSTMGR_CARD_FABRIC_FIELD_DIAG_UNMONITOR = 24
+    .. data:: instmgr_card_fabric_field_diag_unmonitor = 24
 
     	instmgr card fabric field diag unmonitor
 
-    .. data:: INSTMGR_CARD_FIELD_DIAG_RP_LAUNCHING = 25
+    .. data:: instmgr_card_field_diag_rp_launching = 25
 
     	instmgr card field diag rp launching
 
-    .. data:: INSTMGR_CARD_FIELD_DIAG_RUNNING = 26
+    .. data:: instmgr_card_field_diag_running = 26
 
     	instmgr card field diag running
 
-    .. data:: INSTMGR_CARD_FIELD_DIAG_PASS = 27
+    .. data:: instmgr_card_field_diag_pass = 27
 
     	instmgr card field diag pass
 
-    .. data:: INSTMGR_CARD_FIELD_DIAG_FAIL = 28
+    .. data:: instmgr_card_field_diag_fail = 28
 
     	instmgr card field diag fail
 
-    .. data:: INSTMGR_CARD_FIELD_DIAG_TIMEOUT = 29
+    .. data:: instmgr_card_field_diag_timeout = 29
 
     	instmgr card field diag timeout
 
-    .. data:: INSTMGR_CARD_DISABLED = 30
+    .. data:: instmgr_card_disabled = 30
 
     	instmgr card disabled
 
-    .. data:: INSTMGR_CARD_SPA_BOOTING = 31
+    .. data:: instmgr_card_spa_booting = 31
 
     	instmgr card spa booting
 
-    .. data:: INSTMGR_CARD_NOT_ALLOWED_ONLINE = 32
+    .. data:: instmgr_card_not_allowed_online = 32
 
     	instmgr card not allowed online
 
-    .. data:: INSTMGR_CARD_STOPPED = 33
+    .. data:: instmgr_card_stopped = 33
 
     	instmgr card stopped
 
-    .. data:: INSTMGR_CARD_INCOMPATIBLE_FW_VER = 34
+    .. data:: instmgr_card_incompatible_fw_ver = 34
 
     	instmgr card incompatible fw ver
 
-    .. data:: INSTMGR_CARD_FPD_HOLD = 35
+    .. data:: instmgr_card_fpd_hold = 35
 
     	instmgr card fpd hold
 
-    .. data:: INSTMGR_CARD_UPDATING_FPD = 37
+    .. data:: instmgr_card_updating_fpd = 37
 
     	instmgr card updating fpd
 
-    .. data:: INSTMGR_CARD_NUM_STATES = 38
+    .. data:: instmgr_card_num_states = 38
 
     	instmgr card num states
 
     """
 
-    INSTMGR_CARD_NOT_PRESENT = 0
+    instmgr_card_not_present = 0
 
-    INSTMGR_CARD_PRESENT = 1
+    instmgr_card_present = 1
 
-    INSTMGR_CARD_RESET = 2
+    instmgr_card_reset = 2
 
-    INSTMGR_CARD_BOOTING = 3
+    instmgr_card_booting = 3
 
-    INSTMGR_CARD_MBI_BOOTING = 4
+    instmgr_card_mbi_booting = 4
 
-    INSTMGR_CARD_RUNNING_MBI = 5
+    instmgr_card_running_mbi = 5
 
-    INSTMGR_CARD_RUNNING_ENA = 6
+    instmgr_card_running_ena = 6
 
-    INSTMGR_CARD_BRING_DOWN = 7
+    instmgr_card_bring_down = 7
 
-    INSTMGR_CARD_ENA_FAILURE = 8
+    instmgr_card_ena_failure = 8
 
-    INSTMGR_CARD_F_DIAG_RUN = 9
+    instmgr_card_f_diag_run = 9
 
-    INSTMGR_CARD_F_DIAG_FAILURE = 10
+    instmgr_card_f_diag_failure = 10
 
-    INSTMGR_CARD_POWERED = 11
+    instmgr_card_powered = 11
 
-    INSTMGR_CARD_UNPOWERED = 12
+    instmgr_card_unpowered = 12
 
-    INSTMGR_CARD_MDR = 13
+    instmgr_card_mdr = 13
 
-    INSTMGR_CARD_MDR_RUNNING_MBI = 14
+    instmgr_card_mdr_running_mbi = 14
 
-    INSTMGR_CARD_MAIN_T_MODE = 15
+    instmgr_card_main_t_mode = 15
 
-    INSTMGR_CARD_ADMIN_DOWN = 16
+    instmgr_card_admin_down = 16
 
-    INSTMGR_CARD_NO_MON = 17
+    instmgr_card_no_mon = 17
 
-    INSTMGR_CARD_UNKNOWN = 18
+    instmgr_card_unknown = 18
 
-    INSTMGR_CARD_FAILED = 19
+    instmgr_card_failed = 19
 
-    INSTMGR_CARD_OK = 20
+    instmgr_card_ok = 20
 
-    INSTMGR_CARD_MISSING = 21
+    instmgr_card_missing = 21
 
-    INSTMGR_CARD_FIELD_DIAG_DOWNLOADING = 22
+    instmgr_card_field_diag_downloading = 22
 
-    INSTMGR_CARD_FIELD_DIAG_UNMONITOR = 23
+    instmgr_card_field_diag_unmonitor = 23
 
-    INSTMGR_CARD_FABRIC_FIELD_DIAG_UNMONITOR = 24
+    instmgr_card_fabric_field_diag_unmonitor = 24
 
-    INSTMGR_CARD_FIELD_DIAG_RP_LAUNCHING = 25
+    instmgr_card_field_diag_rp_launching = 25
 
-    INSTMGR_CARD_FIELD_DIAG_RUNNING = 26
+    instmgr_card_field_diag_running = 26
 
-    INSTMGR_CARD_FIELD_DIAG_PASS = 27
+    instmgr_card_field_diag_pass = 27
 
-    INSTMGR_CARD_FIELD_DIAG_FAIL = 28
+    instmgr_card_field_diag_fail = 28
 
-    INSTMGR_CARD_FIELD_DIAG_TIMEOUT = 29
+    instmgr_card_field_diag_timeout = 29
 
-    INSTMGR_CARD_DISABLED = 30
+    instmgr_card_disabled = 30
 
-    INSTMGR_CARD_SPA_BOOTING = 31
+    instmgr_card_spa_booting = 31
 
-    INSTMGR_CARD_NOT_ALLOWED_ONLINE = 32
+    instmgr_card_not_allowed_online = 32
 
-    INSTMGR_CARD_STOPPED = 33
+    instmgr_card_stopped = 33
 
-    INSTMGR_CARD_INCOMPATIBLE_FW_VER = 34
+    instmgr_card_incompatible_fw_ver = 34
 
-    INSTMGR_CARD_FPD_HOLD = 35
+    instmgr_card_fpd_hold = 35
 
-    INSTMGR_CARD_UPDATING_FPD = 37
+    instmgr_card_updating_fpd = 37
 
-    INSTMGR_CARD_NUM_STATES = 38
+    instmgr_card_num_states = 38
 
 
     @staticmethod
@@ -590,25 +590,25 @@ class InstmgrGroupEnum(Enum):
 
     Group type
 
-    .. data:: INST_PKG_GROUP_UNDEFINED = 0
+    .. data:: inst_pkg_group_undefined = 0
 
     	Undefined grouping
 
-    .. data:: INST_PKG_GROUP_GROUPED = 1
+    .. data:: inst_pkg_group_grouped = 1
 
     	Packages are grouped
 
-    .. data:: INST_PKG_GROUP_INDIVIDUAL = 2
+    .. data:: inst_pkg_group_individual = 2
 
     	Packages are all individual
 
     """
 
-    INST_PKG_GROUP_UNDEFINED = 0
+    inst_pkg_group_undefined = 0
 
-    INST_PKG_GROUP_GROUPED = 1
+    inst_pkg_group_grouped = 1
 
-    INST_PKG_GROUP_INDIVIDUAL = 2
+    inst_pkg_group_individual = 2
 
 
     @staticmethod
@@ -623,31 +623,31 @@ class InstmgrInstallPhaseEnum(Enum):
 
     Current operation phase
 
-    .. data:: INST_PHASE_UNKNOWN = 0
+    .. data:: inst_phase_unknown = 0
 
     	Unknown operational phase
 
-    .. data:: INST_PHASE_DOWNLOAD = 10
+    .. data:: inst_phase_download = 10
 
     	Downloading
 
-    .. data:: INST_PHASE_SW_CHANGE = 50
+    .. data:: inst_phase_sw_change = 50
 
     	Performing software changes
 
-    .. data:: INST_PHASE_CLEANING_UP = 1000
+    .. data:: inst_phase_cleaning_up = 1000
 
     	Cleaning up after op
 
     """
 
-    INST_PHASE_UNKNOWN = 0
+    inst_phase_unknown = 0
 
-    INST_PHASE_DOWNLOAD = 10
+    inst_phase_download = 10
 
-    INST_PHASE_SW_CHANGE = 50
+    inst_phase_sw_change = 50
 
-    INST_PHASE_CLEANING_UP = 1000
+    inst_phase_cleaning_up = 1000
 
 
     @staticmethod
@@ -662,199 +662,199 @@ class InstmgrIsmFsmStateEnum(Enum):
 
     Install manager FSM state
 
-    .. data:: IDLE = 0
+    .. data:: idle = 0
 
     	No ISSU in progress
 
-    .. data:: INIT_DONE = 1
+    .. data:: init_done = 1
 
     	LOAD init
 
-    .. data:: LOAD_SHUT = 2
+    .. data:: load_shut = 2
 
     	LOAD preparation
 
-    .. data:: LOAD_WAIT = 3
+    .. data:: load_wait = 3
 
     	LOAD wait
 
-    .. data:: LOAD_STP_ROOT_BEFORE = 4
+    .. data:: load_stp_root_before = 4
 
     	LOAD root SC FO
 
-    .. data:: LOAD_STANDBY_ROOT_SC_UPGRADE = 5
+    .. data:: load_standby_root_sc_upgrade = 5
 
     	LOAD standby ROOT SC Upgrade
 
-    .. data:: LOAD_STANDBY_MANAGEMENT_UPGRADE = 6
+    .. data:: load_standby_management_upgrade = 6
 
     	LOAD standby management upgrade
 
-    .. data:: LOAD_STP_ROOT_AFTER = 7
+    .. data:: load_stp_root_after = 7
 
     	LOAD NDSC FO
 
-    .. data:: LOAD_FABRIC_UPGRADE = 8
+    .. data:: load_fabric_upgrade = 8
 
     	LOAD fabric upgrade
 
-    .. data:: LOAD_MANAGEMENT_ISSU_READY = 9
+    .. data:: load_management_issu_ready = 9
 
     	LOAD ISSU ready
 
-    .. data:: LOAD_DONE = 10
+    .. data:: load_done = 10
 
     	LOAD done
 
-    .. data:: RUN_PREP = 11
+    .. data:: run_prep = 11
 
     	RUN preparation
 
-    .. data:: RUN_WAIT = 12
+    .. data:: run_wait = 12
 
     	RUN wait
 
-    .. data:: RUNI_MDR_PREP = 13
+    .. data:: runi_mdr_prep = 13
 
     	RUN iMDR preparation
 
-    .. data:: RUNI_MDR_START = 14
+    .. data:: runi_mdr_start = 14
 
     	RUN iMDR start
 
-    .. data:: RUNI_MDR_COMPLETE = 15
+    .. data:: runi_mdr_complete = 15
 
     	RUN iMDR complete
 
-    .. data:: RUN_MAKE_STANDBY_READY = 16
+    .. data:: run_make_standby_ready = 16
 
     	RUN make standby ready
 
-    .. data:: RUN_ROOT_SCFO = 17
+    .. data:: run_root_scfo = 17
 
     	RUN root SC FO
 
-    .. data:: RUN_NDSCFO = 18
+    .. data:: run_ndscfo = 18
 
     	RUN NDSC FO
 
-    .. data:: RUN_TRANSIENT1 = 19
+    .. data:: run_transient1 = 19
 
     	RUN transient1
 
-    .. data:: RUN_DSCFO = 20
+    .. data:: run_dscfo = 20
 
     	RUN DSC FO
 
-    .. data:: RUN_FO_COMPLETE = 21
+    .. data:: run_fo_complete = 21
 
     	RUN FO compelte
 
-    .. data:: RUN_STP_ROOT_RETURN = 22
+    .. data:: run_stp_root_return = 22
 
     	Run STP Root Return
 
-    .. data:: RUNI_MDR_CONTINUE = 23
+    .. data:: runi_mdr_continue = 23
 
     	RUN iMDR continue
 
-    .. data:: RUN_AM_I_READY_AFTERI_MDR = 24
+    .. data:: run_am_i_ready_afteri_mdr = 24
 
     	RUN I am ready after iMDR
 
-    .. data:: RUN_NSF_READY = 25
+    .. data:: run_nsf_ready = 25
 
     	RUN NSF ready
 
-    .. data:: RUN_NSF_BEGIN = 26
+    .. data:: run_nsf_begin = 26
 
     	RUN iMDR begin
 
-    .. data:: RUNI_MDR_DONE = 27
+    .. data:: runi_mdr_done = 27
 
     	RUN iMDR done
 
-    .. data:: RUN_MANAGEMENT_ISSU_READY = 28
+    .. data:: run_management_issu_ready = 28
 
     	RUN mgmt issu ready
 
-    .. data:: RUN_UN_SHUT = 29
+    .. data:: run_un_shut = 29
 
     	RUN unshut
 
-    .. data:: RUN_IS_DONE = 30
+    .. data:: run_is_done = 30
 
     	RUN done
 
-    .. data:: STATE_MAX = 31
+    .. data:: state_max = 31
 
     	Max ISSU state
 
     """
 
-    IDLE = 0
+    idle = 0
 
-    INIT_DONE = 1
+    init_done = 1
 
-    LOAD_SHUT = 2
+    load_shut = 2
 
-    LOAD_WAIT = 3
+    load_wait = 3
 
-    LOAD_STP_ROOT_BEFORE = 4
+    load_stp_root_before = 4
 
-    LOAD_STANDBY_ROOT_SC_UPGRADE = 5
+    load_standby_root_sc_upgrade = 5
 
-    LOAD_STANDBY_MANAGEMENT_UPGRADE = 6
+    load_standby_management_upgrade = 6
 
-    LOAD_STP_ROOT_AFTER = 7
+    load_stp_root_after = 7
 
-    LOAD_FABRIC_UPGRADE = 8
+    load_fabric_upgrade = 8
 
-    LOAD_MANAGEMENT_ISSU_READY = 9
+    load_management_issu_ready = 9
 
-    LOAD_DONE = 10
+    load_done = 10
 
-    RUN_PREP = 11
+    run_prep = 11
 
-    RUN_WAIT = 12
+    run_wait = 12
 
-    RUNI_MDR_PREP = 13
+    runi_mdr_prep = 13
 
-    RUNI_MDR_START = 14
+    runi_mdr_start = 14
 
-    RUNI_MDR_COMPLETE = 15
+    runi_mdr_complete = 15
 
-    RUN_MAKE_STANDBY_READY = 16
+    run_make_standby_ready = 16
 
-    RUN_ROOT_SCFO = 17
+    run_root_scfo = 17
 
-    RUN_NDSCFO = 18
+    run_ndscfo = 18
 
-    RUN_TRANSIENT1 = 19
+    run_transient1 = 19
 
-    RUN_DSCFO = 20
+    run_dscfo = 20
 
-    RUN_FO_COMPLETE = 21
+    run_fo_complete = 21
 
-    RUN_STP_ROOT_RETURN = 22
+    run_stp_root_return = 22
 
-    RUNI_MDR_CONTINUE = 23
+    runi_mdr_continue = 23
 
-    RUN_AM_I_READY_AFTERI_MDR = 24
+    run_am_i_ready_afteri_mdr = 24
 
-    RUN_NSF_READY = 25
+    run_nsf_ready = 25
 
-    RUN_NSF_BEGIN = 26
+    run_nsf_begin = 26
 
-    RUNI_MDR_DONE = 27
+    runi_mdr_done = 27
 
-    RUN_MANAGEMENT_ISSU_READY = 28
+    run_management_issu_ready = 28
 
-    RUN_UN_SHUT = 29
+    run_un_shut = 29
 
-    RUN_IS_DONE = 30
+    run_is_done = 30
 
-    STATE_MAX = 31
+    state_max = 31
 
 
     @staticmethod
@@ -869,199 +869,199 @@ class InstmgrIsmNodeStateEnum(Enum):
 
     ISSU manager node state
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	No ISSU in progress
 
-    .. data:: ISSU_NODE_GSP_READY = 1
+    .. data:: issu_node_gsp_ready = 1
 
     	Node GSP ready
 
-    .. data:: LOAD_SHUT_DONE = 2
+    .. data:: load_shut_done = 2
 
     	Load shut done
 
-    .. data:: STANDBY_MANAGEMENT_UPGRADE_DONE = 3
+    .. data:: standby_management_upgrade_done = 3
 
     	Standby management nodes upgrade done
 
-    .. data:: FABRIC_UPGRADE_DONE = 4
+    .. data:: fabric_upgrade_done = 4
 
     	Fabric nodes upgrade done
 
-    .. data:: IMDR_PREPARATION_ACK_RECEIVED = 5
+    .. data:: imdr_preparation_ack_received = 5
 
     	iMDR preparation ACK received
 
-    .. data:: IMDR_PREPARATION_FAILED = 6
+    .. data:: imdr_preparation_failed = 6
 
     	iMDR preparation ACK failed
 
-    .. data:: IMDR_START_ACK_RECEIVED = 7
+    .. data:: imdr_start_ack_received = 7
 
     	iMDR start AVK received
 
-    .. data:: IMDR_START_FAILED = 8
+    .. data:: imdr_start_failed = 8
 
     	iMDR start failed
 
-    .. data:: IMDR_COMPLETE_ACK_RECEIVED = 9
+    .. data:: imdr_complete_ack_received = 9
 
     	iMDR complete ACK received
 
-    .. data:: IMDR_COMPLETE_FAILED = 10
+    .. data:: imdr_complete_failed = 10
 
     	iMDR complete failed
 
-    .. data:: STANDBY_MANAGEMENT_READY = 11
+    .. data:: standby_management_ready = 11
 
     	Standby management nodes ready
 
-    .. data:: FO_ACKNOWLEDGED = 12
+    .. data:: fo_acknowledged = 12
 
     	FO acked
 
-    .. data:: FO_COMPLETE = 13
+    .. data:: fo_complete = 13
 
     	FO complete
 
-    .. data:: STANDBY_READY_AFTER_FO = 14
+    .. data:: standby_ready_after_fo = 14
 
     	Standby nodes ready after FO
 
-    .. data:: IAM_READY_AFTERI_MDR = 15
+    .. data:: iam_ready_afteri_mdr = 15
 
     	Node is ready after iMDR
 
-    .. data:: NSF_READY = 16
+    .. data:: nsf_ready = 16
 
     	NSF ready
 
-    .. data:: NSF_BEGIN_ACK_RECEIVED = 17
+    .. data:: nsf_begin_ack_received = 17
 
     	NSF begin ACK received
 
-    .. data:: IMDR_DONE = 18
+    .. data:: imdr_done = 18
 
     	iMDR done
 
-    .. data:: UNSHUT_DONE = 19
+    .. data:: unshut_done = 19
 
     	Unshut done
 
-    .. data:: RUN_DONE = 20
+    .. data:: run_done = 20
 
     	Run done
 
-    .. data:: IMDR_ABORT_SENT = 21
+    .. data:: imdr_abort_sent = 21
 
     	iMDR abort sent
 
-    .. data:: IMDR_ABORT_ACK_RECEIVED = 22
+    .. data:: imdr_abort_ack_received = 22
 
     	iMDR abort ACK Received
 
-    .. data:: IMDR_ABORT_FAILED = 23
+    .. data:: imdr_abort_failed = 23
 
     	iMDR abort failed
 
-    .. data:: STANDBY_MANAGEMENT_DOWNGRADE_DONE = 24
+    .. data:: standby_management_downgrade_done = 24
 
     	Standby management nodes downgrade done
 
-    .. data:: FABRIC_DOWNGRADE_DONE = 25
+    .. data:: fabric_downgrade_done = 25
 
     	Fabric nodes downgrade done
 
-    .. data:: RELOAD_DURING_ISSU = 26
+    .. data:: reload_during_issu = 26
 
     	Node reloaded during ISSU
 
-    .. data:: TIMNEOUT = 27
+    .. data:: timneout = 27
 
     	Node time out
 
-    .. data:: FABRIC_UPGRADE_FAILED = 28
+    .. data:: fabric_upgrade_failed = 28
 
     	Fabric upgrade failed
 
-    .. data:: UNSUPPORTED_HW = 29
+    .. data:: unsupported_hw = 29
 
     	Unsupported hardware
 
-    .. data:: NOT_REACHABLE = 30
+    .. data:: not_reachable = 30
 
     	Node unreachable
 
-    .. data:: MAX = 32
+    .. data:: max = 32
 
     	Max node state
 
     """
 
-    NONE = 0
+    none = 0
 
-    ISSU_NODE_GSP_READY = 1
+    issu_node_gsp_ready = 1
 
-    LOAD_SHUT_DONE = 2
+    load_shut_done = 2
 
-    STANDBY_MANAGEMENT_UPGRADE_DONE = 3
+    standby_management_upgrade_done = 3
 
-    FABRIC_UPGRADE_DONE = 4
+    fabric_upgrade_done = 4
 
-    IMDR_PREPARATION_ACK_RECEIVED = 5
+    imdr_preparation_ack_received = 5
 
-    IMDR_PREPARATION_FAILED = 6
+    imdr_preparation_failed = 6
 
-    IMDR_START_ACK_RECEIVED = 7
+    imdr_start_ack_received = 7
 
-    IMDR_START_FAILED = 8
+    imdr_start_failed = 8
 
-    IMDR_COMPLETE_ACK_RECEIVED = 9
+    imdr_complete_ack_received = 9
 
-    IMDR_COMPLETE_FAILED = 10
+    imdr_complete_failed = 10
 
-    STANDBY_MANAGEMENT_READY = 11
+    standby_management_ready = 11
 
-    FO_ACKNOWLEDGED = 12
+    fo_acknowledged = 12
 
-    FO_COMPLETE = 13
+    fo_complete = 13
 
-    STANDBY_READY_AFTER_FO = 14
+    standby_ready_after_fo = 14
 
-    IAM_READY_AFTERI_MDR = 15
+    iam_ready_afteri_mdr = 15
 
-    NSF_READY = 16
+    nsf_ready = 16
 
-    NSF_BEGIN_ACK_RECEIVED = 17
+    nsf_begin_ack_received = 17
 
-    IMDR_DONE = 18
+    imdr_done = 18
 
-    UNSHUT_DONE = 19
+    unshut_done = 19
 
-    RUN_DONE = 20
+    run_done = 20
 
-    IMDR_ABORT_SENT = 21
+    imdr_abort_sent = 21
 
-    IMDR_ABORT_ACK_RECEIVED = 22
+    imdr_abort_ack_received = 22
 
-    IMDR_ABORT_FAILED = 23
+    imdr_abort_failed = 23
 
-    STANDBY_MANAGEMENT_DOWNGRADE_DONE = 24
+    standby_management_downgrade_done = 24
 
-    FABRIC_DOWNGRADE_DONE = 25
+    fabric_downgrade_done = 25
 
-    RELOAD_DURING_ISSU = 26
+    reload_during_issu = 26
 
-    TIMNEOUT = 27
+    timneout = 27
 
-    FABRIC_UPGRADE_FAILED = 28
+    fabric_upgrade_failed = 28
 
-    UNSUPPORTED_HW = 29
+    unsupported_hw = 29
 
-    NOT_REACHABLE = 30
+    not_reachable = 30
 
-    MAX = 32
+    max = 32
 
 
     @staticmethod
@@ -1076,31 +1076,31 @@ class InstmgrIssuAbortImpactEnum(Enum):
 
     Abort impact
 
-    .. data:: UNDEFINED = 0
+    .. data:: undefined = 0
 
     	Unknown abort impact
 
-    .. data:: HITLESS = 1
+    .. data:: hitless = 1
 
     	Abort is hitless
 
-    .. data:: TRAFFIC_OUTAGE = 2
+    .. data:: traffic_outage = 2
 
     	Abort will not affect traffic
 
-    .. data:: NOT_APPLICABLE = 3
+    .. data:: not_applicable = 3
 
     	Abort impact: n/a
 
     """
 
-    UNDEFINED = 0
+    undefined = 0
 
-    HITLESS = 1
+    hitless = 1
 
-    TRAFFIC_OUTAGE = 2
+    traffic_outage = 2
 
-    NOT_APPLICABLE = 3
+    not_applicable = 3
 
 
     @staticmethod
@@ -1115,49 +1115,49 @@ class InstmgrIssuAbortMethodEnum(Enum):
 
     Abort method
 
-    .. data:: METHOD_UNDEFINED = 0
+    .. data:: method_undefined = 0
 
     	Unknown abort method
 
-    .. data:: METHOD_NO_OPERATION = 1
+    .. data:: method_no_operation = 1
 
     	No abort is required
 
-    .. data:: METHOD_STANDBY_RELOAD = 2
+    .. data:: method_standby_reload = 2
 
     	Abort will reload standby nodes
 
-    .. data:: METHOD_SYSTEM_RELOAD = 3
+    .. data:: method_system_reload = 3
 
     	Abort will reload the whole system
 
-    .. data:: METHOD_ROLLBACK = 4
+    .. data:: method_rollback = 4
 
     	Abort will rollback
 
-    .. data:: METHOD_NOT_POSSIBLE = 5
+    .. data:: method_not_possible = 5
 
     	Abort is not possible
 
-    .. data:: METHOD_ADMIN_ONLY = 6
+    .. data:: method_admin_only = 6
 
     	Abort is not possible by SDR user
 
     """
 
-    METHOD_UNDEFINED = 0
+    method_undefined = 0
 
-    METHOD_NO_OPERATION = 1
+    method_no_operation = 1
 
-    METHOD_STANDBY_RELOAD = 2
+    method_standby_reload = 2
 
-    METHOD_SYSTEM_RELOAD = 3
+    method_system_reload = 3
 
-    METHOD_ROLLBACK = 4
+    method_rollback = 4
 
-    METHOD_NOT_POSSIBLE = 5
+    method_not_possible = 5
 
-    METHOD_ADMIN_ONLY = 6
+    method_admin_only = 6
 
 
     @staticmethod
@@ -1172,31 +1172,31 @@ class InstmgrNodeRoleEnum(Enum):
 
     Node role
 
-    .. data:: REDUNDENCY_UNKNOWN = 0
+    .. data:: redundency_unknown = 0
 
     	Redundency unknown
 
-    .. data:: REDUNDENCY_ACTIVE = 1
+    .. data:: redundency_active = 1
 
     	Redundency active
 
-    .. data:: REDUNDENCY_STANDBY = 2
+    .. data:: redundency_standby = 2
 
     	Redundency standby
 
-    .. data:: REDUNDENCY_UNUSABLE = 3
+    .. data:: redundency_unusable = 3
 
     	Redundency unusable
 
     """
 
-    REDUNDENCY_UNKNOWN = 0
+    redundency_unknown = 0
 
-    REDUNDENCY_ACTIVE = 1
+    redundency_active = 1
 
-    REDUNDENCY_STANDBY = 2
+    redundency_standby = 2
 
-    REDUNDENCY_UNUSABLE = 3
+    redundency_unusable = 3
 
 
     @staticmethod
@@ -1211,43 +1211,43 @@ class InstmgrPiCardEnum(Enum):
 
     PI card types
 
-    .. data:: TYPE_RP = 0
+    .. data:: type_rp = 0
 
     	Card type RP
 
-    .. data:: TYPE_DRP = 1
+    .. data:: type_drp = 1
 
     	Card Type DRP
 
-    .. data:: TYPE_LC = 2
+    .. data:: type_lc = 2
 
     	Card type  LC
 
-    .. data:: TYPE_SC = 3
+    .. data:: type_sc = 3
 
     	Card type SC
 
-    .. data:: TYPE_SP = 4
+    .. data:: type_sp = 4
 
     	Card type SP
 
-    .. data:: TYPE_OTHER = 5
+    .. data:: type_other = 5
 
     	Card type other
 
     """
 
-    TYPE_RP = 0
+    type_rp = 0
 
-    TYPE_DRP = 1
+    type_drp = 1
 
-    TYPE_LC = 2
+    type_lc = 2
 
-    TYPE_SC = 3
+    type_sc = 3
 
-    TYPE_SP = 4
+    type_sp = 4
 
-    TYPE_OTHER = 5
+    type_other = 5
 
 
     @staticmethod
@@ -1262,31 +1262,31 @@ class InstmgrPkgEnum(Enum):
 
     Package type
 
-    .. data:: INST_PKG_TYPE_UNDEFINED = 0
+    .. data:: inst_pkg_type_undefined = 0
 
     	Undefined package
 
-    .. data:: INST_PKG_TYPE_ROOT = 1
+    .. data:: inst_pkg_type_root = 1
 
     	Root package
 
-    .. data:: INST_PKG_TYPE_STANDARD = 2
+    .. data:: inst_pkg_type_standard = 2
 
     	Standard package
 
-    .. data:: INST_PKG_TYPE_INTERNAL = 3
+    .. data:: inst_pkg_type_internal = 3
 
     	Internal package
 
     """
 
-    INST_PKG_TYPE_UNDEFINED = 0
+    inst_pkg_type_undefined = 0
 
-    INST_PKG_TYPE_ROOT = 1
+    inst_pkg_type_root = 1
 
-    INST_PKG_TYPE_STANDARD = 2
+    inst_pkg_type_standard = 2
 
-    INST_PKG_TYPE_INTERNAL = 3
+    inst_pkg_type_internal = 3
 
 
     @staticmethod
@@ -1301,103 +1301,103 @@ class InstmgrRequestEnum(Enum):
 
     Instmgr request
 
-    .. data:: ADD = 1
+    .. data:: add = 1
 
     	install add
 
-    .. data:: ACCEPT = 2
+    .. data:: accept = 2
 
     	install accept
 
-    .. data:: CLEAN = 3
+    .. data:: clean = 3
 
     	install clean
 
-    .. data:: ACTIVATE = 4
+    .. data:: activate = 4
 
     	install activate
 
-    .. data:: DEACTIVATE = 5
+    .. data:: deactivate = 5
 
     	install deactivate
 
-    .. data:: COMMIT = 6
+    .. data:: commit = 6
 
     	install commit
 
-    .. data:: VERIFY = 7
+    .. data:: verify = 7
 
     	install verify
 
-    .. data:: ROLLBACK = 8
+    .. data:: rollback = 8
 
     	install rollback
 
-    .. data:: CLEAR_ROLLBACK = 9
+    .. data:: clear_rollback = 9
 
     	install clear rollback oldest
 
-    .. data:: CLEAR_LOG = 10
+    .. data:: clear_log = 10
 
     	install clear historylog
 
-    .. data:: HEALTH_CHECK = 11
+    .. data:: health_check = 11
 
     	(Deprecated) install healthcheck
 
-    .. data:: OPERATION = 12
+    .. data:: operation = 12
 
     	install run/accept/complete
 
-    .. data:: STOP_TIMER = 13
+    .. data:: stop_timer = 13
 
     	install auto-abort-timer stop
 
-    .. data:: LABEL = 14
+    .. data:: label = 14
 
     	install label
 
-    .. data:: CLEAR_LABEL = 15
+    .. data:: clear_label = 15
 
     	clear install label
 
-    .. data:: EXTEND = 16
+    .. data:: extend = 16
 
     	install extend
 
     """
 
-    ADD = 1
+    add = 1
 
-    ACCEPT = 2
+    accept = 2
 
-    CLEAN = 3
+    clean = 3
 
-    ACTIVATE = 4
+    activate = 4
 
-    DEACTIVATE = 5
+    deactivate = 5
 
-    COMMIT = 6
+    commit = 6
 
-    VERIFY = 7
+    verify = 7
 
-    ROLLBACK = 8
+    rollback = 8
 
-    CLEAR_ROLLBACK = 9
+    clear_rollback = 9
 
-    CLEAR_LOG = 10
+    clear_log = 10
 
-    HEALTH_CHECK = 11
+    health_check = 11
 
-    OPERATION = 12
+    operation = 12
 
-    STOP_TIMER = 13
+    stop_timer = 13
 
-    LABEL = 14
+    label = 14
 
-    CLEAR_LABEL = 15
+    clear_label = 15
 
-    EXTEND = 16
+    extend = 16
 
 
     @staticmethod
@@ -1412,91 +1412,91 @@ class IsmCardTypeFamilyEnum(Enum):
 
     Ism card type family
 
-    .. data:: NDSC_ACTIVE_RP = 1
+    .. data:: ndsc_active_rp = 1
 
     	Active NDSC RPs
 
-    .. data:: NDSC_STANDBY_RP = 2
+    .. data:: ndsc_standby_rp = 2
 
     	Standby NDSC RPs
 
-    .. data:: ACTIVE_DRP = 3
+    .. data:: active_drp = 3
 
     	Active DRP
 
-    .. data:: STANDBY_DRP = 4
+    .. data:: standby_drp = 4
 
     	Standby DRP
 
-    .. data:: DSC_ACTIVE_RP = 5
+    .. data:: dsc_active_rp = 5
 
     	Active dSC
 
-    .. data:: DSC_STANDBY_RP = 6
+    .. data:: dsc_standby_rp = 6
 
     	Standby dSC
 
-    .. data:: ACTIVE_SC = 7
+    .. data:: active_sc = 7
 
     	Active non-root SC
 
-    .. data:: STANDBY_SC = 8
+    .. data:: standby_sc = 8
 
     	Standby non-root SC
 
-    .. data:: ROOT_ACTIVE_SC = 9
+    .. data:: root_active_sc = 9
 
     	Active root SC
 
-    .. data:: ROOT_STANDBY_SC = 10
+    .. data:: root_standby_sc = 10
 
     	Standby root SC
 
-    .. data:: LC = 11
+    .. data:: lc = 11
 
     	Line card
 
-    .. data:: SP = 12
+    .. data:: sp = 12
 
     	Non-Fabric SP
 
-    .. data:: FABRIC_SP = 13
+    .. data:: fabric_sp = 13
 
     	Fabric SP
 
-    .. data:: SPA = 14
+    .. data:: spa = 14
 
     	SPA
 
     """
 
-    NDSC_ACTIVE_RP = 1
+    ndsc_active_rp = 1
 
-    NDSC_STANDBY_RP = 2
+    ndsc_standby_rp = 2
 
-    ACTIVE_DRP = 3
+    active_drp = 3
 
-    STANDBY_DRP = 4
+    standby_drp = 4
 
-    DSC_ACTIVE_RP = 5
+    dsc_active_rp = 5
 
-    DSC_STANDBY_RP = 6
+    dsc_standby_rp = 6
 
-    ACTIVE_SC = 7
+    active_sc = 7
 
-    STANDBY_SC = 8
+    standby_sc = 8
 
-    ROOT_ACTIVE_SC = 9
+    root_active_sc = 9
 
-    ROOT_STANDBY_SC = 10
+    root_standby_sc = 10
 
-    LC = 11
+    lc = 11
 
-    SP = 12
+    sp = 12
 
-    FABRIC_SP = 13
+    fabric_sp = 13
 
-    SPA = 14
+    spa = 14
 
 
     @staticmethod
@@ -1514,22 +1514,22 @@ class Install(object):
     .. attribute:: boot_image
     
     	System Boot Image
-    	**type**\:  :py:class:`BootImage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.BootImage>`
+    	**type**\:   :py:class:`BootImage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.BootImage>`
     
     .. attribute:: boot_variables
     
     	Boot variable information
-    	**type**\:  :py:class:`BootVariables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.BootVariables>`
+    	**type**\:   :py:class:`BootVariables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.BootVariables>`
     
     .. attribute:: configuration_registers
     
     	Configuration register (confreg) information
-    	**type**\:  :py:class:`ConfigurationRegisters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.ConfigurationRegisters>`
+    	**type**\:   :py:class:`ConfigurationRegisters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.ConfigurationRegisters>`
     
     .. attribute:: issu
     
     	Information of install ISSU operations
-    	**type**\:  :py:class:`Issu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu>`
+    	**type**\:   :py:class:`Issu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu>`
     
     .. attribute:: log_size
     
@@ -1541,22 +1541,22 @@ class Install(object):
     .. attribute:: logs
     
     	Install operation log
-    	**type**\:  :py:class:`Logs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs>`
+    	**type**\:   :py:class:`Logs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs>`
     
     .. attribute:: request_statuses
     
     	Install operation request status
-    	**type**\:  :py:class:`RequestStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses>`
+    	**type**\:   :py:class:`RequestStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses>`
     
     .. attribute:: software
     
     	Software package,component and alias information
-    	**type**\:  :py:class:`Software <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software>`
+    	**type**\:   :py:class:`Software <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software>`
     
     .. attribute:: software_inventory
     
     	Information of install operations
-    	**type**\:  :py:class:`SoftwareInventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory>`
+    	**type**\:   :py:class:`SoftwareInventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory>`
     
     
 
@@ -1592,7 +1592,7 @@ class Install(object):
         .. attribute:: configuration_register
         
         	Configuration register for specific node
-        	**type**\: list of  :py:class:`ConfigurationRegister <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.ConfigurationRegisters.ConfigurationRegister>`
+        	**type**\: list of    :py:class:`ConfigurationRegister <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.ConfigurationRegisters.ConfigurationRegister>`
         
         
 
@@ -1699,7 +1699,7 @@ class Install(object):
         .. attribute:: request_status
         
         	Request status Information
-        	**type**\: list of  :py:class:`RequestStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus>`
+        	**type**\: list of    :py:class:`RequestStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus>`
         
         
 
@@ -1729,12 +1729,12 @@ class Install(object):
             .. attribute:: abort_state
             
             	Abort state
-            	**type**\:  :py:class:`InstmgrBagAbortStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagAbortStateEnum>`
+            	**type**\:   :py:class:`InstmgrBagAbortStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagAbortStateEnum>`
             
             .. attribute:: abort_status
             
             	How the abort will occur
-            	**type**\:  :py:class:`AbortStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.AbortStatus>`
+            	**type**\:   :py:class:`AbortStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.AbortStatus>`
             
             .. attribute:: downloaded_bytes
             
@@ -1743,25 +1743,27 @@ class Install(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: byte
+            
             .. attribute:: incremental_install_information
             
             	Incremental Install information
-            	**type**\:  :py:class:`IncrementalInstallInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.IncrementalInstallInformation>`
+            	**type**\:   :py:class:`IncrementalInstallInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.IncrementalInstallInformation>`
             
             .. attribute:: issu_message
             
             	Messages related to ISSU operations
-            	**type**\: list of  :py:class:`IssuMessage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.IssuMessage>`
+            	**type**\: list of    :py:class:`IssuMessage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.IssuMessage>`
             
             .. attribute:: message
             
             	Messages output to the user
-            	**type**\: list of  :py:class:`Message <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.Message>`
+            	**type**\: list of    :py:class:`Message <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.Message>`
             
             .. attribute:: operation_phase
             
             	Phase of the operation
-            	**type**\:  :py:class:`InstmgrInstallPhaseEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrInstallPhaseEnum>`
+            	**type**\:   :py:class:`InstmgrInstallPhaseEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrInstallPhaseEnum>`
             
             .. attribute:: percentage
             
@@ -1770,10 +1772,12 @@ class Install(object):
             
             	**range:** 0..255
             
+            	**units**\: percentage
+            
             .. attribute:: request_information
             
             	Requested install operation
-            	**type**\:  :py:class:`RequestInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.RequestInformation>`
+            	**type**\:   :py:class:`RequestInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.RequestInformation>`
             
             .. attribute:: unanswered_query
             
@@ -1821,7 +1825,7 @@ class Install(object):
                 .. attribute:: operation_type
                 
                 	Requested operation type
-                	**type**\:  :py:class:`InstmgrRequestEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrRequestEnum>`
+                	**type**\:   :py:class:`InstmgrRequestEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrRequestEnum>`
                 
                 .. attribute:: request_id
                 
@@ -1840,7 +1844,7 @@ class Install(object):
                 .. attribute:: trigger_type
                 
                 	Request trigger type
-                	**type**\:  :py:class:`InstmgrBagRequestTriggerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagRequestTriggerEnum>`
+                	**type**\:   :py:class:`InstmgrBagRequestTriggerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagRequestTriggerEnum>`
                 
                 .. attribute:: user_id
                 
@@ -1910,12 +1914,12 @@ class Install(object):
                 .. attribute:: abort_impact
                 
                 	Impact of abort
-                	**type**\:  :py:class:`InstmgrIssuAbortImpactEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrIssuAbortImpactEnum>`
+                	**type**\:   :py:class:`InstmgrIssuAbortImpactEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrIssuAbortImpactEnum>`
                 
                 .. attribute:: abort_method
                 
                 	Method of abort
-                	**type**\:  :py:class:`InstmgrIssuAbortMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrIssuAbortMethodEnum>`
+                	**type**\:   :py:class:`InstmgrIssuAbortMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrIssuAbortMethodEnum>`
                 
                 
 
@@ -1964,7 +1968,7 @@ class Install(object):
                 .. attribute:: direction
                 
                 	Install direction
-                	**type**\:  :py:class:`InstmgrBagIiDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagIiDirectionEnum>`
+                	**type**\:   :py:class:`InstmgrBagIiDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagIiDirectionEnum>`
                 
                 .. attribute:: ii_error
                 
@@ -1974,7 +1978,7 @@ class Install(object):
                 .. attribute:: nodes
                 
                 	Participating nodes
-                	**type**\: list of  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.IncrementalInstallInformation.Nodes>`
+                	**type**\: list of    :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.IncrementalInstallInformation.Nodes>`
                 
                 
 
@@ -2006,7 +2010,7 @@ class Install(object):
                     .. attribute:: state
                     
                     	State
-                    	**type**\:  :py:class:`InstmgrBagIiStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagIiStateEnum>`
+                    	**type**\:   :py:class:`InstmgrBagIiStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagIiStateEnum>`
                     
                     
 
@@ -2087,7 +2091,7 @@ class Install(object):
                 .. attribute:: category
                 
                 	Category of the message
-                	**type**\:  :py:class:`InstmgrBagUserMsgCategoryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagUserMsgCategoryEnum>`
+                	**type**\:   :py:class:`InstmgrBagUserMsgCategoryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagUserMsgCategoryEnum>`
                 
                 .. attribute:: message
                 
@@ -2097,7 +2101,7 @@ class Install(object):
                 .. attribute:: scope
                 
                 	Scope of the message
-                	**type**\:  :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.IssuMessage.Scope>`
+                	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.IssuMessage.Scope>`
                 
                 
 
@@ -2207,7 +2211,7 @@ class Install(object):
                 .. attribute:: category
                 
                 	Category of the message
-                	**type**\:  :py:class:`InstmgrBagUserMsgCategoryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagUserMsgCategoryEnum>`
+                	**type**\:   :py:class:`InstmgrBagUserMsgCategoryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagUserMsgCategoryEnum>`
                 
                 .. attribute:: message
                 
@@ -2217,7 +2221,7 @@ class Install(object):
                 .. attribute:: scope
                 
                 	Scope of the message
-                	**type**\:  :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.Message.Scope>`
+                	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.Message.Scope>`
                 
                 
 
@@ -2409,7 +2413,7 @@ class Install(object):
         .. attribute:: boot_variable
         
         	Boot variable for specific node
-        	**type**\: list of  :py:class:`BootVariable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.BootVariables.BootVariable>`
+        	**type**\: list of    :py:class:`BootVariable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.BootVariables.BootVariable>`
         
         
 
@@ -2514,17 +2518,17 @@ class Install(object):
         .. attribute:: alias_devices
         
         	Package alias information
-        	**type**\:  :py:class:`AliasDevices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.AliasDevices>`
+        	**type**\:   :py:class:`AliasDevices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.AliasDevices>`
         
         .. attribute:: component_devices
         
         	Software component information
-        	**type**\:  :py:class:`ComponentDevices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.ComponentDevices>`
+        	**type**\:   :py:class:`ComponentDevices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.ComponentDevices>`
         
         .. attribute:: package_devices
         
         	Package information
-        	**type**\:  :py:class:`PackageDevices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.PackageDevices>`
+        	**type**\:   :py:class:`PackageDevices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.PackageDevices>`
         
         
 
@@ -2550,7 +2554,7 @@ class Install(object):
             .. attribute:: alias_device
             
             	Package alias information for specific device
-            	**type**\: list of  :py:class:`AliasDevice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.AliasDevices.AliasDevice>`
+            	**type**\: list of    :py:class:`AliasDevice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.AliasDevices.AliasDevice>`
             
             
 
@@ -2580,7 +2584,7 @@ class Install(object):
                 .. attribute:: aliases
                 
                 	alias information
-                	**type**\:  :py:class:`Aliases <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.AliasDevices.AliasDevice.Aliases>`
+                	**type**\:   :py:class:`Aliases <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.AliasDevices.AliasDevice.Aliases>`
                 
                 
 
@@ -2603,7 +2607,7 @@ class Install(object):
                     .. attribute:: alias
                     
                     	Aliases for specific package
-                    	**type**\: list of  :py:class:`Alias <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.AliasDevices.AliasDevice.Aliases.Alias>`
+                    	**type**\: list of    :py:class:`Alias <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.AliasDevices.AliasDevice.Aliases.Alias>`
                     
                     
 
@@ -2761,7 +2765,7 @@ class Install(object):
             .. attribute:: package_device
             
             	Package information for specific device
-            	**type**\: list of  :py:class:`PackageDevice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.PackageDevices.PackageDevice>`
+            	**type**\: list of    :py:class:`PackageDevice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.PackageDevices.PackageDevice>`
             
             
 
@@ -2791,7 +2795,7 @@ class Install(object):
                 .. attribute:: packages
                 
                 	Package information for specific package
-                	**type**\:  :py:class:`Packages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.PackageDevices.PackageDevice.Packages>`
+                	**type**\:   :py:class:`Packages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.PackageDevices.PackageDevice.Packages>`
                 
                 
 
@@ -2814,7 +2818,7 @@ class Install(object):
                     .. attribute:: package
                     
                     	Package information
-                    	**type**\: list of  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.PackageDevices.PackageDevice.Packages.Package>`
+                    	**type**\: list of    :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.PackageDevices.PackageDevice.Packages.Package>`
                     
                     
 
@@ -2886,7 +2890,7 @@ class Install(object):
                         .. attribute:: group_type
                         
                         	Group type of the package
-                        	**type**\:  :py:class:`InstmgrGroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrGroupEnum>`
+                        	**type**\:   :py:class:`InstmgrGroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrGroupEnum>`
                         
                         .. attribute:: name
                         
@@ -2896,7 +2900,7 @@ class Install(object):
                         .. attribute:: package_type
                         
                         	Type of the package
-                        	**type**\:  :py:class:`InstmgrPkgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrPkgEnum>`
+                        	**type**\:   :py:class:`InstmgrPkgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrPkgEnum>`
                         
                         .. attribute:: release
                         
@@ -2916,7 +2920,7 @@ class Install(object):
                         .. attribute:: sub_pkg
                         
                         	Sub\-package info of the package
-                        	**type**\: list of  :py:class:`SubPkg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.PackageDevices.PackageDevice.Packages.Package.SubPkg>`
+                        	**type**\: list of    :py:class:`SubPkg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.PackageDevices.PackageDevice.Packages.Package.SubPkg>`
                         
                         .. attribute:: uncompressed_size
                         
@@ -3193,7 +3197,7 @@ class Install(object):
             .. attribute:: component_device
             
             	Component information for specific device
-            	**type**\: list of  :py:class:`ComponentDevice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.ComponentDevices.ComponentDevice>`
+            	**type**\: list of    :py:class:`ComponentDevice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.ComponentDevices.ComponentDevice>`
             
             
 
@@ -3223,7 +3227,7 @@ class Install(object):
                 .. attribute:: component_packages
                 
                 	Software package information
-                	**type**\:  :py:class:`ComponentPackages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.ComponentDevices.ComponentDevice.ComponentPackages>`
+                	**type**\:   :py:class:`ComponentPackages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.ComponentDevices.ComponentDevice.ComponentPackages>`
                 
                 
 
@@ -3246,7 +3250,7 @@ class Install(object):
                     .. attribute:: component_package
                     
                     	Component information for specific package
-                    	**type**\: list of  :py:class:`ComponentPackage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.ComponentDevices.ComponentDevice.ComponentPackages.ComponentPackage>`
+                    	**type**\: list of    :py:class:`ComponentPackage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.ComponentDevices.ComponentDevice.ComponentPackages.ComponentPackage>`
                     
                     
 
@@ -3274,7 +3278,7 @@ class Install(object):
                         .. attribute:: component
                         
                         	Component information
-                        	**type**\: list of  :py:class:`Component <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.ComponentDevices.ComponentDevice.ComponentPackages.ComponentPackage.Component>`
+                        	**type**\: list of    :py:class:`Component <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.ComponentDevices.ComponentDevice.ComponentPackages.ComponentPackage.Component>`
                         
                         
 
@@ -3530,22 +3534,22 @@ class Install(object):
         .. attribute:: active
         
         	Active inventory information
-        	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active>`
+        	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active>`
         
         .. attribute:: committed
         
         	Committed inventory information
-        	**type**\:  :py:class:`Committed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed>`
+        	**type**\:   :py:class:`Committed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed>`
         
         .. attribute:: inactive
         
         	Inactive inventory information
-        	**type**\:  :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive>`
+        	**type**\:   :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive>`
         
         .. attribute:: requests
         
         	Install operation requests
-        	**type**\:  :py:class:`Requests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests>`
+        	**type**\:   :py:class:`Requests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests>`
         
         
 
@@ -3573,12 +3577,12 @@ class Install(object):
             .. attribute:: inventories
             
             	Software inventory
-            	**type**\:  :py:class:`Inventories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Inventories>`
+            	**type**\:   :py:class:`Inventories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Inventories>`
             
             .. attribute:: summary
             
             	Summarized inventory information
-            	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary>`
+            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary>`
             
             
 
@@ -3602,22 +3606,22 @@ class Install(object):
                 .. attribute:: admin_load_path
                 
                 	Admin Resources load path
-                	**type**\:  :py:class:`AdminLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.AdminLoadPath>`
+                	**type**\:   :py:class:`AdminLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.AdminLoadPath>`
                 
                 .. attribute:: default_load_path
                 
                 	Default load path
-                	**type**\:  :py:class:`DefaultLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.DefaultLoadPath>`
+                	**type**\:   :py:class:`DefaultLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.DefaultLoadPath>`
                 
                 .. attribute:: location_load_path
                 
                 	Location load paths
-                	**type**\: list of  :py:class:`LocationLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.LocationLoadPath>`
+                	**type**\: list of    :py:class:`LocationLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.LocationLoadPath>`
                 
                 .. attribute:: sdr_load_path
                 
                 	SDR load paths
-                	**type**\: list of  :py:class:`SdrLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.SdrLoadPath>`
+                	**type**\: list of    :py:class:`SdrLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.SdrLoadPath>`
                 
                 
 
@@ -3652,7 +3656,7 @@ class Install(object):
                     .. attribute:: load_path
                     
                     	Default load path
-                    	**type**\: list of  :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath>`
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath>`
                     
                     .. attribute:: request_id
                     
@@ -3669,7 +3673,7 @@ class Install(object):
                     .. attribute:: standby_load_path
                     
                     	Load paths for standby nodes
-                    	**type**\: list of  :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath>`
+                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath>`
                     
                     
 
@@ -3705,7 +3709,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -3819,7 +3823,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -3968,7 +3972,7 @@ class Install(object):
                     .. attribute:: load_path
                     
                     	Admin Resources load path
-                    	**type**\: list of  :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath>`
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath>`
                     
                     .. attribute:: request_id
                     
@@ -3980,7 +3984,7 @@ class Install(object):
                     .. attribute:: standby_load_path
                     
                     	Load paths for standby nodes
-                    	**type**\: list of  :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath>`
+                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath>`
                     
                     
 
@@ -4012,7 +4016,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -4126,7 +4130,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -4267,7 +4271,7 @@ class Install(object):
                     .. attribute:: load_path
                     
                     	Load path
-                    	**type**\: list of  :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath>`
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath>`
                     
                     .. attribute:: request_id
                     
@@ -4284,7 +4288,7 @@ class Install(object):
                     .. attribute:: standby_load_path
                     
                     	Load paths for standby nodes
-                    	**type**\: list of  :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath>`
+                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath>`
                     
                     
 
@@ -4317,7 +4321,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -4431,7 +4435,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -4575,7 +4579,7 @@ class Install(object):
                     .. attribute:: load_path
                     
                     	Load path
-                    	**type**\: list of  :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath>`
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath>`
                     
                     .. attribute:: node_name
                     
@@ -4599,7 +4603,7 @@ class Install(object):
                     .. attribute:: standby_load_path
                     
                     	Load paths for standby nodes
-                    	**type**\: list of  :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath>`
+                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath>`
                     
                     
 
@@ -4633,7 +4637,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -4747,7 +4751,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -4929,7 +4933,7 @@ class Install(object):
                 .. attribute:: inventory
                 
                 	Inventory information for specific node
-                	**type**\: list of  :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Inventories.Inventory>`
+                	**type**\: list of    :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Inventories.Inventory>`
                 
                 
 
@@ -4964,7 +4968,7 @@ class Install(object):
                     .. attribute:: load_path
                     
                     	Load path
-                    	**type**\: list of  :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath>`
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath>`
                     
                     .. attribute:: major
                     
@@ -5024,7 +5028,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -5230,12 +5234,12 @@ class Install(object):
             .. attribute:: inventories
             
             	Software inventory
-            	**type**\:  :py:class:`Inventories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Inventories>`
+            	**type**\:   :py:class:`Inventories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Inventories>`
             
             .. attribute:: summary
             
             	Summarized inventory information
-            	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary>`
+            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary>`
             
             
 
@@ -5259,22 +5263,22 @@ class Install(object):
                 .. attribute:: admin_load_path
                 
                 	Admin Resources load path
-                	**type**\:  :py:class:`AdminLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.AdminLoadPath>`
+                	**type**\:   :py:class:`AdminLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.AdminLoadPath>`
                 
                 .. attribute:: default_load_path
                 
                 	Default load path
-                	**type**\:  :py:class:`DefaultLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath>`
+                	**type**\:   :py:class:`DefaultLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath>`
                 
                 .. attribute:: location_load_path
                 
                 	Location load paths
-                	**type**\: list of  :py:class:`LocationLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.LocationLoadPath>`
+                	**type**\: list of    :py:class:`LocationLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.LocationLoadPath>`
                 
                 .. attribute:: sdr_load_path
                 
                 	SDR load paths
-                	**type**\: list of  :py:class:`SdrLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.SdrLoadPath>`
+                	**type**\: list of    :py:class:`SdrLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.SdrLoadPath>`
                 
                 
 
@@ -5309,7 +5313,7 @@ class Install(object):
                     .. attribute:: load_path
                     
                     	Default load path
-                    	**type**\: list of  :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath>`
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath>`
                     
                     .. attribute:: request_id
                     
@@ -5326,7 +5330,7 @@ class Install(object):
                     .. attribute:: standby_load_path
                     
                     	Load paths for standby nodes
-                    	**type**\: list of  :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath>`
+                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath>`
                     
                     
 
@@ -5362,7 +5366,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -5476,7 +5480,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -5625,7 +5629,7 @@ class Install(object):
                     .. attribute:: load_path
                     
                     	Admin Resources load path
-                    	**type**\: list of  :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath>`
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath>`
                     
                     .. attribute:: request_id
                     
@@ -5637,7 +5641,7 @@ class Install(object):
                     .. attribute:: standby_load_path
                     
                     	Load paths for standby nodes
-                    	**type**\: list of  :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath>`
+                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath>`
                     
                     
 
@@ -5669,7 +5673,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -5783,7 +5787,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -5924,7 +5928,7 @@ class Install(object):
                     .. attribute:: load_path
                     
                     	Load path
-                    	**type**\: list of  :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath>`
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath>`
                     
                     .. attribute:: request_id
                     
@@ -5941,7 +5945,7 @@ class Install(object):
                     .. attribute:: standby_load_path
                     
                     	Load paths for standby nodes
-                    	**type**\: list of  :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath>`
+                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath>`
                     
                     
 
@@ -5974,7 +5978,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -6088,7 +6092,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -6232,7 +6236,7 @@ class Install(object):
                     .. attribute:: load_path
                     
                     	Load path
-                    	**type**\: list of  :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath>`
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath>`
                     
                     .. attribute:: node_name
                     
@@ -6256,7 +6260,7 @@ class Install(object):
                     .. attribute:: standby_load_path
                     
                     	Load paths for standby nodes
-                    	**type**\: list of  :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath>`
+                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath>`
                     
                     
 
@@ -6290,7 +6294,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -6404,7 +6408,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -6586,7 +6590,7 @@ class Install(object):
                 .. attribute:: inventory
                 
                 	Inventory information for specific node
-                	**type**\: list of  :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Inventories.Inventory>`
+                	**type**\: list of    :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Inventories.Inventory>`
                 
                 
 
@@ -6621,7 +6625,7 @@ class Install(object):
                     .. attribute:: load_path
                     
                     	Load path
-                    	**type**\: list of  :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath>`
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath>`
                     
                     .. attribute:: major
                     
@@ -6681,7 +6685,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -6887,7 +6891,7 @@ class Install(object):
             .. attribute:: requests
             
             	Install operation request history
-            	**type**\:  :py:class:`Requests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests>`
+            	**type**\:   :py:class:`Requests_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests_>`
             
             
 
@@ -6898,18 +6902,18 @@ class Install(object):
 
             def __init__(self):
                 self.parent = None
-                self.requests = Install.SoftwareInventory.Requests.Requests()
+                self.requests = Install.SoftwareInventory.Requests.Requests_()
                 self.requests.parent = self
 
 
-            class Requests(object):
+            class Requests_(object):
                 """
                 Install operation request history
                 
                 .. attribute:: request
                 
                 	Install operation request information
-                	**type**\: list of  :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests.Request>`
+                	**type**\: list of    :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests_.Request>`
                 
                 
 
@@ -6939,7 +6943,7 @@ class Install(object):
                     .. attribute:: inventories
                     
                     	Inventory information of install operation request
-                    	**type**\:  :py:class:`Inventories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests.Request.Inventories>`
+                    	**type**\:   :py:class:`Inventories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests_.Request.Inventories>`
                     
                     
 
@@ -6951,7 +6955,7 @@ class Install(object):
                     def __init__(self):
                         self.parent = None
                         self.request_id = None
-                        self.inventories = Install.SoftwareInventory.Requests.Requests.Request.Inventories()
+                        self.inventories = Install.SoftwareInventory.Requests.Requests_.Request.Inventories()
                         self.inventories.parent = self
 
 
@@ -6963,7 +6967,7 @@ class Install(object):
                         .. attribute:: inventory
                         
                         	Inventory information
-                        	**type**\: list of  :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory>`
+                        	**type**\: list of    :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory>`
                         
                         
 
@@ -6998,7 +7002,7 @@ class Install(object):
                             .. attribute:: load_path
                             
                             	Load path
-                            	**type**\: list of  :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory.LoadPath>`
+                            	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath>`
                             
                             .. attribute:: major
                             
@@ -7058,7 +7062,7 @@ class Install(object):
                                 .. attribute:: package
                                 
                                 	Package
-                                	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory.LoadPath.Package>`
+                                	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath.Package>`
                                 
                                 .. attribute:: version
                                 
@@ -7075,7 +7079,7 @@ class Install(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.build_information = None
-                                    self.package = Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory.LoadPath.Package()
+                                    self.package = Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath.Package()
                                     self.package.parent = self
                                     self.version = None
 
@@ -7131,7 +7135,7 @@ class Install(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
-                                        return meta._meta_table['Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory.LoadPath.Package']['meta_info']
+                                        return meta._meta_table['Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath.Package']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -7161,7 +7165,7 @@ class Install(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
-                                    return meta._meta_table['Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory.LoadPath']['meta_info']
+                                    return meta._meta_table['Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -7207,7 +7211,7 @@ class Install(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
-                                return meta._meta_table['Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory']['meta_info']
+                                return meta._meta_table['Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -7233,7 +7237,7 @@ class Install(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
-                            return meta._meta_table['Install.SoftwareInventory.Requests.Requests.Request.Inventories']['meta_info']
+                            return meta._meta_table['Install.SoftwareInventory.Requests.Requests_.Request.Inventories']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -7260,7 +7264,7 @@ class Install(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
-                        return meta._meta_table['Install.SoftwareInventory.Requests.Requests.Request']['meta_info']
+                        return meta._meta_table['Install.SoftwareInventory.Requests.Requests_.Request']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -7284,7 +7288,7 @@ class Install(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
-                    return meta._meta_table['Install.SoftwareInventory.Requests.Requests']['meta_info']
+                    return meta._meta_table['Install.SoftwareInventory.Requests.Requests_']['meta_info']
 
             @property
             def _common_path(self):
@@ -7316,12 +7320,12 @@ class Install(object):
             .. attribute:: inventories
             
             	Software inventory
-            	**type**\:  :py:class:`Inventories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Inventories>`
+            	**type**\:   :py:class:`Inventories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Inventories>`
             
             .. attribute:: summary
             
             	Summarized inventory information
-            	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary>`
+            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary>`
             
             
 
@@ -7345,22 +7349,22 @@ class Install(object):
                 .. attribute:: admin_load_path
                 
                 	Admin Resources load path
-                	**type**\:  :py:class:`AdminLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.AdminLoadPath>`
+                	**type**\:   :py:class:`AdminLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.AdminLoadPath>`
                 
                 .. attribute:: default_load_path
                 
                 	Default load path
-                	**type**\:  :py:class:`DefaultLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.DefaultLoadPath>`
+                	**type**\:   :py:class:`DefaultLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.DefaultLoadPath>`
                 
                 .. attribute:: location_load_path
                 
                 	Location load paths
-                	**type**\: list of  :py:class:`LocationLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.LocationLoadPath>`
+                	**type**\: list of    :py:class:`LocationLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.LocationLoadPath>`
                 
                 .. attribute:: sdr_load_path
                 
                 	SDR load paths
-                	**type**\: list of  :py:class:`SdrLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.SdrLoadPath>`
+                	**type**\: list of    :py:class:`SdrLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.SdrLoadPath>`
                 
                 
 
@@ -7395,7 +7399,7 @@ class Install(object):
                     .. attribute:: load_path
                     
                     	Default load path
-                    	**type**\: list of  :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath>`
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath>`
                     
                     .. attribute:: request_id
                     
@@ -7412,7 +7416,7 @@ class Install(object):
                     .. attribute:: standby_load_path
                     
                     	Load paths for standby nodes
-                    	**type**\: list of  :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath>`
+                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath>`
                     
                     
 
@@ -7448,7 +7452,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -7562,7 +7566,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -7711,7 +7715,7 @@ class Install(object):
                     .. attribute:: load_path
                     
                     	Admin Resources load path
-                    	**type**\: list of  :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath>`
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath>`
                     
                     .. attribute:: request_id
                     
@@ -7723,7 +7727,7 @@ class Install(object):
                     .. attribute:: standby_load_path
                     
                     	Load paths for standby nodes
-                    	**type**\: list of  :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath>`
+                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath>`
                     
                     
 
@@ -7755,7 +7759,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -7869,7 +7873,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -8010,7 +8014,7 @@ class Install(object):
                     .. attribute:: load_path
                     
                     	Load path
-                    	**type**\: list of  :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath>`
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath>`
                     
                     .. attribute:: request_id
                     
@@ -8027,7 +8031,7 @@ class Install(object):
                     .. attribute:: standby_load_path
                     
                     	Load paths for standby nodes
-                    	**type**\: list of  :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath>`
+                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath>`
                     
                     
 
@@ -8060,7 +8064,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -8174,7 +8178,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -8318,7 +8322,7 @@ class Install(object):
                     .. attribute:: load_path
                     
                     	Load path
-                    	**type**\: list of  :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath>`
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath>`
                     
                     .. attribute:: node_name
                     
@@ -8342,7 +8346,7 @@ class Install(object):
                     .. attribute:: standby_load_path
                     
                     	Load paths for standby nodes
-                    	**type**\: list of  :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath>`
+                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath>`
                     
                     
 
@@ -8376,7 +8380,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -8490,7 +8494,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -8672,7 +8676,7 @@ class Install(object):
                 .. attribute:: inventory
                 
                 	Inventory information for specific node
-                	**type**\: list of  :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Inventories.Inventory>`
+                	**type**\: list of    :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Inventories.Inventory>`
                 
                 
 
@@ -8707,7 +8711,7 @@ class Install(object):
                     .. attribute:: load_path
                     
                     	Load path
-                    	**type**\: list of  :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath>`
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath>`
                     
                     .. attribute:: major
                     
@@ -8767,7 +8771,7 @@ class Install(object):
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath.Package>`
                         
                         .. attribute:: version
                         
@@ -9004,12 +9008,12 @@ class Install(object):
         .. attribute:: card_inventories
         
         	ISSU manager card inventory table
-        	**type**\:  :py:class:`CardInventories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.CardInventories>`
+        	**type**\:   :py:class:`CardInventories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.CardInventories>`
         
         .. attribute:: stage
         
         	Summarized ISSU stage information
-        	**type**\:  :py:class:`Stage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.Stage>`
+        	**type**\:   :py:class:`Stage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.Stage>`
         
         
 
@@ -9033,7 +9037,7 @@ class Install(object):
             .. attribute:: card_inventory
             
             	ISSU manager inventory summary of the same card type
-            	**type**\: list of  :py:class:`CardInventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.CardInventories.CardInventory>`
+            	**type**\: list of    :py:class:`CardInventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.CardInventories.CardInventory>`
             
             
 
@@ -9057,12 +9061,12 @@ class Install(object):
                 .. attribute:: card_type_id  <key>
                 
                 	ISSU manager card type ID
-                	**type**\:  :py:class:`IsmCardTypeFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.IsmCardTypeFamilyEnum>`
+                	**type**\:   :py:class:`IsmCardTypeFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.IsmCardTypeFamilyEnum>`
                 
                 .. attribute:: summary
                 
                 	node state for all nodes
-                	**type**\: list of  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.CardInventories.CardInventory.Summary>`
+                	**type**\: list of    :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.CardInventories.CardInventory.Summary>`
                 
                 
 
@@ -9093,7 +9097,7 @@ class Install(object):
                     .. attribute:: is_conforming_node
                     
                     	Node none\-cnforming
-                    	**type**\:  :py:class:`InstallmgrIsmNodeConformingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstallmgrIsmNodeConformingEnum>`
+                    	**type**\:   :py:class:`InstallmgrIsmNodeConformingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstallmgrIsmNodeConformingEnum>`
                     
                     .. attribute:: is_node_upgraded
                     
@@ -9103,12 +9107,12 @@ class Install(object):
                     .. attribute:: node_current_state
                     
                     	Current node ISSU state
-                    	**type**\:  :py:class:`InstmgrIsmNodeStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrIsmNodeStateEnum>`
+                    	**type**\:   :py:class:`InstmgrIsmNodeStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrIsmNodeStateEnum>`
                     
                     .. attribute:: node_expected_state
                     
                     	Expected ISSU state
-                    	**type**\:  :py:class:`InstmgrIsmNodeStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrIsmNodeStateEnum>`
+                    	**type**\:   :py:class:`InstmgrIsmNodeStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrIsmNodeStateEnum>`
                     
                     .. attribute:: node_failure_reason
                     
@@ -9125,12 +9129,12 @@ class Install(object):
                     .. attribute:: node_role
                     
                     	Node roll
-                    	**type**\:  :py:class:`InstmgrNodeRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrNodeRoleEnum>`
+                    	**type**\:   :py:class:`InstmgrNodeRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrNodeRoleEnum>`
                     
                     .. attribute:: node_state
                     
                     	Node state
-                    	**type**\:  :py:class:`InstmgrCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrCardStateEnum>`
+                    	**type**\:   :py:class:`InstmgrCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrCardStateEnum>`
                     
                     .. attribute:: node_type_issu
                     
@@ -9140,7 +9144,7 @@ class Install(object):
                     .. attribute:: node_type_pi
                     
                     	PI Node type
-                    	**type**\:  :py:class:`InstmgrPiCardEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrPiCardEnum>`
+                    	**type**\:   :py:class:`InstmgrPiCardEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrPiCardEnum>`
                     
                     .. attribute:: partner_node_name
                     
@@ -9299,7 +9303,7 @@ class Install(object):
             .. attribute:: issu_manager_fsm_state
             
             	ISM FSM state
-            	**type**\:  :py:class:`InstmgrIsmFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrIsmFsmStateEnum>`
+            	**type**\:   :py:class:`InstmgrIsmFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrIsmFsmStateEnum>`
             
             .. attribute:: issu_op_id
             
@@ -9316,22 +9320,22 @@ class Install(object):
             .. attribute:: nc_nodes
             
             	None\-conforming nodes
-            	**type**\:  :py:class:`NcNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.Stage.NcNodes>`
+            	**type**\:   :py:class:`NcNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.Stage.NcNodes>`
             
             .. attribute:: node_in_progress
             
             	Nodes in progress
-            	**type**\:  :py:class:`NodeInProgress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.Stage.NodeInProgress>`
+            	**type**\:   :py:class:`NodeInProgress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.Stage.NodeInProgress>`
             
             .. attribute:: nodes_in_load
             
             	Node in LOAD phase
-            	**type**\:  :py:class:`NodesInLoad <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.Stage.NodesInLoad>`
+            	**type**\:   :py:class:`NodesInLoad <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.Stage.NodesInLoad>`
             
             .. attribute:: nodes_in_run
             
             	Node in RUN phase
-            	**type**\:  :py:class:`NodesInRun <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.Stage.NodesInRun>`
+            	**type**\:   :py:class:`NodesInRun <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.Stage.NodesInRun>`
             
             .. attribute:: num_nodes_in_progress
             
@@ -9374,6 +9378,8 @@ class Install(object):
             	**type**\:  int
             
             	**range:** 0..4294967295
+            
+            	**units**\: percentage
             
             
 
@@ -9740,7 +9746,7 @@ class Install(object):
         .. attribute:: log
         
         	Log information
-        	**type**\: list of  :py:class:`Log <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log>`
+        	**type**\: list of    :py:class:`Log <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log>`
         
         
 
@@ -9770,32 +9776,32 @@ class Install(object):
             .. attribute:: change
             
             	Install changes
-            	**type**\: list of  :py:class:`Change <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Change>`
+            	**type**\: list of    :py:class:`Change <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Change>`
             
             .. attribute:: communication
             
             	Install communications
-            	**type**\: list of  :py:class:`Communication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Communication>`
+            	**type**\: list of    :py:class:`Communication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Communication>`
             
             .. attribute:: detail
             
             	Install details
-            	**type**\: list of  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Detail>`
+            	**type**\: list of    :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Detail>`
             
             .. attribute:: header
             
             	Header information
-            	**type**\: list of  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Header>`
+            	**type**\: list of    :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Header>`
             
             .. attribute:: message
             
             	Status Information Logs
-            	**type**\: list of  :py:class:`Message <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Message>`
+            	**type**\: list of    :py:class:`Message <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Message>`
             
             .. attribute:: summary
             
             	Summary information
-            	**type**\: list of  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Summary>`
+            	**type**\: list of    :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Summary>`
             
             
 
@@ -9834,7 +9840,7 @@ class Install(object):
                 .. attribute:: log_contents
                 
                 	Log contents
-                	**type**\:  :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Header.LogContents>`
+                	**type**\:   :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Header.LogContents>`
                 
                 
 
@@ -9856,7 +9862,7 @@ class Install(object):
                     .. attribute:: v3
                     
                     	v3
-                    	**type**\:  :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Header.LogContents.V3>`
+                    	**type**\:   :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Header.LogContents.V3>`
                     
                     .. attribute:: version
                     
@@ -9886,7 +9892,7 @@ class Install(object):
                         .. attribute:: category
                         
                         	Category of the message
-                        	**type**\:  :py:class:`InstmgrBagLogEntryUserMsgCategoryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategoryEnum>`
+                        	**type**\:   :py:class:`InstmgrBagLogEntryUserMsgCategoryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategoryEnum>`
                         
                         .. attribute:: message
                         
@@ -9896,7 +9902,7 @@ class Install(object):
                         .. attribute:: scope
                         
                         	Scope of the message
-                        	**type**\:  :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Header.LogContents.V3.Scope>`
+                        	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Header.LogContents.V3.Scope>`
                         
                         
 
@@ -10057,7 +10063,7 @@ class Install(object):
                 .. attribute:: log_contents
                 
                 	Log contents
-                	**type**\:  :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Summary.LogContents>`
+                	**type**\:   :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Summary.LogContents>`
                 
                 
 
@@ -10079,7 +10085,7 @@ class Install(object):
                     .. attribute:: v3
                     
                     	v3
-                    	**type**\:  :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Summary.LogContents.V3>`
+                    	**type**\:   :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Summary.LogContents.V3>`
                     
                     .. attribute:: version
                     
@@ -10109,7 +10115,7 @@ class Install(object):
                         .. attribute:: category
                         
                         	Category of the message
-                        	**type**\:  :py:class:`InstmgrBagLogEntryUserMsgCategoryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategoryEnum>`
+                        	**type**\:   :py:class:`InstmgrBagLogEntryUserMsgCategoryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategoryEnum>`
                         
                         .. attribute:: message
                         
@@ -10119,7 +10125,7 @@ class Install(object):
                         .. attribute:: scope
                         
                         	Scope of the message
-                        	**type**\:  :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Summary.LogContents.V3.Scope>`
+                        	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Summary.LogContents.V3.Scope>`
                         
                         
 
@@ -10280,7 +10286,7 @@ class Install(object):
                 .. attribute:: log_contents
                 
                 	Log contents
-                	**type**\:  :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Message.LogContents>`
+                	**type**\:   :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Message.LogContents>`
                 
                 
 
@@ -10302,7 +10308,7 @@ class Install(object):
                     .. attribute:: v3
                     
                     	v3
-                    	**type**\:  :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Message.LogContents.V3>`
+                    	**type**\:   :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Message.LogContents.V3>`
                     
                     .. attribute:: version
                     
@@ -10332,7 +10338,7 @@ class Install(object):
                         .. attribute:: category
                         
                         	Category of the message
-                        	**type**\:  :py:class:`InstmgrBagLogEntryUserMsgCategoryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategoryEnum>`
+                        	**type**\:   :py:class:`InstmgrBagLogEntryUserMsgCategoryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategoryEnum>`
                         
                         .. attribute:: message
                         
@@ -10342,7 +10348,7 @@ class Install(object):
                         .. attribute:: scope
                         
                         	Scope of the message
-                        	**type**\:  :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Message.LogContents.V3.Scope>`
+                        	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Message.LogContents.V3.Scope>`
                         
                         
 
@@ -10503,7 +10509,7 @@ class Install(object):
                 .. attribute:: log_contents
                 
                 	Log contents
-                	**type**\:  :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Change.LogContents>`
+                	**type**\:   :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Change.LogContents>`
                 
                 
 
@@ -10525,7 +10531,7 @@ class Install(object):
                     .. attribute:: v3
                     
                     	v3
-                    	**type**\:  :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Change.LogContents.V3>`
+                    	**type**\:   :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Change.LogContents.V3>`
                     
                     .. attribute:: version
                     
@@ -10555,7 +10561,7 @@ class Install(object):
                         .. attribute:: category
                         
                         	Category of the message
-                        	**type**\:  :py:class:`InstmgrBagLogEntryUserMsgCategoryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategoryEnum>`
+                        	**type**\:   :py:class:`InstmgrBagLogEntryUserMsgCategoryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategoryEnum>`
                         
                         .. attribute:: message
                         
@@ -10565,7 +10571,7 @@ class Install(object):
                         .. attribute:: scope
                         
                         	Scope of the message
-                        	**type**\:  :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Change.LogContents.V3.Scope>`
+                        	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Change.LogContents.V3.Scope>`
                         
                         
 
@@ -10726,7 +10732,7 @@ class Install(object):
                 .. attribute:: log_contents
                 
                 	Log contents
-                	**type**\:  :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Detail.LogContents>`
+                	**type**\:   :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Detail.LogContents>`
                 
                 
 
@@ -10748,7 +10754,7 @@ class Install(object):
                     .. attribute:: v3
                     
                     	v3
-                    	**type**\:  :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Detail.LogContents.V3>`
+                    	**type**\:   :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Detail.LogContents.V3>`
                     
                     .. attribute:: version
                     
@@ -10778,7 +10784,7 @@ class Install(object):
                         .. attribute:: category
                         
                         	Category of the message
-                        	**type**\:  :py:class:`InstmgrBagLogEntryUserMsgCategoryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategoryEnum>`
+                        	**type**\:   :py:class:`InstmgrBagLogEntryUserMsgCategoryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategoryEnum>`
                         
                         .. attribute:: message
                         
@@ -10788,7 +10794,7 @@ class Install(object):
                         .. attribute:: scope
                         
                         	Scope of the message
-                        	**type**\:  :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Detail.LogContents.V3.Scope>`
+                        	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Detail.LogContents.V3.Scope>`
                         
                         
 
@@ -10949,7 +10955,7 @@ class Install(object):
                 .. attribute:: log_contents
                 
                 	Log contents
-                	**type**\:  :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Communication.LogContents>`
+                	**type**\:   :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Communication.LogContents>`
                 
                 
 
@@ -10971,7 +10977,7 @@ class Install(object):
                     .. attribute:: v3
                     
                     	v3
-                    	**type**\:  :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Communication.LogContents.V3>`
+                    	**type**\:   :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Communication.LogContents.V3>`
                     
                     .. attribute:: version
                     
@@ -11001,7 +11007,7 @@ class Install(object):
                         .. attribute:: category
                         
                         	Category of the message
-                        	**type**\:  :py:class:`InstmgrBagLogEntryUserMsgCategoryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategoryEnum>`
+                        	**type**\:   :py:class:`InstmgrBagLogEntryUserMsgCategoryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategoryEnum>`
                         
                         .. attribute:: message
                         
@@ -11011,7 +11017,7 @@ class Install(object):
                         .. attribute:: scope
                         
                         	Scope of the message
-                        	**type**\:  :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Communication.LogContents.V3.Scope>`
+                        	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Communication.LogContents.V3.Scope>`
                         
                         
 

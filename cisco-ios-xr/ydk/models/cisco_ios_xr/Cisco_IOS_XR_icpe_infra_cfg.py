@@ -38,7 +38,7 @@ class NvSatellites(object):
     .. attribute:: nv_satellite
     
     	Satellite Configuration
-    	**type**\: list of  :py:class:`NvSatellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite>`
+    	**type**\: list of    :py:class:`NvSatellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite>`
     
     
 
@@ -67,12 +67,12 @@ class NvSatellites(object):
         .. attribute:: candidate_fabric_ports
         
         	Enable interfaces on the satellite to be used as fabric ports table
-        	**type**\:  :py:class:`CandidateFabricPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.CandidateFabricPorts>`
+        	**type**\:   :py:class:`CandidateFabricPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.CandidateFabricPorts>`
         
         .. attribute:: connection_info
         
         	Satellite User
-        	**type**\:  :py:class:`ConnectionInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.ConnectionInfo>`
+        	**type**\:   :py:class:`ConnectionInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.ConnectionInfo>`
         
         .. attribute:: delayed_switchback
         
@@ -80,6 +80,8 @@ class NvSatellites(object):
         	**type**\:  int
         
         	**range:** 0..4294967295
+        
+        	**units**\: second
         
         .. attribute:: description
         
@@ -101,7 +103,7 @@ class NvSatellites(object):
         .. attribute:: enable
         
         	Enable
-        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: ip_address
         
@@ -123,7 +125,7 @@ class NvSatellites(object):
         .. attribute:: redundancy
         
         	Redundancy submode
-        	**type**\:  :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.Redundancy>`
+        	**type**\:   :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.Redundancy>`
         
         .. attribute:: secret
         
@@ -199,7 +201,7 @@ class NvSatellites(object):
             .. attribute:: candidate_fabric_port
             
             	Enable interfaces on the satellite to be used as fabric ports
-            	**type**\: list of  :py:class:`CandidateFabricPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort>`
+            	**type**\: list of    :py:class:`CandidateFabricPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort>`
             
             
 
@@ -531,7 +533,7 @@ class NvSatelliteGlobal(object):
     .. attribute:: chassis_mac
     
     	Chassis MAC address
-    	**type**\:  :py:class:`ChassisMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatelliteGlobal.ChassisMac>`
+    	**type**\:   :py:class:`ChassisMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatelliteGlobal.ChassisMac>`
     
     
 
@@ -556,6 +558,8 @@ class NvSatelliteGlobal(object):
         
         	**range:** 0..2147483647
         
+        	**units**\: byte
+        
         .. attribute:: mac2
         
         	Second two bytes of MAC address
@@ -563,12 +567,16 @@ class NvSatelliteGlobal(object):
         
         	**range:** 0..2147483647
         
+        	**units**\: byte
+        
         .. attribute:: mac3
         
         	Third two bytes of MAC address
         	**type**\:  int
         
         	**range:** 0..2147483647
+        
+        	**units**\: byte
         
         
 

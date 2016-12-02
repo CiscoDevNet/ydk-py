@@ -30,61 +30,61 @@ class TrackEnum(Enum):
 
     Track
 
-    .. data:: INTERFACE_TYPE = 1
+    .. data:: interface_type = 1
 
     	Line protocol type
 
-    .. data:: ROUTE_TYPE = 2
+    .. data:: route_type = 2
 
     	Route type
 
-    .. data:: BOOL_AND_TYPE = 3
+    .. data:: bool_and_type = 3
 
     	Boolean and type
 
-    .. data:: BOOL_OR_TYPE = 4
+    .. data:: bool_or_type = 4
 
     	Boolean or type
 
-    .. data:: IPSLA_TYPE = 5
+    .. data:: ipsla_type = 5
 
     	Ipsla track type
 
-    .. data:: UNDEFINED_TYPE = 6
+    .. data:: undefined_type = 6
 
     	type undefined
 
-    .. data:: THRESHOLD_WEIGHT = 7
+    .. data:: threshold_weight = 7
 
     	type threshold weight
 
-    .. data:: THRESHOLD_PERCENTAGE = 8
+    .. data:: threshold_percentage = 8
 
     	type threshold percentage
 
-    .. data:: BFD_TYPE = 9
+    .. data:: bfd_type = 9
 
     	type bfd rtr
 
     """
 
-    INTERFACE_TYPE = 1
+    interface_type = 1
 
-    ROUTE_TYPE = 2
+    route_type = 2
 
-    BOOL_AND_TYPE = 3
+    bool_and_type = 3
 
-    BOOL_OR_TYPE = 4
+    bool_or_type = 4
 
-    IPSLA_TYPE = 5
+    ipsla_type = 5
 
-    UNDEFINED_TYPE = 6
+    undefined_type = 6
 
-    THRESHOLD_WEIGHT = 7
+    threshold_weight = 7
 
-    THRESHOLD_PERCENTAGE = 8
+    threshold_percentage = 8
 
-    BFD_TYPE = 9
+    bfd_type = 9
 
 
     @staticmethod
@@ -101,42 +101,42 @@ class ObjectTracking(object):
     .. attribute:: track_briefs
     
     	Object Tracking Track table brief
-    	**type**\:  :py:class:`TrackBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs>`
+    	**type**\:   :py:class:`TrackBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs>`
     
     .. attribute:: track_type_interface
     
     	Object Tracking Type interface info
-    	**type**\:  :py:class:`TrackTypeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface>`
+    	**type**\:   :py:class:`TrackTypeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface>`
     
     .. attribute:: track_type_interface_brief
     
     	Object Tracking Type Interface brief info
-    	**type**\:  :py:class:`TrackTypeInterfaceBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterfaceBrief>`
+    	**type**\:   :py:class:`TrackTypeInterfaceBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterfaceBrief>`
     
     .. attribute:: track_type_ipv4_route
     
     	Object Tracking Type IPV4 route info
-    	**type**\:  :py:class:`TrackTypeIpv4Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route>`
+    	**type**\:   :py:class:`TrackTypeIpv4Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route>`
     
     .. attribute:: track_type_ipv4_route_brief
     
     	Object Tracking Type Ipv4 Route brief info
-    	**type**\:  :py:class:`TrackTypeIpv4RouteBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4RouteBrief>`
+    	**type**\:   :py:class:`TrackTypeIpv4RouteBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4RouteBrief>`
     
     .. attribute:: track_type_rtr_reachability
     
     	Object Tracking Type RTR Reachability info
-    	**type**\:  :py:class:`TrackTypeRtrReachability <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability>`
+    	**type**\:   :py:class:`TrackTypeRtrReachability <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability>`
     
     .. attribute:: track_type_rtr_reachability_brief
     
     	Object Tracking Type RTR Reachability brief info
-    	**type**\:  :py:class:`TrackTypeRtrReachabilityBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachabilityBrief>`
+    	**type**\:   :py:class:`TrackTypeRtrReachabilityBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachabilityBrief>`
     
     .. attribute:: tracks
     
     	Object Tracking Track table
-    	**type**\:  :py:class:`Tracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks>`
+    	**type**\:   :py:class:`Tracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks>`
     
     
 
@@ -171,7 +171,7 @@ class ObjectTracking(object):
         .. attribute:: track_info
         
         	track info
-        	**type**\: list of  :py:class:`TrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo>`
+        	**type**\: list of    :py:class:`TrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo>`
         
         
 
@@ -194,12 +194,12 @@ class ObjectTracking(object):
             .. attribute:: bool_tracks
             
             	boolean objects
-            	**type**\:  :py:class:`BoolTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks>`
+            	**type**\:   :py:class:`BoolTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks>`
             
             .. attribute:: delayed
             
             	Is the state change delay counter in progress
-            	**type**\:  :py:class:`Delayed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.Delayed>`
+            	**type**\:   :py:class:`Delayed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.Delayed>`
             
             .. attribute:: seconds_last_change
             
@@ -207,6 +207,8 @@ class ObjectTracking(object):
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
+            
+            	**units**\: second
             
             .. attribute:: state_change_counter
             
@@ -225,7 +227,7 @@ class ObjectTracking(object):
             .. attribute:: threshold_tracks
             
             	Threshold objects
-            	**type**\:  :py:class:`ThresholdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks>`
+            	**type**\:   :py:class:`ThresholdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks>`
             
             .. attribute:: threshold_up
             
@@ -242,7 +244,7 @@ class ObjectTracking(object):
             .. attribute:: track_type_info
             
             	Track type information
-            	**type**\:  :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo>`
+            	**type**\:   :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo>`
             
             .. attribute:: tracke_name
             
@@ -254,12 +256,12 @@ class ObjectTracking(object):
             .. attribute:: tracking_interaces
             
             	Tracking Interfaces
-            	**type**\:  :py:class:`TrackingInteraces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces>`
+            	**type**\:   :py:class:`TrackingInteraces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces>`
             
             .. attribute:: type
             
             	Track type
-            	**type**\:  :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
+            	**type**\:   :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
             
             
 
@@ -296,27 +298,27 @@ class ObjectTracking(object):
                 .. attribute:: bfd_tracks
                 
                 	track type bfdrtr info
-                	**type**\:  :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.BfdTracks>`
+                	**type**\:   :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.BfdTracks>`
                 
                 .. attribute:: discriminant
                 
                 	discriminant
-                	**type**\:  :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
+                	**type**\:   :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
                 
                 .. attribute:: interface_tracks
                 
                 	track type interface info
-                	**type**\:  :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.InterfaceTracks>`
+                	**type**\:   :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.InterfaceTracks>`
                 
                 .. attribute:: ipsla_tracks
                 
                 	track type rtr info
-                	**type**\:  :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.IpslaTracks>`
+                	**type**\:   :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.IpslaTracks>`
                 
                 .. attribute:: route_tracks
                 
                 	track type route info
-                	**type**\:  :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.RouteTracks>`
+                	**type**\:   :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.RouteTracks>`
                 
                 
 
@@ -647,7 +649,7 @@ class ObjectTracking(object):
                 .. attribute:: bool_track_info
                 
                 	bool track info
-                	**type**\: list of  :py:class:`BoolTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks.BoolTrackInfo>`
+                	**type**\: list of    :py:class:`BoolTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks.BoolTrackInfo>`
                 
                 
 
@@ -757,7 +759,7 @@ class ObjectTracking(object):
                 .. attribute:: threshold_track_info
                 
                 	threshold track info
-                	**type**\: list of  :py:class:`ThresholdTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks.ThresholdTrackInfo>`
+                	**type**\: list of    :py:class:`ThresholdTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks.ThresholdTrackInfo>`
                 
                 
 
@@ -795,6 +797,8 @@ class ObjectTracking(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: percentage
                     
                     
 
@@ -869,7 +873,7 @@ class ObjectTracking(object):
                 .. attribute:: interface_tracking_info
                 
                 	interface tracking info
-                	**type**\: list of  :py:class:`InterfaceTrackingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces.InterfaceTrackingInfo>`
+                	**type**\: list of    :py:class:`InterfaceTrackingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces.InterfaceTrackingInfo>`
                 
                 
 
@@ -964,6 +968,8 @@ class ObjectTracking(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: track_state
                 
@@ -1094,7 +1100,7 @@ class ObjectTracking(object):
         .. attribute:: track_brief
         
         	Track name \- maximum 32 characters
-        	**type**\: list of  :py:class:`TrackBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs.TrackBrief>`
+        	**type**\: list of    :py:class:`TrackBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs.TrackBrief>`
         
         
 
@@ -1124,7 +1130,7 @@ class ObjectTracking(object):
             .. attribute:: track_info_brief
             
             	track info brief
-            	**type**\: list of  :py:class:`TrackInfoBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief>`
+            	**type**\: list of    :py:class:`TrackInfoBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief>`
             
             
 
@@ -1153,7 +1159,7 @@ class ObjectTracking(object):
                 .. attribute:: track_type_info
                 
                 	Track type information
-                	**type**\:  :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo>`
+                	**type**\:   :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo>`
                 
                 .. attribute:: tracke_name
                 
@@ -1165,7 +1171,7 @@ class ObjectTracking(object):
                 .. attribute:: type
                 
                 	Track type
-                	**type**\:  :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
+                	**type**\:   :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
                 
                 
 
@@ -1190,27 +1196,27 @@ class ObjectTracking(object):
                     .. attribute:: bfd_tracks
                     
                     	track type bfdrtr info
-                    	**type**\:  :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks>`
+                    	**type**\:   :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks>`
                     
                     .. attribute:: discriminant
                     
                     	discriminant
-                    	**type**\:  :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
+                    	**type**\:   :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
                     
                     .. attribute:: interface_tracks
                     
                     	track type interface info
-                    	**type**\:  :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks>`
+                    	**type**\:   :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks>`
                     
                     .. attribute:: ipsla_tracks
                     
                     	track type rtr info
-                    	**type**\:  :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks>`
+                    	**type**\:   :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks>`
                     
                     .. attribute:: route_tracks
                     
                     	track type route info
-                    	**type**\:  :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks>`
+                    	**type**\:   :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks>`
                     
                     
 
@@ -1637,7 +1643,7 @@ class ObjectTracking(object):
         .. attribute:: track_info
         
         	track info
-        	**type**\: list of  :py:class:`TrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo>`
+        	**type**\: list of    :py:class:`TrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo>`
         
         
 
@@ -1660,12 +1666,12 @@ class ObjectTracking(object):
             .. attribute:: bool_tracks
             
             	boolean objects
-            	**type**\:  :py:class:`BoolTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks>`
+            	**type**\:   :py:class:`BoolTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks>`
             
             .. attribute:: delayed
             
             	Is the state change delay counter in progress
-            	**type**\:  :py:class:`Delayed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.Delayed>`
+            	**type**\:   :py:class:`Delayed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.Delayed>`
             
             .. attribute:: seconds_last_change
             
@@ -1673,6 +1679,8 @@ class ObjectTracking(object):
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
+            
+            	**units**\: second
             
             .. attribute:: state_change_counter
             
@@ -1691,7 +1699,7 @@ class ObjectTracking(object):
             .. attribute:: threshold_tracks
             
             	Threshold objects
-            	**type**\:  :py:class:`ThresholdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks>`
+            	**type**\:   :py:class:`ThresholdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks>`
             
             .. attribute:: threshold_up
             
@@ -1708,7 +1716,7 @@ class ObjectTracking(object):
             .. attribute:: track_type_info
             
             	Track type information
-            	**type**\:  :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo>`
+            	**type**\:   :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo>`
             
             .. attribute:: tracke_name
             
@@ -1720,12 +1728,12 @@ class ObjectTracking(object):
             .. attribute:: tracking_interaces
             
             	Tracking Interfaces
-            	**type**\:  :py:class:`TrackingInteraces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces>`
+            	**type**\:   :py:class:`TrackingInteraces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces>`
             
             .. attribute:: type
             
             	Track type
-            	**type**\:  :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
+            	**type**\:   :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
             
             
 
@@ -1762,27 +1770,27 @@ class ObjectTracking(object):
                 .. attribute:: bfd_tracks
                 
                 	track type bfdrtr info
-                	**type**\:  :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.BfdTracks>`
+                	**type**\:   :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.BfdTracks>`
                 
                 .. attribute:: discriminant
                 
                 	discriminant
-                	**type**\:  :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
+                	**type**\:   :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
                 
                 .. attribute:: interface_tracks
                 
                 	track type interface info
-                	**type**\:  :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.InterfaceTracks>`
+                	**type**\:   :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.InterfaceTracks>`
                 
                 .. attribute:: ipsla_tracks
                 
                 	track type rtr info
-                	**type**\:  :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.IpslaTracks>`
+                	**type**\:   :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.IpslaTracks>`
                 
                 .. attribute:: route_tracks
                 
                 	track type route info
-                	**type**\:  :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.RouteTracks>`
+                	**type**\:   :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.RouteTracks>`
                 
                 
 
@@ -2113,7 +2121,7 @@ class ObjectTracking(object):
                 .. attribute:: bool_track_info
                 
                 	bool track info
-                	**type**\: list of  :py:class:`BoolTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks.BoolTrackInfo>`
+                	**type**\: list of    :py:class:`BoolTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks.BoolTrackInfo>`
                 
                 
 
@@ -2223,7 +2231,7 @@ class ObjectTracking(object):
                 .. attribute:: threshold_track_info
                 
                 	threshold track info
-                	**type**\: list of  :py:class:`ThresholdTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks.ThresholdTrackInfo>`
+                	**type**\: list of    :py:class:`ThresholdTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks.ThresholdTrackInfo>`
                 
                 
 
@@ -2261,6 +2269,8 @@ class ObjectTracking(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: percentage
                     
                     
 
@@ -2335,7 +2345,7 @@ class ObjectTracking(object):
                 .. attribute:: interface_tracking_info
                 
                 	interface tracking info
-                	**type**\: list of  :py:class:`InterfaceTrackingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces.InterfaceTrackingInfo>`
+                	**type**\: list of    :py:class:`InterfaceTrackingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces.InterfaceTrackingInfo>`
                 
                 
 
@@ -2430,6 +2440,8 @@ class ObjectTracking(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: track_state
                 
@@ -2560,7 +2572,7 @@ class ObjectTracking(object):
         .. attribute:: track_info_brief
         
         	track info brief
-        	**type**\: list of  :py:class:`TrackInfoBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief>`
+        	**type**\: list of    :py:class:`TrackInfoBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief>`
         
         
 
@@ -2588,7 +2600,7 @@ class ObjectTracking(object):
             .. attribute:: track_type_info
             
             	Track type information
-            	**type**\:  :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo>`
+            	**type**\:   :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo>`
             
             .. attribute:: tracke_name
             
@@ -2600,7 +2612,7 @@ class ObjectTracking(object):
             .. attribute:: type
             
             	Track type
-            	**type**\:  :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
+            	**type**\:   :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
             
             
 
@@ -2625,27 +2637,27 @@ class ObjectTracking(object):
                 .. attribute:: bfd_tracks
                 
                 	track type bfdrtr info
-                	**type**\:  :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks>`
+                	**type**\:   :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks>`
                 
                 .. attribute:: discriminant
                 
                 	discriminant
-                	**type**\:  :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
+                	**type**\:   :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
                 
                 .. attribute:: interface_tracks
                 
                 	track type interface info
-                	**type**\:  :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks>`
+                	**type**\:   :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks>`
                 
                 .. attribute:: ipsla_tracks
                 
                 	track type rtr info
-                	**type**\:  :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks>`
+                	**type**\:   :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks>`
                 
                 .. attribute:: route_tracks
                 
                 	track type route info
-                	**type**\:  :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks>`
+                	**type**\:   :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks>`
                 
                 
 
@@ -3031,7 +3043,7 @@ class ObjectTracking(object):
         .. attribute:: track
         
         	Track name \- maximum 32 characters
-        	**type**\: list of  :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track>`
+        	**type**\: list of    :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track>`
         
         
 
@@ -3061,7 +3073,7 @@ class ObjectTracking(object):
             .. attribute:: track_info
             
             	track info
-            	**type**\: list of  :py:class:`TrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo>`
+            	**type**\: list of    :py:class:`TrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo>`
             
             
 
@@ -3085,12 +3097,12 @@ class ObjectTracking(object):
                 .. attribute:: bool_tracks
                 
                 	boolean objects
-                	**type**\:  :py:class:`BoolTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.BoolTracks>`
+                	**type**\:   :py:class:`BoolTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.BoolTracks>`
                 
                 .. attribute:: delayed
                 
                 	Is the state change delay counter in progress
-                	**type**\:  :py:class:`Delayed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.Delayed>`
+                	**type**\:   :py:class:`Delayed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.Delayed>`
                 
                 .. attribute:: seconds_last_change
                 
@@ -3098,6 +3110,8 @@ class ObjectTracking(object):
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**units**\: second
                 
                 .. attribute:: state_change_counter
                 
@@ -3116,7 +3130,7 @@ class ObjectTracking(object):
                 .. attribute:: threshold_tracks
                 
                 	Threshold objects
-                	**type**\:  :py:class:`ThresholdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks>`
+                	**type**\:   :py:class:`ThresholdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks>`
                 
                 .. attribute:: threshold_up
                 
@@ -3133,7 +3147,7 @@ class ObjectTracking(object):
                 .. attribute:: track_type_info
                 
                 	Track type information
-                	**type**\:  :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo>`
+                	**type**\:   :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo>`
                 
                 .. attribute:: tracke_name
                 
@@ -3145,12 +3159,12 @@ class ObjectTracking(object):
                 .. attribute:: tracking_interaces
                 
                 	Tracking Interfaces
-                	**type**\:  :py:class:`TrackingInteraces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces>`
+                	**type**\:   :py:class:`TrackingInteraces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces>`
                 
                 .. attribute:: type
                 
                 	Track type
-                	**type**\:  :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
+                	**type**\:   :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
                 
                 
 
@@ -3187,27 +3201,27 @@ class ObjectTracking(object):
                     .. attribute:: bfd_tracks
                     
                     	track type bfdrtr info
-                    	**type**\:  :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.BfdTracks>`
+                    	**type**\:   :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.BfdTracks>`
                     
                     .. attribute:: discriminant
                     
                     	discriminant
-                    	**type**\:  :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
+                    	**type**\:   :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
                     
                     .. attribute:: interface_tracks
                     
                     	track type interface info
-                    	**type**\:  :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.InterfaceTracks>`
+                    	**type**\:   :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.InterfaceTracks>`
                     
                     .. attribute:: ipsla_tracks
                     
                     	track type rtr info
-                    	**type**\:  :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.IpslaTracks>`
+                    	**type**\:   :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.IpslaTracks>`
                     
                     .. attribute:: route_tracks
                     
                     	track type route info
-                    	**type**\:  :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.RouteTracks>`
+                    	**type**\:   :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.RouteTracks>`
                     
                     
 
@@ -3548,7 +3562,7 @@ class ObjectTracking(object):
                     .. attribute:: bool_track_info
                     
                     	bool track info
-                    	**type**\: list of  :py:class:`BoolTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.BoolTracks.BoolTrackInfo>`
+                    	**type**\: list of    :py:class:`BoolTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.BoolTracks.BoolTrackInfo>`
                     
                     
 
@@ -3662,7 +3676,7 @@ class ObjectTracking(object):
                     .. attribute:: threshold_track_info
                     
                     	threshold track info
-                    	**type**\: list of  :py:class:`ThresholdTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks.ThresholdTrackInfo>`
+                    	**type**\: list of    :py:class:`ThresholdTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks.ThresholdTrackInfo>`
                     
                     
 
@@ -3700,6 +3714,8 @@ class ObjectTracking(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: percentage
                         
                         
 
@@ -3778,7 +3794,7 @@ class ObjectTracking(object):
                     .. attribute:: interface_tracking_info
                     
                     	interface tracking info
-                    	**type**\: list of  :py:class:`InterfaceTrackingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces.InterfaceTrackingInfo>`
+                    	**type**\: list of    :py:class:`InterfaceTrackingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces.InterfaceTrackingInfo>`
                     
                     
 
@@ -3877,6 +3893,8 @@ class ObjectTracking(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     .. attribute:: track_state
                     
@@ -4040,7 +4058,7 @@ class ObjectTracking(object):
         .. attribute:: track_info_brief
         
         	track info brief
-        	**type**\: list of  :py:class:`TrackInfoBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief>`
+        	**type**\: list of    :py:class:`TrackInfoBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief>`
         
         
 
@@ -4068,7 +4086,7 @@ class ObjectTracking(object):
             .. attribute:: track_type_info
             
             	Track type information
-            	**type**\:  :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo>`
+            	**type**\:   :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo>`
             
             .. attribute:: tracke_name
             
@@ -4080,7 +4098,7 @@ class ObjectTracking(object):
             .. attribute:: type
             
             	Track type
-            	**type**\:  :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
+            	**type**\:   :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
             
             
 
@@ -4105,27 +4123,27 @@ class ObjectTracking(object):
                 .. attribute:: bfd_tracks
                 
                 	track type bfdrtr info
-                	**type**\:  :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks>`
+                	**type**\:   :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks>`
                 
                 .. attribute:: discriminant
                 
                 	discriminant
-                	**type**\:  :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
+                	**type**\:   :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
                 
                 .. attribute:: interface_tracks
                 
                 	track type interface info
-                	**type**\:  :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks>`
+                	**type**\:   :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks>`
                 
                 .. attribute:: ipsla_tracks
                 
                 	track type rtr info
-                	**type**\:  :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks>`
+                	**type**\:   :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks>`
                 
                 .. attribute:: route_tracks
                 
                 	track type route info
-                	**type**\:  :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks>`
+                	**type**\:   :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks>`
                 
                 
 
@@ -4511,7 +4529,7 @@ class ObjectTracking(object):
         .. attribute:: track_info
         
         	track info
-        	**type**\: list of  :py:class:`TrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo>`
+        	**type**\: list of    :py:class:`TrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo>`
         
         
 
@@ -4534,12 +4552,12 @@ class ObjectTracking(object):
             .. attribute:: bool_tracks
             
             	boolean objects
-            	**type**\:  :py:class:`BoolTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks>`
+            	**type**\:   :py:class:`BoolTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks>`
             
             .. attribute:: delayed
             
             	Is the state change delay counter in progress
-            	**type**\:  :py:class:`Delayed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.Delayed>`
+            	**type**\:   :py:class:`Delayed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.Delayed>`
             
             .. attribute:: seconds_last_change
             
@@ -4547,6 +4565,8 @@ class ObjectTracking(object):
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
+            
+            	**units**\: second
             
             .. attribute:: state_change_counter
             
@@ -4565,7 +4585,7 @@ class ObjectTracking(object):
             .. attribute:: threshold_tracks
             
             	Threshold objects
-            	**type**\:  :py:class:`ThresholdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks>`
+            	**type**\:   :py:class:`ThresholdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks>`
             
             .. attribute:: threshold_up
             
@@ -4582,7 +4602,7 @@ class ObjectTracking(object):
             .. attribute:: track_type_info
             
             	Track type information
-            	**type**\:  :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo>`
+            	**type**\:   :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo>`
             
             .. attribute:: tracke_name
             
@@ -4594,12 +4614,12 @@ class ObjectTracking(object):
             .. attribute:: tracking_interaces
             
             	Tracking Interfaces
-            	**type**\:  :py:class:`TrackingInteraces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces>`
+            	**type**\:   :py:class:`TrackingInteraces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces>`
             
             .. attribute:: type
             
             	Track type
-            	**type**\:  :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
+            	**type**\:   :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
             
             
 
@@ -4636,27 +4656,27 @@ class ObjectTracking(object):
                 .. attribute:: bfd_tracks
                 
                 	track type bfdrtr info
-                	**type**\:  :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.BfdTracks>`
+                	**type**\:   :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.BfdTracks>`
                 
                 .. attribute:: discriminant
                 
                 	discriminant
-                	**type**\:  :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
+                	**type**\:   :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
                 
                 .. attribute:: interface_tracks
                 
                 	track type interface info
-                	**type**\:  :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.InterfaceTracks>`
+                	**type**\:   :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.InterfaceTracks>`
                 
                 .. attribute:: ipsla_tracks
                 
                 	track type rtr info
-                	**type**\:  :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.IpslaTracks>`
+                	**type**\:   :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.IpslaTracks>`
                 
                 .. attribute:: route_tracks
                 
                 	track type route info
-                	**type**\:  :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.RouteTracks>`
+                	**type**\:   :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.RouteTracks>`
                 
                 
 
@@ -4987,7 +5007,7 @@ class ObjectTracking(object):
                 .. attribute:: bool_track_info
                 
                 	bool track info
-                	**type**\: list of  :py:class:`BoolTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks.BoolTrackInfo>`
+                	**type**\: list of    :py:class:`BoolTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks.BoolTrackInfo>`
                 
                 
 
@@ -5097,7 +5117,7 @@ class ObjectTracking(object):
                 .. attribute:: threshold_track_info
                 
                 	threshold track info
-                	**type**\: list of  :py:class:`ThresholdTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks.ThresholdTrackInfo>`
+                	**type**\: list of    :py:class:`ThresholdTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks.ThresholdTrackInfo>`
                 
                 
 
@@ -5135,6 +5155,8 @@ class ObjectTracking(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: percentage
                     
                     
 
@@ -5209,7 +5231,7 @@ class ObjectTracking(object):
                 .. attribute:: interface_tracking_info
                 
                 	interface tracking info
-                	**type**\: list of  :py:class:`InterfaceTrackingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces.InterfaceTrackingInfo>`
+                	**type**\: list of    :py:class:`InterfaceTrackingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces.InterfaceTrackingInfo>`
                 
                 
 
@@ -5304,6 +5326,8 @@ class ObjectTracking(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: track_state
                 
@@ -5434,7 +5458,7 @@ class ObjectTracking(object):
         .. attribute:: track_info_brief
         
         	track info brief
-        	**type**\: list of  :py:class:`TrackInfoBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief>`
+        	**type**\: list of    :py:class:`TrackInfoBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief>`
         
         
 
@@ -5462,7 +5486,7 @@ class ObjectTracking(object):
             .. attribute:: track_type_info
             
             	Track type information
-            	**type**\:  :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo>`
+            	**type**\:   :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo>`
             
             .. attribute:: tracke_name
             
@@ -5474,7 +5498,7 @@ class ObjectTracking(object):
             .. attribute:: type
             
             	Track type
-            	**type**\:  :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
+            	**type**\:   :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
             
             
 
@@ -5499,27 +5523,27 @@ class ObjectTracking(object):
                 .. attribute:: bfd_tracks
                 
                 	track type bfdrtr info
-                	**type**\:  :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks>`
+                	**type**\:   :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks>`
                 
                 .. attribute:: discriminant
                 
                 	discriminant
-                	**type**\:  :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
+                	**type**\:   :py:class:`TrackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.TrackEnum>`
                 
                 .. attribute:: interface_tracks
                 
                 	track type interface info
-                	**type**\:  :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks>`
+                	**type**\:   :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks>`
                 
                 .. attribute:: ipsla_tracks
                 
                 	track type rtr info
-                	**type**\:  :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks>`
+                	**type**\:   :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks>`
                 
                 .. attribute:: route_tracks
                 
                 	track type route info
-                	**type**\:  :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks>`
+                	**type**\:   :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks>`
                 
                 
 

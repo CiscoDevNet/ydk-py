@@ -16,4 +16,28 @@ _deviation_table = {
     'TelemetrySystem.Subscriptions.Dynamic.Subscription' : {
         'deviation_typ' : 'not_supported',
     },
+    'TelemetrySystem.Subscriptions.Persistent.Subscription.Config.local_source_address' : {
+        'deviation_typ' : 'not_supported',
+    },
+    'TelemetrySystem.Subscriptions.Persistent.Subscription.Config.originated_qos_marking' : {
+        'deviation_typ' : 'not_supported',
+    },
+    'TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.Config.heartbeat_interval' : {
+        'deviation_typ' : 'not_supported',
+    },
+    'TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.Config.suppress_redundant' : {
+        'deviation_typ' : 'not_supported',
+    },
+    'TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.State.heartbeat_interval' : {
+        'deviation_typ' : 'not_supported',
+    },
+    'TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.State.suppress_redundant' : {
+        'deviation_typ' : 'not_supported',
+    },
+    'TelemetrySystem.Subscriptions.Persistent.Subscription.State.local_source_address' : {
+        'deviation_typ' : 'not_supported',
+    },
+    'TelemetrySystem.Subscriptions.Persistent.Subscription.State.originated_qos_marking' : {
+        'deviation_typ' : 'not_supported',
+    },
 }

@@ -16,14 +16,14 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'SeverityEnum' : _MetaInfoEnum('SeverityEnum', 'ydk.models.ietf.ietf_syslog_types',
         {
-            'emergency':'EMERGENCY',
-            'alert':'ALERT',
-            'critical':'CRITICAL',
-            'error':'ERROR',
-            'warning':'WARNING',
-            'notice':'NOTICE',
-            'info':'INFO',
-            'debug':'DEBUG',
+            'emergency':'emergency',
+            'alert':'alert',
+            'critical':'critical',
+            'error':'error',
+            'warning':'warning',
+            'notice':'notice',
+            'info':'info',
+            'debug':'debug',
         }, 'ietf-syslog-types', _yang_ns._namespaces['ietf-syslog-types']),
     'SyslogFacilityIdentity' : {
         'meta_info' : _MetaInfoClass('SyslogFacilityIdentity',

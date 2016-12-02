@@ -30,5 +30,5 @@ install:
 
 script:
     - cd ../core/samples
-    - python ./bgp_codec.py
+    - ./bgp_codec.py
 

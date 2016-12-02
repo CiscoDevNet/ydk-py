@@ -32,7 +32,7 @@ class Exception(object):
     .. attribute:: file
     
     	Container for the order of preference
-    	**type**\:  :py:class:`File <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_corehelper_cfg.Exception.File>`
+    	**type**\:   :py:class:`File <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_corehelper_cfg.Exception.File>`
     
     
 

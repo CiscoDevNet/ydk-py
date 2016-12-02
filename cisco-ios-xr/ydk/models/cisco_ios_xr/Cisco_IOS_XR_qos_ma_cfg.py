@@ -35,13 +35,13 @@ class QosFieldNotSupportedEnum(Enum):
 
     Qos field not supported
 
-    .. data:: NOT_SUPPORTED = 0
+    .. data:: not_supported = 0
 
     	Dummy data type leave unspecified
 
     """
 
-    NOT_SUPPORTED = 0
+    not_supported = 0
 
 
     @staticmethod
@@ -56,13 +56,13 @@ class QosPolicyAccountEnum(Enum):
 
     Qos policy account
 
-    .. data:: USER_DEFINED = 4
+    .. data:: user_defined = 4
 
     	User defined accounting
 
     """
 
-    USER_DEFINED = 4
+    user_defined = 4
 
 
     @staticmethod

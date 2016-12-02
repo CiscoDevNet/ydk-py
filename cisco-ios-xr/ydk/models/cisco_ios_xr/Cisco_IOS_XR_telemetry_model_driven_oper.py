@@ -30,31 +30,31 @@ class MdtEncodingEnumEnum(Enum):
 
     MDT Encoding
 
-    .. data:: NOT_SET = 0
+    .. data:: not_set = 0
 
     	ENCODING NOT SET
 
-    .. data:: GPB = 2
+    .. data:: gpb = 2
 
     	GPB
 
-    .. data:: SELF_DESCRIBING_GPB = 3
+    .. data:: self_describing_gpb = 3
 
     	SELF DESCRIBING GPB
 
-    .. data:: JSON = 4
+    .. data:: json = 4
 
     	JSON
 
     """
 
-    NOT_SET = 0
+    not_set = 0
 
-    GPB = 2
+    gpb = 2
 
-    SELF_DESCRIBING_GPB = 3
+    self_describing_gpb = 3
 
-    JSON = 4
+    json = 4
 
 
     @staticmethod
@@ -69,19 +69,19 @@ class MdtIpEnum(Enum):
 
     IP Type
 
-    .. data:: IPV4 = 1
+    .. data:: ipv4 = 1
 
     	IPv4
 
-    .. data:: IPV6 = 2
+    .. data:: ipv6 = 2
 
     	IPv6
 
     """
 
-    IPV4 = 1
+    ipv4 = 1
 
-    IPV6 = 2
+    ipv6 = 2
 
 
     @staticmethod
@@ -96,25 +96,31 @@ class MdtTransportEnumEnum(Enum):
 
     MDT Transport
 
-    .. data:: NOT_SET = 0
+    .. data:: not_set = 0
 
     	PROTOCOL NOT SET
 
-    .. data:: GRPC = 1
+    .. data:: grpc = 1
 
     	GRPC
 
-    .. data:: TCP = 2
+    .. data:: tcp = 2
 
     	TCP
 
+    .. data:: dialin = 6
+
+    	DIALIN
+
     """
 
-    NOT_SET = 0
+    not_set = 0
 
-    GRPC = 1
+    grpc = 1
 
-    TCP = 2
+    tcp = 2
+
+    dialin = 6
 
 
     @staticmethod
@@ -131,17 +137,17 @@ class TelemetryModelDriven(object):
     .. attribute:: destinations
     
     	Telemetry Destinations
-    	**type**\:  :py:class:`Destinations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations>`
+    	**type**\:   :py:class:`Destinations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations>`
     
     .. attribute:: sensor_groups
     
     	Telemetry Sensor Groups
-    	**type**\:  :py:class:`SensorGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.SensorGroups>`
+    	**type**\:   :py:class:`SensorGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.SensorGroups>`
     
     .. attribute:: subscriptions
     
     	Telemetry Subscriptions
-    	**type**\:  :py:class:`Subscriptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions>`
+    	**type**\:   :py:class:`Subscriptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions>`
     
     
 
@@ -166,7 +172,7 @@ class TelemetryModelDriven(object):
         .. attribute:: destination
         
         	Telemetry Destination
-        	**type**\: list of  :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination>`
+        	**type**\: list of    :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination>`
         
         
 
@@ -203,7 +209,7 @@ class TelemetryModelDriven(object):
             .. attribute:: destination
             
             	list of destinations defined in this group
-            	**type**\: list of  :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination>`
+            	**type**\: list of    :py:class:`Destination_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination_>`
             
             .. attribute:: id
             
@@ -227,19 +233,19 @@ class TelemetryModelDriven(object):
                 self.id = None
 
 
-            class Destination(object):
+            class Destination_(object):
                 """
                 list of destinations defined in this group
                 
                 .. attribute:: collection_group
                 
                 	List of collection groups for this destination group
-                	**type**\: list of  :py:class:`CollectionGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup>`
+                	**type**\: list of    :py:class:`CollectionGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup>`
                 
                 .. attribute:: destination
                 
                 	Destination
-                	**type**\:  :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination.Destination>`
+                	**type**\:   :py:class:`Destination__ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination_.Destination__>`
                 
                 
 
@@ -253,18 +259,18 @@ class TelemetryModelDriven(object):
                     self.collection_group = YList()
                     self.collection_group.parent = self
                     self.collection_group.name = 'collection_group'
-                    self.destination = TelemetryModelDriven.Destinations.Destination.Destination.Destination()
+                    self.destination = TelemetryModelDriven.Destinations.Destination.Destination_.Destination__()
                     self.destination.parent = self
 
 
-                class Destination(object):
+                class Destination__(object):
                     """
                     Destination
                     
                     .. attribute:: dest_ip_address
                     
                     	Destination IP Address
-                    	**type**\:  :py:class:`DestIpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination.Destination.DestIpAddress>`
+                    	**type**\:   :py:class:`DestIpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination_.Destination__.DestIpAddress>`
                     
                     .. attribute:: dest_port
                     
@@ -276,7 +282,7 @@ class TelemetryModelDriven(object):
                     .. attribute:: encoding
                     
                     	Destination group encoding
-                    	**type**\:  :py:class:`MdtEncodingEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtEncodingEnumEnum>`
+                    	**type**\:   :py:class:`MdtEncodingEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtEncodingEnumEnum>`
                     
                     .. attribute:: id
                     
@@ -316,6 +322,8 @@ class TelemetryModelDriven(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: byte
+                    
                     .. attribute:: total_num_of_packets_sent
                     
                     	Total number of packets sent for this destination
@@ -326,7 +334,7 @@ class TelemetryModelDriven(object):
                     .. attribute:: transport
                     
                     	Destination group transport
-                    	**type**\:  :py:class:`MdtTransportEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtTransportEnumEnum>`
+                    	**type**\:   :py:class:`MdtTransportEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtTransportEnumEnum>`
                     
                     
 
@@ -337,7 +345,7 @@ class TelemetryModelDriven(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.dest_ip_address = TelemetryModelDriven.Destinations.Destination.Destination.Destination.DestIpAddress()
+                        self.dest_ip_address = TelemetryModelDriven.Destinations.Destination.Destination_.Destination__.DestIpAddress()
                         self.dest_ip_address.parent = self
                         self.dest_port = None
                         self.encoding = None
@@ -358,7 +366,7 @@ class TelemetryModelDriven(object):
                         .. attribute:: ip_type
                         
                         	IPType
-                        	**type**\:  :py:class:`MdtIpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtIpEnum>`
+                        	**type**\:   :py:class:`MdtIpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtIpEnum>`
                         
                         .. attribute:: ipv4_address
                         
@@ -415,7 +423,7 @@ class TelemetryModelDriven(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
-                            return meta._meta_table['TelemetryModelDriven.Destinations.Destination.Destination.Destination.DestIpAddress']['meta_info']
+                            return meta._meta_table['TelemetryModelDriven.Destinations.Destination.Destination_.Destination__.DestIpAddress']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -469,7 +477,7 @@ class TelemetryModelDriven(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
-                        return meta._meta_table['TelemetryModelDriven.Destinations.Destination.Destination.Destination']['meta_info']
+                        return meta._meta_table['TelemetryModelDriven.Destinations.Destination.Destination_.Destination__']['meta_info']
 
 
                 class CollectionGroup(object):
@@ -494,12 +502,12 @@ class TelemetryModelDriven(object):
                     .. attribute:: collection_path
                     
                     	Array of information for sensor paths within collection group
-                    	**type**\: list of  :py:class:`CollectionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup.CollectionPath>`
+                    	**type**\: list of    :py:class:`CollectionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.CollectionPath>`
                     
                     .. attribute:: encoding
                     
                     	Destination group encoding
-                    	**type**\:  :py:class:`MdtEncodingEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtEncodingEnumEnum>`
+                    	**type**\:   :py:class:`MdtEncodingEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtEncodingEnumEnum>`
                     
                     .. attribute:: id
                     
@@ -511,7 +519,7 @@ class TelemetryModelDriven(object):
                     .. attribute:: internal_collection_group
                     
                     	Array of information for sysdb paths within collection group
-                    	**type**\: list of  :py:class:`InternalCollectionGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup.InternalCollectionGroup>`
+                    	**type**\: list of    :py:class:`InternalCollectionGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.InternalCollectionGroup>`
                     
                     .. attribute:: last_collection_end_time
                     
@@ -685,7 +693,7 @@ class TelemetryModelDriven(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
-                            return meta._meta_table['TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup.CollectionPath']['meta_info']
+                            return meta._meta_table['TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.CollectionPath']['meta_info']
 
 
                     class InternalCollectionGroup(object):
@@ -845,6 +853,8 @@ class TelemetryModelDriven(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: byte
+                        
                         .. attribute:: total_send_drops
                         
                         	Total number of send channel full
@@ -872,6 +882,8 @@ class TelemetryModelDriven(object):
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: byte
                         
                         
 
@@ -1006,7 +1018,7 @@ class TelemetryModelDriven(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
-                            return meta._meta_table['TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup.InternalCollectionGroup']['meta_info']
+                            return meta._meta_table['TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.InternalCollectionGroup']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -1082,7 +1094,7 @@ class TelemetryModelDriven(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
-                        return meta._meta_table['TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup']['meta_info']
+                        return meta._meta_table['TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -1111,7 +1123,7 @@ class TelemetryModelDriven(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
-                    return meta._meta_table['TelemetryModelDriven.Destinations.Destination.Destination']['meta_info']
+                    return meta._meta_table['TelemetryModelDriven.Destinations.Destination.Destination_']['meta_info']
 
             @property
             def _common_path(self):
@@ -1180,7 +1192,7 @@ class TelemetryModelDriven(object):
         .. attribute:: subscription
         
         	Telemetry Subscription
-        	**type**\: list of  :py:class:`Subscription <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription>`
+        	**type**\: list of    :py:class:`Subscription <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription>`
         
         
 
@@ -1210,12 +1222,12 @@ class TelemetryModelDriven(object):
             .. attribute:: collection_group
             
             	List of collection groups active for this subscription
-            	**type**\: list of  :py:class:`CollectionGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup>`
+            	**type**\: list of    :py:class:`CollectionGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup>`
             
             .. attribute:: subscription
             
             	Subscription
-            	**type**\:  :py:class:`Subscription <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription>`
+            	**type**\:   :py:class:`Subscription_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription_>`
             
             .. attribute:: total_num_of_bytes_sent
             
@@ -1223,6 +1235,8 @@ class TelemetryModelDriven(object):
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
+            
+            	**units**\: byte
             
             .. attribute:: total_num_of_packets_sent
             
@@ -1244,20 +1258,20 @@ class TelemetryModelDriven(object):
                 self.collection_group = YList()
                 self.collection_group.parent = self
                 self.collection_group.name = 'collection_group'
-                self.subscription = TelemetryModelDriven.Subscriptions.Subscription.Subscription()
+                self.subscription = TelemetryModelDriven.Subscriptions.Subscription.Subscription_()
                 self.subscription.parent = self
                 self.total_num_of_bytes_sent = None
                 self.total_num_of_packets_sent = None
 
 
-            class Subscription(object):
+            class Subscription_(object):
                 """
                 Subscription
                 
                 .. attribute:: destination_grp
                 
                 	Array of destinations within a subscription
-                	**type**\: list of  :py:class:`DestinationGrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp>`
+                	**type**\: list of    :py:class:`DestinationGrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp>`
                 
                 .. attribute:: id
                 
@@ -1267,7 +1281,7 @@ class TelemetryModelDriven(object):
                 .. attribute:: sensor_profile
                 
                 	List of sensor groups within a subscription
-                	**type**\: list of  :py:class:`SensorProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile>`
+                	**type**\: list of    :py:class:`SensorProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile>`
                 
                 .. attribute:: state
                 
@@ -1314,7 +1328,7 @@ class TelemetryModelDriven(object):
                     .. attribute:: sensor_group
                     
                     	sensor group
-                    	**type**\:  :py:class:`SensorGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile.SensorGroup>`
+                    	**type**\:   :py:class:`SensorGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup>`
                     
                     .. attribute:: suppress_redundant
                     
@@ -1332,7 +1346,7 @@ class TelemetryModelDriven(object):
                         self.parent = None
                         self.heartbeat_interval = None
                         self.sample_interval = None
-                        self.sensor_group = TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile.SensorGroup()
+                        self.sensor_group = TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup()
                         self.sensor_group.parent = self
                         self.suppress_redundant = None
 
@@ -1356,7 +1370,7 @@ class TelemetryModelDriven(object):
                         .. attribute:: sensor_path
                         
                         	Array of information for sensor paths within sensor group
-                        	**type**\: list of  :py:class:`SensorPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile.SensorGroup.SensorPath>`
+                        	**type**\: list of    :py:class:`SensorPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup.SensorPath>`
                         
                         
 
@@ -1437,7 +1451,7 @@ class TelemetryModelDriven(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
-                                return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile.SensorGroup.SensorPath']['meta_info']
+                                return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup.SensorPath']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -1469,7 +1483,7 @@ class TelemetryModelDriven(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
-                            return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile.SensorGroup']['meta_info']
+                            return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -1502,7 +1516,7 @@ class TelemetryModelDriven(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
-                        return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile']['meta_info']
+                        return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile']['meta_info']
 
 
                 class DestinationGrp(object):
@@ -1519,7 +1533,7 @@ class TelemetryModelDriven(object):
                     .. attribute:: destination
                     
                     	list of destinations defined in this group
-                    	**type**\: list of  :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp.Destination>`
+                    	**type**\: list of    :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination>`
                     
                     .. attribute:: id
                     
@@ -1549,7 +1563,7 @@ class TelemetryModelDriven(object):
                         .. attribute:: dest_ip_address
                         
                         	Destination IP Address
-                        	**type**\:  :py:class:`DestIpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp.Destination.DestIpAddress>`
+                        	**type**\:   :py:class:`DestIpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress>`
                         
                         .. attribute:: dest_port
                         
@@ -1561,7 +1575,7 @@ class TelemetryModelDriven(object):
                         .. attribute:: encoding
                         
                         	Destination group encoding
-                        	**type**\:  :py:class:`MdtEncodingEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtEncodingEnumEnum>`
+                        	**type**\:   :py:class:`MdtEncodingEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtEncodingEnumEnum>`
                         
                         .. attribute:: id
                         
@@ -1601,6 +1615,8 @@ class TelemetryModelDriven(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: byte
+                        
                         .. attribute:: total_num_of_packets_sent
                         
                         	Total number of packets sent for this destination
@@ -1611,7 +1627,7 @@ class TelemetryModelDriven(object):
                         .. attribute:: transport
                         
                         	Destination group transport
-                        	**type**\:  :py:class:`MdtTransportEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtTransportEnumEnum>`
+                        	**type**\:   :py:class:`MdtTransportEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtTransportEnumEnum>`
                         
                         
 
@@ -1622,7 +1638,7 @@ class TelemetryModelDriven(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.dest_ip_address = TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp.Destination.DestIpAddress()
+                            self.dest_ip_address = TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress()
                             self.dest_ip_address.parent = self
                             self.dest_port = None
                             self.encoding = None
@@ -1643,7 +1659,7 @@ class TelemetryModelDriven(object):
                             .. attribute:: ip_type
                             
                             	IPType
-                            	**type**\:  :py:class:`MdtIpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtIpEnum>`
+                            	**type**\:   :py:class:`MdtIpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtIpEnum>`
                             
                             .. attribute:: ipv4_address
                             
@@ -1700,7 +1716,7 @@ class TelemetryModelDriven(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
-                                return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp.Destination.DestIpAddress']['meta_info']
+                                return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -1754,7 +1770,7 @@ class TelemetryModelDriven(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
-                            return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp.Destination']['meta_info']
+                            return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -1786,7 +1802,7 @@ class TelemetryModelDriven(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
-                        return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp']['meta_info']
+                        return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -1823,7 +1839,7 @@ class TelemetryModelDriven(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
-                    return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription']['meta_info']
+                    return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_']['meta_info']
 
 
             class CollectionGroup(object):
@@ -1848,12 +1864,12 @@ class TelemetryModelDriven(object):
                 .. attribute:: collection_path
                 
                 	Array of information for sensor paths within collection group
-                	**type**\: list of  :py:class:`CollectionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.CollectionPath>`
+                	**type**\: list of    :py:class:`CollectionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.CollectionPath>`
                 
                 .. attribute:: encoding
                 
                 	Destination group encoding
-                	**type**\:  :py:class:`MdtEncodingEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtEncodingEnumEnum>`
+                	**type**\:   :py:class:`MdtEncodingEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtEncodingEnumEnum>`
                 
                 .. attribute:: id
                 
@@ -1865,7 +1881,7 @@ class TelemetryModelDriven(object):
                 .. attribute:: internal_collection_group
                 
                 	Array of information for sysdb paths within collection group
-                	**type**\: list of  :py:class:`InternalCollectionGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.InternalCollectionGroup>`
+                	**type**\: list of    :py:class:`InternalCollectionGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.InternalCollectionGroup>`
                 
                 .. attribute:: last_collection_end_time
                 
@@ -2199,6 +2215,8 @@ class TelemetryModelDriven(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: byte
+                    
                     .. attribute:: total_send_drops
                     
                     	Total number of send channel full
@@ -2226,6 +2244,8 @@ class TelemetryModelDriven(object):
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: byte
                     
                     
 
@@ -2508,7 +2528,7 @@ class TelemetryModelDriven(object):
         .. attribute:: sensor_group
         
         	Telemetry Sensor Groups
-        	**type**\: list of  :py:class:`SensorGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.SensorGroups.SensorGroup>`
+        	**type**\: list of    :py:class:`SensorGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.SensorGroups.SensorGroup>`
         
         
 
@@ -2550,7 +2570,7 @@ class TelemetryModelDriven(object):
             .. attribute:: sensor_path
             
             	Array of information for sensor paths within sensor group
-            	**type**\: list of  :py:class:`SensorPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.SensorGroups.SensorGroup.SensorPath>`
+            	**type**\: list of    :py:class:`SensorPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.SensorGroups.SensorGroup.SensorPath>`
             
             
 

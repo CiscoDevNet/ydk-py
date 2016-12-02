@@ -1304,8 +1304,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper'
         ),
     },
-    'Aaa.Radius.Global' : {
-        'meta_info' : _MetaInfoClass('Aaa.Radius.Global',
+    'Aaa.Radius.Global_' : {
+        'meta_info' : _MetaInfoClass('Aaa.Radius.Global_',
             False, 
             [
             _MetaInfoClassMember('accounting-nas-id', ATTRIBUTE, 'str' , None, None, 
@@ -1346,7 +1346,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Aaa.Radius',
             False, 
             [
-            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper', 'Aaa.Radius.Global', 
+            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper', 'Aaa.Radius.Global_', 
                 [], [], 
                 '''                RADIUS Client Information
                 ''',
@@ -1896,7 +1896,7 @@ _meta_table['Aaa.Usergroups.Usergroup.Taskgroup']['meta_info'].parent =_meta_tab
 _meta_table['Aaa.Usergroups.Usergroup']['meta_info'].parent =_meta_table['Aaa.Usergroups']['meta_info']
 _meta_table['Aaa.Radius.Servers.Server']['meta_info'].parent =_meta_table['Aaa.Radius.Servers']['meta_info']
 _meta_table['Aaa.Radius.Servers']['meta_info'].parent =_meta_table['Aaa.Radius']['meta_info']
-_meta_table['Aaa.Radius.Global']['meta_info'].parent =_meta_table['Aaa.Radius']['meta_info']
+_meta_table['Aaa.Radius.Global_']['meta_info'].parent =_meta_table['Aaa.Radius']['meta_info']
 _meta_table['Aaa.Tacacs.Requests.Request.TacacsRequestbag']['meta_info'].parent =_meta_table['Aaa.Tacacs.Requests.Request']['meta_info']
 _meta_table['Aaa.Tacacs.Requests.Request']['meta_info'].parent =_meta_table['Aaa.Tacacs.Requests']['meta_info']
 _meta_table['Aaa.Tacacs.Servers.Server']['meta_info'].parent =_meta_table['Aaa.Tacacs.Servers']['meta_info']

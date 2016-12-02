@@ -16,32 +16,32 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'LptsPifibEnum' : _MetaInfoEnum('LptsPifibEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper',
         {
-            'isis':'ISIS',
-            'ipv4-frag':'IPV4_FRAG',
-            'ipv4-echo':'IPV4_ECHO',
-            'ipv4-any':'IPV4_ANY',
-            'ipv6-frag':'IPV6_FRAG',
-            'ipv6-echo':'IPV6_ECHO',
-            'ipv6-nd':'IPV6_ND',
-            'ipv6-any':'IPV6_ANY',
-            'bfd-any':'BFD_ANY',
-            'all':'ALL',
+            'isis':'isis',
+            'ipv4-frag':'ipv4_frag',
+            'ipv4-echo':'ipv4_echo',
+            'ipv4-any':'ipv4_any',
+            'ipv6-frag':'ipv6_frag',
+            'ipv6-echo':'ipv6_echo',
+            'ipv6-nd':'ipv6_nd',
+            'ipv6-any':'ipv6_any',
+            'bfd-any':'bfd_any',
+            'all':'all',
         }, 'Cisco-IOS-XR-lpts-pre-ifib-oper', _yang_ns._namespaces['Cisco-IOS-XR-lpts-pre-ifib-oper']),
     'LptsPifib.Nodes.Node.TypeValues.TypeValue.Entry.Utime' : {
         'meta_info' : _MetaInfoClass('LptsPifib.Nodes.Node.TypeValues.TypeValue.Entry.Utime',
             False, 
             [
-            _MetaInfoClassMember('umilitime', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('tv-nsec', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
-                '''                Mili Time
+                '''                Time Nanosec
                 ''',
-                'umilitime',
+                'tv_nsec',
                 'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
-            _MetaInfoClassMember('usectime', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('tv-sec', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
-                '''                Time
+                '''                Time Sec
                 ''',
-                'usectime',
+                'tv_sec',
                 'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
             ],
             'Cisco-IOS-XR-lpts-pre-ifib-oper',
@@ -212,7 +212,7 @@ _meta_table = {
                 'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
             _MetaInfoClassMember('utime', REFERENCE_CLASS, 'Utime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper', 'LptsPifib.Nodes.Node.TypeValues.TypeValue.Entry.Utime', 
                 [], [], 
-                '''                Creatation or Update Time
+                '''                Creation or Update Time
                 ''',
                 'utime',
                 'Cisco-IOS-XR-lpts-pre-ifib-oper', False),

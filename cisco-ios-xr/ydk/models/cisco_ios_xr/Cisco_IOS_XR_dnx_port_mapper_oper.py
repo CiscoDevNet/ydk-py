@@ -32,7 +32,7 @@ class Oor(object):
     .. attribute:: nodes
     
     	OOR data for available nodes
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes>`
     
     
 
@@ -53,7 +53,7 @@ class Oor(object):
         .. attribute:: node
         
         	DPA operational data for a particular node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node>`
         
         
 
@@ -83,22 +83,22 @@ class Oor(object):
             .. attribute:: bundle_interface_details
             
             	OOR Bundle Interface Detail
-            	**type**\:  :py:class:`BundleInterfaceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.BundleInterfaceDetails>`
+            	**type**\:   :py:class:`BundleInterfaceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.BundleInterfaceDetails>`
             
             .. attribute:: interface_details
             
             	OOR Interface Detail
-            	**type**\:  :py:class:`InterfaceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceDetails>`
+            	**type**\:   :py:class:`InterfaceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceDetails>`
             
             .. attribute:: interface_summary_datas
             
             	OOR Per Interface Summary
-            	**type**\:  :py:class:`InterfaceSummaryDatas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceSummaryDatas>`
+            	**type**\:   :py:class:`InterfaceSummaryDatas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceSummaryDatas>`
             
             .. attribute:: oor_summary
             
             	OOR Summary
-            	**type**\:  :py:class:`OorSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.OorSummary>`
+            	**type**\:   :py:class:`OorSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.OorSummary>`
             
             
 
@@ -127,7 +127,7 @@ class Oor(object):
                 .. attribute:: bundle_interface_detail
                 
                 	OOR Data for particular Bundle interface
-                	**type**\: list of  :py:class:`BundleInterfaceDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.BundleInterfaceDetails.BundleInterfaceDetail>`
+                	**type**\: list of    :py:class:`BundleInterfaceDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.BundleInterfaceDetails.BundleInterfaceDetail>`
                 
                 
 
@@ -162,7 +162,7 @@ class Oor(object):
                     .. attribute:: member
                     
                     	Member details
-                    	**type**\: list of  :py:class:`Member <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.BundleInterfaceDetails.BundleInterfaceDetail.Member>`
+                    	**type**\: list of    :py:class:`Member <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.BundleInterfaceDetails.BundleInterfaceDetail.Member>`
                     
                     .. attribute:: time_stamp
                     
@@ -337,7 +337,7 @@ class Oor(object):
                 .. attribute:: interface_detail
                 
                 	OOR Data for particular interface
-                	**type**\: list of  :py:class:`InterfaceDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceDetails.InterfaceDetail>`
+                	**type**\: list of    :py:class:`InterfaceDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceDetails.InterfaceDetail>`
                 
                 
 
@@ -480,7 +480,7 @@ class Oor(object):
                 .. attribute:: interface_summary_data
                 
                 	OOR Data for particular interface
-                	**type**\: list of  :py:class:`InterfaceSummaryData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceSummaryDatas.InterfaceSummaryData>`
+                	**type**\: list of    :py:class:`InterfaceSummaryData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceSummaryDatas.InterfaceSummaryData>`
                 
                 
 

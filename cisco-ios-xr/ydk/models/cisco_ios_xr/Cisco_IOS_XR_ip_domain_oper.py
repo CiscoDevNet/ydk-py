@@ -30,19 +30,19 @@ class ServerDomainLkupEnum(Enum):
 
     Domain look up
 
-    .. data:: STATIC_MAPPING = 0
+    .. data:: static_mapping = 0
 
     	Static mapping
 
-    .. data:: DOMAIN_SERVICE = 1
+    .. data:: domain_service = 1
 
     	Domain service
 
     """
 
-    STATIC_MAPPING = 0
+    static_mapping = 0
 
-    DOMAIN_SERVICE = 1
+    domain_service = 1
 
 
     @staticmethod
@@ -79,7 +79,7 @@ class IpDomain(object):
     .. attribute:: vrfs
     
     	List of VRFs
-    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs>`
+    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs>`
     
     
 
@@ -100,7 +100,7 @@ class IpDomain(object):
         .. attribute:: vrf
         
         	VRF instance
-        	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf>`
+        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf>`
         
         
 
@@ -130,12 +130,12 @@ class IpDomain(object):
             .. attribute:: hosts
             
             	List of domain hosts
-            	**type**\:  :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts>`
+            	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts>`
             
             .. attribute:: server
             
             	Domain server data
-            	**type**\:  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Server>`
+            	**type**\:   :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Server>`
             
             
 
@@ -167,7 +167,7 @@ class IpDomain(object):
                 .. attribute:: domain_lookup
                 
                 	Domain lookup
-                	**type**\:  :py:class:`ServerDomainLkupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.ServerDomainLkupEnum>`
+                	**type**\:   :py:class:`ServerDomainLkupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.ServerDomainLkupEnum>`
                 
                 .. attribute:: domain_name
                 
@@ -179,7 +179,7 @@ class IpDomain(object):
                 .. attribute:: server_address
                 
                 	Server address list
-                	**type**\: list of  :py:class:`ServerAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Server.ServerAddress>`
+                	**type**\: list of    :py:class:`ServerAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Server.ServerAddress>`
                 
                 
 
@@ -207,7 +207,7 @@ class IpDomain(object):
                     .. attribute:: af_name
                     
                     	AFName
-                    	**type**\:  :py:class:`HostAddressBaseIdentity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBaseIdentity>`
+                    	**type**\:   :py:class:`HostAddressBaseIdentity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBaseIdentity>`
                     
                     .. attribute:: ipv4_address
                     
@@ -311,7 +311,7 @@ class IpDomain(object):
                 .. attribute:: host
                 
                 	IP domain\-name, lookup style, nameservers for specific host
-                	**type**\: list of  :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts.Host>`
+                	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts.Host>`
                 
                 
 
@@ -340,7 +340,7 @@ class IpDomain(object):
                     .. attribute:: af_name
                     
                     	Address type
-                    	**type**\:  :py:class:`HostAddressBaseIdentity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBaseIdentity>`
+                    	**type**\:   :py:class:`HostAddressBaseIdentity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBaseIdentity>`
                     
                     .. attribute:: age
                     
@@ -349,15 +349,17 @@ class IpDomain(object):
                     
                     	**range:** 0..65535
                     
+                    	**units**\: hour
+                    
                     .. attribute:: host_address
                     
                     	Host address list
-                    	**type**\: list of  :py:class:`HostAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress>`
+                    	**type**\: list of    :py:class:`HostAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress>`
                     
                     .. attribute:: host_alias_list
                     
                     	Host alias
-                    	**type**\:  :py:class:`HostAliasList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList>`
+                    	**type**\:   :py:class:`HostAliasList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList>`
                     
                     
 
@@ -436,7 +438,7 @@ class IpDomain(object):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:  :py:class:`HostAddressBaseIdentity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBaseIdentity>`
+                        	**type**\:   :py:class:`HostAddressBaseIdentity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBaseIdentity>`
                         
                         .. attribute:: ipv4_address
                         

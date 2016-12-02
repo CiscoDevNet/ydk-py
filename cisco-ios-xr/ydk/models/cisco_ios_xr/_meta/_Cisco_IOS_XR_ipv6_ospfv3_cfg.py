@@ -16,153 +16,153 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'Ospfv3DomainIdEnum' : _MetaInfoEnum('Ospfv3DomainIdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
-            'type0005':'TYPE0005',
-            'type0105':'TYPE0105',
-            'type0205':'TYPE0205',
-            'type8005':'TYPE8005',
+            'type0005':'type0005',
+            'type0105':'type0105',
+            'type0205':'type0205',
+            'type8005':'type8005',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3NetworkEnum' : _MetaInfoEnum('Ospfv3NetworkEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
-            'broadcast':'BROADCAST',
-            'non-broadcast':'NON_BROADCAST',
-            'point-to-point':'POINT_TO_POINT',
-            'point-to-multipoint':'POINT_TO_MULTIPOINT',
-            'non-broadcast-point-to-multipoint':'NON_BROADCAST_POINT_TO_MULTIPOINT',
+            'broadcast':'broadcast',
+            'non-broadcast':'non_broadcast',
+            'point-to-point':'point_to_point',
+            'point-to-multipoint':'point_to_multipoint',
+            'non-broadcast-point-to-multipoint':'non_broadcast_point_to_multipoint',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3MetricEnum' : _MetaInfoEnum('Ospfv3MetricEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
-            'type1':'TYPE1',
-            'type2':'TYPE2',
+            'type1':'type1',
+            'type2':'type2',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3AuthenticationType2Enum' : _MetaInfoEnum('Ospfv3AuthenticationType2Enum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
-            'null':'NULL',
-            'md5':'MD5',
-            'sha1':'SHA1',
+            'null':'null',
+            'md5':'md5',
+            'sha1':'sha1',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3FastReroutePriorityEnum' : _MetaInfoEnum('Ospfv3FastReroutePriorityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
-            'critical':'CRITICAL',
-            'high':'HIGH',
-            'medium':'MEDIUM',
-            'low':'LOW',
+            'critical':'critical',
+            'high':'high',
+            'medium':'medium',
+            'low':'low',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3BfdEnableModeEnum' : _MetaInfoEnum('Ospfv3BfdEnableModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
-            'disable':'DISABLE',
-            'default':'DEFAULT',
-            'strict':'STRICT',
+            'disable':'disable',
+            'default':'default',
+            'strict':'strict',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3LogAdjEnum' : _MetaInfoEnum('Ospfv3LogAdjEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
-            'suppress':'SUPPRESS',
-            'brief':'BRIEF',
-            'detail':'DETAIL',
+            'suppress':'suppress',
+            'brief':'brief',
+            'detail':'detail',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3FastRerouteEnum' : _MetaInfoEnum('Ospfv3FastRerouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
-            'none':'NONE',
-            'per-link':'PER_LINK',
-            'per-prefix':'PER_PREFIX',
+            'none':'none',
+            'per-link':'per_link',
+            'per-prefix':'per_prefix',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3IsisRouteEnum' : _MetaInfoEnum('Ospfv3IsisRouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
-            'level1':'LEVEL1',
-            'level2':'LEVEL2',
-            'level1-and2':'LEVEL1_AND2',
+            'level1':'level1',
+            'level2':'level2',
+            'level1-and2':'level1_and2',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3NssaExternalRouteEnum' : _MetaInfoEnum('Ospfv3NssaExternalRouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
-            'external1':'EXTERNAL1',
-            'external2':'EXTERNAL2',
-            'external':'EXTERNAL',
+            'external1':'external1',
+            'external2':'external2',
+            'external':'external',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3ExternalRouteEnum' : _MetaInfoEnum('Ospfv3ExternalRouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
-            'external1':'EXTERNAL1',
-            'external2':'EXTERNAL2',
-            'external':'EXTERNAL',
+            'external1':'external1',
+            'external2':'external2',
+            'external':'external',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3NsrEnum' : _MetaInfoEnum('Ospfv3NsrEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
-            'true':'TRUE',
-            'false':'FALSE',
+            'true':'true',
+            'false':'false',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'TraceBufSizeEnum' : _MetaInfoEnum('TraceBufSizeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
-            'disable':'DISABLE',
-            'one':'ONE',
-            'two':'TWO',
-            'three':'THREE',
-            'four':'FOUR',
-            'five':'FIVE',
-            'six':'SIX',
-            'seven':'SEVEN',
-            'eight':'EIGHT',
-            'nine':'NINE',
+            'disable':'disable',
+            'one':'one',
+            'two':'two',
+            'three':'three',
+            'four':'four',
+            'five':'five',
+            'six':'six',
+            'seven':'seven',
+            'eight':'eight',
+            'nine':'nine',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3AddressFamilyEnum' : _MetaInfoEnum('Ospfv3AddressFamilyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
-            'ipv6':'IPV6',
+            'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3ProtocolEnum' : _MetaInfoEnum('Ospfv3ProtocolEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
-            'all':'ALL',
-            'connected':'CONNECTED',
-            'static':'STATIC',
-            'bgp':'BGP',
-            'isis':'ISIS',
-            'ospfv3':'OSPFV3',
-            'eigrp':'EIGRP',
+            'all':'all',
+            'connected':'connected',
+            'static':'static',
+            'bgp':'bgp',
+            'isis':'isis',
+            'ospfv3':'ospfv3',
+            'eigrp':'eigrp',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3EncryptionAlgorithmEnum' : _MetaInfoEnum('Ospfv3EncryptionAlgorithmEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
-            'null':'NULL',
-            'des':'DES',
-            '3des':'Y_3DES',
-            'aes':'AES',
-            'aes192':'AES192',
-            'aes256':'AES256',
+            'null':'null',
+            'des':'des',
+            '3des':'Y_3des',
+            'aes':'aes',
+            'aes192':'aes192',
+            'aes256':'aes256',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3ProtocolType2Enum' : _MetaInfoEnum('Ospfv3ProtocolType2Enum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
-            'connected':'CONNECTED',
-            'static':'STATIC',
-            'bgp':'BGP',
-            'isis':'ISIS',
-            'ospfv3':'OSPFV3',
-            'eigrp':'EIGRP',
-            'subscriber':'SUBSCRIBER',
-            'application':'APPLICATION',
-            'mobile':'MOBILE',
+            'connected':'connected',
+            'static':'static',
+            'bgp':'bgp',
+            'isis':'isis',
+            'ospfv3':'ospfv3',
+            'eigrp':'eigrp',
+            'subscriber':'subscriber',
+            'application':'application',
+            'mobile':'mobile',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3SubsequentAddressFamilyEnum' : _MetaInfoEnum('Ospfv3SubsequentAddressFamilyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
-            'unicast':'UNICAST',
+            'unicast':'unicast',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3EigrpRouteEnum' : _MetaInfoEnum('Ospfv3EigrpRouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
-            'internal':'INTERNAL',
-            'external':'EXTERNAL',
+            'internal':'internal',
+            'external':'external',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3FastRerouteTiebreakersEnum' : _MetaInfoEnum('Ospfv3FastRerouteTiebreakersEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
-            'downstream':'DOWNSTREAM',
-            'line-card-disjoint':'LINE_CARD_DISJOINT',
-            'lowest-metric':'LOWEST_METRIC',
-            'node-protect':'NODE_PROTECT',
-            'primary-path':'PRIMARY_PATH',
-            'secondary-path':'SECONDARY_PATH',
-            'srlg-disjoint':'SRLG_DISJOINT',
+            'downstream':'downstream',
+            'line-card-disjoint':'line_card_disjoint',
+            'lowest-metric':'lowest_metric',
+            'node-protect':'node_protect',
+            'primary-path':'primary_path',
+            'secondary-path':'secondary_path',
+            'srlg-disjoint':'srlg_disjoint',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3AuthenticationEnum' : _MetaInfoEnum('Ospfv3AuthenticationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
-            'md5':'MD5',
-            'sha1':'SHA1',
+            'md5':'md5',
+            'sha1':'sha1',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3InternalRouteEnum' : _MetaInfoEnum('Ospfv3InternalRouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg',
         {
-            'internal':'INTERNAL',
+            'internal':'internal',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg']),
     'Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Authentication' : {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Authentication',
@@ -405,8 +405,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In',
+    'Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In_' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In_',
             False, 
             [
             _MetaInfoClassMember('prefix-list', ATTRIBUTE, 'str' , None, None, 
@@ -426,7 +426,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList',
             False, 
             [
-            _MetaInfoClassMember('in', REFERENCE_CLASS, 'In' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In', 
+            _MetaInfoClassMember('in', REFERENCE_CLASS, 'In_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In_', 
                 [], [], 
                 '''                Filter prefixes installed to RIB
                 ''',
@@ -654,8 +654,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In',
+    'Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_',
             False, 
             [
             _MetaInfoClassMember('prefix-list', ATTRIBUTE, 'str' , None, None, 
@@ -676,7 +676,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList',
             False, 
             [
-            _MetaInfoClassMember('in', REFERENCE_CLASS, 'In' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In', 
+            _MetaInfoClassMember('in', REFERENCE_CLASS, 'In_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_', 
                 [], [], 
                 '''                Filter prefixes installed to RIB
                 ''',
@@ -2107,8 +2107,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In',
+    'Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In_' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In_',
             False, 
             [
             _MetaInfoClassMember('prefix-list', ATTRIBUTE, 'str' , None, None, 
@@ -2128,7 +2128,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList',
             False, 
             [
-            _MetaInfoClassMember('in', REFERENCE_CLASS, 'In' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In', 
+            _MetaInfoClassMember('in', REFERENCE_CLASS, 'In_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In_', 
                 [], [], 
                 '''                Filter prefixes installed to RIB
                 ''',
@@ -2356,8 +2356,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In',
+    'Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_',
             False, 
             [
             _MetaInfoClassMember('prefix-list', ATTRIBUTE, 'str' , None, None, 
@@ -2378,7 +2378,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList',
             False, 
             [
-            _MetaInfoClassMember('in', REFERENCE_CLASS, 'In' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In', 
+            _MetaInfoClassMember('in', REFERENCE_CLASS, 'In_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_', 
                 [], [], 
                 '''                Filter prefixes installed to RIB
                 ''',
@@ -3966,8 +3966,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3',
+    'Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3_' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3_',
             False, 
             [
             _MetaInfoClassMember('external', ATTRIBUTE, 'int' , None, None, 
@@ -4005,7 +4005,7 @@ _meta_table = {
                 ''',
                 'administrative',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('ospfv3', REFERENCE_CLASS, 'Ospfv3' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3', 
+            _MetaInfoClassMember('ospfv3', REFERENCE_CLASS, 'Ospfv3_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3_', 
                 [], [], 
                 '''                OSPFv3 administrative distance
                 ''',
@@ -4641,8 +4641,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.DistributeList.In' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.DistributeList.In',
+    'Ospfv3.Processes.Process.DefaultVrf.DistributeList.In_' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.DistributeList.In_',
             False, 
             [
             _MetaInfoClassMember('prefix-list', ATTRIBUTE, 'str' , None, None, 
@@ -4662,7 +4662,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.DistributeList',
             False, 
             [
-            _MetaInfoClassMember('in', REFERENCE_CLASS, 'In' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.DefaultVrf.DistributeList.In', 
+            _MetaInfoClassMember('in', REFERENCE_CLASS, 'In_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.DefaultVrf.DistributeList.In_', 
                 [], [], 
                 '''                Filter prefixes installed to RIB
                 ''',
@@ -6117,8 +6117,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In_' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In_',
             False, 
             [
             _MetaInfoClassMember('prefix-list', ATTRIBUTE, 'str' , None, None, 
@@ -6138,7 +6138,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList',
             False, 
             [
-            _MetaInfoClassMember('in', REFERENCE_CLASS, 'In' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In', 
+            _MetaInfoClassMember('in', REFERENCE_CLASS, 'In_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In_', 
                 [], [], 
                 '''                Filter prefixes installed to RIB
                 ''',
@@ -6366,8 +6366,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_',
             False, 
             [
             _MetaInfoClassMember('prefix-list', ATTRIBUTE, 'str' , None, None, 
@@ -6388,7 +6388,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList',
             False, 
             [
-            _MetaInfoClassMember('in', REFERENCE_CLASS, 'In' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In', 
+            _MetaInfoClassMember('in', REFERENCE_CLASS, 'In_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_', 
                 [], [], 
                 '''                Filter prefixes installed to RIB
                 ''',
@@ -7819,8 +7819,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In_' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In_',
             False, 
             [
             _MetaInfoClassMember('prefix-list', ATTRIBUTE, 'str' , None, None, 
@@ -7840,7 +7840,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList',
             False, 
             [
-            _MetaInfoClassMember('in', REFERENCE_CLASS, 'In' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In', 
+            _MetaInfoClassMember('in', REFERENCE_CLASS, 'In_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In_', 
                 [], [], 
                 '''                Filter prefixes installed to RIB
                 ''',
@@ -8068,8 +8068,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_',
             False, 
             [
             _MetaInfoClassMember('prefix-list', ATTRIBUTE, 'str' , None, None, 
@@ -8090,7 +8090,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList',
             False, 
             [
-            _MetaInfoClassMember('in', REFERENCE_CLASS, 'In' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In', 
+            _MetaInfoClassMember('in', REFERENCE_CLASS, 'In_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_', 
                 [], [], 
                 '''                Filter prefixes installed to RIB
                 ''',
@@ -9678,8 +9678,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3_' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3_',
             False, 
             [
             _MetaInfoClassMember('external', ATTRIBUTE, 'int' , None, None, 
@@ -9717,7 +9717,7 @@ _meta_table = {
                 ''',
                 'administrative',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('ospfv3', REFERENCE_CLASS, 'Ospfv3' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3', 
+            _MetaInfoClassMember('ospfv3', REFERENCE_CLASS, 'Ospfv3_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3_', 
                 [], [], 
                 '''                OSPFv3 administrative distance
                 ''',
@@ -10353,8 +10353,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In_' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In_',
             False, 
             [
             _MetaInfoClassMember('prefix-list', ATTRIBUTE, 'str' , None, None, 
@@ -10374,7 +10374,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList',
             False, 
             [
-            _MetaInfoClassMember('in', REFERENCE_CLASS, 'In' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In', 
+            _MetaInfoClassMember('in', REFERENCE_CLASS, 'In_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg', 'Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In_', 
                 [], [], 
                 '''                Filter prefixes installed to RIB
                 ''',
@@ -11686,10 +11686,10 @@ _meta_table = {
 }
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges.Range']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Ranges']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter.All']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DatabaseFilter']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList.In_']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.DistributeList']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink']['meta_info']
@@ -11738,10 +11738,10 @@ _meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamL
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinks']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges.Range']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Ranges']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter.All']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DatabaseFilter']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList.In_']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.DistributeList']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink']['meta_info']
@@ -11801,7 +11801,7 @@ _meta_table['Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreake
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerLink']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.FastReroute']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.FastReroute.PerPrefix']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.FastReroute']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Distance']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.Distance.Ospfv3_']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Distance']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.Maximum.RedistributedPrefixes']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Maximum']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute.Bgp']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Redistributes.Redistribute']['meta_info']
@@ -11812,7 +11812,7 @@ _meta_table['Ospfv3.Processes.Process.DefaultVrf.Ignore.Lsa']['meta_info'].paren
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut.AsYyAndAsXxAndProcessName']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts.DistributeOut']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.DistributeListOut.DistributeOuts']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.DistributeListOut']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.DistributeList.In']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.DistributeList']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.DistributeList.In_']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.DistributeList']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit.OnStartup']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.Rbit']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit.OnStartup']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.V6Bit']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric.OnStartup']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.StubRouter.MaxMetric']['meta_info']
@@ -11857,10 +11857,10 @@ _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds']['me
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DomainId.PrimaryDomainId']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DomainId']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges.Range']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Ranges']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter.All']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DatabaseFilter']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList.In_']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.DistributeList']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors.Neighbor']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.Neighbors']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter.All']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DatabaseFilter']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList.In_']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.DistributeList']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Interfaces.Interface.FastReroute.PerLink']['meta_info']
@@ -11909,10 +11909,10 @@ _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLin
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinks']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges.Range']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Ranges']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter.All']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DatabaseFilter']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList.In_']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.DistributeList']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors.Neighbor']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.Neighbors']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter.All']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DatabaseFilter']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList.In_']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.DistributeList']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink.CandidateInterfaces']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Interfaces.Interface.FastReroute.PerLink']['meta_info']
@@ -11972,7 +11972,7 @@ _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerLink']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FastReroute']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Distance']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Distance.Ospfv3_']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Distance']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Maximum.RedistributedPrefixes']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Maximum']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.ConnectedOrStaticOrSubscriberOrMobile']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute.Bgp']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Redistributes.Redistribute']['meta_info']
@@ -11983,7 +11983,7 @@ _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Ignore.Lsa']['meta_info'].parent 
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut.AsYyAndAsXxAndProcessName']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts.DistributeOut']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut.DistributeOuts']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DistributeListOut']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList.In_']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.DistributeList']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit.OnStartup']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.Rbit']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit.OnStartup']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.V6Bit']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric.OnStartup']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.StubRouter.MaxMetric']['meta_info']

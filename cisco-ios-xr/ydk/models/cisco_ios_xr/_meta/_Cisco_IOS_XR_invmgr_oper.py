@@ -14,133 +14,120 @@ from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 
 _meta_table = {
-    'SensorStatusEnum' : _MetaInfoEnum('SensorStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
+    'CardResetReasonEnum' : _MetaInfoEnum('CardResetReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
         {
-            'ok':'OK',
-            'unavailable':'UNAVAILABLE',
-            'non-operational':'NON_OPERATIONAL',
+            'reset-unknown':'reset_unknown',
+            'power-up':'power_up',
+            'parity-error':'parity_error',
+            'clear-config-reset':'clear_config_reset',
+            'manual-reset':'manual_reset',
+            'watch-dog-timeout-reset':'watch_dog_timeout_reset',
+            'resource-overflow-reset':'resource_overflow_reset',
+            'missing-task-reset':'missing_task_reset',
+            'low-voltage-reset':'low_voltage_reset',
+            'controller-reset':'controller_reset',
+            'system-reset':'system_reset',
+            'switchover-reset':'switchover_reset',
+            'upgrade-reset':'upgrade_reset',
+            'downgrade-reset':'downgrade_reset',
+            'cache-error-reset':'cache_error_reset',
+            'device-driver-reset':'device_driver_reset',
+            'software-exception-reset':'software_exception_reset',
+            'restore-config-reset':'restore_config_reset',
+            'abort-rev-reset':'abort_rev_reset',
+            'burn-boot-reset':'burn_boot_reset',
+            'standby-cd-healthier-reset':'standby_cd_healthier_reset',
+            'non-native-config-clear-reset':'non_native_config_clear_reset',
+            'memory-protection-error-reset':'memory_protection_error_reset',
+            'card-reset-reason-max':'card_reset_reason_max',
         }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
     'ThresholdSeverityEnum' : _MetaInfoEnum('ThresholdSeverityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
         {
-            'other':'OTHER',
-            'minor':'MINOR',
-            'major':'MAJOR',
-            'critical':'CRITICAL',
+            'other':'other',
+            'minor':'minor',
+            'major':'major',
+            'critical':'critical',
         }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
     'InvCardStateEnum' : _MetaInfoEnum('InvCardStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
         {
-            'inv-card-not-present':'INV_CARD_NOT_PRESENT',
-            'inv-card-present':'INV_CARD_PRESENT',
-            'inv-card-reset':'INV_CARD_RESET',
-            'inv-card-booting':'INV_CARD_BOOTING',
-            'inv-card-mbi-booting':'INV_CARD_MBI_BOOTING',
-            'inv-card-running-mbi':'INV_CARD_RUNNING_MBI',
-            'inv-card-running-ena':'INV_CARD_RUNNING_ENA',
-            'inv-card-bring-down':'INV_CARD_BRING_DOWN',
-            'inv-card-ena-failure':'INV_CARD_ENA_FAILURE',
-            'inv-card-f-diag-run':'INV_CARD_F_DIAG_RUN',
-            'inv-card-f-diag-failure':'INV_CARD_F_DIAG_FAILURE',
-            'inv-card-powered':'INV_CARD_POWERED',
-            'inv-card-unpowered':'INV_CARD_UNPOWERED',
-            'inv-card-mdr':'INV_CARD_MDR',
-            'inv-card-mdr-running-mbi':'INV_CARD_MDR_RUNNING_MBI',
-            'inv-card-main-t-mode':'INV_CARD_MAIN_T_MODE',
-            'inv-card-admin-down':'INV_CARD_ADMIN_DOWN',
-            'inv-card-no-mon':'INV_CARD_NO_MON',
-            'inv-card-unknown':'INV_CARD_UNKNOWN',
-            'inv-card-failed':'INV_CARD_FAILED',
-            'inv-card-ok':'INV_CARD_OK',
-            'inv-card-missing':'INV_CARD_MISSING',
-            'inv-card-field-diag-downloading':'INV_CARD_FIELD_DIAG_DOWNLOADING',
-            'inv-card-field-diag-unmonitor':'INV_CARD_FIELD_DIAG_UNMONITOR',
-            'inv-card-fabric-field-diag-unmonitor':'INV_CARD_FABRIC_FIELD_DIAG_UNMONITOR',
-            'inv-card-field-diag-rp-launching':'INV_CARD_FIELD_DIAG_RP_LAUNCHING',
-            'inv-card-field-diag-running':'INV_CARD_FIELD_DIAG_RUNNING',
-            'inv-card-field-diag-pass':'INV_CARD_FIELD_DIAG_PASS',
-            'inv-card-field-diag-fail':'INV_CARD_FIELD_DIAG_FAIL',
-            'inv-card-field-diag-timeout':'INV_CARD_FIELD_DIAG_TIMEOUT',
-            'inv-card-disabled':'INV_CARD_DISABLED',
-            'inv-card-spa-booting':'INV_CARD_SPA_BOOTING',
-            'inv-card-not-allowed-online':'INV_CARD_NOT_ALLOWED_ONLINE',
-            'inv-card-stopped':'INV_CARD_STOPPED',
-            'inv-card-incompatible-fw-ver':'INV_CARD_INCOMPATIBLE_FW_VER',
-            'inv-card-fpd-hold':'INV_CARD_FPD_HOLD',
-            'inv-card-node-prep':'INV_CARD_NODE_PREP',
-            'inv-card-updating-fpd':'INV_CARD_UPDATING_FPD',
-            'inv-card-num-states':'INV_CARD_NUM_STATES',
+            'inv-card-not-present':'inv_card_not_present',
+            'inv-card-present':'inv_card_present',
+            'inv-card-reset':'inv_card_reset',
+            'inv-card-booting':'inv_card_booting',
+            'inv-card-mbi-booting':'inv_card_mbi_booting',
+            'inv-card-running-mbi':'inv_card_running_mbi',
+            'inv-card-running-ena':'inv_card_running_ena',
+            'inv-card-bring-down':'inv_card_bring_down',
+            'inv-card-ena-failure':'inv_card_ena_failure',
+            'inv-card-f-diag-run':'inv_card_f_diag_run',
+            'inv-card-f-diag-failure':'inv_card_f_diag_failure',
+            'inv-card-powered':'inv_card_powered',
+            'inv-card-unpowered':'inv_card_unpowered',
+            'inv-card-mdr':'inv_card_mdr',
+            'inv-card-mdr-running-mbi':'inv_card_mdr_running_mbi',
+            'inv-card-main-t-mode':'inv_card_main_t_mode',
+            'inv-card-admin-down':'inv_card_admin_down',
+            'inv-card-no-mon':'inv_card_no_mon',
+            'inv-card-unknown':'inv_card_unknown',
+            'inv-card-failed':'inv_card_failed',
+            'inv-card-ok':'inv_card_ok',
+            'inv-card-missing':'inv_card_missing',
+            'inv-card-field-diag-downloading':'inv_card_field_diag_downloading',
+            'inv-card-field-diag-unmonitor':'inv_card_field_diag_unmonitor',
+            'inv-card-fabric-field-diag-unmonitor':'inv_card_fabric_field_diag_unmonitor',
+            'inv-card-field-diag-rp-launching':'inv_card_field_diag_rp_launching',
+            'inv-card-field-diag-running':'inv_card_field_diag_running',
+            'inv-card-field-diag-pass':'inv_card_field_diag_pass',
+            'inv-card-field-diag-fail':'inv_card_field_diag_fail',
+            'inv-card-field-diag-timeout':'inv_card_field_diag_timeout',
+            'inv-card-disabled':'inv_card_disabled',
+            'inv-card-spa-booting':'inv_card_spa_booting',
+            'inv-card-not-allowed-online':'inv_card_not_allowed_online',
+            'inv-card-stopped':'inv_card_stopped',
+            'inv-card-incompatible-fw-ver':'inv_card_incompatible_fw_ver',
+            'inv-card-fpd-hold':'inv_card_fpd_hold',
+            'inv-card-node-prep':'inv_card_node_prep',
+            'inv-card-updating-fpd':'inv_card_updating_fpd',
+            'inv-card-num-states':'inv_card_num_states',
         }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
     'SensorDataEnum' : _MetaInfoEnum('SensorDataEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
         {
-            'unknown':'UNKNOWN',
-            'ac-volts':'AC_VOLTS',
-            'dc-volts':'DC_VOLTS',
-            'amperes':'AMPERES',
-            'watts':'WATTS',
-            'hertz':'HERTZ',
-            'celsius':'CELSIUS',
-            'rpm':'RPM',
-            'dbm':'DBM',
+            'unknown':'unknown',
+            'ac-volts':'ac_volts',
+            'dc-volts':'dc_volts',
+            'amperes':'amperes',
+            'watts':'watts',
+            'hertz':'hertz',
+            'celsius':'celsius',
+            'rpm':'rpm',
+            'dbm':'dbm',
+            'db':'db',
+        }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
+    'SensorStatusEnum' : _MetaInfoEnum('SensorStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
+        {
+            'ok':'ok',
+            'unavailable':'unavailable',
+            'non-operational':'non_operational',
         }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
     'ThresholdRelationEnum' : _MetaInfoEnum('ThresholdRelationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
         {
-            'less-than':'LESS_THAN',
-            'less-or-equal':'LESS_OR_EQUAL',
-            'greater-than':'GREATER_THAN',
-            'greater-or-equal':'GREATER_OR_EQUAL',
-            'equal':'EQUAL',
-            'not-equal':'NOT_EQUAL',
+            'less-than':'less_than',
+            'less-or-equal':'less_or_equal',
+            'greater-than':'greater_than',
+            'greater-or-equal':'greater_or_equal',
+            'equal':'equal',
+            'not-equal':'not_equal',
         }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
     'UnitEnum' : _MetaInfoEnum('UnitEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
         {
-            'celsius':'CELSIUS',
-            'milli-volts':'MILLI_VOLTS',
-            'milli-amperes':'MILLI_AMPERES',
-            'rpm':'RPM',
-            'watts':'WATTS',
-            'dbm':'DBM',
+            'celsius':'celsius',
+            'milli-volts':'milli_volts',
+            'milli-amperes':'milli_amperes',
+            'rpm':'rpm',
+            'watts':'watts',
+            'dbm':'dbm',
+            'db':'db',
         }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
-    'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
     'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.EnvSensorInfo' : {
         'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.EnvSensorInfo',
             False, 
@@ -900,14 +887,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -936,8 +923,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -1595,12 +1582,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -1668,48 +1649,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi11s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -2473,14 +2412,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -2509,8 +2448,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -3168,12 +3107,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -3247,48 +3180,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi10s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -4052,14 +3943,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -4088,8 +3979,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -4747,12 +4638,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -4826,48 +4711,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi9s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -5631,14 +5474,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -5667,8 +5510,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -6326,12 +6169,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -6405,48 +6242,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi8s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -7210,14 +7005,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -7246,8 +7041,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -7905,12 +7700,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -7984,48 +7773,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi7s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -8789,14 +8536,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -8825,8 +8572,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -9484,12 +9231,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -9563,48 +9304,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi6s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -10368,14 +10067,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -10404,8 +10103,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -11063,12 +10762,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -11142,48 +10835,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi5s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -11947,14 +11598,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -11983,8 +11634,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -12642,12 +12293,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -12721,48 +12366,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi4s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -13526,14 +13129,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -13562,8 +13165,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -14221,12 +13824,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -14300,48 +13897,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi3s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -15105,14 +14660,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -15141,8 +14696,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -15800,12 +15355,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -15879,48 +15428,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi2s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -16684,14 +16191,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -16720,8 +16227,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -17379,12 +16886,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -17458,48 +16959,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi1s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Entity.Slot.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Entity.Slot.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -18263,14 +17722,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -18299,8 +17758,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -18958,12 +18417,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Entity.Slot.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -19037,48 +18490,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'entity',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -19842,14 +19253,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -19878,8 +19289,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -20537,12 +19948,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -20610,48 +20015,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi11s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -21415,14 +20778,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -21451,8 +20814,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -22110,12 +21473,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -22189,48 +21546,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi10s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -22994,14 +22309,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -23030,8 +22345,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -23689,12 +23004,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -23768,48 +23077,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi9s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -24573,14 +23840,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -24609,8 +23876,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -25268,12 +24535,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -25347,48 +24608,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi8s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -26152,14 +25371,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -26188,8 +25407,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -26847,12 +26066,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -26926,48 +26139,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi7s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -27731,14 +26902,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -27767,8 +26938,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -28426,12 +27597,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -28505,48 +27670,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi6s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -29310,14 +28433,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -29346,8 +28469,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -30005,12 +29128,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -30084,48 +29201,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi5s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -30889,14 +29964,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -30925,8 +30000,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -31584,12 +30659,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -31663,48 +30732,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi4s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -32468,14 +31495,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -32504,8 +31531,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -33163,12 +32190,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -33242,48 +32263,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi3s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -34047,14 +33026,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -34083,8 +33062,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -34742,12 +33721,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -34821,48 +33794,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi2s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -35626,14 +34557,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -35662,8 +34593,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -36321,12 +35252,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -36400,48 +35325,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi1s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Powershelf.Slot.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Powershelf.Slot.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -37205,14 +36088,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -37241,8 +36124,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -37900,12 +36783,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Powershelf.Slot.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -37979,48 +36856,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'powershelf',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -38784,14 +37619,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -38820,8 +37655,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -39479,12 +38314,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -39552,48 +38381,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi11s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -40357,14 +39144,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -40393,8 +39180,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -41052,12 +39839,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -41131,48 +39912,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi10s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -41936,14 +40675,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -41972,8 +40711,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -42631,12 +41370,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -42710,48 +41443,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi9s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -43515,14 +42206,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -43551,8 +42242,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -44210,12 +42901,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -44289,48 +42974,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi8s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -45094,14 +43737,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -45130,8 +43773,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -45789,12 +44432,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -45868,48 +44505,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi7s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -46673,14 +45268,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -46709,8 +45304,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -47368,12 +45963,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -47447,48 +46036,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi6s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -48252,14 +46799,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -48288,8 +46835,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -48947,12 +47494,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -49026,48 +47567,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi5s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -49831,14 +48330,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -49867,8 +48366,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -50526,12 +49025,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -50605,48 +49098,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi4s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -51410,14 +49861,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -51446,8 +49897,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -52105,12 +50556,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -52184,48 +50629,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi3s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -52989,14 +51392,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -53025,8 +51428,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -53684,12 +52087,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -53763,48 +52160,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi2s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -54568,14 +52923,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -54604,8 +52959,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -55263,12 +53618,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -55342,48 +53691,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'tsi1s',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Fantray.Slot.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Fantray.Slot.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -56147,14 +54454,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -56183,8 +54490,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -56842,12 +55149,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Fantray.Slot.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -56921,48 +55222,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-invmgr-oper',
             'fantray',
-            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
-        ),
-    },
-    'Inventory.Racks.Rack.Attributes.NodeStateInfo' : {
-        'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Attributes.NodeStateInfo',
-            False, 
-            [
-            _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                enumeration of the card type
-                ''',
-                'card_type',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node admin state: shutdown or not
-                ''',
-                'node_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                node is monitored by a manager or left
-                unmonitored
-                ''',
-                'node_monitor_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                node operation state
-                ''',
-                'node_operational_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                power admin state: up or down
-                ''',
-                'power_administrative_state',
-                'Cisco-IOS-XR-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-invmgr-oper',
-            'node-state-info',
             _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
         ),
@@ -57726,14 +55985,14 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
+                [], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -57762,8 +56021,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -58421,12 +56680,6 @@ _meta_table = {
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('node-state-info', REFERENCE_CLASS, 'NodeStateInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Attributes.NodeStateInfo', 
-                [], [], 
-                '''                Inventory Node State info
-                ''',
-                'node_state_info',
-                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('pwg-info', REFERENCE_CLASS, 'PwgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks.Rack.Attributes.PwgInfo', 
                 [], [], 
                 '''                Inventory EDM PWG info
@@ -58552,7 +56805,6 @@ _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.T
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes']['meta_info']
@@ -58581,7 +56833,6 @@ _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.T
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes']['meta_info']
@@ -58611,7 +56862,6 @@ _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.T
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes']['meta_info']
@@ -58641,7 +56891,6 @@ _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.T
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes']['meta_info']
@@ -58671,7 +56920,6 @@ _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.T
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes']['meta_info']
@@ -58701,7 +56949,6 @@ _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.T
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes']['meta_info']
@@ -58731,7 +56978,6 @@ _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.T
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes']['meta_info']
@@ -58761,7 +57007,6 @@ _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.T
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes']['meta_info']
@@ -58791,7 +57036,6 @@ _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.A
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes']['meta_info']
@@ -58821,7 +57065,6 @@ _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.F
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes']['meta_info']
@@ -58851,7 +57094,6 @@ _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Attributes.FruInfo.Last
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Attributes']['meta_info']
@@ -58881,7 +57123,6 @@ _meta_table['Inventory.Racks.Rack.Entity.Slot.Attributes.FruInfo.LastOperational
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Entity.Slot.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Attributes']['meta_info']
@@ -58911,7 +57152,6 @@ _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Ts
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes']['meta_info']
@@ -58940,7 +57180,6 @@ _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Ts
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes']['meta_info']
@@ -58970,7 +57209,6 @@ _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Ts
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes']['meta_info']
@@ -59000,7 +57238,6 @@ _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Ts
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes']['meta_info']
@@ -59030,7 +57267,6 @@ _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Ts
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes']['meta_info']
@@ -59060,7 +57296,6 @@ _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Ts
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes']['meta_info']
@@ -59090,7 +57325,6 @@ _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Ts
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes']['meta_info']
@@ -59120,7 +57354,6 @@ _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Ts
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes']['meta_info']
@@ -59150,7 +57383,6 @@ _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Ts
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes']['meta_info']
@@ -59180,7 +57412,6 @@ _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attribut
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes']['meta_info']
@@ -59210,7 +57441,6 @@ _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Attributes.FruInfo.
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Tsi1S.Tsi1.Attributes']['meta_info']
@@ -59240,7 +57470,6 @@ _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Attributes.FruInfo.LastOperati
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Powershelf.Slot.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Powershelf.Slot.Attributes']['meta_info']
@@ -59270,7 +57499,6 @@ _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes']['meta_info']
@@ -59299,7 +57527,6 @@ _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Attributes']['meta_info']
@@ -59329,7 +57556,6 @@ _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Attributes']['meta_info']
@@ -59359,7 +57585,6 @@ _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Attributes']['meta_info']
@@ -59389,7 +57614,6 @@ _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Attributes']['meta_info']
@@ -59419,7 +57643,6 @@ _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Attributes']['meta_info']
@@ -59449,7 +57672,6 @@ _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Attributes']['meta_info']
@@ -59479,7 +57701,6 @@ _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Attributes']['meta_info']
@@ -59509,7 +57730,6 @@ _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Attributes']['meta_info']
@@ -59539,7 +57759,6 @@ _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Attributes']['meta_info']
@@ -59569,7 +57788,6 @@ _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Attributes.FruInfo.Las
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Tsi1S.Tsi1.Attributes']['meta_info']
@@ -59599,7 +57817,6 @@ _meta_table['Inventory.Racks.Rack.Fantray.Slot.Attributes.FruInfo.LastOperationa
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Fantray.Slot.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Fantray.Slot.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Fantray.Slot.Attributes']['meta_info']
@@ -59629,7 +57846,6 @@ _meta_table['Inventory.Racks.Rack.Attributes.FruInfo.LastOperationalStateChange'
 _meta_table['Inventory.Racks.Rack.Attributes.FruInfo.CardUpTime']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Attributes.FruInfo']['meta_info']
 _meta_table['Inventory.Racks.Rack.Attributes.InvEepromInfo.Eeprom.Rma']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Attributes.InvEepromInfo.Eeprom']['meta_info']
 _meta_table['Inventory.Racks.Rack.Attributes.InvEepromInfo.Eeprom']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Attributes.InvEepromInfo']['meta_info']
-_meta_table['Inventory.Racks.Rack.Attributes.NodeStateInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Attributes.EnvSensorInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Attributes.PwgInfo']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Attributes']['meta_info']
 _meta_table['Inventory.Racks.Rack.Attributes.EnvSensorInfoXml']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Attributes']['meta_info']

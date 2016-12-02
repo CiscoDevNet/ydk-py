@@ -181,8 +181,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper'
         ),
     },
-    'Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication' : {
-        'meta_info' : _MetaInfoClass('Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication',
+    'Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_' : {
+        'meta_info' : _MetaInfoClass('Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_',
             False, 
             [
             _MetaInfoClassMember('access-accepts', ATTRIBUTE, 'int' , None, None, 
@@ -307,7 +307,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Radius.Nodes.Node.Authentication.AuthenticationGroup',
             False, 
             [
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper', 'Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication', 
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper', 'Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_', 
                 [], [], 
                 '''                Authentication data
                 ''',
@@ -361,8 +361,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper'
         ),
     },
-    'Radius.Nodes.Node.Accounting.AccountingGroup.Accounting' : {
-        'meta_info' : _MetaInfoClass('Radius.Nodes.Node.Accounting.AccountingGroup.Accounting',
+    'Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_' : {
+        'meta_info' : _MetaInfoClass('Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_',
             False, 
             [
             _MetaInfoClassMember('acct-incorrect-responses', ATTRIBUTE, 'int' , None, None, 
@@ -474,7 +474,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Radius.Nodes.Node.Accounting.AccountingGroup',
             False, 
             [
-            _MetaInfoClassMember('accounting', REFERENCE_CLASS, 'Accounting' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper', 'Radius.Nodes.Node.Accounting.AccountingGroup.Accounting', 
+            _MetaInfoClassMember('accounting', REFERENCE_CLASS, 'Accounting_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper', 'Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_', 
                 [], [], 
                 '''                Accounting data
                 ''',
@@ -528,8 +528,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper'
         ),
     },
-    'Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Accounting' : {
-        'meta_info' : _MetaInfoClass('Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Accounting',
+    'Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting' : {
+        'meta_info' : _MetaInfoClass('Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting',
             False, 
             [
             _MetaInfoClassMember('acct-incorrect-responses', ATTRIBUTE, 'int' , None, None, 
@@ -637,8 +637,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper'
         ),
     },
-    'Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authentication' : {
-        'meta_info' : _MetaInfoClass('Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authentication',
+    'Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication' : {
+        'meta_info' : _MetaInfoClass('Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication',
             False, 
             [
             _MetaInfoClassMember('access-accepts', ATTRIBUTE, 'int' , None, None, 
@@ -759,8 +759,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper'
         ),
     },
-    'Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authorization' : {
-        'meta_info' : _MetaInfoClass('Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authorization',
+    'Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization' : {
+        'meta_info' : _MetaInfoClass('Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization',
             False, 
             [
             _MetaInfoClassMember('author-incorrect-responses', ATTRIBUTE, 'int' , None, None, 
@@ -818,11 +818,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper'
         ),
     },
-    'Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup' : {
-        'meta_info' : _MetaInfoClass('Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup',
+    'Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_' : {
+        'meta_info' : _MetaInfoClass('Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_',
             False, 
             [
-            _MetaInfoClassMember('accounting', REFERENCE_CLASS, 'Accounting' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper', 'Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Accounting', 
+            _MetaInfoClassMember('accounting', REFERENCE_CLASS, 'Accounting' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper', 'Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting', 
                 [], [], 
                 '''                Accounting data
                 ''',
@@ -834,7 +834,7 @@ _meta_table = {
                 ''',
                 'accounting_port',
                 'Cisco-IOS-XR-aaa-protocol-radius-oper', False),
-            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper', 'Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authentication', 
+            _MetaInfoClassMember('authentication', REFERENCE_CLASS, 'Authentication' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper', 'Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication', 
                 [], [], 
                 '''                Authentication data
                 ''',
@@ -846,7 +846,7 @@ _meta_table = {
                 ''',
                 'authentication_port',
                 'Cisco-IOS-XR-aaa-protocol-radius-oper', False),
-            _MetaInfoClassMember('authorization', REFERENCE_CLASS, 'Authorization' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper', 'Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authorization', 
+            _MetaInfoClassMember('authorization', REFERENCE_CLASS, 'Authorization' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper', 'Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization', 
                 [], [], 
                 '''                Authorization data
                 ''',
@@ -905,7 +905,7 @@ _meta_table = {
                 ''',
                 'groups',
                 'Cisco-IOS-XR-aaa-protocol-radius-oper', False),
-            _MetaInfoClassMember('server-group', REFERENCE_LIST, 'ServerGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper', 'Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup', 
+            _MetaInfoClassMember('server-group', REFERENCE_LIST, 'ServerGroup_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper', 'Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_', 
                 [], [], 
                 '''                Server groups
                 ''',
@@ -1062,14 +1062,14 @@ _meta_table['Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time']['meta_info'].paren
 _meta_table['Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries']['meta_info'].parent =_meta_table['Radius.Nodes.Node.DeadCriteria.Hosts.Host']['meta_info']
 _meta_table['Radius.Nodes.Node.DeadCriteria.Hosts.Host']['meta_info'].parent =_meta_table['Radius.Nodes.Node.DeadCriteria.Hosts']['meta_info']
 _meta_table['Radius.Nodes.Node.DeadCriteria.Hosts']['meta_info'].parent =_meta_table['Radius.Nodes.Node.DeadCriteria']['meta_info']
-_meta_table['Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication']['meta_info'].parent =_meta_table['Radius.Nodes.Node.Authentication.AuthenticationGroup']['meta_info']
+_meta_table['Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_']['meta_info'].parent =_meta_table['Radius.Nodes.Node.Authentication.AuthenticationGroup']['meta_info']
 _meta_table['Radius.Nodes.Node.Authentication.AuthenticationGroup']['meta_info'].parent =_meta_table['Radius.Nodes.Node.Authentication']['meta_info']
-_meta_table['Radius.Nodes.Node.Accounting.AccountingGroup.Accounting']['meta_info'].parent =_meta_table['Radius.Nodes.Node.Accounting.AccountingGroup']['meta_info']
+_meta_table['Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_']['meta_info'].parent =_meta_table['Radius.Nodes.Node.Accounting.AccountingGroup']['meta_info']
 _meta_table['Radius.Nodes.Node.Accounting.AccountingGroup']['meta_info'].parent =_meta_table['Radius.Nodes.Node.Accounting']['meta_info']
-_meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Accounting']['meta_info'].parent =_meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup']['meta_info']
-_meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authentication']['meta_info'].parent =_meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup']['meta_info']
-_meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authorization']['meta_info'].parent =_meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup']['meta_info']
-_meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup']['meta_info'].parent =_meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup']['meta_info']
+_meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting']['meta_info'].parent =_meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_']['meta_info']
+_meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication']['meta_info'].parent =_meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_']['meta_info']
+_meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization']['meta_info'].parent =_meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_']['meta_info']
+_meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_']['meta_info'].parent =_meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup']['meta_info']
 _meta_table['Radius.Nodes.Node.ServerGroups.ServerGroup']['meta_info'].parent =_meta_table['Radius.Nodes.Node.ServerGroups']['meta_info']
 _meta_table['Radius.Nodes.Node.Client']['meta_info'].parent =_meta_table['Radius.Nodes.Node']['meta_info']
 _meta_table['Radius.Nodes.Node.DeadCriteria']['meta_info'].parent =_meta_table['Radius.Nodes.Node']['meta_info']

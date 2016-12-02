@@ -30,13 +30,13 @@ class Ipv6NdHopLimitEnum(Enum):
 
     Ipv6 nd hop limit
 
-    .. data:: UNSPECIFIED = 0
+    .. data:: unspecified = 0
 
     	Zero hoplimit value
 
     """
 
-    UNSPECIFIED = 0
+    unspecified = 0
 
 
     @staticmethod
@@ -51,25 +51,25 @@ class Ipv6NdRouterPrefTemplateEnum(Enum):
 
     Ipv6 nd router pref template
 
-    .. data:: HIGH = 1
+    .. data:: high = 1
 
     	High preference
 
-    .. data:: MEDIUM = 2
+    .. data:: medium = 2
 
     	Medium preference
 
-    .. data:: LOW = 3
+    .. data:: low = 3
 
     	Low preference
 
     """
 
-    HIGH = 1
+    high = 1
 
-    MEDIUM = 2
+    medium = 2
 
-    LOW = 3
+    low = 3
 
 
     @staticmethod

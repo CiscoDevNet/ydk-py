@@ -26,19 +26,19 @@ class IsisAddressFamilyEnum(Enum):
 
     Isis address family
 
-    .. data:: IPV4 = 0
+    .. data:: ipv4 = 0
 
     	IPv4
 
-    .. data:: IPV6 = 1
+    .. data:: ipv6 = 1
 
     	IPv6
 
     """
 
-    IPV4 = 0
+    ipv4 = 0
 
-    IPV6 = 1
+    ipv6 = 1
 
 
     @staticmethod
@@ -53,25 +53,25 @@ class IsisInternalLevelEnum(Enum):
 
     Isis internal level
 
-    .. data:: NOT_SET = 0
+    .. data:: not_set = 0
 
     	Level not set
 
-    .. data:: LEVEL1 = 1
+    .. data:: level1 = 1
 
     	Level1
 
-    .. data:: LEVEL2 = 2
+    .. data:: level2 = 2
 
     	Level2
 
     """
 
-    NOT_SET = 0
+    not_set = 0
 
-    LEVEL1 = 1
+    level1 = 1
 
-    LEVEL2 = 2
+    level2 = 2
 
 
     @staticmethod
@@ -86,19 +86,19 @@ class IsisSubAddressFamilyEnum(Enum):
 
     Isis sub address family
 
-    .. data:: UNICAST = 0
+    .. data:: unicast = 0
 
     	Unicast
 
-    .. data:: MULTICAST = 1
+    .. data:: multicast = 1
 
     	Multicast
 
     """
 
-    UNICAST = 0
+    unicast = 0
 
-    MULTICAST = 1
+    multicast = 1
 
 
     @staticmethod

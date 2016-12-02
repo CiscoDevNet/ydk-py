@@ -30,25 +30,25 @@ class AclAce1Enum(Enum):
 
     ACE Types
 
-    .. data:: NORMAL = 0
+    .. data:: normal = 0
 
     	This is Normal ACE
 
-    .. data:: REMARK = 1
+    .. data:: remark = 1
 
     	This is Remark ACE
 
-    .. data:: ABF = 2
+    .. data:: abf = 2
 
     	This is ABF ACE
 
     """
 
-    NORMAL = 0
+    normal = 0
 
-    REMARK = 1
+    remark = 1
 
-    ABF = 2
+    abf = 2
 
 
     @staticmethod
@@ -63,25 +63,25 @@ class AclAce1Enum(Enum):
 
     ACE Types
 
-    .. data:: NORMAL = 0
+    .. data:: normal = 0
 
     	This is Normal ACE
 
-    .. data:: REMARK = 1
+    .. data:: remark = 1
 
     	This is Remark ACE
 
-    .. data:: ABF = 2
+    .. data:: abf = 2
 
     	This is ABF ACE
 
     """
 
-    NORMAL = 0
+    normal = 0
 
-    REMARK = 1
+    remark = 1
 
-    ABF = 2
+    abf = 2
 
 
     @staticmethod
@@ -96,43 +96,43 @@ class AclActionEnum(Enum):
 
     Acl action
 
-    .. data:: DENY = 0
+    .. data:: deny = 0
 
     	Deny
 
-    .. data:: PERMIT = 1
+    .. data:: permit = 1
 
     	Permit
 
-    .. data:: ENCRYPT = 2
+    .. data:: encrypt = 2
 
     	Encrypt
 
-    .. data:: BYPASS = 3
+    .. data:: bypass = 3
 
     	Bypass
 
-    .. data:: FALLTHROUGH = 4
+    .. data:: fallthrough = 4
 
     	Fallthrough
 
-    .. data:: INVALID = 5
+    .. data:: invalid = 5
 
     	Invalid
 
     """
 
-    DENY = 0
+    deny = 0
 
-    PERMIT = 1
+    permit = 1
 
-    ENCRYPT = 2
+    encrypt = 2
 
-    BYPASS = 3
+    bypass = 3
 
-    FALLTHROUGH = 4
+    fallthrough = 4
 
-    INVALID = 5
+    invalid = 5
 
 
     @staticmethod
@@ -149,7 +149,7 @@ class EsAcl(object):
     .. attribute:: active
     
     	Out Of Resources, Limits to the resources allocatable
-    	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active>`
+    	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active>`
     
     
 
@@ -171,22 +171,22 @@ class EsAcl(object):
         .. attribute:: list
         
         	List containing ACLs
-        	**type**\:  :py:class:`List <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List>`
+        	**type**\:   :py:class:`List <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List>`
         
         .. attribute:: oor
         
         	Out Of Resources, Limits to the resources allocatable
-        	**type**\:  :py:class:`Oor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Oor>`
+        	**type**\:   :py:class:`Oor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Oor>`
         
         .. attribute:: oor_acls
         
         	Resource occupation details for ACLs
-        	**type**\:  :py:class:`OorAcls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.OorAcls>`
+        	**type**\:   :py:class:`OorAcls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.OorAcls>`
         
         .. attribute:: usages
         
         	Table of Usage statistics of ACLs at different nodes
-        	**type**\:  :py:class:`Usages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Usages>`
+        	**type**\:   :py:class:`Usages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Usages>`
         
         
 
@@ -215,7 +215,7 @@ class EsAcl(object):
             .. attribute:: acl_summary
             
             	Resource Limits pertaining to ACLs only
-            	**type**\:  :py:class:`AclSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Oor.AclSummary>`
+            	**type**\:   :py:class:`AclSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Oor.AclSummary>`
             
             
 
@@ -237,7 +237,7 @@ class EsAcl(object):
                 .. attribute:: details
                 
                 	Details containing the resource limits of the ACLs
-                	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Oor.AclSummary.Details>`
+                	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Oor.AclSummary.Details>`
                 
                 
 
@@ -382,7 +382,7 @@ class EsAcl(object):
             .. attribute:: acls
             
             	ACL class displaying Usage and Entries
-            	**type**\:  :py:class:`Acls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List.Acls>`
+            	**type**\:   :py:class:`Acls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List.Acls>`
             
             
 
@@ -404,7 +404,7 @@ class EsAcl(object):
                 .. attribute:: acl
                 
                 	Name of the Access List
-                	**type**\: list of  :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List.Acls.Acl>`
+                	**type**\: list of    :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List.Acls.Acl>`
                 
                 
 
@@ -434,7 +434,7 @@ class EsAcl(object):
                     .. attribute:: acl_sequence_numbers
                     
                     	Table of all the SequenceNumbers per ACL
-                    	**type**\:  :py:class:`AclSequenceNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List.Acls.Acl.AclSequenceNumbers>`
+                    	**type**\:   :py:class:`AclSequenceNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List.Acls.Acl.AclSequenceNumbers>`
                     
                     
 
@@ -457,7 +457,7 @@ class EsAcl(object):
                         .. attribute:: acl_sequence_number
                         
                         	Sequence Number of an ACL entry
-                        	**type**\: list of  :py:class:`AclSequenceNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List.Acls.Acl.AclSequenceNumbers.AclSequenceNumber>`
+                        	**type**\: list of    :py:class:`AclSequenceNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List.Acls.Acl.AclSequenceNumbers.AclSequenceNumber>`
                         
                         
 
@@ -494,7 +494,7 @@ class EsAcl(object):
                             .. attribute:: ace_type
                             
                             	ACE type (acl, remark)
-                            	**type**\:  :py:class:`AclAce1Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.AclAce1Enum>`
+                            	**type**\:   :py:class:`AclAce1Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.AclAce1Enum>`
                             
                             .. attribute:: acl_name
                             
@@ -544,7 +544,7 @@ class EsAcl(object):
                             .. attribute:: grant
                             
                             	Grant value permit/deny 
-                            	**type**\:  :py:class:`AclActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.AclActionEnum>`
+                            	**type**\:   :py:class:`AclActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.AclActionEnum>`
                             
                             .. attribute:: hits
                             
@@ -858,7 +858,7 @@ class EsAcl(object):
             .. attribute:: oor_acl
             
             	Resource occupation details for a particular ACL
-            	**type**\: list of  :py:class:`OorAcl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.OorAcls.OorAcl>`
+            	**type**\: list of    :py:class:`OorAcl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.OorAcls.OorAcl>`
             
             
 
@@ -998,7 +998,7 @@ class EsAcl(object):
             .. attribute:: usage
             
             	Usage statistics of an ACL at a node
-            	**type**\: list of  :py:class:`Usage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Usages.Usage>`
+            	**type**\: list of    :py:class:`Usage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Usages.Usage>`
             
             
 
@@ -1021,7 +1021,7 @@ class EsAcl(object):
                 .. attribute:: application_id
                 
                 	Application ID
-                	**type**\:  :py:class:`AclUsageAppIdEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_common_acl_datatypes.AclUsageAppIdEnumEnum>`
+                	**type**\:   :py:class:`AclUsageAppIdEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_common_acl_datatypes.AclUsageAppIdEnumEnum>`
                 
                 .. attribute:: location
                 

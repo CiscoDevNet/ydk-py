@@ -31,55 +31,55 @@ class MppAllowEnum(Enum):
 
     MPP protocol types
 
-    .. data:: SSH = 0
+    .. data:: ssh = 0
 
     	SSH protocol
 
-    .. data:: TELNET = 1
+    .. data:: telnet = 1
 
     	TELNET protocol
 
-    .. data:: SNMP = 2
+    .. data:: snmp = 2
 
     	SNMP protocol
 
-    .. data:: TFTP = 3
+    .. data:: tftp = 3
 
     	TFTP protocol
 
-    .. data:: HTTP = 4
+    .. data:: http = 4
 
     	HTTP protocol
 
-    .. data:: XR_XML = 5
+    .. data:: xr_xml = 5
 
     	XML
 
-    .. data:: NETCONF = 6
+    .. data:: netconf = 6
 
     	NETCONF protocol
 
-    .. data:: ALL = 7
+    .. data:: all = 7
 
     	All
 
     """
 
-    SSH = 0
+    ssh = 0
 
-    TELNET = 1
+    telnet = 1
 
-    SNMP = 2
+    snmp = 2
 
-    TFTP = 3
+    tftp = 3
 
-    HTTP = 4
+    http = 4
 
-    XR_XML = 5
+    xr_xml = 5
 
-    NETCONF = 6
+    netconf = 6
 
-    ALL = 7
+    all = 7
 
 
     @staticmethod
@@ -117,12 +117,12 @@ class ManagementPlaneProtection(object):
     .. attribute:: inband
     
     	Management Plane Protection (MPP) inband interface data
-    	**type**\:  :py:class:`Inband <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Inband>`
+    	**type**\:   :py:class:`Inband <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Inband>`
     
     .. attribute:: outband
     
     	Management Plane Protection (MPP) outband interface data
-    	**type**\:  :py:class:`Outband <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Outband>`
+    	**type**\:   :py:class:`Outband <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Outband>`
     
     
 
@@ -146,12 +146,12 @@ class ManagementPlaneProtection(object):
         .. attribute:: interfaces
         
         	List of inband/outband interfaces
-        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Outband.Interfaces>`
+        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Outband.Interfaces>`
         
         .. attribute:: vrf
         
         	Outband VRF information
-        	**type**\:  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Outband.Vrf>`
+        	**type**\:   :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Outband.Vrf>`
         
         
 
@@ -218,7 +218,7 @@ class ManagementPlaneProtection(object):
             .. attribute:: interface
             
             	MPP interface information
-            	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Outband.Interfaces.Interface>`
+            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Outband.Interfaces.Interface>`
             
             
 
@@ -246,7 +246,7 @@ class ManagementPlaneProtection(object):
                 .. attribute:: protocol
                 
                 	MPP Interface protocols
-                	**type**\: list of  :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol>`
+                	**type**\: list of    :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol>`
                 
                 
 
@@ -270,7 +270,7 @@ class ManagementPlaneProtection(object):
                     .. attribute:: allow
                     
                     	MPP allow
-                    	**type**\:  :py:class:`MppAllowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.MppAllowEnum>`
+                    	**type**\:   :py:class:`MppAllowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.MppAllowEnum>`
                     
                     .. attribute:: is_all_peers_allowed
                     
@@ -280,7 +280,7 @@ class ManagementPlaneProtection(object):
                     .. attribute:: peer_address
                     
                     	List of peer addresses
-                    	**type**\: list of  :py:class:`PeerAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress>`
+                    	**type**\: list of    :py:class:`PeerAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress>`
                     
                     
 
@@ -305,7 +305,7 @@ class ManagementPlaneProtection(object):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:  :py:class:`MppAfIdBaseIdentity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.MppAfIdBaseIdentity>`
+                        	**type**\:   :py:class:`MppAfIdBaseIdentity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.MppAfIdBaseIdentity>`
                         
                         .. attribute:: ipv4_address
                         
@@ -483,7 +483,7 @@ class ManagementPlaneProtection(object):
         .. attribute:: interfaces
         
         	List of inband/outband interfaces
-        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Inband.Interfaces>`
+        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Inband.Interfaces>`
         
         
 
@@ -505,7 +505,7 @@ class ManagementPlaneProtection(object):
             .. attribute:: interface
             
             	MPP interface information
-            	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Inband.Interfaces.Interface>`
+            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Inband.Interfaces.Interface>`
             
             
 
@@ -533,7 +533,7 @@ class ManagementPlaneProtection(object):
                 .. attribute:: protocol
                 
                 	MPP Interface protocols
-                	**type**\: list of  :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol>`
+                	**type**\: list of    :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol>`
                 
                 
 
@@ -557,7 +557,7 @@ class ManagementPlaneProtection(object):
                     .. attribute:: allow
                     
                     	MPP allow
-                    	**type**\:  :py:class:`MppAllowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.MppAllowEnum>`
+                    	**type**\:   :py:class:`MppAllowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.MppAllowEnum>`
                     
                     .. attribute:: is_all_peers_allowed
                     
@@ -567,7 +567,7 @@ class ManagementPlaneProtection(object):
                     .. attribute:: peer_address
                     
                     	List of peer addresses
-                    	**type**\: list of  :py:class:`PeerAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress>`
+                    	**type**\: list of    :py:class:`PeerAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress>`
                     
                     
 
@@ -592,7 +592,7 @@ class ManagementPlaneProtection(object):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:  :py:class:`MppAfIdBaseIdentity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.MppAfIdBaseIdentity>`
+                        	**type**\:   :py:class:`MppAfIdBaseIdentity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.MppAfIdBaseIdentity>`
                         
                         .. attribute:: ipv4_address
                         

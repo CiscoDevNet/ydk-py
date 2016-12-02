@@ -33,7 +33,7 @@ NMSP_PKG_DEPENDENCIES = ["$DEPENDENCY$"]
 # Define and modify version number and package name here,
 # Namespace packages are share same prefix: "ydk-models"
 NAME = 'ydk'
-VERSION = '0.5.1'
+VERSION = '0.5.2'
 INSTALL_REQUIREMENTS = ['ecdsa==0.13',
                         'enum34==1.1.3',
                         'lxml==3.4.4',

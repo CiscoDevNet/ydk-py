@@ -33,7 +33,7 @@ class HardwareModule(object):
     .. attribute:: nodes
     
     	List of PRM Nodes
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes>`
     
     
 
@@ -54,7 +54,7 @@ class HardwareModule(object):
         .. attribute:: node
         
         	Node Information
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node>`
         
         
 
@@ -84,7 +84,7 @@ class HardwareModule(object):
             .. attribute:: np
             
             	Server specific
-            	**type**\:  :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np>`
+            	**type**\:   :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np>`
             
             
 
@@ -107,12 +107,12 @@ class HardwareModule(object):
                 .. attribute:: cpu
                 
                 	Resource specific
-                	**type**\:  :py:class:`Cpu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.Cpu>`
+                	**type**\:   :py:class:`Cpu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.Cpu>`
                 
                 .. attribute:: platform_drop
                 
                 	Platform drops
-                	**type**\:  :py:class:`PlatformDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop>`
+                	**type**\:   :py:class:`PlatformDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop>`
                 
                 
 
@@ -136,7 +136,7 @@ class HardwareModule(object):
                     .. attribute:: indexes
                     
                     	Data for software resource
-                    	**type**\:  :py:class:`Indexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.Cpu.Indexes>`
+                    	**type**\:   :py:class:`Indexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.Cpu.Indexes>`
                     
                     
 
@@ -158,7 +158,7 @@ class HardwareModule(object):
                         .. attribute:: index
                         
                         	Queue Stats
-                        	**type**\: list of  :py:class:`Index <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.Cpu.Indexes.Index>`
+                        	**type**\: list of    :py:class:`Index <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.Cpu.Indexes.Index>`
                         
                         
 
@@ -357,12 +357,12 @@ class HardwareModule(object):
                     .. attribute:: idxes
                     
                     	Stats for Drop packets
-                    	**type**\:  :py:class:`Idxes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes>`
+                    	**type**\:   :py:class:`Idxes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes>`
                     
                     .. attribute:: indxes
                     
                     	Captured Packets
-                    	**type**\:  :py:class:`Indxes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes>`
+                    	**type**\:   :py:class:`Indxes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes>`
                     
                     
 
@@ -386,7 +386,7 @@ class HardwareModule(object):
                         .. attribute:: indx
                         
                         	Captured packets
-                        	**type**\: list of  :py:class:`Indx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes.Indx>`
+                        	**type**\: list of    :py:class:`Indx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes.Indx>`
                         
                         
 
@@ -434,12 +434,16 @@ class HardwareModule(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: day
+                            
                             .. attribute:: hours
                             
                             	Hours
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: hour
                             
                             .. attribute:: ifhandle
                             
@@ -454,6 +458,8 @@ class HardwareModule(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: minute
                             
                             .. attribute:: pkt_index
                             
@@ -482,6 +488,8 @@ class HardwareModule(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: second
                             
                             .. attribute:: total_captured
                             
@@ -616,7 +624,7 @@ class HardwareModule(object):
                         .. attribute:: idx
                         
                         	Drop Stats
-                        	**type**\: list of  :py:class:`Idx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx>`
+                        	**type**\: list of    :py:class:`Idx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx>`
                         
                         
 
@@ -863,7 +871,7 @@ class Prm(object):
     .. attribute:: nodes
     
     	List of PRM Nodes
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes>`
     
     
 
@@ -884,7 +892,7 @@ class Prm(object):
         .. attribute:: node
         
         	Node Information
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node>`
         
         
 
@@ -914,7 +922,7 @@ class Prm(object):
             .. attribute:: server
             
             	Server specific
-            	**type**\:  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node.Server>`
+            	**type**\:   :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node.Server>`
             
             
 
@@ -937,7 +945,7 @@ class Prm(object):
                 .. attribute:: resource
                 
                 	Resource specific
-                	**type**\:  :py:class:`Resource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node.Server.Resource>`
+                	**type**\:   :py:class:`Resource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node.Server.Resource>`
                 
                 
 
@@ -959,7 +967,7 @@ class Prm(object):
                     .. attribute:: indexes
                     
                     	Data for software resource
-                    	**type**\:  :py:class:`Indexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node.Server.Resource.Indexes>`
+                    	**type**\:   :py:class:`Indexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node.Server.Resource.Indexes>`
                     
                     
 
@@ -981,7 +989,7 @@ class Prm(object):
                         .. attribute:: index
                         
                         	Data for software resource
-                        	**type**\: list of  :py:class:`Index <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node.Server.Resource.Indexes.Index>`
+                        	**type**\: list of    :py:class:`Index <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node.Server.Resource.Indexes.Index>`
                         
                         
 

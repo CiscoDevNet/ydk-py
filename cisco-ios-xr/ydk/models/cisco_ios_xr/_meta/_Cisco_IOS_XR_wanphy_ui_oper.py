@@ -16,13 +16,13 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'WanphyAlarmRepStatusEnum' : _MetaInfoEnum('WanphyAlarmRepStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper',
         {
-            'disable':'DISABLE',
-            'enable':'ENABLE',
+            'disable':'disable',
+            'enable':'enable',
         }, 'Cisco-IOS-XR-wanphy-ui-oper', _yang_ns._namespaces['Cisco-IOS-XR-wanphy-ui-oper']),
     'WanphyModeInfoEnum' : _MetaInfoEnum('WanphyModeInfoEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper',
         {
-            'lan':'LAN',
-            'wan':'WAN',
+            'lan':'lan',
+            'wan':'wan',
         }, 'Cisco-IOS-XR-wanphy-ui-oper', _yang_ns._namespaces['Cisco-IOS-XR-wanphy-ui-oper']),
     'Wanphy.Controllers.Controller.Info' : {
         'meta_info' : _MetaInfoClass('Wanphy.Controllers.Controller.Info',

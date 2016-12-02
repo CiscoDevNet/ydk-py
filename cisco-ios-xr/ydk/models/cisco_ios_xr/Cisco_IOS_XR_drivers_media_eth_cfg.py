@@ -30,19 +30,19 @@ class EthernetAutoNegotiationEnum(Enum):
 
     Ethernet auto negotiation
 
-    .. data:: TRUE = 1
+    .. data:: true = 1
 
     	IEEE Standard auto-negotiation
 
-    .. data:: OVERRIDE = 2
+    .. data:: override = 2
 
     	Auto-negotiation with configuration override
 
     """
 
-    TRUE = 1
+    true = 1
 
-    OVERRIDE = 2
+    override = 2
 
 
     @staticmethod
@@ -57,19 +57,19 @@ class EthernetDuplexEnum(Enum):
 
     Ethernet duplex
 
-    .. data:: FULL = 0
+    .. data:: full = 0
 
     	Full duplex
 
-    .. data:: HALF = 1
+    .. data:: half = 1
 
     	Half duplex
 
     """
 
-    FULL = 0
+    full = 0
 
-    HALF = 1
+    half = 1
 
 
     @staticmethod
@@ -84,19 +84,19 @@ class EthernetFecEnum(Enum):
 
     Ethernet fec
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	Disable any FEC enabled on the interface
 
-    .. data:: STANDARD = 1
+    .. data:: standard = 1
 
     	Enable standard (Reed-Solomon) FEC
 
     """
 
-    NONE = 0
+    none = 0
 
-    STANDARD = 1
+    standard = 1
 
 
     @staticmethod
@@ -111,25 +111,25 @@ class EthernetFlowCtrlEnum(Enum):
 
     Ethernet flow ctrl
 
-    .. data:: INGRESS = 0
+    .. data:: ingress = 0
 
     	Ingress flow control (sending pause frames)
 
-    .. data:: EGRESS = 1
+    .. data:: egress = 1
 
     	Egress flow control (received pause frames)
 
-    .. data:: BIDIRECTIONAL = 2
+    .. data:: bidirectional = 2
 
     	Bi-direction flow control
 
     """
 
-    INGRESS = 0
+    ingress = 0
 
-    EGRESS = 1
+    egress = 1
 
-    BIDIRECTIONAL = 2
+    bidirectional = 2
 
 
     @staticmethod
@@ -144,13 +144,13 @@ class EthernetIpgEnum(Enum):
 
     Ethernet ipg
 
-    .. data:: NON_STANDARD = 16
+    .. data:: non_standard = 16
 
     	Non standard IPG
 
     """
 
-    NON_STANDARD = 16
+    non_standard = 16
 
 
     @staticmethod
@@ -165,25 +165,25 @@ class EthernetLoopbackEnum(Enum):
 
     Ethernet loopback
 
-    .. data:: EXTERNAL = 0
+    .. data:: external = 0
 
     	External loopback (using loopback connector)
 
-    .. data:: INTERNAL = 1
+    .. data:: internal = 1
 
     	Internal loopback
 
-    .. data:: LINE = 2
+    .. data:: line = 2
 
     	Line loopback
 
     """
 
-    EXTERNAL = 0
+    external = 0
 
-    INTERNAL = 1
+    internal = 1
 
-    LINE = 2
+    line = 2
 
 
     @staticmethod
@@ -198,13 +198,13 @@ class EthernetPfcEnum(Enum):
 
     Ethernet pfc
 
-    .. data:: ON = 1
+    .. data:: on = 1
 
     	Enable priority flow control
 
     """
 
-    ON = 1
+    on = 1
 
 
     @staticmethod

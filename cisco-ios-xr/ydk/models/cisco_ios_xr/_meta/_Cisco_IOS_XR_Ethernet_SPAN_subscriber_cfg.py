@@ -16,16 +16,16 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'SpanTrafficDirectionEnum' : _MetaInfoEnum('SpanTrafficDirectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg',
         {
-            'rx-only':'RX_ONLY',
-            'tx-only':'TX_ONLY',
+            'rx-only':'rx_only',
+            'tx-only':'tx_only',
         }, 'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', _yang_ns._namespaces['Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg']),
     'SpanMirrorIntervalEnum' : _MetaInfoEnum('SpanMirrorIntervalEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg',
         {
             '512':'Y_512',
-            '1k':'Y_1K',
-            '2k':'Y_2K',
-            '4k':'Y_4K',
-            '8k':'Y_8K',
-            '16k':'Y_16K',
+            '1k':'Y_1k',
+            '2k':'Y_2k',
+            '4k':'Y_4k',
+            '8k':'Y_8k',
+            '16k':'Y_16k',
         }, 'Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg', _yang_ns._namespaces['Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg']),
 }

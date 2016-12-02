@@ -16,17 +16,17 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'LineStateEnum' : _MetaInfoEnum('LineStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper',
         {
-            'none':'NONE',
-            'registered':'REGISTERED',
-            'in-use':'IN_USE',
+            'none':'none',
+            'registered':'registered',
+            'in-use':'in_use',
         }, 'Cisco-IOS-XR-tty-server-oper', _yang_ns._namespaces['Cisco-IOS-XR-tty-server-oper']),
     'SessionOperationEnum' : _MetaInfoEnum('SessionOperationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper',
         {
-            'none':'NONE',
-            'setup':'SETUP',
-            'shell':'SHELL',
-            'transitioning':'TRANSITIONING',
-            'packet':'PACKET',
+            'none':'none',
+            'setup':'setup',
+            'shell':'shell',
+            'transitioning':'transitioning',
+            'packet':'packet',
         }, 'Cisco-IOS-XR-tty-server-oper', _yang_ns._namespaces['Cisco-IOS-XR-tty-server-oper']),
     'Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232' : {
         'meta_info' : _MetaInfoClass('Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232',
@@ -170,8 +170,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper'
         ),
     },
-    'Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec' : {
-        'meta_info' : _MetaInfoClass('Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec',
+    'Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec_' : {
+        'meta_info' : _MetaInfoClass('Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec_',
             False, 
             [
             _MetaInfoClassMember('time-stamp-enabled', ATTRIBUTE, 'bool' , None, None, 
@@ -214,7 +214,7 @@ _meta_table = {
                 ''',
                 'aaa',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('exec', REFERENCE_CLASS, 'Exec' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper', 'Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec', 
+            _MetaInfoClassMember('exec', REFERENCE_CLASS, 'Exec_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper', 'Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec_', 
                 [], [], 
                 '''                Exec related statistics
                 ''',
@@ -560,8 +560,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper'
         ),
     },
-    'Tty.VtyLines.VtyLine.VtyStatistics.Exec' : {
-        'meta_info' : _MetaInfoClass('Tty.VtyLines.VtyLine.VtyStatistics.Exec',
+    'Tty.VtyLines.VtyLine.VtyStatistics.Exec_' : {
+        'meta_info' : _MetaInfoClass('Tty.VtyLines.VtyLine.VtyStatistics.Exec_',
             False, 
             [
             _MetaInfoClassMember('time-stamp-enabled', ATTRIBUTE, 'bool' , None, None, 
@@ -610,7 +610,7 @@ _meta_table = {
                 ''',
                 'connection',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('exec', REFERENCE_CLASS, 'Exec' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper', 'Tty.VtyLines.VtyLine.VtyStatistics.Exec', 
+            _MetaInfoClassMember('exec', REFERENCE_CLASS, 'Exec_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper', 'Tty.VtyLines.VtyLine.VtyStatistics.Exec_', 
                 [], [], 
                 '''                Exec related statistics
                 ''',
@@ -1069,8 +1069,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper'
         ),
     },
-    'Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec' : {
-        'meta_info' : _MetaInfoClass('Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec',
+    'Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec_' : {
+        'meta_info' : _MetaInfoClass('Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec_',
             False, 
             [
             _MetaInfoClassMember('time-stamp-enabled', ATTRIBUTE, 'bool' , None, None, 
@@ -1113,7 +1113,7 @@ _meta_table = {
                 ''',
                 'aaa',
                 'Cisco-IOS-XR-tty-server-oper', False),
-            _MetaInfoClassMember('exec', REFERENCE_CLASS, 'Exec' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper', 'Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec', 
+            _MetaInfoClassMember('exec', REFERENCE_CLASS, 'Exec_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper', 'Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec_', 
                 [], [], 
                 '''                Exec related statistics
                 ''',
@@ -1385,7 +1385,7 @@ _meta_table = {
 }
 _meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232']['meta_info'].parent =_meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics']['meta_info']
 _meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics']['meta_info'].parent =_meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics']['meta_info']
-_meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec']['meta_info'].parent =_meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics']['meta_info']
+_meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec_']['meta_info'].parent =_meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics']['meta_info']
 _meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa']['meta_info'].parent =_meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics']['meta_info']
 _meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template']['meta_info'].parent =_meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State']['meta_info']
 _meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General']['meta_info'].parent =_meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State']['meta_info']
@@ -1398,7 +1398,7 @@ _meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine']['meta_info'].parent =_me
 _meta_table['Tty.ConsoleNodes.ConsoleNode']['meta_info'].parent =_meta_table['Tty.ConsoleNodes']['meta_info']
 _meta_table['Tty.VtyLines.VtyLine.VtyStatistics.Connection']['meta_info'].parent =_meta_table['Tty.VtyLines.VtyLine.VtyStatistics']['meta_info']
 _meta_table['Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics']['meta_info'].parent =_meta_table['Tty.VtyLines.VtyLine.VtyStatistics']['meta_info']
-_meta_table['Tty.VtyLines.VtyLine.VtyStatistics.Exec']['meta_info'].parent =_meta_table['Tty.VtyLines.VtyLine.VtyStatistics']['meta_info']
+_meta_table['Tty.VtyLines.VtyLine.VtyStatistics.Exec_']['meta_info'].parent =_meta_table['Tty.VtyLines.VtyLine.VtyStatistics']['meta_info']
 _meta_table['Tty.VtyLines.VtyLine.VtyStatistics.Aaa']['meta_info'].parent =_meta_table['Tty.VtyLines.VtyLine.VtyStatistics']['meta_info']
 _meta_table['Tty.VtyLines.VtyLine.State.Template']['meta_info'].parent =_meta_table['Tty.VtyLines.VtyLine.State']['meta_info']
 _meta_table['Tty.VtyLines.VtyLine.State.General']['meta_info'].parent =_meta_table['Tty.VtyLines.VtyLine.State']['meta_info']
@@ -1413,7 +1413,7 @@ _meta_table['Tty.VtyLines.VtyLine.Sessions']['meta_info'].parent =_meta_table['T
 _meta_table['Tty.VtyLines.VtyLine']['meta_info'].parent =_meta_table['Tty.VtyLines']['meta_info']
 _meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232']['meta_info'].parent =_meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics']['meta_info']
 _meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics']['meta_info'].parent =_meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics']['meta_info']
-_meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec']['meta_info'].parent =_meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics']['meta_info']
+_meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec_']['meta_info'].parent =_meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics']['meta_info']
 _meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa']['meta_info'].parent =_meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics']['meta_info']
 _meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template']['meta_info'].parent =_meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State']['meta_info']
 _meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General']['meta_info'].parent =_meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State']['meta_info']

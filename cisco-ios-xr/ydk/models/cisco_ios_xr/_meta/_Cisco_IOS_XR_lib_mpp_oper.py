@@ -16,14 +16,14 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'MppAllowEnum' : _MetaInfoEnum('MppAllowEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper',
         {
-            'ssh':'SSH',
-            'telnet':'TELNET',
-            'snmp':'SNMP',
-            'tftp':'TFTP',
-            'http':'HTTP',
-            'xr-xml':'XR_XML',
-            'netconf':'NETCONF',
-            'all':'ALL',
+            'ssh':'ssh',
+            'telnet':'telnet',
+            'snmp':'snmp',
+            'tftp':'tftp',
+            'http':'http',
+            'xr-xml':'xr_xml',
+            'netconf':'netconf',
+            'all':'all',
         }, 'Cisco-IOS-XR-lib-mpp-oper', _yang_ns._namespaces['Cisco-IOS-XR-lib-mpp-oper']),
     'MppAfIdBaseIdentity' : {
         'meta_info' : _MetaInfoClass('MppAfIdBaseIdentity',

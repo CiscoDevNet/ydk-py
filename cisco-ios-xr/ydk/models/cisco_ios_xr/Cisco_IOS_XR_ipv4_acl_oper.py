@@ -30,25 +30,25 @@ class AclAce1Enum(Enum):
 
     ACE Types
 
-    .. data:: NORMAL = 0
+    .. data:: normal = 0
 
     	This is Normal ACE
 
-    .. data:: REMARK = 1
+    .. data:: remark = 1
 
     	This is Remark ACE
 
-    .. data:: ABF = 2
+    .. data:: abf = 2
 
     	This is ABF ACE
 
     """
 
-    NORMAL = 0
+    normal = 0
 
-    REMARK = 1
+    remark = 1
 
-    ABF = 2
+    abf = 2
 
 
     @staticmethod
@@ -63,25 +63,25 @@ class AclAce1Enum(Enum):
 
     ACE Types
 
-    .. data:: NORMAL = 0
+    .. data:: normal = 0
 
     	This is Normal ACE
 
-    .. data:: REMARK = 1
+    .. data:: remark = 1
 
     	This is Remark ACE
 
-    .. data:: ABF = 2
+    .. data:: abf = 2
 
     	This is ABF ACE
 
     """
 
-    NORMAL = 0
+    normal = 0
 
-    REMARK = 1
+    remark = 1
 
-    ABF = 2
+    abf = 2
 
 
     @staticmethod
@@ -96,43 +96,43 @@ class AclActionEnum(Enum):
 
     Acl action
 
-    .. data:: DENY = 0
+    .. data:: deny = 0
 
     	Deny
 
-    .. data:: PERMIT = 1
+    .. data:: permit = 1
 
     	Permit
 
-    .. data:: ENCRYPT = 2
+    .. data:: encrypt = 2
 
     	Encrypt
 
-    .. data:: BYPASS = 3
+    .. data:: bypass = 3
 
     	Bypass
 
-    .. data:: FALLTHROUGH = 4
+    .. data:: fallthrough = 4
 
     	Fallthrough
 
-    .. data:: INVALID = 5
+    .. data:: invalid = 5
 
     	Invalid
 
     """
 
-    DENY = 0
+    deny = 0
 
-    PERMIT = 1
+    permit = 1
 
-    ENCRYPT = 2
+    encrypt = 2
 
-    BYPASS = 3
+    bypass = 3
 
-    FALLTHROUGH = 4
+    fallthrough = 4
 
-    INVALID = 5
+    invalid = 5
 
 
     @staticmethod
@@ -147,25 +147,25 @@ class AclLogEnum(Enum):
 
     Acl log
 
-    .. data:: LOG_NONE = 0
+    .. data:: log_none = 0
 
     	Log None
 
-    .. data:: LOG = 1
+    .. data:: log = 1
 
     	Log Regular
 
-    .. data:: LOG_INPUT = 2
+    .. data:: log_input = 2
 
     	Log Input
 
     """
 
-    LOG_NONE = 0
+    log_none = 0
 
-    LOG = 1
+    log = 1
 
-    LOG_INPUT = 2
+    log_input = 2
 
 
     @staticmethod
@@ -180,55 +180,55 @@ class AclPortOperatorEnum(Enum):
 
     Acl port operator
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	None
 
-    .. data:: EQ = 1
+    .. data:: eq = 1
 
     	Equal
 
-    .. data:: GT = 2
+    .. data:: gt = 2
 
     	Greater than
 
-    .. data:: LT = 3
+    .. data:: lt = 3
 
     	Less than
 
-    .. data:: NEQ = 4
+    .. data:: neq = 4
 
     	Not Equal
 
-    .. data:: RANGE = 5
+    .. data:: range = 5
 
     	Range
 
-    .. data:: ONEBYTE = 8
+    .. data:: onebyte = 8
 
     	One Byte
 
-    .. data:: TWOBYTES = 9
+    .. data:: twobytes = 9
 
     	Two Bytes
 
     """
 
-    NONE = 0
+    none = 0
 
-    EQ = 1
+    eq = 1
 
-    GT = 2
+    gt = 2
 
-    LT = 3
+    lt = 3
 
-    NEQ = 4
+    neq = 4
 
-    RANGE = 5
+    range = 5
 
-    ONEBYTE = 8
+    onebyte = 8
 
-    TWOBYTES = 9
+    twobytes = 9
 
 
     @staticmethod
@@ -243,55 +243,55 @@ class AclPortOperatorEnum(Enum):
 
     Acl port operator
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	None
 
-    .. data:: EQ = 1
+    .. data:: eq = 1
 
     	Equal
 
-    .. data:: GT = 2
+    .. data:: gt = 2
 
     	Greater than
 
-    .. data:: LT = 3
+    .. data:: lt = 3
 
     	Less than
 
-    .. data:: NEQ = 4
+    .. data:: neq = 4
 
     	Not Equal
 
-    .. data:: RANGE = 5
+    .. data:: range = 5
 
     	Range
 
-    .. data:: ONEBYTE = 8
+    .. data:: onebyte = 8
 
     	One Byte
 
-    .. data:: TWOBYTES = 9
+    .. data:: twobytes = 9
 
     	Two Bytes
 
     """
 
-    NONE = 0
+    none = 0
 
-    EQ = 1
+    eq = 1
 
-    GT = 2
+    gt = 2
 
-    LT = 3
+    lt = 3
 
-    NEQ = 4
+    neq = 4
 
-    RANGE = 5
+    range = 5
 
-    ONEBYTE = 8
+    onebyte = 8
 
-    TWOBYTES = 9
+    twobytes = 9
 
 
     @staticmethod
@@ -306,55 +306,55 @@ class AclPortOperatorEnum(Enum):
 
     Acl port operator
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	None
 
-    .. data:: EQ = 1
+    .. data:: eq = 1
 
     	Equal
 
-    .. data:: GT = 2
+    .. data:: gt = 2
 
     	Greater than
 
-    .. data:: LT = 3
+    .. data:: lt = 3
 
     	Less than
 
-    .. data:: NEQ = 4
+    .. data:: neq = 4
 
     	Not Equal
 
-    .. data:: RANGE = 5
+    .. data:: range = 5
 
     	Range
 
-    .. data:: ONEBYTE = 8
+    .. data:: onebyte = 8
 
     	One Byte
 
-    .. data:: TWOBYTES = 9
+    .. data:: twobytes = 9
 
     	Two Bytes
 
     """
 
-    NONE = 0
+    none = 0
 
-    EQ = 1
+    eq = 1
 
-    GT = 2
+    gt = 2
 
-    LT = 3
+    lt = 3
 
-    NEQ = 4
+    neq = 4
 
-    RANGE = 5
+    range = 5
 
-    ONEBYTE = 8
+    onebyte = 8
 
-    TWOBYTES = 9
+    twobytes = 9
 
 
     @staticmethod
@@ -369,31 +369,31 @@ class AclTcpflagsOperatorEnum(Enum):
 
     Acl tcpflags operator
 
-    .. data:: MATCH_NONE = 0
+    .. data:: match_none = 0
 
     	Match None
 
-    .. data:: MATCH_ALL = 1
+    .. data:: match_all = 1
 
     	Match All
 
-    .. data:: MATCH_ANY_OLD = 2
+    .. data:: match_any_old = 2
 
     	Match any old
 
-    .. data:: MATCH_ANY = 3
+    .. data:: match_any = 3
 
     	Match any
 
     """
 
-    MATCH_NONE = 0
+    match_none = 0
 
-    MATCH_ALL = 1
+    match_all = 1
 
-    MATCH_ANY_OLD = 2
+    match_any_old = 2
 
-    MATCH_ANY = 3
+    match_any = 3
 
 
     @staticmethod
@@ -408,37 +408,37 @@ class BagAclNhAtStatusEnum(Enum):
 
     Bag acl nh at status
 
-    .. data:: UNKNOWN = 0
+    .. data:: unknown = 0
 
     	AT State Unknown
 
-    .. data:: UP = 1
+    .. data:: up = 1
 
     	AT State UP
 
-    .. data:: DOWN = 2
+    .. data:: down = 2
 
     	AT State DOWN
 
-    .. data:: NOT_PRESENT = 3
+    .. data:: not_present = 3
 
     	AT State Not Present
 
-    .. data:: MAX = 4
+    .. data:: max = 4
 
     	invalid status
 
     """
 
-    UNKNOWN = 0
+    unknown = 0
 
-    UP = 1
+    up = 1
 
-    DOWN = 2
+    down = 2
 
-    NOT_PRESENT = 3
+    not_present = 3
 
-    MAX = 4
+    max = 4
 
 
     @staticmethod
@@ -453,25 +453,25 @@ class BagAclNhEnum(Enum):
 
     Bag acl nh
 
-    .. data:: NEXTHOP_NONE = 0
+    .. data:: nexthop_none = 0
 
     	Next Hop None
 
-    .. data:: NEXTHOP_DEFAULT = 1
+    .. data:: nexthop_default = 1
 
     	Nexthop Default
 
-    .. data:: NEXTHOP = 2
+    .. data:: nexthop = 2
 
     	Nexthop
 
     """
 
-    NEXTHOP_NONE = 0
+    nexthop_none = 0
 
-    NEXTHOP_DEFAULT = 1
+    nexthop_default = 1
 
-    NEXTHOP = 2
+    nexthop = 2
 
 
     @staticmethod
@@ -486,37 +486,37 @@ class BagAclNhStatusEnum(Enum):
 
     Bag acl nh status
 
-    .. data:: NOT_PRESENT = 0
+    .. data:: not_present = 0
 
     	State Not Present
 
-    .. data:: UNKNOWN = 1
+    .. data:: unknown = 1
 
     	State Unknown
 
-    .. data:: DOWN = 2
+    .. data:: down = 2
 
     	State DOWN
 
-    .. data:: UP = 3
+    .. data:: up = 3
 
     	State UP
 
-    .. data:: MAX = 4
+    .. data:: max = 4
 
     	invalid status
 
     """
 
-    NOT_PRESENT = 0
+    not_present = 0
 
-    UNKNOWN = 1
+    unknown = 1
 
-    DOWN = 2
+    down = 2
 
-    UP = 3
+    up = 3
 
-    MAX = 4
+    max = 4
 
 
     @staticmethod
@@ -533,12 +533,12 @@ class Ipv4AclAndPrefixList(object):
     .. attribute:: access_list_manager
     
     	Access list manager containing access lists and prefix lists
-    	**type**\:  :py:class:`AccessListManager <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager>`
+    	**type**\:   :py:class:`AccessListManager <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager>`
     
     .. attribute:: oor
     
     	Out Of Resources, Limits to the resources allocatable
-    	**type**\:  :py:class:`Oor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor>`
+    	**type**\:   :py:class:`Oor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor>`
     
     
 
@@ -562,17 +562,17 @@ class Ipv4AclAndPrefixList(object):
         .. attribute:: accesses
         
         	Access listL class displaying Usage and Entries
-        	**type**\:  :py:class:`Accesses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses>`
+        	**type**\:   :py:class:`Accesses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses>`
         
         .. attribute:: prefixes
         
         	Table of prefix lists
-        	**type**\:  :py:class:`Prefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Prefixes>`
+        	**type**\:   :py:class:`Prefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Prefixes>`
         
         .. attribute:: usages
         
         	Table of Usage statistics of access lists at different nodes
-        	**type**\:  :py:class:`Usages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Usages>`
+        	**type**\:   :py:class:`Usages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Usages>`
         
         
 
@@ -598,7 +598,7 @@ class Ipv4AclAndPrefixList(object):
             .. attribute:: prefix
             
             	Name of the prefix list
-            	**type**\: list of  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Prefixes.Prefix>`
+            	**type**\: list of    :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Prefixes.Prefix>`
             
             
 
@@ -626,7 +626,7 @@ class Ipv4AclAndPrefixList(object):
                 .. attribute:: prefix_list_sequences
                 
                 	Table of all the SequenceNumbers per prefix list
-                	**type**\:  :py:class:`PrefixListSequences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences>`
+                	**type**\:   :py:class:`PrefixListSequences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences>`
                 
                 
 
@@ -650,7 +650,7 @@ class Ipv4AclAndPrefixList(object):
                     .. attribute:: prefix_list_sequence
                     
                     	Sequence Number of a prefix list entry
-                    	**type**\: list of  :py:class:`PrefixListSequence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence>`
+                    	**type**\: list of    :py:class:`PrefixListSequence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence>`
                     
                     
 
@@ -685,7 +685,7 @@ class Ipv4AclAndPrefixList(object):
                         .. attribute:: grant
                         
                         	Grant value permit/deny 
-                        	**type**\:  :py:class:`AclActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclActionEnum>`
+                        	**type**\:   :py:class:`AclActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclActionEnum>`
                         
                         .. attribute:: hits
                         
@@ -697,7 +697,7 @@ class Ipv4AclAndPrefixList(object):
                         .. attribute:: item_type
                         
                         	ACE type (prefix, remark)
-                        	**type**\:  :py:class:`AclAce1Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclAce1Enum>`
+                        	**type**\:   :py:class:`AclAce1Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclAce1Enum>`
                         
                         .. attribute:: maximum_length
                         
@@ -713,10 +713,10 @@ class Ipv4AclAndPrefixList(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Port Operator
-                        	**type**\:  :py:class:`AclPortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
+                        	**type**\:   :py:class:`AclPortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
                         
                         .. attribute:: prefix
                         
@@ -760,7 +760,7 @@ class Ipv4AclAndPrefixList(object):
                             self.item_type = None
                             self.maximum_length = None
                             self.minimum_length = None
-                            self.operator_ = None
+                            self.operator = None
                             self.prefix = None
                             self.prefix_length = None
                             self.remark = None
@@ -803,7 +803,7 @@ class Ipv4AclAndPrefixList(object):
                             if self.minimum_length is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.prefix is not None:
@@ -910,7 +910,7 @@ class Ipv4AclAndPrefixList(object):
             .. attribute:: access
             
             	Name of the Access List
-            	**type**\: list of  :py:class:`Access <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access>`
+            	**type**\: list of    :py:class:`Access <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access>`
             
             
 
@@ -938,7 +938,7 @@ class Ipv4AclAndPrefixList(object):
                 .. attribute:: access_list_sequences
                 
                 	Table of all the SequenceNumbers per access list
-                	**type**\:  :py:class:`AccessListSequences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences>`
+                	**type**\:   :py:class:`AccessListSequences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences>`
                 
                 
 
@@ -962,7 +962,7 @@ class Ipv4AclAndPrefixList(object):
                     .. attribute:: access_list_sequence
                     
                     	Sequence Number of an access list entry
-                    	**type**\: list of  :py:class:`AccessListSequence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence>`
+                    	**type**\: list of    :py:class:`AccessListSequence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence>`
                     
                     
 
@@ -1021,7 +1021,7 @@ class Ipv4AclAndPrefixList(object):
                         .. attribute:: destination_operator
                         
                         	Destination operator
-                        	**type**\:  :py:class:`AclPortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
+                        	**type**\:   :py:class:`AclPortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
                         
                         .. attribute:: destination_port1
                         
@@ -1088,7 +1088,7 @@ class Ipv4AclAndPrefixList(object):
                         .. attribute:: grant
                         
                         	Permit/deny
-                        	**type**\:  :py:class:`AclActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclActionEnum>`
+                        	**type**\:   :py:class:`AclActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclActionEnum>`
                         
                         .. attribute:: hits
                         
@@ -1100,7 +1100,7 @@ class Ipv4AclAndPrefixList(object):
                         .. attribute:: hw_next_hop_info
                         
                         	HW Next hop info
-                        	**type**\:  :py:class:`HwNextHopInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo>`
+                        	**type**\:   :py:class:`HwNextHopInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo>`
                         
                         .. attribute:: is_icmp_off
                         
@@ -1110,22 +1110,22 @@ class Ipv4AclAndPrefixList(object):
                         .. attribute:: item_type
                         
                         	ACE type (acl, remark)
-                        	**type**\:  :py:class:`AclAce1Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclAce1Enum>`
+                        	**type**\:   :py:class:`AclAce1Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclAce1Enum>`
                         
                         .. attribute:: log_option
                         
                         	Log option
-                        	**type**\:  :py:class:`AclLogEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclLogEnum>`
+                        	**type**\:   :py:class:`AclLogEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclLogEnum>`
                         
                         .. attribute:: next_hop_info
                         
                         	Next hop info
-                        	**type**\: list of  :py:class:`NextHopInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo>`
+                        	**type**\: list of    :py:class:`NextHopInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo>`
                         
                         .. attribute:: next_hop_type
                         
                         	Next hop type
-                        	**type**\:  :py:class:`BagAclNhEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.BagAclNhEnum>`
+                        	**type**\:   :py:class:`BagAclNhEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.BagAclNhEnum>`
                         
                         .. attribute:: no_stats
                         
@@ -1149,7 +1149,7 @@ class Ipv4AclAndPrefixList(object):
                         .. attribute:: port_length_operator
                         
                         	Port length operator
-                        	**type**\:  :py:class:`AclPortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
+                        	**type**\:   :py:class:`AclPortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
                         
                         .. attribute:: precedence
                         
@@ -1190,7 +1190,7 @@ class Ipv4AclAndPrefixList(object):
                         .. attribute:: sorce_operator
                         
                         	Deprecated by Source operator
-                        	**type**\:  :py:class:`AclPortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
+                        	**type**\:   :py:class:`AclPortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
                         
                         .. attribute:: sorce_port1
                         
@@ -1223,7 +1223,7 @@ class Ipv4AclAndPrefixList(object):
                         .. attribute:: source_operator
                         
                         	Source operator
-                        	**type**\:  :py:class:`AclPortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
+                        	**type**\:   :py:class:`AclPortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
                         
                         .. attribute:: source_port1
                         
@@ -1266,7 +1266,7 @@ class Ipv4AclAndPrefixList(object):
                         .. attribute:: tcp_flags_operator
                         
                         	TCP flags operator
-                        	**type**\:  :py:class:`AclTcpflagsOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclTcpflagsOperatorEnum>`
+                        	**type**\:   :py:class:`AclTcpflagsOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclTcpflagsOperatorEnum>`
                         
                         .. attribute:: ttl1
                         
@@ -1285,7 +1285,7 @@ class Ipv4AclAndPrefixList(object):
                         .. attribute:: ttl_operator
                         
                         	TTL operator
-                        	**type**\:  :py:class:`AclPortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
+                        	**type**\:   :py:class:`AclPortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
                         
                         
 
@@ -1366,7 +1366,7 @@ class Ipv4AclAndPrefixList(object):
                             .. attribute:: type
                             
                             	the next\-hop type
-                            	**type**\:  :py:class:`BagAclNhEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.BagAclNhEnum>`
+                            	**type**\:   :py:class:`BagAclNhEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.BagAclNhEnum>`
                             
                             .. attribute:: vrf_name
                             
@@ -1426,7 +1426,7 @@ class Ipv4AclAndPrefixList(object):
                             .. attribute:: at_status
                             
                             	The next hop at status
-                            	**type**\:  :py:class:`BagAclNhAtStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.BagAclNhAtStatusEnum>`
+                            	**type**\:   :py:class:`BagAclNhAtStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.BagAclNhAtStatusEnum>`
                             
                             .. attribute:: is_acl_next_hop_exist
                             
@@ -1443,7 +1443,7 @@ class Ipv4AclAndPrefixList(object):
                             .. attribute:: status
                             
                             	The next hop status
-                            	**type**\:  :py:class:`BagAclNhStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.BagAclNhStatusEnum>`
+                            	**type**\:   :py:class:`BagAclNhStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.BagAclNhStatusEnum>`
                             
                             .. attribute:: track_name
                             
@@ -1765,7 +1765,7 @@ class Ipv4AclAndPrefixList(object):
             .. attribute:: usage
             
             	Usage statistics of an access list at a node
-            	**type**\: list of  :py:class:`Usage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Usages.Usage>`
+            	**type**\: list of    :py:class:`Usage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Usages.Usage>`
             
             
 
@@ -1793,7 +1793,7 @@ class Ipv4AclAndPrefixList(object):
                 .. attribute:: application_id
                 
                 	Application ID
-                	**type**\:  :py:class:`AclUsageAppIdEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_common_acl_datatypes.AclUsageAppIdEnumEnum>`
+                	**type**\:   :py:class:`AclUsageAppIdEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_common_acl_datatypes.AclUsageAppIdEnumEnum>`
                 
                 .. attribute:: node_name
                 
@@ -1915,27 +1915,27 @@ class Ipv4AclAndPrefixList(object):
         .. attribute:: access_list_summary
         
         	Resource limits pertaining to access lists only
-        	**type**\:  :py:class:`AccessListSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.AccessListSummary>`
+        	**type**\:   :py:class:`AccessListSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.AccessListSummary>`
         
         .. attribute:: details
         
         	Details of the Overall Out Of Resources Limits
-        	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.Details>`
+        	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.Details>`
         
         .. attribute:: oor_accesses
         
         	Resource occupation details for access lists
-        	**type**\:  :py:class:`OorAccesses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.OorAccesses>`
+        	**type**\:   :py:class:`OorAccesses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.OorAccesses>`
         
         .. attribute:: oor_prefixes
         
         	Resource occupation details for prefix lists
-        	**type**\:  :py:class:`OorPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.OorPrefixes>`
+        	**type**\:   :py:class:`OorPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.OorPrefixes>`
         
         .. attribute:: prefix_list_summary
         
         	Summary of the prefix Lists resource utilization
-        	**type**\:  :py:class:`PrefixListSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.PrefixListSummary>`
+        	**type**\:   :py:class:`PrefixListSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.PrefixListSummary>`
         
         
 
@@ -2087,7 +2087,7 @@ class Ipv4AclAndPrefixList(object):
             .. attribute:: oor_prefix
             
             	Resource occupation details for a particular prefix list
-            	**type**\: list of  :py:class:`OorPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.OorPrefixes.OorPrefix>`
+            	**type**\: list of    :py:class:`OorPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.OorPrefixes.OorPrefix>`
             
             
 
@@ -2268,7 +2268,7 @@ class Ipv4AclAndPrefixList(object):
             .. attribute:: oor_access
             
             	Resource occupation details for a particular access list
-            	**type**\: list of  :py:class:`OorAccess <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.OorAccesses.OorAccess>`
+            	**type**\: list of    :py:class:`OorAccess <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.OorAccesses.OorAccess>`
             
             
 
@@ -2449,7 +2449,7 @@ class Ipv4AclAndPrefixList(object):
             .. attribute:: details
             
             	Details containing the resource limits of the access lists
-            	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.AccessListSummary.Details>`
+            	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.AccessListSummary.Details>`
             
             
 
@@ -2617,7 +2617,7 @@ class Ipv4AclAndPrefixList(object):
             .. attribute:: details
             
             	Summary Detail of the prefix list Resource Utilisation
-            	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.PrefixListSummary.Details>`
+            	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.PrefixListSummary.Details>`
             
             
 

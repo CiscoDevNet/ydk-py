@@ -16,31 +16,25 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'ClientDataRateEnum' : _MetaInfoEnum('ClientDataRateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg',
         {
-            'ten-gig':'TEN_GIG',
-            'forty-gig':'FORTY_GIG',
-            'hundred-gig':'HUNDRED_GIG',
+            'ten-gig':'ten_gig',
+            'forty-gig':'forty_gig',
+            'hundred-gig':'hundred_gig',
         }, 'Cisco-IOS-XR-ncs1k-mxp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ncs1k-mxp-cfg']),
     'TrunkDataRateEnum' : _MetaInfoEnum('TrunkDataRateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg',
         {
-            'hundred-gig':'HUNDRED_GIG',
-            'two-hundred-gig':'TWO_HUNDRED_GIG',
-            'two-hundred-fifty-gig':'TWO_HUNDRED_FIFTY_GIG',
+            'hundred-gig':'hundred_gig',
+            'two-hundred-gig':'two_hundred_gig',
+            'two-hundred-fifty-gig':'two_hundred_fifty_gig',
         }, 'Cisco-IOS-XR-ncs1k-mxp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ncs1k-mxp-cfg']),
     'FecEnum' : _MetaInfoEnum('FecEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg',
         {
-            'sd7':'SD7',
-            'sd20':'SD20',
+            'sd7':'sd7',
+            'sd20':'sd20',
         }, 'Cisco-IOS-XR-ncs1k-mxp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ncs1k-mxp-cfg']),
-    'HardwareModule.Node.Values.Value' : {
-        'meta_info' : _MetaInfoClass('HardwareModule.Node.Values.Value',
+    'HardwareModule.Node.Slice.Values' : {
+        'meta_info' : _MetaInfoClass('HardwareModule.Node.Slice.Values',
             False, 
             [
-            _MetaInfoClassMember('slice-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Set Slice
-                ''',
-                'slice_id',
-                'Cisco-IOS-XR-ncs1k-mxp-cfg', True),
             _MetaInfoClassMember('client-rate', REFERENCE_ENUM_CLASS, 'ClientDataRateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg', 'ClientDataRateEnum', 
                 [], [], 
                 '''                Client Rate
@@ -67,24 +61,36 @@ _meta_table = {
                 'Cisco-IOS-XR-ncs1k-mxp-cfg', False),
             ],
             'Cisco-IOS-XR-ncs1k-mxp-cfg',
-            'value',
+            'values',
             _yang_ns._namespaces['Cisco-IOS-XR-ncs1k-mxp-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg'
         ),
     },
-    'HardwareModule.Node.Values' : {
-        'meta_info' : _MetaInfoClass('HardwareModule.Node.Values',
+    'HardwareModule.Node.Slice' : {
+        'meta_info' : _MetaInfoClass('HardwareModule.Node.Slice',
             False, 
             [
-            _MetaInfoClassMember('value', REFERENCE_LIST, 'Value' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg', 'HardwareModule.Node.Values.Value', 
+            _MetaInfoClassMember('slice-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Set Slice
+                ''',
+                'slice_id',
+                'Cisco-IOS-XR-ncs1k-mxp-cfg', True),
+            _MetaInfoClassMember('lldp', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Drop LLDP Packets
+                ''',
+                'lldp',
+                'Cisco-IOS-XR-ncs1k-mxp-cfg', False),
+            _MetaInfoClassMember('values', REFERENCE_CLASS, 'Values' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg', 'HardwareModule.Node.Slice.Values', 
                 [], [], 
                 '''                Data rates & FEC
                 ''',
-                'value',
+                'values',
                 'Cisco-IOS-XR-ncs1k-mxp-cfg', False),
             ],
             'Cisco-IOS-XR-ncs1k-mxp-cfg',
-            'values',
+            'slice',
             _yang_ns._namespaces['Cisco-IOS-XR-ncs1k-mxp-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg'
         ),
@@ -99,11 +105,11 @@ _meta_table = {
                 ''',
                 'location',
                 'Cisco-IOS-XR-ncs1k-mxp-cfg', True),
-            _MetaInfoClassMember('values', REFERENCE_CLASS, 'Values' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg', 'HardwareModule.Node.Values', 
+            _MetaInfoClassMember('slice', REFERENCE_LIST, 'Slice' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg', 'HardwareModule.Node.Slice', 
                 [], [], 
                 '''                Slice to be Provisioned
                 ''',
-                'values',
+                'slice',
                 'Cisco-IOS-XR-ncs1k-mxp-cfg', False),
             ],
             'Cisco-IOS-XR-ncs1k-mxp-cfg',
@@ -130,6 +136,6 @@ _meta_table = {
         ),
     },
 }
-_meta_table['HardwareModule.Node.Values.Value']['meta_info'].parent =_meta_table['HardwareModule.Node.Values']['meta_info']
-_meta_table['HardwareModule.Node.Values']['meta_info'].parent =_meta_table['HardwareModule.Node']['meta_info']
+_meta_table['HardwareModule.Node.Slice.Values']['meta_info'].parent =_meta_table['HardwareModule.Node.Slice']['meta_info']
+_meta_table['HardwareModule.Node.Slice']['meta_info'].parent =_meta_table['HardwareModule.Node']['meta_info']
 _meta_table['HardwareModule.Node']['meta_info'].parent =_meta_table['HardwareModule']['meta_info']

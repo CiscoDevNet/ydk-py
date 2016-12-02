@@ -37,19 +37,19 @@ class BackupDisableEnum(Enum):
 
     Backup disable
 
-    .. data:: NEVER = 0
+    .. data:: never = 0
 
     	Never
 
-    .. data:: DELAY = 1
+    .. data:: delay = 1
 
     	Delay seconds
 
     """
 
-    NEVER = 0
+    never = 0
 
-    DELAY = 1
+    delay = 1
 
 
     @staticmethod
@@ -64,31 +64,31 @@ class BgpRouteDistinguisherEnum(Enum):
 
     Bgp route distinguisher
 
-    .. data:: AUTO = 1
+    .. data:: auto = 1
 
     	RD automatically assigned
 
-    .. data:: TWO_BYTE_AS = 2
+    .. data:: two_byte_as = 2
 
     	RD in 2 byte AS:nn format
 
-    .. data:: FOUR_BYTE_AS = 3
+    .. data:: four_byte_as = 3
 
     	RD in 4 byte AS:nn format
 
-    .. data:: IPV4_ADDRESS = 4
+    .. data:: ipv4_address = 4
 
     	RD in IpV4address
 
     """
 
-    AUTO = 1
+    auto = 1
 
-    TWO_BYTE_AS = 2
+    two_byte_as = 2
 
-    FOUR_BYTE_AS = 3
+    four_byte_as = 3
 
-    IPV4_ADDRESS = 4
+    ipv4_address = 4
 
 
     @staticmethod
@@ -103,19 +103,19 @@ class BgpRouteTargetEnum(Enum):
 
     Bgp route target
 
-    .. data:: NO_STITCHING = 0
+    .. data:: no_stitching = 0
 
     	RT is default type
 
-    .. data:: STITCHING = 1
+    .. data:: stitching = 1
 
     	RT is for stitching (Golf-L2)
 
     """
 
-    NO_STITCHING = 0
+    no_stitching = 0
 
-    STITCHING = 1
+    stitching = 1
 
 
     @staticmethod
@@ -130,31 +130,31 @@ class BgpRouteTargetFormatEnum(Enum):
 
     Bgp route target format
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	No route target
 
-    .. data:: TWO_BYTE_AS = 1
+    .. data:: two_byte_as = 1
 
     	2 Byte AS:nn format
 
-    .. data:: FOUR_BYTE_AS = 2
+    .. data:: four_byte_as = 2
 
     	4 byte AS:nn format
 
-    .. data:: IPV4_ADDRESS = 3
+    .. data:: ipv4_address = 3
 
     	IP:nn format
 
     """
 
-    NONE = 0
+    none = 0
 
-    TWO_BYTE_AS = 1
+    two_byte_as = 1
 
-    FOUR_BYTE_AS = 2
+    four_byte_as = 2
 
-    IPV4_ADDRESS = 3
+    ipv4_address = 3
 
 
     @staticmethod
@@ -169,25 +169,25 @@ class BgpRouteTargetRoleEnum(Enum):
 
     Bgp route target role
 
-    .. data:: BOTH = 0
+    .. data:: both = 0
 
     	Both Import and export roles
 
-    .. data:: IMPORT = 1
+    .. data:: import_ = 1
 
     	Import role
 
-    .. data:: EXPORT = 2
+    .. data:: export = 2
 
     	Export role
 
     """
 
-    BOTH = 0
+    both = 0
 
-    IMPORT = 1
+    import_ = 1
 
-    EXPORT = 2
+    export = 2
 
 
     @staticmethod
@@ -202,13 +202,13 @@ class BridgeDomainTransportModeEnum(Enum):
 
     Bridge domain transport mode
 
-    .. data:: VLAN_PASSTHROUGH = 3
+    .. data:: vlan_passthrough = 3
 
     	Vlan tagged passthrough mode
 
     """
 
-    VLAN_PASSTHROUGH = 3
+    vlan_passthrough = 3
 
 
     @staticmethod
@@ -223,19 +223,19 @@ class ControlWordEnum(Enum):
 
     Control word
 
-    .. data:: ENABLE = 1
+    .. data:: enable = 1
 
     	Enable control word
 
-    .. data:: DISABLE = 2
+    .. data:: disable = 2
 
     	Disable control word
 
     """
 
-    ENABLE = 1
+    enable = 1
 
-    DISABLE = 2
+    disable = 2
 
 
     @staticmethod
@@ -250,19 +250,19 @@ class ErpPort1Enum(Enum):
 
     Erp port1
 
-    .. data:: PORT0 = 0
+    .. data:: port0 = 0
 
     	ERP main port 0
 
-    .. data:: PORT1 = 1
+    .. data:: port1 = 1
 
     	ERP main port 1
 
     """
 
-    PORT0 = 0
+    port0 = 0
 
-    PORT1 = 1
+    port1 = 1
 
 
     @staticmethod
@@ -277,25 +277,25 @@ class ErpPortEnum(Enum):
 
     Erp port
 
-    .. data:: NONE = 1
+    .. data:: none = 1
 
     	ERP port type none
 
-    .. data:: VIRTUAL = 2
+    .. data:: virtual = 2
 
     	ERP port type virtual
 
-    .. data:: INTERFACE = 3
+    .. data:: interface = 3
 
     	ERP port type interface
 
     """
 
-    NONE = 1
+    none = 1
 
-    VIRTUAL = 2
+    virtual = 2
 
-    INTERFACE = 3
+    interface = 3
 
 
     @staticmethod
@@ -310,31 +310,31 @@ class ErpapsEnum(Enum):
 
     Erpaps
 
-    .. data:: INTERFACE = 1
+    .. data:: interface = 1
 
     	ERP APS type interface
 
-    .. data:: BRIDGE_DOMAIN = 2
+    .. data:: bridge_domain = 2
 
     	ERP APS type bridge domain
 
-    .. data:: XCONNECT = 3
+    .. data:: xconnect = 3
 
     	ERP APS type xconnect
 
-    .. data:: NONE = 4
+    .. data:: none = 4
 
     	ERP APS type none
 
     """
 
-    INTERFACE = 1
+    interface = 1
 
-    BRIDGE_DOMAIN = 2
+    bridge_domain = 2
 
-    XCONNECT = 3
+    xconnect = 3
 
-    NONE = 4
+    none = 4
 
 
     @staticmethod
@@ -349,19 +349,19 @@ class FlowLabelLoadBalanceEnum(Enum):
 
     Flow label load balance
 
-    .. data:: OFF = 0
+    .. data:: off = 0
 
     	Flow Label load balance is off
 
-    .. data:: RECEIVE = 1
+    .. data:: receive = 1
 
     	Delete Flow Label on receive side
 
-    .. data:: TRANSMIT = 2
+    .. data:: transmit = 2
 
     	Insert Flow Label on transmit side
 
-    .. data:: BOTH = 3
+    .. data:: both = 3
 
     	Insert/Delete  Flow Label on transmit/receive
 
@@ -369,13 +369,13 @@ class FlowLabelLoadBalanceEnum(Enum):
 
     """
 
-    OFF = 0
+    off = 0
 
-    RECEIVE = 1
+    receive = 1
 
-    TRANSMIT = 2
+    transmit = 2
 
-    BOTH = 3
+    both = 3
 
 
     @staticmethod
@@ -394,7 +394,7 @@ class FlowLabelTlvCodeEnum(Enum):
 
     	Set Flow Label Legacy TLV code (DEPRECATED)
 
-    .. data:: DISABLE = 8
+    .. data:: disable = 8
 
     	Disable Sending Flow Label Legacy TLV
 
@@ -402,7 +402,7 @@ class FlowLabelTlvCodeEnum(Enum):
 
     Y_17 = 4
 
-    DISABLE = 8
+    disable = 8
 
 
     @staticmethod
@@ -417,19 +417,19 @@ class InterfaceProfileEnum(Enum):
 
     Interface profile
 
-    .. data:: SNOOP = 1
+    .. data:: snoop = 1
 
     	Set the snooping
 
-    .. data:: DHCP_PROTOCOL = 2
+    .. data:: dhcp_protocol = 2
 
     	disable DHCP protocol
 
     """
 
-    SNOOP = 1
+    snoop = 1
 
-    DHCP_PROTOCOL = 2
+    dhcp_protocol = 2
 
 
     @staticmethod
@@ -444,25 +444,25 @@ class InterfaceTrafficFloodEnum(Enum):
 
     Interface traffic flood
 
-    .. data:: TRAFFIC_FLOODING = 0
+    .. data:: traffic_flooding = 0
 
     	Traffic flooding
 
-    .. data:: ENABLE_FLOODING = 1
+    .. data:: enable_flooding = 1
 
     	Enable Flooding
 
-    .. data:: DISABLE_FLOODING = 2
+    .. data:: disable_flooding = 2
 
     	Disable flooding
 
     """
 
-    TRAFFIC_FLOODING = 0
+    traffic_flooding = 0
 
-    ENABLE_FLOODING = 1
+    enable_flooding = 1
 
-    DISABLE_FLOODING = 2
+    disable_flooding = 2
 
 
     @staticmethod
@@ -477,19 +477,19 @@ class InterworkingEnum(Enum):
 
     Interworking
 
-    .. data:: ETHERNET = 1
+    .. data:: ethernet = 1
 
     	Ethernet interworking
 
-    .. data:: IPV4 = 3
+    .. data:: ipv4 = 3
 
     	IPv4 interworking
 
     """
 
-    ETHERNET = 1
+    ethernet = 1
 
-    IPV4 = 3
+    ipv4 = 3
 
 
     @staticmethod
@@ -504,19 +504,19 @@ class L2EncapsulationEnum(Enum):
 
     L2 encapsulation
 
-    .. data:: VLAN = 4
+    .. data:: vlan = 4
 
     	Vlan tagged mode
 
-    .. data:: ETHERNET = 5
+    .. data:: ethernet = 5
 
     	Ethernet port mode
 
     """
 
-    VLAN = 4
+    vlan = 4
 
-    ETHERNET = 5
+    ethernet = 5
 
 
     @staticmethod
@@ -531,25 +531,25 @@ class L2TpCookieSizeEnum(Enum):
 
     L2tp cookie size
 
-    .. data:: ZERO = 0
+    .. data:: zero = 0
 
     	Cookie size is zero bytes
 
-    .. data:: FOUR = 4
+    .. data:: four = 4
 
     	Cookie size is four bytes
 
-    .. data:: EIGHT = 8
+    .. data:: eight = 8
 
     	Cookie size is eight bytes
 
     """
 
-    ZERO = 0
+    zero = 0
 
-    FOUR = 4
+    four = 4
 
-    EIGHT = 8
+    eight = 8
 
 
     @staticmethod
@@ -564,19 +564,19 @@ class L2TpSignalingProtocolEnum(Enum):
 
     L2tp signaling protocol
 
-    .. data:: NONE = 1
+    .. data:: none = 1
 
     	No signaling
 
-    .. data:: L2TPV3 = 2
+    .. data:: l2tpv3 = 2
 
     	L2TPv3
 
     """
 
-    NONE = 1
+    none = 1
 
-    L2TPV3 = 2
+    l2tpv3 = 2
 
 
     @staticmethod
@@ -591,19 +591,19 @@ class L2Tpv3SequencingEnum(Enum):
 
     L2tpv3 sequencing
 
-    .. data:: OFF = 0
+    .. data:: off = 0
 
     	Sequencing is off
 
-    .. data:: BOTH = 4
+    .. data:: both = 4
 
     	Sequencing on both transmit and receive side
 
     """
 
-    OFF = 0
+    off = 0
 
-    BOTH = 4
+    both = 4
 
 
     @staticmethod
@@ -618,21 +618,21 @@ class L2VpnCapabilityModeEnum(Enum):
 
     L2vpn capability mode
 
-    .. data:: HIGH_MODE = 1
+    .. data:: high_mode = 1
 
     	Compute global capability as the highest node
 
     	capability
 
-    .. data:: SINGLE_MODE = 2
+    .. data:: single_mode = 2
 
     	Disable global capability re-computation
 
     """
 
-    HIGH_MODE = 1
+    high_mode = 1
 
-    SINGLE_MODE = 2
+    single_mode = 2
 
 
     @staticmethod
@@ -647,19 +647,19 @@ class L2VpnLoggingEnum(Enum):
 
     L2vpn logging
 
-    .. data:: ENABLE = 1
+    .. data:: enable = 1
 
     	enable logging
 
-    .. data:: DISABLE = 2
+    .. data:: disable = 2
 
     	disable logging
 
     """
 
-    ENABLE = 1
+    enable = 1
 
-    DISABLE = 2
+    disable = 2
 
 
     @staticmethod
@@ -674,19 +674,19 @@ class L2VpnVerificationEnum(Enum):
 
     L2vpn verification
 
-    .. data:: ENABLE = 1
+    .. data:: enable = 1
 
     	enable verification
 
-    .. data:: DISABLE = 2
+    .. data:: disable = 2
 
     	disable verification
 
     """
 
-    ENABLE = 1
+    enable = 1
 
-    DISABLE = 2
+    disable = 2
 
 
     @staticmethod
@@ -701,19 +701,19 @@ class LdpVplsIdEnum(Enum):
 
     Ldp vpls id
 
-    .. data:: TWO_BYTE_AS = 10
+    .. data:: two_byte_as = 10
 
     	VPLS-ID in 2 byte AS:nn format
 
-    .. data:: IPV4_ADDRESS = 266
+    .. data:: ipv4_address = 266
 
     	VPLS-ID in IPv4 IP:nn format
 
     """
 
-    TWO_BYTE_AS = 10
+    two_byte_as = 10
 
-    IPV4_ADDRESS = 266
+    ipv4_address = 266
 
 
     @staticmethod
@@ -728,25 +728,25 @@ class LoadBalanceEnum(Enum):
 
     Load balance
 
-    .. data:: SOURCE_DEST_MAC = 1
+    .. data:: source_dest_mac = 1
 
     	Source and Destination MAC hashing
 
-    .. data:: SOURCE_DEST_IP = 2
+    .. data:: source_dest_ip = 2
 
     	Source and Destination IP hashing
 
-    .. data:: PSEUDOWIRE_LABEL = 4
+    .. data:: pseudowire_label = 4
 
     	PW Label hashing
 
     """
 
-    SOURCE_DEST_MAC = 1
+    source_dest_mac = 1
 
-    SOURCE_DEST_IP = 2
+    source_dest_ip = 2
 
-    PSEUDOWIRE_LABEL = 4
+    pseudowire_label = 4
 
 
     @staticmethod
@@ -761,19 +761,19 @@ class MacAgingEnum(Enum):
 
     Mac aging
 
-    .. data:: ABSOLUTE = 1
+    .. data:: absolute = 1
 
     	Absolute aging type
 
-    .. data:: INACTIVITY = 2
+    .. data:: inactivity = 2
 
     	Inactivity aging type
 
     """
 
-    ABSOLUTE = 1
+    absolute = 1
 
-    INACTIVITY = 2
+    inactivity = 2
 
 
     @staticmethod
@@ -788,25 +788,25 @@ class MacLearnEnum(Enum):
 
     Mac learn
 
-    .. data:: DEFAULT_LEARNING = 0
+    .. data:: default_learning = 0
 
     	Mac Learning
 
-    .. data:: ENABLE_LEARNING = 1
+    .. data:: enable_learning = 1
 
     	Enable Learning
 
-    .. data:: DISABLE_LEARNING = 2
+    .. data:: disable_learning = 2
 
     	Disable Learning
 
     """
 
-    DEFAULT_LEARNING = 0
+    default_learning = 0
 
-    ENABLE_LEARNING = 1
+    enable_learning = 1
 
-    DISABLE_LEARNING = 2
+    disable_learning = 2
 
 
     @staticmethod
@@ -821,31 +821,31 @@ class MacLimitActionEnum(Enum):
 
     Mac limit action
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	No action
 
-    .. data:: FLOOD = 1
+    .. data:: flood = 1
 
     	Flood Mac Limit Action
 
-    .. data:: NO_FLOOD = 2
+    .. data:: no_flood = 2
 
     	NoFlood Mac Limit Action
 
-    .. data:: SHUTDOWN = 3
+    .. data:: shutdown = 3
 
     	Shutdown Mac Limit Action
 
     """
 
-    NONE = 0
+    none = 0
 
-    FLOOD = 1
+    flood = 1
 
-    NO_FLOOD = 2
+    no_flood = 2
 
-    SHUTDOWN = 3
+    shutdown = 3
 
 
     @staticmethod
@@ -860,31 +860,31 @@ class MacNotificationEnum(Enum):
 
     Mac notification
 
-    .. data:: NO_NOTIF = 0
+    .. data:: no_notif = 0
 
     	No_Notification Trap
 
-    .. data:: SYSLOG = 1
+    .. data:: syslog = 1
 
     	syslog message
 
-    .. data:: TRAP = 2
+    .. data:: trap = 2
 
     	Snmp Trap
 
-    .. data:: SYSLOG_SNMP = 3
+    .. data:: syslog_snmp = 3
 
     	Syslog_snmp Trap
 
     """
 
-    NO_NOTIF = 0
+    no_notif = 0
 
-    SYSLOG = 1
+    syslog = 1
 
-    TRAP = 2
+    trap = 2
 
-    SYSLOG_SNMP = 3
+    syslog_snmp = 3
 
 
     @staticmethod
@@ -899,25 +899,25 @@ class MacSecureActionEnum(Enum):
 
     Mac secure action
 
-    .. data:: RESTRICT = 1
+    .. data:: restrict = 1
 
     	MAC Secure Action Restrict
 
-    .. data:: NONE = 2
+    .. data:: none = 2
 
     	No Action
 
-    .. data:: SHUTDOWN = 3
+    .. data:: shutdown = 3
 
     	MAC Secure Action Shutdown
 
     """
 
-    RESTRICT = 1
+    restrict = 1
 
-    NONE = 2
+    none = 2
 
-    SHUTDOWN = 3
+    shutdown = 3
 
 
     @staticmethod
@@ -932,19 +932,19 @@ class MacWithdrawBehaviorEnum(Enum):
 
     Mac withdraw behavior
 
-    .. data:: LEGACY = 1
+    .. data:: legacy = 1
 
     	MAC Withdrawal sent on state-down (legacy)
 
-    .. data:: OPTIMIZED = 2
+    .. data:: optimized = 2
 
     	Optimized MAC Withdrawal
 
     """
 
-    LEGACY = 1
+    legacy = 1
 
-    OPTIMIZED = 2
+    optimized = 2
 
 
     @staticmethod
@@ -959,31 +959,31 @@ class MplsSequencingEnum(Enum):
 
     Mpls sequencing
 
-    .. data:: OFF = 0
+    .. data:: off = 0
 
     	Sequencing is off
 
-    .. data:: TRANSMIT = 1
+    .. data:: transmit = 1
 
     	Sequencing on transmit side
 
-    .. data:: RECEIVE = 2
+    .. data:: receive = 2
 
     	Sequencing on receive side
 
-    .. data:: BOTH = 4
+    .. data:: both = 4
 
     	Sequencing on both transmit and receive side
 
     """
 
-    OFF = 0
+    off = 0
 
-    TRANSMIT = 1
+    transmit = 1
 
-    RECEIVE = 2
+    receive = 2
 
-    BOTH = 4
+    both = 4
 
 
     @staticmethod
@@ -998,19 +998,19 @@ class MplsSignalingProtocolEnum(Enum):
 
     Mpls signaling protocol
 
-    .. data:: NONE = 1
+    .. data:: none = 1
 
     	No signaling
 
-    .. data:: LDP = 4
+    .. data:: ldp = 4
 
     	LDP
 
     """
 
-    NONE = 1
+    none = 1
 
-    LDP = 4
+    ldp = 4
 
 
     @staticmethod
@@ -1025,25 +1025,25 @@ class PortDownFlushEnum(Enum):
 
     Port down flush
 
-    .. data:: PORT_DOWN_FLUSH = 0
+    .. data:: port_down_flush = 0
 
     	MAC Port Down Flush
 
-    .. data:: ENABLE_PORT_DOWN_FLUSH = 1
+    .. data:: enable_port_down_flush = 1
 
     	Enable Port Down Flush
 
-    .. data:: DISABLE_PORT_DOWN_FLUSH = 2
+    .. data:: disable_port_down_flush = 2
 
     	Disable Port Down Flush
 
     """
 
-    PORT_DOWN_FLUSH = 0
+    port_down_flush = 0
 
-    ENABLE_PORT_DOWN_FLUSH = 1
+    enable_port_down_flush = 1
 
-    DISABLE_PORT_DOWN_FLUSH = 2
+    disable_port_down_flush = 2
 
 
     @staticmethod
@@ -1058,25 +1058,25 @@ class PreferredPathEnum(Enum):
 
     Preferred path
 
-    .. data:: TE_TUNNEL = 2
+    .. data:: te_tunnel = 2
 
     	TE Tunnel
 
-    .. data:: IP_TUNNEL = 3
+    .. data:: ip_tunnel = 3
 
     	IP Tunnel
 
-    .. data:: TP_TUNNEL = 4
+    .. data:: tp_tunnel = 4
 
     	TP Tunnel
 
     """
 
-    TE_TUNNEL = 2
+    te_tunnel = 2
 
-    IP_TUNNEL = 3
+    ip_tunnel = 3
 
-    TP_TUNNEL = 4
+    tp_tunnel = 4
 
 
     @staticmethod
@@ -1091,13 +1091,13 @@ class PwSwitchingPointTlvEnum(Enum):
 
     Pw switching point tlv
 
-    .. data:: HIDE = 2
+    .. data:: hide = 2
 
     	Hide TLV
 
     """
 
-    HIDE = 2
+    hide = 2
 
 
     @staticmethod
@@ -1112,25 +1112,25 @@ class RplRoleEnum(Enum):
 
     Rpl role
 
-    .. data:: OWNER = 1
+    .. data:: owner = 1
 
     	ERP RPL owner
 
-    .. data:: NEIGHBOR = 2
+    .. data:: neighbor = 2
 
     	ERP RPL neighbor
 
-    .. data:: NEXT_NEIGHBOR = 3
+    .. data:: next_neighbor = 3
 
     	ERP RPL next neighbor
 
     """
 
-    OWNER = 1
+    owner = 1
 
-    NEIGHBOR = 2
+    neighbor = 2
 
-    NEXT_NEIGHBOR = 3
+    next_neighbor = 3
 
 
     @staticmethod
@@ -1145,25 +1145,25 @@ class StormControlEnum(Enum):
 
     Storm control
 
-    .. data:: UNICAST = 1
+    .. data:: unicast = 1
 
     	Unknown-unicast Storm Control
 
-    .. data:: MULTICAST = 2
+    .. data:: multicast = 2
 
     	Multicast Storm Control
 
-    .. data:: BROADCAST = 4
+    .. data:: broadcast = 4
 
     	Broadcast Storm Control
 
     """
 
-    UNICAST = 1
+    unicast = 1
 
-    MULTICAST = 2
+    multicast = 2
 
-    BROADCAST = 4
+    broadcast = 4
 
 
     @staticmethod
@@ -1178,25 +1178,25 @@ class TransportModeEnum(Enum):
 
     Transport mode
 
-    .. data:: ETHERNET = 1
+    .. data:: ethernet = 1
 
     	Ethernet port mode
 
-    .. data:: VLAN = 2
+    .. data:: vlan = 2
 
     	Vlan tagged mode
 
-    .. data:: VLAN_PASSTHROUGH = 3
+    .. data:: vlan_passthrough = 3
 
     	Vlan tagged passthrough mode
 
     """
 
-    ETHERNET = 1
+    ethernet = 1
 
-    VLAN = 2
+    vlan = 2
 
-    VLAN_PASSTHROUGH = 3
+    vlan_passthrough = 3
 
 
     @staticmethod
@@ -1211,19 +1211,19 @@ class TypeOfServiceModeEnum(Enum):
 
     Type of service mode
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	Do not reflect the type of service
 
-    .. data:: REFLECT = 1
+    .. data:: reflect = 1
 
     	Reflect the type of service
 
     """
 
-    NONE = 0
+    none = 0
 
-    REFLECT = 1
+    reflect = 1
 
 
     @staticmethod
@@ -1238,19 +1238,19 @@ class VccvVerificationEnum(Enum):
 
     Vccv verification
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	No connectivity verification over VCCV
 
-    .. data:: LSP_PING = 2
+    .. data:: lsp_ping = 2
 
     	LSP Ping over VCCV
 
     """
 
-    NONE = 0
+    none = 0
 
-    LSP_PING = 2
+    lsp_ping = 2
 
 
     @staticmethod
@@ -1267,22 +1267,22 @@ class L2Vpn(object):
     .. attribute:: auto_discovery
     
     	Global auto\-discovery attributes
-    	**type**\:  :py:class:`AutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.AutoDiscovery>`
+    	**type**\:   :py:class:`AutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.AutoDiscovery>`
     
     .. attribute:: capability
     
     	L2VPN Capability Mode
-    	**type**\:  :py:class:`L2VpnCapabilityModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnCapabilityModeEnum>`
+    	**type**\:   :py:class:`L2VpnCapabilityModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnCapabilityModeEnum>`
     
     .. attribute:: database
     
     	L2VPN databases
-    	**type**\:  :py:class:`Database <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database>`
+    	**type**\:   :py:class:`Database <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database>`
     
     .. attribute:: enable
     
     	Enable L2VPN feature
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: l2vpn_router_id
     
@@ -1294,7 +1294,7 @@ class L2Vpn(object):
     .. attribute:: load_balance
     
     	Enable flow load balancing on l2vpn bridges
-    	**type**\:  :py:class:`LoadBalanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.LoadBalanceEnum>`
+    	**type**\:   :py:class:`LoadBalanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.LoadBalanceEnum>`
     
     .. attribute:: mspw_description
     
@@ -1306,37 +1306,37 @@ class L2Vpn(object):
     .. attribute:: mtu_mismatch_ignore
     
     	Ignore MTU Mismatch for XCs
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: neighbor
     
     	L2VPN neighbor submode
-    	**type**\:  :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Neighbor>`
+    	**type**\:   :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Neighbor>`
     
     .. attribute:: nsr
     
     	Enable Non\-Stop Routing
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: pbb
     
     	L2VPN PBB Global
-    	**type**\:  :py:class:`Pbb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Pbb>`
+    	**type**\:   :py:class:`Pbb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Pbb>`
     
     .. attribute:: pw_grouping
     
     	Enable PW grouping
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: pw_routing
     
     	Pseudowire\-routing attributes
-    	**type**\:  :py:class:`PwRouting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.PwRouting>`
+    	**type**\:   :py:class:`PwRouting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.PwRouting>`
     
     .. attribute:: pw_status_disable
     
     	Disable PW status
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: pwoam_refresh
     
@@ -1345,20 +1345,22 @@ class L2Vpn(object):
     
     	**range:** 1..4095
     
+    	**units**\: second
+    
     .. attribute:: snmp
     
     	SNMP related configuration
-    	**type**\:  :py:class:`Snmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Snmp>`
+    	**type**\:   :py:class:`Snmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Snmp>`
     
     .. attribute:: tcn_propagation
     
     	Topology change notification propagation
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: utility
     
     	L2VPN utilities
-    	**type**\:  :py:class:`Utility <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Utility>`
+    	**type**\:   :py:class:`Utility <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Utility>`
     
     
 
@@ -1402,7 +1404,7 @@ class L2Vpn(object):
         .. attribute:: pw_routing_bgp
         
         	Enable Autodiscovery BGP Pseudowire\-routing BGP
-        	**type**\:  :py:class:`PwRoutingBgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.PwRouting.PwRoutingBgp>`
+        	**type**\:   :py:class:`PwRoutingBgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.PwRouting.PwRoutingBgp>`
         
         .. attribute:: pw_routing_global_id
         
@@ -1432,12 +1434,12 @@ class L2Vpn(object):
             .. attribute:: enable
             
             	Enable Autodiscovery BGP
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: evpn_route_distinguisher
             
             	Route Distinguisher
-            	**type**\:  :py:class:`EvpnRouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.PwRouting.PwRoutingBgp.EvpnRouteDistinguisher>`
+            	**type**\:   :py:class:`EvpnRouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.PwRouting.PwRoutingBgp.EvpnRouteDistinguisher>`
             
             
 
@@ -1488,7 +1490,7 @@ class L2Vpn(object):
                 .. attribute:: type
                 
                 	Router Distinguisher Type
-                	**type**\:  :py:class:`BgpRouteDistinguisherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
+                	**type**\:   :py:class:`BgpRouteDistinguisherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
                 
                 
 
@@ -1597,7 +1599,7 @@ class L2Vpn(object):
         .. attribute:: ldp_flap
         
         	Enable targetted LDP session flap action
-        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -1640,32 +1642,32 @@ class L2Vpn(object):
         .. attribute:: bridge_domain_groups
         
         	List of bridge  groups
-        	**type**\:  :py:class:`BridgeDomainGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups>`
+        	**type**\:   :py:class:`BridgeDomainGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups>`
         
         .. attribute:: flexible_xconnect_service_table
         
         	List of Flexible XConnect Services
-        	**type**\:  :py:class:`FlexibleXconnectServiceTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.FlexibleXconnectServiceTable>`
+        	**type**\:   :py:class:`FlexibleXconnectServiceTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.FlexibleXconnectServiceTable>`
         
         .. attribute:: g8032_rings
         
         	List of G8032 Ring
-        	**type**\:  :py:class:`G8032Rings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings>`
+        	**type**\:   :py:class:`G8032Rings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings>`
         
         .. attribute:: pseudowire_classes
         
         	List of pseudowire classes
-        	**type**\:  :py:class:`PseudowireClasses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses>`
+        	**type**\:   :py:class:`PseudowireClasses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses>`
         
         .. attribute:: redundancy
         
         	Redundancy groups
-        	**type**\:  :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.Redundancy>`
+        	**type**\:   :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.Redundancy>`
         
         .. attribute:: xconnect_groups
         
         	List of xconnect groups
-        	**type**\:  :py:class:`XconnectGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups>`
+        	**type**\:   :py:class:`XconnectGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups>`
         
         
 
@@ -1697,7 +1699,7 @@ class L2Vpn(object):
             .. attribute:: g8032_ring
             
             	G8032 Ring
-            	**type**\: list of  :py:class:`G8032Ring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring>`
+            	**type**\: list of    :py:class:`G8032Ring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring>`
             
             
 
@@ -1727,22 +1729,22 @@ class L2Vpn(object):
                 .. attribute:: erp_instances
                 
                 	List of ethernet ring protection instance
-                	**type**\:  :py:class:`ErpInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances>`
+                	**type**\:   :py:class:`ErpInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances>`
                 
                 .. attribute:: erp_port0s
                 
                 	Ethernet ring protection port0
-                	**type**\:  :py:class:`ErpPort0S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort0S>`
+                	**type**\:   :py:class:`ErpPort0S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort0S>`
                 
                 .. attribute:: erp_port1s
                 
                 	Ethernet ring protection port0
-                	**type**\:  :py:class:`ErpPort1S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S>`
+                	**type**\:   :py:class:`ErpPort1S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S>`
                 
                 .. attribute:: erp_provider_bridge
                 
                 	Ethernet ring protection provider bridge
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: exclusion_list
                 
@@ -1752,7 +1754,7 @@ class L2Vpn(object):
                 .. attribute:: open_ring
                 
                 	Specify the G.8032 instance as open ring
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -1782,7 +1784,7 @@ class L2Vpn(object):
                     .. attribute:: erp_port0
                     
                     	Configure ERP main port0
-                    	**type**\: list of  :py:class:`ErpPort0 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort0S.ErpPort0>`
+                    	**type**\: list of    :py:class:`ErpPort0 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort0S.ErpPort0>`
                     
                     
 
@@ -1891,7 +1893,7 @@ class L2Vpn(object):
                     .. attribute:: erp_instance
                     
                     	Ethernet ring protection instance
-                    	**type**\: list of  :py:class:`ErpInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance>`
+                    	**type**\: list of    :py:class:`ErpInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance>`
                     
                     
 
@@ -1921,7 +1923,7 @@ class L2Vpn(object):
                         .. attribute:: aps
                         
                         	Automatic protection switching
-                        	**type**\:  :py:class:`Aps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps>`
+                        	**type**\:   :py:class:`Aps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps>`
                         
                         .. attribute:: description
                         
@@ -1945,7 +1947,7 @@ class L2Vpn(object):
                         .. attribute:: rpl
                         
                         	Ring protection link
-                        	**type**\:  :py:class:`Rpl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl>`
+                        	**type**\:   :py:class:`Rpl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl>`
                         
                         
 
@@ -1973,12 +1975,12 @@ class L2Vpn(object):
                             .. attribute:: port
                             
                             	ERP main port number
-                            	**type**\:  :py:class:`ErpPort1Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.ErpPort1Enum>`
+                            	**type**\:   :py:class:`ErpPort1Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.ErpPort1Enum>`
                             
                             .. attribute:: role
                             
                             	RPL role
-                            	**type**\:  :py:class:`RplRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.RplRoleEnum>`
+                            	**type**\:   :py:class:`RplRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.RplRoleEnum>`
                             
                             
 
@@ -2027,7 +2029,7 @@ class L2Vpn(object):
                             .. attribute:: enable
                             
                             	Enable automatic protection switching
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: level
                             
@@ -2044,7 +2046,7 @@ class L2Vpn(object):
                             .. attribute:: port1
                             
                             	APS channel for ERP port1
-                            	**type**\:  :py:class:`Port1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1>`
+                            	**type**\:   :py:class:`Port1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1>`
                             
                             
 
@@ -2074,7 +2076,7 @@ class L2Vpn(object):
                                 .. attribute:: aps_type
                                 
                                 	Port1 APS type
-                                	**type**\:  :py:class:`ErpapsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.ErpapsEnum>`
+                                	**type**\:   :py:class:`ErpapsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.ErpapsEnum>`
                                 
                                 
 
@@ -2223,7 +2225,7 @@ class L2Vpn(object):
                     .. attribute:: erp_port1
                     
                     	Ethernet ring protection port1
-                    	**type**\: list of  :py:class:`ErpPort1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1>`
+                    	**type**\: list of    :py:class:`ErpPort1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1>`
                     
                     
 
@@ -2246,17 +2248,19 @@ class L2Vpn(object):
                         .. attribute:: erp_port_type  <key>
                         
                         	Port1 type
-                        	**type**\:  :py:class:`ErpPortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.ErpPortEnum>`
+                        	**type**\:   :py:class:`ErpPortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.ErpPortEnum>`
                         
                         .. attribute:: none
                         
                         	none
-                        	**type**\:  :py:class:`None_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.None_>`
+                        	**type**\:   :py:class:`None <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.None>`
+                        
+                        	**presence node**\: True
                         
                         .. attribute:: virtual_or_interface
                         
                         	virtual or interface
-                        	**type**\: list of  :py:class:`VirtualOrInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.VirtualOrInterface>`
+                        	**type**\: list of    :py:class:`VirtualOrInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.VirtualOrInterface>`
                         
                         
 
@@ -2274,7 +2278,7 @@ class L2Vpn(object):
                             self.virtual_or_interface.name = 'virtual_or_interface'
 
 
-                        class None_(object):
+                        class None(object):
                             """
                             none
                             
@@ -2328,7 +2332,7 @@ class L2Vpn(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.None_']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.None']['meta_info']
 
 
                         class VirtualOrInterface(object):
@@ -2524,7 +2528,7 @@ class L2Vpn(object):
             .. attribute:: xconnect_group
             
             	Xconnect group
-            	**type**\: list of  :py:class:`XconnectGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup>`
+            	**type**\: list of    :py:class:`XconnectGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup>`
             
             
 
@@ -2554,12 +2558,12 @@ class L2Vpn(object):
                 .. attribute:: mp2mp_xconnects
                 
                 	List of multi point to multi point xconnects
-                	**type**\:  :py:class:`Mp2MpXconnects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects>`
+                	**type**\:   :py:class:`Mp2MpXconnects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects>`
                 
                 .. attribute:: p2p_xconnects
                 
                 	List of point to point xconnects
-                	**type**\:  :py:class:`P2PXconnects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects>`
+                	**type**\:   :py:class:`P2PXconnects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects>`
                 
                 
 
@@ -2584,7 +2588,7 @@ class L2Vpn(object):
                     .. attribute:: p2p_xconnect
                     
                     	Point to point xconnect
-                    	**type**\: list of  :py:class:`P2PXconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect>`
+                    	**type**\: list of    :py:class:`P2PXconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect>`
                     
                     
 
@@ -2614,22 +2618,22 @@ class L2Vpn(object):
                         .. attribute:: attachment_circuits
                         
                         	List of attachment circuits
-                        	**type**\:  :py:class:`AttachmentCircuits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.AttachmentCircuits>`
+                        	**type**\:   :py:class:`AttachmentCircuits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.AttachmentCircuits>`
                         
                         .. attribute:: backup_attachment_circuits
                         
                         	List of backup attachment circuits
-                        	**type**\:  :py:class:`BackupAttachmentCircuits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.BackupAttachmentCircuits>`
+                        	**type**\:   :py:class:`BackupAttachmentCircuits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.BackupAttachmentCircuits>`
                         
                         .. attribute:: interworking
                         
                         	Interworking
-                        	**type**\:  :py:class:`InterworkingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterworkingEnum>`
+                        	**type**\:   :py:class:`InterworkingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterworkingEnum>`
                         
                         .. attribute:: monitor_sessions
                         
                         	List of Monitor session segments
-                        	**type**\:  :py:class:`MonitorSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.MonitorSessions>`
+                        	**type**\:   :py:class:`MonitorSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.MonitorSessions>`
                         
                         .. attribute:: p2p_description
                         
@@ -2641,17 +2645,17 @@ class L2Vpn(object):
                         .. attribute:: pseudowire_evpns
                         
                         	List of EVPN Services
-                        	**type**\:  :py:class:`PseudowireEvpns <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireEvpns>`
+                        	**type**\:   :py:class:`PseudowireEvpns <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireEvpns>`
                         
                         .. attribute:: pseudowire_routeds
                         
                         	List of pseudowire\-routed
-                        	**type**\:  :py:class:`PseudowireRouteds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireRouteds>`
+                        	**type**\:   :py:class:`PseudowireRouteds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireRouteds>`
                         
                         .. attribute:: pseudowires
                         
                         	List of pseudowires
-                        	**type**\:  :py:class:`Pseudowires <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires>`
+                        	**type**\:   :py:class:`Pseudowires <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires>`
                         
                         
 
@@ -2686,7 +2690,7 @@ class L2Vpn(object):
                             .. attribute:: backup_attachment_circuit
                             
                             	Backup attachment circuit
-                            	**type**\: list of  :py:class:`BackupAttachmentCircuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.BackupAttachmentCircuits.BackupAttachmentCircuit>`
+                            	**type**\: list of    :py:class:`BackupAttachmentCircuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.BackupAttachmentCircuits.BackupAttachmentCircuit>`
                             
                             
 
@@ -2784,7 +2788,7 @@ class L2Vpn(object):
                             .. attribute:: pseudowire_evpn
                             
                             	EVPN P2P Service Configuration
-                            	**type**\: list of  :py:class:`PseudowireEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireEvpns.PseudowireEvpn>`
+                            	**type**\: list of    :py:class:`PseudowireEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireEvpns.PseudowireEvpn>`
                             
                             
 
@@ -2816,14 +2820,14 @@ class L2Vpn(object):
                                 	Remote AC ID
                                 	**type**\:  int
                                 
-                                	**range:** 1..4294967295
+                                	**range:** 1..16777215
                                 
                                 .. attribute:: source_acid  <key>
                                 
                                 	Source AC ID
                                 	**type**\:  int
                                 
-                                	**range:** 1..4294967295
+                                	**range:** 1..16777215
                                 
                                 
 
@@ -2908,7 +2912,7 @@ class L2Vpn(object):
                             .. attribute:: pseudowire
                             
                             	Pseudowire configuration
-                            	**type**\: list of  :py:class:`Pseudowire <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire>`
+                            	**type**\: list of    :py:class:`Pseudowire <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire>`
                             
                             
 
@@ -2938,12 +2942,12 @@ class L2Vpn(object):
                                 .. attribute:: neighbor
                                 
                                 	keys\: neighbor
-                                	**type**\: list of  :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor>`
+                                	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor>`
                                 
                                 .. attribute:: pseudowire_address
                                 
                                 	keys\: pseudowire\-address
-                                	**type**\: list of  :py:class:`PseudowireAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress>`
+                                	**type**\: list of    :py:class:`PseudowireAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress>`
                                 
                                 
 
@@ -2977,7 +2981,7 @@ class L2Vpn(object):
                                     .. attribute:: backup_pseudowires
                                     
                                     	List of pseudowires
-                                    	**type**\:  :py:class:`BackupPseudowires <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires>`
+                                    	**type**\:   :py:class:`BackupPseudowires <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires>`
                                     
                                     .. attribute:: bandwidth
                                     
@@ -2996,17 +3000,17 @@ class L2Vpn(object):
                                     .. attribute:: l2tp_static
                                     
                                     	Pseudowire L2TPv3 static configuration
-                                    	**type**\:  :py:class:`L2TpStatic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStatic>`
+                                    	**type**\:   :py:class:`L2TpStatic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStatic>`
                                     
                                     .. attribute:: l2tp_static_attributes
                                     
                                     	L2TP Static Attributes
-                                    	**type**\:  :py:class:`L2TpStaticAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes>`
+                                    	**type**\:   :py:class:`L2TpStaticAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes>`
                                     
                                     .. attribute:: mpls_static_labels
                                     
                                     	MPLS static labels
-                                    	**type**\:  :py:class:`MplsStaticLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels>`
+                                    	**type**\:   :py:class:`MplsStaticLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels>`
                                     
                                     .. attribute:: source_address
                                     
@@ -3121,7 +3125,7 @@ class L2Vpn(object):
                                         .. attribute:: backup_pseudowire
                                         
                                         	Backup pseudowire for the cross connect
-                                        	**type**\: list of  :py:class:`BackupPseudowire <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire>`
+                                        	**type**\: list of    :py:class:`BackupPseudowire <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire>`
                                         
                                         
 
@@ -3158,7 +3162,7 @@ class L2Vpn(object):
                                             .. attribute:: backup_mpls_static_labels
                                             
                                             	MPLS static labels
-                                            	**type**\:  :py:class:`BackupMplsStaticLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels>`
+                                            	**type**\:   :py:class:`BackupMplsStaticLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels>`
                                             
                                             .. attribute:: backup_pw_class
                                             
@@ -3311,7 +3315,7 @@ class L2Vpn(object):
                                         .. attribute:: l2tp_local_cookie
                                         
                                         	L2TP local cookie
-                                        	**type**\:  :py:class:`L2TpLocalCookie <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpLocalCookie>`
+                                        	**type**\:   :py:class:`L2TpLocalCookie <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpLocalCookie>`
                                         
                                         .. attribute:: l2tp_local_session_id
                                         
@@ -3323,7 +3327,7 @@ class L2Vpn(object):
                                         .. attribute:: l2tp_remote_cookie
                                         
                                         	L2TP remote cookie
-                                        	**type**\:  :py:class:`L2TpRemoteCookie <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpRemoteCookie>`
+                                        	**type**\:   :py:class:`L2TpRemoteCookie <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpRemoteCookie>`
                                         
                                         .. attribute:: l2tp_remote_session_id
                                         
@@ -3335,7 +3339,7 @@ class L2Vpn(object):
                                         .. attribute:: l2tp_secondary_local_cookie
                                         
                                         	L2TP secondary local cookie
-                                        	**type**\:  :py:class:`L2TpSecondaryLocalCookie <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpSecondaryLocalCookie>`
+                                        	**type**\:   :py:class:`L2TpSecondaryLocalCookie <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.Neighbor.L2TpStaticAttributes.L2TpSecondaryLocalCookie>`
                                         
                                         
 
@@ -3377,7 +3381,7 @@ class L2Vpn(object):
                                             .. attribute:: size
                                             
                                             	Remote cookie size
-                                            	**type**\:  :py:class:`L2TpCookieSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
+                                            	**type**\:   :py:class:`L2TpCookieSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
                                             
                                             
 
@@ -3444,7 +3448,7 @@ class L2Vpn(object):
                                             .. attribute:: size
                                             
                                             	Local cookie size
-                                            	**type**\:  :py:class:`L2TpCookieSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
+                                            	**type**\:   :py:class:`L2TpCookieSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
                                             
                                             
 
@@ -3511,7 +3515,7 @@ class L2Vpn(object):
                                             .. attribute:: size
                                             
                                             	Local cookie size
-                                            	**type**\:  :py:class:`L2TpCookieSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
+                                            	**type**\:   :py:class:`L2TpCookieSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
                                             
                                             
 
@@ -3600,7 +3604,7 @@ class L2Vpn(object):
                                         .. attribute:: enable
                                         
                                         	Enable pseudowire L2TPv3 static configuration
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         
 
@@ -3702,7 +3706,7 @@ class L2Vpn(object):
                                     .. attribute:: backup_pseudowires
                                     
                                     	List of pseudowires
-                                    	**type**\:  :py:class:`BackupPseudowires <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires>`
+                                    	**type**\:   :py:class:`BackupPseudowires <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires>`
                                     
                                     .. attribute:: bandwidth
                                     
@@ -3721,17 +3725,17 @@ class L2Vpn(object):
                                     .. attribute:: l2tp_static
                                     
                                     	Pseudowire L2TPv3 static configuration
-                                    	**type**\:  :py:class:`L2TpStatic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStatic>`
+                                    	**type**\:   :py:class:`L2TpStatic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStatic>`
                                     
                                     .. attribute:: l2tp_static_attributes
                                     
                                     	L2TP Static Attributes
-                                    	**type**\:  :py:class:`L2TpStaticAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes>`
+                                    	**type**\:   :py:class:`L2TpStaticAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes>`
                                     
                                     .. attribute:: mpls_static_labels
                                     
                                     	MPLS static labels
-                                    	**type**\:  :py:class:`MplsStaticLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels>`
+                                    	**type**\:   :py:class:`MplsStaticLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels>`
                                     
                                     .. attribute:: source_address
                                     
@@ -3846,7 +3850,7 @@ class L2Vpn(object):
                                         .. attribute:: backup_pseudowire
                                         
                                         	Backup pseudowire for the cross connect
-                                        	**type**\: list of  :py:class:`BackupPseudowire <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire>`
+                                        	**type**\: list of    :py:class:`BackupPseudowire <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire>`
                                         
                                         
 
@@ -3883,7 +3887,7 @@ class L2Vpn(object):
                                             .. attribute:: backup_mpls_static_labels
                                             
                                             	MPLS static labels
-                                            	**type**\:  :py:class:`BackupMplsStaticLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels>`
+                                            	**type**\:   :py:class:`BackupMplsStaticLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels>`
                                             
                                             .. attribute:: backup_pw_class
                                             
@@ -4036,7 +4040,7 @@ class L2Vpn(object):
                                         .. attribute:: l2tp_local_cookie
                                         
                                         	L2TP local cookie
-                                        	**type**\:  :py:class:`L2TpLocalCookie <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpLocalCookie>`
+                                        	**type**\:   :py:class:`L2TpLocalCookie <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpLocalCookie>`
                                         
                                         .. attribute:: l2tp_local_session_id
                                         
@@ -4048,7 +4052,7 @@ class L2Vpn(object):
                                         .. attribute:: l2tp_remote_cookie
                                         
                                         	L2TP remote cookie
-                                        	**type**\:  :py:class:`L2TpRemoteCookie <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpRemoteCookie>`
+                                        	**type**\:   :py:class:`L2TpRemoteCookie <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpRemoteCookie>`
                                         
                                         .. attribute:: l2tp_remote_session_id
                                         
@@ -4060,7 +4064,7 @@ class L2Vpn(object):
                                         .. attribute:: l2tp_secondary_local_cookie
                                         
                                         	L2TP secondary local cookie
-                                        	**type**\:  :py:class:`L2TpSecondaryLocalCookie <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpSecondaryLocalCookie>`
+                                        	**type**\:   :py:class:`L2TpSecondaryLocalCookie <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2TpStaticAttributes.L2TpSecondaryLocalCookie>`
                                         
                                         
 
@@ -4102,7 +4106,7 @@ class L2Vpn(object):
                                             .. attribute:: size
                                             
                                             	Remote cookie size
-                                            	**type**\:  :py:class:`L2TpCookieSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
+                                            	**type**\:   :py:class:`L2TpCookieSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
                                             
                                             
 
@@ -4169,7 +4173,7 @@ class L2Vpn(object):
                                             .. attribute:: size
                                             
                                             	Local cookie size
-                                            	**type**\:  :py:class:`L2TpCookieSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
+                                            	**type**\:   :py:class:`L2TpCookieSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
                                             
                                             
 
@@ -4236,7 +4240,7 @@ class L2Vpn(object):
                                             .. attribute:: size
                                             
                                             	Local cookie size
-                                            	**type**\:  :py:class:`L2TpCookieSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
+                                            	**type**\:   :py:class:`L2TpCookieSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
                                             
                                             
 
@@ -4325,7 +4329,7 @@ class L2Vpn(object):
                                         .. attribute:: enable
                                         
                                         	Enable pseudowire L2TPv3 static configuration
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         
 
@@ -4482,7 +4486,7 @@ class L2Vpn(object):
                             .. attribute:: monitor_session
                             
                             	Monitor session segment
-                            	**type**\: list of  :py:class:`MonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.MonitorSessions.MonitorSession>`
+                            	**type**\: list of    :py:class:`MonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.MonitorSessions.MonitorSession>`
                             
                             
 
@@ -4512,7 +4516,7 @@ class L2Vpn(object):
                                 .. attribute:: enable
                                 
                                 	Enable monitor session segment 
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -4589,7 +4593,7 @@ class L2Vpn(object):
                             .. attribute:: pseudowire_routed
                             
                             	Pseudowire configuration
-                            	**type**\: list of  :py:class:`PseudowireRouted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireRouteds.PseudowireRouted>`
+                            	**type**\: list of    :py:class:`PseudowireRouted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.PseudowireRouteds.PseudowireRouted>`
                             
                             
 
@@ -4748,7 +4752,7 @@ class L2Vpn(object):
                             .. attribute:: attachment_circuit
                             
                             	Attachment circuit interface
-                            	**type**\: list of  :py:class:`AttachmentCircuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.AttachmentCircuits.AttachmentCircuit>`
+                            	**type**\: list of    :py:class:`AttachmentCircuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.P2PXconnects.P2PXconnect.AttachmentCircuits.AttachmentCircuit>`
                             
                             
 
@@ -4778,7 +4782,7 @@ class L2Vpn(object):
                                 .. attribute:: enable
                                 
                                 	Enable attachment circuit interface
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -4931,7 +4935,7 @@ class L2Vpn(object):
                     .. attribute:: mp2mp_xconnect
                     
                     	Multi point to multi point xconnect
-                    	**type**\: list of  :py:class:`Mp2MpXconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect>`
+                    	**type**\: list of    :py:class:`Mp2MpXconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect>`
                     
                     
 
@@ -4961,27 +4965,27 @@ class L2Vpn(object):
                         .. attribute:: mp2mp_auto_discovery
                         
                         	auto\-discovery in this MP2MP
-                        	**type**\:  :py:class:`Mp2MpAutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery>`
+                        	**type**\:   :py:class:`Mp2MpAutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery>`
                         
                         .. attribute:: mp2mp_control_word
                         
                         	Disable control word
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: mp2mp_interworking
                         
                         	Interworking
-                        	**type**\:  :py:class:`InterworkingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterworkingEnum>`
+                        	**type**\:   :py:class:`InterworkingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterworkingEnum>`
                         
                         .. attribute:: mp2mp_shutdown
                         
                         	shutdown this MP2MP VPWS instance
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: mp2mpl2_encapsulation
                         
                         	Configure Layer 2 Encapsulation
-                        	**type**\:  :py:class:`L2EncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2EncapsulationEnum>`
+                        	**type**\:   :py:class:`L2EncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2EncapsulationEnum>`
                         
                         .. attribute:: mp2mpmtu
                         
@@ -4989,6 +4993,8 @@ class L2Vpn(object):
                         	**type**\:  int
                         
                         	**range:** 64..65535
+                        
+                        	**units**\: byte
                         
                         .. attribute:: mp2mpvpn_id
                         
@@ -5024,27 +5030,27 @@ class L2Vpn(object):
                             .. attribute:: enable
                             
                             	Enable auto\-discovery
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: mp2mp_route_policy
                             
                             	Route policy
-                            	**type**\:  :py:class:`Mp2MpRoutePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRoutePolicy>`
+                            	**type**\:   :py:class:`Mp2MpRoutePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRoutePolicy>`
                             
                             .. attribute:: mp2mp_route_targets
                             
                             	Route Target
-                            	**type**\:  :py:class:`Mp2MpRouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets>`
+                            	**type**\:   :py:class:`Mp2MpRouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets>`
                             
                             .. attribute:: mp2mp_signaling_protocol
                             
                             	signaling protocol in this MP2MP
-                            	**type**\:  :py:class:`Mp2MpSignalingProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol>`
+                            	**type**\:   :py:class:`Mp2MpSignalingProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol>`
                             
                             .. attribute:: route_distinguisher
                             
                             	Route Distinguisher
-                            	**type**\:  :py:class:`RouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.RouteDistinguisher>`
+                            	**type**\:   :py:class:`RouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.RouteDistinguisher>`
                             
                             
 
@@ -5101,7 +5107,7 @@ class L2Vpn(object):
                                 .. attribute:: type
                                 
                                 	Router distinguisher type
-                                	**type**\:  :py:class:`BgpRouteDistinguisherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
+                                	**type**\:   :py:class:`BgpRouteDistinguisherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
                                 
                                 
 
@@ -5216,7 +5222,7 @@ class L2Vpn(object):
                                 .. attribute:: mp2mp_route_target
                                 
                                 	Name of the Route Target
-                                	**type**\: list of  :py:class:`Mp2MpRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget>`
+                                	**type**\: list of    :py:class:`Mp2MpRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget>`
                                 
                                 
 
@@ -5239,22 +5245,22 @@ class L2Vpn(object):
                                     .. attribute:: format  <key>
                                     
                                     	Format of the route target
-                                    	**type**\:  :py:class:`BgpRouteTargetFormatEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormatEnum>`
+                                    	**type**\:   :py:class:`BgpRouteTargetFormatEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormatEnum>`
                                     
                                     .. attribute:: role  <key>
                                     
                                     	Role of the router target type
-                                    	**type**\:  :py:class:`BgpRouteTargetRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRoleEnum>`
+                                    	**type**\:   :py:class:`BgpRouteTargetRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRoleEnum>`
                                     
                                     .. attribute:: ipv4_address
                                     
                                     	ipv4 address
-                                    	**type**\: list of  :py:class:`Ipv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget.Ipv4Address>`
+                                    	**type**\: list of    :py:class:`Ipv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget.Ipv4Address>`
                                     
                                     .. attribute:: two_byte_as_or_four_byte_as
                                     
                                     	two byte as or four byte as
-                                    	**type**\: list of  :py:class:`TwoByteAsOrFourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget.TwoByteAsOrFourByteAs>`
+                                    	**type**\: list of    :py:class:`TwoByteAsOrFourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpRouteTargets.Mp2MpRouteTarget.TwoByteAsOrFourByteAs>`
                                     
                                     
 
@@ -5480,17 +5486,17 @@ class L2Vpn(object):
                                 .. attribute:: ceids
                                 
                                 	Local Customer Edge Identifier Table
-                                	**type**\:  :py:class:`Ceids <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids>`
+                                	**type**\:   :py:class:`Ceids <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids>`
                                 
                                 .. attribute:: enable
                                 
                                 	Enable signaling protocol
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: flow_label_load_balance
                                 
                                 	Enable Flow Label based load balancing
-                                	**type**\:  :py:class:`FlowLabelLoadBalance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.FlowLabelLoadBalance>`
+                                	**type**\:   :py:class:`FlowLabelLoadBalance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.FlowLabelLoadBalance>`
                                 
                                 
 
@@ -5516,12 +5522,12 @@ class L2Vpn(object):
                                     .. attribute:: flow_label
                                     
                                     	Flow Label load balance type
-                                    	**type**\:  :py:class:`FlowLabelLoadBalanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.FlowLabelLoadBalanceEnum>`
+                                    	**type**\:   :py:class:`FlowLabelLoadBalanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.FlowLabelLoadBalanceEnum>`
                                     
                                     .. attribute:: static
                                     
                                     	Static Flow Label
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     
 
@@ -5570,7 +5576,7 @@ class L2Vpn(object):
                                     .. attribute:: ceid
                                     
                                     	Local Customer Edge Identifier 
-                                    	**type**\: list of  :py:class:`Ceid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids.Ceid>`
+                                    	**type**\: list of    :py:class:`Ceid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids.Ceid>`
                                     
                                     
 
@@ -5600,7 +5606,7 @@ class L2Vpn(object):
                                         .. attribute:: remote_ceid_attachment_circuits
                                         
                                         	AC And Remote Customer Edge Identifier Table
-                                        	**type**\:  :py:class:`RemoteCeidAttachmentCircuits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits>`
+                                        	**type**\:   :py:class:`RemoteCeidAttachmentCircuits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits>`
                                         
                                         
 
@@ -5624,7 +5630,7 @@ class L2Vpn(object):
                                             .. attribute:: remote_ceid_attachment_circuit
                                             
                                             	AC And Remote Customer Edge Identifier
-                                            	**type**\: list of  :py:class:`RemoteCeidAttachmentCircuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits.RemoteCeidAttachmentCircuit>`
+                                            	**type**\: list of    :py:class:`RemoteCeidAttachmentCircuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.XconnectGroups.XconnectGroup.Mp2MpXconnects.Mp2MpXconnect.Mp2MpAutoDiscovery.Mp2MpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits.RemoteCeidAttachmentCircuit>`
                                             
                                             
 
@@ -5986,7 +5992,7 @@ class L2Vpn(object):
             .. attribute:: bridge_domain_group
             
             	Bridge group
-            	**type**\: list of  :py:class:`BridgeDomainGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup>`
+            	**type**\: list of    :py:class:`BridgeDomainGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup>`
             
             
 
@@ -6016,7 +6022,7 @@ class L2Vpn(object):
                 .. attribute:: bridge_domains
                 
                 	List of Bridge Domain
-                	**type**\:  :py:class:`BridgeDomains <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains>`
+                	**type**\:   :py:class:`BridgeDomains <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains>`
                 
                 
 
@@ -6039,7 +6045,7 @@ class L2Vpn(object):
                     .. attribute:: bridge_domain
                     
                     	bridge domain
-                    	**type**\: list of  :py:class:`BridgeDomain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain>`
+                    	**type**\: list of    :py:class:`BridgeDomain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain>`
                     
                     
 
@@ -6069,32 +6075,32 @@ class L2Vpn(object):
                         .. attribute:: bd_attachment_circuits
                         
                         	Attachment Circuit table
-                        	**type**\:  :py:class:`BdAttachmentCircuits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits>`
+                        	**type**\:   :py:class:`BdAttachmentCircuits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits>`
                         
                         .. attribute:: bd_pseudowire_evpns
                         
                         	List of EVPN pseudowires
-                        	**type**\:  :py:class:`BdPseudowireEvpns <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns>`
+                        	**type**\:   :py:class:`BdPseudowireEvpns <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns>`
                         
                         .. attribute:: bd_pseudowires
                         
                         	List of pseudowires
-                        	**type**\:  :py:class:`BdPseudowires <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires>`
+                        	**type**\:   :py:class:`BdPseudowires <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires>`
                         
                         .. attribute:: bd_storm_controls
                         
                         	Storm Control
-                        	**type**\:  :py:class:`BdStormControls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls>`
+                        	**type**\:   :py:class:`BdStormControls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls>`
                         
                         .. attribute:: bridge_domain_evis
                         
                         	Bridge Domain EVI Table
-                        	**type**\:  :py:class:`BridgeDomainEvis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis>`
+                        	**type**\:   :py:class:`BridgeDomainEvis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis>`
                         
                         .. attribute:: bridge_domain_mac
                         
                         	MAC configuration commands
-                        	**type**\:  :py:class:`BridgeDomainMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac>`
+                        	**type**\:   :py:class:`BridgeDomainMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac>`
                         
                         .. attribute:: bridge_domain_mtu
                         
@@ -6103,20 +6109,22 @@ class L2Vpn(object):
                         
                         	**range:** 46..65535
                         
+                        	**units**\: byte
+                        
                         .. attribute:: bridge_domain_pbb
                         
                         	Bridge Domain PBB
-                        	**type**\:  :py:class:`BridgeDomainPbb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb>`
+                        	**type**\:   :py:class:`BridgeDomainPbb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb>`
                         
                         .. attribute:: coupled_mode
                         
                         	Coupled\-mode configuration
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: dai
                         
                         	Dynamic ARP Inspection
-                        	**type**\:  :py:class:`Dai <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai>`
+                        	**type**\:   :py:class:`Dai <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai>`
                         
                         .. attribute:: dhcp
                         
@@ -6128,12 +6136,12 @@ class L2Vpn(object):
                         .. attribute:: flooding
                         
                         	Disable flooding
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: flooding_unknown_unicast
                         
                         	Disable Unknown Unicast flooding
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: igmp_snooping
                         
@@ -6145,17 +6153,17 @@ class L2Vpn(object):
                         .. attribute:: igmp_snooping_disable
                         
                         	Disable IGMP Snooping
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: ip_source_guard
                         
                         	IP Source Guard
-                        	**type**\:  :py:class:`IpSourceGuard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard>`
+                        	**type**\:   :py:class:`IpSourceGuard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard>`
                         
                         .. attribute:: member_vnis
                         
                         	Bridge Domain VxLAN Network Identifier Table
-                        	**type**\:  :py:class:`MemberVnis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis>`
+                        	**type**\:   :py:class:`MemberVnis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis>`
                         
                         .. attribute:: mld_snooping
                         
@@ -6167,27 +6175,27 @@ class L2Vpn(object):
                         .. attribute:: nv_satellite
                         
                         	nV Satellite
-                        	**type**\:  :py:class:`NvSatellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite>`
+                        	**type**\:   :py:class:`NvSatellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite>`
                         
                         .. attribute:: routed_interfaces
                         
                         	Bridge Domain Routed Interface Table
-                        	**type**\:  :py:class:`RoutedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces>`
+                        	**type**\:   :py:class:`RoutedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces>`
                         
                         .. attribute:: shutdown
                         
                         	shutdown the Bridge Domain
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: transport_mode
                         
                         	Bridge Domain Transport mode
-                        	**type**\:  :py:class:`BridgeDomainTransportModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BridgeDomainTransportModeEnum>`
+                        	**type**\:   :py:class:`BridgeDomainTransportModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BridgeDomainTransportModeEnum>`
                         
                         .. attribute:: vfis
                         
                         	Specify the virtual forwarding interface name
-                        	**type**\:  :py:class:`Vfis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis>`
+                        	**type**\:   :py:class:`Vfis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis>`
                         
                         
 
@@ -6244,7 +6252,7 @@ class L2Vpn(object):
                             .. attribute:: bd_storm_control
                             
                             	Storm Control Type
-                            	**type**\: list of  :py:class:`BdStormControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl>`
+                            	**type**\: list of    :py:class:`BdStormControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl>`
                             
                             
 
@@ -6267,12 +6275,12 @@ class L2Vpn(object):
                                 .. attribute:: sctype  <key>
                                 
                                 	Storm Control Type
-                                	**type**\:  :py:class:`StormControlEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.StormControlEnum>`
+                                	**type**\:   :py:class:`StormControlEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.StormControlEnum>`
                                 
                                 .. attribute:: storm_control_unit
                                 
                                 	Specify units for Storm Control Configuration
-                                	**type**\:  :py:class:`StormControlUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit>`
+                                	**type**\:   :py:class:`StormControlUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit>`
                                 
                                 
 
@@ -6299,12 +6307,16 @@ class L2Vpn(object):
                                     
                                     	**range:** 64..1280000
                                     
+                                    	**units**\: kbit/s
+                                    
                                     .. attribute:: pkts_per_sec
                                     
                                     	Packets Per Second, PktsPerSec and KbitsPerSec cannot be configured together
                                     	**type**\:  int
                                     
                                     	**range:** 1..160000
+                                    
+                                    	**units**\: packet/s
                                     
                                     
 
@@ -6409,7 +6421,7 @@ class L2Vpn(object):
                             .. attribute:: member_vni
                             
                             	Bridge Domain Member VxLAN Network Identifier 
-                            	**type**\: list of  :py:class:`MemberVni <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni>`
+                            	**type**\: list of    :py:class:`MemberVni <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni>`
                             
                             
 
@@ -6440,7 +6452,7 @@ class L2Vpn(object):
                                 .. attribute:: member_vni_static_mac_addresses
                                 
                                 	Static Mac Address Table
-                                	**type**\:  :py:class:`MemberVniStaticMacAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses>`
+                                	**type**\:   :py:class:`MemberVniStaticMacAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses>`
                                 
                                 
 
@@ -6463,7 +6475,7 @@ class L2Vpn(object):
                                     .. attribute:: member_vni_static_mac_address
                                     
                                     	Static Mac Address Configuration
-                                    	**type**\: list of  :py:class:`MemberVniStaticMacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress>`
+                                    	**type**\: list of    :py:class:`MemberVniStaticMacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress>`
                                     
                                     
 
@@ -6627,52 +6639,52 @@ class L2Vpn(object):
                             .. attribute:: bd_mac_aging
                             
                             	MAC\-Aging configuration commands
-                            	**type**\:  :py:class:`BdMacAging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging>`
+                            	**type**\:   :py:class:`BdMacAging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging>`
                             
                             .. attribute:: bd_mac_filters
                             
                             	Filter Mac Address
-                            	**type**\:  :py:class:`BdMacFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters>`
+                            	**type**\:   :py:class:`BdMacFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters>`
                             
                             .. attribute:: bd_mac_learn
                             
                             	Enable Mac Learning
-                            	**type**\:  :py:class:`MacLearnEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
+                            	**type**\:   :py:class:`MacLearnEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
                             
                             .. attribute:: bd_mac_limit
                             
                             	MAC\-Limit configuration commands
-                            	**type**\:  :py:class:`BdMacLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit>`
+                            	**type**\:   :py:class:`BdMacLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit>`
                             
                             .. attribute:: bd_mac_port_down_flush
                             
                             	Disable MAC Flush when Port goes Down
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: bd_mac_withdraw
                             
                             	Disable Mac Withdraw
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: bd_mac_withdraw_access_pw_disable
                             
                             	MAC withdraw on Access PW
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: bd_mac_withdraw_behavior
                             
                             	MAC withdraw sent on bridge port down
-                            	**type**\:  :py:class:`MacWithdrawBehaviorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacWithdrawBehaviorEnum>`
+                            	**type**\:   :py:class:`MacWithdrawBehaviorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacWithdrawBehaviorEnum>`
                             
                             .. attribute:: bd_mac_withdraw_relay
                             
                             	Mac withdraw sent from access PW to access PW
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: mac_secure
                             
                             	MAC Secure
-                            	**type**\:  :py:class:`MacSecure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure>`
+                            	**type**\:   :py:class:`MacSecure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure>`
                             
                             
 
@@ -6706,7 +6718,7 @@ class L2Vpn(object):
                                 .. attribute:: bd_mac_limit_action
                                 
                                 	MAC address limit enforcement action
-                                	**type**\:  :py:class:`MacLimitActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLimitActionEnum>`
+                                	**type**\:   :py:class:`MacLimitActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLimitActionEnum>`
                                 
                                 .. attribute:: bd_mac_limit_max
                                 
@@ -6718,7 +6730,7 @@ class L2Vpn(object):
                                 .. attribute:: bd_mac_limit_notif
                                 
                                 	Mac Address Limit Notification
-                                	**type**\:  :py:class:`MacNotificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacNotificationEnum>`
+                                	**type**\:   :py:class:`MacNotificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacNotificationEnum>`
                                 
                                 
 
@@ -6771,7 +6783,7 @@ class L2Vpn(object):
                                 .. attribute:: bd_mac_filter
                                 
                                 	Static MAC address
-                                	**type**\: list of  :py:class:`BdMacFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter>`
+                                	**type**\: list of    :py:class:`BdMacFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter>`
                                 
                                 
 
@@ -6801,7 +6813,7 @@ class L2Vpn(object):
                                     .. attribute:: drop
                                     
                                     	MAC address for filtering
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     
 
@@ -6878,17 +6890,17 @@ class L2Vpn(object):
                                 .. attribute:: action
                                 
                                 	MAC secure enforcement action
-                                	**type**\:  :py:class:`MacSecureActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureActionEnum>`
+                                	**type**\:   :py:class:`MacSecureActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureActionEnum>`
                                 
                                 .. attribute:: enable
                                 
                                 	Enable MAC Secure
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: logging
                                 
                                 	MAC Secure Logging
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -6948,7 +6960,7 @@ class L2Vpn(object):
                                 .. attribute:: bd_mac_aging_type
                                 
                                 	MAC address aging type
-                                	**type**\:  :py:class:`MacAgingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
+                                	**type**\:   :py:class:`MacAgingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
                                 
                                 
 
@@ -7048,12 +7060,12 @@ class L2Vpn(object):
                             .. attribute:: enable
                             
                             	Enable nV Satellite Settings
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: offload_ipv4_multicast_enable
                             
                             	Enable IPv4 Multicast Offload to Satellite Nodes
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -7102,12 +7114,12 @@ class L2Vpn(object):
                             .. attribute:: pbb_core
                             
                             	PBB Core
-                            	**type**\:  :py:class:`PbbCore <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore>`
+                            	**type**\:   :py:class:`PbbCore <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore>`
                             
                             .. attribute:: pbb_edges
                             
                             	PBB Edge
-                            	**type**\:  :py:class:`PbbEdges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges>`
+                            	**type**\:   :py:class:`PbbEdges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges>`
                             
                             
 
@@ -7131,7 +7143,7 @@ class L2Vpn(object):
                                 .. attribute:: pbb_edge
                                 
                                 	Configure BD as PBB Edge with ISID and associated PBB Core BD
-                                	**type**\: list of  :py:class:`PbbEdge <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge>`
+                                	**type**\: list of    :py:class:`PbbEdge <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge>`
                                 
                                 
 
@@ -7169,7 +7181,7 @@ class L2Vpn(object):
                                     .. attribute:: pbb_edge_dhcp_profile
                                     
                                     	Attach a DHCP profile
-                                    	**type**\:  :py:class:`PbbEdgeDhcpProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile>`
+                                    	**type**\:   :py:class:`PbbEdgeDhcpProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile>`
                                     
                                     .. attribute:: pbb_edge_igmp_profile
                                     
@@ -7181,12 +7193,12 @@ class L2Vpn(object):
                                     .. attribute:: pbb_edge_mac
                                     
                                     	MAC configuration commands
-                                    	**type**\:  :py:class:`PbbEdgeMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac>`
+                                    	**type**\:   :py:class:`PbbEdgeMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac>`
                                     
                                     .. attribute:: pbb_static_mac_mappings
                                     
                                     	PBB Static Mac Address Mapping Table
-                                    	**type**\:  :py:class:`PbbStaticMacMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings>`
+                                    	**type**\:   :py:class:`PbbStaticMacMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings>`
                                     
                                     .. attribute:: unknown_unicast_bmac
                                     
@@ -7223,7 +7235,7 @@ class L2Vpn(object):
                                         .. attribute:: pbb_static_mac_mapping
                                         
                                         	PBB Static Mac Address Mapping Configuration
-                                        	**type**\: list of  :py:class:`PbbStaticMacMapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping>`
+                                        	**type**\: list of    :py:class:`PbbStaticMacMapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping>`
                                         
                                         
 
@@ -7340,7 +7352,7 @@ class L2Vpn(object):
                                         .. attribute:: profile_id
                                         
                                         	Set the snooping profile
-                                        	**type**\:  :py:class:`InterfaceProfileEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
+                                        	**type**\:   :py:class:`InterfaceProfileEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
                                         
                                         
 
@@ -7389,22 +7401,22 @@ class L2Vpn(object):
                                         .. attribute:: pbb_edge_mac_aging
                                         
                                         	MAC\-Aging configuration commands
-                                        	**type**\:  :py:class:`PbbEdgeMacAging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging>`
+                                        	**type**\:   :py:class:`PbbEdgeMacAging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging>`
                                         
                                         .. attribute:: pbb_edge_mac_learning
                                         
                                         	Enable Mac Learning
-                                        	**type**\:  :py:class:`MacLearnEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
+                                        	**type**\:   :py:class:`MacLearnEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
                                         
                                         .. attribute:: pbb_edge_mac_limit
                                         
                                         	MAC\-Limit configuration commands
-                                        	**type**\:  :py:class:`PbbEdgeMacLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit>`
+                                        	**type**\:   :py:class:`PbbEdgeMacLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit>`
                                         
                                         .. attribute:: pbb_edge_mac_secure
                                         
                                         	MAC Secure
-                                        	**type**\:  :py:class:`PbbEdgeMacSecure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure>`
+                                        	**type**\:   :py:class:`PbbEdgeMacSecure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure>`
                                         
                                         
 
@@ -7431,7 +7443,7 @@ class L2Vpn(object):
                                             .. attribute:: pbb_edge_mac_limit_action
                                             
                                             	MAC address limit enforcement action
-                                            	**type**\:  :py:class:`MacLimitActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLimitActionEnum>`
+                                            	**type**\:   :py:class:`MacLimitActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLimitActionEnum>`
                                             
                                             .. attribute:: pbb_edge_mac_limit_max
                                             
@@ -7443,7 +7455,7 @@ class L2Vpn(object):
                                             .. attribute:: pbb_edge_mac_limit_notif
                                             
                                             	MAC address limit notification action
-                                            	**type**\:  :py:class:`MacNotificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacNotificationEnum>`
+                                            	**type**\:   :py:class:`MacNotificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacNotificationEnum>`
                                             
                                             
 
@@ -7503,7 +7515,7 @@ class L2Vpn(object):
                                             .. attribute:: pbb_edge_mac_aging_type
                                             
                                             	MAC address aging type
-                                            	**type**\:  :py:class:`MacAgingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
+                                            	**type**\:   :py:class:`MacAgingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
                                             
                                             
 
@@ -7552,27 +7564,27 @@ class L2Vpn(object):
                                             .. attribute:: accept_shutdown
                                             
                                             	Accept Virtual instance port to be shutdown on mac violation
-                                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                             
                                             .. attribute:: action
                                             
                                             	MAC secure enforcement action
-                                            	**type**\:  :py:class:`MacSecureActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureActionEnum>`
+                                            	**type**\:   :py:class:`MacSecureActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureActionEnum>`
                                             
                                             .. attribute:: disable
                                             
                                             	Disable Virtual instance port MAC Secure
-                                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                             
                                             .. attribute:: enable
                                             
                                             	Enable MAC Secure
-                                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                             
                                             .. attribute:: logging
                                             
                                             	MAC Secure Logging
-                                            	**type**\:  :py:class:`L2VpnLoggingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
+                                            	**type**\:   :py:class:`L2VpnLoggingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
                                             
                                             
 
@@ -7738,17 +7750,17 @@ class L2Vpn(object):
                                 .. attribute:: enable
                                 
                                 	Enable Bridge Domain PBB Core Configuration
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: pbb_core_dhcp_profile
                                 
                                 	Attach a DHCP profile
-                                	**type**\:  :py:class:`PbbCoreDhcpProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile>`
+                                	**type**\:   :py:class:`PbbCoreDhcpProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile>`
                                 
                                 .. attribute:: pbb_core_evis
                                 
                                 	PBB Core EVI Table
-                                	**type**\:  :py:class:`PbbCoreEvis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis>`
+                                	**type**\:   :py:class:`PbbCoreEvis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis>`
                                 
                                 .. attribute:: pbb_core_igmp_profile
                                 
@@ -7760,12 +7772,12 @@ class L2Vpn(object):
                                 .. attribute:: pbb_core_mac
                                 
                                 	MAC configuration commands
-                                	**type**\:  :py:class:`PbbCoreMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac>`
+                                	**type**\:   :py:class:`PbbCoreMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac>`
                                 
                                 .. attribute:: pbb_core_mmrp_flood_optimization
                                 
                                 	Enabling MMRP PBB\-VPLS Flood Optimization
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: vlan_id
                                 
@@ -7802,17 +7814,17 @@ class L2Vpn(object):
                                     .. attribute:: pbb_core_mac_aging
                                     
                                     	MAC\-Aging configuration commands
-                                    	**type**\:  :py:class:`PbbCoreMacAging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging>`
+                                    	**type**\:   :py:class:`PbbCoreMacAging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging>`
                                     
                                     .. attribute:: pbb_core_mac_learning
                                     
                                     	Enable Mac Learning
-                                    	**type**\:  :py:class:`MacLearnEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
+                                    	**type**\:   :py:class:`MacLearnEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
                                     
                                     .. attribute:: pbb_core_mac_limit
                                     
                                     	MAC\-Limit configuration commands
-                                    	**type**\:  :py:class:`PbbCoreMacLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit>`
+                                    	**type**\:   :py:class:`PbbCoreMacLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit>`
                                     
                                     
 
@@ -7844,7 +7856,7 @@ class L2Vpn(object):
                                         .. attribute:: pbb_core_mac_aging_type
                                         
                                         	MAC address aging type
-                                        	**type**\:  :py:class:`MacAgingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
+                                        	**type**\:   :py:class:`MacAgingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
                                         
                                         
 
@@ -7893,7 +7905,7 @@ class L2Vpn(object):
                                         .. attribute:: pbb_core_mac_limit_action
                                         
                                         	MAC address limit enforcement action
-                                        	**type**\:  :py:class:`MacLimitActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLimitActionEnum>`
+                                        	**type**\:   :py:class:`MacLimitActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLimitActionEnum>`
                                         
                                         .. attribute:: pbb_core_mac_limit_max
                                         
@@ -7905,7 +7917,7 @@ class L2Vpn(object):
                                         .. attribute:: pbb_core_mac_limit_notif
                                         
                                         	MAC address limit notification action
-                                        	**type**\:  :py:class:`MacNotificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacNotificationEnum>`
+                                        	**type**\:   :py:class:`MacNotificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacNotificationEnum>`
                                         
                                         
 
@@ -7988,7 +8000,7 @@ class L2Vpn(object):
                                     .. attribute:: pbb_core_evi
                                     
                                     	PBB Core EVI
-                                    	**type**\: list of  :py:class:`PbbCoreEvi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi>`
+                                    	**type**\: list of    :py:class:`PbbCoreEvi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi>`
                                     
                                     
 
@@ -8091,7 +8103,7 @@ class L2Vpn(object):
                                     .. attribute:: profile_id
                                     
                                     	Set the snooping profile
-                                    	**type**\:  :py:class:`InterfaceProfileEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
+                                    	**type**\:   :py:class:`InterfaceProfileEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
                                     
                                     
 
@@ -8209,7 +8221,7 @@ class L2Vpn(object):
                             .. attribute:: bridge_domain_evi
                             
                             	Bridge Domain EVI
-                            	**type**\: list of  :py:class:`BridgeDomainEvi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi>`
+                            	**type**\: list of    :py:class:`BridgeDomainEvi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi>`
                             
                             
 
@@ -8307,7 +8319,7 @@ class L2Vpn(object):
                             .. attribute:: bd_pseudowire
                             
                             	Pseudowire configuration
-                            	**type**\: list of  :py:class:`BdPseudowire <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire>`
+                            	**type**\: list of    :py:class:`BdPseudowire <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire>`
                             
                             
 
@@ -8351,42 +8363,42 @@ class L2Vpn(object):
                                 .. attribute:: bd_pw_mpls_static_labels
                                 
                                 	MPLS static labels
-                                	**type**\:  :py:class:`BdPwMplsStaticLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels>`
+                                	**type**\:   :py:class:`BdPwMplsStaticLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels>`
                                 
                                 .. attribute:: bd_pw_split_horizon
                                 
                                 	Split Horizon
-                                	**type**\:  :py:class:`BdPwSplitHorizon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon>`
+                                	**type**\:   :py:class:`BdPwSplitHorizon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon>`
                                 
                                 .. attribute:: bd_pw_static_mac_addresses
                                 
                                 	Static Mac Address Table
-                                	**type**\:  :py:class:`BdPwStaticMacAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses>`
+                                	**type**\:   :py:class:`BdPwStaticMacAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses>`
                                 
                                 .. attribute:: bdpw_storm_control_types
                                 
                                 	Storm Control
-                                	**type**\:  :py:class:`BdpwStormControlTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes>`
+                                	**type**\:   :py:class:`BdpwStormControlTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes>`
                                 
                                 .. attribute:: bridge_domain_backup_pseudowires
                                 
                                 	List of pseudowires
-                                	**type**\:  :py:class:`BridgeDomainBackupPseudowires <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires>`
+                                	**type**\:   :py:class:`BridgeDomainBackupPseudowires <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires>`
                                 
                                 .. attribute:: pseudowire_dai
                                 
                                 	Access Pseudowire Dynamic ARP Inspection
-                                	**type**\:  :py:class:`PseudowireDai <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai>`
+                                	**type**\:   :py:class:`PseudowireDai <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai>`
                                 
                                 .. attribute:: pseudowire_flooding
                                 
                                 	Bridge\-domain Pseudowire flooding
-                                	**type**\:  :py:class:`InterfaceTrafficFloodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFloodEnum>`
+                                	**type**\:   :py:class:`InterfaceTrafficFloodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFloodEnum>`
                                 
                                 .. attribute:: pseudowire_flooding_unknown_unicast
                                 
                                 	Bridge\-domain Pseudowire flooding Unknown Unicast
-                                	**type**\:  :py:class:`InterfaceTrafficFloodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFloodEnum>`
+                                	**type**\:   :py:class:`InterfaceTrafficFloodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFloodEnum>`
                                 
                                 .. attribute:: pseudowire_igmp_snoop
                                 
@@ -8398,12 +8410,12 @@ class L2Vpn(object):
                                 .. attribute:: pseudowire_ip_source_guard
                                 
                                 	IP Source Guard
-                                	**type**\:  :py:class:`PseudowireIpSourceGuard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard>`
+                                	**type**\:   :py:class:`PseudowireIpSourceGuard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard>`
                                 
                                 .. attribute:: pseudowire_mac
                                 
                                 	Bridge\-domain Pseudowire MAC configuration commands
-                                	**type**\:  :py:class:`PseudowireMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac>`
+                                	**type**\:   :py:class:`PseudowireMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac>`
                                 
                                 .. attribute:: pseudowire_mld_snoop
                                 
@@ -8415,7 +8427,7 @@ class L2Vpn(object):
                                 .. attribute:: pseudowire_profile
                                 
                                 	Attach a DHCP profile
-                                	**type**\:  :py:class:`PseudowireProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile>`
+                                	**type**\:   :py:class:`PseudowireProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile>`
                                 
                                 
 
@@ -8460,22 +8472,22 @@ class L2Vpn(object):
                                     .. attribute:: disable
                                     
                                     	Disable Dynamic ARP Inspection
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: enable
                                     
                                     	Enable Access Pseudowire Dynamic ARP Inspection
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: logging
                                     
                                     	Logging Type
-                                    	**type**\:  :py:class:`L2VpnLoggingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
+                                    	**type**\:   :py:class:`L2VpnLoggingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
                                     
                                     .. attribute:: pseudowire_dai_address_validation
                                     
                                     	Address Validation
-                                    	**type**\:  :py:class:`PseudowireDaiAddressValidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation>`
+                                    	**type**\:   :py:class:`PseudowireDaiAddressValidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation>`
                                     
                                     
 
@@ -8500,17 +8512,17 @@ class L2Vpn(object):
                                         .. attribute:: destination_mac_verification
                                         
                                         	Destination MAC Verification
-                                        	**type**\:  :py:class:`L2VpnVerificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
+                                        	**type**\:   :py:class:`L2VpnVerificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
                                         
                                         .. attribute:: ipv4_verification
                                         
                                         	IPv4 Verification
-                                        	**type**\:  :py:class:`L2VpnVerificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
+                                        	**type**\:   :py:class:`L2VpnVerificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
                                         
                                         .. attribute:: source_mac_verification
                                         
                                         	Source MAC Verification
-                                        	**type**\:  :py:class:`L2VpnVerificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
+                                        	**type**\:   :py:class:`L2VpnVerificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
                                         
                                         
 
@@ -8596,7 +8608,7 @@ class L2Vpn(object):
                                     .. attribute:: bdpw_storm_control_type
                                     
                                     	Storm Control Type
-                                    	**type**\: list of  :py:class:`BdpwStormControlType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType>`
+                                    	**type**\: list of    :py:class:`BdpwStormControlType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType>`
                                     
                                     
 
@@ -8619,12 +8631,12 @@ class L2Vpn(object):
                                         .. attribute:: sctype  <key>
                                         
                                         	Storm Control Type
-                                        	**type**\:  :py:class:`StormControlEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.StormControlEnum>`
+                                        	**type**\:   :py:class:`StormControlEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.StormControlEnum>`
                                         
                                         .. attribute:: storm_control_unit
                                         
                                         	Specify units for Storm Control Configuration
-                                        	**type**\:  :py:class:`StormControlUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit>`
+                                        	**type**\:   :py:class:`StormControlUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit>`
                                         
                                         
 
@@ -8651,12 +8663,16 @@ class L2Vpn(object):
                                             
                                             	**range:** 64..1280000
                                             
+                                            	**units**\: kbit/s
+                                            
                                             .. attribute:: pkts_per_sec
                                             
                                             	Packets Per Second, PktsPerSec and KbitsPerSec cannot be configured together
                                             	**type**\:  int
                                             
                                             	**range:** 1..160000
+                                            
+                                            	**units**\: packet/s
                                             
                                             
 
@@ -8765,7 +8781,7 @@ class L2Vpn(object):
                                     .. attribute:: profile_id
                                     
                                     	Set the snooping profile
-                                    	**type**\:  :py:class:`InterfaceProfileEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
+                                    	**type**\:   :py:class:`InterfaceProfileEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
                                     
                                     
 
@@ -8814,7 +8830,7 @@ class L2Vpn(object):
                                     .. attribute:: bd_pw_static_mac_address
                                     
                                     	Static Mac Address Configuration
-                                    	**type**\: list of  :py:class:`BdPwStaticMacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress>`
+                                    	**type**\: list of    :py:class:`BdPwStaticMacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress>`
                                     
                                     
 
@@ -8912,17 +8928,17 @@ class L2Vpn(object):
                                     .. attribute:: disable
                                     
                                     	Disable Dynamic IP source guard
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: enable
                                     
                                     	Enable IP Source Guard
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: logging
                                     
                                     	Logging Type
-                                    	**type**\:  :py:class:`L2VpnLoggingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
+                                    	**type**\:   :py:class:`L2VpnLoggingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
                                     
                                     
 
@@ -8976,32 +8992,32 @@ class L2Vpn(object):
                                     .. attribute:: enable
                                     
                                     	Bridge\-domain Pseudowire MAC configuration mode
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: pseudowire_mac_aging
                                     
                                     	MAC\-Aging configuration commands
-                                    	**type**\:  :py:class:`PseudowireMacAging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging>`
+                                    	**type**\:   :py:class:`PseudowireMacAging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging>`
                                     
                                     .. attribute:: pseudowire_mac_learning
                                     
                                     	Enable MAC Learning
-                                    	**type**\:  :py:class:`MacLearnEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
+                                    	**type**\:   :py:class:`MacLearnEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
                                     
                                     .. attribute:: pseudowire_mac_limit
                                     
                                     	MAC\-Limit configuration commands
-                                    	**type**\:  :py:class:`PseudowireMacLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit>`
+                                    	**type**\:   :py:class:`PseudowireMacLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit>`
                                     
                                     .. attribute:: pseudowire_mac_port_down_flush
                                     
                                     	Enable/Disable MAC Flush When Port goes down
-                                    	**type**\:  :py:class:`PortDownFlushEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.PortDownFlushEnum>`
+                                    	**type**\:   :py:class:`PortDownFlushEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.PortDownFlushEnum>`
                                     
                                     .. attribute:: pseudowire_mac_secure
                                     
                                     	MAC Secure
-                                    	**type**\:  :py:class:`PseudowireMacSecure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure>`
+                                    	**type**\:   :py:class:`PseudowireMacSecure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure>`
                                     
                                     
 
@@ -9030,22 +9046,22 @@ class L2Vpn(object):
                                         .. attribute:: action
                                         
                                         	MAC secure enforcement action
-                                        	**type**\:  :py:class:`MacSecureActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureActionEnum>`
+                                        	**type**\:   :py:class:`MacSecureActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureActionEnum>`
                                         
                                         .. attribute:: disable
                                         
                                         	Disable L2 Pseudowire MAC Secure
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: enable
                                         
                                         	Enable MAC Secure
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: logging
                                         
                                         	MAC Secure Logging
-                                        	**type**\:  :py:class:`L2VpnLoggingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
+                                        	**type**\:   :py:class:`L2VpnLoggingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
                                         
                                         
 
@@ -9109,7 +9125,7 @@ class L2Vpn(object):
                                         .. attribute:: pseudowire_mac_aging_type
                                         
                                         	MAC address aging type
-                                        	**type**\:  :py:class:`MacAgingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
+                                        	**type**\:   :py:class:`MacAgingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
                                         
                                         
 
@@ -9158,7 +9174,7 @@ class L2Vpn(object):
                                         .. attribute:: pseudowire_mac_limit_action
                                         
                                         	Bridge Access Pseudowire MAC address limit enforcement action
-                                        	**type**\:  :py:class:`MacLimitActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLimitActionEnum>`
+                                        	**type**\:   :py:class:`MacLimitActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLimitActionEnum>`
                                         
                                         .. attribute:: pseudowire_mac_limit_max
                                         
@@ -9170,7 +9186,7 @@ class L2Vpn(object):
                                         .. attribute:: pseudowire_mac_limit_notif
                                         
                                         	MAC address limit notification action in a Bridge Access Pseudowire
-                                        	**type**\:  :py:class:`MacNotificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacNotificationEnum>`
+                                        	**type**\:   :py:class:`MacNotificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacNotificationEnum>`
                                         
                                         
 
@@ -9262,7 +9278,7 @@ class L2Vpn(object):
                                     .. attribute:: bd_pw_split_horizon_group
                                     
                                     	Split Horizon Group
-                                    	**type**\:  :py:class:`BdPwSplitHorizonGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup>`
+                                    	**type**\:   :py:class:`BdPwSplitHorizonGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup>`
                                     
                                     
 
@@ -9284,7 +9300,7 @@ class L2Vpn(object):
                                         .. attribute:: enable
                                         
                                         	Enable split horizon group
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         
 
@@ -9411,7 +9427,7 @@ class L2Vpn(object):
                                     .. attribute:: bridge_domain_backup_pseudowire
                                     
                                     	Backup pseudowire configuration
-                                    	**type**\: list of  :py:class:`BridgeDomainBackupPseudowire <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire>`
+                                    	**type**\: list of    :py:class:`BridgeDomainBackupPseudowire <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire>`
                                     
                                     
 
@@ -9633,7 +9649,7 @@ class L2Vpn(object):
                             .. attribute:: vfi
                             
                             	Name of the Virtual Forwarding Interface
-                            	**type**\: list of  :py:class:`Vfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi>`
+                            	**type**\: list of    :py:class:`Vfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi>`
                             
                             
 
@@ -9663,22 +9679,22 @@ class L2Vpn(object):
                                 .. attribute:: bgp_auto_discovery
                                 
                                 	Enable Autodiscovery BGP in this VFI
-                                	**type**\:  :py:class:`BgpAutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery>`
+                                	**type**\:   :py:class:`BgpAutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery>`
                                 
                                 .. attribute:: multicast_p2mp
                                 
                                 	Enable Multicast P2MP in this VFI
-                                	**type**\:  :py:class:`MulticastP2Mp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp>`
+                                	**type**\:   :py:class:`MulticastP2Mp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp>`
                                 
                                 .. attribute:: vfi_pseudowires
                                 
                                 	List of pseudowires
-                                	**type**\:  :py:class:`VfiPseudowires <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires>`
+                                	**type**\:   :py:class:`VfiPseudowires <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires>`
                                 
                                 .. attribute:: vfi_shutdown
                                 
                                 	Enabling Shutdown
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: vpnid
                                 
@@ -9714,17 +9730,17 @@ class L2Vpn(object):
                                     .. attribute:: enable
                                     
                                     	Enable Autodiscovery P2MP
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: signalings
                                     
                                     	Multicast P2MP Signaling Type
-                                    	**type**\:  :py:class:`Signalings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Signalings>`
+                                    	**type**\:   :py:class:`Signalings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Signalings>`
                                     
                                     .. attribute:: transports
                                     
                                     	Multicast P2MP Transport
-                                    	**type**\:  :py:class:`Transports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Transports>`
+                                    	**type**\:   :py:class:`Transports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Transports>`
                                     
                                     
 
@@ -9749,7 +9765,7 @@ class L2Vpn(object):
                                         .. attribute:: transport
                                         
                                         	Multicast P2MP Transport Type
-                                        	**type**\: list of  :py:class:`Transport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Transports.Transport>`
+                                        	**type**\: list of    :py:class:`Transport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Transports.Transport>`
                                         
                                         
 
@@ -9858,7 +9874,7 @@ class L2Vpn(object):
                                         .. attribute:: signaling
                                         
                                         	Multicast P2MP Signaling Type
-                                        	**type**\: list of  :py:class:`Signaling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Signalings.Signaling>`
+                                        	**type**\: list of    :py:class:`Signaling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2Mp.Signalings.Signaling>`
                                         
                                         
 
@@ -9986,7 +10002,7 @@ class L2Vpn(object):
                                     .. attribute:: vfi_pseudowire
                                     
                                     	Pseudowire configuration
-                                    	**type**\: list of  :py:class:`VfiPseudowire <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire>`
+                                    	**type**\: list of    :py:class:`VfiPseudowire <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire>`
                                     
                                     
 
@@ -10023,7 +10039,7 @@ class L2Vpn(object):
                                         .. attribute:: pseudowire_static_mac_addresses
                                         
                                         	Static Mac Address Table
-                                        	**type**\:  :py:class:`PseudowireStaticMacAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses>`
+                                        	**type**\:   :py:class:`PseudowireStaticMacAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses>`
                                         
                                         .. attribute:: vfi_pw_class
                                         
@@ -10035,7 +10051,7 @@ class L2Vpn(object):
                                         .. attribute:: vfi_pw_dhcp_snoop
                                         
                                         	Attach a DHCP Snooping profile
-                                        	**type**\:  :py:class:`VfiPwDhcpSnoop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop>`
+                                        	**type**\:   :py:class:`VfiPwDhcpSnoop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop>`
                                         
                                         .. attribute:: vfi_pw_igmp_snoop
                                         
@@ -10054,7 +10070,7 @@ class L2Vpn(object):
                                         .. attribute:: vfi_pw_mpls_static_labels
                                         
                                         	MPLS static labels
-                                        	**type**\:  :py:class:`VfiPwMplsStaticLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels>`
+                                        	**type**\:   :py:class:`VfiPwMplsStaticLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels>`
                                         
                                         
 
@@ -10090,7 +10106,7 @@ class L2Vpn(object):
                                             .. attribute:: profile_id
                                             
                                             	Set the snooping profile
-                                            	**type**\:  :py:class:`InterfaceProfileEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
+                                            	**type**\:   :py:class:`InterfaceProfileEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
                                             
                                             
 
@@ -10197,7 +10213,7 @@ class L2Vpn(object):
                                             .. attribute:: pseudowire_static_mac_address
                                             
                                             	Static Mac Address Configuration
-                                            	**type**\: list of  :py:class:`PseudowireStaticMacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress>`
+                                            	**type**\: list of    :py:class:`PseudowireStaticMacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress>`
                                             
                                             
 
@@ -10370,37 +10386,37 @@ class L2Vpn(object):
                                     .. attribute:: ad_control_word
                                     
                                     	Enable control\-word for this VFI
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: bgp_route_policy
                                     
                                     	Route policy
-                                    	**type**\:  :py:class:`BgpRoutePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy>`
+                                    	**type**\:   :py:class:`BgpRoutePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy>`
                                     
                                     .. attribute:: bgp_signaling_protocol
                                     
                                     	Enable Signaling Protocol BGP in this VFI
-                                    	**type**\:  :py:class:`BgpSignalingProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol>`
+                                    	**type**\:   :py:class:`BgpSignalingProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol>`
                                     
                                     .. attribute:: enable
                                     
                                     	Enable Autodiscovery BGP
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: ldp_signaling_protocol
                                     
                                     	Signaling Protocol LDP in this VFI configuration
-                                    	**type**\:  :py:class:`LdpSignalingProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol>`
+                                    	**type**\:   :py:class:`LdpSignalingProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol>`
                                     
                                     .. attribute:: route_distinguisher
                                     
                                     	Route Distinguisher
-                                    	**type**\:  :py:class:`RouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher>`
+                                    	**type**\:   :py:class:`RouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher>`
                                     
                                     .. attribute:: route_targets
                                     
                                     	Route Target
-                                    	**type**\:  :py:class:`RouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets>`
+                                    	**type**\:   :py:class:`RouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets>`
                                     
                                     .. attribute:: table_policy
                                     
@@ -10439,17 +10455,17 @@ class L2Vpn(object):
                                         .. attribute:: enable
                                         
                                         	Enable LDP as Signaling Protocol .Deletion of this object also causes deletion of all objects under LDPSignalingProtocol
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: flow_label_load_balance
                                         
                                         	Enable Flow Label based load balancing
-                                        	**type**\:  :py:class:`FlowLabelLoadBalance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance>`
+                                        	**type**\:   :py:class:`FlowLabelLoadBalance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance>`
                                         
                                         .. attribute:: vplsid
                                         
                                         	VPLS ID
-                                        	**type**\:  :py:class:`Vplsid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.Vplsid>`
+                                        	**type**\:   :py:class:`Vplsid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.Vplsid>`
                                         
                                         
 
@@ -10502,7 +10518,7 @@ class L2Vpn(object):
                                             .. attribute:: type
                                             
                                             	VPLS\-ID Type
-                                            	**type**\:  :py:class:`LdpVplsIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.LdpVplsIdEnum>`
+                                            	**type**\:   :py:class:`LdpVplsIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.LdpVplsIdEnum>`
                                             
                                             
 
@@ -10563,12 +10579,12 @@ class L2Vpn(object):
                                             .. attribute:: flow_label
                                             
                                             	Flow Label load balance type
-                                            	**type**\:  :py:class:`FlowLabelLoadBalanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.FlowLabelLoadBalanceEnum>`
+                                            	**type**\:   :py:class:`FlowLabelLoadBalanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.FlowLabelLoadBalanceEnum>`
                                             
                                             .. attribute:: static
                                             
                                             	Static Flow Label
-                                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                             
                                             
 
@@ -10720,7 +10736,7 @@ class L2Vpn(object):
                                         .. attribute:: type
                                         
                                         	Router Distinguisher Type
-                                        	**type**\:  :py:class:`BgpRouteDistinguisherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
+                                        	**type**\:   :py:class:`BgpRouteDistinguisherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
                                         
                                         
 
@@ -10782,12 +10798,12 @@ class L2Vpn(object):
                                         .. attribute:: enable
                                         
                                         	Enable BGP as Signaling Protocol
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: flow_label_load_balance
                                         
                                         	Enable Flow Label based load balancing
-                                        	**type**\:  :py:class:`FlowLabelLoadBalance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance>`
+                                        	**type**\:   :py:class:`FlowLabelLoadBalance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance>`
                                         
                                         .. attribute:: ve_range
                                         
@@ -10826,12 +10842,12 @@ class L2Vpn(object):
                                             .. attribute:: flow_label
                                             
                                             	Flow Label load balance type
-                                            	**type**\:  :py:class:`FlowLabelLoadBalanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.FlowLabelLoadBalanceEnum>`
+                                            	**type**\:   :py:class:`FlowLabelLoadBalanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.FlowLabelLoadBalanceEnum>`
                                             
                                             .. attribute:: static
                                             
                                             	Static Flow Label
-                                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                             
                                             
 
@@ -10913,7 +10929,7 @@ class L2Vpn(object):
                                         .. attribute:: route_target
                                         
                                         	Name of the Route Target
-                                        	**type**\: list of  :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget>`
+                                        	**type**\: list of    :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget>`
                                         
                                         
 
@@ -10936,22 +10952,22 @@ class L2Vpn(object):
                                             .. attribute:: format  <key>
                                             
                                             	Format of the route target
-                                            	**type**\:  :py:class:`BgpRouteTargetFormatEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormatEnum>`
+                                            	**type**\:   :py:class:`BgpRouteTargetFormatEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormatEnum>`
                                             
                                             .. attribute:: role  <key>
                                             
                                             	Role of the router target type
-                                            	**type**\:  :py:class:`BgpRouteTargetRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRoleEnum>`
+                                            	**type**\:   :py:class:`BgpRouteTargetRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRoleEnum>`
                                             
                                             .. attribute:: ipv4_address
                                             
                                             	ipv4 address
-                                            	**type**\: list of  :py:class:`Ipv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address>`
+                                            	**type**\: list of    :py:class:`Ipv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address>`
                                             
                                             .. attribute:: two_byte_as_or_four_byte_as
                                             
                                             	two byte as or four byte as
-                                            	**type**\: list of  :py:class:`TwoByteAsOrFourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs>`
+                                            	**type**\: list of    :py:class:`TwoByteAsOrFourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs>`
                                             
                                             
 
@@ -11282,7 +11298,7 @@ class L2Vpn(object):
                             .. attribute:: bd_attachment_circuit
                             
                             	Name of the Attachment Circuit
-                            	**type**\: list of  :py:class:`BdAttachmentCircuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit>`
+                            	**type**\: list of    :py:class:`BdAttachmentCircuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit>`
                             
                             
 
@@ -11312,22 +11328,22 @@ class L2Vpn(object):
                                 .. attribute:: bdac_storm_control_types
                                 
                                 	Storm Control
-                                	**type**\:  :py:class:`BdacStormControlTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes>`
+                                	**type**\:   :py:class:`BdacStormControlTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes>`
                                 
                                 .. attribute:: interface_dai
                                 
                                 	L2 Interface Dynamic ARP Inspection
-                                	**type**\:  :py:class:`InterfaceDai <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai>`
+                                	**type**\:   :py:class:`InterfaceDai <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai>`
                                 
                                 .. attribute:: interface_flooding
                                 
                                 	Enable or Disable Flooding
-                                	**type**\:  :py:class:`InterfaceTrafficFloodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFloodEnum>`
+                                	**type**\:   :py:class:`InterfaceTrafficFloodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFloodEnum>`
                                 
                                 .. attribute:: interface_flooding_unknown_unicast
                                 
                                 	Enable or Disable Unknown Unicast Flooding
-                                	**type**\:  :py:class:`InterfaceTrafficFloodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFloodEnum>`
+                                	**type**\:   :py:class:`InterfaceTrafficFloodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFloodEnum>`
                                 
                                 .. attribute:: interface_igmp_snoop
                                 
@@ -11339,12 +11355,12 @@ class L2Vpn(object):
                                 .. attribute:: interface_ip_source_guard
                                 
                                 	IP Source Guard
-                                	**type**\:  :py:class:`InterfaceIpSourceGuard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard>`
+                                	**type**\:   :py:class:`InterfaceIpSourceGuard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard>`
                                 
                                 .. attribute:: interface_mac
                                 
                                 	MAC configuration commands
-                                	**type**\:  :py:class:`InterfaceMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac>`
+                                	**type**\:   :py:class:`InterfaceMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac>`
                                 
                                 .. attribute:: interface_mld_snoop
                                 
@@ -11356,17 +11372,17 @@ class L2Vpn(object):
                                 .. attribute:: interface_profile
                                 
                                 	Attach a DHCP profile
-                                	**type**\:  :py:class:`InterfaceProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile>`
+                                	**type**\:   :py:class:`InterfaceProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile>`
                                 
                                 .. attribute:: split_horizon
                                 
                                 	Split Horizon
-                                	**type**\:  :py:class:`SplitHorizon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon>`
+                                	**type**\:   :py:class:`SplitHorizon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon>`
                                 
                                 .. attribute:: static_mac_addresses
                                 
                                 	Static Mac Address Table
-                                	**type**\:  :py:class:`StaticMacAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses>`
+                                	**type**\:   :py:class:`StaticMacAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses>`
                                 
                                 
 
@@ -11405,17 +11421,17 @@ class L2Vpn(object):
                                     .. attribute:: disable
                                     
                                     	Disable L2 Interface Dynamic IP source guard
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: enable
                                     
                                     	Enable IP Source Guard
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: logging
                                     
                                     	Logging Type
-                                    	**type**\:  :py:class:`L2VpnLoggingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
+                                    	**type**\:   :py:class:`L2VpnLoggingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
                                     
                                     
 
@@ -11468,22 +11484,22 @@ class L2Vpn(object):
                                     .. attribute:: disable
                                     
                                     	Disable L2 Interface Dynamic ARP Inspection
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: enable
                                     
                                     	Enable L2 Interface Dynamic ARP Inspection
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: interface_dai_address_validation
                                     
                                     	Address Validation
-                                    	**type**\:  :py:class:`InterfaceDaiAddressValidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation>`
+                                    	**type**\:   :py:class:`InterfaceDaiAddressValidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation>`
                                     
                                     .. attribute:: logging
                                     
                                     	Logging Type
-                                    	**type**\:  :py:class:`L2VpnLoggingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
+                                    	**type**\:   :py:class:`L2VpnLoggingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
                                     
                                     
 
@@ -11508,22 +11524,22 @@ class L2Vpn(object):
                                         .. attribute:: destination_mac_verification
                                         
                                         	Destination MAC Verification
-                                        	**type**\:  :py:class:`L2VpnVerificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
+                                        	**type**\:   :py:class:`L2VpnVerificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
                                         
                                         .. attribute:: enable
                                         
                                         	Enable Address Validation
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: ipv4_verification
                                         
                                         	IPv4 Verification
-                                        	**type**\:  :py:class:`L2VpnVerificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
+                                        	**type**\:   :py:class:`L2VpnVerificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
                                         
                                         .. attribute:: source_mac_verification
                                         
                                         	Source MAC Verification
-                                        	**type**\:  :py:class:`L2VpnVerificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
+                                        	**type**\:   :py:class:`L2VpnVerificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnVerificationEnum>`
                                         
                                         
 
@@ -11618,7 +11634,7 @@ class L2Vpn(object):
                                     .. attribute:: profile_id
                                     
                                     	Set the snooping profile
-                                    	**type**\:  :py:class:`InterfaceProfileEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
+                                    	**type**\:   :py:class:`InterfaceProfileEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfileEnum>`
                                     
                                     
 
@@ -11667,7 +11683,7 @@ class L2Vpn(object):
                                     .. attribute:: bdac_storm_control_type
                                     
                                     	Storm Control Type
-                                    	**type**\: list of  :py:class:`BdacStormControlType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType>`
+                                    	**type**\: list of    :py:class:`BdacStormControlType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType>`
                                     
                                     
 
@@ -11690,12 +11706,12 @@ class L2Vpn(object):
                                         .. attribute:: sctype  <key>
                                         
                                         	Storm Control Type
-                                        	**type**\:  :py:class:`StormControlEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.StormControlEnum>`
+                                        	**type**\:   :py:class:`StormControlEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.StormControlEnum>`
                                         
                                         .. attribute:: storm_control_unit
                                         
                                         	Specify units for Storm Control Configuration
-                                        	**type**\:  :py:class:`StormControlUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit>`
+                                        	**type**\:   :py:class:`StormControlUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit>`
                                         
                                         
 
@@ -11722,12 +11738,16 @@ class L2Vpn(object):
                                             
                                             	**range:** 64..1280000
                                             
+                                            	**units**\: kbit/s
+                                            
                                             .. attribute:: pkts_per_sec
                                             
                                             	Packets Per Second, PktsPerSec and KbitsPerSec cannot be configured together
                                             	**type**\:  int
                                             
                                             	**range:** 1..160000
+                                            
+                                            	**units**\: packet/s
                                             
                                             
 
@@ -11831,7 +11851,7 @@ class L2Vpn(object):
                                     .. attribute:: split_horizon_group_id
                                     
                                     	Split Horizon Group ID
-                                    	**type**\:  :py:class:`SplitHorizonGroupId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId>`
+                                    	**type**\:   :py:class:`SplitHorizonGroupId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId>`
                                     
                                     
 
@@ -11853,7 +11873,7 @@ class L2Vpn(object):
                                         .. attribute:: enable
                                         
                                         	Enable split horizon group
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         
 
@@ -11922,7 +11942,7 @@ class L2Vpn(object):
                                     .. attribute:: static_mac_address
                                     
                                     	Static Mac Address Configuration
-                                    	**type**\: list of  :py:class:`StaticMacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress>`
+                                    	**type**\: list of    :py:class:`StaticMacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress>`
                                     
                                     
 
@@ -12020,27 +12040,27 @@ class L2Vpn(object):
                                     .. attribute:: interface_mac_aging
                                     
                                     	MAC\-Aging configuration commands
-                                    	**type**\:  :py:class:`InterfaceMacAging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging>`
+                                    	**type**\:   :py:class:`InterfaceMacAging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging>`
                                     
                                     .. attribute:: interface_mac_learning
                                     
                                     	Enable Mac Learning
-                                    	**type**\:  :py:class:`MacLearnEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
+                                    	**type**\:   :py:class:`MacLearnEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLearnEnum>`
                                     
                                     .. attribute:: interface_mac_limit
                                     
                                     	MAC\-Limit configuration commands
-                                    	**type**\:  :py:class:`InterfaceMacLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit>`
+                                    	**type**\:   :py:class:`InterfaceMacLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit>`
                                     
                                     .. attribute:: interface_mac_port_down_flush
                                     
                                     	Enable/Disable MAC Flush When Port goes down
-                                    	**type**\:  :py:class:`PortDownFlushEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.PortDownFlushEnum>`
+                                    	**type**\:   :py:class:`PortDownFlushEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.PortDownFlushEnum>`
                                     
                                     .. attribute:: interface_mac_secure
                                     
                                     	MAC Secure
-                                    	**type**\:  :py:class:`InterfaceMacSecure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure>`
+                                    	**type**\:   :py:class:`InterfaceMacSecure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure>`
                                     
                                     
 
@@ -12075,7 +12095,7 @@ class L2Vpn(object):
                                         .. attribute:: interface_mac_aging_type
                                         
                                         	MAC address aging type
-                                        	**type**\:  :py:class:`MacAgingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
+                                        	**type**\:   :py:class:`MacAgingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacAgingEnum>`
                                         
                                         
 
@@ -12124,22 +12144,22 @@ class L2Vpn(object):
                                         .. attribute:: action
                                         
                                         	MAC secure enforcement action
-                                        	**type**\:  :py:class:`MacSecureActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureActionEnum>`
+                                        	**type**\:   :py:class:`MacSecureActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureActionEnum>`
                                         
                                         .. attribute:: disable
                                         
                                         	Disable L2 Interface MAC Secure
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: enable
                                         
                                         	Enable MAC Secure
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: logging
                                         
                                         	MAC Secure Logging
-                                        	**type**\:  :py:class:`L2VpnLoggingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
+                                        	**type**\:   :py:class:`L2VpnLoggingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2VpnLoggingEnum>`
                                         
                                         
 
@@ -12196,7 +12216,7 @@ class L2Vpn(object):
                                         .. attribute:: interface_mac_limit_action
                                         
                                         	Interface MAC address limit enforcement action
-                                        	**type**\:  :py:class:`MacLimitActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLimitActionEnum>`
+                                        	**type**\:   :py:class:`MacLimitActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLimitActionEnum>`
                                         
                                         .. attribute:: interface_mac_limit_max
                                         
@@ -12208,7 +12228,7 @@ class L2Vpn(object):
                                         .. attribute:: interface_mac_limit_notif
                                         
                                         	MAC address limit notification action in a Interface
-                                        	**type**\:  :py:class:`MacNotificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacNotificationEnum>`
+                                        	**type**\:   :py:class:`MacNotificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacNotificationEnum>`
                                         
                                         
 
@@ -12382,7 +12402,7 @@ class L2Vpn(object):
                             .. attribute:: bd_pseudowire_evpn
                             
                             	EVPN Pseudowire configuration
-                            	**type**\: list of  :py:class:`BdPseudowireEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn>`
+                            	**type**\: list of    :py:class:`BdPseudowireEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn>`
                             
                             
 
@@ -12493,12 +12513,12 @@ class L2Vpn(object):
                             .. attribute:: enable
                             
                             	Enable IP Source Guard
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: logging
                             
                             	Enable Logging
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -12547,17 +12567,17 @@ class L2Vpn(object):
                             .. attribute:: dai_address_validation
                             
                             	Address Validation
-                            	**type**\:  :py:class:`DaiAddressValidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation>`
+                            	**type**\:   :py:class:`DaiAddressValidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation>`
                             
                             .. attribute:: enable
                             
                             	Enable Dynamic ARP Inspection
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: logging
                             
                             	Enable Logging
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -12581,22 +12601,22 @@ class L2Vpn(object):
                                 .. attribute:: destination_mac_verification
                                 
                                 	Enable Destination MAC Verification
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: enable
                                 
                                 	Enable Address Validation
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: ipv4_verification
                                 
                                 	Enable IPv4 Verification
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: source_mac_verification
                                 
                                 	Enable Source MAC Verification
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -12683,7 +12703,7 @@ class L2Vpn(object):
                             .. attribute:: routed_interface
                             
                             	Bridge Domain Routed Interface
-                            	**type**\: list of  :py:class:`RoutedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface>`
+                            	**type**\: list of    :py:class:`RoutedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface>`
                             
                             
 
@@ -12953,7 +12973,7 @@ class L2Vpn(object):
             .. attribute:: pseudowire_class
             
             	Pseudowire class
-            	**type**\: list of  :py:class:`PseudowireClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass>`
+            	**type**\: list of    :py:class:`PseudowireClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass>`
             
             
 
@@ -12983,27 +13003,27 @@ class L2Vpn(object):
                 .. attribute:: backup_disable_delay
                 
                 	Back Up Pseudowire class
-                	**type**\:  :py:class:`BackupDisableDelay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay>`
+                	**type**\:   :py:class:`BackupDisableDelay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay>`
                 
                 .. attribute:: enable
                 
                 	Enable pseudowire class
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: l2tpv3_encapsulation
                 
                 	L2TPv3 encapsulation
-                	**type**\:  :py:class:`L2Tpv3Encapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation>`
+                	**type**\:   :py:class:`L2Tpv3Encapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation>`
                 
                 .. attribute:: mac_withdraw
                 
                 	Enable backup MAC withdraw
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: mpls_encapsulation
                 
                 	MPLS encapsulation
-                	**type**\:  :py:class:`MplsEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation>`
+                	**type**\:   :py:class:`MplsEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation>`
                 
                 
 
@@ -13032,32 +13052,34 @@ class L2Vpn(object):
                     .. attribute:: cookie_size
                     
                     	Cookie size
-                    	**type**\:  :py:class:`L2TpCookieSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
+                    	**type**\:   :py:class:`L2TpCookieSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2TpCookieSizeEnum>`
+                    
+                    	**default value**\: zero
                     
                     .. attribute:: df_bit_set
                     
                     	Set the do not fragment bit to 1
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: enable
                     
                     	Enable L2TPv3 encapsulation
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: path_mtu
                     
                     	Path maximum transmission unit
-                    	**type**\:  :py:class:`PathMtu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.PathMtu>`
+                    	**type**\:   :py:class:`PathMtu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.PathMtu>`
                     
                     .. attribute:: sequencing
                     
                     	Sequencing
-                    	**type**\:  :py:class:`Sequencing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.Sequencing>`
+                    	**type**\:   :py:class:`Sequencing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.Sequencing>`
                     
                     .. attribute:: signaling_protocol
                     
                     	L2TPv3 signaling protocol
-                    	**type**\:  :py:class:`SignalingProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.SignalingProtocol>`
+                    	**type**\:   :py:class:`SignalingProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.SignalingProtocol>`
                     
                     .. attribute:: source_address
                     
@@ -13076,12 +13098,12 @@ class L2Vpn(object):
                     .. attribute:: transport_mode
                     
                     	Transport mode
-                    	**type**\:  :py:class:`TransportModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.TransportModeEnum>`
+                    	**type**\:   :py:class:`TransportModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.TransportModeEnum>`
                     
                     .. attribute:: type_of_service
                     
                     	Type of service
-                    	**type**\:  :py:class:`TypeOfService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.TypeOfService>`
+                    	**type**\:   :py:class:`TypeOfService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.L2Tpv3Encapsulation.TypeOfService>`
                     
                     
 
@@ -13119,10 +13141,14 @@ class L2Vpn(object):
                         
                         	**range:** 5..65535
                         
+                        	**default value**\: 5
+                        
                         .. attribute:: sequencing
                         
                         	Sequencing
-                        	**type**\:  :py:class:`L2Tpv3SequencingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Tpv3SequencingEnum>`
+                        	**type**\:   :py:class:`L2Tpv3SequencingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Tpv3SequencingEnum>`
+                        
+                        	**default value**\: off
                         
                         
 
@@ -13171,7 +13197,7 @@ class L2Vpn(object):
                         .. attribute:: type_of_service_mode
                         
                         	Type of service mode
-                        	**type**\:  :py:class:`TypeOfServiceModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.TypeOfServiceModeEnum>`
+                        	**type**\:   :py:class:`TypeOfServiceModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.TypeOfServiceModeEnum>`
                         
                         .. attribute:: type_of_service_value
                         
@@ -13234,7 +13260,9 @@ class L2Vpn(object):
                         .. attribute:: protocol
                         
                         	L2TPv3 signaling protocol
-                        	**type**\:  :py:class:`L2TpSignalingProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2TpSignalingProtocolEnum>`
+                        	**type**\:   :py:class:`L2TpSignalingProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2TpSignalingProtocolEnum>`
+                        
+                        	**default value**\: l2tpv3
                         
                         
 
@@ -13283,7 +13311,7 @@ class L2Vpn(object):
                         .. attribute:: enable
                         
                         	Enable path MTU
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: max_path_mtu
                         
@@ -13397,7 +13425,7 @@ class L2Vpn(object):
                     .. attribute:: type
                     
                     	Delay or Never
-                    	**type**\:  :py:class:`BackupDisableEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BackupDisableEnum>`
+                    	**type**\:   :py:class:`BackupDisableEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BackupDisableEnum>`
                     
                     
 
@@ -13446,42 +13474,44 @@ class L2Vpn(object):
                     .. attribute:: control_word
                     
                     	Enable control word
-                    	**type**\:  :py:class:`ControlWordEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.ControlWordEnum>`
+                    	**type**\:   :py:class:`ControlWordEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.ControlWordEnum>`
                     
                     .. attribute:: enable
                     
                     	Enable MPLS encapsulation
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: load_balance_group
                     
                     	Load Balancing
-                    	**type**\:  :py:class:`LoadBalanceGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup>`
+                    	**type**\:   :py:class:`LoadBalanceGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup>`
                     
                     .. attribute:: mpls_redundancy
                     
                     	Redundancy options for MPLS encapsulation
-                    	**type**\:  :py:class:`MplsRedundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.MplsRedundancy>`
+                    	**type**\:   :py:class:`MplsRedundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.MplsRedundancy>`
                     
                     .. attribute:: preferred_path
                     
                     	Preferred path
-                    	**type**\:  :py:class:`PreferredPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath>`
+                    	**type**\:   :py:class:`PreferredPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath>`
                     
                     .. attribute:: pw_switching_tlv
                     
                     	Pseudowire Switching Point Tlv
-                    	**type**\:  :py:class:`PwSwitchingPointTlvEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.PwSwitchingPointTlvEnum>`
+                    	**type**\:   :py:class:`PwSwitchingPointTlvEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.PwSwitchingPointTlvEnum>`
                     
                     .. attribute:: sequencing
                     
                     	Sequencing
-                    	**type**\:  :py:class:`Sequencing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing>`
+                    	**type**\:   :py:class:`Sequencing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing>`
                     
                     .. attribute:: signaling_protocol
                     
                     	MPLS signaling protocol
-                    	**type**\:  :py:class:`MplsSignalingProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MplsSignalingProtocolEnum>`
+                    	**type**\:   :py:class:`MplsSignalingProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MplsSignalingProtocolEnum>`
+                    
+                    	**default value**\: ldp
                     
                     .. attribute:: source_address
                     
@@ -13500,12 +13530,14 @@ class L2Vpn(object):
                     .. attribute:: transport_mode
                     
                     	Transport mode
-                    	**type**\:  :py:class:`TransportModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.TransportModeEnum>`
+                    	**type**\:   :py:class:`TransportModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.TransportModeEnum>`
                     
                     .. attribute:: vccv_type
                     
                     	VCCV verification type
-                    	**type**\:  :py:class:`VccvVerificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.VccvVerificationEnum>`
+                    	**type**\:   :py:class:`VccvVerificationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.VccvVerificationEnum>`
+                    
+                    	**default value**\: lsp-ping
                     
                     
 
@@ -13545,10 +13577,14 @@ class L2Vpn(object):
                         
                         	**range:** 5..65535
                         
+                        	**default value**\: 5
+                        
                         .. attribute:: sequencing
                         
                         	Sequencing
-                        	**type**\:  :py:class:`MplsSequencingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MplsSequencingEnum>`
+                        	**type**\:   :py:class:`MplsSequencingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MplsSequencingEnum>`
+                        
+                        	**default value**\: off
                         
                         
 
@@ -13601,10 +13637,12 @@ class L2Vpn(object):
                         
                         	**range:** 0..120
                         
+                        	**units**\: second
+                        
                         .. attribute:: redundancy_one_way
                         
                         	Force one\-way PW redundancy behavior in Redundancy Group
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -13653,7 +13691,7 @@ class L2Vpn(object):
                         .. attribute:: fallback_disable
                         
                         	Fallback disable
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: interface_tunnel_number
                         
@@ -13665,7 +13703,7 @@ class L2Vpn(object):
                         .. attribute:: type
                         
                         	Preferred Path Type
-                        	**type**\:  :py:class:`PreferredPathEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.PreferredPathEnum>`
+                        	**type**\:   :py:class:`PreferredPathEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.PreferredPathEnum>`
                         
                         
 
@@ -13718,17 +13756,17 @@ class L2Vpn(object):
                         .. attribute:: flow_label_load_balance
                         
                         	Enable Flow Label based load balancing
-                        	**type**\:  :py:class:`FlowLabelLoadBalance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup.FlowLabelLoadBalance>`
+                        	**type**\:   :py:class:`FlowLabelLoadBalance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup.FlowLabelLoadBalance>`
                         
                         .. attribute:: flow_label_load_balance_code
                         
                         	Enable Legacy Flow Label TLV code
-                        	**type**\:  :py:class:`FlowLabelTlvCodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.FlowLabelTlvCodeEnum>`
+                        	**type**\:   :py:class:`FlowLabelTlvCodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.FlowLabelTlvCodeEnum>`
                         
                         .. attribute:: pw_label_load_balance
                         
                         	Enable PW Label based Load Balancing
-                        	**type**\:  :py:class:`LoadBalanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.LoadBalanceEnum>`
+                        	**type**\:   :py:class:`LoadBalanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.LoadBalanceEnum>`
                         
                         
 
@@ -13752,12 +13790,12 @@ class L2Vpn(object):
                             .. attribute:: flow_label
                             
                             	Flow Label load balance type
-                            	**type**\:  :py:class:`FlowLabelLoadBalanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.FlowLabelLoadBalanceEnum>`
+                            	**type**\:   :py:class:`FlowLabelLoadBalanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.FlowLabelLoadBalanceEnum>`
                             
                             .. attribute:: static
                             
                             	Static Flow Label
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -13956,7 +13994,7 @@ class L2Vpn(object):
             .. attribute:: vlan_unaware_flexible_xconnect_services
             
             	List of Vlan\-Unaware Flexible XConnect Services
-            	**type**\:  :py:class:`VlanUnawareFlexibleXconnectServices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices>`
+            	**type**\:   :py:class:`VlanUnawareFlexibleXconnectServices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices>`
             
             
 
@@ -13979,7 +14017,7 @@ class L2Vpn(object):
                 .. attribute:: vlan_unaware_flexible_xconnect_service
                 
                 	Flexible XConnect Service
-                	**type**\: list of  :py:class:`VlanUnawareFlexibleXconnectService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService>`
+                	**type**\: list of    :py:class:`VlanUnawareFlexibleXconnectService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService>`
                 
                 
 
@@ -14009,12 +14047,12 @@ class L2Vpn(object):
                     .. attribute:: vlan_unaware_fxc_attachment_circuits
                     
                     	List of attachment circuits
-                    	**type**\:  :py:class:`VlanUnawareFxcAttachmentCircuits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits>`
+                    	**type**\:   :py:class:`VlanUnawareFxcAttachmentCircuits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits>`
                     
                     .. attribute:: vlan_unaware_fxc_pseudowire_evpns
                     
                     	List of EVPN Services
-                    	**type**\:  :py:class:`VlanUnawareFxcPseudowireEvpns <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns>`
+                    	**type**\:   :py:class:`VlanUnawareFxcPseudowireEvpns <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns>`
                     
                     
 
@@ -14039,7 +14077,7 @@ class L2Vpn(object):
                         .. attribute:: vlan_unaware_fxc_attachment_circuit
                         
                         	Attachment circuit interface
-                        	**type**\: list of  :py:class:`VlanUnawareFxcAttachmentCircuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits.VlanUnawareFxcAttachmentCircuit>`
+                        	**type**\: list of    :py:class:`VlanUnawareFxcAttachmentCircuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits.VlanUnawareFxcAttachmentCircuit>`
                         
                         
 
@@ -14137,7 +14175,7 @@ class L2Vpn(object):
                         .. attribute:: vlan_unaware_fxc_pseudowire_evpn
                         
                         	EVPN FXC Service Configuration
-                        	**type**\: list of  :py:class:`VlanUnawareFxcPseudowireEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns.VlanUnawareFxcPseudowireEvpn>`
+                        	**type**\: list of    :py:class:`VlanUnawareFxcPseudowireEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns.VlanUnawareFxcPseudowireEvpn>`
                         
                         
 
@@ -14324,12 +14362,12 @@ class L2Vpn(object):
             .. attribute:: enable
             
             	Enable redundancy groups
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: iccp_redundancy_groups
             
             	List of Inter\-Chassis Communication Protocol redundancy groups
-            	**type**\:  :py:class:`IccpRedundancyGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.Redundancy.IccpRedundancyGroups>`
+            	**type**\:   :py:class:`IccpRedundancyGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.Redundancy.IccpRedundancyGroups>`
             
             
 
@@ -14353,7 +14391,7 @@ class L2Vpn(object):
                 .. attribute:: iccp_redundancy_group
                 
                 	ICCP Redundancy group
-                	**type**\: list of  :py:class:`IccpRedundancyGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup>`
+                	**type**\: list of    :py:class:`IccpRedundancyGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup>`
                 
                 
 
@@ -14383,7 +14421,7 @@ class L2Vpn(object):
                     .. attribute:: iccp_interfaces
                     
                     	List of interfaces
-                    	**type**\:  :py:class:`IccpInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces>`
+                    	**type**\:   :py:class:`IccpInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces>`
                     
                     .. attribute:: multi_homing_node_id
                     
@@ -14414,7 +14452,7 @@ class L2Vpn(object):
                         .. attribute:: iccp_interface
                         
                         	Interface name
-                        	**type**\: list of  :py:class:`IccpInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces.IccpInterface>`
+                        	**type**\: list of    :py:class:`IccpInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces.IccpInterface>`
                         
                         
 
@@ -14444,7 +14482,7 @@ class L2Vpn(object):
                             .. attribute:: mac_flush_tcn
                             
                             	Enable STP\-TCN MAC flushing
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: primary_vlan_range
                             
@@ -14457,6 +14495,8 @@ class L2Vpn(object):
                             	**type**\:  int
                             
                             	**range:** 30..3600
+                            
+                            	**default value**\: 180
                             
                             .. attribute:: secondary_vlan_range
                             
@@ -14711,7 +14751,7 @@ class L2Vpn(object):
         .. attribute:: bgp_signaling
         
         	Global bgp signaling attributes
-        	**type**\:  :py:class:`BgpSignaling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.AutoDiscovery.BgpSignaling>`
+        	**type**\:   :py:class:`BgpSignaling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.AutoDiscovery.BgpSignaling>`
         
         
 
@@ -14733,7 +14773,7 @@ class L2Vpn(object):
             .. attribute:: mtu_mismatch_ignore
             
             	Ignore MTU mismatch for auto\-discovered pseudowires
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -14798,7 +14838,7 @@ class L2Vpn(object):
         .. attribute:: logging
         
         	L2VPN logging utility
-        	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Utility.Logging>`
+        	**type**\:   :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Utility.Logging>`
         
         
 
@@ -14820,27 +14860,27 @@ class L2Vpn(object):
             .. attribute:: bridge_domain_state_change
             
             	Enable Bridge Domain state change logging
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: nsr_state_change
             
             	Enable Non Stop Routing state change logging
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: pseudowire_state_change
             
             	Enable pseudowire state change logging
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: pwhe_replication_state_change
             
             	Enable PW\-HE Replication state change logging
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: vfi
             
             	Enable VFI state change logging
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -14921,7 +14961,7 @@ class L2Vpn(object):
         .. attribute:: mib
         
         	MIB related configuration
-        	**type**\:  :py:class:`Mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Snmp.Mib>`
+        	**type**\:   :py:class:`Mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Snmp.Mib>`
         
         
 
@@ -14943,12 +14983,12 @@ class L2Vpn(object):
             .. attribute:: mib_interface
             
             	Interface related configuration for MIB
-            	**type**\:  :py:class:`MibInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Snmp.Mib.MibInterface>`
+            	**type**\:   :py:class:`MibInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Snmp.Mib.MibInterface>`
             
             .. attribute:: mib_pseudowire
             
             	Pseudowire related configuration for MIB
-            	**type**\:  :py:class:`MibPseudowire <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Snmp.Mib.MibPseudowire>`
+            	**type**\:   :py:class:`MibPseudowire <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Snmp.Mib.MibPseudowire>`
             
             
 
@@ -14972,7 +15012,7 @@ class L2Vpn(object):
                 .. attribute:: format
                 
                 	MIB interface name output format
-                	**type**\:  :py:class:`Format <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Snmp.Mib.MibInterface.Format>`
+                	**type**\:   :py:class:`Format <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Snmp.Mib.MibInterface.Format>`
                 
                 
 
@@ -14994,7 +15034,7 @@ class L2Vpn(object):
                     .. attribute:: external_interface_format
                     
                     	Set MIB interface name output in slash format (/)
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -15059,7 +15099,7 @@ class L2Vpn(object):
                 .. attribute:: statistics
                 
                 	Enable pseudowire statistics in MIB output
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -15222,7 +15262,7 @@ class GenericInterfaceLists(object):
     .. attribute:: generic_interface
     
     	Bridge group
-    	**type**\: list of  :py:class:`GenericInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.GenericInterfaceLists.GenericInterface>`
+    	**type**\: list of    :py:class:`GenericInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.GenericInterfaceLists.GenericInterface>`
     
     
 
@@ -15251,12 +15291,12 @@ class GenericInterfaceLists(object):
         .. attribute:: enable
         
         	Enable interface list
-        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: interfaces
         
         	Interface table
-        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.GenericInterfaceLists.GenericInterface.Interfaces>`
+        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.GenericInterfaceLists.GenericInterface.Interfaces>`
         
         
 
@@ -15280,7 +15320,7 @@ class GenericInterfaceLists(object):
             .. attribute:: interface
             
             	Interface
-            	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.GenericInterfaceLists.GenericInterface.Interfaces.Interface>`
+            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.GenericInterfaceLists.GenericInterface.Interfaces.Interface>`
             
             
 
@@ -15310,7 +15350,7 @@ class GenericInterfaceLists(object):
                 .. attribute:: enable
                 
                 	Enable interface
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -15441,12 +15481,12 @@ class Evpn(object):
     .. attribute:: enable
     
     	Enable EVPN feature
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: evpn_tables
     
     	EVPN submodes
-    	**type**\:  :py:class:`EvpnTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables>`
+    	**type**\:   :py:class:`EvpnTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables>`
     
     
 
@@ -15468,27 +15508,27 @@ class Evpn(object):
         .. attribute:: evpn_interfaces
         
         	Attachment Circuit interfaces
-        	**type**\:  :py:class:`EvpnInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces>`
+        	**type**\:   :py:class:`EvpnInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces>`
         
         .. attribute:: evpn_load_balancing
         
         	Enter EVPN Loadbalancing configuration submode
-        	**type**\:  :py:class:`EvpnLoadBalancing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnLoadBalancing>`
+        	**type**\:   :py:class:`EvpnLoadBalancing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnLoadBalancing>`
         
         .. attribute:: evpn_timers
         
         	Enter EVPN timers configuration submode
-        	**type**\:  :py:class:`EvpnTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnTimers>`
+        	**type**\:   :py:class:`EvpnTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnTimers>`
         
         .. attribute:: evpnbgp_auto_discovery
         
         	Enable Autodiscovery BGP in EVPN
-        	**type**\:  :py:class:`EvpnbgpAutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnbgpAutoDiscovery>`
+        	**type**\:   :py:class:`EvpnbgpAutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnbgpAutoDiscovery>`
         
         .. attribute:: evpnevis
         
         	Enter EVPN EVI configuration submode
-        	**type**\:  :py:class:`Evpnevis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis>`
+        	**type**\:   :py:class:`Evpnevis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis>`
         
         
 
@@ -15518,7 +15558,7 @@ class Evpn(object):
             .. attribute:: enable
             
             	Enable EVPN timers
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: evpn_peering
             
@@ -15527,12 +15567,16 @@ class Evpn(object):
             
             	**range:** 0..300
             
+            	**default value**\: 3
+            
             .. attribute:: evpn_recovery
             
             	Global Recovery timer
             	**type**\:  int
             
             	**range:** 20..3600
+            
+            	**default value**\: 30
             
             
 
@@ -15583,7 +15627,7 @@ class Evpn(object):
             .. attribute:: evpnevi
             
             	Enter EVPN EVI configuration submode
-            	**type**\: list of  :py:class:`Evpnevi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis.Evpnevi>`
+            	**type**\: list of    :py:class:`Evpnevi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis.Evpnevi>`
             
             
 
@@ -15608,17 +15652,17 @@ class Evpn(object):
                 	EVI ID
                 	**type**\:  int
                 
-                	**range:** 1..4294967295
+                	**range:** 1..65534
                 
                 .. attribute:: evi_load_balancing
                 
                 	Enter EVI Loadbalancing configuration submode
-                	**type**\:  :py:class:`EviLoadBalancing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis.Evpnevi.EviLoadBalancing>`
+                	**type**\:   :py:class:`EviLoadBalancing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis.Evpnevi.EviLoadBalancing>`
                 
                 .. attribute:: evpn_evi_cw_disable
                 
                 	CW disable for EVPN EVI
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: evpnevi_description
                 
@@ -15630,7 +15674,7 @@ class Evpn(object):
                 .. attribute:: evpnevibgp_auto_discovery
                 
                 	Enable Autodiscovery BGP in EVPN EVI
-                	**type**\:  :py:class:`EvpnevibgpAutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery>`
+                	**type**\:   :py:class:`EvpnevibgpAutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery>`
                 
                 
 
@@ -15657,12 +15701,12 @@ class Evpn(object):
                     .. attribute:: enable
                     
                     	Enable EVI Loadbalancing
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: evi_flow_label
                     
                     	Enable Flow Label based load balancing
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -15711,17 +15755,17 @@ class Evpn(object):
                     .. attribute:: enable
                     
                     	Enable Autodiscovery BGP
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: evpn_route_distinguisher
                     
                     	Route Distinguisher
-                    	**type**\:  :py:class:`EvpnRouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteDistinguisher>`
+                    	**type**\:   :py:class:`EvpnRouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteDistinguisher>`
                     
                     .. attribute:: evpn_route_targets
                     
                     	Route Target
-                    	**type**\:  :py:class:`EvpnRouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets>`
+                    	**type**\:   :py:class:`EvpnRouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets>`
                     
                     .. attribute:: table_policy
                     
@@ -15752,7 +15796,7 @@ class Evpn(object):
                         .. attribute:: evpn_route_target
                         
                         	Name of the Route Target
-                        	**type**\: list of  :py:class:`EvpnRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget>`
+                        	**type**\: list of    :py:class:`EvpnRouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget>`
                         
                         
 
@@ -15775,27 +15819,27 @@ class Evpn(object):
                             .. attribute:: format  <key>
                             
                             	Format of the route target
-                            	**type**\:  :py:class:`BgpRouteTargetFormatEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormatEnum>`
+                            	**type**\:   :py:class:`BgpRouteTargetFormatEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormatEnum>`
                             
                             .. attribute:: role  <key>
                             
                             	Role of the router target type
-                            	**type**\:  :py:class:`BgpRouteTargetRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRoleEnum>`
+                            	**type**\:   :py:class:`BgpRouteTargetRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRoleEnum>`
                             
                             .. attribute:: stitching  <key>
                             
                             	whether RT is Stitching RT
-                            	**type**\:  :py:class:`BgpRouteTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetEnum>`
+                            	**type**\:   :py:class:`BgpRouteTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetEnum>`
                             
                             .. attribute:: ipv4_address
                             
                             	ipv4 address
-                            	**type**\: list of  :py:class:`Ipv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget.Ipv4Address>`
+                            	**type**\: list of    :py:class:`Ipv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget.Ipv4Address>`
                             
                             .. attribute:: two_byte_as_or_four_byte_as
                             
                             	two byte as or four byte as
-                            	**type**\: list of  :py:class:`TwoByteAsOrFourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget.TwoByteAsOrFourByteAs>`
+                            	**type**\: list of    :py:class:`TwoByteAsOrFourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget.TwoByteAsOrFourByteAs>`
                             
                             
 
@@ -16048,7 +16092,7 @@ class Evpn(object):
                         .. attribute:: type
                         
                         	Router Distinguisher Type
-                        	**type**\:  :py:class:`BgpRouteDistinguisherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
+                        	**type**\:   :py:class:`BgpRouteDistinguisherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
                         
                         
 
@@ -16202,12 +16246,12 @@ class Evpn(object):
             .. attribute:: enable
             
             	Enable EVPN Loadbalancing
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: evpn_flow_label
             
             	Enable Flow Label based load balancing
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -16254,12 +16298,12 @@ class Evpn(object):
             .. attribute:: enable
             
             	Enable Autodiscovery BGP
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: evpn_route_distinguisher
             
             	Route Distinguisher
-            	**type**\:  :py:class:`EvpnRouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnbgpAutoDiscovery.EvpnRouteDistinguisher>`
+            	**type**\:   :py:class:`EvpnRouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnbgpAutoDiscovery.EvpnRouteDistinguisher>`
             
             
 
@@ -16310,7 +16354,7 @@ class Evpn(object):
                 .. attribute:: type
                 
                 	Router Distinguisher Type
-                	**type**\:  :py:class:`BgpRouteDistinguisherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
+                	**type**\:   :py:class:`BgpRouteDistinguisherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisherEnum>`
                 
                 
 
@@ -16394,7 +16438,7 @@ class Evpn(object):
             .. attribute:: evpn_interface
             
             	Attachment circuit interface
-            	**type**\: list of  :py:class:`EvpnInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces.EvpnInterface>`
+            	**type**\: list of    :py:class:`EvpnInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces.EvpnInterface>`
             
             
 
@@ -16424,17 +16468,17 @@ class Evpn(object):
                 .. attribute:: ethernet_segment
                 
                 	Enter Ethernet Segment configuration submode
-                	**type**\:  :py:class:`EthernetSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment>`
+                	**type**\:   :py:class:`EthernetSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment>`
                 
                 .. attribute:: evpnac_timers
                 
                 	Enter Interface\-specific timers configuration submode
-                	**type**\:  :py:class:`EvpnacTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers>`
+                	**type**\:   :py:class:`EvpnacTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers>`
                 
                 .. attribute:: mac_flush
                 
                 	Enable MVRP MAC Flush mode
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -16461,7 +16505,7 @@ class Evpn(object):
                     .. attribute:: enable
                     
                     	Enable Interface\-specific timers
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: evpnac_peering
                     
@@ -16470,12 +16514,16 @@ class Evpn(object):
                     
                     	**range:** 0..300
                     
+                    	**default value**\: 3
+                    
                     .. attribute:: evpnac_recovery
                     
                     	Interface\-specific Recovery timer
                     	**type**\:  int
                     
                     	**range:** 20..3600
+                    
+                    	**default value**\: 30
                     
                     
 
@@ -16535,7 +16583,7 @@ class Evpn(object):
                     .. attribute:: enable
                     
                     	Enable Ethernet Segment
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: es_import_route_target
                     
@@ -16547,22 +16595,22 @@ class Evpn(object):
                     .. attribute:: force_single_homed
                     
                     	Force ethernet segment to remain single\-homed
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: identifier_type0
                     
                     	Ethernet segment identifier (Type 0)
-                    	**type**\:  :py:class:`IdentifierType0 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.IdentifierType0>`
+                    	**type**\:   :py:class:`IdentifierType0 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.IdentifierType0>`
                     
                     .. attribute:: load_balancing_per_service
                     
                     	Enable per service load balancing mode
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: manual_service_carving
                     
                     	Enter Manual service carving configuration submode
-                    	**type**\:  :py:class:`ManualServiceCarving <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving>`
+                    	**type**\:   :py:class:`ManualServiceCarving <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving>`
                     
                     
 
@@ -16602,12 +16650,16 @@ class Evpn(object):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
+                        	**units**\: byte
+                        
                         .. attribute:: bytes45
                         
                         	Type 0's 4th and 5th Bytes
                         	**type**\:  str
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
+                        
+                        	**units**\: byte
                         
                         .. attribute:: bytes67
                         
@@ -16616,12 +16668,16 @@ class Evpn(object):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
+                        	**units**\: byte
+                        
                         .. attribute:: bytes89
                         
                         	Type 0's 8th and 9th Bytes
                         	**type**\:  str
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
+                        
+                        	**units**\: byte
                         
                         
 
@@ -16683,12 +16739,12 @@ class Evpn(object):
                         .. attribute:: enable
                         
                         	Enable Manual service carving
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: service_list
                         
                         	Manual service carving primary,secondary lists
-                        	**type**\:  :py:class:`ServiceList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList>`
+                        	**type**\:   :py:class:`ServiceList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList>`
                         
                         
 

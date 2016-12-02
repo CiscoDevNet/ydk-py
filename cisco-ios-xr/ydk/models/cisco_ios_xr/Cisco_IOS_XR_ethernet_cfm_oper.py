@@ -34,19 +34,19 @@ class CfmAisDirEnum(Enum):
 
     Cfm ais dir
 
-    .. data:: UP = 0
+    .. data:: up = 0
 
     	Packets sent inward
 
-    .. data:: DOWN = 1
+    .. data:: down = 1
 
     	Packets sent outward
 
     """
 
-    UP = 0
+    up = 0
 
-    DOWN = 1
+    down = 1
 
 
     @staticmethod
@@ -61,25 +61,25 @@ class CfmBagAisIntervalEnum(Enum):
 
     CFM AIS intervals
 
-    .. data:: AIS_INTERVAL_NONE = 0
+    .. data:: ais_interval_none = 0
 
     	Invalid AIS interval
 
-    .. data:: AIS_INTERVAL1S = 4
+    .. data:: ais_interval1s = 4
 
     	Interval of 1s
 
-    .. data:: AIS_INTERVAL1M = 6
+    .. data:: ais_interval1m = 6
 
     	Interval of 1 min
 
     """
 
-    AIS_INTERVAL_NONE = 0
+    ais_interval_none = 0
 
-    AIS_INTERVAL1S = 4
+    ais_interval1s = 4
 
-    AIS_INTERVAL1M = 6
+    ais_interval1m = 6
 
 
     @staticmethod
@@ -94,37 +94,37 @@ class CfmBagBdidFmtEnum(Enum):
 
     Bridge domain identifier format
 
-    .. data:: INVALID = 0
+    .. data:: invalid = 0
 
     	Invalid BDID identifier format
 
-    .. data:: BD_ID = 1
+    .. data:: bd_id = 1
 
     	Identifier is a bridge domain ID
 
-    .. data:: XC_P2P_ID = 2
+    .. data:: xc_p2p_id = 2
 
     	Identifier is a P2P cross-connect ID
 
-    .. data:: XC_MP2MP_ID = 3
+    .. data:: xc_mp2mp_id = 3
 
     	Identifier is a MP2MP cross-connect ID
 
-    .. data:: DOWN_ONLY = 4
+    .. data:: down_only = 4
 
     	Identifier is a maintenance association name
 
     """
 
-    INVALID = 0
+    invalid = 0
 
-    BD_ID = 1
+    bd_id = 1
 
-    XC_P2P_ID = 2
+    xc_p2p_id = 2
 
-    XC_MP2MP_ID = 3
+    xc_mp2mp_id = 3
 
-    DOWN_ONLY = 4
+    down_only = 4
 
 
     @staticmethod
@@ -139,55 +139,55 @@ class CfmBagCcmIntervalEnum(Enum):
 
     CFM CCM intervals
 
-    .. data:: INTERVAL_NONE = 0
+    .. data:: interval_none = 0
 
     	Invalid CCM interval
 
-    .. data:: INTERVAL3_3MS = 1
+    .. data:: interval3_3ms = 1
 
     	Interval of 3.3ms
 
-    .. data:: INTERVAL10MS = 2
+    .. data:: interval10ms = 2
 
     	Interval of 10ms
 
-    .. data:: INTERVAL100MS = 3
+    .. data:: interval100ms = 3
 
     	Interval of 100ms
 
-    .. data:: INTERVAL1S = 4
+    .. data:: interval1s = 4
 
     	Interval of 1s
 
-    .. data:: INTERVAL10S = 5
+    .. data:: interval10s = 5
 
     	Interval of 10s
 
-    .. data:: INTERVAL1M = 6
+    .. data:: interval1m = 6
 
     	Interval of 1 min
 
-    .. data:: INTERVAL10M = 7
+    .. data:: interval10m = 7
 
     	Interval of 10 mins
 
     """
 
-    INTERVAL_NONE = 0
+    interval_none = 0
 
-    INTERVAL3_3MS = 1
+    interval3_3ms = 1
 
-    INTERVAL10MS = 2
+    interval10ms = 2
 
-    INTERVAL100MS = 3
+    interval100ms = 3
 
-    INTERVAL1S = 4
+    interval1s = 4
 
-    INTERVAL10S = 5
+    interval10s = 5
 
-    INTERVAL1M = 6
+    interval1m = 6
 
-    INTERVAL10M = 7
+    interval10m = 7
 
 
     @staticmethod
@@ -202,25 +202,25 @@ class CfmBagCcmOffloadEnum(Enum):
 
     Offload status of CCM processing
 
-    .. data:: OFFLOAD_NONE = 0
+    .. data:: offload_none = 0
 
     	CCM processing has not been offloaded
 
-    .. data:: OFFLOAD_SOFTWARE = 1
+    .. data:: offload_software = 1
 
     	CCM processing has been offloaded to software
 
-    .. data:: OFFLOAD_HARDWARE = 2
+    .. data:: offload_hardware = 2
 
     	CCM processing has been offloaded to hardware
 
     """
 
-    OFFLOAD_NONE = 0
+    offload_none = 0
 
-    OFFLOAD_SOFTWARE = 1
+    offload_software = 1
 
-    OFFLOAD_HARDWARE = 2
+    offload_hardware = 2
 
 
     @staticmethod
@@ -235,25 +235,25 @@ class CfmBagDirectionEnum(Enum):
 
     MEP direction
 
-    .. data:: DIRECTION_UP = 0
+    .. data:: direction_up = 0
 
     	Up
 
-    .. data:: DIRECTION_DOWN = 1
+    .. data:: direction_down = 1
 
     	Down
 
-    .. data:: DIRECTION_INVALID = 2
+    .. data:: direction_invalid = 2
 
     	Invalid direction
 
     """
 
-    DIRECTION_UP = 0
+    direction_up = 0
 
-    DIRECTION_DOWN = 1
+    direction_down = 1
 
-    DIRECTION_INVALID = 2
+    direction_invalid = 2
 
 
     @staticmethod
@@ -268,25 +268,25 @@ class CfmBagIssuRoleEnum(Enum):
 
     CFM ISSU role
 
-    .. data:: UNKNOWN = 0
+    .. data:: unknown = 0
 
     	Unknown
 
-    .. data:: PRIMARY = 1
+    .. data:: primary = 1
 
     	Primary
 
-    .. data:: SECONDARY = 2
+    .. data:: secondary = 2
 
     	Secondary
 
     """
 
-    UNKNOWN = 0
+    unknown = 0
 
-    PRIMARY = 1
+    primary = 1
 
-    SECONDARY = 2
+    secondary = 2
 
 
     @staticmethod
@@ -301,19 +301,19 @@ class CfmBagIwStateEnum(Enum):
 
     CFM Interworking state
 
-    .. data:: INTERWORKING_UP = 0
+    .. data:: interworking_up = 0
 
     	Interface is UP
 
-    .. data:: INTERWORKING_TEST = 1
+    .. data:: interworking_test = 1
 
     	Interface is in TEST mode
 
     """
 
-    INTERWORKING_UP = 0
+    interworking_up = 0
 
-    INTERWORKING_TEST = 1
+    interworking_test = 1
 
 
     @staticmethod
@@ -328,61 +328,61 @@ class CfmBagMdLevelEnum(Enum):
 
     CFM level
 
-    .. data:: LEVEL0 = 0
+    .. data:: level0 = 0
 
     	CFM level 0
 
-    .. data:: LEVEL1 = 1
+    .. data:: level1 = 1
 
     	CFM level 1
 
-    .. data:: LEVEL2 = 2
+    .. data:: level2 = 2
 
     	CFM level 2
 
-    .. data:: LEVEL3 = 3
+    .. data:: level3 = 3
 
     	CFM level 3
 
-    .. data:: LEVEL4 = 4
+    .. data:: level4 = 4
 
     	CFM level 4
 
-    .. data:: LEVEL5 = 5
+    .. data:: level5 = 5
 
     	CFM level 5
 
-    .. data:: LEVEL6 = 6
+    .. data:: level6 = 6
 
     	CFM level 6
 
-    .. data:: LEVEL7 = 7
+    .. data:: level7 = 7
 
     	CFM level 7
 
-    .. data:: LEVEL_INVALID = 8
+    .. data:: level_invalid = 8
 
     	Invalid CFM level
 
     """
 
-    LEVEL0 = 0
+    level0 = 0
 
-    LEVEL1 = 1
+    level1 = 1
 
-    LEVEL2 = 2
+    level2 = 2
 
-    LEVEL3 = 3
+    level3 = 3
 
-    LEVEL4 = 4
+    level4 = 4
 
-    LEVEL5 = 5
+    level5 = 5
 
-    LEVEL6 = 6
+    level6 = 6
 
-    LEVEL7 = 7
+    level7 = 7
 
-    LEVEL_INVALID = 8
+    level_invalid = 8
 
 
     @staticmethod
@@ -397,37 +397,37 @@ class CfmBagMdidFmtEnum(Enum):
 
     CFM MDID format
 
-    .. data:: MDID_NULL = 1
+    .. data:: mdid_null = 1
 
     	MDID is explicity NULL
 
-    .. data:: MDID_DNS_LIKE = 2
+    .. data:: mdid_dns_like = 2
 
     	MDID is based on a DNS name
 
-    .. data:: MDID_MAC_ADDRESS = 3
+    .. data:: mdid_mac_address = 3
 
     	MDID is a (MAC address, integer) pair
 
-    .. data:: MDID_STRING = 4
+    .. data:: mdid_string = 4
 
     	MDID is a character string
 
-    .. data:: MDID_UNKNOWN = 5
+    .. data:: mdid_unknown = 5
 
     	Unknown MDID format
 
     """
 
-    MDID_NULL = 1
+    mdid_null = 1
 
-    MDID_DNS_LIKE = 2
+    mdid_dns_like = 2
 
-    MDID_MAC_ADDRESS = 3
+    mdid_mac_address = 3
 
-    MDID_STRING = 4
+    mdid_string = 4
 
-    MDID_UNKNOWN = 5
+    mdid_unknown = 5
 
 
     @staticmethod
@@ -442,43 +442,43 @@ class CfmBagOpcodeEnum(Enum):
 
     CFM Opcode
 
-    .. data:: RESERVED = 0
+    .. data:: reserved = 0
 
     	Reserved
 
-    .. data:: CCM = 1
+    .. data:: ccm = 1
 
     	Continuity Check
 
-    .. data:: LBR = 2
+    .. data:: lbr = 2
 
     	Loopback Reply
 
-    .. data:: LBM = 3
+    .. data:: lbm = 3
 
     	Loopback Message
 
-    .. data:: LTR = 4
+    .. data:: ltr = 4
 
     	Linktrace Reply
 
-    .. data:: LTM = 5
+    .. data:: ltm = 5
 
     	Linktrace Message
 
     """
 
-    RESERVED = 0
+    reserved = 0
 
-    CCM = 1
+    ccm = 1
 
-    LBR = 2
+    lbr = 2
 
-    LBM = 3
+    lbm = 3
 
-    LTR = 4
+    ltr = 4
 
-    LTM = 5
+    ltm = 5
 
 
     @staticmethod
@@ -493,43 +493,43 @@ class CfmBagSmanFmtEnum(Enum):
 
     Short MA Name format
 
-    .. data:: SMAN_VLAN_ID = 1
+    .. data:: sman_vlan_id = 1
 
     	Short MA Name is a 12-bit VLAN-ID
 
-    .. data:: SMAN_STRING = 2
+    .. data:: sman_string = 2
 
     	Short MA Name is a character string
 
-    .. data:: SMAN_UINT16 = 3
+    .. data:: sman_uint16 = 3
 
     	Short MA Name is a 16-bit unsigned integer
 
-    .. data:: SMAN_VPN_ID = 4
+    .. data:: sman_vpn_id = 4
 
     	Short MA Name is a global VPN identifier
 
-    .. data:: SMAN_ICC = 32
+    .. data:: sman_icc = 32
 
     	Short MA Name uses the ICC-based format
 
-    .. data:: SMAN_UNKNOWN = 33
+    .. data:: sman_unknown = 33
 
     	Unknown Short MA Name format
 
     """
 
-    SMAN_VLAN_ID = 1
+    sman_vlan_id = 1
 
-    SMAN_STRING = 2
+    sman_string = 2
 
-    SMAN_UINT16 = 3
+    sman_uint16 = 3
 
-    SMAN_VPN_ID = 4
+    sman_vpn_id = 4
 
-    SMAN_ICC = 32
+    sman_icc = 32
 
-    SMAN_UNKNOWN = 33
+    sman_unknown = 33
 
 
     @staticmethod
@@ -544,25 +544,25 @@ class CfmBagStpStateEnum(Enum):
 
     CFM STP state
 
-    .. data:: STP_UP = 0
+    .. data:: stp_up = 0
 
     	Interface is UP
 
-    .. data:: STP_BLOCKED = 1
+    .. data:: stp_blocked = 1
 
     	Interface is STP-blocked
 
-    .. data:: STP_UNKNOWN = 2
+    .. data:: stp_unknown = 2
 
     	Unknown Interface STP state
 
     """
 
-    STP_UP = 0
+    stp_up = 0
 
-    STP_BLOCKED = 1
+    stp_blocked = 1
 
-    STP_UNKNOWN = 2
+    stp_unknown = 2
 
 
     @staticmethod
@@ -577,31 +577,31 @@ class CfmMaMpVarietyEnum(Enum):
 
     CFM MA Maintenance Point varieties
 
-    .. data:: MIP = 0
+    .. data:: mip = 0
 
     	MIP
 
-    .. data:: UP_MEP = 1
+    .. data:: up_mep = 1
 
     	Up MEP
 
-    .. data:: DOWNMEP = 2
+    .. data:: downmep = 2
 
     	Down MEP
 
-    .. data:: UNKNOWN_MEP = 3
+    .. data:: unknown_mep = 3
 
     	Unknown MEP
 
     """
 
-    MIP = 0
+    mip = 0
 
-    UP_MEP = 1
+    up_mep = 1
 
-    DOWNMEP = 2
+    downmep = 2
 
-    UNKNOWN_MEP = 3
+    unknown_mep = 3
 
 
     @staticmethod
@@ -616,23 +616,23 @@ class CfmPmAddlIntfStatusEnum(Enum):
 
     Additional interface status
 
-    .. data:: UNKNOWN = 0
+    .. data:: unknown = 0
 
     	Additional interface status unknown
 
-    .. data:: ADMINISTRATIVELY_DOWN = 1
+    .. data:: administratively_down = 1
 
     	Interface is explicitly shutdown in
 
     	configuration
 
-    .. data:: REMOTE_EXCESSIVE_ERRORS = 2
+    .. data:: remote_excessive_errors = 2
 
     	Remote interface has exceeded its 802.3 Link
 
     	OAM error threshold
 
-    .. data:: LOCAL_EXCESSIVE_ERRORS = 3
+    .. data:: local_excessive_errors = 3
 
     	Local interface has exceeded its 802.3 Link OAM
 
@@ -640,13 +640,13 @@ class CfmPmAddlIntfStatusEnum(Enum):
 
     """
 
-    UNKNOWN = 0
+    unknown = 0
 
-    ADMINISTRATIVELY_DOWN = 1
+    administratively_down = 1
 
-    REMOTE_EXCESSIVE_ERRORS = 2
+    remote_excessive_errors = 2
 
-    LOCAL_EXCESSIVE_ERRORS = 3
+    local_excessive_errors = 3
 
 
     @staticmethod
@@ -663,19 +663,19 @@ class CfmPmAisReceiveEnum(Enum):
 
     signal, directly or via AIS or LCK messages.
 
-    .. data:: RECEIVE_NONE = 0
+    .. data:: receive_none = 0
 
     	No signal received
 
-    .. data:: RECEIVE_AIS = 1
+    .. data:: receive_ais = 1
 
     	Receiving AIS messages
 
-    .. data:: RECEIVE_LCK = 2
+    .. data:: receive_lck = 2
 
     	Receiving LCK messages
 
-    .. data:: RECEIVE_DIRECT = 3
+    .. data:: receive_direct = 3
 
     	Receiving AIS directly from another MEP on the
 
@@ -683,13 +683,13 @@ class CfmPmAisReceiveEnum(Enum):
 
     """
 
-    RECEIVE_NONE = 0
+    receive_none = 0
 
-    RECEIVE_AIS = 1
+    receive_ais = 1
 
-    RECEIVE_LCK = 2
+    receive_lck = 2
 
-    RECEIVE_DIRECT = 3
+    receive_direct = 3
 
 
     @staticmethod
@@ -706,25 +706,25 @@ class CfmPmAisTransmitEnum(Enum):
 
     via a MIP or directly to a higher MEP
 
-    .. data:: TRANSMIT_NONE = 0
+    .. data:: transmit_none = 0
 
     	AIS not transmitted
 
-    .. data:: TRANSMIT_AIS = 1
+    .. data:: transmit_ais = 1
 
     	AIS transmitted via MIP
 
-    .. data:: TRANSMIT_AIS_DIRECT = 2
+    .. data:: transmit_ais_direct = 2
 
     	AIS signal passed directly to a higher MEP
 
     """
 
-    TRANSMIT_NONE = 0
+    transmit_none = 0
 
-    TRANSMIT_AIS = 1
+    transmit_ais = 1
 
-    TRANSMIT_AIS_DIRECT = 2
+    transmit_ais_direct = 2
 
 
     @staticmethod
@@ -739,55 +739,55 @@ class CfmPmChassisIdFmtEnum(Enum):
 
     Chassis ID type
 
-    .. data:: CHASSIS_ID_CHASSIS_COMPONENT = 1
+    .. data:: chassis_id_chassis_component = 1
 
     	Chassis ID is a component name
 
-    .. data:: CHASSIS_ID_INTERFACE_ALIAS = 2
+    .. data:: chassis_id_interface_alias = 2
 
     	Chassis ID is an interface alias
 
-    .. data:: CHASSIS_ID_PORT_COMPONENT = 3
+    .. data:: chassis_id_port_component = 3
 
     	Chassis ID is a port component name
 
-    .. data:: CHASSIS_ID_MAC_ADDRESS = 4
+    .. data:: chassis_id_mac_address = 4
 
     	Chassis ID is a MAC address
 
-    .. data:: CHASSIS_ID_NETWORK_ADDRESS = 5
+    .. data:: chassis_id_network_address = 5
 
     	Chassis ID is a network address
 
-    .. data:: CHASSIS_ID_INTERFACE_NAME = 6
+    .. data:: chassis_id_interface_name = 6
 
     	Chassis ID is an interface name
 
-    .. data:: CHASSIS_ID_LOCAL = 7
+    .. data:: chassis_id_local = 7
 
     	Chassis ID is a local name
 
-    .. data:: CHASSIS_ID_UNKNOWN_TYPE = 8
+    .. data:: chassis_id_unknown_type = 8
 
     	Unknown Chassis ID type
 
     """
 
-    CHASSIS_ID_CHASSIS_COMPONENT = 1
+    chassis_id_chassis_component = 1
 
-    CHASSIS_ID_INTERFACE_ALIAS = 2
+    chassis_id_interface_alias = 2
 
-    CHASSIS_ID_PORT_COMPONENT = 3
+    chassis_id_port_component = 3
 
-    CHASSIS_ID_MAC_ADDRESS = 4
+    chassis_id_mac_address = 4
 
-    CHASSIS_ID_NETWORK_ADDRESS = 5
+    chassis_id_network_address = 5
 
-    CHASSIS_ID_INTERFACE_NAME = 6
+    chassis_id_interface_name = 6
 
-    CHASSIS_ID_LOCAL = 7
+    chassis_id_local = 7
 
-    CHASSIS_ID_UNKNOWN_TYPE = 8
+    chassis_id_unknown_type = 8
 
 
     @staticmethod
@@ -802,31 +802,31 @@ class CfmPmEgressActionEnum(Enum):
 
     Egress action
 
-    .. data:: EGRESS_OK = 1
+    .. data:: egress_ok = 1
 
     	OK
 
-    .. data:: EGRESS_DOWN = 2
+    .. data:: egress_down = 2
 
     	Down
 
-    .. data:: EGRESS_BLOCKED = 3
+    .. data:: egress_blocked = 3
 
     	STP Blocked
 
-    .. data:: EGRESS_VID = 4
+    .. data:: egress_vid = 4
 
     	VID Blocked
 
     """
 
-    EGRESS_OK = 1
+    egress_ok = 1
 
-    EGRESS_DOWN = 2
+    egress_down = 2
 
-    EGRESS_BLOCKED = 3
+    egress_blocked = 3
 
-    EGRESS_VID = 4
+    egress_vid = 4
 
 
     @staticmethod
@@ -843,41 +843,41 @@ class CfmPmElmReplyFilterEnum(Enum):
 
     operations
 
-    .. data:: REPLY_FILTER_NOT_PRESENT = 0
+    .. data:: reply_filter_not_present = 0
 
     	Reply Filter not present
 
-    .. data:: REPLY_FILTER_DEFAULT = 1
+    .. data:: reply_filter_default = 1
 
     	Reply from ports which are not MAC-pruned,
 
     	VID-pruned, or STP-blocked
 
-    .. data:: REPLY_FILTER_VLAN_TOPOLOGY = 2
+    .. data:: reply_filter_vlan_topology = 2
 
     	Reply from ports which are not VID-pruned or
 
     	STP-blocked
 
-    .. data:: REPLY_FILTER_SPANNING_TREE = 3
+    .. data:: reply_filter_spanning_tree = 3
 
     	Reply from ports which are not STP-blocked
 
-    .. data:: REPLY_FILTER_ALL_PORTS = 4
+    .. data:: reply_filter_all_ports = 4
 
     	Reply from all ports
 
     """
 
-    REPLY_FILTER_NOT_PRESENT = 0
+    reply_filter_not_present = 0
 
-    REPLY_FILTER_DEFAULT = 1
+    reply_filter_default = 1
 
-    REPLY_FILTER_VLAN_TOPOLOGY = 2
+    reply_filter_vlan_topology = 2
 
-    REPLY_FILTER_SPANNING_TREE = 3
+    reply_filter_spanning_tree = 3
 
-    REPLY_FILTER_ALL_PORTS = 4
+    reply_filter_all_ports = 4
 
 
     @staticmethod
@@ -892,37 +892,37 @@ class CfmPmElrEgressActionEnum(Enum):
 
     ELR Egress action
 
-    .. data:: ELR_EGRESS_OK = 1
+    .. data:: elr_egress_ok = 1
 
     	OK
 
-    .. data:: ELR_EGRESS_DOWN = 2
+    .. data:: elr_egress_down = 2
 
     	Down
 
-    .. data:: ELR_EGRESS_BLOCKED = 3
+    .. data:: elr_egress_blocked = 3
 
     	STP Blocked
 
-    .. data:: ELR_EGRESS_VID = 4
+    .. data:: elr_egress_vid = 4
 
     	VID Blocked
 
-    .. data:: ELR_EGRESS_MAC = 255
+    .. data:: elr_egress_mac = 255
 
     	MAC Pruned
 
     """
 
-    ELR_EGRESS_OK = 1
+    elr_egress_ok = 1
 
-    ELR_EGRESS_DOWN = 2
+    elr_egress_down = 2
 
-    ELR_EGRESS_BLOCKED = 3
+    elr_egress_blocked = 3
 
-    ELR_EGRESS_VID = 4
+    elr_egress_vid = 4
 
-    ELR_EGRESS_MAC = 255
+    elr_egress_mac = 255
 
 
     @staticmethod
@@ -937,31 +937,31 @@ class CfmPmElrIngressActionEnum(Enum):
 
     ELR Ingress action
 
-    .. data:: ELR_INGRESS_OK = 1
+    .. data:: elr_ingress_ok = 1
 
     	OK
 
-    .. data:: ELR_INGRESS_DOWN = 2
+    .. data:: elr_ingress_down = 2
 
     	Down
 
-    .. data:: ELR_INGRESS_BLOCKED = 3
+    .. data:: elr_ingress_blocked = 3
 
     	STP Blocked
 
-    .. data:: ELR_INGRESS_VID = 4
+    .. data:: elr_ingress_vid = 4
 
     	VID Blocked
 
     """
 
-    ELR_INGRESS_OK = 1
+    elr_ingress_ok = 1
 
-    ELR_INGRESS_DOWN = 2
+    elr_ingress_down = 2
 
-    ELR_INGRESS_BLOCKED = 3
+    elr_ingress_blocked = 3
 
-    ELR_INGRESS_VID = 4
+    elr_ingress_vid = 4
 
 
     @staticmethod
@@ -976,31 +976,31 @@ class CfmPmElrRelayActionEnum(Enum):
 
     ELR relay action
 
-    .. data:: ELR_RELAY_HIT = 1
+    .. data:: elr_relay_hit = 1
 
     	Target Hit
 
-    .. data:: ELR_RELAY_FDB = 2
+    .. data:: elr_relay_fdb = 2
 
     	Filtering database
 
-    .. data:: ELR_RELAY_FLOOD = 3
+    .. data:: elr_relay_flood = 3
 
     	Flood forwarded
 
-    .. data:: ELR_RELAY_DROP = 4
+    .. data:: elr_relay_drop = 4
 
     	Dropped
 
     """
 
-    ELR_RELAY_HIT = 1
+    elr_relay_hit = 1
 
-    ELR_RELAY_FDB = 2
+    elr_relay_fdb = 2
 
-    ELR_RELAY_FLOOD = 3
+    elr_relay_flood = 3
 
-    ELR_RELAY_DROP = 4
+    elr_relay_drop = 4
 
 
     @staticmethod
@@ -1017,25 +1017,25 @@ class CfmPmEltDelayModelEnum(Enum):
 
     operations
 
-    .. data:: DELAY_MODEL_INVALID = 0
+    .. data:: delay_model_invalid = 0
 
     	Not a valid delay model
 
-    .. data:: DELAY_MODEL_LOGARITHMIC = 1
+    .. data:: delay_model_logarithmic = 1
 
     	Reply using logarithmic delay model
 
-    .. data:: DELAY_MODEL_CONSTANT = 2
+    .. data:: delay_model_constant = 2
 
     	Reply using constant delay model
 
     """
 
-    DELAY_MODEL_INVALID = 0
+    delay_model_invalid = 0
 
-    DELAY_MODEL_LOGARITHMIC = 1
+    delay_model_logarithmic = 1
 
-    DELAY_MODEL_CONSTANT = 2
+    delay_model_constant = 2
 
 
     @staticmethod
@@ -1050,25 +1050,25 @@ class CfmPmIdFmtEnum(Enum):
 
     ID format
 
-    .. data:: ID_FORMAT_IS_STRING = 0
+    .. data:: id_format_is_string = 0
 
     	ID format is a string
 
-    .. data:: ID_FORMAT_IS_MAC_ADDRESS = 1
+    .. data:: id_format_is_mac_address = 1
 
     	ID format is a MAC address
 
-    .. data:: ID_FORMAT_IS_RAW_HEX = 2
+    .. data:: id_format_is_raw_hex = 2
 
     	ID format is raw hex
 
     """
 
-    ID_FORMAT_IS_STRING = 0
+    id_format_is_string = 0
 
-    ID_FORMAT_IS_MAC_ADDRESS = 1
+    id_format_is_mac_address = 1
 
-    ID_FORMAT_IS_RAW_HEX = 2
+    id_format_is_raw_hex = 2
 
 
     @staticmethod
@@ -1083,31 +1083,31 @@ class CfmPmIngressActionEnum(Enum):
 
     Ingress action
 
-    .. data:: INGRESS_OK = 1
+    .. data:: ingress_ok = 1
 
     	OK
 
-    .. data:: INGRESS_DOWN = 2
+    .. data:: ingress_down = 2
 
     	Down
 
-    .. data:: INGRESS_BLOCKED = 3
+    .. data:: ingress_blocked = 3
 
     	STP Blocked
 
-    .. data:: INGRESS_VID = 4
+    .. data:: ingress_vid = 4
 
     	VID Blocked
 
     """
 
-    INGRESS_OK = 1
+    ingress_ok = 1
 
-    INGRESS_DOWN = 2
+    ingress_down = 2
 
-    INGRESS_BLOCKED = 3
+    ingress_blocked = 3
 
-    INGRESS_VID = 4
+    ingress_vid = 4
 
 
     @staticmethod
@@ -1122,49 +1122,49 @@ class CfmPmIntfStatusEnum(Enum):
 
     Interface status
 
-    .. data:: INTERFACE_STATUS_UP = 1
+    .. data:: interface_status_up = 1
 
     	Interface is up
 
-    .. data:: INTERFACE_STATUS_DOWN = 2
+    .. data:: interface_status_down = 2
 
     	Interface is down
 
-    .. data:: INTERFACE_STATUS_TESTING = 3
+    .. data:: interface_status_testing = 3
 
     	Interface is in testing mode
 
-    .. data:: INTERFACE_STATUS_UNKNOWN = 4
+    .. data:: interface_status_unknown = 4
 
     	Unknown interface status
 
-    .. data:: INTERFACE_STATUS_DORMANT = 5
+    .. data:: interface_status_dormant = 5
 
     	Interface is dormant
 
-    .. data:: INTERFACE_STATUS_NOT_PRESENT = 6
+    .. data:: interface_status_not_present = 6
 
     	Interface status not found
 
-    .. data:: INTERFACE_STATUS_LOWER_LAYER_DOWN = 7
+    .. data:: interface_status_lower_layer_down = 7
 
     	Lower layer is down
 
     """
 
-    INTERFACE_STATUS_UP = 1
+    interface_status_up = 1
 
-    INTERFACE_STATUS_DOWN = 2
+    interface_status_down = 2
 
-    INTERFACE_STATUS_TESTING = 3
+    interface_status_testing = 3
 
-    INTERFACE_STATUS_UNKNOWN = 4
+    interface_status_unknown = 4
 
-    INTERFACE_STATUS_DORMANT = 5
+    interface_status_dormant = 5
 
-    INTERFACE_STATUS_NOT_PRESENT = 6
+    interface_status_not_present = 6
 
-    INTERFACE_STATUS_LOWER_LAYER_DOWN = 7
+    interface_status_lower_layer_down = 7
 
 
     @staticmethod
@@ -1179,25 +1179,25 @@ class CfmPmLastHopFmtEnum(Enum):
 
     Last hop identifier format
 
-    .. data:: LAST_HOP_NONE = 0
+    .. data:: last_hop_none = 0
 
     	No last hop identifier
 
-    .. data:: LAST_HOP_HOST_NAME = 1
+    .. data:: last_hop_host_name = 1
 
     	Last hop identifier is a hostname
 
-    .. data:: LAST_HOP_EGRESS_ID = 2
+    .. data:: last_hop_egress_id = 2
 
     	Last hop identifier is an egress ID
 
     """
 
-    LAST_HOP_NONE = 0
+    last_hop_none = 0
 
-    LAST_HOP_HOST_NAME = 1
+    last_hop_host_name = 1
 
-    LAST_HOP_EGRESS_ID = 2
+    last_hop_egress_id = 2
 
 
     @staticmethod
@@ -1212,19 +1212,19 @@ class CfmPmLtModeEnum(Enum):
 
     Type of Linktrace operation
 
-    .. data:: CFM_PM_LT_MODE_BASIC = 1
+    .. data:: cfm_pm_lt_mode_basic = 1
 
     	Basic IEEE 802.1ag Linktrace
 
-    .. data:: CFM_PM_LT_MODE_EXPLORATORY = 2
+    .. data:: cfm_pm_lt_mode_exploratory = 2
 
     	Cisco Exploratory Linktrace
 
     """
 
-    CFM_PM_LT_MODE_BASIC = 1
+    cfm_pm_lt_mode_basic = 1
 
-    CFM_PM_LT_MODE_EXPLORATORY = 2
+    cfm_pm_lt_mode_exploratory = 2
 
 
     @staticmethod
@@ -1239,33 +1239,33 @@ class CfmPmMepDefectEnum(Enum):
 
     Defects that can be reported by a MEP
 
-    .. data:: DEFECT_NONE = 0
+    .. data:: defect_none = 0
 
     	No defect reported
 
-    .. data:: DEFECT_RDI_CCM = 1
+    .. data:: defect_rdi_ccm = 1
 
     	Some Peer MEP's CCM has the RDI bit set
 
-    .. data:: DEFECT_MA_CSTATUS = 2
+    .. data:: defect_ma_cstatus = 2
 
     	A Peer MEP port or interface status error has
 
     	been reported
 
-    .. data:: DEFECT_REMOTE_CCM = 3
+    .. data:: defect_remote_ccm = 3
 
     	Not receiving valid CCMs from at least one Peer
 
     	MEP
 
-    .. data:: DEFECT_ERROR_CCM = 4
+    .. data:: defect_error_ccm = 4
 
     	Currently receiving invalid CCMs from at least
 
     	one Peer MEP
 
-    .. data:: DEFECT_CROSS_CONNECT_CCM = 5
+    .. data:: defect_cross_connect_ccm = 5
 
     	Currently receiving CCMs from an incorrect
 
@@ -1273,17 +1273,17 @@ class CfmPmMepDefectEnum(Enum):
 
     """
 
-    DEFECT_NONE = 0
+    defect_none = 0
 
-    DEFECT_RDI_CCM = 1
+    defect_rdi_ccm = 1
 
-    DEFECT_MA_CSTATUS = 2
+    defect_ma_cstatus = 2
 
-    DEFECT_REMOTE_CCM = 3
+    defect_remote_ccm = 3
 
-    DEFECT_ERROR_CCM = 4
+    defect_error_ccm = 4
 
-    DEFECT_CROSS_CONNECT_CCM = 5
+    defect_cross_connect_ccm = 5
 
 
     @staticmethod
@@ -1300,23 +1300,23 @@ class CfmPmMepFngStateEnum(Enum):
 
     states
 
-    .. data:: FNG_RESET = 1
+    .. data:: fng_reset = 1
 
     	FNG in reset state
 
-    .. data:: FNG_DEFECT = 2
+    .. data:: fng_defect = 2
 
     	FNG has detected but not yet reported a defect
 
-    .. data:: FNG_REPORT_DEFECT = 3
+    .. data:: fng_report_defect = 3
 
     	FNG is in the process of reporting a defect
 
-    .. data:: FNG_DEFECT_REPORTED = 4
+    .. data:: fng_defect_reported = 4
 
     	FNG has reported a defect
 
-    .. data:: FNG_DEFECT_CLEARING = 5
+    .. data:: fng_defect_clearing = 5
 
     	No defect present, but the reset timer has not
 
@@ -1324,15 +1324,15 @@ class CfmPmMepFngStateEnum(Enum):
 
     """
 
-    FNG_RESET = 1
+    fng_reset = 1
 
-    FNG_DEFECT = 2
+    fng_defect = 2
 
-    FNG_REPORT_DEFECT = 3
+    fng_report_defect = 3
 
-    FNG_DEFECT_REPORTED = 4
+    fng_defect_reported = 4
 
-    FNG_DEFECT_CLEARING = 5
+    fng_defect_clearing = 5
 
 
     @staticmethod
@@ -1347,421 +1347,421 @@ class CfmPmPktActionEnum(Enum):
 
     Action taken for received packet
 
-    .. data:: PACKET_PROCESSED = 0
+    .. data:: packet_processed = 0
 
     	Packet processed successfully
 
-    .. data:: PACKET_FORWARDED = 1
+    .. data:: packet_forwarded = 1
 
     	Packet forwarded
 
-    .. data:: UNKNOWN_OPCODE = 2
+    .. data:: unknown_opcode = 2
 
     	Packet dropped at a MEP due to unknown opcode
 
-    .. data:: FILTER_LEVEL = 3
+    .. data:: filter_level = 3
 
     	Packet dropped due to level/opcode filtering at
 
     	a MEP
 
-    .. data:: FILTER_BLOCKED = 4
+    .. data:: filter_blocked = 4
 
     	Packet dropped because interface is STP blocked
 
-    .. data:: FILTER_LOCAL_MAC = 5
+    .. data:: filter_local_mac = 5
 
     	Packet dropped due to local destination MAC
 
-    .. data:: MALFORMED_CCM_SIZE = 6
+    .. data:: malformed_ccm_size = 6
 
     	CCM too short or too long
 
-    .. data:: MALFORMED_CCM_MEP_ID = 7
+    .. data:: malformed_ccm_mep_id = 7
 
     	Invalid MEP-ID
 
-    .. data:: MALFORMED_TOO_SHORT = 8
+    .. data:: malformed_too_short = 8
 
     	Packet too short
 
-    .. data:: MALFORMED_DESTINATION_MAC_UNICAST = 9
+    .. data:: malformed_destination_mac_unicast = 9
 
     	Destination MAC address does not match
 
     	interface
 
-    .. data:: MALFORMED_DESTINATION_MAC_MULTICAST = 10
+    .. data:: malformed_destination_mac_multicast = 10
 
     	Invalid multicast destination MAC address
 
-    .. data:: MALFORMED_TLV_OFFSET = 11
+    .. data:: malformed_tlv_offset = 11
 
     	TLV offset too short or beyond the end of the
 
     	packet
 
-    .. data:: MALFORMED_LBM_SOURCE_MAC = 12
+    .. data:: malformed_lbm_source_mac = 12
 
     	Invalid source MAC address for LBM
 
-    .. data:: MALFORMED_LTR_RELAY_ACTION = 13
+    .. data:: malformed_ltr_relay_action = 13
 
     	Unknown LTR relay action
 
-    .. data:: MALFORMED_LTR_REPLY_TLV = 14
+    .. data:: malformed_ltr_reply_tlv = 14
 
     	LTR has neither reply-ingress or reply-egress
 
-    .. data:: MALFORMED_LT_ORIGIN = 15
+    .. data:: malformed_lt_origin = 15
 
     	Invalid Linktrace Message origin MAC address
 
-    .. data:: MALFORMED_LTM_TARGET = 16
+    .. data:: malformed_ltm_target = 16
 
     	Invalid LTM target MAC address
 
-    .. data:: MALFORMED_SOURCE_MAC = 17
+    .. data:: malformed_source_mac = 17
 
     	Invalid source MAC address
 
-    .. data:: MALFORMED_HEADER_TOO_SHORT = 18
+    .. data:: malformed_header_too_short = 18
 
     	Packet too short for CFM header
 
-    .. data:: MALFORMED_TLV_HEADER_OVERRUN = 19
+    .. data:: malformed_tlv_header_overrun = 19
 
     	TLV header extends beyond the end of the packet
 
-    .. data:: MALFORMED_TLV_OVERRUN = 20
+    .. data:: malformed_tlv_overrun = 20
 
     	TLV extends beyond the end of the packet
 
-    .. data:: MALFORMED_DUPLICATE_SENDER_ID = 21
+    .. data:: malformed_duplicate_sender_id = 21
 
     	Multiple Sender-ID TLVs found
 
-    .. data:: MALFORMED_DUPLICATE_PORT_STATUS = 22
+    .. data:: malformed_duplicate_port_status = 22
 
     	Multiple Port-status TLVs found
 
-    .. data:: MALFORMED_DUPLICATE_INTERFACE_STATUS = 23
+    .. data:: malformed_duplicate_interface_status = 23
 
     	Multiple Interface-state TLVs found
 
-    .. data:: MALFORMED_WRONG_TLV = 24
+    .. data:: malformed_wrong_tlv = 24
 
     	Invalid TLV for this type of packet found
 
-    .. data:: MALFORMED_DUPLICATE_DATA = 25
+    .. data:: malformed_duplicate_data = 25
 
     	Multiple Data TLVs found
 
-    .. data:: MALFORMED_DUPLICATE_LTR_EGRESS_ID = 26
+    .. data:: malformed_duplicate_ltr_egress_id = 26
 
     	Multiple LTR-Egress-ID TLVs found
 
-    .. data:: MALFORMED_DUPLICATE_REPLY_INGRESS = 27
+    .. data:: malformed_duplicate_reply_ingress = 27
 
     	Multiple Reply-ingress TLVs found
 
-    .. data:: MALFORMED_DUPLICATE_REPLY_EGRESS = 28
+    .. data:: malformed_duplicate_reply_egress = 28
 
     	Multiple Reply-egress TLVs found
 
-    .. data:: MALFORMED_DUPLICATE_LTM_EGRESS_ID = 29
+    .. data:: malformed_duplicate_ltm_egress_id = 29
 
     	Multiple LTM-Egress-ID TLVs found
 
-    .. data:: MALFORMED_SENDER_ID_SIZE = 30
+    .. data:: malformed_sender_id_size = 30
 
     	Sender-ID TLV is too short
 
-    .. data:: MALFORMED_CHASSIS_ID_SIZE = 31
+    .. data:: malformed_chassis_id_size = 31
 
     	Sender-ID TLV is too short to contain the
 
     	Chassis ID
 
-    .. data:: MALFORMED_MGMT_ADDRESS_DOMAIN_SIZE = 32
+    .. data:: malformed_mgmt_address_domain_size = 32
 
     	Sender-ID TLV is too short to contain the
 
     	management address domain
 
-    .. data:: MALFORMED_MGMT_ADDRESS_SIZE = 33
+    .. data:: malformed_mgmt_address_size = 33
 
     	Sender-ID TLV is too short to contain the
 
     	management address
 
-    .. data:: MALFORMED_PORT_STATUS_SIZE = 34
+    .. data:: malformed_port_status_size = 34
 
     	Port-status TLV is too short
 
-    .. data:: MALFORMED_PORT_STATUS = 35
+    .. data:: malformed_port_status = 35
 
     	Invalid Port status value
 
-    .. data:: MALFORMED_INTERFACE_STATUS_SIZE = 36
+    .. data:: malformed_interface_status_size = 36
 
     	Interface-status TLV is too short
 
-    .. data:: MALFORMED_INTERFACE_STATUS = 37
+    .. data:: malformed_interface_status = 37
 
     	Invalid Interface status value
 
-    .. data:: MALFORMED_ORGANIZATION_SPECIFIC_TLV_SIZE = 38
+    .. data:: malformed_organization_specific_tlv_size = 38
 
     	Organization-specific TLV is too short
 
-    .. data:: MALFORMED_DUPLICATE_MEP_NAME = 39
+    .. data:: malformed_duplicate_mep_name = 39
 
     	Multiple MEP-name TLVs found
 
-    .. data:: MALFORMED_DUPLICATE_ADDITIONAL_INTERFACE_STATUS = 40
+    .. data:: malformed_duplicate_additional_interface_status = 40
 
     	Multiple additional-interface-status TLVs found
 
-    .. data:: MALFORMED_LTR_EGRESS_ID_SIZE = 41
+    .. data:: malformed_ltr_egress_id_size = 41
 
     	LTR-Egress-ID TLV is too short
 
-    .. data:: MALFORMED_REPLY_INGRESS_SIZE = 42
+    .. data:: malformed_reply_ingress_size = 42
 
     	Reply-ingress TLV is too short
 
-    .. data:: MALFORMED_INGRESS_ACTION = 43
+    .. data:: malformed_ingress_action = 43
 
     	Invalid ingress-action value
 
-    .. data:: MALFORMED_REPLY_INGRESS_MAC = 44
+    .. data:: malformed_reply_ingress_mac = 44
 
     	Reply-ingress TLV has invalid MAC address
 
-    .. data:: MALFORMED_INGRESS_PORT_LENGTH_SIZE = 45
+    .. data:: malformed_ingress_port_length_size = 45
 
     	Reply-ingress TLV is too short to contain the
 
     	Port ID type
 
-    .. data:: MALFORMED_INGRESS_PORT_ID_LENGTH = 46
+    .. data:: malformed_ingress_port_id_length = 46
 
     	Reply-ingress TLV has a zero Port ID length
 
-    .. data:: MALFORMED_INGRESS_PORT_ID_SIZE = 47
+    .. data:: malformed_ingress_port_id_size = 47
 
     	Reply-ingress TLV is too short to contain the
 
     	Port ID
 
-    .. data:: MALFORMED_REPLY_EGRESS_SIZE = 48
+    .. data:: malformed_reply_egress_size = 48
 
     	Reply-egress TLV is too short
 
-    .. data:: MALFORMED_EGRESS_ACTION = 49
+    .. data:: malformed_egress_action = 49
 
     	Invalid egress-action value
 
-    .. data:: MALFORMED_REPLY_EGRESS_MAC = 50
+    .. data:: malformed_reply_egress_mac = 50
 
     	Reply-egress TLV has invalid MAC address
 
-    .. data:: MALFORMED_EGRESS_PORT_LENGTH_SIZE = 51
+    .. data:: malformed_egress_port_length_size = 51
 
     	Reply-egress TLV is too short to contain the
 
     	Port ID type
 
-    .. data:: MALFORMED_EGRESS_PORT_ID_LENGTH = 52
+    .. data:: malformed_egress_port_id_length = 52
 
     	Reply-egress TLV has a zero Port ID length
 
-    .. data:: MALFORMED_EGRESS_PORT_ID_SIZE = 53
+    .. data:: malformed_egress_port_id_size = 53
 
     	Reply-egress TLV is too short to contain the
 
     	Port ID
 
-    .. data:: MALFORMED_LTM_EGRESS_ID_SIZE = 54
+    .. data:: malformed_ltm_egress_id_size = 54
 
     	LTM-Egress_ID TLV is too short
 
-    .. data:: MALFORMED_MEP_NAME_SIZE = 55
+    .. data:: malformed_mep_name_size = 55
 
     	MEP-name TLV is too short
 
-    .. data:: MALFORMED_MEP_NAME_NAME_LENGTH = 56
+    .. data:: malformed_mep_name_name_length = 56
 
     	MEP-name TLV is too short to contain a MEP name
 
-    .. data:: MALFORMED_ADDITIONAL_INTERFACE_STATUS_SIZE = 57
+    .. data:: malformed_additional_interface_status_size = 57
 
     	Additional-interface-status is too short
 
-    .. data:: MALFORMED_ADDITIONAL_INTERFACE_STATUS = 58
+    .. data:: malformed_additional_interface_status = 58
 
     	Invalid additional interface status
 
-    .. data:: MALFORMED_CCM_INTERVAL = 59
+    .. data:: malformed_ccm_interval = 59
 
     	CCM has a zero CCM interval
 
-    .. data:: MALFORMED_MDID_MAC_ADDRESS_LENGTH = 60
+    .. data:: malformed_mdid_mac_address_length = 60
 
     	CCM has a MAC-address MDID but the MDID is the
 
     	wrong length
 
-    .. data:: MALFORMED_MDID_LENGTH = 61
+    .. data:: malformed_mdid_length = 61
 
     	CCM has an invalid MDID length
 
-    .. data:: MALFORMED_SMAN_LENGTH = 62
+    .. data:: malformed_sman_length = 62
 
     	CCM has an invalid Short MA Name length
 
-    .. data:: MALFORMED_SMAN2_BYTE_LENGTH = 63
+    .. data:: malformed_sman2_byte_length = 63
 
     	CCM has a VID or 16-bit Short MA Name but a
 
     	mismatched length
 
-    .. data:: MALFORMED_SMAN_VPN_ID_LENGTH = 64
+    .. data:: malformed_sman_vpn_id_length = 64
 
     	CCM has a VPNID Short MA Name but a mismatched
 
     	length
 
-    .. data:: MALFORMED_ELR_NO_REPLY_TLV = 65
+    .. data:: malformed_elr_no_reply_tlv = 65
 
     	ELR has no ELR Reply TLVs
 
-    .. data:: MALFORMED_SEPARATE_ELR_REPLY_EGRESS = 66
+    .. data:: malformed_separate_elr_reply_egress = 66
 
     	ELR Reply Egress TLVs not all adjacent
 
-    .. data:: MALFORMED_DCM_DESTINATION_MULTICAST = 67
+    .. data:: malformed_dcm_destination_multicast = 67
 
     	DCM has a multicast destination MAC
 
-    .. data:: MALFORMED_DCM_EMBED_LENGTH = 68
+    .. data:: malformed_dcm_embed_length = 68
 
     	DCM is too short to contain an Embedded PDU
 
-    .. data:: MALFORMED_DCM_EMBED_LEVEL = 69
+    .. data:: malformed_dcm_embed_level = 69
 
     	DCM Embedded PDU level does not match DCM level
 
-    .. data:: MALFORMED_DCM_EMBED_VERSION = 70
+    .. data:: malformed_dcm_embed_version = 70
 
     	DCM Embedded PDU version does not match DCM
 
     	version
 
-    .. data:: MALFORMED_ELR_RELAY_ACTION = 71
+    .. data:: malformed_elr_relay_action = 71
 
     	Unknown ELR relay action
 
-    .. data:: MALFORMED_ELR_TT_LS = 73
+    .. data:: malformed_elr_tt_ls = 73
 
     	Reply Ingress TTL is not one greater than Reply
 
     	Egress TTL
 
-    .. data:: MALFORMED_ELR_TTL_INGRESS = 74
+    .. data:: malformed_elr_ttl_ingress = 74
 
     	Reply Ingress TTL present without ELR Reply
 
     	Ingress TLV
 
-    .. data:: MALFORMED_ELR_TTL_EGRESS = 75
+    .. data:: malformed_elr_ttl_egress = 75
 
     	Reply Egress TTL present without ELR Reply
 
     	Egress TLV
 
-    .. data:: MALFORMED_ELM_DESTINATION_UNICAST = 76
+    .. data:: malformed_elm_destination_unicast = 76
 
     	ELM Destination MAC must not be unicast
 
-    .. data:: MALFORMED_ELM_EGRESS_ID = 77
+    .. data:: malformed_elm_egress_id = 77
 
     	ELM has no LTM Egress ID TLV
 
-    .. data:: MALFORMED_DCM_EMBED_OUI = 78
+    .. data:: malformed_dcm_embed_oui = 78
 
     	Embedded DCM OUI unrecognized
 
-    .. data:: MALFORMED_DCM_EMBED_OPCODE = 79
+    .. data:: malformed_dcm_embed_opcode = 79
 
     	Embedded DCM Opcode is not ELM
 
-    .. data:: MALFORMED_ELM_CONSTANT_ZERO = 80
+    .. data:: malformed_elm_constant_zero = 80
 
     	ELM Constant Factor is zero
 
-    .. data:: MALFORMED_ELR_TIMEOUT_ZERO = 81
+    .. data:: malformed_elr_timeout_zero = 81
 
     	ELR Next-Hop Timeout is zero
 
-    .. data:: MALFORMED_DUPLICATE_TEST = 82
+    .. data:: malformed_duplicate_test = 82
 
     	Multiple Test TLVs found
 
-    .. data:: MALFORMED_DMM_SOURCE_MAC = 83
+    .. data:: malformed_dmm_source_mac = 83
 
     	Invalid source MAC address for DMM
 
-    .. data:: MALFORMED_TEST_SIZE = 84
+    .. data:: malformed_test_size = 84
 
     	Test TLV is too short
 
-    .. data:: MALFORMED_DMR_TIME_STAMPS = 85
+    .. data:: malformed_dmr_time_stamps = 85
 
     	DMR has exactly one of its Rxf and Txb
 
     	timestamps unspecified
 
-    .. data:: MALFORMED_DM_TIME_STAMP_FMT = 86
+    .. data:: malformed_dm_time_stamp_fmt = 86
 
     	The format of one or more timestamps is invalid
 
-    .. data:: MALFORMED_AIS_INTERVAL = 87
+    .. data:: malformed_ais_interval = 87
 
     	AIS/LCK has invalid interval value (not 1
 
     	second or 1 minute)
 
-    .. data:: FILTER_INTERFACE_DOWN = 88
+    .. data:: filter_interface_down = 88
 
     	Packet dropped due to interface being down
 
-    .. data:: FILTER_FORWARD_STANDBY = 89
+    .. data:: filter_forward_standby = 89
 
     	Packet dropped - not forwarded because
 
     	interface is in standby mode
 
-    .. data:: MALFORMED_SMAN_ICC_BASED_LENGTH = 90
+    .. data:: malformed_sman_icc_based_length = 90
 
     	CCM has an ICC-based format Short MA Name but a
 
     	mismatched length
 
-    .. data:: FILTER_FOWARD_ISSU_SECONDARY = 120
+    .. data:: filter_foward_issu_secondary = 120
 
     	Packet dropped - not forwarded in secondary HA
 
     	role
 
-    .. data:: FILTER_RESPONSE_STANDBY = 121
+    .. data:: filter_response_standby = 121
 
     	Packet dropped - not responded to because
 
     	interface is in standby mode
 
-    .. data:: FILTER_RESPONSE_ISSU_SECONDARY = 122
+    .. data:: filter_response_issu_secondary = 122
 
     	Packet dropped - not responded to in secondary
 
@@ -1769,191 +1769,191 @@ class CfmPmPktActionEnum(Enum):
 
     """
 
-    PACKET_PROCESSED = 0
+    packet_processed = 0
 
-    PACKET_FORWARDED = 1
+    packet_forwarded = 1
 
-    UNKNOWN_OPCODE = 2
+    unknown_opcode = 2
 
-    FILTER_LEVEL = 3
+    filter_level = 3
 
-    FILTER_BLOCKED = 4
+    filter_blocked = 4
 
-    FILTER_LOCAL_MAC = 5
+    filter_local_mac = 5
 
-    MALFORMED_CCM_SIZE = 6
+    malformed_ccm_size = 6
 
-    MALFORMED_CCM_MEP_ID = 7
+    malformed_ccm_mep_id = 7
 
-    MALFORMED_TOO_SHORT = 8
+    malformed_too_short = 8
 
-    MALFORMED_DESTINATION_MAC_UNICAST = 9
+    malformed_destination_mac_unicast = 9
 
-    MALFORMED_DESTINATION_MAC_MULTICAST = 10
+    malformed_destination_mac_multicast = 10
 
-    MALFORMED_TLV_OFFSET = 11
+    malformed_tlv_offset = 11
 
-    MALFORMED_LBM_SOURCE_MAC = 12
+    malformed_lbm_source_mac = 12
 
-    MALFORMED_LTR_RELAY_ACTION = 13
+    malformed_ltr_relay_action = 13
 
-    MALFORMED_LTR_REPLY_TLV = 14
+    malformed_ltr_reply_tlv = 14
 
-    MALFORMED_LT_ORIGIN = 15
+    malformed_lt_origin = 15
 
-    MALFORMED_LTM_TARGET = 16
+    malformed_ltm_target = 16
 
-    MALFORMED_SOURCE_MAC = 17
+    malformed_source_mac = 17
 
-    MALFORMED_HEADER_TOO_SHORT = 18
+    malformed_header_too_short = 18
 
-    MALFORMED_TLV_HEADER_OVERRUN = 19
+    malformed_tlv_header_overrun = 19
 
-    MALFORMED_TLV_OVERRUN = 20
+    malformed_tlv_overrun = 20
 
-    MALFORMED_DUPLICATE_SENDER_ID = 21
+    malformed_duplicate_sender_id = 21
 
-    MALFORMED_DUPLICATE_PORT_STATUS = 22
+    malformed_duplicate_port_status = 22
 
-    MALFORMED_DUPLICATE_INTERFACE_STATUS = 23
+    malformed_duplicate_interface_status = 23
 
-    MALFORMED_WRONG_TLV = 24
+    malformed_wrong_tlv = 24
 
-    MALFORMED_DUPLICATE_DATA = 25
+    malformed_duplicate_data = 25
 
-    MALFORMED_DUPLICATE_LTR_EGRESS_ID = 26
+    malformed_duplicate_ltr_egress_id = 26
 
-    MALFORMED_DUPLICATE_REPLY_INGRESS = 27
+    malformed_duplicate_reply_ingress = 27
 
-    MALFORMED_DUPLICATE_REPLY_EGRESS = 28
+    malformed_duplicate_reply_egress = 28
 
-    MALFORMED_DUPLICATE_LTM_EGRESS_ID = 29
+    malformed_duplicate_ltm_egress_id = 29
 
-    MALFORMED_SENDER_ID_SIZE = 30
+    malformed_sender_id_size = 30
 
-    MALFORMED_CHASSIS_ID_SIZE = 31
+    malformed_chassis_id_size = 31
 
-    MALFORMED_MGMT_ADDRESS_DOMAIN_SIZE = 32
+    malformed_mgmt_address_domain_size = 32
 
-    MALFORMED_MGMT_ADDRESS_SIZE = 33
+    malformed_mgmt_address_size = 33
 
-    MALFORMED_PORT_STATUS_SIZE = 34
+    malformed_port_status_size = 34
 
-    MALFORMED_PORT_STATUS = 35
+    malformed_port_status = 35
 
-    MALFORMED_INTERFACE_STATUS_SIZE = 36
+    malformed_interface_status_size = 36
 
-    MALFORMED_INTERFACE_STATUS = 37
+    malformed_interface_status = 37
 
-    MALFORMED_ORGANIZATION_SPECIFIC_TLV_SIZE = 38
+    malformed_organization_specific_tlv_size = 38
 
-    MALFORMED_DUPLICATE_MEP_NAME = 39
+    malformed_duplicate_mep_name = 39
 
-    MALFORMED_DUPLICATE_ADDITIONAL_INTERFACE_STATUS = 40
+    malformed_duplicate_additional_interface_status = 40
 
-    MALFORMED_LTR_EGRESS_ID_SIZE = 41
+    malformed_ltr_egress_id_size = 41
 
-    MALFORMED_REPLY_INGRESS_SIZE = 42
+    malformed_reply_ingress_size = 42
 
-    MALFORMED_INGRESS_ACTION = 43
+    malformed_ingress_action = 43
 
-    MALFORMED_REPLY_INGRESS_MAC = 44
+    malformed_reply_ingress_mac = 44
 
-    MALFORMED_INGRESS_PORT_LENGTH_SIZE = 45
+    malformed_ingress_port_length_size = 45
 
-    MALFORMED_INGRESS_PORT_ID_LENGTH = 46
+    malformed_ingress_port_id_length = 46
 
-    MALFORMED_INGRESS_PORT_ID_SIZE = 47
+    malformed_ingress_port_id_size = 47
 
-    MALFORMED_REPLY_EGRESS_SIZE = 48
+    malformed_reply_egress_size = 48
 
-    MALFORMED_EGRESS_ACTION = 49
+    malformed_egress_action = 49
 
-    MALFORMED_REPLY_EGRESS_MAC = 50
+    malformed_reply_egress_mac = 50
 
-    MALFORMED_EGRESS_PORT_LENGTH_SIZE = 51
+    malformed_egress_port_length_size = 51
 
-    MALFORMED_EGRESS_PORT_ID_LENGTH = 52
+    malformed_egress_port_id_length = 52
 
-    MALFORMED_EGRESS_PORT_ID_SIZE = 53
+    malformed_egress_port_id_size = 53
 
-    MALFORMED_LTM_EGRESS_ID_SIZE = 54
+    malformed_ltm_egress_id_size = 54
 
-    MALFORMED_MEP_NAME_SIZE = 55
+    malformed_mep_name_size = 55
 
-    MALFORMED_MEP_NAME_NAME_LENGTH = 56
+    malformed_mep_name_name_length = 56
 
-    MALFORMED_ADDITIONAL_INTERFACE_STATUS_SIZE = 57
+    malformed_additional_interface_status_size = 57
 
-    MALFORMED_ADDITIONAL_INTERFACE_STATUS = 58
+    malformed_additional_interface_status = 58
 
-    MALFORMED_CCM_INTERVAL = 59
+    malformed_ccm_interval = 59
 
-    MALFORMED_MDID_MAC_ADDRESS_LENGTH = 60
+    malformed_mdid_mac_address_length = 60
 
-    MALFORMED_MDID_LENGTH = 61
+    malformed_mdid_length = 61
 
-    MALFORMED_SMAN_LENGTH = 62
+    malformed_sman_length = 62
 
-    MALFORMED_SMAN2_BYTE_LENGTH = 63
+    malformed_sman2_byte_length = 63
 
-    MALFORMED_SMAN_VPN_ID_LENGTH = 64
+    malformed_sman_vpn_id_length = 64
 
-    MALFORMED_ELR_NO_REPLY_TLV = 65
+    malformed_elr_no_reply_tlv = 65
 
-    MALFORMED_SEPARATE_ELR_REPLY_EGRESS = 66
+    malformed_separate_elr_reply_egress = 66
 
-    MALFORMED_DCM_DESTINATION_MULTICAST = 67
+    malformed_dcm_destination_multicast = 67
 
-    MALFORMED_DCM_EMBED_LENGTH = 68
+    malformed_dcm_embed_length = 68
 
-    MALFORMED_DCM_EMBED_LEVEL = 69
+    malformed_dcm_embed_level = 69
 
-    MALFORMED_DCM_EMBED_VERSION = 70
+    malformed_dcm_embed_version = 70
 
-    MALFORMED_ELR_RELAY_ACTION = 71
+    malformed_elr_relay_action = 71
 
-    MALFORMED_ELR_TT_LS = 73
+    malformed_elr_tt_ls = 73
 
-    MALFORMED_ELR_TTL_INGRESS = 74
+    malformed_elr_ttl_ingress = 74
 
-    MALFORMED_ELR_TTL_EGRESS = 75
+    malformed_elr_ttl_egress = 75
 
-    MALFORMED_ELM_DESTINATION_UNICAST = 76
+    malformed_elm_destination_unicast = 76
 
-    MALFORMED_ELM_EGRESS_ID = 77
+    malformed_elm_egress_id = 77
 
-    MALFORMED_DCM_EMBED_OUI = 78
+    malformed_dcm_embed_oui = 78
 
-    MALFORMED_DCM_EMBED_OPCODE = 79
+    malformed_dcm_embed_opcode = 79
 
-    MALFORMED_ELM_CONSTANT_ZERO = 80
+    malformed_elm_constant_zero = 80
 
-    MALFORMED_ELR_TIMEOUT_ZERO = 81
+    malformed_elr_timeout_zero = 81
 
-    MALFORMED_DUPLICATE_TEST = 82
+    malformed_duplicate_test = 82
 
-    MALFORMED_DMM_SOURCE_MAC = 83
+    malformed_dmm_source_mac = 83
 
-    MALFORMED_TEST_SIZE = 84
+    malformed_test_size = 84
 
-    MALFORMED_DMR_TIME_STAMPS = 85
+    malformed_dmr_time_stamps = 85
 
-    MALFORMED_DM_TIME_STAMP_FMT = 86
+    malformed_dm_time_stamp_fmt = 86
 
-    MALFORMED_AIS_INTERVAL = 87
+    malformed_ais_interval = 87
 
-    FILTER_INTERFACE_DOWN = 88
+    filter_interface_down = 88
 
-    FILTER_FORWARD_STANDBY = 89
+    filter_forward_standby = 89
 
-    MALFORMED_SMAN_ICC_BASED_LENGTH = 90
+    malformed_sman_icc_based_length = 90
 
-    FILTER_FOWARD_ISSU_SECONDARY = 120
+    filter_foward_issu_secondary = 120
 
-    FILTER_RESPONSE_STANDBY = 121
+    filter_response_standby = 121
 
-    FILTER_RESPONSE_ISSU_SECONDARY = 122
+    filter_response_issu_secondary = 122
 
 
     @staticmethod
@@ -1968,55 +1968,55 @@ class CfmPmPortIdFmtEnum(Enum):
 
     Port ID format
 
-    .. data:: PORT_ID_INTERFACE_ALIAS = 1
+    .. data:: port_id_interface_alias = 1
 
     	Port ID is an interface alias
 
-    .. data:: PORT_ID_PORT_COMPONENT = 2
+    .. data:: port_id_port_component = 2
 
     	Port ID is a component name
 
-    .. data:: PORT_ID_MAC_ADDRESS = 3
+    .. data:: port_id_mac_address = 3
 
     	Port ID is a MAC address
 
-    .. data:: PORT_ID_NETWORK_ADDRESS = 4
+    .. data:: port_id_network_address = 4
 
     	Port ID is a network address
 
-    .. data:: PORT_ID_INTERFACE_NAME = 5
+    .. data:: port_id_interface_name = 5
 
     	Port ID is an interface name
 
-    .. data:: PORT_ID_AGENT_CIRCUIT_ID = 6
+    .. data:: port_id_agent_circuit_id = 6
 
     	Port ID is an agent name
 
-    .. data:: PORT_ID_LOCAL = 7
+    .. data:: port_id_local = 7
 
     	Port ID is a local name
 
-    .. data:: PORT_ID_UNKNOWN = 8
+    .. data:: port_id_unknown = 8
 
     	Port ID format unknown
 
     """
 
-    PORT_ID_INTERFACE_ALIAS = 1
+    port_id_interface_alias = 1
 
-    PORT_ID_PORT_COMPONENT = 2
+    port_id_port_component = 2
 
-    PORT_ID_MAC_ADDRESS = 3
+    port_id_mac_address = 3
 
-    PORT_ID_NETWORK_ADDRESS = 4
+    port_id_network_address = 4
 
-    PORT_ID_INTERFACE_NAME = 5
+    port_id_interface_name = 5
 
-    PORT_ID_AGENT_CIRCUIT_ID = 6
+    port_id_agent_circuit_id = 6
 
-    PORT_ID_LOCAL = 7
+    port_id_local = 7
 
-    PORT_ID_UNKNOWN = 8
+    port_id_unknown = 8
 
 
     @staticmethod
@@ -2031,25 +2031,25 @@ class CfmPmPortStatusEnum(Enum):
 
     Port status
 
-    .. data:: PORT_STATUS_BLOCKED = 1
+    .. data:: port_status_blocked = 1
 
     	Port is STP blocked
 
-    .. data:: PORT_STATUS_UP = 2
+    .. data:: port_status_up = 2
 
     	Port is up
 
-    .. data:: PORT_STATUS_UNKNOWN = 3
+    .. data:: port_status_unknown = 3
 
     	Unknown port status
 
     """
 
-    PORT_STATUS_BLOCKED = 1
+    port_status_blocked = 1
 
-    PORT_STATUS_UP = 2
+    port_status_up = 2
 
-    PORT_STATUS_UNKNOWN = 3
+    port_status_unknown = 3
 
 
     @staticmethod
@@ -2064,25 +2064,25 @@ class CfmPmRelayActionEnum(Enum):
 
     LTR relay action
 
-    .. data:: RELAY_HIT = 1
+    .. data:: relay_hit = 1
 
     	Target Hit
 
-    .. data:: RELAY_FDB = 2
+    .. data:: relay_fdb = 2
 
     	Filtering database
 
-    .. data:: RELAY_MPDB = 3
+    .. data:: relay_mpdb = 3
 
     	CCM Learning database
 
     """
 
-    RELAY_HIT = 1
+    relay_hit = 1
 
-    RELAY_FDB = 2
+    relay_fdb = 2
 
-    RELAY_MPDB = 3
+    relay_mpdb = 3
 
 
     @staticmethod
@@ -2097,33 +2097,33 @@ class CfmPmRmepStateEnum(Enum):
 
     State of the Peer MEP state machine
 
-    .. data:: PEER_MEP_IDLE = 1
+    .. data:: peer_mep_idle = 1
 
     	Momentary state during reset
 
-    .. data:: PEER_MEP_START = 2
+    .. data:: peer_mep_start = 2
 
     	Loss timer not expired since reset, but no
 
     	valid CCM received
 
-    .. data:: PEER_MEP_FAILED = 3
+    .. data:: peer_mep_failed = 3
 
     	Loss timer has expired
 
-    .. data:: PEER_MEP_OK = 4
+    .. data:: peer_mep_ok = 4
 
     	Loss timer has not expired since last valid CCM
 
     """
 
-    PEER_MEP_IDLE = 1
+    peer_mep_idle = 1
 
-    PEER_MEP_START = 2
+    peer_mep_start = 2
 
-    PEER_MEP_FAILED = 3
+    peer_mep_failed = 3
 
-    PEER_MEP_OK = 4
+    peer_mep_ok = 4
 
 
     @staticmethod
@@ -2138,15 +2138,15 @@ class CfmPmRmepXcStateEnum(Enum):
 
     Cross\-check state of a peer MEP
 
-    .. data:: CROSS_CHECK_OK = 0
+    .. data:: cross_check_ok = 0
 
     	Cross-check OK
 
-    .. data:: CROSS_CHECK_MISSING = 1
+    .. data:: cross_check_missing = 1
 
     	No CCMs received within loss time from peer MEP
 
-    .. data:: CROSS_CHECK_EXTRA = 2
+    .. data:: cross_check_extra = 2
 
     	CCMs received from peer MEP not marked for
 
@@ -2154,11 +2154,11 @@ class CfmPmRmepXcStateEnum(Enum):
 
     """
 
-    CROSS_CHECK_OK = 0
+    cross_check_ok = 0
 
-    CROSS_CHECK_MISSING = 1
+    cross_check_missing = 1
 
-    CROSS_CHECK_EXTRA = 2
+    cross_check_extra = 2
 
 
     @staticmethod
@@ -2173,19 +2173,19 @@ class SlaBucketSizeEnum(Enum):
 
     Type of configuration of a bucket size
 
-    .. data:: BUCKETS_PER_PROBE = 0
+    .. data:: buckets_per_probe = 0
 
     	Bucket size is configured as buckets per probe
 
-    .. data:: PROBES_PER_BUCKET = 1
+    .. data:: probes_per_bucket = 1
 
     	Bucket size is configured as probes per bucket
 
     """
 
-    BUCKETS_PER_PROBE = 0
+    buckets_per_probe = 0
 
-    PROBES_PER_BUCKET = 1
+    probes_per_bucket = 1
 
 
     @staticmethod
@@ -2200,19 +2200,19 @@ class SlaOperBucketEnum(Enum):
 
     Type of SLA metric bucket
 
-    .. data:: BUCKET_TYPE_BINS = 0
+    .. data:: bucket_type_bins = 0
 
     	SLA metric bin
 
-    .. data:: BUCKET_TYPE_SAMPLES = 1
+    .. data:: bucket_type_samples = 1
 
     	SLA metric sample
 
     """
 
-    BUCKET_TYPE_BINS = 0
+    bucket_type_bins = 0
 
-    BUCKET_TYPE_SAMPLES = 1
+    bucket_type_samples = 1
 
 
     @staticmethod
@@ -2227,19 +2227,19 @@ class SlaOperOperationEnum(Enum):
 
     Type of SLA operation
 
-    .. data:: OPERATION_TYPE_CONFIGURED = 0
+    .. data:: operation_type_configured = 0
 
     	Configured SLA operation
 
-    .. data:: OPERATION_TYPE_ONDEMAND = 1
+    .. data:: operation_type_ondemand = 1
 
     	On-demand SLA operation
 
     """
 
-    OPERATION_TYPE_CONFIGURED = 0
+    operation_type_configured = 0
 
-    OPERATION_TYPE_ONDEMAND = 1
+    operation_type_ondemand = 1
 
 
     @staticmethod
@@ -2254,11 +2254,11 @@ class SlaOperPacketPriorityEnum(Enum):
 
     Priority scheme for packet priority
 
-    .. data:: PRIORITY_NONE = 0
+    .. data:: priority_none = 0
 
     	Packet does not use any specified priority.
 
-    .. data:: PRIORITY_COS = 1
+    .. data:: priority_cos = 1
 
     	Packet uses a specified 3-bit COS priority
 
@@ -2266,9 +2266,9 @@ class SlaOperPacketPriorityEnum(Enum):
 
     """
 
-    PRIORITY_NONE = 0
+    priority_none = 0
 
-    PRIORITY_COS = 1
+    priority_cos = 1
 
 
     @staticmethod
@@ -2283,11 +2283,11 @@ class SlaOperTestPatternSchemeEnum(Enum):
 
     Test pattern scheme for packet padding
 
-    .. data:: HEX = 0
+    .. data:: hex = 0
 
     	Packet is padded with a user-specified string
 
-    .. data:: PSEUDO_RANDOM = 1
+    .. data:: pseudo_random = 1
 
     	Packet is padded with a pseudo-random bit
 
@@ -2295,9 +2295,9 @@ class SlaOperTestPatternSchemeEnum(Enum):
 
     """
 
-    HEX = 0
+    hex = 0
 
-    PSEUDO_RANDOM = 1
+    pseudo_random = 1
 
 
     @staticmethod
@@ -2312,61 +2312,61 @@ class SlaRecordableMetricEnum(Enum):
 
     Types of metrics that can be recorded by probes
 
-    .. data:: METRIC_INVALID = 0
+    .. data:: metric_invalid = 0
 
     	Not a valid metric type
 
-    .. data:: METRIC_ROUND_TRIP_DELAY = 1
+    .. data:: metric_round_trip_delay = 1
 
     	Round-trip Delay
 
-    .. data:: METRIC_ONE_WAY_DELAY_SD = 2
+    .. data:: metric_one_way_delay_sd = 2
 
     	One-way Delay (Source->Destination)
 
-    .. data:: METRIC_ONE_WAY_DELAY_DS = 3
+    .. data:: metric_one_way_delay_ds = 3
 
     	One-way Delay (Destination->Source)
 
-    .. data:: METRIC_ROUND_TRIP_JITTER = 4
+    .. data:: metric_round_trip_jitter = 4
 
     	Round-trip Jitter
 
-    .. data:: METRIC_ONE_WAY_JITTER_SD = 5
+    .. data:: metric_one_way_jitter_sd = 5
 
     	One-way Jitter (Source->Destination)
 
-    .. data:: METRIC_ONE_WAY_JITTER_DS = 6
+    .. data:: metric_one_way_jitter_ds = 6
 
     	One-way Jitter (Destination->Source)
 
-    .. data:: METRIC_ONE_WAY_FLR_SD = 7
+    .. data:: metric_one_way_flr_sd = 7
 
     	One-way Frame Loss Ratio (Source->Destination)
 
-    .. data:: METRIC_ONE_WAY_FLR_DS = 8
+    .. data:: metric_one_way_flr_ds = 8
 
     	One-way Frame Loss Ratio (Destination->Source)
 
     """
 
-    METRIC_INVALID = 0
+    metric_invalid = 0
 
-    METRIC_ROUND_TRIP_DELAY = 1
+    metric_round_trip_delay = 1
 
-    METRIC_ONE_WAY_DELAY_SD = 2
+    metric_one_way_delay_sd = 2
 
-    METRIC_ONE_WAY_DELAY_DS = 3
+    metric_one_way_delay_ds = 3
 
-    METRIC_ROUND_TRIP_JITTER = 4
+    metric_round_trip_jitter = 4
 
-    METRIC_ONE_WAY_JITTER_SD = 5
+    metric_one_way_jitter_sd = 5
 
-    METRIC_ONE_WAY_JITTER_DS = 6
+    metric_one_way_jitter_ds = 6
 
-    METRIC_ONE_WAY_FLR_SD = 7
+    metric_one_way_flr_sd = 7
 
-    METRIC_ONE_WAY_FLR_DS = 8
+    metric_one_way_flr_ds = 8
 
 
     @staticmethod
@@ -2383,12 +2383,12 @@ class Cfm(object):
     .. attribute:: global_
     
     	Global operational data
-    	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global>`
+    	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_>`
     
     .. attribute:: nodes
     
     	Node table for node\-specific operational data
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes>`
     
     
 
@@ -2398,7 +2398,7 @@ class Cfm(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.global_ = Cfm.Global()
+        self.global_ = Cfm.Global_()
         self.global_.parent = self
         self.nodes = Cfm.Nodes()
         self.nodes.parent = self
@@ -2411,7 +2411,7 @@ class Cfm(object):
         .. attribute:: node
         
         	Node\-specific data for a particular node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node>`
         
         
 
@@ -2441,22 +2441,22 @@ class Cfm(object):
             .. attribute:: ccm_learning_databases
             
             	CCMLearningDatabase table
-            	**type**\:  :py:class:`CcmLearningDatabases <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.CcmLearningDatabases>`
+            	**type**\:   :py:class:`CcmLearningDatabases <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.CcmLearningDatabases>`
             
             .. attribute:: interface_aises
             
             	Interface AIS table
-            	**type**\:  :py:class:`InterfaceAises <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises>`
+            	**type**\:   :py:class:`InterfaceAises <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises>`
             
             .. attribute:: interface_statistics
             
             	Interface Statistics table
-            	**type**\:  :py:class:`InterfaceStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceStatistics>`
+            	**type**\:   :py:class:`InterfaceStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceStatistics>`
             
             .. attribute:: summary
             
             	Summary
-            	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.Summary>`
+            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.Summary>`
             
             
 
@@ -2485,7 +2485,7 @@ class Cfm(object):
                 .. attribute:: interface_ais
                 
                 	AIS statistics for a particular interface
-                	**type**\: list of  :py:class:`InterfaceAis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis>`
+                	**type**\: list of    :py:class:`InterfaceAis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis>`
                 
                 
 
@@ -2508,7 +2508,7 @@ class Cfm(object):
                     .. attribute:: direction  <key>
                     
                     	AIS Direction
-                    	**type**\:  :py:class:`CfmAisDirEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmAisDirEnum>`
+                    	**type**\:   :py:class:`CfmAisDirEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmAisDirEnum>`
                     
                     .. attribute:: interface_name  <key>
                     
@@ -2532,17 +2532,17 @@ class Cfm(object):
                     .. attribute:: interworking_state
                     
                     	Interface interworking state
-                    	**type**\:  :py:class:`CfmBagIwStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIwStateEnum>`
+                    	**type**\:   :py:class:`CfmBagIwStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIwStateEnum>`
                     
                     .. attribute:: statistics
                     
                     	AIS statistics
-                    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics>`
+                    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics>`
                     
                     .. attribute:: stp_state
                     
                     	STP state
-                    	**type**\:  :py:class:`CfmBagStpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagStpStateEnum>`
+                    	**type**\:   :py:class:`CfmBagStpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagStpStateEnum>`
                     
                     
 
@@ -2570,22 +2570,22 @@ class Cfm(object):
                         .. attribute:: defects
                         
                         	Defects detected
-                        	**type**\:  :py:class:`Defects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects>`
+                        	**type**\:   :py:class:`Defects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects>`
                         
                         .. attribute:: direction
                         
                         	Direction of AIS packets
-                        	**type**\:  :py:class:`CfmBagDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirectionEnum>`
+                        	**type**\:   :py:class:`CfmBagDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirectionEnum>`
                         
                         .. attribute:: last_started
                         
                         	Time elapsed since sending last started
-                        	**type**\:  :py:class:`LastStarted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted>`
+                        	**type**\:   :py:class:`LastStarted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted>`
                         
                         .. attribute:: lowest_level
                         
                         	Level of the lowest MEP transmitting AIS
-                        	**type**\:  :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
+                        	**type**\:   :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                         
                         .. attribute:: sent_packets
                         
@@ -2597,17 +2597,17 @@ class Cfm(object):
                         .. attribute:: transmission_interval
                         
                         	Interval at which AIS packets are transmitted
-                        	**type**\:  :py:class:`CfmBagAisIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisIntervalEnum>`
+                        	**type**\:   :py:class:`CfmBagAisIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisIntervalEnum>`
                         
                         .. attribute:: transmission_level
                         
                         	Level that AIS packets are transmitted on
-                        	**type**\:  :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
+                        	**type**\:   :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                         
                         .. attribute:: via_level
                         
                         	Levels of other MEPs receiving AIS
-                        	**type**\:  list of :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
+                        	**type**\:  list of   :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                         
                         
 
@@ -2675,7 +2675,7 @@ class Cfm(object):
                             .. attribute:: remote_meps_defects
                             
                             	Defects detected from remote MEPs
-                            	**type**\:  :py:class:`RemoteMepsDefects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects>`
+                            	**type**\:   :py:class:`RemoteMepsDefects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects>`
                             
                             .. attribute:: unexpected
                             
@@ -2859,12 +2859,16 @@ class Cfm(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: nanosecond
+                            
                             .. attribute:: seconds
                             
                             	Seconds
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**units**\: second
                             
                             
 
@@ -3032,7 +3036,7 @@ class Cfm(object):
                 .. attribute:: interface_statistic
                 
                 	Counters for a particular interface
-                	**type**\: list of  :py:class:`InterfaceStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic>`
+                	**type**\: list of    :py:class:`InterfaceStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic>`
                 
                 
 
@@ -3069,7 +3073,7 @@ class Cfm(object):
                     .. attribute:: statistics
                     
                     	EFP statistics
-                    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics>`
+                    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics>`
                     
                     
 
@@ -3100,12 +3104,12 @@ class Cfm(object):
                         .. attribute:: last_malformed_opcode
                         
                         	Opcode for last malformed packet
-                        	**type**\:  :py:class:`CfmBagOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagOpcodeEnum>`
+                        	**type**\:   :py:class:`CfmBagOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagOpcodeEnum>`
                         
                         .. attribute:: last_malformed_reason
                         
                         	Reason last malformed packet was malformed
-                        	**type**\:  :py:class:`CfmPmPktActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPktActionEnum>`
+                        	**type**\:   :py:class:`CfmPmPktActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPktActionEnum>`
                         
                         .. attribute:: malformed_packets
                         
@@ -3297,7 +3301,7 @@ class Cfm(object):
                 .. attribute:: issu_role
                 
                 	ISSU Role of CFM\-D, if any
-                	**type**\:  :py:class:`CfmBagIssuRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIssuRoleEnum>`
+                	**type**\:   :py:class:`CfmBagIssuRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIssuRoleEnum>`
                 
                 .. attribute:: local_meps
                 
@@ -3547,7 +3551,7 @@ class Cfm(object):
                 .. attribute:: ccm_learning_database
                 
                 	CCM Learning Database entry
-                	**type**\: list of  :py:class:`CcmLearningDatabase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase>`
+                	**type**\: list of    :py:class:`CcmLearningDatabase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase>`
                 
                 
 
@@ -3608,7 +3612,7 @@ class Cfm(object):
                     .. attribute:: level
                     
                     	Maintenance level
-                    	**type**\:  :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
+                    	**type**\:   :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                     
                     .. attribute:: service_xr
                     
@@ -3791,44 +3795,44 @@ class Cfm(object):
             return meta._meta_table['Cfm.Nodes']['meta_info']
 
 
-    class Global(object):
+    class Global_(object):
         """
         Global operational data
         
         .. attribute:: global_configuration_errors
         
         	Global configuration errors table
-        	**type**\:  :py:class:`GlobalConfigurationErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.GlobalConfigurationErrors>`
+        	**type**\:   :py:class:`GlobalConfigurationErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.GlobalConfigurationErrors>`
         
         .. attribute:: incomplete_traceroutes
         
         	Incomplete Traceroute table
-        	**type**\:  :py:class:`IncompleteTraceroutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.IncompleteTraceroutes>`
+        	**type**\:   :py:class:`IncompleteTraceroutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.IncompleteTraceroutes>`
         
         .. attribute:: local_meps
         
         	Local MEPs table
-        	**type**\:  :py:class:`LocalMeps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps>`
+        	**type**\:   :py:class:`LocalMeps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps>`
         
         .. attribute:: maintenance_points
         
         	Maintenance Points table
-        	**type**\:  :py:class:`MaintenancePoints <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MaintenancePoints>`
+        	**type**\:   :py:class:`MaintenancePoints <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MaintenancePoints>`
         
         .. attribute:: mep_configuration_errors
         
         	MEP configuration errors table
-        	**type**\:  :py:class:`MepConfigurationErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors>`
+        	**type**\:   :py:class:`MepConfigurationErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors>`
         
         .. attribute:: peer_me_pv2s
         
         	Peer MEPs table Version 2
-        	**type**\:  :py:class:`PeerMePv2S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S>`
+        	**type**\:   :py:class:`PeerMePv2S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S>`
         
         .. attribute:: traceroute_caches
         
         	Traceroute Cache table
-        	**type**\:  :py:class:`TracerouteCaches <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches>`
+        	**type**\:   :py:class:`TracerouteCaches <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches>`
         
         
 
@@ -3839,19 +3843,19 @@ class Cfm(object):
 
         def __init__(self):
             self.parent = None
-            self.global_configuration_errors = Cfm.Global.GlobalConfigurationErrors()
+            self.global_configuration_errors = Cfm.Global_.GlobalConfigurationErrors()
             self.global_configuration_errors.parent = self
-            self.incomplete_traceroutes = Cfm.Global.IncompleteTraceroutes()
+            self.incomplete_traceroutes = Cfm.Global_.IncompleteTraceroutes()
             self.incomplete_traceroutes.parent = self
-            self.local_meps = Cfm.Global.LocalMeps()
+            self.local_meps = Cfm.Global_.LocalMeps()
             self.local_meps.parent = self
-            self.maintenance_points = Cfm.Global.MaintenancePoints()
+            self.maintenance_points = Cfm.Global_.MaintenancePoints()
             self.maintenance_points.parent = self
-            self.mep_configuration_errors = Cfm.Global.MepConfigurationErrors()
+            self.mep_configuration_errors = Cfm.Global_.MepConfigurationErrors()
             self.mep_configuration_errors.parent = self
-            self.peer_me_pv2s = Cfm.Global.PeerMePv2S()
+            self.peer_me_pv2s = Cfm.Global_.PeerMePv2S()
             self.peer_me_pv2s.parent = self
-            self.traceroute_caches = Cfm.Global.TracerouteCaches()
+            self.traceroute_caches = Cfm.Global_.TracerouteCaches()
             self.traceroute_caches.parent = self
 
 
@@ -3862,7 +3866,7 @@ class Cfm(object):
             .. attribute:: incomplete_traceroute
             
             	Information about a traceroute operation that has not yet timed out
-            	**type**\: list of  :py:class:`IncompleteTraceroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute>`
+            	**type**\: list of    :py:class:`IncompleteTraceroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute>`
             
             
 
@@ -3925,10 +3929,12 @@ class Cfm(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: second
+                
                 .. attribute:: traceroute_information
                 
                 	Information about the traceroute operation
-                	**type**\:  :py:class:`TracerouteInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation>`
+                	**type**\:   :py:class:`TracerouteInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation>`
                 
                 
 
@@ -3945,7 +3951,7 @@ class Cfm(object):
                     self.service = None
                     self.transaction_id = None
                     self.time_left = None
-                    self.traceroute_information = Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation()
+                    self.traceroute_information = Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation()
                     self.traceroute_information.parent = self
 
 
@@ -3968,12 +3974,12 @@ class Cfm(object):
                     .. attribute:: level
                     
                     	Maintenance level
-                    	**type**\:  :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
+                    	**type**\:   :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                     
                     .. attribute:: options
                     
                     	Options affecting traceroute behavior
-                    	**type**\:  :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options>`
+                    	**type**\:   :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options>`
                     
                     .. attribute:: service
                     
@@ -4022,6 +4028,8 @@ class Cfm(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: second
+                    
                     .. attribute:: transaction_id
                     
                     	Transaction ID
@@ -4048,7 +4056,7 @@ class Cfm(object):
                         self.directed_mac_address = None
                         self.domain = None
                         self.level = None
-                        self.options = Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options()
+                        self.options = Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options()
                         self.options.parent = self
                         self.service = None
                         self.source_interface = None
@@ -4068,17 +4076,17 @@ class Cfm(object):
                         .. attribute:: basic_options
                         
                         	Options for a basic IEEE 802.1ag Linktrace
-                        	**type**\:  :py:class:`BasicOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions>`
+                        	**type**\:   :py:class:`BasicOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions>`
                         
                         .. attribute:: exploratory_options
                         
                         	Options for an Exploratory Linktrace
-                        	**type**\:  :py:class:`ExploratoryOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions>`
+                        	**type**\:   :py:class:`ExploratoryOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions>`
                         
                         .. attribute:: mode
                         
                         	Mode
-                        	**type**\:  :py:class:`CfmPmLtModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLtModeEnum>`
+                        	**type**\:   :py:class:`CfmPmLtModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLtModeEnum>`
                         
                         
 
@@ -4089,9 +4097,9 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.basic_options = Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions()
+                            self.basic_options = Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions()
                             self.basic_options.parent = self
-                            self.exploratory_options = Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions()
+                            self.exploratory_options = Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions()
                             self.exploratory_options.parent = self
                             self.mode = None
 
@@ -4147,7 +4155,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions']['meta_info']
+                                return meta._meta_table['Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions']['meta_info']
 
 
                         class ExploratoryOptions(object):
@@ -4164,12 +4172,12 @@ class Cfm(object):
                             .. attribute:: delay_model
                             
                             	Delay model for delay calculations
-                            	**type**\:  :py:class:`CfmPmEltDelayModelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModelEnum>`
+                            	**type**\:   :py:class:`CfmPmEltDelayModelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModelEnum>`
                             
                             .. attribute:: reply_filter
                             
                             	Reply Filtering mode used by responders
-                            	**type**\:  :py:class:`CfmPmElmReplyFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElmReplyFilterEnum>`
+                            	**type**\:   :py:class:`CfmPmElmReplyFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElmReplyFilterEnum>`
                             
                             
 
@@ -4212,7 +4220,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions']['meta_info']
+                                return meta._meta_table['Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -4242,7 +4250,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options']['meta_info']
+                            return meta._meta_table['Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -4302,7 +4310,7 @@ class Cfm(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                        return meta._meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation']['meta_info']
+                        return meta._meta_table['Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -4352,7 +4360,7 @@ class Cfm(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                    return meta._meta_table['Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute']['meta_info']
+                    return meta._meta_table['Cfm.Global_.IncompleteTraceroutes.IncompleteTraceroute']['meta_info']
 
             @property
             def _common_path(self):
@@ -4376,7 +4384,7 @@ class Cfm(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                return meta._meta_table['Cfm.Global.IncompleteTraceroutes']['meta_info']
+                return meta._meta_table['Cfm.Global_.IncompleteTraceroutes']['meta_info']
 
 
         class MaintenancePoints(object):
@@ -4386,7 +4394,7 @@ class Cfm(object):
             .. attribute:: maintenance_point
             
             	Information about a particular Maintenance Point
-            	**type**\: list of  :py:class:`MaintenancePoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MaintenancePoints.MaintenancePoint>`
+            	**type**\: list of    :py:class:`MaintenancePoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MaintenancePoints.MaintenancePoint>`
             
             
 
@@ -4438,7 +4446,7 @@ class Cfm(object):
                 .. attribute:: maintenance_point
                 
                 	Maintenance Point
-                	**type**\:  :py:class:`MaintenancePoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint>`
+                	**type**\:   :py:class:`MaintenancePoint_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MaintenancePoints.MaintenancePoint.MaintenancePoint_>`
                 
                 .. attribute:: mep_has_error
                 
@@ -4458,12 +4466,12 @@ class Cfm(object):
                     self.interface = None
                     self.service = None
                     self.mac_address = None
-                    self.maintenance_point = Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint()
+                    self.maintenance_point = Cfm.Global_.MaintenancePoints.MaintenancePoint.MaintenancePoint_()
                     self.maintenance_point.parent = self
                     self.mep_has_error = None
 
 
-                class MaintenancePoint(object):
+                class MaintenancePoint_(object):
                     """
                     Maintenance Point
                     
@@ -4482,12 +4490,12 @@ class Cfm(object):
                     .. attribute:: level
                     
                     	Domain level
-                    	**type**\:  :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
+                    	**type**\:   :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                     
                     .. attribute:: maintenance_point_type
                     
                     	Type of Maintenance Point
-                    	**type**\:  :py:class:`CfmMaMpVarietyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmMaMpVarietyEnum>`
+                    	**type**\:   :py:class:`CfmMaMpVarietyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmMaMpVarietyEnum>`
                     
                     .. attribute:: mep_id
                     
@@ -4554,7 +4562,7 @@ class Cfm(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                        return meta._meta_table['Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint']['meta_info']
+                        return meta._meta_table['Cfm.Global_.MaintenancePoints.MaintenancePoint.MaintenancePoint_']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -4597,7 +4605,7 @@ class Cfm(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                    return meta._meta_table['Cfm.Global.MaintenancePoints.MaintenancePoint']['meta_info']
+                    return meta._meta_table['Cfm.Global_.MaintenancePoints.MaintenancePoint']['meta_info']
 
             @property
             def _common_path(self):
@@ -4621,7 +4629,7 @@ class Cfm(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                return meta._meta_table['Cfm.Global.MaintenancePoints']['meta_info']
+                return meta._meta_table['Cfm.Global_.MaintenancePoints']['meta_info']
 
 
         class GlobalConfigurationErrors(object):
@@ -4631,7 +4639,7 @@ class Cfm(object):
             .. attribute:: global_configuration_error
             
             	Information about a particular configuration error
-            	**type**\: list of  :py:class:`GlobalConfigurationError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError>`
+            	**type**\: list of    :py:class:`GlobalConfigurationError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError>`
             
             
 
@@ -4669,7 +4677,7 @@ class Cfm(object):
                 .. attribute:: bridge_domain_id
                 
                 	BD/XC ID, or Service name if the Service is 'down\-only'
-                	**type**\:  :py:class:`BridgeDomainId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId>`
+                	**type**\:   :py:class:`BridgeDomainId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId>`
                 
                 .. attribute:: bridge_domain_is_configured
                 
@@ -4689,7 +4697,7 @@ class Cfm(object):
                 .. attribute:: level
                 
                 	Level
-                	**type**\:  :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
+                	**type**\:   :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                 
                 .. attribute:: service_name
                 
@@ -4707,7 +4715,7 @@ class Cfm(object):
                     self.parent = None
                     self.domain = None
                     self.service = None
-                    self.bridge_domain_id = Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId()
+                    self.bridge_domain_id = Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId()
                     self.bridge_domain_id.parent = self
                     self.bridge_domain_is_configured = None
                     self.domain_name = None
@@ -4724,7 +4732,7 @@ class Cfm(object):
                     .. attribute:: bridge_domain_id_format
                     
                     	Bridge domain identifier format
-                    	**type**\:  :py:class:`CfmBagBdidFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmtEnum>`
+                    	**type**\:   :py:class:`CfmBagBdidFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmtEnum>`
                     
                     .. attribute:: ce_id
                     
@@ -4799,7 +4807,7 @@ class Cfm(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                        return meta._meta_table['Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId']['meta_info']
+                        return meta._meta_table['Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -4846,7 +4854,7 @@ class Cfm(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                    return meta._meta_table['Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError']['meta_info']
+                    return meta._meta_table['Cfm.Global_.GlobalConfigurationErrors.GlobalConfigurationError']['meta_info']
 
             @property
             def _common_path(self):
@@ -4870,7 +4878,7 @@ class Cfm(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                return meta._meta_table['Cfm.Global.GlobalConfigurationErrors']['meta_info']
+                return meta._meta_table['Cfm.Global_.GlobalConfigurationErrors']['meta_info']
 
 
         class MepConfigurationErrors(object):
@@ -4880,7 +4888,7 @@ class Cfm(object):
             .. attribute:: mep_configuration_error
             
             	Information about a particular configuration error
-            	**type**\: list of  :py:class:`MepConfigurationError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError>`
+            	**type**\: list of    :py:class:`MepConfigurationError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors.MepConfigurationError>`
             
             
 
@@ -4945,7 +4953,7 @@ class Cfm(object):
                 .. attribute:: ccm_interval
                 
                 	Interval between CCMs sent on this MEP
-                	**type**\:  :py:class:`CfmBagCcmIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmIntervalEnum>`
+                	**type**\:   :py:class:`CfmBagCcmIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmIntervalEnum>`
                 
                 .. attribute:: ccm_interval_not_supported
                 
@@ -4955,7 +4963,7 @@ class Cfm(object):
                 .. attribute:: interface_bridge_domain
                 
                 	ID of the BD/XC that the MEP's EFP is in, if any
-                	**type**\:  :py:class:`InterfaceBridgeDomain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain>`
+                	**type**\:   :py:class:`InterfaceBridgeDomain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain>`
                 
                 .. attribute:: level_conflict
                 
@@ -4965,7 +4973,7 @@ class Cfm(object):
                 .. attribute:: mep
                 
                 	The MEP that has errors
-                	**type**\:  :py:class:`Mep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep>`
+                	**type**\:   :py:class:`Mep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors.MepConfigurationError.Mep>`
                 
                 .. attribute:: no_domain
                 
@@ -5025,7 +5033,7 @@ class Cfm(object):
                 .. attribute:: satellite_capabilities
                 
                 	Satellite Capabilities
-                	**type**\:  :py:class:`SatelliteCapabilities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities>`
+                	**type**\:   :py:class:`SatelliteCapabilities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities>`
                 
                 .. attribute:: satellite_error_string
                 
@@ -5047,7 +5055,7 @@ class Cfm(object):
                 .. attribute:: service_bridge_domain
                 
                 	BD/XC ID for the MEP's Service, or Service name if the Service is 'down\-only'
-                	**type**\:  :py:class:`ServiceBridgeDomain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain>`
+                	**type**\:   :py:class:`ServiceBridgeDomain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain>`
                 
                 .. attribute:: sla_delay_measurement_operations_disabled
                 
@@ -5082,10 +5090,10 @@ class Cfm(object):
                     self.bundle_level0 = None
                     self.ccm_interval = None
                     self.ccm_interval_not_supported = None
-                    self.interface_bridge_domain = Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain()
+                    self.interface_bridge_domain = Cfm.Global_.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain()
                     self.interface_bridge_domain.parent = self
                     self.level_conflict = None
-                    self.mep = Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep()
+                    self.mep = Cfm.Global_.MepConfigurationErrors.MepConfigurationError.Mep()
                     self.mep.parent = self
                     self.no_domain = None
                     self.no_interface_type = None
@@ -5098,12 +5106,12 @@ class Cfm(object):
                     self.offload_multiple_peer_meps = None
                     self.offload_no_cross_check = None
                     self.offload_out_of_resources = None
-                    self.satellite_capabilities = Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities()
+                    self.satellite_capabilities = Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities()
                     self.satellite_capabilities.parent = self
                     self.satellite_error_string = None
                     self.satellite_id = None
                     self.satellite_limitation = None
-                    self.service_bridge_domain = Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain()
+                    self.service_bridge_domain = Cfm.Global_.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain()
                     self.service_bridge_domain.parent = self
                     self.sla_delay_measurement_operations_disabled = None
                     self.sla_loopback_operations_disabled = None
@@ -5129,12 +5137,12 @@ class Cfm(object):
                     .. attribute:: level
                     
                     	Domain level
-                    	**type**\:  :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
+                    	**type**\:   :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                     
                     .. attribute:: maintenance_point_type
                     
                     	Type of Maintenance Point
-                    	**type**\:  :py:class:`CfmMaMpVarietyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmMaMpVarietyEnum>`
+                    	**type**\:   :py:class:`CfmMaMpVarietyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmMaMpVarietyEnum>`
                     
                     .. attribute:: mep_id
                     
@@ -5201,7 +5209,7 @@ class Cfm(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                        return meta._meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep']['meta_info']
+                        return meta._meta_table['Cfm.Global_.MepConfigurationErrors.MepConfigurationError.Mep']['meta_info']
 
 
                 class ServiceBridgeDomain(object):
@@ -5212,7 +5220,7 @@ class Cfm(object):
                     .. attribute:: bridge_domain_id_format
                     
                     	Bridge domain identifier format
-                    	**type**\:  :py:class:`CfmBagBdidFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmtEnum>`
+                    	**type**\:   :py:class:`CfmBagBdidFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmtEnum>`
                     
                     .. attribute:: ce_id
                     
@@ -5287,7 +5295,7 @@ class Cfm(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                        return meta._meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain']['meta_info']
+                        return meta._meta_table['Cfm.Global_.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain']['meta_info']
 
 
                 class InterfaceBridgeDomain(object):
@@ -5297,7 +5305,7 @@ class Cfm(object):
                     .. attribute:: bridge_domain_id_format
                     
                     	Bridge domain identifier format
-                    	**type**\:  :py:class:`CfmBagBdidFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmtEnum>`
+                    	**type**\:   :py:class:`CfmBagBdidFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmtEnum>`
                     
                     .. attribute:: ce_id
                     
@@ -5372,7 +5380,7 @@ class Cfm(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                        return meta._meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain']['meta_info']
+                        return meta._meta_table['Cfm.Global_.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain']['meta_info']
 
 
                 class SatelliteCapabilities(object):
@@ -5382,17 +5390,17 @@ class Cfm(object):
                     .. attribute:: delay_measurement
                     
                     	Delay Measurement
-                    	**type**\:  :py:class:`DelayMeasurement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement>`
+                    	**type**\:   :py:class:`DelayMeasurement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement>`
                     
                     .. attribute:: loopback
                     
                     	Loopback
-                    	**type**\:  :py:class:`Loopback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback>`
+                    	**type**\:   :py:class:`Loopback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback>`
                     
                     .. attribute:: synthetic_loss_measurement
                     
                     	Synthetic Loss Measurement
-                    	**type**\:  :py:class:`SyntheticLossMeasurement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement>`
+                    	**type**\:   :py:class:`SyntheticLossMeasurement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement>`
                     
                     
 
@@ -5403,11 +5411,11 @@ class Cfm(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.delay_measurement = Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement()
+                        self.delay_measurement = Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement()
                         self.delay_measurement.parent = self
-                        self.loopback = Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback()
+                        self.loopback = Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback()
                         self.loopback.parent = self
-                        self.synthetic_loss_measurement = Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement()
+                        self.synthetic_loss_measurement = Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement()
                         self.synthetic_loss_measurement.parent = self
 
 
@@ -5462,7 +5470,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback']['meta_info']
+                            return meta._meta_table['Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback']['meta_info']
 
 
                     class DelayMeasurement(object):
@@ -5516,7 +5524,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement']['meta_info']
+                            return meta._meta_table['Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement']['meta_info']
 
 
                     class SyntheticLossMeasurement(object):
@@ -5570,7 +5578,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement']['meta_info']
+                            return meta._meta_table['Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -5600,7 +5608,7 @@ class Cfm(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                        return meta._meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities']['meta_info']
+                        return meta._meta_table['Cfm.Global_.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -5718,7 +5726,7 @@ class Cfm(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                    return meta._meta_table['Cfm.Global.MepConfigurationErrors.MepConfigurationError']['meta_info']
+                    return meta._meta_table['Cfm.Global_.MepConfigurationErrors.MepConfigurationError']['meta_info']
 
             @property
             def _common_path(self):
@@ -5742,7 +5750,7 @@ class Cfm(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                return meta._meta_table['Cfm.Global.MepConfigurationErrors']['meta_info']
+                return meta._meta_table['Cfm.Global_.MepConfigurationErrors']['meta_info']
 
 
         class TracerouteCaches(object):
@@ -5752,7 +5760,7 @@ class Cfm(object):
             .. attribute:: traceroute_cache
             
             	Information about a particular traceroute operation
-            	**type**\: list of  :py:class:`TracerouteCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache>`
+            	**type**\: list of    :py:class:`TracerouteCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache>`
             
             
 
@@ -5811,12 +5819,12 @@ class Cfm(object):
                 .. attribute:: exploratory_linktrace_reply
                 
                 	Received exploratory linktrace replies
-                	**type**\: list of  :py:class:`ExploratoryLinktraceReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply>`
+                	**type**\: list of    :py:class:`ExploratoryLinktraceReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply>`
                 
                 .. attribute:: linktrace_reply
                 
                 	Received linktrace replies
-                	**type**\: list of  :py:class:`LinktraceReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply>`
+                	**type**\: list of    :py:class:`LinktraceReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply>`
                 
                 .. attribute:: replies_dropped
                 
@@ -5828,7 +5836,7 @@ class Cfm(object):
                 .. attribute:: traceroute_information
                 
                 	Information about the traceroute operation
-                	**type**\:  :py:class:`TracerouteInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation>`
+                	**type**\:   :py:class:`TracerouteInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation>`
                 
                 
 
@@ -5851,7 +5859,7 @@ class Cfm(object):
                     self.linktrace_reply.parent = self
                     self.linktrace_reply.name = 'linktrace_reply'
                     self.replies_dropped = None
-                    self.traceroute_information = Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation()
+                    self.traceroute_information = Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation()
                     self.traceroute_information.parent = self
 
 
@@ -5874,12 +5882,12 @@ class Cfm(object):
                     .. attribute:: level
                     
                     	Maintenance level
-                    	**type**\:  :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
+                    	**type**\:   :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                     
                     .. attribute:: options
                     
                     	Options affecting traceroute behavior
-                    	**type**\:  :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options>`
+                    	**type**\:   :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation.Options>`
                     
                     .. attribute:: service
                     
@@ -5928,6 +5936,8 @@ class Cfm(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: second
+                    
                     .. attribute:: transaction_id
                     
                     	Transaction ID
@@ -5954,7 +5964,7 @@ class Cfm(object):
                         self.directed_mac_address = None
                         self.domain = None
                         self.level = None
-                        self.options = Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options()
+                        self.options = Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation.Options()
                         self.options.parent = self
                         self.service = None
                         self.source_interface = None
@@ -5974,17 +5984,17 @@ class Cfm(object):
                         .. attribute:: basic_options
                         
                         	Options for a basic IEEE 802.1ag Linktrace
-                        	**type**\:  :py:class:`BasicOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions>`
+                        	**type**\:   :py:class:`BasicOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions>`
                         
                         .. attribute:: exploratory_options
                         
                         	Options for an Exploratory Linktrace
-                        	**type**\:  :py:class:`ExploratoryOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions>`
+                        	**type**\:   :py:class:`ExploratoryOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions>`
                         
                         .. attribute:: mode
                         
                         	Mode
-                        	**type**\:  :py:class:`CfmPmLtModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLtModeEnum>`
+                        	**type**\:   :py:class:`CfmPmLtModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLtModeEnum>`
                         
                         
 
@@ -5995,9 +6005,9 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.basic_options = Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions()
+                            self.basic_options = Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions()
                             self.basic_options.parent = self
-                            self.exploratory_options = Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions()
+                            self.exploratory_options = Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions()
                             self.exploratory_options.parent = self
                             self.mode = None
 
@@ -6053,7 +6063,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions']['meta_info']
+                                return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions']['meta_info']
 
 
                         class ExploratoryOptions(object):
@@ -6070,12 +6080,12 @@ class Cfm(object):
                             .. attribute:: delay_model
                             
                             	Delay model for delay calculations
-                            	**type**\:  :py:class:`CfmPmEltDelayModelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModelEnum>`
+                            	**type**\:   :py:class:`CfmPmEltDelayModelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModelEnum>`
                             
                             .. attribute:: reply_filter
                             
                             	Reply Filtering mode used by responders
-                            	**type**\:  :py:class:`CfmPmElmReplyFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElmReplyFilterEnum>`
+                            	**type**\:   :py:class:`CfmPmElmReplyFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElmReplyFilterEnum>`
                             
                             
 
@@ -6118,7 +6128,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions']['meta_info']
+                                return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -6148,7 +6158,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options']['meta_info']
+                            return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation.Options']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -6208,7 +6218,7 @@ class Cfm(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                        return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation']['meta_info']
+                        return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.TracerouteInformation']['meta_info']
 
 
                 class LinktraceReply(object):
@@ -6218,22 +6228,22 @@ class Cfm(object):
                     .. attribute:: egress_id
                     
                     	Egress ID TLV
-                    	**type**\:  :py:class:`EgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId>`
+                    	**type**\:   :py:class:`EgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId>`
                     
                     .. attribute:: header
                     
                     	Frame header
-                    	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header>`
+                    	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.Header>`
                     
                     .. attribute:: last_hop
                     
                     	Last hop ID
-                    	**type**\:  :py:class:`LastHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop>`
+                    	**type**\:   :py:class:`LastHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop>`
                     
                     .. attribute:: organization_specific_tlv
                     
                     	Organizational\-specific TLVs
-                    	**type**\: list of  :py:class:`OrganizationSpecificTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv>`
+                    	**type**\: list of    :py:class:`OrganizationSpecificTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv>`
                     
                     .. attribute:: raw_data
                     
@@ -6245,22 +6255,22 @@ class Cfm(object):
                     .. attribute:: reply_egress
                     
                     	Reply egress TLV
-                    	**type**\:  :py:class:`ReplyEgress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress>`
+                    	**type**\:   :py:class:`ReplyEgress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress>`
                     
                     .. attribute:: reply_ingress
                     
                     	Reply ingress TLV
-                    	**type**\:  :py:class:`ReplyIngress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress>`
+                    	**type**\:   :py:class:`ReplyIngress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress>`
                     
                     .. attribute:: sender_id
                     
                     	Sender ID TLV
-                    	**type**\:  :py:class:`SenderId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId>`
+                    	**type**\:   :py:class:`SenderId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId>`
                     
                     .. attribute:: unknown_tlv
                     
                     	Unknown TLVs
-                    	**type**\: list of  :py:class:`UnknownTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv>`
+                    	**type**\: list of    :py:class:`UnknownTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv>`
                     
                     
 
@@ -6271,21 +6281,21 @@ class Cfm(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId()
+                        self.egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId()
                         self.egress_id.parent = self
-                        self.header = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header()
+                        self.header = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.Header()
                         self.header.parent = self
-                        self.last_hop = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop()
+                        self.last_hop = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop()
                         self.last_hop.parent = self
                         self.organization_specific_tlv = YList()
                         self.organization_specific_tlv.parent = self
                         self.organization_specific_tlv.name = 'organization_specific_tlv'
                         self.raw_data = None
-                        self.reply_egress = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress()
+                        self.reply_egress = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress()
                         self.reply_egress.parent = self
-                        self.reply_ingress = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress()
+                        self.reply_ingress = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress()
                         self.reply_ingress.parent = self
-                        self.sender_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId()
+                        self.sender_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId()
                         self.sender_id.parent = self
                         self.unknown_tlv = YList()
                         self.unknown_tlv.parent = self
@@ -6304,12 +6314,12 @@ class Cfm(object):
                         .. attribute:: level
                         
                         	MD level
-                        	**type**\:  :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
+                        	**type**\:   :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                         
                         .. attribute:: relay_action
                         
                         	Relay action
-                        	**type**\:  :py:class:`CfmPmRelayActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRelayActionEnum>`
+                        	**type**\:   :py:class:`CfmPmRelayActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRelayActionEnum>`
                         
                         .. attribute:: terminal_mep
                         
@@ -6403,7 +6413,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header']['meta_info']
+                            return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.Header']['meta_info']
 
 
                     class SenderId(object):
@@ -6413,7 +6423,7 @@ class Cfm(object):
                         .. attribute:: chassis_id
                         
                         	Chassis ID
-                        	**type**\:  :py:class:`ChassisId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId>`
+                        	**type**\:   :py:class:`ChassisId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId>`
                         
                         .. attribute:: management_address
                         
@@ -6438,7 +6448,7 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.chassis_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId()
+                            self.chassis_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId()
                             self.chassis_id.parent = self
                             self.management_address = None
                             self.management_address_domain = None
@@ -6458,7 +6468,7 @@ class Cfm(object):
                             .. attribute:: chassis_id_type
                             
                             	Chassis ID Type
-                            	**type**\:  :py:class:`CfmPmChassisIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmtEnum>`
+                            	**type**\:   :py:class:`CfmPmChassisIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmtEnum>`
                             
                             .. attribute:: chassis_id_type_value
                             
@@ -6470,7 +6480,7 @@ class Cfm(object):
                             .. attribute:: chassis_id_value
                             
                             	Chassis ID (Current)
-                            	**type**\:  :py:class:`ChassisIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue>`
+                            	**type**\:   :py:class:`ChassisIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue>`
                             
                             
 
@@ -6484,7 +6494,7 @@ class Cfm(object):
                                 self.chassis_id = None
                                 self.chassis_id_type = None
                                 self.chassis_id_type_value = None
-                                self.chassis_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue()
+                                self.chassis_id_value = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue()
                                 self.chassis_id_value.parent = self
 
 
@@ -6495,7 +6505,7 @@ class Cfm(object):
                                 .. attribute:: chassis_id_format
                                 
                                 	ChassisIDFormat
-                                	**type**\:  :py:class:`CfmPmIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
+                                	**type**\:   :py:class:`CfmPmIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
                                 
                                 .. attribute:: chassis_id_mac
                                 
@@ -6561,7 +6571,7 @@ class Cfm(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                    return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue']['meta_info']
+                                    return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -6594,7 +6604,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId']['meta_info']
+                                return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -6624,7 +6634,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId']['meta_info']
+                            return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId']['meta_info']
 
 
                     class EgressId(object):
@@ -6634,12 +6644,12 @@ class Cfm(object):
                         .. attribute:: last_egress_id
                         
                         	Last egress ID
-                        	**type**\:  :py:class:`LastEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId>`
+                        	**type**\:   :py:class:`LastEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId>`
                         
                         .. attribute:: next_egress_id
                         
                         	Next egress ID
-                        	**type**\:  :py:class:`NextEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId>`
+                        	**type**\:   :py:class:`NextEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId>`
                         
                         
 
@@ -6650,9 +6660,9 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.last_egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId()
+                            self.last_egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId()
                             self.last_egress_id.parent = self
-                            self.next_egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId()
+                            self.next_egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId()
                             self.next_egress_id.parent = self
 
 
@@ -6711,7 +6721,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId']['meta_info']
+                                return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId']['meta_info']
 
 
                         class NextEgressId(object):
@@ -6769,7 +6779,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId']['meta_info']
+                                return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -6796,7 +6806,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId']['meta_info']
+                            return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId']['meta_info']
 
 
                     class ReplyIngress(object):
@@ -6806,7 +6816,7 @@ class Cfm(object):
                         .. attribute:: action
                         
                         	Reply ingress action
-                        	**type**\:  :py:class:`CfmPmIngressActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIngressActionEnum>`
+                        	**type**\:   :py:class:`CfmPmIngressActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIngressActionEnum>`
                         
                         .. attribute:: mac_address
                         
@@ -6818,7 +6828,7 @@ class Cfm(object):
                         .. attribute:: port_id
                         
                         	Port ID
-                        	**type**\:  :py:class:`PortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId>`
+                        	**type**\:   :py:class:`PortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId>`
                         
                         
 
@@ -6831,7 +6841,7 @@ class Cfm(object):
                             self.parent = None
                             self.action = None
                             self.mac_address = None
-                            self.port_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId()
+                            self.port_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId()
                             self.port_id.parent = self
 
 
@@ -6849,7 +6859,7 @@ class Cfm(object):
                             .. attribute:: port_id_type
                             
                             	Port ID type
-                            	**type**\:  :py:class:`CfmPmPortIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmtEnum>`
+                            	**type**\:   :py:class:`CfmPmPortIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmtEnum>`
                             
                             .. attribute:: port_id_type_value
                             
@@ -6861,7 +6871,7 @@ class Cfm(object):
                             .. attribute:: port_id_value
                             
                             	Port ID (Current)
-                            	**type**\:  :py:class:`PortIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue>`
+                            	**type**\:   :py:class:`PortIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue>`
                             
                             
 
@@ -6875,7 +6885,7 @@ class Cfm(object):
                                 self.port_id = None
                                 self.port_id_type = None
                                 self.port_id_type_value = None
-                                self.port_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue()
+                                self.port_id_value = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue()
                                 self.port_id_value.parent = self
 
 
@@ -6886,7 +6896,7 @@ class Cfm(object):
                                 .. attribute:: port_id_format
                                 
                                 	PortIDFormat
-                                	**type**\:  :py:class:`CfmPmIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
+                                	**type**\:   :py:class:`CfmPmIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
                                 
                                 .. attribute:: port_id_mac
                                 
@@ -6952,7 +6962,7 @@ class Cfm(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                    return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue']['meta_info']
+                                    return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -6985,7 +6995,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId']['meta_info']
+                                return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -7015,7 +7025,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress']['meta_info']
+                            return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress']['meta_info']
 
 
                     class ReplyEgress(object):
@@ -7025,7 +7035,7 @@ class Cfm(object):
                         .. attribute:: action
                         
                         	Reply egress action
-                        	**type**\:  :py:class:`CfmPmEgressActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEgressActionEnum>`
+                        	**type**\:   :py:class:`CfmPmEgressActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEgressActionEnum>`
                         
                         .. attribute:: mac_address
                         
@@ -7037,7 +7047,7 @@ class Cfm(object):
                         .. attribute:: port_id
                         
                         	Port ID
-                        	**type**\:  :py:class:`PortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId>`
+                        	**type**\:   :py:class:`PortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId>`
                         
                         
 
@@ -7050,7 +7060,7 @@ class Cfm(object):
                             self.parent = None
                             self.action = None
                             self.mac_address = None
-                            self.port_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId()
+                            self.port_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId()
                             self.port_id.parent = self
 
 
@@ -7068,7 +7078,7 @@ class Cfm(object):
                             .. attribute:: port_id_type
                             
                             	Port ID type
-                            	**type**\:  :py:class:`CfmPmPortIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmtEnum>`
+                            	**type**\:   :py:class:`CfmPmPortIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmtEnum>`
                             
                             .. attribute:: port_id_type_value
                             
@@ -7080,7 +7090,7 @@ class Cfm(object):
                             .. attribute:: port_id_value
                             
                             	Port ID (Current)
-                            	**type**\:  :py:class:`PortIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue>`
+                            	**type**\:   :py:class:`PortIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue>`
                             
                             
 
@@ -7094,7 +7104,7 @@ class Cfm(object):
                                 self.port_id = None
                                 self.port_id_type = None
                                 self.port_id_type_value = None
-                                self.port_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue()
+                                self.port_id_value = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue()
                                 self.port_id_value.parent = self
 
 
@@ -7105,7 +7115,7 @@ class Cfm(object):
                                 .. attribute:: port_id_format
                                 
                                 	PortIDFormat
-                                	**type**\:  :py:class:`CfmPmIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
+                                	**type**\:   :py:class:`CfmPmIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
                                 
                                 .. attribute:: port_id_mac
                                 
@@ -7171,7 +7181,7 @@ class Cfm(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                    return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue']['meta_info']
+                                    return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -7204,7 +7214,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId']['meta_info']
+                                return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -7234,7 +7244,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress']['meta_info']
+                            return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress']['meta_info']
 
 
                     class LastHop(object):
@@ -7244,7 +7254,7 @@ class Cfm(object):
                         .. attribute:: egress_id
                         
                         	Egress ID
-                        	**type**\:  :py:class:`EgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId>`
+                        	**type**\:   :py:class:`EgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId>`
                         
                         .. attribute:: host_name
                         
@@ -7254,7 +7264,7 @@ class Cfm(object):
                         .. attribute:: last_hop_format
                         
                         	LastHopFormat
-                        	**type**\:  :py:class:`CfmPmLastHopFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLastHopFmtEnum>`
+                        	**type**\:   :py:class:`CfmPmLastHopFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLastHopFmtEnum>`
                         
                         
 
@@ -7265,7 +7275,7 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId()
+                            self.egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId()
                             self.egress_id.parent = self
                             self.host_name = None
                             self.last_hop_format = None
@@ -7326,7 +7336,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId']['meta_info']
+                                return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -7356,7 +7366,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop']['meta_info']
+                            return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop']['meta_info']
 
 
                     class OrganizationSpecificTlv(object):
@@ -7425,7 +7435,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv']['meta_info']
+                            return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv']['meta_info']
 
 
                     class UnknownTlv(object):
@@ -7483,7 +7493,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv']['meta_info']
+                            return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -7535,7 +7545,7 @@ class Cfm(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                        return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply']['meta_info']
+                        return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.LinktraceReply']['meta_info']
 
 
                 class ExploratoryLinktraceReply(object):
@@ -7545,17 +7555,17 @@ class Cfm(object):
                     .. attribute:: header
                     
                     	Frame header
-                    	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header>`
+                    	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header>`
                     
                     .. attribute:: last_hop
                     
                     	Last hop ID
-                    	**type**\:  :py:class:`LastHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop>`
+                    	**type**\:   :py:class:`LastHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop>`
                     
                     .. attribute:: organization_specific_tlv
                     
                     	Organizational\-specific TLVs
-                    	**type**\: list of  :py:class:`OrganizationSpecificTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv>`
+                    	**type**\: list of    :py:class:`OrganizationSpecificTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv>`
                     
                     .. attribute:: raw_data
                     
@@ -7567,22 +7577,22 @@ class Cfm(object):
                     .. attribute:: reply_egress
                     
                     	Reply egress TLV
-                    	**type**\:  :py:class:`ReplyEgress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress>`
+                    	**type**\:   :py:class:`ReplyEgress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress>`
                     
                     .. attribute:: reply_ingress
                     
                     	Reply ingress TLV
-                    	**type**\:  :py:class:`ReplyIngress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress>`
+                    	**type**\:   :py:class:`ReplyIngress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress>`
                     
                     .. attribute:: sender_id
                     
                     	Sender ID TLV
-                    	**type**\:  :py:class:`SenderId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId>`
+                    	**type**\:   :py:class:`SenderId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId>`
                     
                     .. attribute:: unknown_tlv
                     
                     	Unknown TLVs
-                    	**type**\: list of  :py:class:`UnknownTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv>`
+                    	**type**\: list of    :py:class:`UnknownTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv>`
                     
                     
 
@@ -7593,19 +7603,19 @@ class Cfm(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.header = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header()
+                        self.header = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header()
                         self.header.parent = self
-                        self.last_hop = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop()
+                        self.last_hop = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop()
                         self.last_hop.parent = self
                         self.organization_specific_tlv = YList()
                         self.organization_specific_tlv.parent = self
                         self.organization_specific_tlv.name = 'organization_specific_tlv'
                         self.raw_data = None
-                        self.reply_egress = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress()
+                        self.reply_egress = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress()
                         self.reply_egress.parent = self
-                        self.reply_ingress = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress()
+                        self.reply_ingress = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress()
                         self.reply_ingress.parent = self
-                        self.sender_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId()
+                        self.sender_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId()
                         self.sender_id.parent = self
                         self.unknown_tlv = YList()
                         self.unknown_tlv.parent = self
@@ -7619,7 +7629,7 @@ class Cfm(object):
                         .. attribute:: delay_model
                         
                         	Delay Model
-                        	**type**\:  :py:class:`CfmPmEltDelayModelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModelEnum>`
+                        	**type**\:   :py:class:`CfmPmEltDelayModelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModelEnum>`
                         
                         .. attribute:: forwarded
                         
@@ -7629,7 +7639,7 @@ class Cfm(object):
                         .. attribute:: level
                         
                         	MD level
-                        	**type**\:  :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
+                        	**type**\:   :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                         
                         .. attribute:: next_hop_timeout
                         
@@ -7638,10 +7648,12 @@ class Cfm(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: relay_action
                         
                         	Relay action
-                        	**type**\:  :py:class:`CfmPmElrRelayActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrRelayActionEnum>`
+                        	**type**\:   :py:class:`CfmPmElrRelayActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrRelayActionEnum>`
                         
                         .. attribute:: reply_filter_unknown
                         
@@ -7743,7 +7755,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header']['meta_info']
+                            return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header']['meta_info']
 
 
                     class SenderId(object):
@@ -7753,7 +7765,7 @@ class Cfm(object):
                         .. attribute:: chassis_id
                         
                         	Chassis ID
-                        	**type**\:  :py:class:`ChassisId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId>`
+                        	**type**\:   :py:class:`ChassisId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId>`
                         
                         .. attribute:: management_address
                         
@@ -7778,7 +7790,7 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.chassis_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId()
+                            self.chassis_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId()
                             self.chassis_id.parent = self
                             self.management_address = None
                             self.management_address_domain = None
@@ -7798,7 +7810,7 @@ class Cfm(object):
                             .. attribute:: chassis_id_type
                             
                             	Chassis ID Type
-                            	**type**\:  :py:class:`CfmPmChassisIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmtEnum>`
+                            	**type**\:   :py:class:`CfmPmChassisIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmtEnum>`
                             
                             .. attribute:: chassis_id_type_value
                             
@@ -7810,7 +7822,7 @@ class Cfm(object):
                             .. attribute:: chassis_id_value
                             
                             	Chassis ID (Current)
-                            	**type**\:  :py:class:`ChassisIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue>`
+                            	**type**\:   :py:class:`ChassisIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue>`
                             
                             
 
@@ -7824,7 +7836,7 @@ class Cfm(object):
                                 self.chassis_id = None
                                 self.chassis_id_type = None
                                 self.chassis_id_type_value = None
-                                self.chassis_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue()
+                                self.chassis_id_value = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue()
                                 self.chassis_id_value.parent = self
 
 
@@ -7835,7 +7847,7 @@ class Cfm(object):
                                 .. attribute:: chassis_id_format
                                 
                                 	ChassisIDFormat
-                                	**type**\:  :py:class:`CfmPmIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
+                                	**type**\:   :py:class:`CfmPmIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
                                 
                                 .. attribute:: chassis_id_mac
                                 
@@ -7901,7 +7913,7 @@ class Cfm(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                    return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue']['meta_info']
+                                    return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -7934,7 +7946,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId']['meta_info']
+                                return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -7964,7 +7976,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId']['meta_info']
+                            return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId']['meta_info']
 
 
                     class ReplyIngress(object):
@@ -7974,12 +7986,12 @@ class Cfm(object):
                         .. attribute:: action
                         
                         	ELR Reply ingress action
-                        	**type**\:  :py:class:`CfmPmElrIngressActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrIngressActionEnum>`
+                        	**type**\:   :py:class:`CfmPmElrIngressActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrIngressActionEnum>`
                         
                         .. attribute:: last_egress_id
                         
                         	Last egress ID
-                        	**type**\:  :py:class:`LastEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId>`
+                        	**type**\:   :py:class:`LastEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId>`
                         
                         .. attribute:: mac_address
                         
@@ -7991,12 +8003,12 @@ class Cfm(object):
                         .. attribute:: next_egress_id
                         
                         	Next egress ID
-                        	**type**\:  :py:class:`NextEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId>`
+                        	**type**\:   :py:class:`NextEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId>`
                         
                         .. attribute:: port_id
                         
                         	Port ID
-                        	**type**\:  :py:class:`PortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId>`
+                        	**type**\:   :py:class:`PortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId>`
                         
                         
 
@@ -8008,12 +8020,12 @@ class Cfm(object):
                         def __init__(self):
                             self.parent = None
                             self.action = None
-                            self.last_egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId()
+                            self.last_egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId()
                             self.last_egress_id.parent = self
                             self.mac_address = None
-                            self.next_egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId()
+                            self.next_egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId()
                             self.next_egress_id.parent = self
-                            self.port_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId()
+                            self.port_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId()
                             self.port_id.parent = self
 
 
@@ -8072,7 +8084,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId']['meta_info']
+                                return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId']['meta_info']
 
 
                         class NextEgressId(object):
@@ -8130,7 +8142,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId']['meta_info']
+                                return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId']['meta_info']
 
 
                         class PortId(object):
@@ -8147,7 +8159,7 @@ class Cfm(object):
                             .. attribute:: port_id_type
                             
                             	Port ID type
-                            	**type**\:  :py:class:`CfmPmPortIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmtEnum>`
+                            	**type**\:   :py:class:`CfmPmPortIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmtEnum>`
                             
                             .. attribute:: port_id_type_value
                             
@@ -8159,7 +8171,7 @@ class Cfm(object):
                             .. attribute:: port_id_value
                             
                             	Port ID (Current)
-                            	**type**\:  :py:class:`PortIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue>`
+                            	**type**\:   :py:class:`PortIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue>`
                             
                             
 
@@ -8173,7 +8185,7 @@ class Cfm(object):
                                 self.port_id = None
                                 self.port_id_type = None
                                 self.port_id_type_value = None
-                                self.port_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue()
+                                self.port_id_value = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue()
                                 self.port_id_value.parent = self
 
 
@@ -8184,7 +8196,7 @@ class Cfm(object):
                                 .. attribute:: port_id_format
                                 
                                 	PortIDFormat
-                                	**type**\:  :py:class:`CfmPmIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
+                                	**type**\:   :py:class:`CfmPmIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
                                 
                                 .. attribute:: port_id_mac
                                 
@@ -8250,7 +8262,7 @@ class Cfm(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                    return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue']['meta_info']
+                                    return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -8283,7 +8295,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId']['meta_info']
+                                return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -8319,7 +8331,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress']['meta_info']
+                            return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress']['meta_info']
 
 
                     class ReplyEgress(object):
@@ -8329,12 +8341,12 @@ class Cfm(object):
                         .. attribute:: action
                         
                         	Reply egress action
-                        	**type**\:  :py:class:`CfmPmElrEgressActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrEgressActionEnum>`
+                        	**type**\:   :py:class:`CfmPmElrEgressActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrEgressActionEnum>`
                         
                         .. attribute:: last_egress_id
                         
                         	Last Egress ID
-                        	**type**\:  :py:class:`LastEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId>`
+                        	**type**\:   :py:class:`LastEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId>`
                         
                         .. attribute:: mac_address
                         
@@ -8346,12 +8358,12 @@ class Cfm(object):
                         .. attribute:: next_egress_id
                         
                         	Next Egress ID
-                        	**type**\:  :py:class:`NextEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId>`
+                        	**type**\:   :py:class:`NextEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId>`
                         
                         .. attribute:: port_id
                         
                         	Port ID
-                        	**type**\:  :py:class:`PortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId>`
+                        	**type**\:   :py:class:`PortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId>`
                         
                         
 
@@ -8363,12 +8375,12 @@ class Cfm(object):
                         def __init__(self):
                             self.parent = None
                             self.action = None
-                            self.last_egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId()
+                            self.last_egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId()
                             self.last_egress_id.parent = self
                             self.mac_address = None
-                            self.next_egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId()
+                            self.next_egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId()
                             self.next_egress_id.parent = self
-                            self.port_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId()
+                            self.port_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId()
                             self.port_id.parent = self
 
 
@@ -8427,7 +8439,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId']['meta_info']
+                                return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId']['meta_info']
 
 
                         class NextEgressId(object):
@@ -8485,7 +8497,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId']['meta_info']
+                                return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId']['meta_info']
 
 
                         class PortId(object):
@@ -8502,7 +8514,7 @@ class Cfm(object):
                             .. attribute:: port_id_type
                             
                             	Port ID type
-                            	**type**\:  :py:class:`CfmPmPortIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmtEnum>`
+                            	**type**\:   :py:class:`CfmPmPortIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmtEnum>`
                             
                             .. attribute:: port_id_type_value
                             
@@ -8514,7 +8526,7 @@ class Cfm(object):
                             .. attribute:: port_id_value
                             
                             	Port ID (Current)
-                            	**type**\:  :py:class:`PortIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue>`
+                            	**type**\:   :py:class:`PortIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue>`
                             
                             
 
@@ -8528,7 +8540,7 @@ class Cfm(object):
                                 self.port_id = None
                                 self.port_id_type = None
                                 self.port_id_type_value = None
-                                self.port_id_value = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue()
+                                self.port_id_value = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue()
                                 self.port_id_value.parent = self
 
 
@@ -8539,7 +8551,7 @@ class Cfm(object):
                                 .. attribute:: port_id_format
                                 
                                 	PortIDFormat
-                                	**type**\:  :py:class:`CfmPmIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
+                                	**type**\:   :py:class:`CfmPmIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
                                 
                                 .. attribute:: port_id_mac
                                 
@@ -8605,7 +8617,7 @@ class Cfm(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                    return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue']['meta_info']
+                                    return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -8638,7 +8650,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId']['meta_info']
+                                return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -8674,7 +8686,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress']['meta_info']
+                            return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress']['meta_info']
 
 
                     class LastHop(object):
@@ -8684,7 +8696,7 @@ class Cfm(object):
                         .. attribute:: egress_id
                         
                         	Egress ID
-                        	**type**\:  :py:class:`EgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId>`
+                        	**type**\:   :py:class:`EgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId>`
                         
                         .. attribute:: host_name
                         
@@ -8694,7 +8706,7 @@ class Cfm(object):
                         .. attribute:: last_hop_format
                         
                         	LastHopFormat
-                        	**type**\:  :py:class:`CfmPmLastHopFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLastHopFmtEnum>`
+                        	**type**\:   :py:class:`CfmPmLastHopFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLastHopFmtEnum>`
                         
                         
 
@@ -8705,7 +8717,7 @@ class Cfm(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.egress_id = Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId()
+                            self.egress_id = Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId()
                             self.egress_id.parent = self
                             self.host_name = None
                             self.last_hop_format = None
@@ -8766,7 +8778,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId']['meta_info']
+                                return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -8796,7 +8808,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop']['meta_info']
+                            return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop']['meta_info']
 
 
                     class OrganizationSpecificTlv(object):
@@ -8865,7 +8877,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv']['meta_info']
+                            return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv']['meta_info']
 
 
                     class UnknownTlv(object):
@@ -8923,7 +8935,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv']['meta_info']
+                            return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -8972,7 +8984,7 @@ class Cfm(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                        return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply']['meta_info']
+                        return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -9032,7 +9044,7 @@ class Cfm(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                    return meta._meta_table['Cfm.Global.TracerouteCaches.TracerouteCache']['meta_info']
+                    return meta._meta_table['Cfm.Global_.TracerouteCaches.TracerouteCache']['meta_info']
 
             @property
             def _common_path(self):
@@ -9056,7 +9068,7 @@ class Cfm(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                return meta._meta_table['Cfm.Global.TracerouteCaches']['meta_info']
+                return meta._meta_table['Cfm.Global_.TracerouteCaches']['meta_info']
 
 
         class LocalMeps(object):
@@ -9066,7 +9078,7 @@ class Cfm(object):
             .. attribute:: local_mep
             
             	Information about a particular local MEP
-            	**type**\: list of  :py:class:`LocalMep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep>`
+            	**type**\: list of    :py:class:`LocalMep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps.LocalMep>`
             
             
 
@@ -9117,7 +9129,7 @@ class Cfm(object):
                 .. attribute:: ais_statistics
                 
                 	MEP AIS statistics
-                	**type**\:  :py:class:`AisStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.AisStatistics>`
+                	**type**\:   :py:class:`AisStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps.LocalMep.AisStatistics>`
                 
                 .. attribute:: ccm_generation_enabled
                 
@@ -9127,12 +9139,12 @@ class Cfm(object):
                 .. attribute:: ccm_interval
                 
                 	The interval between CCMs
-                	**type**\:  :py:class:`CfmBagCcmIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmIntervalEnum>`
+                	**type**\:   :py:class:`CfmBagCcmIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmIntervalEnum>`
                 
                 .. attribute:: ccm_offload
                 
                 	Offload status of CCM processing
-                	**type**\:  :py:class:`CfmBagCcmOffloadEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmOffloadEnum>`
+                	**type**\:   :py:class:`CfmBagCcmOffloadEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmOffloadEnum>`
                 
                 .. attribute:: cos
                 
@@ -9149,7 +9161,7 @@ class Cfm(object):
                 .. attribute:: defects
                 
                 	Defects detected from peer MEPs
-                	**type**\:  :py:class:`Defects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.Defects>`
+                	**type**\:   :py:class:`Defects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps.LocalMep.Defects>`
                 
                 .. attribute:: defects_ignored
                 
@@ -9174,7 +9186,7 @@ class Cfm(object):
                 .. attribute:: fault_notification_state
                 
                 	Fault Notification Generation state
-                	**type**\:  :py:class:`CfmPmMepFngStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmMepFngStateEnum>`
+                	**type**\:   :py:class:`CfmPmMepFngStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmMepFngStateEnum>`
                 
                 .. attribute:: hairpin
                 
@@ -9184,7 +9196,7 @@ class Cfm(object):
                 .. attribute:: highest_defect
                 
                 	Highest\-priority defect present since last FNG reset
-                	**type**\:  :py:class:`CfmPmMepDefectEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmMepDefectEnum>`
+                	**type**\:   :py:class:`CfmPmMepDefectEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmMepDefectEnum>`
                 
                 .. attribute:: interface_state
                 
@@ -9201,12 +9213,12 @@ class Cfm(object):
                 .. attribute:: interworking_state
                 
                 	Interface interworking state
-                	**type**\:  :py:class:`CfmBagIwStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIwStateEnum>`
+                	**type**\:   :py:class:`CfmBagIwStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIwStateEnum>`
                 
                 .. attribute:: level
                 
                 	Maintenance level
-                	**type**\:  :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
+                	**type**\:   :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                 
                 .. attribute:: mac_address
                 
@@ -9223,7 +9235,7 @@ class Cfm(object):
                 .. attribute:: mep_direction
                 
                 	MEP facing direction
-                	**type**\:  :py:class:`CfmBagDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirectionEnum>`
+                	**type**\:   :py:class:`CfmBagDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirectionEnum>`
                 
                 .. attribute:: mep_id_xr
                 
@@ -9288,12 +9300,12 @@ class Cfm(object):
                 .. attribute:: statistics
                 
                 	MEP statistics
-                	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.Statistics>`
+                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps.LocalMep.Statistics>`
                 
                 .. attribute:: stp_state
                 
                 	STP state
-                	**type**\:  :py:class:`CfmBagStpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagStpStateEnum>`
+                	**type**\:   :py:class:`CfmBagStpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagStpStateEnum>`
                 
                 
 
@@ -9308,14 +9320,14 @@ class Cfm(object):
                     self.interface = None
                     self.mep_id = None
                     self.service = None
-                    self.ais_statistics = Cfm.Global.LocalMeps.LocalMep.AisStatistics()
+                    self.ais_statistics = Cfm.Global_.LocalMeps.LocalMep.AisStatistics()
                     self.ais_statistics.parent = self
                     self.ccm_generation_enabled = None
                     self.ccm_interval = None
                     self.ccm_offload = None
                     self.cos = None
                     self.cross_connect_ccm_defect = None
-                    self.defects = Cfm.Global.LocalMeps.LocalMep.Defects()
+                    self.defects = Cfm.Global_.LocalMeps.LocalMep.Defects()
                     self.defects.parent = self
                     self.defects_ignored = None
                     self.domain_xr = None
@@ -9341,7 +9353,7 @@ class Cfm(object):
                     self.remote_defect = None
                     self.service_xr = None
                     self.standby = None
-                    self.statistics = Cfm.Global.LocalMeps.LocalMep.Statistics()
+                    self.statistics = Cfm.Global_.LocalMeps.LocalMep.Statistics()
                     self.statistics.parent = self
                     self.stp_state = None
 
@@ -9687,7 +9699,7 @@ class Cfm(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                        return meta._meta_table['Cfm.Global.LocalMeps.LocalMep.Statistics']['meta_info']
+                        return meta._meta_table['Cfm.Global_.LocalMeps.LocalMep.Statistics']['meta_info']
 
 
                 class AisStatistics(object):
@@ -9697,12 +9709,12 @@ class Cfm(object):
                     .. attribute:: interval
                     
                     	AIS transmission interval
-                    	**type**\:  :py:class:`CfmBagAisIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisIntervalEnum>`
+                    	**type**\:   :py:class:`CfmBagAisIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisIntervalEnum>`
                     
                     .. attribute:: last_interval
                     
                     	The interval of the last received AIS packet
-                    	**type**\:  :py:class:`CfmBagAisIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisIntervalEnum>`
+                    	**type**\:   :py:class:`CfmBagAisIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisIntervalEnum>`
                     
                     .. attribute:: last_mac_address
                     
@@ -9714,27 +9726,27 @@ class Cfm(object):
                     .. attribute:: level
                     
                     	AIS transmission level
-                    	**type**\:  :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
+                    	**type**\:   :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                     
                     .. attribute:: receiving_ais
                     
                     	Details of how the signal is being received
-                    	**type**\:  :py:class:`CfmPmAisReceiveEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAisReceiveEnum>`
+                    	**type**\:   :py:class:`CfmPmAisReceiveEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAisReceiveEnum>`
                     
                     .. attribute:: receiving_start
                     
                     	Time elapsed since AIS receiving started
-                    	**type**\:  :py:class:`ReceivingStart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart>`
+                    	**type**\:   :py:class:`ReceivingStart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps.LocalMep.AisStatistics.ReceivingStart>`
                     
                     .. attribute:: sending_ais
                     
                     	Details of how AIS is being transmitted
-                    	**type**\:  :py:class:`CfmPmAisTransmitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAisTransmitEnum>`
+                    	**type**\:   :py:class:`CfmPmAisTransmitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAisTransmitEnum>`
                     
                     .. attribute:: sending_start
                     
                     	Time elapsed since AIS sending started
-                    	**type**\:  :py:class:`SendingStart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart>`
+                    	**type**\:   :py:class:`SendingStart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps.LocalMep.AisStatistics.SendingStart>`
                     
                     
 
@@ -9750,10 +9762,10 @@ class Cfm(object):
                         self.last_mac_address = None
                         self.level = None
                         self.receiving_ais = None
-                        self.receiving_start = Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart()
+                        self.receiving_start = Cfm.Global_.LocalMeps.LocalMep.AisStatistics.ReceivingStart()
                         self.receiving_start.parent = self
                         self.sending_ais = None
-                        self.sending_start = Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart()
+                        self.sending_start = Cfm.Global_.LocalMeps.LocalMep.AisStatistics.SendingStart()
                         self.sending_start.parent = self
 
 
@@ -9768,12 +9780,16 @@ class Cfm(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: seconds
                         
                         	Seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         
 
@@ -9812,7 +9828,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart']['meta_info']
+                            return meta._meta_table['Cfm.Global_.LocalMeps.LocalMep.AisStatistics.SendingStart']['meta_info']
 
 
                     class ReceivingStart(object):
@@ -9826,12 +9842,16 @@ class Cfm(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: seconds
                         
                         	Seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         
 
@@ -9870,7 +9890,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart']['meta_info']
+                            return meta._meta_table['Cfm.Global_.LocalMeps.LocalMep.AisStatistics.ReceivingStart']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -9915,7 +9935,7 @@ class Cfm(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                        return meta._meta_table['Cfm.Global.LocalMeps.LocalMep.AisStatistics']['meta_info']
+                        return meta._meta_table['Cfm.Global_.LocalMeps.LocalMep.AisStatistics']['meta_info']
 
 
                 class Defects(object):
@@ -9961,7 +9981,7 @@ class Cfm(object):
                     .. attribute:: remote_meps_defects
                     
                     	Defects detected from remote MEPs
-                    	**type**\:  :py:class:`RemoteMepsDefects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects>`
+                    	**type**\:   :py:class:`RemoteMepsDefects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.LocalMeps.LocalMep.Defects.RemoteMepsDefects>`
                     
                     .. attribute:: unexpected
                     
@@ -9985,7 +10005,7 @@ class Cfm(object):
                         self.missing = None
                         self.peer_meps_that_timed_out = None
                         self.peer_port_status = None
-                        self.remote_meps_defects = Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects()
+                        self.remote_meps_defects = Cfm.Global_.LocalMeps.LocalMep.Defects.RemoteMepsDefects()
                         self.remote_meps_defects.parent = self
                         self.unexpected = None
 
@@ -10086,7 +10106,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects']['meta_info']
+                            return meta._meta_table['Cfm.Global_.LocalMeps.LocalMep.Defects.RemoteMepsDefects']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -10131,7 +10151,7 @@ class Cfm(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                        return meta._meta_table['Cfm.Global.LocalMeps.LocalMep.Defects']['meta_info']
+                        return meta._meta_table['Cfm.Global_.LocalMeps.LocalMep.Defects']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -10269,7 +10289,7 @@ class Cfm(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                    return meta._meta_table['Cfm.Global.LocalMeps.LocalMep']['meta_info']
+                    return meta._meta_table['Cfm.Global_.LocalMeps.LocalMep']['meta_info']
 
             @property
             def _common_path(self):
@@ -10293,7 +10313,7 @@ class Cfm(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                return meta._meta_table['Cfm.Global.LocalMeps']['meta_info']
+                return meta._meta_table['Cfm.Global_.LocalMeps']['meta_info']
 
 
         class PeerMePv2S(object):
@@ -10303,7 +10323,7 @@ class Cfm(object):
             .. attribute:: peer_me_pv2
             
             	Information about a peer MEP for a particular local MEP
-            	**type**\: list of  :py:class:`PeerMePv2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2>`
+            	**type**\: list of    :py:class:`PeerMePv2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2>`
             
             
 
@@ -10381,12 +10401,12 @@ class Cfm(object):
                 .. attribute:: level
                 
                 	Maintenance level
-                	**type**\:  :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
+                	**type**\:   :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                 
                 .. attribute:: mep_direction
                 
                 	MEP facing direction
-                	**type**\:  :py:class:`CfmBagDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirectionEnum>`
+                	**type**\:   :py:class:`CfmBagDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirectionEnum>`
                 
                 .. attribute:: mep_id
                 
@@ -10398,7 +10418,7 @@ class Cfm(object):
                 .. attribute:: peer_mep
                 
                 	Peer MEP
-                	**type**\:  :py:class:`PeerMep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep>`
+                	**type**\:   :py:class:`PeerMep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep>`
                 
                 .. attribute:: service_xr
                 
@@ -10430,7 +10450,7 @@ class Cfm(object):
                     self.level = None
                     self.mep_direction = None
                     self.mep_id = None
-                    self.peer_mep = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep()
+                    self.peer_mep = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep()
                     self.peer_mep.parent = self
                     self.service_xr = None
                     self.standby = None
@@ -10443,27 +10463,27 @@ class Cfm(object):
                     .. attribute:: ccm_offload
                     
                     	Offload status of received CCM handling
-                    	**type**\:  :py:class:`CfmBagCcmOffloadEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmOffloadEnum>`
+                    	**type**\:   :py:class:`CfmBagCcmOffloadEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmOffloadEnum>`
                     
                     .. attribute:: cross_check_state
                     
                     	Cross\-check state
-                    	**type**\:  :py:class:`CfmPmRmepXcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRmepXcStateEnum>`
+                    	**type**\:   :py:class:`CfmPmRmepXcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRmepXcStateEnum>`
                     
                     .. attribute:: error_state
                     
                     	Error state
-                    	**type**\:  :py:class:`ErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.ErrorState>`
+                    	**type**\:   :py:class:`ErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.ErrorState>`
                     
                     .. attribute:: last_ccm_received
                     
                     	Last CCM received from the peer MEP
-                    	**type**\:  :py:class:`LastCcmReceived <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived>`
+                    	**type**\:   :py:class:`LastCcmReceived <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived>`
                     
                     .. attribute:: last_up_down_time
                     
                     	Elapsed time since peer MEP became active or timed out
-                    	**type**\:  :py:class:`LastUpDownTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime>`
+                    	**type**\:   :py:class:`LastUpDownTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime>`
                     
                     .. attribute:: mac_address
                     
@@ -10482,12 +10502,12 @@ class Cfm(object):
                     .. attribute:: peer_mep_state
                     
                     	State of the peer MEP state machine
-                    	**type**\:  :py:class:`CfmPmRmepStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRmepStateEnum>`
+                    	**type**\:   :py:class:`CfmPmRmepStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRmepStateEnum>`
                     
                     .. attribute:: statistics
                     
                     	Peer MEP statistics
-                    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.Statistics>`
+                    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics>`
                     
                     
 
@@ -10500,16 +10520,16 @@ class Cfm(object):
                         self.parent = None
                         self.ccm_offload = None
                         self.cross_check_state = None
-                        self.error_state = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.ErrorState()
+                        self.error_state = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.ErrorState()
                         self.error_state.parent = self
-                        self.last_ccm_received = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived()
+                        self.last_ccm_received = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived()
                         self.last_ccm_received.parent = self
-                        self.last_up_down_time = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime()
+                        self.last_up_down_time = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime()
                         self.last_up_down_time.parent = self
                         self.mac_address = None
                         self.mep_id = None
                         self.peer_mep_state = None
-                        self.statistics = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.Statistics()
+                        self.statistics = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics()
                         self.statistics.parent = self
 
 
@@ -10609,7 +10629,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.ErrorState']['meta_info']
+                            return meta._meta_table['Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.ErrorState']['meta_info']
 
 
                     class LastUpDownTime(object):
@@ -10624,12 +10644,16 @@ class Cfm(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: seconds
                         
                         	Seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         
 
@@ -10668,7 +10692,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime']['meta_info']
+                            return meta._meta_table['Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime']['meta_info']
 
 
                     class LastCcmReceived(object):
@@ -10678,32 +10702,32 @@ class Cfm(object):
                         .. attribute:: additional_interface_status
                         
                         	Additional interface status
-                        	**type**\:  :py:class:`CfmPmAddlIntfStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAddlIntfStatusEnum>`
+                        	**type**\:   :py:class:`CfmPmAddlIntfStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAddlIntfStatusEnum>`
                         
                         .. attribute:: header
                         
                         	Frame header
-                        	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header>`
+                        	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header>`
                         
                         .. attribute:: interface_status
                         
                         	Interface status
-                        	**type**\:  :py:class:`CfmPmIntfStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIntfStatusEnum>`
+                        	**type**\:   :py:class:`CfmPmIntfStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIntfStatusEnum>`
                         
                         .. attribute:: mep_name
                         
                         	MEP name
-                        	**type**\:  :py:class:`MepName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName>`
+                        	**type**\:   :py:class:`MepName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName>`
                         
                         .. attribute:: organization_specific_tlv
                         
                         	Organizational\-specific TLVs
-                        	**type**\: list of  :py:class:`OrganizationSpecificTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv>`
+                        	**type**\: list of    :py:class:`OrganizationSpecificTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv>`
                         
                         .. attribute:: port_status
                         
                         	Port status
-                        	**type**\:  :py:class:`CfmPmPortStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortStatusEnum>`
+                        	**type**\:   :py:class:`CfmPmPortStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortStatusEnum>`
                         
                         .. attribute:: raw_data
                         
@@ -10715,12 +10739,12 @@ class Cfm(object):
                         .. attribute:: sender_id
                         
                         	Sender ID TLV
-                        	**type**\:  :py:class:`SenderId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId>`
+                        	**type**\:   :py:class:`SenderId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId>`
                         
                         .. attribute:: unknown_tlv
                         
                         	Unknown TLVs
-                        	**type**\: list of  :py:class:`UnknownTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv>`
+                        	**type**\: list of    :py:class:`UnknownTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv>`
                         
                         
 
@@ -10732,17 +10756,17 @@ class Cfm(object):
                         def __init__(self):
                             self.parent = None
                             self.additional_interface_status = None
-                            self.header = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header()
+                            self.header = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header()
                             self.header.parent = self
                             self.interface_status = None
-                            self.mep_name = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName()
+                            self.mep_name = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName()
                             self.mep_name.parent = self
                             self.organization_specific_tlv = YList()
                             self.organization_specific_tlv.parent = self
                             self.organization_specific_tlv.name = 'organization_specific_tlv'
                             self.port_status = None
                             self.raw_data = None
-                            self.sender_id = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId()
+                            self.sender_id = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId()
                             self.sender_id.parent = self
                             self.unknown_tlv = YList()
                             self.unknown_tlv.parent = self
@@ -10756,17 +10780,17 @@ class Cfm(object):
                             .. attribute:: interval
                             
                             	CCM interval
-                            	**type**\:  :py:class:`CfmBagCcmIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmIntervalEnum>`
+                            	**type**\:   :py:class:`CfmBagCcmIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmIntervalEnum>`
                             
                             .. attribute:: level
                             
                             	MD level
-                            	**type**\:  :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
+                            	**type**\:   :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
                             
                             .. attribute:: mdid
                             
                             	MDID
-                            	**type**\:  :py:class:`Mdid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid>`
+                            	**type**\:   :py:class:`Mdid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid>`
                             
                             .. attribute:: mdid_format
                             
@@ -10797,7 +10821,7 @@ class Cfm(object):
                             .. attribute:: short_ma_name
                             
                             	Short MA Name
-                            	**type**\:  :py:class:`ShortMaName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName>`
+                            	**type**\:   :py:class:`ShortMaName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName>`
                             
                             .. attribute:: short_ma_name_format
                             
@@ -10824,13 +10848,13 @@ class Cfm(object):
                                 self.parent = None
                                 self.interval = None
                                 self.level = None
-                                self.mdid = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid()
+                                self.mdid = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid()
                                 self.mdid.parent = self
                                 self.mdid_format = None
                                 self.mep_id = None
                                 self.rdi = None
                                 self.sequence_number = None
-                                self.short_ma_name = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName()
+                                self.short_ma_name = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName()
                                 self.short_ma_name.parent = self
                                 self.short_ma_name_format = None
                                 self.version = None
@@ -10848,7 +10872,7 @@ class Cfm(object):
                                 .. attribute:: mac_name
                                 
                                 	MAC address name
-                                	**type**\:  :py:class:`MacName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName>`
+                                	**type**\:   :py:class:`MacName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName>`
                                 
                                 .. attribute:: mdid_data
                                 
@@ -10860,7 +10884,7 @@ class Cfm(object):
                                 .. attribute:: mdid_format_value
                                 
                                 	MDIDFormatValue
-                                	**type**\:  :py:class:`CfmBagMdidFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdidFmtEnum>`
+                                	**type**\:   :py:class:`CfmBagMdidFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdidFmtEnum>`
                                 
                                 .. attribute:: string_name
                                 
@@ -10877,7 +10901,7 @@ class Cfm(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.dns_like_name = None
-                                    self.mac_name = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName()
+                                    self.mac_name = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName()
                                     self.mac_name.parent = self
                                     self.mdid_data = None
                                     self.mdid_format_value = None
@@ -10939,7 +10963,7 @@ class Cfm(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                        return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName']['meta_info']
+                                        return meta._meta_table['Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -10975,7 +10999,7 @@ class Cfm(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                    return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid']['meta_info']
+                                    return meta._meta_table['Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid']['meta_info']
 
 
                             class ShortMaName(object):
@@ -11004,7 +11028,7 @@ class Cfm(object):
                                 .. attribute:: short_ma_name_format_value
                                 
                                 	ShortMANameFormatValue
-                                	**type**\:  :py:class:`CfmBagSmanFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagSmanFmtEnum>`
+                                	**type**\:   :py:class:`CfmBagSmanFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagSmanFmtEnum>`
                                 
                                 .. attribute:: string_name
                                 
@@ -11021,7 +11045,7 @@ class Cfm(object):
                                 .. attribute:: vpn_id_name
                                 
                                 	VPN ID name
-                                	**type**\:  :py:class:`VpnIdName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName>`
+                                	**type**\:   :py:class:`VpnIdName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName>`
                                 
                                 
 
@@ -11038,7 +11062,7 @@ class Cfm(object):
                                     self.short_ma_name_format_value = None
                                     self.string_name = None
                                     self.vlan_id_name = None
-                                    self.vpn_id_name = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName()
+                                    self.vpn_id_name = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName()
                                     self.vpn_id_name.parent = self
 
 
@@ -11097,7 +11121,7 @@ class Cfm(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                        return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName']['meta_info']
+                                        return meta._meta_table['Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -11139,7 +11163,7 @@ class Cfm(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                    return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName']['meta_info']
+                                    return meta._meta_table['Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -11190,7 +11214,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header']['meta_info']
+                                return meta._meta_table['Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header']['meta_info']
 
 
                         class SenderId(object):
@@ -11200,7 +11224,7 @@ class Cfm(object):
                             .. attribute:: chassis_id
                             
                             	Chassis ID
-                            	**type**\:  :py:class:`ChassisId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId>`
+                            	**type**\:   :py:class:`ChassisId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId>`
                             
                             .. attribute:: management_address
                             
@@ -11225,7 +11249,7 @@ class Cfm(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.chassis_id = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId()
+                                self.chassis_id = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId()
                                 self.chassis_id.parent = self
                                 self.management_address = None
                                 self.management_address_domain = None
@@ -11245,7 +11269,7 @@ class Cfm(object):
                                 .. attribute:: chassis_id_type
                                 
                                 	Chassis ID Type
-                                	**type**\:  :py:class:`CfmPmChassisIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmtEnum>`
+                                	**type**\:   :py:class:`CfmPmChassisIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmtEnum>`
                                 
                                 .. attribute:: chassis_id_type_value
                                 
@@ -11257,7 +11281,7 @@ class Cfm(object):
                                 .. attribute:: chassis_id_value
                                 
                                 	Chassis ID (Current)
-                                	**type**\:  :py:class:`ChassisIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue>`
+                                	**type**\:   :py:class:`ChassisIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue>`
                                 
                                 
 
@@ -11271,7 +11295,7 @@ class Cfm(object):
                                     self.chassis_id = None
                                     self.chassis_id_type = None
                                     self.chassis_id_type_value = None
-                                    self.chassis_id_value = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue()
+                                    self.chassis_id_value = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue()
                                     self.chassis_id_value.parent = self
 
 
@@ -11282,7 +11306,7 @@ class Cfm(object):
                                     .. attribute:: chassis_id_format
                                     
                                     	ChassisIDFormat
-                                    	**type**\:  :py:class:`CfmPmIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
+                                    	**type**\:   :py:class:`CfmPmIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
                                     
                                     .. attribute:: chassis_id_mac
                                     
@@ -11348,7 +11372,7 @@ class Cfm(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                        return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue']['meta_info']
+                                        return meta._meta_table['Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -11381,7 +11405,7 @@ class Cfm(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                    return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId']['meta_info']
+                                    return meta._meta_table['Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -11411,7 +11435,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId']['meta_info']
+                                return meta._meta_table['Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId']['meta_info']
 
 
                         class MepName(object):
@@ -11456,7 +11480,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName']['meta_info']
+                                return meta._meta_table['Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName']['meta_info']
 
 
                         class OrganizationSpecificTlv(object):
@@ -11525,7 +11549,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv']['meta_info']
+                                return meta._meta_table['Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv']['meta_info']
 
 
                         class UnknownTlv(object):
@@ -11583,7 +11607,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv']['meta_info']
+                                return meta._meta_table['Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -11635,7 +11659,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived']['meta_info']
+                            return meta._meta_table['Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived']['meta_info']
 
 
                     class Statistics(object):
@@ -11701,7 +11725,7 @@ class Cfm(object):
                         .. attribute:: last_ccm_received_time
                         
                         	Elapsed time since last CCM received
-                        	**type**\:  :py:class:`LastCcmReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime>`
+                        	**type**\:   :py:class:`LastCcmReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime>`
                         
                         .. attribute:: last_ccm_sequence_number
                         
@@ -11727,7 +11751,7 @@ class Cfm(object):
                             self.ccms_rdi = None
                             self.ccms_received = None
                             self.ccms_wrong_level = None
-                            self.last_ccm_received_time = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime()
+                            self.last_ccm_received_time = Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime()
                             self.last_ccm_received_time.parent = self
                             self.last_ccm_sequence_number = None
 
@@ -11743,12 +11767,16 @@ class Cfm(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: nanosecond
+                            
                             .. attribute:: seconds
                             
                             	Seconds
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**units**\: second
                             
                             
 
@@ -11787,7 +11815,7 @@ class Cfm(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime']['meta_info']
+                                return meta._meta_table['Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -11838,7 +11866,7 @@ class Cfm(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.Statistics']['meta_info']
+                            return meta._meta_table['Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep.Statistics']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -11886,7 +11914,7 @@ class Cfm(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                        return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep']['meta_info']
+                        return meta._meta_table['Cfm.Global_.PeerMePv2S.PeerMePv2.PeerMep']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -11959,7 +11987,7 @@ class Cfm(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                    return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2']['meta_info']
+                    return meta._meta_table['Cfm.Global_.PeerMePv2S.PeerMePv2']['meta_info']
 
             @property
             def _common_path(self):
@@ -11983,7 +12011,7 @@ class Cfm(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                return meta._meta_table['Cfm.Global.PeerMePv2S']['meta_info']
+                return meta._meta_table['Cfm.Global_.PeerMePv2S']['meta_info']
 
         @property
         def _common_path(self):
@@ -12023,7 +12051,7 @@ class Cfm(object):
         @staticmethod
         def _meta_info():
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-            return meta._meta_table['Cfm.Global']['meta_info']
+            return meta._meta_table['Cfm.Global_']['meta_info']
 
     @property
     def _common_path(self):

@@ -30,25 +30,25 @@ class MacsecCtrlrCiphersuitEnum(Enum):
 
     Macsec ctrlr ciphersuit
 
-    .. data:: GCM_AES_256 = 0
+    .. data:: gcm_aes_256 = 0
 
     	GCM AES 256
 
-    .. data:: GCM_AES_128 = 1
+    .. data:: gcm_aes_128 = 1
 
     	GCM AES 128
 
-    .. data:: GCM_AES_XPN_256 = 2
+    .. data:: gcm_aes_xpn_256 = 2
 
     	GCM AES XPN 256
 
     """
 
-    GCM_AES_256 = 0
+    gcm_aes_256 = 0
 
-    GCM_AES_128 = 1
+    gcm_aes_128 = 1
 
-    GCM_AES_XPN_256 = 2
+    gcm_aes_xpn_256 = 2
 
 
     @staticmethod
@@ -63,25 +63,25 @@ class MacsecCtrlrStateEnum(Enum):
 
     Macsec ctrlr state
 
-    .. data:: MACSEC_CTRLR_STATE_UP = 0
+    .. data:: macsec_ctrlr_state_up = 0
 
     	Up
 
-    .. data:: MACSEC_CTRLR_STATE_DOWN = 1
+    .. data:: macsec_ctrlr_state_down = 1
 
     	Down
 
-    .. data:: MACSEC_CTRLR_STATE_ADMIN_DOWN = 2
+    .. data:: macsec_ctrlr_state_admin_down = 2
 
     	Administratively Down
 
     """
 
-    MACSEC_CTRLR_STATE_UP = 0
+    macsec_ctrlr_state_up = 0
 
-    MACSEC_CTRLR_STATE_DOWN = 1
+    macsec_ctrlr_state_down = 1
 
-    MACSEC_CTRLR_STATE_ADMIN_DOWN = 2
+    macsec_ctrlr_state_admin_down = 2
 
 
     @staticmethod
@@ -98,7 +98,7 @@ class MacsecCtrlrOper(object):
     .. attribute:: macsec_ctrlr_ports
     
     	All Macsec Controller Port operational data
-    	**type**\:  :py:class:`MacsecCtrlrPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts>`
+    	**type**\:   :py:class:`MacsecCtrlrPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts>`
     
     
 
@@ -119,7 +119,7 @@ class MacsecCtrlrOper(object):
         .. attribute:: macsec_ctrlr_port
         
         	Controller name
-        	**type**\: list of  :py:class:`MacsecCtrlrPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort>`
+        	**type**\: list of    :py:class:`MacsecCtrlrPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort>`
         
         
 
@@ -149,7 +149,7 @@ class MacsecCtrlrOper(object):
             .. attribute:: macsec_ctrlr_info
             
             	Macsec Controller operational data
-            	**type**\:  :py:class:`MacsecCtrlrInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo>`
+            	**type**\:   :py:class:`MacsecCtrlrInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo>`
             
             
 
@@ -172,12 +172,12 @@ class MacsecCtrlrOper(object):
                 .. attribute:: decrypt_sc_status
                 
                 	Decrypt Secure Channel Status
-                	**type**\:  :py:class:`DecryptScStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus>`
+                	**type**\:   :py:class:`DecryptScStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus>`
                 
                 .. attribute:: encrypt_sc_status
                 
                 	Encrypt Secure Channel Status
-                	**type**\:  :py:class:`EncryptScStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus>`
+                	**type**\:   :py:class:`EncryptScStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus>`
                 
                 .. attribute:: must_secure
                 
@@ -194,7 +194,7 @@ class MacsecCtrlrOper(object):
                 .. attribute:: state
                 
                 	State
-                	**type**\:  :py:class:`MacsecCtrlrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrStateEnum>`
+                	**type**\:   :py:class:`MacsecCtrlrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrStateEnum>`
                 
                 
 
@@ -221,12 +221,12 @@ class MacsecCtrlrOper(object):
                     .. attribute:: active_association
                     
                     	Active Associations
-                    	**type**\: list of  :py:class:`ActiveAssociation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus.ActiveAssociation>`
+                    	**type**\: list of    :py:class:`ActiveAssociation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus.ActiveAssociation>`
                     
                     .. attribute:: cipher_suite
                     
                     	Cipher Suite
-                    	**type**\:  :py:class:`MacsecCtrlrCiphersuitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrCiphersuitEnum>`
+                    	**type**\:   :py:class:`MacsecCtrlrCiphersuitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrCiphersuitEnum>`
                     
                     .. attribute:: confidentiality_offset
                     
@@ -257,9 +257,7 @@ class MacsecCtrlrOper(object):
                     .. attribute:: secure_channel_id
                     
                     	Secure Channel Id
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
+                    	**type**\:  str
                     
                     
 
@@ -390,12 +388,12 @@ class MacsecCtrlrOper(object):
                     .. attribute:: active_association
                     
                     	Active Associations
-                    	**type**\: list of  :py:class:`ActiveAssociation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus.ActiveAssociation>`
+                    	**type**\: list of    :py:class:`ActiveAssociation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus.ActiveAssociation>`
                     
                     .. attribute:: cipher_suite
                     
                     	Cipher Suite
-                    	**type**\:  :py:class:`MacsecCtrlrCiphersuitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrCiphersuitEnum>`
+                    	**type**\:   :py:class:`MacsecCtrlrCiphersuitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrCiphersuitEnum>`
                     
                     .. attribute:: confidentiality_offset
                     
@@ -426,9 +424,7 @@ class MacsecCtrlrOper(object):
                     .. attribute:: secure_channel_id
                     
                     	Secure Channel Id
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
+                    	**type**\:  str
                     
                     
 

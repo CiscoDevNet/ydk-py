@@ -30,31 +30,31 @@ class DnxQoseaShowActionEnum(Enum):
 
     Policer action type
 
-    .. data:: ACTION_NONE = 0
+    .. data:: action_none = 0
 
     	None
 
-    .. data:: ACTION_TRANSMIT = 1
+    .. data:: action_transmit = 1
 
     	Transmit
 
-    .. data:: ACTION_DROP = 2
+    .. data:: action_drop = 2
 
     	Drop
 
-    .. data:: ACTION_MARK = 3
+    .. data:: action_mark = 3
 
     	Mark
 
     """
 
-    ACTION_NONE = 0
+    action_none = 0
 
-    ACTION_TRANSMIT = 1
+    action_transmit = 1
 
-    ACTION_DROP = 2
+    action_drop = 2
 
-    ACTION_MARK = 3
+    action_mark = 3
 
 
     @staticmethod
@@ -69,55 +69,55 @@ class DnxQoseaShowHpLevelEnum(Enum):
 
     Priority level
 
-    .. data:: HIGH_PRIORITY_LEVEL1 = 0
+    .. data:: high_priority_level1 = 0
 
     	High priority queue level 1
 
-    .. data:: HIGH_PRIORITY_LEVEL2 = 1
+    .. data:: high_priority_level2 = 1
 
     	High priority queue level 2
 
-    .. data:: HIGH_PRIORITY_LEVEL3 = 2
+    .. data:: high_priority_level3 = 2
 
     	High priority queue level 3
 
-    .. data:: HIGH_PRIORITY_LEVEL4 = 3
+    .. data:: high_priority_level4 = 3
 
     	High priority queue level 4
 
-    .. data:: HIGH_PRIORITY_LEVEL5 = 4
+    .. data:: high_priority_level5 = 4
 
     	High priority queue level 5
 
-    .. data:: HIGH_PRIORITY_LEVEL6 = 5
+    .. data:: high_priority_level6 = 5
 
     	High priority queue level 6
 
-    .. data:: HIGH_PRIORITY_LEVEL7 = 6
+    .. data:: high_priority_level7 = 6
 
     	High priority queue level 7
 
-    .. data:: UNKNOWN = 7
+    .. data:: unknown = 7
 
     	Unknown
 
     """
 
-    HIGH_PRIORITY_LEVEL1 = 0
+    high_priority_level1 = 0
 
-    HIGH_PRIORITY_LEVEL2 = 1
+    high_priority_level2 = 1
 
-    HIGH_PRIORITY_LEVEL3 = 2
+    high_priority_level3 = 2
 
-    HIGH_PRIORITY_LEVEL4 = 3
+    high_priority_level4 = 3
 
-    HIGH_PRIORITY_LEVEL5 = 4
+    high_priority_level5 = 4
 
-    HIGH_PRIORITY_LEVEL6 = 5
+    high_priority_level6 = 5
 
-    HIGH_PRIORITY_LEVEL7 = 6
+    high_priority_level7 = 6
 
-    UNKNOWN = 7
+    unknown = 7
 
 
     @staticmethod
@@ -132,19 +132,19 @@ class DnxQoseaShowIntfStatusEnum(Enum):
 
     Intf Status
 
-    .. data:: STATE_UNKNOWN = 0
+    .. data:: state_unknown = 0
 
     	State is unknown
 
-    .. data:: STATE_DOWN = 1
+    .. data:: state_down = 1
 
     	State is Down
 
     """
 
-    STATE_UNKNOWN = 0
+    state_unknown = 0
 
-    STATE_DOWN = 1
+    state_down = 1
 
 
     @staticmethod
@@ -159,37 +159,37 @@ class DnxQoseaShowLevelEnum(Enum):
 
     Level type
 
-    .. data:: LEVEL1 = 0
+    .. data:: level1 = 0
 
     	QoS level1 class
 
-    .. data:: LEVEL2 = 1
+    .. data:: level2 = 1
 
     	QoS level2 class
 
-    .. data:: LEVEL3 = 2
+    .. data:: level3 = 2
 
     	QoS level3 class
 
-    .. data:: LEVEL4 = 3
+    .. data:: level4 = 3
 
     	QoS level4 class
 
-    .. data:: LEVEL5 = 4
+    .. data:: level5 = 4
 
     	QoS level5 class
 
     """
 
-    LEVEL1 = 0
+    level1 = 0
 
-    LEVEL2 = 1
+    level2 = 1
 
-    LEVEL3 = 2
+    level3 = 2
 
-    LEVEL4 = 3
+    level4 = 3
 
-    LEVEL5 = 4
+    level5 = 4
 
 
     @staticmethod
@@ -204,97 +204,97 @@ class DnxQoseaShowMarkEnum(Enum):
 
     Mark type
 
-    .. data:: MARK_NONE = 0
+    .. data:: mark_none = 0
 
     	None
 
-    .. data:: DSCP = 1
+    .. data:: dscp = 1
 
     	DSCP
 
-    .. data:: PRECEDENCE = 2
+    .. data:: precedence = 2
 
     	Precedence
 
-    .. data:: MPLS_TOPMOST = 3
+    .. data:: mpls_topmost = 3
 
     	MPLS topmost
 
-    .. data:: MPLS_IMPOSITION = 4
+    .. data:: mpls_imposition = 4
 
     	MPLS imposition
 
-    .. data:: QOS_GROUP = 5
+    .. data:: qos_group = 5
 
     	Qos group
 
-    .. data:: DISCARD_CLASS = 6
+    .. data:: discard_class = 6
 
     	Discard class
 
-    .. data:: COS = 7
+    .. data:: cos = 7
 
     	COS
 
-    .. data:: INNER_COS = 8
+    .. data:: inner_cos = 8
 
     	Inner COS
 
-    .. data:: UN_SUPPORTED9 = 9
+    .. data:: un_supported9 = 9
 
     	Unsupported type 9
 
-    .. data:: UN_SUPPORTED10 = 10
+    .. data:: un_supported10 = 10
 
     	Unsupported type 10
 
-    .. data:: DSCP_TUNNEL = 11
+    .. data:: dscp_tunnel = 11
 
     	DSCP tunnel
 
-    .. data:: PRECEDENCE_TUNNEL = 12
+    .. data:: precedence_tunnel = 12
 
     	Precedence tunnel
 
-    .. data:: DEI = 13
+    .. data:: dei = 13
 
     	DEI
 
-    .. data:: DEI_IMPOSITION = 14
+    .. data:: dei_imposition = 14
 
     	DEI Imposition
 
     """
 
-    MARK_NONE = 0
+    mark_none = 0
 
-    DSCP = 1
+    dscp = 1
 
-    PRECEDENCE = 2
+    precedence = 2
 
-    MPLS_TOPMOST = 3
+    mpls_topmost = 3
 
-    MPLS_IMPOSITION = 4
+    mpls_imposition = 4
 
-    QOS_GROUP = 5
+    qos_group = 5
 
-    DISCARD_CLASS = 6
+    discard_class = 6
 
-    COS = 7
+    cos = 7
 
-    INNER_COS = 8
+    inner_cos = 8
 
-    UN_SUPPORTED9 = 9
+    un_supported9 = 9
 
-    UN_SUPPORTED10 = 10
+    un_supported10 = 10
 
-    DSCP_TUNNEL = 11
+    dscp_tunnel = 11
 
-    PRECEDENCE_TUNNEL = 12
+    precedence_tunnel = 12
 
-    DEI = 13
+    dei = 13
 
-    DEI_IMPOSITION = 14
+    dei_imposition = 14
 
 
     @staticmethod
@@ -309,19 +309,19 @@ class DnxQoseaShowPolicyStatusEnum(Enum):
 
     Status
 
-    .. data:: NO_ERROR = 0
+    .. data:: no_error = 0
 
     	No errors
 
-    .. data:: POLICY_IN_RESET = 1
+    .. data:: policy_in_reset = 1
 
     	QoS policy is reset
 
     """
 
-    NO_ERROR = 0
+    no_error = 0
 
-    POLICY_IN_RESET = 1
+    policy_in_reset = 1
 
 
     @staticmethod
@@ -336,31 +336,31 @@ class DnxQoseaShowQueueEnum(Enum):
 
     Priority Queue Type
 
-    .. data:: LOW_PRIORITY_DEFAULT_QUEUE = 0
+    .. data:: low_priority_default_queue = 0
 
     	Low priority default queue
 
-    .. data:: LOW_PRIORITY_QUEUE = 1
+    .. data:: low_priority_queue = 1
 
     	Low priority queue
 
-    .. data:: HIGH_PRIORITY_QUEUE = 2
+    .. data:: high_priority_queue = 2
 
     	High priority queue
 
-    .. data:: UNKNOWN_QUEUE_TYPE = 3
+    .. data:: unknown_queue_type = 3
 
     	Queue priority unknown
 
     """
 
-    LOW_PRIORITY_DEFAULT_QUEUE = 0
+    low_priority_default_queue = 0
 
-    LOW_PRIORITY_QUEUE = 1
+    low_priority_queue = 1
 
-    HIGH_PRIORITY_QUEUE = 2
+    high_priority_queue = 2
 
-    UNKNOWN_QUEUE_TYPE = 3
+    unknown_queue_type = 3
 
 
     @staticmethod
@@ -375,55 +375,55 @@ class DnxQoseaShowWredEnum(Enum):
 
     WRED type
 
-    .. data:: WRED_COS = 0
+    .. data:: wred_cos = 0
 
     	WRED based on COS
 
-    .. data:: WRED_DSCP = 1
+    .. data:: wred_dscp = 1
 
     	WRED based on DSCP
 
-    .. data:: WRED_PRECEDENCE = 2
+    .. data:: wred_precedence = 2
 
     	WRED based on Precedence
 
-    .. data:: WRED_DISCARD_CLASS = 3
+    .. data:: wred_discard_class = 3
 
     	WRED based on discard class
 
-    .. data:: WRED_MPLS_EXP = 4
+    .. data:: wred_mpls_exp = 4
 
     	WRED based on MPLS EXP
 
-    .. data:: RED_WITH_USER_MIN_MAX = 5
+    .. data:: red_with_user_min_max = 5
 
     	RED with user defined min and max
 
-    .. data:: RED_WITH_DEFAULT_MIN_MAX = 6
+    .. data:: red_with_default_min_max = 6
 
     	RED with default min and max
 
-    .. data:: WRED_INVALID = 7
+    .. data:: wred_invalid = 7
 
     	Invalid
 
     """
 
-    WRED_COS = 0
+    wred_cos = 0
 
-    WRED_DSCP = 1
+    wred_dscp = 1
 
-    WRED_PRECEDENCE = 2
+    wred_precedence = 2
 
-    WRED_DISCARD_CLASS = 3
+    wred_discard_class = 3
 
-    WRED_MPLS_EXP = 4
+    wred_mpls_exp = 4
 
-    RED_WITH_USER_MIN_MAX = 5
+    red_with_user_min_max = 5
 
-    RED_WITH_DEFAULT_MIN_MAX = 6
+    red_with_default_min_max = 6
 
-    WRED_INVALID = 7
+    wred_invalid = 7
 
 
     @staticmethod
@@ -438,151 +438,151 @@ class PolicyParamUnitEnum(Enum):
 
     Policy param unit
 
-    .. data:: POLICY_PARAM_UNIT_INVALID = 0
+    .. data:: policy_param_unit_invalid = 0
 
     	policy param unit invalid
 
-    .. data:: POLICY_PARAM_UNIT_BYTES = 1
+    .. data:: policy_param_unit_bytes = 1
 
     	policy param unit bytes
 
-    .. data:: POLICY_PARAM_UNIT_KBYTES = 2
+    .. data:: policy_param_unit_kbytes = 2
 
     	policy param unit kbytes
 
-    .. data:: POLICY_PARAM_UNIT_MBYTES = 3
+    .. data:: policy_param_unit_mbytes = 3
 
     	policy param unit mbytes
 
-    .. data:: POLICY_PARAM_UNIT_GBYTES = 4
+    .. data:: policy_param_unit_gbytes = 4
 
     	policy param unit gbytes
 
-    .. data:: POLICY_PARAM_UNIT_BITSPS = 5
+    .. data:: policy_param_unit_bitsps = 5
 
     	policy param unit bitsps
 
-    .. data:: POLICY_PARAM_UNIT_KBITSPS = 6
+    .. data:: policy_param_unit_kbitsps = 6
 
     	policy param unit kbitsps
 
-    .. data:: POLICY_PARAM_UNIT_MBITSPS = 7
+    .. data:: policy_param_unit_mbitsps = 7
 
     	policy param unit mbitsps
 
-    .. data:: POLICY_PARAM_UNIT_GBITSPS = 8
+    .. data:: policy_param_unit_gbitsps = 8
 
     	policy param unit gbitsps
 
-    .. data:: POLICY_PARAM_UNIT_CELLS_PS = 9
+    .. data:: policy_param_unit_cells_ps = 9
 
     	policy param unit cells ps
 
-    .. data:: POLICY_PARAM_UNIT_PACKETS_PS = 10
+    .. data:: policy_param_unit_packets_ps = 10
 
     	policy param unit packets ps
 
-    .. data:: POLICY_PARAM_UNIT_US = 11
+    .. data:: policy_param_unit_us = 11
 
     	policy param unit us
 
-    .. data:: POLICY_PARAM_UNIT_MS = 12
+    .. data:: policy_param_unit_ms = 12
 
     	policy param unit ms
 
-    .. data:: POLICY_PARAM_UNIT_SECONDS = 13
+    .. data:: policy_param_unit_seconds = 13
 
     	policy param unit seconds
 
-    .. data:: POLICY_PARAM_UNIT_PACKETS = 14
+    .. data:: policy_param_unit_packets = 14
 
     	policy param unit packets
 
-    .. data:: POLICY_PARAM_UNIT_CELLS = 15
+    .. data:: policy_param_unit_cells = 15
 
     	policy param unit cells
 
-    .. data:: POLICY_PARAM_UNIT_PERCENT = 16
+    .. data:: policy_param_unit_percent = 16
 
     	policy param unit percent
 
-    .. data:: POLICY_PARAM_UNIT_PER_THOUSAND = 17
+    .. data:: policy_param_unit_per_thousand = 17
 
     	policy param unit per thousand
 
-    .. data:: POLICY_PARAM_UNIT_PER_MILLION = 18
+    .. data:: policy_param_unit_per_million = 18
 
     	policy param unit per million
 
-    .. data:: POLICY_PARAM_UNIT_HZ = 19
+    .. data:: policy_param_unit_hz = 19
 
     	policy param unit hz
 
-    .. data:: POLICY_PARAM_UNIT_KHZ = 20
+    .. data:: policy_param_unit_khz = 20
 
     	policy param unit khz
 
-    .. data:: POLICY_PARAM_UNIT_MHZ = 21
+    .. data:: policy_param_unit_mhz = 21
 
     	policy param unit mhz
 
-    .. data:: POLICY_PARAM_UNIT_RATIO = 22
+    .. data:: policy_param_unit_ratio = 22
 
     	policy param unit ratio
 
-    .. data:: POLICY_PARAM_UNIT_MAX = 23
+    .. data:: policy_param_unit_max = 23
 
     	policy param unit max
 
     """
 
-    POLICY_PARAM_UNIT_INVALID = 0
+    policy_param_unit_invalid = 0
 
-    POLICY_PARAM_UNIT_BYTES = 1
+    policy_param_unit_bytes = 1
 
-    POLICY_PARAM_UNIT_KBYTES = 2
+    policy_param_unit_kbytes = 2
 
-    POLICY_PARAM_UNIT_MBYTES = 3
+    policy_param_unit_mbytes = 3
 
-    POLICY_PARAM_UNIT_GBYTES = 4
+    policy_param_unit_gbytes = 4
 
-    POLICY_PARAM_UNIT_BITSPS = 5
+    policy_param_unit_bitsps = 5
 
-    POLICY_PARAM_UNIT_KBITSPS = 6
+    policy_param_unit_kbitsps = 6
 
-    POLICY_PARAM_UNIT_MBITSPS = 7
+    policy_param_unit_mbitsps = 7
 
-    POLICY_PARAM_UNIT_GBITSPS = 8
+    policy_param_unit_gbitsps = 8
 
-    POLICY_PARAM_UNIT_CELLS_PS = 9
+    policy_param_unit_cells_ps = 9
 
-    POLICY_PARAM_UNIT_PACKETS_PS = 10
+    policy_param_unit_packets_ps = 10
 
-    POLICY_PARAM_UNIT_US = 11
+    policy_param_unit_us = 11
 
-    POLICY_PARAM_UNIT_MS = 12
+    policy_param_unit_ms = 12
 
-    POLICY_PARAM_UNIT_SECONDS = 13
+    policy_param_unit_seconds = 13
 
-    POLICY_PARAM_UNIT_PACKETS = 14
+    policy_param_unit_packets = 14
 
-    POLICY_PARAM_UNIT_CELLS = 15
+    policy_param_unit_cells = 15
 
-    POLICY_PARAM_UNIT_PERCENT = 16
+    policy_param_unit_percent = 16
 
-    POLICY_PARAM_UNIT_PER_THOUSAND = 17
+    policy_param_unit_per_thousand = 17
 
-    POLICY_PARAM_UNIT_PER_MILLION = 18
+    policy_param_unit_per_million = 18
 
-    POLICY_PARAM_UNIT_HZ = 19
+    policy_param_unit_hz = 19
 
-    POLICY_PARAM_UNIT_KHZ = 20
+    policy_param_unit_khz = 20
 
-    POLICY_PARAM_UNIT_MHZ = 21
+    policy_param_unit_mhz = 21
 
-    POLICY_PARAM_UNIT_RATIO = 22
+    policy_param_unit_ratio = 22
 
-    POLICY_PARAM_UNIT_MAX = 23
+    policy_param_unit_max = 23
 
 
     @staticmethod
@@ -597,37 +597,37 @@ class QosPolicyAccountEnumEnum(Enum):
 
     Qos policy account enum
 
-    .. data:: QOS_SERV_POLICY_NO_AC_COUNT_PREF = 0
+    .. data:: qos_serv_policy_no_ac_count_pref = 0
 
     	qos serv policy no ac count pref
 
-    .. data:: QOS_SERV_POLICY_AC_COUNT_L2 = 1
+    .. data:: qos_serv_policy_ac_count_l2 = 1
 
     	qos serv policy ac count l2
 
-    .. data:: QOS_SERV_POLICY_NO_AC_COUNT_L2 = 2
+    .. data:: qos_serv_policy_no_ac_count_l2 = 2
 
     	qos serv policy no ac count l2
 
-    .. data:: QOS_SERV_POLICY_AC_COUNT_USER_DEF = 3
+    .. data:: qos_serv_policy_ac_count_user_def = 3
 
     	qos serv policy ac count user def
 
-    .. data:: QOS_SERV_POLICY_AC_COUNT_L1 = 4
+    .. data:: qos_serv_policy_ac_count_l1 = 4
 
     	qos serv policy ac count l1
 
     """
 
-    QOS_SERV_POLICY_NO_AC_COUNT_PREF = 0
+    qos_serv_policy_no_ac_count_pref = 0
 
-    QOS_SERV_POLICY_AC_COUNT_L2 = 1
+    qos_serv_policy_ac_count_l2 = 1
 
-    QOS_SERV_POLICY_NO_AC_COUNT_L2 = 2
+    qos_serv_policy_no_ac_count_l2 = 2
 
-    QOS_SERV_POLICY_AC_COUNT_USER_DEF = 3
+    qos_serv_policy_ac_count_user_def = 3
 
-    QOS_SERV_POLICY_AC_COUNT_L1 = 4
+    qos_serv_policy_ac_count_l1 = 4
 
 
     @staticmethod
@@ -644,7 +644,7 @@ class PlatformQos(object):
     .. attribute:: nodes
     
     	List of nodes with platform specific QoS configuration
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes>`
     
     
 
@@ -666,7 +666,7 @@ class PlatformQos(object):
         .. attribute:: node
         
         	Node with platform specific QoS configuration
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node>`
         
         
 
@@ -696,17 +696,17 @@ class PlatformQos(object):
             .. attribute:: bundle_interfaces
             
             	QoS list of bundle interfaces
-            	**type**\:  :py:class:`BundleInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces>`
+            	**type**\:   :py:class:`BundleInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces>`
             
             .. attribute:: interfaces
             
             	QoS list of interfaces
-            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces>`
+            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces>`
             
             .. attribute:: remote_interfaces
             
             	QoS list of remote interfaces
-            	**type**\:  :py:class:`RemoteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces>`
+            	**type**\:   :py:class:`RemoteInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces>`
             
             
 
@@ -733,7 +733,7 @@ class PlatformQos(object):
                 .. attribute:: bundle_interface
                 
                 	QoS interface names
-                	**type**\: list of  :py:class:`BundleInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface>`
+                	**type**\: list of    :py:class:`BundleInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface>`
                 
                 
 
@@ -763,12 +763,12 @@ class PlatformQos(object):
                     .. attribute:: classes
                     
                     	QoS list of class names
-                    	**type**\:  :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes>`
+                    	**type**\:   :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes>`
                     
                     .. attribute:: member_interfaces
                     
                     	QoS list of member interfaces
-                    	**type**\:  :py:class:`MemberInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces>`
+                    	**type**\:   :py:class:`MemberInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces>`
                     
                     .. attribute:: npu_id
                     
@@ -780,7 +780,7 @@ class PlatformQos(object):
                     .. attribute:: policy_details
                     
                     	Policy Details
-                    	**type**\:  :py:class:`PolicyDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.PolicyDetails>`
+                    	**type**\:   :py:class:`PolicyDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.PolicyDetails>`
                     
                     .. attribute:: qos_direction
                     
@@ -814,7 +814,7 @@ class PlatformQos(object):
                         .. attribute:: member_interface
                         
                         	QoS interface names
-                        	**type**\: list of  :py:class:`MemberInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface>`
+                        	**type**\: list of    :py:class:`MemberInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface>`
                         
                         
 
@@ -844,12 +844,12 @@ class PlatformQos(object):
                             .. attribute:: classes
                             
                             	QoS list of class names
-                            	**type**\:  :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes>`
+                            	**type**\:   :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes>`
                             
                             .. attribute:: policy_details
                             
                             	Policy Details
-                            	**type**\:  :py:class:`PolicyDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.PolicyDetails>`
+                            	**type**\:   :py:class:`PolicyDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.PolicyDetails>`
                             
                             
 
@@ -878,6 +878,8 @@ class PlatformQos(object):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**units**\: kbit/s
+                                
                                 .. attribute:: interface_handle
                                 
                                 	InterfaceHandle
@@ -888,7 +890,7 @@ class PlatformQos(object):
                                 .. attribute:: interface_status
                                 
                                 	Interface Status
-                                	**type**\:  :py:class:`DnxQoseaShowIntfStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatusEnum>`
+                                	**type**\:   :py:class:`DnxQoseaShowIntfStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatusEnum>`
                                 
                                 .. attribute:: npu_id
                                 
@@ -907,12 +909,12 @@ class PlatformQos(object):
                                 .. attribute:: policy_status
                                 
                                 	Policy Status
-                                	**type**\:  :py:class:`DnxQoseaShowPolicyStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatusEnum>`
+                                	**type**\:   :py:class:`DnxQoseaShowPolicyStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatusEnum>`
                                 
                                 .. attribute:: stats_accounting_type
                                 
                                 	QoS Statistics Accounting Type
-                                	**type**\:  :py:class:`QosPolicyAccountEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnumEnum>`
+                                	**type**\:   :py:class:`QosPolicyAccountEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnumEnum>`
                                 
                                 .. attribute:: total_number_of_classes
                                 
@@ -1014,7 +1016,7 @@ class PlatformQos(object):
                                 .. attribute:: class_
                                 
                                 	QoS policy class
-                                	**type**\: list of  :py:class:`Class <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class>`
+                                	**type**\: list of    :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_>`
                                 
                                 
 
@@ -1030,7 +1032,7 @@ class PlatformQos(object):
                                     self.class_.name = 'class_'
 
 
-                                class Class(object):
+                                class Class_(object):
                                     """
                                     QoS policy class
                                     
@@ -1042,12 +1044,12 @@ class PlatformQos(object):
                                     .. attribute:: class_level
                                     
                                     	Class level
-                                    	**type**\:  :py:class:`DnxQoseaShowLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevelEnum>`
+                                    	**type**\:   :py:class:`DnxQoseaShowLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevelEnum>`
                                     
                                     .. attribute:: common_mark
                                     
                                     	Common mark
-                                    	**type**\: list of  :py:class:`CommonMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.CommonMark>`
+                                    	**type**\: list of    :py:class:`CommonMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.CommonMark>`
                                     
                                     .. attribute:: config_excess_bandwidth_percent
                                     
@@ -1055,6 +1057,8 @@ class PlatformQos(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**units**\: percentage
                                     
                                     .. attribute:: config_excess_bandwidth_unit
                                     
@@ -1066,42 +1070,42 @@ class PlatformQos(object):
                                     .. attribute:: config_max_rate
                                     
                                     	Configured maximum rate
-                                    	**type**\:  :py:class:`ConfigMaxRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMaxRate>`
+                                    	**type**\:   :py:class:`ConfigMaxRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMaxRate>`
                                     
                                     .. attribute:: config_min_rate
                                     
                                     	Configured minimum rate
-                                    	**type**\:  :py:class:`ConfigMinRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMinRate>`
+                                    	**type**\:   :py:class:`ConfigMinRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMinRate>`
                                     
                                     .. attribute:: config_policer_average_rate
                                     
                                     	Configured policer average rate
-                                    	**type**\:  :py:class:`ConfigPolicerAverageRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate>`
+                                    	**type**\:   :py:class:`ConfigPolicerAverageRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerAverageRate>`
                                     
                                     .. attribute:: config_policer_conform_burst
                                     
                                     	Configured policer conform burst
-                                    	**type**\:  :py:class:`ConfigPolicerConformBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerConformBurst>`
+                                    	**type**\:   :py:class:`ConfigPolicerConformBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerConformBurst>`
                                     
                                     .. attribute:: config_policer_excess_burst
                                     
                                     	Configured policer excess burst
-                                    	**type**\:  :py:class:`ConfigPolicerExcessBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst>`
+                                    	**type**\:   :py:class:`ConfigPolicerExcessBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerExcessBurst>`
                                     
                                     .. attribute:: config_policer_peak_rate
                                     
                                     	Config policer peak rate
-                                    	**type**\:  :py:class:`ConfigPolicerPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate>`
+                                    	**type**\:   :py:class:`ConfigPolicerPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerPeakRate>`
                                     
                                     .. attribute:: config_queue_limit
                                     
                                     	Configured queue limit
-                                    	**type**\:  :py:class:`ConfigQueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit>`
+                                    	**type**\:   :py:class:`ConfigQueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigQueueLimit>`
                                     
                                     .. attribute:: conform_action
                                     
                                     	Conform action
-                                    	**type**\:  :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction>`
+                                    	**type**\:   :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction>`
                                     
                                     .. attribute:: egress_queue_id
                                     
@@ -1113,7 +1117,7 @@ class PlatformQos(object):
                                     .. attribute:: exceed_action
                                     
                                     	Exceed action
-                                    	**type**\:  :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction>`
+                                    	**type**\:   :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction>`
                                     
                                     .. attribute:: hardware_excess_bandwidth_weight
                                     
@@ -1129,6 +1133,8 @@ class PlatformQos(object):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**units**\: kbit/s
+                                    
                                     .. attribute:: hardware_min_rate_kbps
                                     
                                     	Hardware minimum rate in kbps
@@ -1136,12 +1142,16 @@ class PlatformQos(object):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**units**\: kbit/s
+                                    
                                     .. attribute:: hardware_policer_average_rate_kbps
                                     
                                     	Hardware policer average in kbps
                                     	**type**\:  int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**units**\: kbit/s
                                     
                                     .. attribute:: hardware_policer_conform_burst_bytes
                                     
@@ -1171,6 +1181,8 @@ class PlatformQos(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: hardware_queue_limit_microseconds
                                     
                                     	Hardware queue limit in microseconds
@@ -1178,10 +1190,12 @@ class PlatformQos(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: microsecond
+                                    
                                     .. attribute:: ip_mark
                                     
                                     	IP mark
-                                    	**type**\: list of  :py:class:`IpMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.IpMark>`
+                                    	**type**\: list of    :py:class:`IpMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.IpMark>`
                                     
                                     .. attribute:: level_two_class_name
                                     
@@ -1191,7 +1205,7 @@ class PlatformQos(object):
                                     .. attribute:: mpls_mark
                                     
                                     	MPLS mark
-                                    	**type**\: list of  :py:class:`MplsMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.MplsMark>`
+                                    	**type**\: list of    :py:class:`MplsMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.MplsMark>`
                                     
                                     .. attribute:: network_min_bandwidth_kbps
                                     
@@ -1217,22 +1231,22 @@ class PlatformQos(object):
                                     .. attribute:: priority_level
                                     
                                     	Priority level
-                                    	**type**\:  :py:class:`DnxQoseaShowHpLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevelEnum>`
+                                    	**type**\:   :py:class:`DnxQoseaShowHpLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevelEnum>`
                                     
                                     .. attribute:: queue_type
                                     
                                     	Queue type
-                                    	**type**\:  :py:class:`DnxQoseaShowQueueEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueueEnum>`
+                                    	**type**\:   :py:class:`DnxQoseaShowQueueEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueueEnum>`
                                     
                                     .. attribute:: violate_action
                                     
                                     	Violate action
-                                    	**type**\:  :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction>`
+                                    	**type**\:   :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction>`
                                     
                                     .. attribute:: wred
                                     
                                     	WRED parameters
-                                    	**type**\: list of  :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred>`
+                                    	**type**\: list of    :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred>`
                                     
                                     
 
@@ -1250,24 +1264,24 @@ class PlatformQos(object):
                                         self.common_mark.name = 'common_mark'
                                         self.config_excess_bandwidth_percent = None
                                         self.config_excess_bandwidth_unit = None
-                                        self.config_max_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMaxRate()
+                                        self.config_max_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMaxRate()
                                         self.config_max_rate.parent = self
-                                        self.config_min_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMinRate()
+                                        self.config_min_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMinRate()
                                         self.config_min_rate.parent = self
-                                        self.config_policer_average_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate()
+                                        self.config_policer_average_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerAverageRate()
                                         self.config_policer_average_rate.parent = self
-                                        self.config_policer_conform_burst = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerConformBurst()
+                                        self.config_policer_conform_burst = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerConformBurst()
                                         self.config_policer_conform_burst.parent = self
-                                        self.config_policer_excess_burst = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst()
+                                        self.config_policer_excess_burst = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerExcessBurst()
                                         self.config_policer_excess_burst.parent = self
-                                        self.config_policer_peak_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate()
+                                        self.config_policer_peak_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerPeakRate()
                                         self.config_policer_peak_rate.parent = self
-                                        self.config_queue_limit = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit()
+                                        self.config_queue_limit = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigQueueLimit()
                                         self.config_queue_limit.parent = self
-                                        self.conform_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction()
+                                        self.conform_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction()
                                         self.conform_action.parent = self
                                         self.egress_queue_id = None
-                                        self.exceed_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction()
+                                        self.exceed_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction()
                                         self.exceed_action.parent = self
                                         self.hardware_excess_bandwidth_weight = None
                                         self.hardware_max_rate_kbps = None
@@ -1290,7 +1304,7 @@ class PlatformQos(object):
                                         self.policer_stats_handle = None
                                         self.priority_level = None
                                         self.queue_type = None
-                                        self.violate_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction()
+                                        self.violate_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction()
                                         self.violate_action.parent = self
                                         self.wred = YList()
                                         self.wred.parent = self
@@ -1304,7 +1318,7 @@ class PlatformQos(object):
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                        	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                         
                                         .. attribute:: policy_value
                                         
@@ -1350,7 +1364,7 @@ class PlatformQos(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMaxRate']['meta_info']
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMaxRate']['meta_info']
 
 
                                     class ConfigMinRate(object):
@@ -1360,7 +1374,7 @@ class PlatformQos(object):
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                        	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                         
                                         .. attribute:: policy_value
                                         
@@ -1406,7 +1420,7 @@ class PlatformQos(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMinRate']['meta_info']
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMinRate']['meta_info']
 
 
                                     class ConfigQueueLimit(object):
@@ -1416,7 +1430,7 @@ class PlatformQos(object):
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                        	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                         
                                         .. attribute:: policy_value
                                         
@@ -1462,7 +1476,7 @@ class PlatformQos(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit']['meta_info']
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigQueueLimit']['meta_info']
 
 
                                     class ConfigPolicerAverageRate(object):
@@ -1472,7 +1486,7 @@ class PlatformQos(object):
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                        	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                         
                                         .. attribute:: policy_value
                                         
@@ -1518,7 +1532,7 @@ class PlatformQos(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate']['meta_info']
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerAverageRate']['meta_info']
 
 
                                     class ConfigPolicerPeakRate(object):
@@ -1528,7 +1542,7 @@ class PlatformQos(object):
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                        	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                         
                                         .. attribute:: policy_value
                                         
@@ -1574,7 +1588,7 @@ class PlatformQos(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate']['meta_info']
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerPeakRate']['meta_info']
 
 
                                     class ConfigPolicerConformBurst(object):
@@ -1584,7 +1598,7 @@ class PlatformQos(object):
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                        	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                         
                                         .. attribute:: policy_value
                                         
@@ -1630,7 +1644,7 @@ class PlatformQos(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerConformBurst']['meta_info']
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerConformBurst']['meta_info']
 
 
                                     class ConfigPolicerExcessBurst(object):
@@ -1640,7 +1654,7 @@ class PlatformQos(object):
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                        	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                         
                                         .. attribute:: policy_value
                                         
@@ -1686,7 +1700,7 @@ class PlatformQos(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst']['meta_info']
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerExcessBurst']['meta_info']
 
 
                                     class ConformAction(object):
@@ -1696,12 +1710,12 @@ class PlatformQos(object):
                                         .. attribute:: action_type
                                         
                                         	Policer action type
-                                        	**type**\:  :py:class:`DnxQoseaShowActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
+                                        	**type**\:   :py:class:`DnxQoseaShowActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
                                         
                                         .. attribute:: mark
                                         
                                         	Action mark
-                                        	**type**\: list of  :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction.Mark>`
+                                        	**type**\: list of    :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction.Mark>`
                                         
                                         
 
@@ -1725,7 +1739,7 @@ class PlatformQos(object):
                                             .. attribute:: mark_type
                                             
                                             	Mark type
-                                            	**type**\:  :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                            	**type**\:   :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                             
                                             .. attribute:: mark_value
                                             
@@ -1771,7 +1785,7 @@ class PlatformQos(object):
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction.Mark']['meta_info']
+                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction.Mark']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -1800,7 +1814,7 @@ class PlatformQos(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction']['meta_info']
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction']['meta_info']
 
 
                                     class ExceedAction(object):
@@ -1810,12 +1824,12 @@ class PlatformQos(object):
                                         .. attribute:: action_type
                                         
                                         	Policer action type
-                                        	**type**\:  :py:class:`DnxQoseaShowActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
+                                        	**type**\:   :py:class:`DnxQoseaShowActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
                                         
                                         .. attribute:: mark
                                         
                                         	Action mark
-                                        	**type**\: list of  :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction.Mark>`
+                                        	**type**\: list of    :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction.Mark>`
                                         
                                         
 
@@ -1839,7 +1853,7 @@ class PlatformQos(object):
                                             .. attribute:: mark_type
                                             
                                             	Mark type
-                                            	**type**\:  :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                            	**type**\:   :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                             
                                             .. attribute:: mark_value
                                             
@@ -1885,7 +1899,7 @@ class PlatformQos(object):
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction.Mark']['meta_info']
+                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction.Mark']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -1914,7 +1928,7 @@ class PlatformQos(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction']['meta_info']
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction']['meta_info']
 
 
                                     class ViolateAction(object):
@@ -1924,12 +1938,12 @@ class PlatformQos(object):
                                         .. attribute:: action_type
                                         
                                         	Policer action type
-                                        	**type**\:  :py:class:`DnxQoseaShowActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
+                                        	**type**\:   :py:class:`DnxQoseaShowActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
                                         
                                         .. attribute:: mark
                                         
                                         	Action mark
-                                        	**type**\: list of  :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction.Mark>`
+                                        	**type**\: list of    :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction.Mark>`
                                         
                                         
 
@@ -1953,7 +1967,7 @@ class PlatformQos(object):
                                             .. attribute:: mark_type
                                             
                                             	Mark type
-                                            	**type**\:  :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                            	**type**\:   :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                             
                                             .. attribute:: mark_value
                                             
@@ -1999,7 +2013,7 @@ class PlatformQos(object):
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction.Mark']['meta_info']
+                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction.Mark']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -2028,7 +2042,7 @@ class PlatformQos(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction']['meta_info']
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction']['meta_info']
 
 
                                     class IpMark(object):
@@ -2038,7 +2052,7 @@ class PlatformQos(object):
                                         .. attribute:: mark_type
                                         
                                         	Mark type
-                                        	**type**\:  :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                        	**type**\:   :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                         
                                         .. attribute:: mark_value
                                         
@@ -2084,7 +2098,7 @@ class PlatformQos(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.IpMark']['meta_info']
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.IpMark']['meta_info']
 
 
                                     class CommonMark(object):
@@ -2094,7 +2108,7 @@ class PlatformQos(object):
                                         .. attribute:: mark_type
                                         
                                         	Mark type
-                                        	**type**\:  :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                        	**type**\:   :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                         
                                         .. attribute:: mark_value
                                         
@@ -2140,7 +2154,7 @@ class PlatformQos(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.CommonMark']['meta_info']
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.CommonMark']['meta_info']
 
 
                                     class MplsMark(object):
@@ -2150,7 +2164,7 @@ class PlatformQos(object):
                                         .. attribute:: mark_type
                                         
                                         	Mark type
-                                        	**type**\:  :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                        	**type**\:   :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                         
                                         .. attribute:: mark_value
                                         
@@ -2196,7 +2210,7 @@ class PlatformQos(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.MplsMark']['meta_info']
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.MplsMark']['meta_info']
 
 
                                     class Wred(object):
@@ -2206,12 +2220,12 @@ class PlatformQos(object):
                                         .. attribute:: config_max_threshold
                                         
                                         	Configured maximum threshold
-                                        	**type**\:  :py:class:`ConfigMaxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold>`
+                                        	**type**\:   :py:class:`ConfigMaxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMaxThreshold>`
                                         
                                         .. attribute:: config_min_threshold
                                         
                                         	Configured minimum threshold
-                                        	**type**\:  :py:class:`ConfigMinThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold>`
+                                        	**type**\:   :py:class:`ConfigMinThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMinThreshold>`
                                         
                                         .. attribute:: first_segment
                                         
@@ -2244,12 +2258,12 @@ class PlatformQos(object):
                                         .. attribute:: wred_match_type
                                         
                                         	WREDMatchType
-                                        	**type**\:  :py:class:`DnxQoseaShowWredEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWredEnum>`
+                                        	**type**\:   :py:class:`DnxQoseaShowWredEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWredEnum>`
                                         
                                         .. attribute:: wred_match_value
                                         
                                         	WRED match values
-                                        	**type**\:  :py:class:`WredMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue>`
+                                        	**type**\:   :py:class:`WredMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue>`
                                         
                                         
 
@@ -2260,16 +2274,16 @@ class PlatformQos(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.config_max_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold()
+                                            self.config_max_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMaxThreshold()
                                             self.config_max_threshold.parent = self
-                                            self.config_min_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold()
+                                            self.config_min_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMinThreshold()
                                             self.config_min_threshold.parent = self
                                             self.first_segment = None
                                             self.hardware_max_threshold_bytes = None
                                             self.hardware_min_threshold_bytes = None
                                             self.segment_size = None
                                             self.wred_match_type = None
-                                            self.wred_match_value = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue()
+                                            self.wred_match_value = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue()
                                             self.wred_match_value.parent = self
 
 
@@ -2280,7 +2294,7 @@ class PlatformQos(object):
                                             .. attribute:: dnx_qosea_show_red_match_value
                                             
                                             	dnx qosea show red match value
-                                            	**type**\: list of  :py:class:`DnxQoseaShowRedMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue>`
+                                            	**type**\: list of    :py:class:`DnxQoseaShowRedMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue>`
                                             
                                             
 
@@ -2351,7 +2365,7 @@ class PlatformQos(object):
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue']['meta_info']
+                                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue']['meta_info']
 
                                             @property
                                             def _common_path(self):
@@ -2377,7 +2391,7 @@ class PlatformQos(object):
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue']['meta_info']
+                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue']['meta_info']
 
 
                                         class ConfigMinThreshold(object):
@@ -2387,7 +2401,7 @@ class PlatformQos(object):
                                             .. attribute:: policy_unit
                                             
                                             	Policy unit
-                                            	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                            	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                             
                                             .. attribute:: policy_value
                                             
@@ -2433,7 +2447,7 @@ class PlatformQos(object):
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold']['meta_info']
+                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMinThreshold']['meta_info']
 
 
                                         class ConfigMaxThreshold(object):
@@ -2443,7 +2457,7 @@ class PlatformQos(object):
                                             .. attribute:: policy_unit
                                             
                                             	Policy unit
-                                            	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                            	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                             
                                             .. attribute:: policy_value
                                             
@@ -2489,7 +2503,7 @@ class PlatformQos(object):
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold']['meta_info']
+                                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMaxThreshold']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -2534,7 +2548,7 @@ class PlatformQos(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred']['meta_info']
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -2667,7 +2681,7 @@ class PlatformQos(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class']['meta_info']
+                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -2765,6 +2779,8 @@ class PlatformQos(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: kbit/s
+                        
                         .. attribute:: interface_handle
                         
                         	InterfaceHandle
@@ -2775,7 +2791,7 @@ class PlatformQos(object):
                         .. attribute:: interface_status
                         
                         	Interface Status
-                        	**type**\:  :py:class:`DnxQoseaShowIntfStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatusEnum>`
+                        	**type**\:   :py:class:`DnxQoseaShowIntfStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatusEnum>`
                         
                         .. attribute:: npu_id
                         
@@ -2794,12 +2810,12 @@ class PlatformQos(object):
                         .. attribute:: policy_status
                         
                         	Policy Status
-                        	**type**\:  :py:class:`DnxQoseaShowPolicyStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatusEnum>`
+                        	**type**\:   :py:class:`DnxQoseaShowPolicyStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatusEnum>`
                         
                         .. attribute:: stats_accounting_type
                         
                         	QoS Statistics Accounting Type
-                        	**type**\:  :py:class:`QosPolicyAccountEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnumEnum>`
+                        	**type**\:   :py:class:`QosPolicyAccountEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnumEnum>`
                         
                         .. attribute:: total_number_of_classes
                         
@@ -2901,7 +2917,7 @@ class PlatformQos(object):
                         .. attribute:: class_
                         
                         	QoS policy class
-                        	**type**\: list of  :py:class:`Class <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class>`
+                        	**type**\: list of    :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_>`
                         
                         
 
@@ -2917,7 +2933,7 @@ class PlatformQos(object):
                             self.class_.name = 'class_'
 
 
-                        class Class(object):
+                        class Class_(object):
                             """
                             QoS policy class
                             
@@ -2929,12 +2945,12 @@ class PlatformQos(object):
                             .. attribute:: class_level
                             
                             	Class level
-                            	**type**\:  :py:class:`DnxQoseaShowLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevelEnum>`
+                            	**type**\:   :py:class:`DnxQoseaShowLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevelEnum>`
                             
                             .. attribute:: common_mark
                             
                             	Common mark
-                            	**type**\: list of  :py:class:`CommonMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.CommonMark>`
+                            	**type**\: list of    :py:class:`CommonMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.CommonMark>`
                             
                             .. attribute:: config_excess_bandwidth_percent
                             
@@ -2942,6 +2958,8 @@ class PlatformQos(object):
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**units**\: percentage
                             
                             .. attribute:: config_excess_bandwidth_unit
                             
@@ -2953,42 +2971,42 @@ class PlatformQos(object):
                             .. attribute:: config_max_rate
                             
                             	Configured maximum rate
-                            	**type**\:  :py:class:`ConfigMaxRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMaxRate>`
+                            	**type**\:   :py:class:`ConfigMaxRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMaxRate>`
                             
                             .. attribute:: config_min_rate
                             
                             	Configured minimum rate
-                            	**type**\:  :py:class:`ConfigMinRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMinRate>`
+                            	**type**\:   :py:class:`ConfigMinRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMinRate>`
                             
                             .. attribute:: config_policer_average_rate
                             
                             	Configured policer average rate
-                            	**type**\:  :py:class:`ConfigPolicerAverageRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerAverageRate>`
+                            	**type**\:   :py:class:`ConfigPolicerAverageRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerAverageRate>`
                             
                             .. attribute:: config_policer_conform_burst
                             
                             	Configured policer conform burst
-                            	**type**\:  :py:class:`ConfigPolicerConformBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerConformBurst>`
+                            	**type**\:   :py:class:`ConfigPolicerConformBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerConformBurst>`
                             
                             .. attribute:: config_policer_excess_burst
                             
                             	Configured policer excess burst
-                            	**type**\:  :py:class:`ConfigPolicerExcessBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerExcessBurst>`
+                            	**type**\:   :py:class:`ConfigPolicerExcessBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerExcessBurst>`
                             
                             .. attribute:: config_policer_peak_rate
                             
                             	Config policer peak rate
-                            	**type**\:  :py:class:`ConfigPolicerPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerPeakRate>`
+                            	**type**\:   :py:class:`ConfigPolicerPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerPeakRate>`
                             
                             .. attribute:: config_queue_limit
                             
                             	Configured queue limit
-                            	**type**\:  :py:class:`ConfigQueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigQueueLimit>`
+                            	**type**\:   :py:class:`ConfigQueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigQueueLimit>`
                             
                             .. attribute:: conform_action
                             
                             	Conform action
-                            	**type**\:  :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction>`
+                            	**type**\:   :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction>`
                             
                             .. attribute:: egress_queue_id
                             
@@ -3000,7 +3018,7 @@ class PlatformQos(object):
                             .. attribute:: exceed_action
                             
                             	Exceed action
-                            	**type**\:  :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction>`
+                            	**type**\:   :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction>`
                             
                             .. attribute:: hardware_excess_bandwidth_weight
                             
@@ -3016,6 +3034,8 @@ class PlatformQos(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: kbit/s
+                            
                             .. attribute:: hardware_min_rate_kbps
                             
                             	Hardware minimum rate in kbps
@@ -3023,12 +3043,16 @@ class PlatformQos(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: kbit/s
+                            
                             .. attribute:: hardware_policer_average_rate_kbps
                             
                             	Hardware policer average in kbps
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**units**\: kbit/s
                             
                             .. attribute:: hardware_policer_conform_burst_bytes
                             
@@ -3058,6 +3082,8 @@ class PlatformQos(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: byte
+                            
                             .. attribute:: hardware_queue_limit_microseconds
                             
                             	Hardware queue limit in microseconds
@@ -3065,10 +3091,12 @@ class PlatformQos(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: microsecond
+                            
                             .. attribute:: ip_mark
                             
                             	IP mark
-                            	**type**\: list of  :py:class:`IpMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.IpMark>`
+                            	**type**\: list of    :py:class:`IpMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.IpMark>`
                             
                             .. attribute:: level_two_class_name
                             
@@ -3078,7 +3106,7 @@ class PlatformQos(object):
                             .. attribute:: mpls_mark
                             
                             	MPLS mark
-                            	**type**\: list of  :py:class:`MplsMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.MplsMark>`
+                            	**type**\: list of    :py:class:`MplsMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.MplsMark>`
                             
                             .. attribute:: network_min_bandwidth_kbps
                             
@@ -3104,22 +3132,22 @@ class PlatformQos(object):
                             .. attribute:: priority_level
                             
                             	Priority level
-                            	**type**\:  :py:class:`DnxQoseaShowHpLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevelEnum>`
+                            	**type**\:   :py:class:`DnxQoseaShowHpLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevelEnum>`
                             
                             .. attribute:: queue_type
                             
                             	Queue type
-                            	**type**\:  :py:class:`DnxQoseaShowQueueEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueueEnum>`
+                            	**type**\:   :py:class:`DnxQoseaShowQueueEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueueEnum>`
                             
                             .. attribute:: violate_action
                             
                             	Violate action
-                            	**type**\:  :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction>`
+                            	**type**\:   :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction>`
                             
                             .. attribute:: wred
                             
                             	WRED parameters
-                            	**type**\: list of  :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred>`
+                            	**type**\: list of    :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred>`
                             
                             
 
@@ -3137,24 +3165,24 @@ class PlatformQos(object):
                                 self.common_mark.name = 'common_mark'
                                 self.config_excess_bandwidth_percent = None
                                 self.config_excess_bandwidth_unit = None
-                                self.config_max_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMaxRate()
+                                self.config_max_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMaxRate()
                                 self.config_max_rate.parent = self
-                                self.config_min_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMinRate()
+                                self.config_min_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMinRate()
                                 self.config_min_rate.parent = self
-                                self.config_policer_average_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerAverageRate()
+                                self.config_policer_average_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerAverageRate()
                                 self.config_policer_average_rate.parent = self
-                                self.config_policer_conform_burst = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerConformBurst()
+                                self.config_policer_conform_burst = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerConformBurst()
                                 self.config_policer_conform_burst.parent = self
-                                self.config_policer_excess_burst = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerExcessBurst()
+                                self.config_policer_excess_burst = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerExcessBurst()
                                 self.config_policer_excess_burst.parent = self
-                                self.config_policer_peak_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerPeakRate()
+                                self.config_policer_peak_rate = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerPeakRate()
                                 self.config_policer_peak_rate.parent = self
-                                self.config_queue_limit = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigQueueLimit()
+                                self.config_queue_limit = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigQueueLimit()
                                 self.config_queue_limit.parent = self
-                                self.conform_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction()
+                                self.conform_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction()
                                 self.conform_action.parent = self
                                 self.egress_queue_id = None
-                                self.exceed_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction()
+                                self.exceed_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction()
                                 self.exceed_action.parent = self
                                 self.hardware_excess_bandwidth_weight = None
                                 self.hardware_max_rate_kbps = None
@@ -3177,7 +3205,7 @@ class PlatformQos(object):
                                 self.policer_stats_handle = None
                                 self.priority_level = None
                                 self.queue_type = None
-                                self.violate_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction()
+                                self.violate_action = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction()
                                 self.violate_action.parent = self
                                 self.wred = YList()
                                 self.wred.parent = self
@@ -3191,7 +3219,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -3237,7 +3265,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMaxRate']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMaxRate']['meta_info']
 
 
                             class ConfigMinRate(object):
@@ -3247,7 +3275,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -3293,7 +3321,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMinRate']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMinRate']['meta_info']
 
 
                             class ConfigQueueLimit(object):
@@ -3303,7 +3331,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -3349,7 +3377,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigQueueLimit']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigQueueLimit']['meta_info']
 
 
                             class ConfigPolicerAverageRate(object):
@@ -3359,7 +3387,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -3405,7 +3433,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerAverageRate']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerAverageRate']['meta_info']
 
 
                             class ConfigPolicerPeakRate(object):
@@ -3415,7 +3443,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -3461,7 +3489,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerPeakRate']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerPeakRate']['meta_info']
 
 
                             class ConfigPolicerConformBurst(object):
@@ -3471,7 +3499,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -3517,7 +3545,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerConformBurst']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerConformBurst']['meta_info']
 
 
                             class ConfigPolicerExcessBurst(object):
@@ -3527,7 +3555,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -3573,7 +3601,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerExcessBurst']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerExcessBurst']['meta_info']
 
 
                             class ConformAction(object):
@@ -3583,12 +3611,12 @@ class PlatformQos(object):
                                 .. attribute:: action_type
                                 
                                 	Policer action type
-                                	**type**\:  :py:class:`DnxQoseaShowActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
+                                	**type**\:   :py:class:`DnxQoseaShowActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
                                 
                                 .. attribute:: mark
                                 
                                 	Action mark
-                                	**type**\: list of  :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction.Mark>`
+                                	**type**\: list of    :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction.Mark>`
                                 
                                 
 
@@ -3612,7 +3640,7 @@ class PlatformQos(object):
                                     .. attribute:: mark_type
                                     
                                     	Mark type
-                                    	**type**\:  :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                    	**type**\:   :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                     
                                     .. attribute:: mark_value
                                     
@@ -3658,7 +3686,7 @@ class PlatformQos(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction.Mark']['meta_info']
+                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction.Mark']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -3687,7 +3715,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction']['meta_info']
 
 
                             class ExceedAction(object):
@@ -3697,12 +3725,12 @@ class PlatformQos(object):
                                 .. attribute:: action_type
                                 
                                 	Policer action type
-                                	**type**\:  :py:class:`DnxQoseaShowActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
+                                	**type**\:   :py:class:`DnxQoseaShowActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
                                 
                                 .. attribute:: mark
                                 
                                 	Action mark
-                                	**type**\: list of  :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction.Mark>`
+                                	**type**\: list of    :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction.Mark>`
                                 
                                 
 
@@ -3726,7 +3754,7 @@ class PlatformQos(object):
                                     .. attribute:: mark_type
                                     
                                     	Mark type
-                                    	**type**\:  :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                    	**type**\:   :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                     
                                     .. attribute:: mark_value
                                     
@@ -3772,7 +3800,7 @@ class PlatformQos(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction.Mark']['meta_info']
+                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction.Mark']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -3801,7 +3829,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction']['meta_info']
 
 
                             class ViolateAction(object):
@@ -3811,12 +3839,12 @@ class PlatformQos(object):
                                 .. attribute:: action_type
                                 
                                 	Policer action type
-                                	**type**\:  :py:class:`DnxQoseaShowActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
+                                	**type**\:   :py:class:`DnxQoseaShowActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
                                 
                                 .. attribute:: mark
                                 
                                 	Action mark
-                                	**type**\: list of  :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction.Mark>`
+                                	**type**\: list of    :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction.Mark>`
                                 
                                 
 
@@ -3840,7 +3868,7 @@ class PlatformQos(object):
                                     .. attribute:: mark_type
                                     
                                     	Mark type
-                                    	**type**\:  :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                    	**type**\:   :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                     
                                     .. attribute:: mark_value
                                     
@@ -3886,7 +3914,7 @@ class PlatformQos(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction.Mark']['meta_info']
+                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction.Mark']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -3915,7 +3943,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction']['meta_info']
 
 
                             class IpMark(object):
@@ -3925,7 +3953,7 @@ class PlatformQos(object):
                                 .. attribute:: mark_type
                                 
                                 	Mark type
-                                	**type**\:  :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                	**type**\:   :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                 
                                 .. attribute:: mark_value
                                 
@@ -3971,7 +3999,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.IpMark']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.IpMark']['meta_info']
 
 
                             class CommonMark(object):
@@ -3981,7 +4009,7 @@ class PlatformQos(object):
                                 .. attribute:: mark_type
                                 
                                 	Mark type
-                                	**type**\:  :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                	**type**\:   :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                 
                                 .. attribute:: mark_value
                                 
@@ -4027,7 +4055,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.CommonMark']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.CommonMark']['meta_info']
 
 
                             class MplsMark(object):
@@ -4037,7 +4065,7 @@ class PlatformQos(object):
                                 .. attribute:: mark_type
                                 
                                 	Mark type
-                                	**type**\:  :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                	**type**\:   :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                 
                                 .. attribute:: mark_value
                                 
@@ -4083,7 +4111,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.MplsMark']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.MplsMark']['meta_info']
 
 
                             class Wred(object):
@@ -4093,12 +4121,12 @@ class PlatformQos(object):
                                 .. attribute:: config_max_threshold
                                 
                                 	Configured maximum threshold
-                                	**type**\:  :py:class:`ConfigMaxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMaxThreshold>`
+                                	**type**\:   :py:class:`ConfigMaxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMaxThreshold>`
                                 
                                 .. attribute:: config_min_threshold
                                 
                                 	Configured minimum threshold
-                                	**type**\:  :py:class:`ConfigMinThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMinThreshold>`
+                                	**type**\:   :py:class:`ConfigMinThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMinThreshold>`
                                 
                                 .. attribute:: first_segment
                                 
@@ -4131,12 +4159,12 @@ class PlatformQos(object):
                                 .. attribute:: wred_match_type
                                 
                                 	WREDMatchType
-                                	**type**\:  :py:class:`DnxQoseaShowWredEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWredEnum>`
+                                	**type**\:   :py:class:`DnxQoseaShowWredEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWredEnum>`
                                 
                                 .. attribute:: wred_match_value
                                 
                                 	WRED match values
-                                	**type**\:  :py:class:`WredMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue>`
+                                	**type**\:   :py:class:`WredMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue>`
                                 
                                 
 
@@ -4147,16 +4175,16 @@ class PlatformQos(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.config_max_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMaxThreshold()
+                                    self.config_max_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMaxThreshold()
                                     self.config_max_threshold.parent = self
-                                    self.config_min_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMinThreshold()
+                                    self.config_min_threshold = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMinThreshold()
                                     self.config_min_threshold.parent = self
                                     self.first_segment = None
                                     self.hardware_max_threshold_bytes = None
                                     self.hardware_min_threshold_bytes = None
                                     self.segment_size = None
                                     self.wred_match_type = None
-                                    self.wred_match_value = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue()
+                                    self.wred_match_value = PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue()
                                     self.wred_match_value.parent = self
 
 
@@ -4167,7 +4195,7 @@ class PlatformQos(object):
                                     .. attribute:: dnx_qosea_show_red_match_value
                                     
                                     	dnx qosea show red match value
-                                    	**type**\: list of  :py:class:`DnxQoseaShowRedMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue>`
+                                    	**type**\: list of    :py:class:`DnxQoseaShowRedMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue>`
                                     
                                     
 
@@ -4238,7 +4266,7 @@ class PlatformQos(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue']['meta_info']
+                                            return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -4264,7 +4292,7 @@ class PlatformQos(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue']['meta_info']
+                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue']['meta_info']
 
 
                                 class ConfigMinThreshold(object):
@@ -4274,7 +4302,7 @@ class PlatformQos(object):
                                     .. attribute:: policy_unit
                                     
                                     	Policy unit
-                                    	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                    	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                     
                                     .. attribute:: policy_value
                                     
@@ -4320,7 +4348,7 @@ class PlatformQos(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMinThreshold']['meta_info']
+                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMinThreshold']['meta_info']
 
 
                                 class ConfigMaxThreshold(object):
@@ -4330,7 +4358,7 @@ class PlatformQos(object):
                                     .. attribute:: policy_unit
                                     
                                     	Policy unit
-                                    	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                    	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                     
                                     .. attribute:: policy_value
                                     
@@ -4376,7 +4404,7 @@ class PlatformQos(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMaxThreshold']['meta_info']
+                                        return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMaxThreshold']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -4421,7 +4449,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -4554,7 +4582,7 @@ class PlatformQos(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class']['meta_info']
+                                return meta._meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -4657,7 +4685,7 @@ class PlatformQos(object):
                 .. attribute:: interface
                 
                 	QoS interface names
-                	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface>`
+                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface>`
                 
                 
 
@@ -4687,12 +4715,12 @@ class PlatformQos(object):
                     .. attribute:: classes
                     
                     	QoS list of class names
-                    	**type**\:  :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes>`
+                    	**type**\:   :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes>`
                     
                     .. attribute:: policy_details
                     
                     	Policy Details
-                    	**type**\:  :py:class:`PolicyDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.PolicyDetails>`
+                    	**type**\:   :py:class:`PolicyDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.PolicyDetails>`
                     
                     .. attribute:: qos_direction
                     
@@ -4727,6 +4755,8 @@ class PlatformQos(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: kbit/s
+                        
                         .. attribute:: interface_handle
                         
                         	InterfaceHandle
@@ -4737,7 +4767,7 @@ class PlatformQos(object):
                         .. attribute:: interface_status
                         
                         	Interface Status
-                        	**type**\:  :py:class:`DnxQoseaShowIntfStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatusEnum>`
+                        	**type**\:   :py:class:`DnxQoseaShowIntfStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowIntfStatusEnum>`
                         
                         .. attribute:: npu_id
                         
@@ -4756,12 +4786,12 @@ class PlatformQos(object):
                         .. attribute:: policy_status
                         
                         	Policy Status
-                        	**type**\:  :py:class:`DnxQoseaShowPolicyStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatusEnum>`
+                        	**type**\:   :py:class:`DnxQoseaShowPolicyStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyStatusEnum>`
                         
                         .. attribute:: stats_accounting_type
                         
                         	QoS Statistics Accounting Type
-                        	**type**\:  :py:class:`QosPolicyAccountEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnumEnum>`
+                        	**type**\:   :py:class:`QosPolicyAccountEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.QosPolicyAccountEnumEnum>`
                         
                         .. attribute:: total_number_of_classes
                         
@@ -4863,7 +4893,7 @@ class PlatformQos(object):
                         .. attribute:: class_
                         
                         	QoS policy class
-                        	**type**\: list of  :py:class:`Class <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class>`
+                        	**type**\: list of    :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_>`
                         
                         
 
@@ -4879,7 +4909,7 @@ class PlatformQos(object):
                             self.class_.name = 'class_'
 
 
-                        class Class(object):
+                        class Class_(object):
                             """
                             QoS policy class
                             
@@ -4891,12 +4921,12 @@ class PlatformQos(object):
                             .. attribute:: class_level
                             
                             	Class level
-                            	**type**\:  :py:class:`DnxQoseaShowLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevelEnum>`
+                            	**type**\:   :py:class:`DnxQoseaShowLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowLevelEnum>`
                             
                             .. attribute:: common_mark
                             
                             	Common mark
-                            	**type**\: list of  :py:class:`CommonMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.CommonMark>`
+                            	**type**\: list of    :py:class:`CommonMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.CommonMark>`
                             
                             .. attribute:: config_excess_bandwidth_percent
                             
@@ -4904,6 +4934,8 @@ class PlatformQos(object):
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**units**\: percentage
                             
                             .. attribute:: config_excess_bandwidth_unit
                             
@@ -4915,42 +4947,42 @@ class PlatformQos(object):
                             .. attribute:: config_max_rate
                             
                             	Configured maximum rate
-                            	**type**\:  :py:class:`ConfigMaxRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMaxRate>`
+                            	**type**\:   :py:class:`ConfigMaxRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMaxRate>`
                             
                             .. attribute:: config_min_rate
                             
                             	Configured minimum rate
-                            	**type**\:  :py:class:`ConfigMinRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMinRate>`
+                            	**type**\:   :py:class:`ConfigMinRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMinRate>`
                             
                             .. attribute:: config_policer_average_rate
                             
                             	Configured policer average rate
-                            	**type**\:  :py:class:`ConfigPolicerAverageRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerAverageRate>`
+                            	**type**\:   :py:class:`ConfigPolicerAverageRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerAverageRate>`
                             
                             .. attribute:: config_policer_conform_burst
                             
                             	Configured policer conform burst
-                            	**type**\:  :py:class:`ConfigPolicerConformBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerConformBurst>`
+                            	**type**\:   :py:class:`ConfigPolicerConformBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerConformBurst>`
                             
                             .. attribute:: config_policer_excess_burst
                             
                             	Configured policer excess burst
-                            	**type**\:  :py:class:`ConfigPolicerExcessBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerExcessBurst>`
+                            	**type**\:   :py:class:`ConfigPolicerExcessBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerExcessBurst>`
                             
                             .. attribute:: config_policer_peak_rate
                             
                             	Config policer peak rate
-                            	**type**\:  :py:class:`ConfigPolicerPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerPeakRate>`
+                            	**type**\:   :py:class:`ConfigPolicerPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerPeakRate>`
                             
                             .. attribute:: config_queue_limit
                             
                             	Configured queue limit
-                            	**type**\:  :py:class:`ConfigQueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigQueueLimit>`
+                            	**type**\:   :py:class:`ConfigQueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigQueueLimit>`
                             
                             .. attribute:: conform_action
                             
                             	Conform action
-                            	**type**\:  :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction>`
+                            	**type**\:   :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction>`
                             
                             .. attribute:: egress_queue_id
                             
@@ -4962,7 +4994,7 @@ class PlatformQos(object):
                             .. attribute:: exceed_action
                             
                             	Exceed action
-                            	**type**\:  :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction>`
+                            	**type**\:   :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction>`
                             
                             .. attribute:: hardware_excess_bandwidth_weight
                             
@@ -4978,6 +5010,8 @@ class PlatformQos(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: kbit/s
+                            
                             .. attribute:: hardware_min_rate_kbps
                             
                             	Hardware minimum rate in kbps
@@ -4985,12 +5019,16 @@ class PlatformQos(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: kbit/s
+                            
                             .. attribute:: hardware_policer_average_rate_kbps
                             
                             	Hardware policer average in kbps
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**units**\: kbit/s
                             
                             .. attribute:: hardware_policer_conform_burst_bytes
                             
@@ -5020,6 +5058,8 @@ class PlatformQos(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: byte
+                            
                             .. attribute:: hardware_queue_limit_microseconds
                             
                             	Hardware queue limit in microseconds
@@ -5027,10 +5067,12 @@ class PlatformQos(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: microsecond
+                            
                             .. attribute:: ip_mark
                             
                             	IP mark
-                            	**type**\: list of  :py:class:`IpMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.IpMark>`
+                            	**type**\: list of    :py:class:`IpMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.IpMark>`
                             
                             .. attribute:: level_two_class_name
                             
@@ -5040,7 +5082,7 @@ class PlatformQos(object):
                             .. attribute:: mpls_mark
                             
                             	MPLS mark
-                            	**type**\: list of  :py:class:`MplsMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.MplsMark>`
+                            	**type**\: list of    :py:class:`MplsMark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.MplsMark>`
                             
                             .. attribute:: network_min_bandwidth_kbps
                             
@@ -5066,22 +5108,22 @@ class PlatformQos(object):
                             .. attribute:: priority_level
                             
                             	Priority level
-                            	**type**\:  :py:class:`DnxQoseaShowHpLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevelEnum>`
+                            	**type**\:   :py:class:`DnxQoseaShowHpLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowHpLevelEnum>`
                             
                             .. attribute:: queue_type
                             
                             	Queue type
-                            	**type**\:  :py:class:`DnxQoseaShowQueueEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueueEnum>`
+                            	**type**\:   :py:class:`DnxQoseaShowQueueEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowQueueEnum>`
                             
                             .. attribute:: violate_action
                             
                             	Violate action
-                            	**type**\:  :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction>`
+                            	**type**\:   :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction>`
                             
                             .. attribute:: wred
                             
                             	WRED parameters
-                            	**type**\: list of  :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred>`
+                            	**type**\: list of    :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred>`
                             
                             
 
@@ -5099,24 +5141,24 @@ class PlatformQos(object):
                                 self.common_mark.name = 'common_mark'
                                 self.config_excess_bandwidth_percent = None
                                 self.config_excess_bandwidth_unit = None
-                                self.config_max_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMaxRate()
+                                self.config_max_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMaxRate()
                                 self.config_max_rate.parent = self
-                                self.config_min_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMinRate()
+                                self.config_min_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMinRate()
                                 self.config_min_rate.parent = self
-                                self.config_policer_average_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerAverageRate()
+                                self.config_policer_average_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerAverageRate()
                                 self.config_policer_average_rate.parent = self
-                                self.config_policer_conform_burst = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerConformBurst()
+                                self.config_policer_conform_burst = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerConformBurst()
                                 self.config_policer_conform_burst.parent = self
-                                self.config_policer_excess_burst = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerExcessBurst()
+                                self.config_policer_excess_burst = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerExcessBurst()
                                 self.config_policer_excess_burst.parent = self
-                                self.config_policer_peak_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerPeakRate()
+                                self.config_policer_peak_rate = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerPeakRate()
                                 self.config_policer_peak_rate.parent = self
-                                self.config_queue_limit = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigQueueLimit()
+                                self.config_queue_limit = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigQueueLimit()
                                 self.config_queue_limit.parent = self
-                                self.conform_action = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction()
+                                self.conform_action = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction()
                                 self.conform_action.parent = self
                                 self.egress_queue_id = None
-                                self.exceed_action = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction()
+                                self.exceed_action = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction()
                                 self.exceed_action.parent = self
                                 self.hardware_excess_bandwidth_weight = None
                                 self.hardware_max_rate_kbps = None
@@ -5139,7 +5181,7 @@ class PlatformQos(object):
                                 self.policer_stats_handle = None
                                 self.priority_level = None
                                 self.queue_type = None
-                                self.violate_action = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction()
+                                self.violate_action = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction()
                                 self.violate_action.parent = self
                                 self.wred = YList()
                                 self.wred.parent = self
@@ -5153,7 +5195,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -5199,7 +5241,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMaxRate']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMaxRate']['meta_info']
 
 
                             class ConfigMinRate(object):
@@ -5209,7 +5251,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -5255,7 +5297,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMinRate']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMinRate']['meta_info']
 
 
                             class ConfigQueueLimit(object):
@@ -5265,7 +5307,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -5311,7 +5353,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigQueueLimit']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigQueueLimit']['meta_info']
 
 
                             class ConfigPolicerAverageRate(object):
@@ -5321,7 +5363,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -5367,7 +5409,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerAverageRate']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerAverageRate']['meta_info']
 
 
                             class ConfigPolicerPeakRate(object):
@@ -5377,7 +5419,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -5423,7 +5465,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerPeakRate']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerPeakRate']['meta_info']
 
 
                             class ConfigPolicerConformBurst(object):
@@ -5433,7 +5475,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -5479,7 +5521,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerConformBurst']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerConformBurst']['meta_info']
 
 
                             class ConfigPolicerExcessBurst(object):
@@ -5489,7 +5531,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -5535,7 +5577,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerExcessBurst']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerExcessBurst']['meta_info']
 
 
                             class ConformAction(object):
@@ -5545,12 +5587,12 @@ class PlatformQos(object):
                                 .. attribute:: action_type
                                 
                                 	Policer action type
-                                	**type**\:  :py:class:`DnxQoseaShowActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
+                                	**type**\:   :py:class:`DnxQoseaShowActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
                                 
                                 .. attribute:: mark
                                 
                                 	Action mark
-                                	**type**\: list of  :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction.Mark>`
+                                	**type**\: list of    :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction.Mark>`
                                 
                                 
 
@@ -5574,7 +5616,7 @@ class PlatformQos(object):
                                     .. attribute:: mark_type
                                     
                                     	Mark type
-                                    	**type**\:  :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                    	**type**\:   :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                     
                                     .. attribute:: mark_value
                                     
@@ -5620,7 +5662,7 @@ class PlatformQos(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction.Mark']['meta_info']
+                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction.Mark']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -5649,7 +5691,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction']['meta_info']
 
 
                             class ExceedAction(object):
@@ -5659,12 +5701,12 @@ class PlatformQos(object):
                                 .. attribute:: action_type
                                 
                                 	Policer action type
-                                	**type**\:  :py:class:`DnxQoseaShowActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
+                                	**type**\:   :py:class:`DnxQoseaShowActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
                                 
                                 .. attribute:: mark
                                 
                                 	Action mark
-                                	**type**\: list of  :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction.Mark>`
+                                	**type**\: list of    :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction.Mark>`
                                 
                                 
 
@@ -5688,7 +5730,7 @@ class PlatformQos(object):
                                     .. attribute:: mark_type
                                     
                                     	Mark type
-                                    	**type**\:  :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                    	**type**\:   :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                     
                                     .. attribute:: mark_value
                                     
@@ -5734,7 +5776,7 @@ class PlatformQos(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction.Mark']['meta_info']
+                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction.Mark']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -5763,7 +5805,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction']['meta_info']
 
 
                             class ViolateAction(object):
@@ -5773,12 +5815,12 @@ class PlatformQos(object):
                                 .. attribute:: action_type
                                 
                                 	Policer action type
-                                	**type**\:  :py:class:`DnxQoseaShowActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
+                                	**type**\:   :py:class:`DnxQoseaShowActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowActionEnum>`
                                 
                                 .. attribute:: mark
                                 
                                 	Action mark
-                                	**type**\: list of  :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction.Mark>`
+                                	**type**\: list of    :py:class:`Mark <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction.Mark>`
                                 
                                 
 
@@ -5802,7 +5844,7 @@ class PlatformQos(object):
                                     .. attribute:: mark_type
                                     
                                     	Mark type
-                                    	**type**\:  :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                    	**type**\:   :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                     
                                     .. attribute:: mark_value
                                     
@@ -5848,7 +5890,7 @@ class PlatformQos(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction.Mark']['meta_info']
+                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction.Mark']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -5877,7 +5919,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction']['meta_info']
 
 
                             class IpMark(object):
@@ -5887,7 +5929,7 @@ class PlatformQos(object):
                                 .. attribute:: mark_type
                                 
                                 	Mark type
-                                	**type**\:  :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                	**type**\:   :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                 
                                 .. attribute:: mark_value
                                 
@@ -5933,7 +5975,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.IpMark']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.IpMark']['meta_info']
 
 
                             class CommonMark(object):
@@ -5943,7 +5985,7 @@ class PlatformQos(object):
                                 .. attribute:: mark_type
                                 
                                 	Mark type
-                                	**type**\:  :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                	**type**\:   :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                 
                                 .. attribute:: mark_value
                                 
@@ -5989,7 +6031,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.CommonMark']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.CommonMark']['meta_info']
 
 
                             class MplsMark(object):
@@ -5999,7 +6041,7 @@ class PlatformQos(object):
                                 .. attribute:: mark_type
                                 
                                 	Mark type
-                                	**type**\:  :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
+                                	**type**\:   :py:class:`DnxQoseaShowMarkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowMarkEnum>`
                                 
                                 .. attribute:: mark_value
                                 
@@ -6045,7 +6087,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.MplsMark']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.MplsMark']['meta_info']
 
 
                             class Wred(object):
@@ -6055,12 +6097,12 @@ class PlatformQos(object):
                                 .. attribute:: config_max_threshold
                                 
                                 	Configured maximum threshold
-                                	**type**\:  :py:class:`ConfigMaxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMaxThreshold>`
+                                	**type**\:   :py:class:`ConfigMaxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMaxThreshold>`
                                 
                                 .. attribute:: config_min_threshold
                                 
                                 	Configured minimum threshold
-                                	**type**\:  :py:class:`ConfigMinThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMinThreshold>`
+                                	**type**\:   :py:class:`ConfigMinThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMinThreshold>`
                                 
                                 .. attribute:: first_segment
                                 
@@ -6093,12 +6135,12 @@ class PlatformQos(object):
                                 .. attribute:: wred_match_type
                                 
                                 	WREDMatchType
-                                	**type**\:  :py:class:`DnxQoseaShowWredEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWredEnum>`
+                                	**type**\:   :py:class:`DnxQoseaShowWredEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowWredEnum>`
                                 
                                 .. attribute:: wred_match_value
                                 
                                 	WRED match values
-                                	**type**\:  :py:class:`WredMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue>`
+                                	**type**\:   :py:class:`WredMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue>`
                                 
                                 
 
@@ -6109,16 +6151,16 @@ class PlatformQos(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.config_max_threshold = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMaxThreshold()
+                                    self.config_max_threshold = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMaxThreshold()
                                     self.config_max_threshold.parent = self
-                                    self.config_min_threshold = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMinThreshold()
+                                    self.config_min_threshold = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMinThreshold()
                                     self.config_min_threshold.parent = self
                                     self.first_segment = None
                                     self.hardware_max_threshold_bytes = None
                                     self.hardware_min_threshold_bytes = None
                                     self.segment_size = None
                                     self.wred_match_type = None
-                                    self.wred_match_value = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue()
+                                    self.wred_match_value = PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue()
                                     self.wred_match_value.parent = self
 
 
@@ -6129,7 +6171,7 @@ class PlatformQos(object):
                                     .. attribute:: dnx_qosea_show_red_match_value
                                     
                                     	dnx qosea show red match value
-                                    	**type**\: list of  :py:class:`DnxQoseaShowRedMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue>`
+                                    	**type**\: list of    :py:class:`DnxQoseaShowRedMatchValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue>`
                                     
                                     
 
@@ -6200,7 +6242,7 @@ class PlatformQos(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue']['meta_info']
+                                            return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -6226,7 +6268,7 @@ class PlatformQos(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue']['meta_info']
+                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue']['meta_info']
 
 
                                 class ConfigMinThreshold(object):
@@ -6236,7 +6278,7 @@ class PlatformQos(object):
                                     .. attribute:: policy_unit
                                     
                                     	Policy unit
-                                    	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                    	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                     
                                     .. attribute:: policy_value
                                     
@@ -6282,7 +6324,7 @@ class PlatformQos(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMinThreshold']['meta_info']
+                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMinThreshold']['meta_info']
 
 
                                 class ConfigMaxThreshold(object):
@@ -6292,7 +6334,7 @@ class PlatformQos(object):
                                     .. attribute:: policy_unit
                                     
                                     	Policy unit
-                                    	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
+                                    	**type**\:   :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                     
                                     .. attribute:: policy_value
                                     
@@ -6338,7 +6380,7 @@ class PlatformQos(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMaxThreshold']['meta_info']
+                                        return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMaxThreshold']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -6383,7 +6425,7 @@ class PlatformQos(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred']['meta_info']
+                                    return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -6516,7 +6558,7 @@ class PlatformQos(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-                                return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class']['meta_info']
+                                return meta._meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -6613,7 +6655,7 @@ class PlatformQos(object):
                 .. attribute:: remote_interface
                 
                 	QoS remote interface names
-                	**type**\: list of  :py:class:`RemoteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface>`
+                	**type**\: list of    :py:class:`RemoteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface>`
                 
                 
 
@@ -6671,7 +6713,7 @@ class PlatformQos(object):
                     .. attribute:: remote_class
                     
                     	Remote Class array
-                    	**type**\: list of  :py:class:`RemoteClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass>`
+                    	**type**\: list of    :py:class:`RemoteClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass>`
                     
                     .. attribute:: virtual_output_queue_statistics_handle
                     
@@ -6732,10 +6774,12 @@ class PlatformQos(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: byte
+                        
                         .. attribute:: hw_wred
                         
                         	Hardware WRED profiles
-                        	**type**\: list of  :py:class:`HwWred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass.HwWred>`
+                        	**type**\: list of    :py:class:`HwWred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass.HwWred>`
                         
                         .. attribute:: queue_limit
                         
@@ -6744,10 +6788,12 @@ class PlatformQos(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: byte
+                        
                         .. attribute:: wred
                         
                         	Default/Configured WRED profiles
-                        	**type**\: list of  :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass.Wred>`
+                        	**type**\: list of    :py:class:`Wred <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PlatformQos.Nodes.Node.RemoteInterfaces.RemoteInterface.RemoteClass.Wred>`
                         
                         
 

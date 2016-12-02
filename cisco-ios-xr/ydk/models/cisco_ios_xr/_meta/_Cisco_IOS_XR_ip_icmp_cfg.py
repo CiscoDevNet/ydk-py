@@ -16,8 +16,8 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'SourcePolicyEnum' : _MetaInfoEnum('SourcePolicyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg',
         {
-            'vrf':'VRF',
-            'rfc':'RFC',
+            'vrf':'vrf',
+            'rfc':'rfc',
         }, 'Cisco-IOS-XR-ip-icmp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-icmp-cfg']),
     'Icmp.IpProtocol.RateLimit.Unreachable' : {
         'meta_info' : _MetaInfoClass('Icmp.IpProtocol.RateLimit.Unreachable',

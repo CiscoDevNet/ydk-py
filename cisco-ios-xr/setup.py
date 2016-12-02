@@ -37,7 +37,7 @@ INSTALL_REQUIREMENTS = ['ecdsa==0.13',
                         'ydk>=0.5.1']
 
 NMSP_PKG_NAME = "ydk-models-cisco_ios_xr"
-NMSP_PKG_VERSION = "6.1.1"
+NMSP_PKG_VERSION = "6.1.2"
 NMSP_PKG_DEPENDENCIES = ['ydk-models-ietf>=0.1.1', 'ydk-models-openconfig>=0.1.1']
 
 

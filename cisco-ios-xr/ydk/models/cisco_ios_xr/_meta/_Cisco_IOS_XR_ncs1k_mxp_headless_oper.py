@@ -123,6 +123,12 @@ _meta_table = {
                 ''',
                 'rx_error_jabbers',
                 'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
+            _MetaInfoClassMember('rx-lldp-pkt', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                RxLldpPkt
+                ''',
+                'rx_lldp_pkt',
+                'Cisco-IOS-XR-ncs1k-mxp-headless-oper', False),
             _MetaInfoClassMember('rx-packets', ATTRIBUTE, 'int' , None, None, 
                 [('0', '18446744073709551615')], [], 
                 '''                RxPackets

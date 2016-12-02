@@ -16,8 +16,8 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'EncryptionTypeEnum' : _MetaInfoEnum('EncryptionTypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_types',
         {
-            'none':'NONE',
-            'md5':'MD5',
-            'proprietary':'PROPRIETARY',
+            'none':'none',
+            'md5':'md5',
+            'proprietary':'proprietary',
         }, 'Cisco-IOS-XR-types', _yang_ns._namespaces['Cisco-IOS-XR-types']),
 }

@@ -16,25 +16,25 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'NtpAccessAfEnum' : _MetaInfoEnum('NtpAccessAfEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg',
         {
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-ip-ntp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-ntp-cfg']),
     'NtpPeerEnum' : _MetaInfoEnum('NtpPeerEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg',
         {
-            'peer':'PEER',
-            'server':'SERVER',
+            'peer':'peer',
+            'server':'server',
         }, 'Cisco-IOS-XR-ip-ntp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-ntp-cfg']),
     'NtpdscpEnum' : _MetaInfoEnum('NtpdscpEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg',
         {
-            'ntp-precedence':'NTP_PRECEDENCE',
-            'ntpdscp':'NTPDSCP',
+            'ntp-precedence':'ntp_precedence',
+            'ntpdscp':'ntpdscp',
         }, 'Cisco-IOS-XR-ip-ntp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-ntp-cfg']),
     'NtpAccessEnum' : _MetaInfoEnum('NtpAccessEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg',
         {
-            'peer':'PEER',
-            'serve':'SERVE',
-            'serve-only':'SERVE_ONLY',
-            'query-only':'QUERY_ONLY',
+            'peer':'peer',
+            'serve':'serve',
+            'serve-only':'serve_only',
+            'query-only':'query_only',
         }, 'Cisco-IOS-XR-ip-ntp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-ntp-cfg']),
     'Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4.PeerTypeIpv4' : {
         'meta_info' : _MetaInfoClass('Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4.PeerTypeIpv4',

@@ -23,55 +23,55 @@ class SeverityEnum(Enum):
 
     The definitions for Syslog message severity as per RFC 5424.
 
-    .. data:: EMERGENCY = 0
+    .. data:: emergency = 0
 
     	Emergency Level Msg
 
-    .. data:: ALERT = 1
+    .. data:: alert = 1
 
     	Alert Level Msg
 
-    .. data:: CRITICAL = 2
+    .. data:: critical = 2
 
     	Critical Level Msg
 
-    .. data:: ERROR = 3
+    .. data:: error = 3
 
     	Error Level Msg
 
-    .. data:: WARNING = 4
+    .. data:: warning = 4
 
     	Warning Level Msg
 
-    .. data:: NOTICE = 5
+    .. data:: notice = 5
 
     	Notification Level Msg
 
-    .. data:: INFO = 6
+    .. data:: info = 6
 
     	Informational Level Msg
 
-    .. data:: DEBUG = 7
+    .. data:: debug = 7
 
     	Debugging Level Msg
 
     """
 
-    EMERGENCY = 0
+    emergency = 0
 
-    ALERT = 1
+    alert = 1
 
-    CRITICAL = 2
+    critical = 2
 
-    ERROR = 3
+    error = 3
 
-    WARNING = 4
+    warning = 4
 
-    NOTICE = 5
+    notice = 5
 
-    INFO = 6
+    info = 6
 
-    DEBUG = 7
+    debug = 7
 
 
     @staticmethod

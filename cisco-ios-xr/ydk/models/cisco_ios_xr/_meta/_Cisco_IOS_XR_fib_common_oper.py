@@ -16,140 +16,140 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'FibMplsLlcEntryBagEnum' : _MetaInfoEnum('FibMplsLlcEntryBagEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
         {
-            'fib-mpls-llc-bag-type-xc':'FIB_MPLS_LLC_BAG_TYPE_XC',
-            'fib-mpls-llc-bag-type-pfx':'FIB_MPLS_LLC_BAG_TYPE_PFX',
-            'fib-mpls-llc-bag-type-lsm':'FIB_MPLS_LLC_BAG_TYPE_LSM',
-            'fib-mpls-llc-bag-type-max':'FIB_MPLS_LLC_BAG_TYPE_MAX',
+            'fib-mpls-llc-bag-type-xc':'fib_mpls_llc_bag_type_xc',
+            'fib-mpls-llc-bag-type-pfx':'fib_mpls_llc_bag_type_pfx',
+            'fib-mpls-llc-bag-type-lsm':'fib_mpls_llc_bag_type_lsm',
+            'fib-mpls-llc-bag-type-max':'fib_mpls_llc_bag_type_max',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
     'MgmtFibMplsFrrStateEnum' : _MetaInfoEnum('MgmtFibMplsFrrStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
         {
-            'partial':'PARTIAL',
-            'active':'ACTIVE',
-            'ready':'READY',
-            'complete':'COMPLETE',
-            'any':'ANY',
+            'partial':'partial',
+            'active':'active',
+            'ready':'ready',
+            'complete':'complete',
+            'any':'any',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
     'FibShIpencapHdrEnum' : _MetaInfoEnum('FibShIpencapHdrEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
         {
-            'fib-sh-ip-encap-none':'FIB_SH_IP_ENCAP_NONE',
-            'fib-sh-ip-encap-ip4':'FIB_SH_IP_ENCAP_IP4',
-            'fib-sh-ip-encap-ip6':'FIB_SH_IP_ENCAP_IP6',
-            'fib-sh-ip-encap-udp':'FIB_SH_IP_ENCAP_UDP',
-            'fib-sh-ip-encap-lisp':'FIB_SH_IP_ENCAP_LISP',
+            'fib-sh-ip-encap-none':'fib_sh_ip_encap_none',
+            'fib-sh-ip-encap-ip4':'fib_sh_ip_encap_ip4',
+            'fib-sh-ip-encap-ip6':'fib_sh_ip_encap_ip6',
+            'fib-sh-ip-encap-udp':'fib_sh_ip_encap_udp',
+            'fib-sh-ip-encap-lisp':'fib_sh_ip_encap_lisp',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
     'FibProtocolEnum' : _MetaInfoEnum('FibProtocolEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
         {
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
-            'mpls':'MPLS',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'SsLbaStateEnum' : _MetaInfoEnum('SsLbaStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'l3':'L3',
-            'l4':'L4',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibFrrProtocolShowEnum' : _MetaInfoEnum('FibFrrProtocolShowEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'frr-protocol-ipv4':'FRR_PROTOCOL_IPV4',
-            'frr-protocol-ipv6':'FRR_PROTOCOL_IPV6',
-            'frr-protocol-mpls':'FRR_PROTOCOL_MPLS',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'ProtoEnum' : _MetaInfoEnum('ProtoEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
-            'mpls':'MPLS',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibLinkEnum' : _MetaInfoEnum('FibLinkEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'link-ipv4':'LINK_IPV4',
-            'link-ipv6':'LINK_IPV6',
-            'link-mpls':'LINK_MPLS',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibAdjacencyShowEnum' : _MetaInfoEnum('FibAdjacencyShowEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'fib-adjacency-normal':'FIB_ADJACENCY_NORMAL',
-            'fib-adjacency-null':'FIB_ADJACENCY_NULL',
-            'fib-adjacency-punt':'FIB_ADJACENCY_PUNT',
-            'fib-adjacency-drop':'FIB_ADJACENCY_DROP',
-            'fib-adjacency-glean':'FIB_ADJACENCY_GLEAN',
-            'fib-adjacency-discard':'FIB_ADJACENCY_DISCARD',
-            'fib-adjacency-broadcast':'FIB_ADJACENCY_BROADCAST',
-            'fib-adjacency-external':'FIB_ADJACENCY_EXTERNAL',
-            'fib-adjacency-lisp':'FIB_ADJACENCY_LISP',
-            'fib-adjacency-unknown':'FIB_ADJACENCY_UNKNOWN',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibLoadshareShowEnum' : _MetaInfoEnum('FibLoadshareShowEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'fib-load-share-none':'FIB_LOAD_SHARE_NONE',
-            'fib-load-share-per-packet':'FIB_LOAD_SHARE_PER_PACKET',
-            'fib-load-share-dest-sharing':'FIB_LOAD_SHARE_DEST_SHARING',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'EosEnum' : _MetaInfoEnum('EosEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'eos0':'EOS0',
-            'eos1':'EOS1',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibllcEntryEnum' : _MetaInfoEnum('FibllcEntryEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'xc':'XC',
-            'pfx':'PFX',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibRpfModeEnum' : _MetaInfoEnum('FibRpfModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'fib-rpf-mode-strict':'FIB_RPF_MODE_STRICT',
-            'fib-rpf-mode-loose':'FIB_RPF_MODE_LOOSE',
-            'fib-rpf-mode-unknown':'FIB_RPF_MODE_UNKNOWN',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibidbOperEnum' : _MetaInfoEnum('FibidbOperEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'fibidb-none':'FIBIDB_NONE',
-            'fibidb-create':'FIBIDB_CREATE',
-            'fibidb-delete':'FIBIDB_DELETE',
-            'fibidb-modify':'FIBIDB_MODIFY',
-            'fibidb-max':'FIBIDB_MAX',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
+            'mpls':'mpls',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
     'FibNehEnum' : _MetaInfoEnum('FibNehEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
         {
-            'nh-local':'NH_LOCAL',
-            'nh-remote':'NH_REMOTE',
-            'nh-special':'NH_SPECIAL',
+            'nh-local':'nh_local',
+            'nh-remote':'nh_remote',
+            'nh-special':'nh_special',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibFrrProtocolShowEnum' : _MetaInfoEnum('FibFrrProtocolShowEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'frr-protocol-ipv4':'frr_protocol_ipv4',
+            'frr-protocol-ipv6':'frr_protocol_ipv6',
+            'frr-protocol-mpls':'frr_protocol_mpls',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'ProtoEnum' : _MetaInfoEnum('ProtoEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
+            'mpls':'mpls',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibLinkEnum' : _MetaInfoEnum('FibLinkEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'link-ipv4':'link_ipv4',
+            'link-ipv6':'link_ipv6',
+            'link-mpls':'link_mpls',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibAdjacencyShowEnum' : _MetaInfoEnum('FibAdjacencyShowEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'fib-adjacency-normal':'fib_adjacency_normal',
+            'fib-adjacency-null':'fib_adjacency_null',
+            'fib-adjacency-punt':'fib_adjacency_punt',
+            'fib-adjacency-drop':'fib_adjacency_drop',
+            'fib-adjacency-glean':'fib_adjacency_glean',
+            'fib-adjacency-discard':'fib_adjacency_discard',
+            'fib-adjacency-broadcast':'fib_adjacency_broadcast',
+            'fib-adjacency-external':'fib_adjacency_external',
+            'fib-adjacency-lisp':'fib_adjacency_lisp',
+            'fib-adjacency-unknown':'fib_adjacency_unknown',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibLoadshareShowEnum' : _MetaInfoEnum('FibLoadshareShowEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'fib-load-share-none':'fib_load_share_none',
+            'fib-load-share-per-packet':'fib_load_share_per_packet',
+            'fib-load-share-dest-sharing':'fib_load_share_dest_sharing',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'EosEnum' : _MetaInfoEnum('EosEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'eos0':'eos0',
+            'eos1':'eos1',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibllcEntryEnum' : _MetaInfoEnum('FibllcEntryEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'xc':'xc',
+            'pfx':'pfx',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibRpfModeEnum' : _MetaInfoEnum('FibRpfModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'fib-rpf-mode-strict':'fib_rpf_mode_strict',
+            'fib-rpf-mode-loose':'fib_rpf_mode_loose',
+            'fib-rpf-mode-unknown':'fib_rpf_mode_unknown',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibidbOperEnum' : _MetaInfoEnum('FibidbOperEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'fibidb-none':'fibidb_none',
+            'fibidb-create':'fibidb_create',
+            'fibidb-delete':'fibidb_delete',
+            'fibidb-modify':'fibidb_modify',
+            'fibidb-max':'fibidb_max',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'SsLbaStateEnum' : _MetaInfoEnum('SsLbaStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'l3':'l3',
+            'l4':'l4',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
     'NextHopEnum' : _MetaInfoEnum('NextHopEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
         {
-            'tx':'TX',
-            'rx':'RX',
-            'special':'SPECIAL',
+            'tx':'tx',
+            'rx':'rx',
+            'special':'special',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
     'FibRouteSourceEnum' : _MetaInfoEnum('FibRouteSourceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
         {
-            'lsd':'LSD',
-            'rib':'RIB',
-            'mrib':'MRIB',
+            'lsd':'lsd',
+            'rib':'rib',
+            'mrib':'mrib',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
     'MplseosEnum' : _MetaInfoEnum('MplseosEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
         {
-            'eos0':'EOS0',
-            'eos1':'EOS1',
+            'eos0':'eos0',
+            'eos1':'eos1',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
     'MgmtFibMplsLspRoleEnum' : _MetaInfoEnum('MgmtFibMplsLspRoleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
         {
-            'head':'HEAD',
-            'midpoint':'MIDPOINT',
+            'head':'head',
+            'midpoint':'midpoint',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
     'FibNehSpecialEnum' : _MetaInfoEnum('FibNehSpecialEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
         {
-            'nh-not-found':'NH_NOT_FOUND',
-            'nh-null0':'NH_NULL0',
-            'nh-punt':'NH_PUNT',
-            'nh-drop':'NH_DROP',
-            'nh-glean':'NH_GLEAN',
-            'nh-receive':'NH_RECEIVE',
-            'nh-broadcast':'NH_BROADCAST',
-            'nh-external':'NH_EXTERNAL',
-            'nh-lisp':'NH_LISP',
-            'nh-lookup':'NH_LOOKUP',
-            'nh-max-type':'NH_MAX_TYPE',
+            'nh-not-found':'nh_not_found',
+            'nh-null0':'nh_null0',
+            'nh-punt':'nh_punt',
+            'nh-drop':'nh_drop',
+            'nh-glean':'nh_glean',
+            'nh-receive':'nh_receive',
+            'nh-broadcast':'nh_broadcast',
+            'nh-external':'nh_external',
+            'nh-lisp':'nh_lisp',
+            'nh-lookup':'nh_lookup',
+            'nh-max-type':'nh_max_type',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
     'FibStatistics.Nodes.Node.Drops' : {
         'meta_info' : _MetaInfoClass('FibStatistics.Nodes.Node.Drops',
@@ -531,6 +531,584 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-fib-common-oper',
             'issu-state',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.ExclusiveLoadSharingElement' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.ExclusiveLoadSharingElement',
+            False, 
+            [
+            _MetaInfoClassMember('platform-shared-load-info-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Count of platform shared Loadinfo elements
+                ''',
+                'platform_shared_load_info_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('platform-shared-path-list-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Count of platform shared Pathlist elements
+                ''',
+                'platform_shared_path_list_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('recursive-load-info-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Count of recursive Loadinfo elements
+                ''',
+                'recursive_load_info_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('recursive-path-list-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Count of recursive Pathlist elements
+                ''',
+                'recursive_path_list_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('retry-path-list-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Count of Pathlist elements in retry
+                ''',
+                'retry_path_list_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('total-load-info-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Total count of Loadinfo elements
+                ''',
+                'total_load_info_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('total-load-sharing-element-bytes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Total memory used by load sharing elements in
+                bytes
+                ''',
+                'total_load_sharing_element_bytes',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('total-load-sharing-element-references', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Total count of references to load sharing
+                elements
+                ''',
+                'total_load_sharing_element_references',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('total-path-list-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Total count of Pathlist elements
+                ''',
+                'total_path_list_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'exclusive-load-sharing-element',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.SharedLoadSharingElement' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.SharedLoadSharingElement',
+            False, 
+            [
+            _MetaInfoClassMember('platform-shared-load-info-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Count of platform shared Loadinfo elements
+                ''',
+                'platform_shared_load_info_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('platform-shared-path-list-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Count of platform shared Pathlist elements
+                ''',
+                'platform_shared_path_list_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('recursive-load-info-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Count of recursive Loadinfo elements
+                ''',
+                'recursive_load_info_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('recursive-path-list-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Count of recursive Pathlist elements
+                ''',
+                'recursive_path_list_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('retry-path-list-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Count of Pathlist elements in retry
+                ''',
+                'retry_path_list_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('total-load-info-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Total count of Loadinfo elements
+                ''',
+                'total_load_info_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('total-load-sharing-element-bytes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Total memory used by load sharing elements in
+                bytes
+                ''',
+                'total_load_sharing_element_bytes',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('total-load-sharing-element-references', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Total count of references to load sharing
+                elements
+                ''',
+                'total_load_sharing_element_references',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('total-path-list-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Total count of Pathlist elements
+                ''',
+                'total_path_list_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'shared-load-sharing-element',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.CrossSharedLoadSharingElement' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.CrossSharedLoadSharingElement',
+            False, 
+            [
+            _MetaInfoClassMember('platform-shared-load-info-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Count of platform shared Loadinfo elements
+                ''',
+                'platform_shared_load_info_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('platform-shared-path-list-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Count of platform shared Pathlist elements
+                ''',
+                'platform_shared_path_list_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('recursive-load-info-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Count of recursive Loadinfo elements
+                ''',
+                'recursive_load_info_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('recursive-path-list-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Count of recursive Pathlist elements
+                ''',
+                'recursive_path_list_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('retry-path-list-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Count of Pathlist elements in retry
+                ''',
+                'retry_path_list_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('total-load-info-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Total count of Loadinfo elements
+                ''',
+                'total_load_info_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('total-load-sharing-element-bytes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Total memory used by load sharing elements in
+                bytes
+                ''',
+                'total_load_sharing_element_bytes',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('total-load-sharing-element-references', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Total count of references to load sharing
+                elements
+                ''',
+                'total_load_sharing_element_references',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('total-path-list-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Total count of Pathlist elements
+                ''',
+                'total_path_list_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'cross-shared-load-sharing-element',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.LabelSharedLoadSharingElement' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.LabelSharedLoadSharingElement',
+            False, 
+            [
+            _MetaInfoClassMember('platform-shared-load-info-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Count of platform shared Loadinfo elements
+                ''',
+                'platform_shared_load_info_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('platform-shared-path-list-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Count of platform shared Pathlist elements
+                ''',
+                'platform_shared_path_list_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('recursive-load-info-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Count of recursive Loadinfo elements
+                ''',
+                'recursive_load_info_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('recursive-path-list-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Count of recursive Pathlist elements
+                ''',
+                'recursive_path_list_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('retry-path-list-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Count of Pathlist elements in retry
+                ''',
+                'retry_path_list_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('total-load-info-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Total count of Loadinfo elements
+                ''',
+                'total_load_info_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('total-load-sharing-element-bytes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Total memory used by load sharing elements in
+                bytes
+                ''',
+                'total_load_sharing_element_bytes',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('total-load-sharing-element-references', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Total count of references to load sharing
+                elements
+                ''',
+                'total_load_sharing_element_references',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('total-path-list-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Total count of Pathlist elements
+                ''',
+                'total_path_list_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'label-shared-load-sharing-element',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary',
+            False, 
+            [
+            _MetaInfoClassMember('cef-route-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of routes dropped by CEF
+                ''',
+                'cef_route_drops',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('cef-version-mismatch-route-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                the number of routes dropped due to version
+                mismatch
+                ''',
+                'cef_version_mismatch_route_drops',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('cefl-bl-recycled-routes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of routes updates with recycled label
+                handled
+                ''',
+                'cefl_bl_recycled_routes',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('cross-shared-load-sharing-element', REFERENCE_CLASS, 'CrossSharedLoadSharingElement' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.CrossSharedLoadSharingElement', 
+                [], [], 
+                '''                Cross-table shared load sharing element
+                ''',
+                'cross_shared_load_sharing_element',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('delete-cache-num-entries', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of entries in the route delete cache
+                ''',
+                'delete_cache_num_entries',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('exclusive-load-sharing-element', REFERENCE_CLASS, 'ExclusiveLoadSharingElement' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.ExclusiveLoadSharingElement', 
+                [], [], 
+                '''                Exclusive load sharing element
+                ''',
+                'exclusive_load_sharing_element',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('existing-leaves-revisions', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of entries present on addition
+                ''',
+                'existing_leaves_revisions',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('extended-prefixes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of prefixes with extended path-list
+                ''',
+                'extended_prefixes',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('fib-default-prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Default prefix
+                ''',
+                'fib_default_prefix',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('fib-default-prefix-mask-length', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Default prefix mask length
+                ''',
+                'fib_default_prefix_mask_length',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('forwarding-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of forwarding elements linked to the
+                table
+                ''',
+                'forwarding_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('imposition-prefixes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of prefixes with imposition LDI
+                ''',
+                'imposition_prefixes',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('incomplete-next-hops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of incomplete NHINFOS
+                ''',
+                'incomplete_next_hops',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('label-shared-load-sharing-element', REFERENCE_CLASS, 'LabelSharedLoadSharingElement' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.LabelSharedLoadSharingElement', 
+                [], [], 
+                '''                Label-shared load sharing element
+                ''',
+                'label_shared_load_sharing_element',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('ldi-backwalks', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                pd backwalks on LDI modify with backup path
+                ''',
+                'ldi_backwalks',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('leaves-used-bytes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Total memory used by leaves
+                ''',
+                'leaves_used_bytes',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('lisp-eid-prefixes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of lisp eid prefixes associated with
+                table
+                ''',
+                'lisp_eid_prefixes',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('lisp-eid-valid-prefixes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of lisp eid prefixes eligible for
+                forwarding
+                ''',
+                'lisp_eid_valid_prefixes',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('lisp-rloc-objects', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of lisp rloc objects associated with
+                table
+                ''',
+                'lisp_rloc_objects',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('load-balancing', REFERENCE_ENUM_CLASS, 'SsLbaStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'SsLbaStateEnum', 
+                [], [], 
+                '''                LBA configuration state
+                ''',
+                'load_balancing',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('load-sharing-elements', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Count of load sharing elements
+                ''',
+                'load_sharing_elements',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('load-sharing-references', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Count of load sharing references
+                ''',
+                'load_sharing_references',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('max-resolution-timer', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                IP CEF max resolution time in seconds
+                ''',
+                'max_resolution_timer',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('new-unresolve-entries', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of new unresolved entries
+                ''',
+                'new_unresolve_entries',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('next-hops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of NHINFOS
+                ''',
+                'next_hops',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('old-unresolve-entries', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of old unresolved entries
+                ''',
+                'old_unresolve_entries',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                The router-id
+                ''',
+                'prefix',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('prefix-in-place-modifications', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of inplace modifications
+                ''',
+                'prefix_in_place_modifications',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'FibProtocolEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibProtocolEnum', 
+                [], [], 
+                '''                Protocol Name 
+                ''',
+                'protocol_name',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('reresolve-entries', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of reresolved entries
+                ''',
+                'reresolve_entries',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('resolution-timer', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                IP CEF resolution timer in seconds
+                ''',
+                'resolution_timer',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('routes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of routes
+                ''',
+                'routes',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('shared-load-sharing-element', REFERENCE_CLASS, 'SharedLoadSharingElement' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.SharedLoadSharingElement', 
+                [], [], 
+                '''                Shared load sharing element
+                ''',
+                'shared_load_sharing_element',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('slow-process-timer', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                IP CEF slow processing time in seconds
+                ''',
+                'slow_process_timer',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('ss-drop-pl-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of dropped pathlists
+                ''',
+                'ss_drop_pl_count',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('ss-prot-route-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of routes with FRR protection
+                ''',
+                'ss_prot_route_count',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('ss-tbl-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Table Id
+                ''',
+                'ss_tbl_id',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('ss-tbl-id-ptr', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Table Id Ptr
+                ''',
+                'ss_tbl_id_ptr',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('ss-vr-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Virtual router instance Id
+                ''',
+                'ss_vr_id',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('ss-vrf-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Virtual routing forwarding instance Id
+                ''',
+                'ss_vrf_id',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('ss-vxlan-ltep-ifh', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                VXLAN local Interface handle
+                ''',
+                'ss_vxlan_ltep_ifh',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('stale-prefix-deletes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of deleted stale leafs
+                ''',
+                'stale_prefix_deletes',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                FIB table id
+                ''',
+                'table_id',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('total-load-share-element-bytes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Total memory used by load sharing elements
+                ''',
+                'total_load_share_element_bytes',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('unresolve-entries', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of total unresolved entries
+                ''',
+                'unresolve_entries',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                VRF Name
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'summary',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Protocols.Protocol.Summaries' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Summaries',
+            False, 
+            [
+            _MetaInfoClassMember('summary', REFERENCE_LIST, 'Summary' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary', 
+                [], [], 
+                '''                Summary for the requested fib table
+                ''',
+                'summary',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'summaries',
             _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
@@ -6207,6 +6785,12 @@ _meta_table = {
                 '''                CEF misc hidden data
                 ''',
                 'misc',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('summaries', REFERENCE_CLASS, 'Summaries' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Summaries', 
+                [], [], 
+                '''                Summary for FIB tables
+                ''',
+                'summaries',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Vrfs', 
                 [], [], 
@@ -12163,6 +12747,11 @@ _meta_table['FibStatistics.Nodes.Node.Drops']['meta_info'].parent =_meta_table['
 _meta_table['FibStatistics.Nodes.Node']['meta_info'].parent =_meta_table['FibStatistics.Nodes']['meta_info']
 _meta_table['FibStatistics.Nodes']['meta_info'].parent =_meta_table['FibStatistics']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.IssuState.FisProtoState']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.IssuState']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.ExclusiveLoadSharingElement']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.SharedLoadSharingElement']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.CrossSharedLoadSharingElement']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.LabelSharedLoadSharingElement']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll.SesaPlSum']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces.FrrInterface.Logs.Log.FrrTimestamp']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces.FrrInterface.Logs.Log']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces.FrrInterface.Logs.Log']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces.FrrInterface.Logs']['meta_info']
@@ -12241,6 +12830,7 @@ _meta_table['Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.LocalLabel']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.IssuState']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.FrrLog']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol']['meta_info']

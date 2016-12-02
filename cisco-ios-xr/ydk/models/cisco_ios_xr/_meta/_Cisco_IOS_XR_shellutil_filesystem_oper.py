@@ -14,8 +14,8 @@ from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 
 _meta_table = {
-    'FileSystem.Node.FileSystem' : {
-        'meta_info' : _MetaInfoClass('FileSystem.Node.FileSystem',
+    'FileSystem.Node.FileSystem_' : {
+        'meta_info' : _MetaInfoClass('FileSystem.Node.FileSystem_',
             False, 
             [
             _MetaInfoClassMember('flags', ATTRIBUTE, 'str' , None, None, 
@@ -65,7 +65,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-shellutil-filesystem-oper', True),
-            _MetaInfoClassMember('file-system', REFERENCE_LIST, 'FileSystem' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_filesystem_oper', 'FileSystem.Node.FileSystem', 
+            _MetaInfoClassMember('file-system', REFERENCE_LIST, 'FileSystem_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_filesystem_oper', 'FileSystem.Node.FileSystem_', 
                 [], [], 
                 '''                Available file systems
                 ''',
@@ -96,5 +96,5 @@ _meta_table = {
         ),
     },
 }
-_meta_table['FileSystem.Node.FileSystem']['meta_info'].parent =_meta_table['FileSystem.Node']['meta_info']
+_meta_table['FileSystem.Node.FileSystem_']['meta_info'].parent =_meta_table['FileSystem.Node']['meta_info']
 _meta_table['FileSystem.Node']['meta_info'].parent =_meta_table['FileSystem']['meta_info']

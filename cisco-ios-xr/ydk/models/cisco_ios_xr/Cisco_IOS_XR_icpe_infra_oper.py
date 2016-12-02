@@ -30,37 +30,37 @@ class IcpeGcoOperControlReasonEnum(Enum):
 
     Icpe gco oper control reason
 
-    .. data:: ICPE_GCO_OPER_CONTROL_REASON_UNKNOWN_ERROR = 0
+    .. data:: icpe_gco_oper_control_reason_unknown_error = 0
 
     	Unknown error
 
-    .. data:: ICPE_GCO_OPER_CONTROL_REASON_WRONG_CHASSIS_TYPE = 1
+    .. data:: icpe_gco_oper_control_reason_wrong_chassis_type = 1
 
     	Wrong chassis type
 
-    .. data:: ICPE_GCO_OPER_CONTROL_REASON_WRONG_CHASSIS_SERIAL = 2
+    .. data:: icpe_gco_oper_control_reason_wrong_chassis_serial = 2
 
     	Wrong chassis serial
 
-    .. data:: ICPE_GCO_OPER_CONTROL_REASON_NEEDS_TO_UPGRADE = 3
+    .. data:: icpe_gco_oper_control_reason_needs_to_upgrade = 3
 
     	Needs to upgrade
 
-    .. data:: ICPE_GCO_OPER_CONTROL_REASON_NONE = 4
+    .. data:: icpe_gco_oper_control_reason_none = 4
 
     	None
 
     """
 
-    ICPE_GCO_OPER_CONTROL_REASON_UNKNOWN_ERROR = 0
+    icpe_gco_oper_control_reason_unknown_error = 0
 
-    ICPE_GCO_OPER_CONTROL_REASON_WRONG_CHASSIS_TYPE = 1
+    icpe_gco_oper_control_reason_wrong_chassis_type = 1
 
-    ICPE_GCO_OPER_CONTROL_REASON_WRONG_CHASSIS_SERIAL = 2
+    icpe_gco_oper_control_reason_wrong_chassis_serial = 2
 
-    ICPE_GCO_OPER_CONTROL_REASON_NEEDS_TO_UPGRADE = 3
+    icpe_gco_oper_control_reason_needs_to_upgrade = 3
 
-    ICPE_GCO_OPER_CONTROL_REASON_NONE = 4
+    icpe_gco_oper_control_reason_none = 4
 
 
     @staticmethod
@@ -75,235 +75,235 @@ class IcpeOperConflictEnum(Enum):
 
     Icpe oper conflict
 
-    .. data:: ICPE_OPER_CONFLICT_NOT_CALCULATED = 0
+    .. data:: icpe_oper_conflict_not_calculated = 0
 
     	Not calculated
 
-    .. data:: ICPE_OPER_CONFLICT_NO_CONFLICT = 1
+    .. data:: icpe_oper_conflict_no_conflict = 1
 
     	No conflict
 
-    .. data:: ICPE_OPER_CONFLICT_SATELLITE_NOT_CONFIGURED = 2
+    .. data:: icpe_oper_conflict_satellite_not_configured = 2
 
     	Satellite not configured
 
-    .. data:: ICPE_OPER_CONFLICT_SATELLITE_NO_TYPE = 3
+    .. data:: icpe_oper_conflict_satellite_no_type = 3
 
     	Satellite no type
 
-    .. data:: ICPE_OPER_CONFLICT_SATELLITE_ID_INVALID = 4
+    .. data:: icpe_oper_conflict_satellite_id_invalid = 4
 
     	Satellite id invalid
 
-    .. data:: ICPE_OPER_CONFLICT_SATELLITE_NO_IPV4_ADDR = 5
+    .. data:: icpe_oper_conflict_satellite_no_ipv4_addr = 5
 
     	Satellite no ipv4 addr
 
-    .. data:: ICPE_OPER_CONFLICT_SATELLITE_CONFLICTING_IPV4_ADDR = 6
+    .. data:: icpe_oper_conflict_satellite_conflicting_ipv4_addr = 6
 
     	Satellite conflicting ipv4 addr
 
-    .. data:: ICPE_OPER_CONFLICT_NO_CONFIGURED_LINKS = 7
+    .. data:: icpe_oper_conflict_no_configured_links = 7
 
     	No configured links
 
-    .. data:: ICPE_OPER_CONFLICT_NO_DISCOVERED_LINKS = 8
+    .. data:: icpe_oper_conflict_no_discovered_links = 8
 
     	No discovered links
 
-    .. data:: ICPE_OPER_CONFLICT_INVALID_PORTS = 9
+    .. data:: icpe_oper_conflict_invalid_ports = 9
 
     	Invalid ports
 
-    .. data:: ICPE_OPER_CONFLICT_PORTS_OVERLAP = 10
+    .. data:: icpe_oper_conflict_ports_overlap = 10
 
     	Ports overlap
 
-    .. data:: ICPE_OPER_CONFLICT_WAITING_FOR_IPV4_ADDR = 11
+    .. data:: icpe_oper_conflict_waiting_for_ipv4_addr = 11
 
     	Waiting for ipv4 addr
 
-    .. data:: ICPE_OPER_CONFLICT_WAITING_FOR_VRF = 12
+    .. data:: icpe_oper_conflict_waiting_for_vrf = 12
 
     	Waiting for VRF
 
-    .. data:: ICPE_OPER_CONFLICT_DIFFERENT_IPV4_ADDR = 13
+    .. data:: icpe_oper_conflict_different_ipv4_addr = 13
 
     	Different ipv4 addr
 
-    .. data:: ICPE_OPER_CONFLICT_DIFFERENT_VRF = 14
+    .. data:: icpe_oper_conflict_different_vrf = 14
 
     	Different VRF
 
-    .. data:: ICPE_OPER_CONFLICT_SATELLITE_LINK_IPV4_OVERLAP = 15
+    .. data:: icpe_oper_conflict_satellite_link_ipv4_overlap = 15
 
     	Satellite link ipv4 overlap
 
-    .. data:: ICPE_OPER_CONFLICT_WAITING_FOR_IDENT = 16
+    .. data:: icpe_oper_conflict_waiting_for_ident = 16
 
     	Waiting for ident
 
-    .. data:: ICPE_OPER_CONFLICT_MULTIPLE_IDS = 17
+    .. data:: icpe_oper_conflict_multiple_ids = 17
 
     	Multiple ids
 
-    .. data:: ICPE_OPER_CONFLICT_MULTIPLE_SATELLITES = 18
+    .. data:: icpe_oper_conflict_multiple_satellites = 18
 
     	Multiple satellites
 
-    .. data:: ICPE_OPER_CONFLICT_IDENT_REJECTED = 19
+    .. data:: icpe_oper_conflict_ident_rejected = 19
 
     	Ident rejected
 
-    .. data:: ICPE_OPER_CONFLICT_INTERFACE_DOWN = 20
+    .. data:: icpe_oper_conflict_interface_down = 20
 
     	Interface down
 
-    .. data:: ICPE_OPER_CONFLICT_AUTO_IP_UNAVAILABLE = 21
+    .. data:: icpe_oper_conflict_auto_ip_unavailable = 21
 
     	Auto IP unavailable
 
-    .. data:: ICPE_OPER_CONFLICT_SATELLITE_AUTO_IP_LINK_MANUAL_IP = 22
+    .. data:: icpe_oper_conflict_satellite_auto_ip_link_manual_ip = 22
 
     	Satellite auto IP link manual IP
 
-    .. data:: ICPE_OPER_CONFLICT_LINK_AUTO_IP_SATELLITE_MANUAL_IP = 23
+    .. data:: icpe_oper_conflict_link_auto_ip_satellite_manual_ip = 23
 
     	Link auto IP satellite manual IP
 
-    .. data:: ICPE_OPER_CONFLICT_SERIAL_NUM_MISMATCH = 24
+    .. data:: icpe_oper_conflict_serial_num_mismatch = 24
 
     	Serial num mismatch
 
-    .. data:: ICPE_OPER_CONFLICT_SATELLITE_NOT_IDENTIFIED = 25
+    .. data:: icpe_oper_conflict_satellite_not_identified = 25
 
     	Satellite not identified
 
-    .. data:: ICPE_OPER_CONFLICT_SATELLITE_UNSUPPORTED_TYPE = 26
+    .. data:: icpe_oper_conflict_satellite_unsupported_type = 26
 
     	Satellite unsupported type
 
-    .. data:: ICPE_OPER_CONFLICT_SATELLITE_PARTITION_UNSUPPORTED = 27
+    .. data:: icpe_oper_conflict_satellite_partition_unsupported = 27
 
     	Satellite partition unsupported
 
-    .. data:: ICPE_OPER_CONFLICT_SATELLITE_NO_SERIAL_NUMBER = 28
+    .. data:: icpe_oper_conflict_satellite_no_serial_number = 28
 
     	Satellite no serial number
 
-    .. data:: ICPE_OPER_CONFLICT_SATELLITE_CONFLICTING_SERIAL_NUMBER = 29
+    .. data:: icpe_oper_conflict_satellite_conflicting_serial_number = 29
 
     	Satellite conflicting serial number
 
-    .. data:: ICPE_OPER_CONFLICT_SATELLITE_LINK_WAITING_FOR_ARP = 30
+    .. data:: icpe_oper_conflict_satellite_link_waiting_for_arp = 30
 
     	Satellite link waiting for arp
 
-    .. data:: ICPE_OPER_CONFLICT_HOST_PE_ISOLATED_SPLIT_BRAIN = 31
+    .. data:: icpe_oper_conflict_host_pe_isolated_split_brain = 31
 
     	Host PE isolated split brain
 
-    .. data:: ICPE_OPER_CONFLICT_FABRIC_ICCP_GROUP_INCONSISTENT = 32
+    .. data:: icpe_oper_conflict_fabric_iccp_group_inconsistent = 32
 
     	Fabric ICCP group inconsistent
 
-    .. data:: ICPE_OPER_CONFLICT_INVALID_ICCP_GROUP = 33
+    .. data:: icpe_oper_conflict_invalid_iccp_group = 33
 
     	Invalid ICCP group
 
-    .. data:: ICPE_OPER_CONFLICT_PORT_REJECTED = 34
+    .. data:: icpe_oper_conflict_port_rejected = 34
 
     	Port rejected
 
-    .. data:: ICPE_OPER_CONFLICT_SATELLITE_ICL_NOT_SUPPORTED = 35
+    .. data:: icpe_oper_conflict_satellite_icl_not_supported = 35
 
     	Satellite ICL not supported
 
-    .. data:: ICPE_OPER_CONFLICT_MULTIPLE_SERIAL_NUMBER = 36
+    .. data:: icpe_oper_conflict_multiple_serial_number = 36
 
     	Multiple serial number
 
-    .. data:: ICPE_OPER_CONFLICT_MULTIPLE_MAC_ADDRESS = 37
+    .. data:: icpe_oper_conflict_multiple_mac_address = 37
 
     	Multiple MAC address
 
     """
 
-    ICPE_OPER_CONFLICT_NOT_CALCULATED = 0
+    icpe_oper_conflict_not_calculated = 0
 
-    ICPE_OPER_CONFLICT_NO_CONFLICT = 1
+    icpe_oper_conflict_no_conflict = 1
 
-    ICPE_OPER_CONFLICT_SATELLITE_NOT_CONFIGURED = 2
+    icpe_oper_conflict_satellite_not_configured = 2
 
-    ICPE_OPER_CONFLICT_SATELLITE_NO_TYPE = 3
+    icpe_oper_conflict_satellite_no_type = 3
 
-    ICPE_OPER_CONFLICT_SATELLITE_ID_INVALID = 4
+    icpe_oper_conflict_satellite_id_invalid = 4
 
-    ICPE_OPER_CONFLICT_SATELLITE_NO_IPV4_ADDR = 5
+    icpe_oper_conflict_satellite_no_ipv4_addr = 5
 
-    ICPE_OPER_CONFLICT_SATELLITE_CONFLICTING_IPV4_ADDR = 6
+    icpe_oper_conflict_satellite_conflicting_ipv4_addr = 6
 
-    ICPE_OPER_CONFLICT_NO_CONFIGURED_LINKS = 7
+    icpe_oper_conflict_no_configured_links = 7
 
-    ICPE_OPER_CONFLICT_NO_DISCOVERED_LINKS = 8
+    icpe_oper_conflict_no_discovered_links = 8
 
-    ICPE_OPER_CONFLICT_INVALID_PORTS = 9
+    icpe_oper_conflict_invalid_ports = 9
 
-    ICPE_OPER_CONFLICT_PORTS_OVERLAP = 10
+    icpe_oper_conflict_ports_overlap = 10
 
-    ICPE_OPER_CONFLICT_WAITING_FOR_IPV4_ADDR = 11
+    icpe_oper_conflict_waiting_for_ipv4_addr = 11
 
-    ICPE_OPER_CONFLICT_WAITING_FOR_VRF = 12
+    icpe_oper_conflict_waiting_for_vrf = 12
 
-    ICPE_OPER_CONFLICT_DIFFERENT_IPV4_ADDR = 13
+    icpe_oper_conflict_different_ipv4_addr = 13
 
-    ICPE_OPER_CONFLICT_DIFFERENT_VRF = 14
+    icpe_oper_conflict_different_vrf = 14
 
-    ICPE_OPER_CONFLICT_SATELLITE_LINK_IPV4_OVERLAP = 15
+    icpe_oper_conflict_satellite_link_ipv4_overlap = 15
 
-    ICPE_OPER_CONFLICT_WAITING_FOR_IDENT = 16
+    icpe_oper_conflict_waiting_for_ident = 16
 
-    ICPE_OPER_CONFLICT_MULTIPLE_IDS = 17
+    icpe_oper_conflict_multiple_ids = 17
 
-    ICPE_OPER_CONFLICT_MULTIPLE_SATELLITES = 18
+    icpe_oper_conflict_multiple_satellites = 18
 
-    ICPE_OPER_CONFLICT_IDENT_REJECTED = 19
+    icpe_oper_conflict_ident_rejected = 19
 
-    ICPE_OPER_CONFLICT_INTERFACE_DOWN = 20
+    icpe_oper_conflict_interface_down = 20
 
-    ICPE_OPER_CONFLICT_AUTO_IP_UNAVAILABLE = 21
+    icpe_oper_conflict_auto_ip_unavailable = 21
 
-    ICPE_OPER_CONFLICT_SATELLITE_AUTO_IP_LINK_MANUAL_IP = 22
+    icpe_oper_conflict_satellite_auto_ip_link_manual_ip = 22
 
-    ICPE_OPER_CONFLICT_LINK_AUTO_IP_SATELLITE_MANUAL_IP = 23
+    icpe_oper_conflict_link_auto_ip_satellite_manual_ip = 23
 
-    ICPE_OPER_CONFLICT_SERIAL_NUM_MISMATCH = 24
+    icpe_oper_conflict_serial_num_mismatch = 24
 
-    ICPE_OPER_CONFLICT_SATELLITE_NOT_IDENTIFIED = 25
+    icpe_oper_conflict_satellite_not_identified = 25
 
-    ICPE_OPER_CONFLICT_SATELLITE_UNSUPPORTED_TYPE = 26
+    icpe_oper_conflict_satellite_unsupported_type = 26
 
-    ICPE_OPER_CONFLICT_SATELLITE_PARTITION_UNSUPPORTED = 27
+    icpe_oper_conflict_satellite_partition_unsupported = 27
 
-    ICPE_OPER_CONFLICT_SATELLITE_NO_SERIAL_NUMBER = 28
+    icpe_oper_conflict_satellite_no_serial_number = 28
 
-    ICPE_OPER_CONFLICT_SATELLITE_CONFLICTING_SERIAL_NUMBER = 29
+    icpe_oper_conflict_satellite_conflicting_serial_number = 29
 
-    ICPE_OPER_CONFLICT_SATELLITE_LINK_WAITING_FOR_ARP = 30
+    icpe_oper_conflict_satellite_link_waiting_for_arp = 30
 
-    ICPE_OPER_CONFLICT_HOST_PE_ISOLATED_SPLIT_BRAIN = 31
+    icpe_oper_conflict_host_pe_isolated_split_brain = 31
 
-    ICPE_OPER_CONFLICT_FABRIC_ICCP_GROUP_INCONSISTENT = 32
+    icpe_oper_conflict_fabric_iccp_group_inconsistent = 32
 
-    ICPE_OPER_CONFLICT_INVALID_ICCP_GROUP = 33
+    icpe_oper_conflict_invalid_iccp_group = 33
 
-    ICPE_OPER_CONFLICT_PORT_REJECTED = 34
+    icpe_oper_conflict_port_rejected = 34
 
-    ICPE_OPER_CONFLICT_SATELLITE_ICL_NOT_SUPPORTED = 35
+    icpe_oper_conflict_satellite_icl_not_supported = 35
 
-    ICPE_OPER_CONFLICT_MULTIPLE_SERIAL_NUMBER = 36
+    icpe_oper_conflict_multiple_serial_number = 36
 
-    ICPE_OPER_CONFLICT_MULTIPLE_MAC_ADDRESS = 37
+    icpe_oper_conflict_multiple_mac_address = 37
 
 
     @staticmethod
@@ -318,31 +318,31 @@ class IcpeOperDiscdLinkStateEnum(Enum):
 
     Icpe oper discd link state
 
-    .. data:: ICPE_OPER_DISCD_LINK_STATE_STOPPED = 0
+    .. data:: icpe_oper_discd_link_state_stopped = 0
 
     	Stopped
 
-    .. data:: ICPE_OPER_DISCD_LINK_STATE_PROBING = 1
+    .. data:: icpe_oper_discd_link_state_probing = 1
 
     	Probing
 
-    .. data:: ICPE_OPER_DISCD_LINK_STATE_CONFIGURING = 2
+    .. data:: icpe_oper_discd_link_state_configuring = 2
 
     	Configuring
 
-    .. data:: ICPE_OPER_DISCD_LINK_STATE_READY = 3
+    .. data:: icpe_oper_discd_link_state_ready = 3
 
     	Ready
 
     """
 
-    ICPE_OPER_DISCD_LINK_STATE_STOPPED = 0
+    icpe_oper_discd_link_state_stopped = 0
 
-    ICPE_OPER_DISCD_LINK_STATE_PROBING = 1
+    icpe_oper_discd_link_state_probing = 1
 
-    ICPE_OPER_DISCD_LINK_STATE_CONFIGURING = 2
+    icpe_oper_discd_link_state_configuring = 2
 
-    ICPE_OPER_DISCD_LINK_STATE_READY = 3
+    icpe_oper_discd_link_state_ready = 3
 
 
     @staticmethod
@@ -357,31 +357,31 @@ class IcpeOperFabricPortEnum(Enum):
 
     Icpe oper fabric port
 
-    .. data:: ICPE_OPER_FABRIC_PORT_UNKNOWN = 0
+    .. data:: icpe_oper_fabric_port_unknown = 0
 
     	Unknown
 
-    .. data:: ICPE_OPER_FABRIC_PORT_N_V_FABRIC_GIG_E = 1
+    .. data:: icpe_oper_fabric_port_n_v_fabric_gig_e = 1
 
     	n v fabric- gig e
 
-    .. data:: ICPE_OPER_FABRIC_PORT_N_V_FABRIC_TEN_GIG_E = 2
+    .. data:: icpe_oper_fabric_port_n_v_fabric_ten_gig_e = 2
 
     	n v fabric- ten gig e
 
-    .. data:: ICPE_OPER_FABRIC_PORT_N_V_FABRIC_HUNDRED_GIG_E = 3
+    .. data:: icpe_oper_fabric_port_n_v_fabric_hundred_gig_e = 3
 
     	n v fabric- hundred gig e
 
     """
 
-    ICPE_OPER_FABRIC_PORT_UNKNOWN = 0
+    icpe_oper_fabric_port_unknown = 0
 
-    ICPE_OPER_FABRIC_PORT_N_V_FABRIC_GIG_E = 1
+    icpe_oper_fabric_port_n_v_fabric_gig_e = 1
 
-    ICPE_OPER_FABRIC_PORT_N_V_FABRIC_TEN_GIG_E = 2
+    icpe_oper_fabric_port_n_v_fabric_ten_gig_e = 2
 
-    ICPE_OPER_FABRIC_PORT_N_V_FABRIC_HUNDRED_GIG_E = 3
+    icpe_oper_fabric_port_n_v_fabric_hundred_gig_e = 3
 
 
     @staticmethod
@@ -396,37 +396,37 @@ class IcpeOperInstallStateEnum(Enum):
 
     Icpe oper install state
 
-    .. data:: ICPE_OPER_INSTALL_STATE_STABLE = 0
+    .. data:: icpe_oper_install_state_stable = 0
 
     	Stable
 
-    .. data:: ICPE_OPER_INSTALL_STATE_TRANSFERRING = 1
+    .. data:: icpe_oper_install_state_transferring = 1
 
     	Transferring
 
-    .. data:: ICPE_OPER_INSTALL_STATE_TRANSFERRED = 2
+    .. data:: icpe_oper_install_state_transferred = 2
 
     	Transferred
 
-    .. data:: ICPE_OPER_INSTALL_STATE_INSTALLING = 3
+    .. data:: icpe_oper_install_state_installing = 3
 
     	Installing
 
-    .. data:: ICPE_OPER_INSTALL_STATE_IN_PROGRESS = 4
+    .. data:: icpe_oper_install_state_in_progress = 4
 
     	In progress
 
     """
 
-    ICPE_OPER_INSTALL_STATE_STABLE = 0
+    icpe_oper_install_state_stable = 0
 
-    ICPE_OPER_INSTALL_STATE_TRANSFERRING = 1
+    icpe_oper_install_state_transferring = 1
 
-    ICPE_OPER_INSTALL_STATE_TRANSFERRED = 2
+    icpe_oper_install_state_transferred = 2
 
-    ICPE_OPER_INSTALL_STATE_INSTALLING = 3
+    icpe_oper_install_state_installing = 3
 
-    ICPE_OPER_INSTALL_STATE_IN_PROGRESS = 4
+    icpe_oper_install_state_in_progress = 4
 
 
     @staticmethod
@@ -441,25 +441,25 @@ class IcpeOperPortEnum(Enum):
 
     Icpe oper port
 
-    .. data:: ICPE_OPER_PORT_UNKNOWN = 0
+    .. data:: icpe_oper_port_unknown = 0
 
     	Unknown
 
-    .. data:: ICPE_OPER_PORT_GIGABIT_ETHERNET = 1
+    .. data:: icpe_oper_port_gigabit_ethernet = 1
 
     	Gigabit ethernet
 
-    .. data:: ICPE_OPER_PORT_TEN_GIG_E = 2
+    .. data:: icpe_oper_port_ten_gig_e = 2
 
     	Ten gig e
 
     """
 
-    ICPE_OPER_PORT_UNKNOWN = 0
+    icpe_oper_port_unknown = 0
 
-    ICPE_OPER_PORT_GIGABIT_ETHERNET = 1
+    icpe_oper_port_gigabit_ethernet = 1
 
-    ICPE_OPER_PORT_TEN_GIG_E = 2
+    icpe_oper_port_ten_gig_e = 2
 
 
     @staticmethod
@@ -474,49 +474,49 @@ class IcpeOperSdacpSessStateEnum(Enum):
 
     Icpe oper sdacp sess state
 
-    .. data:: ICPE_OPER_SDACP_SESS_STATE_NOT_CREATED = 0
+    .. data:: icpe_oper_sdacp_sess_state_not_created = 0
 
     	Not created
 
-    .. data:: ICPE_OPER_SDACP_SESS_STATE_CREATED = 1
+    .. data:: icpe_oper_sdacp_sess_state_created = 1
 
     	Created
 
-    .. data:: ICPE_OPER_SDACP_SESS_STATE_AUTHENTICATION_NOT_OK = 2
+    .. data:: icpe_oper_sdacp_sess_state_authentication_not_ok = 2
 
     	Authentication not OK
 
-    .. data:: ICPE_OPER_SDACP_SESS_STATE_AUTHENTICATION_OK = 3
+    .. data:: icpe_oper_sdacp_sess_state_authentication_ok = 3
 
     	Authentication OK
 
-    .. data:: ICPE_OPER_SDACP_SESS_STATE_VERSION_NOT_OK = 4
+    .. data:: icpe_oper_sdacp_sess_state_version_not_ok = 4
 
     	Version not OK
 
-    .. data:: ICPE_OPER_SDACP_SESS_STATE_UP = 5
+    .. data:: icpe_oper_sdacp_sess_state_up = 5
 
     	Up
 
-    .. data:: ICPE_OPER_SDACP_SESS_STATE_ISSU = 6
+    .. data:: icpe_oper_sdacp_sess_state_issu = 6
 
     	ISSU
 
     """
 
-    ICPE_OPER_SDACP_SESS_STATE_NOT_CREATED = 0
+    icpe_oper_sdacp_sess_state_not_created = 0
 
-    ICPE_OPER_SDACP_SESS_STATE_CREATED = 1
+    icpe_oper_sdacp_sess_state_created = 1
 
-    ICPE_OPER_SDACP_SESS_STATE_AUTHENTICATION_NOT_OK = 2
+    icpe_oper_sdacp_sess_state_authentication_not_ok = 2
 
-    ICPE_OPER_SDACP_SESS_STATE_AUTHENTICATION_OK = 3
+    icpe_oper_sdacp_sess_state_authentication_ok = 3
 
-    ICPE_OPER_SDACP_SESS_STATE_VERSION_NOT_OK = 4
+    icpe_oper_sdacp_sess_state_version_not_ok = 4
 
-    ICPE_OPER_SDACP_SESS_STATE_UP = 5
+    icpe_oper_sdacp_sess_state_up = 5
 
-    ICPE_OPER_SDACP_SESS_STATE_ISSU = 6
+    icpe_oper_sdacp_sess_state_issu = 6
 
 
     @staticmethod
@@ -531,43 +531,43 @@ class IcpeOperTopoRemoteSourceEnum(Enum):
 
     Icpe oper topo remote source
 
-    .. data:: ICPE_OPER_TOPO_REMOTE_SOURCE_UNKNOWN = 0
+    .. data:: icpe_oper_topo_remote_source_unknown = 0
 
     	Unknown
 
-    .. data:: ICPE_OPER_TOPO_REMOTE_SOURCE_REMOTE_ICL_ID = 1
+    .. data:: icpe_oper_topo_remote_source_remote_icl_id = 1
 
     	Remote ICL ID
 
-    .. data:: ICPE_OPER_TOPO_REMOTE_SOURCE_REMOTE_SATELLITE_MAC = 2
+    .. data:: icpe_oper_topo_remote_source_remote_satellite_mac = 2
 
     	Remote satellite MAC
 
-    .. data:: ICPE_OPER_TOPO_REMOTE_SOURCE_REMOTE_HOST_MAC = 3
+    .. data:: icpe_oper_topo_remote_source_remote_host_mac = 3
 
     	Remote host MAC
 
-    .. data:: ICPE_OPER_TOPO_REMOTE_SOURCE_DIRECT_SATELLITE = 4
+    .. data:: icpe_oper_topo_remote_source_direct_satellite = 4
 
     	Direct satellite
 
-    .. data:: ICPE_OPER_TOPO_REMOTE_SOURCE_DIRECT_HOST = 5
+    .. data:: icpe_oper_topo_remote_source_direct_host = 5
 
     	Direct host
 
     """
 
-    ICPE_OPER_TOPO_REMOTE_SOURCE_UNKNOWN = 0
+    icpe_oper_topo_remote_source_unknown = 0
 
-    ICPE_OPER_TOPO_REMOTE_SOURCE_REMOTE_ICL_ID = 1
+    icpe_oper_topo_remote_source_remote_icl_id = 1
 
-    ICPE_OPER_TOPO_REMOTE_SOURCE_REMOTE_SATELLITE_MAC = 2
+    icpe_oper_topo_remote_source_remote_satellite_mac = 2
 
-    ICPE_OPER_TOPO_REMOTE_SOURCE_REMOTE_HOST_MAC = 3
+    icpe_oper_topo_remote_source_remote_host_mac = 3
 
-    ICPE_OPER_TOPO_REMOTE_SOURCE_DIRECT_SATELLITE = 4
+    icpe_oper_topo_remote_source_direct_satellite = 4
 
-    ICPE_OPER_TOPO_REMOTE_SOURCE_DIRECT_HOST = 5
+    icpe_oper_topo_remote_source_direct_host = 5
 
 
     @staticmethod
@@ -582,37 +582,37 @@ class IcpeOperVerCheckStateEnum(Enum):
 
     Icpe oper ver check state
 
-    .. data:: ICPE_OPER_VER_CHECK_STATE_UNKNOWN = 0
+    .. data:: icpe_oper_ver_check_state_unknown = 0
 
     	Unknown
 
-    .. data:: ICPE_OPER_VER_CHECK_STATE_NOT_COMPATIBLE = 1
+    .. data:: icpe_oper_ver_check_state_not_compatible = 1
 
     	Not compatible
 
-    .. data:: ICPE_OPER_VER_CHECK_STATE_CURRENT_VERSION = 2
+    .. data:: icpe_oper_ver_check_state_current_version = 2
 
     	Current version
 
-    .. data:: ICPE_OPER_VER_CHECK_STATE_COMPATIBLE_OLDER = 3
+    .. data:: icpe_oper_ver_check_state_compatible_older = 3
 
     	Compatible older
 
-    .. data:: ICPE_OPER_VER_CHECK_STATE_COMPATIBLE_NEWER = 4
+    .. data:: icpe_oper_ver_check_state_compatible_newer = 4
 
     	Compatible newer
 
     """
 
-    ICPE_OPER_VER_CHECK_STATE_UNKNOWN = 0
+    icpe_oper_ver_check_state_unknown = 0
 
-    ICPE_OPER_VER_CHECK_STATE_NOT_COMPATIBLE = 1
+    icpe_oper_ver_check_state_not_compatible = 1
 
-    ICPE_OPER_VER_CHECK_STATE_CURRENT_VERSION = 2
+    icpe_oper_ver_check_state_current_version = 2
 
-    ICPE_OPER_VER_CHECK_STATE_COMPATIBLE_OLDER = 3
+    icpe_oper_ver_check_state_compatible_older = 3
 
-    ICPE_OPER_VER_CHECK_STATE_COMPATIBLE_NEWER = 4
+    icpe_oper_ver_check_state_compatible_newer = 4
 
 
     @staticmethod
@@ -627,31 +627,31 @@ class IcpeOpmArbitrationFsmStateEnum(Enum):
 
     Icpe opm arbitration fsm state
 
-    .. data:: ICPE_OPM_ARBITRATION_FSM_STATE_UNARBITRATED = 0
+    .. data:: icpe_opm_arbitration_fsm_state_unarbitrated = 0
 
     	Unarbitrated
 
-    .. data:: ICPE_OPM_ARBITRATION_FSM_STATE_WAITING = 1
+    .. data:: icpe_opm_arbitration_fsm_state_waiting = 1
 
     	Waiting
 
-    .. data:: ICPE_OPM_ARBITRATION_FSM_STATE_ARBITRATING = 2
+    .. data:: icpe_opm_arbitration_fsm_state_arbitrating = 2
 
     	Arbitrating
 
-    .. data:: ICPE_OPM_ARBITRATION_FSM_STATE_ARBITRATED = 3
+    .. data:: icpe_opm_arbitration_fsm_state_arbitrated = 3
 
     	Arbitrated
 
     """
 
-    ICPE_OPM_ARBITRATION_FSM_STATE_UNARBITRATED = 0
+    icpe_opm_arbitration_fsm_state_unarbitrated = 0
 
-    ICPE_OPM_ARBITRATION_FSM_STATE_WAITING = 1
+    icpe_opm_arbitration_fsm_state_waiting = 1
 
-    ICPE_OPM_ARBITRATION_FSM_STATE_ARBITRATING = 2
+    icpe_opm_arbitration_fsm_state_arbitrating = 2
 
-    ICPE_OPM_ARBITRATION_FSM_STATE_ARBITRATED = 3
+    icpe_opm_arbitration_fsm_state_arbitrated = 3
 
 
     @staticmethod
@@ -666,37 +666,37 @@ class IcpeOpmAuthFsmStateEnum(Enum):
 
     Icpe opm auth fsm state
 
-    .. data:: ICPE_OPM_AUTH_FSM_STATE_UNAUTH = 0
+    .. data:: icpe_opm_auth_fsm_state_unauth = 0
 
     	Unauth
 
-    .. data:: ICPE_OPM_AUTH_FSM_STATE_WAITING = 1
+    .. data:: icpe_opm_auth_fsm_state_waiting = 1
 
     	Waiting
 
-    .. data:: ICPE_OPM_AUTH_FSM_STATE_WAITING_FOR_AUTH = 2
+    .. data:: icpe_opm_auth_fsm_state_waiting_for_auth = 2
 
     	Waiting for auth
 
-    .. data:: ICPE_OPM_AUTH_FSM_STATE_WAITING_FOR_REPLY = 3
+    .. data:: icpe_opm_auth_fsm_state_waiting_for_reply = 3
 
     	Waiting for reply
 
-    .. data:: ICPE_OPM_AUTH_FSM_STATE_AUTHED = 4
+    .. data:: icpe_opm_auth_fsm_state_authed = 4
 
     	Authed
 
     """
 
-    ICPE_OPM_AUTH_FSM_STATE_UNAUTH = 0
+    icpe_opm_auth_fsm_state_unauth = 0
 
-    ICPE_OPM_AUTH_FSM_STATE_WAITING = 1
+    icpe_opm_auth_fsm_state_waiting = 1
 
-    ICPE_OPM_AUTH_FSM_STATE_WAITING_FOR_AUTH = 2
+    icpe_opm_auth_fsm_state_waiting_for_auth = 2
 
-    ICPE_OPM_AUTH_FSM_STATE_WAITING_FOR_REPLY = 3
+    icpe_opm_auth_fsm_state_waiting_for_reply = 3
 
-    ICPE_OPM_AUTH_FSM_STATE_AUTHED = 4
+    icpe_opm_auth_fsm_state_authed = 4
 
 
     @staticmethod
@@ -711,37 +711,37 @@ class IcpeOpmChanFsmStateEnum(Enum):
 
     Icpe opm chan fsm state
 
-    .. data:: ICPE_OPM_CHAN_FSM_STATE_DOWN = 0
+    .. data:: icpe_opm_chan_fsm_state_down = 0
 
     	Down
 
-    .. data:: ICPE_OPM_CHAN_FSM_STATE_CLOSED = 1
+    .. data:: icpe_opm_chan_fsm_state_closed = 1
 
     	Closed
 
-    .. data:: ICPE_OPM_CHAN_FSM_STATE_OPENING = 2
+    .. data:: icpe_opm_chan_fsm_state_opening = 2
 
     	Opening
 
-    .. data:: ICPE_OPM_CHAN_FSM_STATE_OPENED = 3
+    .. data:: icpe_opm_chan_fsm_state_opened = 3
 
     	Opened
 
-    .. data:: ICPE_OPM_CHAN_FSM_STATE_OPEN = 4
+    .. data:: icpe_opm_chan_fsm_state_open = 4
 
     	Open
 
     """
 
-    ICPE_OPM_CHAN_FSM_STATE_DOWN = 0
+    icpe_opm_chan_fsm_state_down = 0
 
-    ICPE_OPM_CHAN_FSM_STATE_CLOSED = 1
+    icpe_opm_chan_fsm_state_closed = 1
 
-    ICPE_OPM_CHAN_FSM_STATE_OPENING = 2
+    icpe_opm_chan_fsm_state_opening = 2
 
-    ICPE_OPM_CHAN_FSM_STATE_OPENED = 3
+    icpe_opm_chan_fsm_state_opened = 3
 
-    ICPE_OPM_CHAN_FSM_STATE_OPEN = 4
+    icpe_opm_chan_fsm_state_open = 4
 
 
     @staticmethod
@@ -756,25 +756,25 @@ class IcpeOpmControllerEnum(Enum):
 
     Icpe opm controller
 
-    .. data:: ICPE_OPM_CONTROLLER_UNKNOWN = 0
+    .. data:: icpe_opm_controller_unknown = 0
 
     	Unknown
 
-    .. data:: ICPE_OPM_CONTROLLER_PRIMARY = 1
+    .. data:: icpe_opm_controller_primary = 1
 
     	Primary
 
-    .. data:: ICPE_OPM_CONTROLLER_SECONDARY = 2
+    .. data:: icpe_opm_controller_secondary = 2
 
     	Secondary
 
     """
 
-    ICPE_OPM_CONTROLLER_UNKNOWN = 0
+    icpe_opm_controller_unknown = 0
 
-    ICPE_OPM_CONTROLLER_PRIMARY = 1
+    icpe_opm_controller_primary = 1
 
-    ICPE_OPM_CONTROLLER_SECONDARY = 2
+    icpe_opm_controller_secondary = 2
 
 
     @staticmethod
@@ -789,37 +789,37 @@ class IcpeOpmResyncFsmStateEnum(Enum):
 
     Icpe opm resync fsm state
 
-    .. data:: ICPE_OPM_RESYNC_FSM_STATE_NOT_OPEN = 0
+    .. data:: icpe_opm_resync_fsm_state_not_open = 0
 
     	Not open
 
-    .. data:: ICPE_OPM_RESYNC_FSM_STATE_STABLE = 1
+    .. data:: icpe_opm_resync_fsm_state_stable = 1
 
     	Stable
 
-    .. data:: ICPE_OPM_RESYNC_FSM_STATE_IN_RESYNC = 2
+    .. data:: icpe_opm_resync_fsm_state_in_resync = 2
 
     	In resync
 
-    .. data:: ICPE_OPM_RESYNC_FSM_STATE_QUEUED = 3
+    .. data:: icpe_opm_resync_fsm_state_queued = 3
 
     	Queued
 
-    .. data:: ICPE_OPM_RESYNC_FSM_STATE_RESYNC_REQ = 4
+    .. data:: icpe_opm_resync_fsm_state_resync_req = 4
 
     	Resync req
 
     """
 
-    ICPE_OPM_RESYNC_FSM_STATE_NOT_OPEN = 0
+    icpe_opm_resync_fsm_state_not_open = 0
 
-    ICPE_OPM_RESYNC_FSM_STATE_STABLE = 1
+    icpe_opm_resync_fsm_state_stable = 1
 
-    ICPE_OPM_RESYNC_FSM_STATE_IN_RESYNC = 2
+    icpe_opm_resync_fsm_state_in_resync = 2
 
-    ICPE_OPM_RESYNC_FSM_STATE_QUEUED = 3
+    icpe_opm_resync_fsm_state_queued = 3
 
-    ICPE_OPM_RESYNC_FSM_STATE_RESYNC_REQ = 4
+    icpe_opm_resync_fsm_state_resync_req = 4
 
 
     @staticmethod
@@ -834,43 +834,43 @@ class IcpeOpmSessStateEnum(Enum):
 
     Icpe opm sess state
 
-    .. data:: ICPE_OPM_SESS_STATE_DISCONNECTED = 0
+    .. data:: icpe_opm_sess_state_disconnected = 0
 
     	Disconnected
 
-    .. data:: ICPE_OPM_SESS_STATE_CONNECTING = 1
+    .. data:: icpe_opm_sess_state_connecting = 1
 
     	Connecting
 
-    .. data:: ICPE_OPM_SESS_STATE_AUTHENTICATING = 2
+    .. data:: icpe_opm_sess_state_authenticating = 2
 
     	Authenticating
 
-    .. data:: ICPE_OPM_SESS_STATE_ARBITRATING = 3
+    .. data:: icpe_opm_sess_state_arbitrating = 3
 
     	Arbitrating
 
-    .. data:: ICPE_OPM_SESS_STATE_WAITING_FOR_RESYNCS = 4
+    .. data:: icpe_opm_sess_state_waiting_for_resyncs = 4
 
     	Waiting for resyncs
 
-    .. data:: ICPE_OPM_SESS_STATE_CONNECTED = 5
+    .. data:: icpe_opm_sess_state_connected = 5
 
     	Connected
 
     """
 
-    ICPE_OPM_SESS_STATE_DISCONNECTED = 0
+    icpe_opm_sess_state_disconnected = 0
 
-    ICPE_OPM_SESS_STATE_CONNECTING = 1
+    icpe_opm_sess_state_connecting = 1
 
-    ICPE_OPM_SESS_STATE_AUTHENTICATING = 2
+    icpe_opm_sess_state_authenticating = 2
 
-    ICPE_OPM_SESS_STATE_ARBITRATING = 3
+    icpe_opm_sess_state_arbitrating = 3
 
-    ICPE_OPM_SESS_STATE_WAITING_FOR_RESYNCS = 4
+    icpe_opm_sess_state_waiting_for_resyncs = 4
 
-    ICPE_OPM_SESS_STATE_CONNECTED = 5
+    icpe_opm_sess_state_connected = 5
 
 
     @staticmethod
@@ -885,25 +885,25 @@ class IcpeOpmSyncFsmStateEnum(Enum):
 
     Icpe opm sync fsm state
 
-    .. data:: ICPE_OPM_SYNC_FSM_STATE_SPLIT_BRAIN = 0
+    .. data:: icpe_opm_sync_fsm_state_split_brain = 0
 
     	Split brain
 
-    .. data:: ICPE_OPM_SYNC_FSM_STATE_WAITING = 1
+    .. data:: icpe_opm_sync_fsm_state_waiting = 1
 
     	Waiting
 
-    .. data:: ICPE_OPM_SYNC_FSM_STATE_WHOLE_BRAIN = 2
+    .. data:: icpe_opm_sync_fsm_state_whole_brain = 2
 
     	Whole brain
 
     """
 
-    ICPE_OPM_SYNC_FSM_STATE_SPLIT_BRAIN = 0
+    icpe_opm_sync_fsm_state_split_brain = 0
 
-    ICPE_OPM_SYNC_FSM_STATE_WAITING = 1
+    icpe_opm_sync_fsm_state_waiting = 1
 
-    ICPE_OPM_SYNC_FSM_STATE_WHOLE_BRAIN = 2
+    icpe_opm_sync_fsm_state_whole_brain = 2
 
 
     @staticmethod
@@ -918,55 +918,55 @@ class IcpeOpmTransportStateEnum(Enum):
 
     Icpe opm transport state
 
-    .. data:: ICPE_OPM_TRANSPORT_STATE_DISCONNECTED = 0
+    .. data:: icpe_opm_transport_state_disconnected = 0
 
     	Disconnected
 
-    .. data:: ICPE_OPM_TRANSPORT_STATE_ICCP_UNAVAILABLE = 1
+    .. data:: icpe_opm_transport_state_iccp_unavailable = 1
 
     	ICCP unavailable
 
-    .. data:: ICPE_OPM_TRANSPORT_STATE_NO_MEMBER_PRESENT = 2
+    .. data:: icpe_opm_transport_state_no_member_present = 2
 
     	No member present
 
-    .. data:: ICPE_OPM_TRANSPORT_STATE_MEMBER_DOWN = 3
+    .. data:: icpe_opm_transport_state_member_down = 3
 
     	Member down
 
-    .. data:: ICPE_OPM_TRANSPORT_STATE_MEMBER_NOT_REACHABLE = 4
+    .. data:: icpe_opm_transport_state_member_not_reachable = 4
 
     	Member not reachable
 
-    .. data:: ICPE_OPM_TRANSPORT_STATE_WAITING_FOR_APP_CONNECT = 5
+    .. data:: icpe_opm_transport_state_waiting_for_app_connect = 5
 
     	Waiting for app connect
 
-    .. data:: ICPE_OPM_TRANSPORT_STATE_WAITING_FOR_APP_CONNECT_RESPONSE = 6
+    .. data:: icpe_opm_transport_state_waiting_for_app_connect_response = 6
 
     	Waiting for app connect response
 
-    .. data:: ICPE_OPM_TRANSPORT_STATE_CONNECTED = 7
+    .. data:: icpe_opm_transport_state_connected = 7
 
     	Connected
 
     """
 
-    ICPE_OPM_TRANSPORT_STATE_DISCONNECTED = 0
+    icpe_opm_transport_state_disconnected = 0
 
-    ICPE_OPM_TRANSPORT_STATE_ICCP_UNAVAILABLE = 1
+    icpe_opm_transport_state_iccp_unavailable = 1
 
-    ICPE_OPM_TRANSPORT_STATE_NO_MEMBER_PRESENT = 2
+    icpe_opm_transport_state_no_member_present = 2
 
-    ICPE_OPM_TRANSPORT_STATE_MEMBER_DOWN = 3
+    icpe_opm_transport_state_member_down = 3
 
-    ICPE_OPM_TRANSPORT_STATE_MEMBER_NOT_REACHABLE = 4
+    icpe_opm_transport_state_member_not_reachable = 4
 
-    ICPE_OPM_TRANSPORT_STATE_WAITING_FOR_APP_CONNECT = 5
+    icpe_opm_transport_state_waiting_for_app_connect = 5
 
-    ICPE_OPM_TRANSPORT_STATE_WAITING_FOR_APP_CONNECT_RESPONSE = 6
+    icpe_opm_transport_state_waiting_for_app_connect_response = 6
 
-    ICPE_OPM_TRANSPORT_STATE_CONNECTED = 7
+    icpe_opm_transport_state_connected = 7
 
 
     @staticmethod
@@ -981,31 +981,31 @@ class IcpeOpticalSyncStateEnum(Enum):
 
     Icpe optical sync state
 
-    .. data:: ICPE_OPTICAL_SYNC_STATE_UNKNOWN = 0
+    .. data:: icpe_optical_sync_state_unknown = 0
 
     	Unknown
 
-    .. data:: ICPE_OPTICAL_SYNC_STATE_SYNCING = 1
+    .. data:: icpe_optical_sync_state_syncing = 1
 
     	Syncing
 
-    .. data:: ICPE_OPTICAL_SYNC_STATE_SYNCED = 2
+    .. data:: icpe_optical_sync_state_synced = 2
 
     	Synced
 
-    .. data:: ICPE_OPTICAL_SYNC_STATE_NOT_CONNECTED = 3
+    .. data:: icpe_optical_sync_state_not_connected = 3
 
     	Not connected
 
     """
 
-    ICPE_OPTICAL_SYNC_STATE_UNKNOWN = 0
+    icpe_optical_sync_state_unknown = 0
 
-    ICPE_OPTICAL_SYNC_STATE_SYNCING = 1
+    icpe_optical_sync_state_syncing = 1
 
-    ICPE_OPTICAL_SYNC_STATE_SYNCED = 2
+    icpe_optical_sync_state_synced = 2
 
-    ICPE_OPTICAL_SYNC_STATE_NOT_CONNECTED = 3
+    icpe_optical_sync_state_not_connected = 3
 
 
     @staticmethod
@@ -1022,42 +1022,42 @@ class NvSatellite(object):
     .. attribute:: install_op_statuses
     
     	Detailed breakdown of install status table
-    	**type**\:  :py:class:`InstallOpStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallOpStatuses>`
+    	**type**\:   :py:class:`InstallOpStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallOpStatuses>`
     
     .. attribute:: install_progresses
     
     	Current percentage of install table
-    	**type**\:  :py:class:`InstallProgresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallProgresses>`
+    	**type**\:   :py:class:`InstallProgresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallProgresses>`
     
     .. attribute:: install_statuses
     
     	Detailed breakdown of install status table
-    	**type**\:  :py:class:`InstallStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallStatuses>`
+    	**type**\:   :py:class:`InstallStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallStatuses>`
     
     .. attribute:: reload_op_statuses
     
     	Detailed breakdown of reload status table
-    	**type**\:  :py:class:`ReloadOpStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.ReloadOpStatuses>`
+    	**type**\:   :py:class:`ReloadOpStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.ReloadOpStatuses>`
     
     .. attribute:: reload_statuses
     
     	Detailed breakdown of reload status table
-    	**type**\:  :py:class:`ReloadStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.ReloadStatuses>`
+    	**type**\:   :py:class:`ReloadStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.ReloadStatuses>`
     
     .. attribute:: satellite_statuses
     
     	Satellite status information table
-    	**type**\:  :py:class:`SatelliteStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses>`
+    	**type**\:   :py:class:`SatelliteStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses>`
     
     .. attribute:: satellite_topologies
     
     	Satellite Topology Information table
-    	**type**\:  :py:class:`SatelliteTopologies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies>`
+    	**type**\:   :py:class:`SatelliteTopologies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies>`
     
     .. attribute:: sdacp_redundancies
     
     	nV Satellite Redundancy Protocol Information table
-    	**type**\:  :py:class:`SdacpRedundancies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies>`
+    	**type**\:   :py:class:`SdacpRedundancies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies>`
     
     
 
@@ -1092,7 +1092,7 @@ class NvSatellite(object):
         .. attribute:: reload_op_status
         
         	Detailed breakdown of reload status
-        	**type**\: list of  :py:class:`ReloadOpStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.ReloadOpStatuses.ReloadOpStatus>`
+        	**type**\: list of    :py:class:`ReloadOpStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.ReloadOpStatuses.ReloadOpStatus>`
         
         
 
@@ -1266,7 +1266,7 @@ class NvSatellite(object):
         .. attribute:: install_status
         
         	Detailed breakdown of install status
-        	**type**\: list of  :py:class:`InstallStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallStatuses.InstallStatus>`
+        	**type**\: list of    :py:class:`InstallStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallStatuses.InstallStatus>`
         
         
 
@@ -1606,7 +1606,7 @@ class NvSatellite(object):
         .. attribute:: sdacp_redundancy
         
         	nV Satellite Redundancy Protocol Information
-        	**type**\: list of  :py:class:`SdacpRedundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies.SdacpRedundancy>`
+        	**type**\: list of    :py:class:`SdacpRedundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies.SdacpRedundancy>`
         
         
 
@@ -1636,17 +1636,17 @@ class NvSatellite(object):
             .. attribute:: arbitration_state
             
             	Arbitration state
-            	**type**\:  :py:class:`IcpeOpmArbitrationFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmArbitrationFsmStateEnum>`
+            	**type**\:   :py:class:`IcpeOpmArbitrationFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmArbitrationFsmStateEnum>`
             
             .. attribute:: authentication_state
             
             	Authentication state
-            	**type**\:  :py:class:`IcpeOpmAuthFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmAuthFsmStateEnum>`
+            	**type**\:   :py:class:`IcpeOpmAuthFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmAuthFsmStateEnum>`
             
             .. attribute:: channel
             
             	Channels on this session table
-            	**type**\: list of  :py:class:`Channel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel>`
+            	**type**\: list of    :py:class:`Channel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel>`
             
             .. attribute:: iccp_group_xr
             
@@ -1663,22 +1663,22 @@ class NvSatellite(object):
             .. attribute:: primacy
             
             	Primacy
-            	**type**\:  :py:class:`IcpeOpmControllerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmControllerEnum>`
+            	**type**\:   :py:class:`IcpeOpmControllerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmControllerEnum>`
             
             .. attribute:: protocol_state
             
             	Protocol state
-            	**type**\:  :py:class:`IcpeOpmSessStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmSessStateEnum>`
+            	**type**\:   :py:class:`IcpeOpmSessStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmSessStateEnum>`
             
             .. attribute:: protocol_state_timestamp
             
             	Timestamp
-            	**type**\:  :py:class:`ProtocolStateTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies.SdacpRedundancy.ProtocolStateTimestamp>`
+            	**type**\:   :py:class:`ProtocolStateTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies.SdacpRedundancy.ProtocolStateTimestamp>`
             
             .. attribute:: synchronization_state
             
             	Synchronization state
-            	**type**\:  :py:class:`IcpeOpmSyncFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmSyncFsmStateEnum>`
+            	**type**\:   :py:class:`IcpeOpmSyncFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmSyncFsmStateEnum>`
             
             .. attribute:: system_mac
             
@@ -1690,7 +1690,7 @@ class NvSatellite(object):
             .. attribute:: transport_state
             
             	Transport state
-            	**type**\:  :py:class:`IcpeOpmTransportStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmTransportStateEnum>`
+            	**type**\:   :py:class:`IcpeOpmTransportStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmTransportStateEnum>`
             
             
 
@@ -1729,12 +1729,16 @@ class NvSatellite(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Seconds
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 
 
@@ -1783,7 +1787,7 @@ class NvSatellite(object):
                 .. attribute:: chan_state
                 
                 	Chan state
-                	**type**\:  :py:class:`IcpeOpmChanFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmChanFsmStateEnum>`
+                	**type**\:   :py:class:`IcpeOpmChanFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmChanFsmStateEnum>`
                 
                 .. attribute:: channel_id
                 
@@ -1795,7 +1799,7 @@ class NvSatellite(object):
                 .. attribute:: channel_state_timestamp
                 
                 	Timestamp
-                	**type**\:  :py:class:`ChannelStateTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ChannelStateTimestamp>`
+                	**type**\:   :py:class:`ChannelStateTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ChannelStateTimestamp>`
                 
                 .. attribute:: control_messages_received
                 
@@ -1828,12 +1832,12 @@ class NvSatellite(object):
                 .. attribute:: resync_state
                 
                 	Resync state
-                	**type**\:  :py:class:`IcpeOpmResyncFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmResyncFsmStateEnum>`
+                	**type**\:   :py:class:`IcpeOpmResyncFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmResyncFsmStateEnum>`
                 
                 .. attribute:: resync_state_timestamp
                 
                 	Timestamp
-                	**type**\:  :py:class:`ResyncStateTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ResyncStateTimestamp>`
+                	**type**\:   :py:class:`ResyncStateTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ResyncStateTimestamp>`
                 
                 
 
@@ -1868,12 +1872,16 @@ class NvSatellite(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	Seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     
 
@@ -1926,12 +1934,16 @@ class NvSatellite(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	Seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     
 
@@ -2111,7 +2123,7 @@ class NvSatellite(object):
         .. attribute:: satellite_status
         
         	Satellite status information
-        	**type**\: list of  :py:class:`SatelliteStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus>`
+        	**type**\: list of    :py:class:`SatelliteStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus>`
         
         
 
@@ -2141,7 +2153,7 @@ class NvSatellite(object):
             .. attribute:: candidate_fabric_ports
             
             	Candidate Fabric Ports on this Satellite
-            	**type**\:  :py:class:`CandidateFabricPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts>`
+            	**type**\:   :py:class:`CandidateFabricPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts>`
             
             .. attribute:: cfgd_timeout
             
@@ -2153,7 +2165,7 @@ class NvSatellite(object):
             .. attribute:: configured_link
             
             	Configured Links on this Satellite table
-            	**type**\: list of  :py:class:`ConfiguredLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink>`
+            	**type**\: list of    :py:class:`ConfiguredLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink>`
             
             .. attribute:: configured_serial_number
             
@@ -2173,7 +2185,7 @@ class NvSatellite(object):
             .. attribute:: conflict_reason
             
             	Conflict reason
-            	**type**\:  :py:class:`IcpeOperConflictEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflictEnum>`
+            	**type**\:   :py:class:`IcpeOperConflictEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflictEnum>`
             
             .. attribute:: description
             
@@ -2198,7 +2210,7 @@ class NvSatellite(object):
             .. attribute:: install_state
             
             	Install state
-            	**type**\:  :py:class:`IcpeOperInstallStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperInstallStateEnum>`
+            	**type**\:   :py:class:`IcpeOperInstallStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperInstallStateEnum>`
             
             .. attribute:: ip_address
             
@@ -2244,7 +2256,7 @@ class NvSatellite(object):
             .. attribute:: optical_status
             
             	Optical Satellite Status
-            	**type**\:  :py:class:`OpticalStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus>`
+            	**type**\:   :py:class:`OpticalStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus>`
             
             .. attribute:: optical_supported
             
@@ -2293,7 +2305,7 @@ class NvSatellite(object):
             .. attribute:: redundancy_out_of_sync_timestamp
             
             	Timestamp
-            	**type**\:  :py:class:`RedundancyOutOfSyncTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.RedundancyOutOfSyncTimestamp>`
+            	**type**\:   :py:class:`RedundancyOutOfSyncTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.RedundancyOutOfSyncTimestamp>`
             
             .. attribute:: remote_version
             
@@ -2320,12 +2332,12 @@ class NvSatellite(object):
             .. attribute:: sdacp_session_failure_reason
             
             	SDACP session failure reason
-            	**type**\:  :py:class:`IcpeGcoOperControlReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeGcoOperControlReasonEnum>`
+            	**type**\:   :py:class:`IcpeGcoOperControlReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeGcoOperControlReasonEnum>`
             
             .. attribute:: sdacp_session_state
             
             	SDACP session state
-            	**type**\:  :py:class:`IcpeOperSdacpSessStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperSdacpSessStateEnum>`
+            	**type**\:   :py:class:`IcpeOperSdacpSessStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperSdacpSessStateEnum>`
             
             .. attribute:: timeout_warning
             
@@ -2342,7 +2354,7 @@ class NvSatellite(object):
             .. attribute:: version_check_state
             
             	Version check state
-            	**type**\:  :py:class:`IcpeOperVerCheckStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckStateEnum>`
+            	**type**\:   :py:class:`IcpeOperVerCheckStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckStateEnum>`
             
             .. attribute:: vrf_name
             
@@ -2427,12 +2439,12 @@ class NvSatellite(object):
                 .. attribute:: configured_port
                 
                 	Configured Candidate Fabric Ports table
-                	**type**\: list of  :py:class:`ConfiguredPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.ConfiguredPort>`
+                	**type**\: list of    :py:class:`ConfiguredPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.ConfiguredPort>`
                 
                 .. attribute:: current_port
                 
                 	Current Candidate Fabric Ports on this Satellite table
-                	**type**\: list of  :py:class:`CurrentPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.CurrentPort>`
+                	**type**\: list of    :py:class:`CurrentPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.CurrentPort>`
                 
                 .. attribute:: error_string
                 
@@ -2478,7 +2490,7 @@ class NvSatellite(object):
                     .. attribute:: port_type
                     
                     	Port type
-                    	**type**\:  :py:class:`IcpeOperFabricPortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperFabricPortEnum>`
+                    	**type**\:   :py:class:`IcpeOperFabricPortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperFabricPortEnum>`
                     
                     .. attribute:: slot
                     
@@ -2571,7 +2583,7 @@ class NvSatellite(object):
                     .. attribute:: port_type
                     
                     	Port type
-                    	**type**\:  :py:class:`IcpeOperFabricPortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperFabricPortEnum>`
+                    	**type**\:   :py:class:`IcpeOperFabricPortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperFabricPortEnum>`
                     
                     .. attribute:: requested
                     
@@ -2695,12 +2707,12 @@ class NvSatellite(object):
                 .. attribute:: application
                 
                 	Application State table
-                	**type**\: list of  :py:class:`Application <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus.Application>`
+                	**type**\: list of    :py:class:`Application <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus.Application>`
                 
                 .. attribute:: chassis_sync_state
                 
                 	Chassis sync state
-                	**type**\:  :py:class:`IcpeOpticalSyncStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpticalSyncStateEnum>`
+                	**type**\:   :py:class:`IcpeOpticalSyncStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpticalSyncStateEnum>`
                 
                 
 
@@ -2729,7 +2741,7 @@ class NvSatellite(object):
                     .. attribute:: sync_state
                     
                     	Sync state
-                    	**type**\:  :py:class:`IcpeOpticalSyncStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpticalSyncStateEnum>`
+                    	**type**\:   :py:class:`IcpeOpticalSyncStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpticalSyncStateEnum>`
                     
                     
 
@@ -2811,12 +2823,16 @@ class NvSatellite(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Seconds
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 
 
@@ -2870,12 +2886,12 @@ class NvSatellite(object):
                 .. attribute:: conflict_reason
                 
                 	Conflict reason
-                	**type**\:  :py:class:`IcpeOperConflictEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflictEnum>`
+                	**type**\:   :py:class:`IcpeOperConflictEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflictEnum>`
                 
                 .. attribute:: discovered_link
                 
                 	Discovered Links table
-                	**type**\: list of  :py:class:`DiscoveredLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.DiscoveredLink>`
+                	**type**\: list of    :py:class:`DiscoveredLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.DiscoveredLink>`
                 
                 .. attribute:: interface_handle
                 
@@ -2918,7 +2934,7 @@ class NvSatellite(object):
                 .. attribute:: port_range
                 
                 	Port ranges table
-                	**type**\: list of  :py:class:`PortRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.PortRange>`
+                	**type**\: list of    :py:class:`PortRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.PortRange>`
                 
                 .. attribute:: vrf_id
                 
@@ -2971,7 +2987,7 @@ class NvSatellite(object):
                     .. attribute:: conflict_reason
                     
                     	Conflict reason
-                    	**type**\:  :py:class:`IcpeOperConflictEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflictEnum>`
+                    	**type**\:   :py:class:`IcpeOperConflictEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflictEnum>`
                     
                     .. attribute:: high_port
                     
@@ -2990,7 +3006,7 @@ class NvSatellite(object):
                     .. attribute:: port_type
                     
                     	Port type
-                    	**type**\:  :py:class:`IcpeOperPortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperPortEnum>`
+                    	**type**\:   :py:class:`IcpeOperPortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperPortEnum>`
                     
                     .. attribute:: slot
                     
@@ -3078,7 +3094,7 @@ class NvSatellite(object):
                     .. attribute:: conflict_reason
                     
                     	Conflict reason
-                    	**type**\:  :py:class:`IcpeOperConflictEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflictEnum>`
+                    	**type**\:   :py:class:`IcpeOperConflictEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflictEnum>`
                     
                     .. attribute:: interface_handle
                     
@@ -3090,7 +3106,7 @@ class NvSatellite(object):
                     .. attribute:: state
                     
                     	State
-                    	**type**\:  :py:class:`IcpeOperDiscdLinkStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperDiscdLinkStateEnum>`
+                    	**type**\:   :py:class:`IcpeOperDiscdLinkStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperDiscdLinkStateEnum>`
                     
                     
 
@@ -3380,7 +3396,7 @@ class NvSatellite(object):
         .. attribute:: satellite_topology
         
         	Satellite Topology Information
-        	**type**\: list of  :py:class:`SatelliteTopology <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies.SatelliteTopology>`
+        	**type**\: list of    :py:class:`SatelliteTopology <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies.SatelliteTopology>`
         
         
 
@@ -3410,7 +3426,7 @@ class NvSatellite(object):
             .. attribute:: discovered_link
             
             	Discovered Links table
-            	**type**\: list of  :py:class:`DiscoveredLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies.SatelliteTopology.DiscoveredLink>`
+            	**type**\: list of    :py:class:`DiscoveredLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies.SatelliteTopology.DiscoveredLink>`
             
             .. attribute:: interface_handle
             
@@ -3444,7 +3460,7 @@ class NvSatellite(object):
             .. attribute:: satellite
             
             	Satellite table
-            	**type**\: list of  :py:class:`Satellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite>`
+            	**type**\: list of    :py:class:`Satellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite>`
             
             
 
@@ -3551,7 +3567,7 @@ class NvSatellite(object):
                 .. attribute:: conflict_reason
                 
                 	Conflict reason
-                	**type**\:  :py:class:`IcpeOperConflictEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflictEnum>`
+                	**type**\:   :py:class:`IcpeOperConflictEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflictEnum>`
                 
                 .. attribute:: display_name
                 
@@ -3561,7 +3577,7 @@ class NvSatellite(object):
                 .. attribute:: fabric_link
                 
                 	Local Satellite Fabric Link table
-                	**type**\: list of  :py:class:`FabricLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink>`
+                	**type**\: list of    :py:class:`FabricLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink>`
                 
                 .. attribute:: mac_address
                 
@@ -3670,7 +3686,7 @@ class NvSatellite(object):
                     .. attribute:: remote_device
                     
                     	Remote Device table
-                    	**type**\: list of  :py:class:`RemoteDevice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink.RemoteDevice>`
+                    	**type**\: list of    :py:class:`RemoteDevice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink.RemoteDevice>`
                     
                     
 
@@ -3735,7 +3751,7 @@ class NvSatellite(object):
                         .. attribute:: source
                         
                         	Source
-                        	**type**\:  :py:class:`IcpeOperTopoRemoteSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperTopoRemoteSourceEnum>`
+                        	**type**\:   :py:class:`IcpeOperTopoRemoteSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperTopoRemoteSourceEnum>`
                         
                         
 
@@ -3980,7 +3996,7 @@ class NvSatellite(object):
         .. attribute:: install_progress
         
         	Current percentage of install
-        	**type**\: list of  :py:class:`InstallProgress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallProgresses.InstallProgress>`
+        	**type**\: list of    :py:class:`InstallProgress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallProgresses.InstallProgress>`
         
         
 
@@ -4007,12 +4023,16 @@ class NvSatellite(object):
             
             	**range:** 0..2147483647
             
+            	**units**\: percentage
+            
             .. attribute:: progress_percentage_xr
             
             	Progress percentage
             	**type**\:  int
             
             	**range:** 0..65535
+            
+            	**units**\: percentage
             
             .. attribute:: satellite_count
             
@@ -4096,7 +4116,7 @@ class NvSatellite(object):
         .. attribute:: reload_status
         
         	Detailed breakdown of reload status
-        	**type**\: list of  :py:class:`ReloadStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.ReloadStatuses.ReloadStatus>`
+        	**type**\: list of    :py:class:`ReloadStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.ReloadStatuses.ReloadStatus>`
         
         
 
@@ -4259,7 +4279,7 @@ class NvSatellite(object):
         .. attribute:: install_op_status
         
         	Detailed breakdown of install status
-        	**type**\: list of  :py:class:`InstallOpStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallOpStatuses.InstallOpStatus>`
+        	**type**\: list of    :py:class:`InstallOpStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallOpStatuses.InstallOpStatus>`
         
         
 

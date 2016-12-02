@@ -14,8 +14,8 @@ from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 
 _meta_table = {
-    'Bgp.Global.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.Config',
+    'Bgp.Global_.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.Config',
             False, 
             [
             _MetaInfoClassMember('as', ATTRIBUTE, 'int' , None, None, 
@@ -39,8 +39,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.State',
+    'Bgp.Global_.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.State',
             False, 
             [
             _MetaInfoClassMember('as', ATTRIBUTE, 'int' , None, None, 
@@ -76,8 +76,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.RouteSelectionOptions.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.RouteSelectionOptions.Config',
+    'Bgp.Global_.RouteSelectionOptions.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.RouteSelectionOptions.Config',
             False, 
             [
             _MetaInfoClassMember('advertise-inactive-routes', ATTRIBUTE, 'bool' , None, None, 
@@ -134,8 +134,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.RouteSelectionOptions.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.RouteSelectionOptions.State',
+    'Bgp.Global_.RouteSelectionOptions.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.RouteSelectionOptions.State',
             False, 
             [
             _MetaInfoClassMember('advertise-inactive-routes', ATTRIBUTE, 'bool' , None, None, 
@@ -192,18 +192,18 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.RouteSelectionOptions' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.RouteSelectionOptions',
+    'Bgp.Global_.RouteSelectionOptions' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.RouteSelectionOptions',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.RouteSelectionOptions.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.RouteSelectionOptions.Config', 
                 [], [], 
                 '''                Configuration parameters relating to route selection
                 options
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.RouteSelectionOptions.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.RouteSelectionOptions.State', 
                 [], [], 
                 '''                State information for the route selection options
                 ''',
@@ -216,8 +216,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.DefaultRouteDistance.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.DefaultRouteDistance.Config',
+    'Bgp.Global_.DefaultRouteDistance.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.DefaultRouteDistance.Config',
             False, 
             [
             _MetaInfoClassMember('external-route-distance', ATTRIBUTE, 'int' , None, None, 
@@ -241,8 +241,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.DefaultRouteDistance.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.DefaultRouteDistance.State',
+    'Bgp.Global_.DefaultRouteDistance.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.DefaultRouteDistance.State',
             False, 
             [
             _MetaInfoClassMember('external-route-distance', ATTRIBUTE, 'int' , None, None, 
@@ -266,18 +266,18 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.DefaultRouteDistance' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.DefaultRouteDistance',
+    'Bgp.Global_.DefaultRouteDistance' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.DefaultRouteDistance',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.DefaultRouteDistance.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.DefaultRouteDistance.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the default route
                 distance
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.DefaultRouteDistance.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.DefaultRouteDistance.State', 
                 [], [], 
                 '''                State information relating to the default route distance
                 ''',
@@ -290,8 +290,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.Confederation.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.Confederation.Config',
+    'Bgp.Global_.Confederation.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.Confederation.Config',
             False, 
             [
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
@@ -321,8 +321,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.Confederation.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.Confederation.State',
+    'Bgp.Global_.Confederation.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.Confederation.State',
             False, 
             [
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
@@ -352,17 +352,17 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.Confederation' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.Confederation',
+    'Bgp.Global_.Confederation' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.Confederation',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.Confederation.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.Confederation.Config', 
                 [], [], 
                 '''                Configuration parameters relating to BGP confederations
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.Confederation.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.Confederation.State', 
                 [], [], 
                 '''                State information relating to the BGP confederations
                 ''',
@@ -375,8 +375,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.UseMultiplePaths.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.UseMultiplePaths.Config',
+    'Bgp.Global_.UseMultiplePaths.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.UseMultiplePaths.Config',
             False, 
             [
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
@@ -394,8 +394,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.UseMultiplePaths.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.UseMultiplePaths.State',
+    'Bgp.Global_.UseMultiplePaths.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.UseMultiplePaths.State',
             False, 
             [
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
@@ -413,8 +413,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.UseMultiplePaths.Ebgp.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.UseMultiplePaths.Ebgp.Config',
+    'Bgp.Global_.UseMultiplePaths.Ebgp.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.UseMultiplePaths.Ebgp.Config',
             False, 
             [
             _MetaInfoClassMember('allow-multiple-as', ATTRIBUTE, 'bool' , None, None, 
@@ -439,8 +439,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.UseMultiplePaths.Ebgp.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.UseMultiplePaths.Ebgp.State',
+    'Bgp.Global_.UseMultiplePaths.Ebgp.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.UseMultiplePaths.Ebgp.State',
             False, 
             [
             _MetaInfoClassMember('allow-multiple-as', ATTRIBUTE, 'bool' , None, None, 
@@ -465,17 +465,17 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.UseMultiplePaths.Ebgp' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.UseMultiplePaths.Ebgp',
+    'Bgp.Global_.UseMultiplePaths.Ebgp' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.UseMultiplePaths.Ebgp',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.UseMultiplePaths.Ebgp.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.UseMultiplePaths.Ebgp.Config', 
                 [], [], 
                 '''                Configuration parameters relating to eBGP multipath
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.UseMultiplePaths.Ebgp.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.UseMultiplePaths.Ebgp.State', 
                 [], [], 
                 '''                State information relating to eBGP multipath
                 ''',
@@ -488,8 +488,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.UseMultiplePaths.Ibgp.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.UseMultiplePaths.Ibgp.Config',
+    'Bgp.Global_.UseMultiplePaths.Ibgp.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.UseMultiplePaths.Ibgp.Config',
             False, 
             [
             _MetaInfoClassMember('maximum-paths', ATTRIBUTE, 'int' , None, None, 
@@ -506,8 +506,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.UseMultiplePaths.Ibgp.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.UseMultiplePaths.Ibgp.State',
+    'Bgp.Global_.UseMultiplePaths.Ibgp.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.UseMultiplePaths.Ibgp.State',
             False, 
             [
             _MetaInfoClassMember('maximum-paths', ATTRIBUTE, 'int' , None, None, 
@@ -524,17 +524,17 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.UseMultiplePaths.Ibgp' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.UseMultiplePaths.Ibgp',
+    'Bgp.Global_.UseMultiplePaths.Ibgp' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.UseMultiplePaths.Ibgp',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.UseMultiplePaths.Ibgp.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.UseMultiplePaths.Ibgp.Config', 
                 [], [], 
                 '''                Configuration parameters relating to iBGP multipath
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.UseMultiplePaths.Ibgp.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.UseMultiplePaths.Ibgp.State', 
                 [], [], 
                 '''                State information relating to iBGP multipath
                 ''',
@@ -547,29 +547,29 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.UseMultiplePaths' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.UseMultiplePaths',
+    'Bgp.Global_.UseMultiplePaths' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.UseMultiplePaths',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.UseMultiplePaths.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.UseMultiplePaths.Config', 
                 [], [], 
                 '''                Configuration parameters relating to multipath
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('ebgp', REFERENCE_CLASS, 'Ebgp' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.UseMultiplePaths.Ebgp', 
+            _MetaInfoClassMember('ebgp', REFERENCE_CLASS, 'Ebgp' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.UseMultiplePaths.Ebgp', 
                 [], [], 
                 '''                Multipath parameters for eBGP
                 ''',
                 'ebgp',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('ibgp', REFERENCE_CLASS, 'Ibgp' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.UseMultiplePaths.Ibgp', 
+            _MetaInfoClassMember('ibgp', REFERENCE_CLASS, 'Ibgp' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.UseMultiplePaths.Ibgp', 
                 [], [], 
                 '''                Multipath parameters for iBGP
                 ''',
                 'ibgp',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.UseMultiplePaths.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.UseMultiplePaths.State', 
                 [], [], 
                 '''                State parameters relating to multipath
                 ''',
@@ -582,8 +582,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.GracefulRestart.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.GracefulRestart.Config',
+    'Bgp.Global_.GracefulRestart.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.GracefulRestart.Config',
             False, 
             [
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
@@ -630,8 +630,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.GracefulRestart.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.GracefulRestart.State',
+    'Bgp.Global_.GracefulRestart.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.GracefulRestart.State',
             False, 
             [
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
@@ -678,17 +678,17 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.GracefulRestart' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.GracefulRestart',
+    'Bgp.Global_.GracefulRestart' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.GracefulRestart',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.GracefulRestart.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.GracefulRestart.Config', 
                 [], [], 
                 '''                Configuration parameters relating to graceful-restart
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.GracefulRestart.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.GracefulRestart.State', 
                 [], [], 
                 '''                State information associated with graceful-restart
                 ''',
@@ -701,8 +701,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.Config',
+    'Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.Config',
             False, 
             [
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
@@ -719,8 +719,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.State',
+    'Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.State',
             False, 
             [
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
@@ -737,17 +737,17 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.GracefulRestart' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.GracefulRestart',
+    'Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.Config', 
                 [], [], 
                 '''                Configuration options for BGP graceful-restart
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.State', 
                 [], [], 
                 '''                State information for BGP graceful-restart
                 ''',
@@ -760,8 +760,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Config',
+    'Bgp.Global_.AfiSafis.AfiSafi.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.Config',
             False, 
             [
             _MetaInfoClassMember('afi-safi-name', REFERENCE_IDENTITY_CLASS, 'AfiSafiTypeIdentity' , 'ydk.models.openconfig.openconfig_bgp_types', 'AfiSafiTypeIdentity', 
@@ -784,8 +784,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.State',
+    'Bgp.Global_.AfiSafis.AfiSafi.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.State',
             False, 
             [
             _MetaInfoClassMember('afi-safi-name', REFERENCE_IDENTITY_CLASS, 'AfiSafiTypeIdentity' , 'ydk.models.openconfig.openconfig_bgp_types', 'AfiSafiTypeIdentity', 
@@ -820,8 +820,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.Config',
+    'Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.Config',
             False, 
             [
             _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.openconfig.openconfig_routing_policy', 'DefaultPolicyTypeEnum', 
@@ -863,8 +863,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.State',
+    'Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.State',
             False, 
             [
             _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.openconfig.openconfig_routing_policy', 'DefaultPolicyTypeEnum', 
@@ -906,17 +906,17 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy',
+    'Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.Config', 
                 [], [], 
                 '''                Policy configuration data.
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.State', 
                 [], [], 
                 '''                Operational state for routing policy
                 ''',
@@ -929,8 +929,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config',
+    'Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -964,8 +964,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State',
+    'Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -999,18 +999,18 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit',
+    'Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -1024,8 +1024,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.Config',
+    'Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.Config',
             False, 
             [
             _MetaInfoClassMember('send-default-route', ATTRIBUTE, 'bool' , None, None, 
@@ -1041,8 +1041,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.State',
+    'Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.State',
             False, 
             [
             _MetaInfoClassMember('send-default-route', ATTRIBUTE, 'bool' , None, None, 
@@ -1058,25 +1058,25 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast',
+    'Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.Config', 
                 [], [], 
                 '''                Configuration parameters for common IPv4 and IPv6 unicast
                 AFI-SAFI options
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
                 ''',
                 'prefix_limit',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.State', 
                 [], [], 
                 '''                State information for common IPv4 and IPv6 unicast
                 parameters
@@ -1090,8 +1090,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config',
+    'Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1125,8 +1125,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State',
+    'Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1160,18 +1160,18 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit',
+    'Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -1185,8 +1185,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.Config',
+    'Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.Config',
             False, 
             [
             _MetaInfoClassMember('send-default-route', ATTRIBUTE, 'bool' , None, None, 
@@ -1202,8 +1202,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.State',
+    'Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.State',
             False, 
             [
             _MetaInfoClassMember('send-default-route', ATTRIBUTE, 'bool' , None, None, 
@@ -1219,25 +1219,25 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast',
+    'Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.Config', 
                 [], [], 
                 '''                Configuration parameters for common IPv4 and IPv6 unicast
                 AFI-SAFI options
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
                 ''',
                 'prefix_limit',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.State', 
                 [], [], 
                 '''                State information for common IPv4 and IPv6 unicast
                 parameters
@@ -1251,8 +1251,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config',
+    'Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1286,8 +1286,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State',
+    'Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1321,18 +1321,18 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit',
+    'Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -1346,11 +1346,11 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast',
+    'Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -1364,8 +1364,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config',
+    'Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1399,8 +1399,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State',
+    'Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1434,18 +1434,18 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit',
+    'Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -1459,11 +1459,11 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast',
+    'Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -1477,8 +1477,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config',
+    'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1512,8 +1512,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State',
+    'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1547,18 +1547,18 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit',
+    'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -1572,11 +1572,11 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast',
+    'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -1590,8 +1590,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config',
+    'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1625,8 +1625,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State',
+    'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1660,18 +1660,18 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit',
+    'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -1685,11 +1685,11 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast',
+    'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -1703,8 +1703,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config',
+    'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1738,8 +1738,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State',
+    'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1773,18 +1773,18 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit',
+    'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -1798,11 +1798,11 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast',
+    'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -1816,8 +1816,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config',
+    'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1851,8 +1851,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State',
+    'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1886,18 +1886,18 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit',
+    'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -1911,11 +1911,11 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast',
+    'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -1929,8 +1929,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config',
+    'Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1964,8 +1964,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State',
+    'Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -1999,18 +1999,18 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit',
+    'Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -2024,11 +2024,11 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls',
+    'Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -2042,8 +2042,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config',
+    'Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -2077,8 +2077,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State',
+    'Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State',
             False, 
             [
             _MetaInfoClassMember('max-prefixes', ATTRIBUTE, 'int' , None, None, 
@@ -2112,18 +2112,18 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit',
+    'Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the prefix
                 limit for the AFI-SAFI
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State', 
                 [], [], 
                 '''                State information relating to the prefix-limit for the
                 AFI-SAFI
@@ -2137,11 +2137,11 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn',
+    'Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn',
             False, 
             [
-            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit', 
+            _MetaInfoClassMember('prefix-limit', REFERENCE_CLASS, 'PrefixLimit' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit', 
                 [], [], 
                 '''                Configure the maximum number of prefixes that will be
                 accepted from a peer
@@ -2155,8 +2155,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.Config',
+    'Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.Config',
             False, 
             [
             _MetaInfoClassMember('advertise-inactive-routes', ATTRIBUTE, 'bool' , None, None, 
@@ -2213,8 +2213,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.State',
+    'Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.State',
             False, 
             [
             _MetaInfoClassMember('advertise-inactive-routes', ATTRIBUTE, 'bool' , None, None, 
@@ -2271,18 +2271,18 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions',
+    'Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.Config', 
                 [], [], 
                 '''                Configuration parameters relating to route selection
                 options
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.State', 
                 [], [], 
                 '''                State information for the route selection options
                 ''',
@@ -2295,8 +2295,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Config',
+    'Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Config',
             False, 
             [
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
@@ -2314,8 +2314,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State',
+    'Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.State',
             False, 
             [
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
@@ -2333,8 +2333,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config',
+    'Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config',
             False, 
             [
             _MetaInfoClassMember('allow-multiple-as', ATTRIBUTE, 'bool' , None, None, 
@@ -2359,8 +2359,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State',
+    'Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State',
             False, 
             [
             _MetaInfoClassMember('allow-multiple-as', ATTRIBUTE, 'bool' , None, None, 
@@ -2385,17 +2385,17 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp',
+    'Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config', 
                 [], [], 
                 '''                Configuration parameters relating to eBGP multipath
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State', 
                 [], [], 
                 '''                State information relating to eBGP multipath
                 ''',
@@ -2408,8 +2408,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config',
+    'Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config',
             False, 
             [
             _MetaInfoClassMember('maximum-paths', ATTRIBUTE, 'int' , None, None, 
@@ -2426,8 +2426,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State',
+    'Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State',
             False, 
             [
             _MetaInfoClassMember('maximum-paths', ATTRIBUTE, 'int' , None, None, 
@@ -2444,17 +2444,17 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp',
+    'Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config', 
                 [], [], 
                 '''                Configuration parameters relating to iBGP multipath
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State', 
                 [], [], 
                 '''                State information relating to iBGP multipath
                 ''',
@@ -2467,29 +2467,29 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths',
+    'Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Config', 
                 [], [], 
                 '''                Configuration parameters relating to multipath
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('ebgp', REFERENCE_CLASS, 'Ebgp' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp', 
+            _MetaInfoClassMember('ebgp', REFERENCE_CLASS, 'Ebgp' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp', 
                 [], [], 
                 '''                Multipath parameters for eBGP
                 ''',
                 'ebgp',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('ibgp', REFERENCE_CLASS, 'Ibgp' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp', 
+            _MetaInfoClassMember('ibgp', REFERENCE_CLASS, 'Ibgp' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp', 
                 [], [], 
                 '''                Multipath parameters for iBGP
                 ''',
                 'ibgp',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.State', 
                 [], [], 
                 '''                State parameters relating to multipath
                 ''',
@@ -2502,8 +2502,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis.AfiSafi' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis.AfiSafi',
+    'Bgp.Global_.AfiSafis.AfiSafi' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis.AfiSafi',
             False, 
             [
             _MetaInfoClassMember('afi-safi-name', REFERENCE_IDENTITY_CLASS, 'AfiSafiTypeIdentity' , 'ydk.models.openconfig.openconfig_bgp_types', 'AfiSafiTypeIdentity', 
@@ -2513,7 +2513,7 @@ _meta_table = {
                 ''',
                 'afi_safi_name',
                 'openconfig-bgp', True),
-            _MetaInfoClassMember('apply-policy', REFERENCE_CLASS, 'ApplyPolicy' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy', 
+            _MetaInfoClassMember('apply-policy', REFERENCE_CLASS, 'ApplyPolicy' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy', 
                 [], [], 
                 '''                Anchor point for routing policies in the model.
                 Import and export policies are with respect to the local
@@ -2522,91 +2522,91 @@ _meta_table = {
                 ''',
                 'apply_policy',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.Config', 
                 [], [], 
                 '''                Configuration parameters for the AFI-SAFI
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.GracefulRestart', 
+            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart', 
                 [], [], 
                 '''                Parameters relating to BGP graceful-restart
                 ''',
                 'graceful_restart',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('ipv4-labelled-unicast', REFERENCE_CLASS, 'Ipv4LabelledUnicast' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast', 
+            _MetaInfoClassMember('ipv4-labelled-unicast', REFERENCE_CLASS, 'Ipv4LabelledUnicast' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast', 
                 [], [], 
                 '''                IPv4 Labelled Unicast configuration options
                 ''',
                 'ipv4_labelled_unicast',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('ipv4-unicast', REFERENCE_CLASS, 'Ipv4Unicast' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast', 
+            _MetaInfoClassMember('ipv4-unicast', REFERENCE_CLASS, 'Ipv4Unicast' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast', 
                 [], [], 
                 '''                IPv4 unicast configuration options
                 ''',
                 'ipv4_unicast',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('ipv6-labelled-unicast', REFERENCE_CLASS, 'Ipv6LabelledUnicast' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast', 
+            _MetaInfoClassMember('ipv6-labelled-unicast', REFERENCE_CLASS, 'Ipv6LabelledUnicast' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast', 
                 [], [], 
                 '''                IPv6 Labelled Unicast configuration options
                 ''',
                 'ipv6_labelled_unicast',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('ipv6-unicast', REFERENCE_CLASS, 'Ipv6Unicast' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast', 
+            _MetaInfoClassMember('ipv6-unicast', REFERENCE_CLASS, 'Ipv6Unicast' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast', 
                 [], [], 
                 '''                IPv6 unicast configuration options
                 ''',
                 'ipv6_unicast',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('l2vpn-evpn', REFERENCE_CLASS, 'L2VpnEvpn' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn', 
+            _MetaInfoClassMember('l2vpn-evpn', REFERENCE_CLASS, 'L2VpnEvpn' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn', 
                 [], [], 
                 '''                BGP EVPN configuration options
                 ''',
                 'l2vpn_evpn',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('l2vpn-vpls', REFERENCE_CLASS, 'L2VpnVpls' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls', 
+            _MetaInfoClassMember('l2vpn-vpls', REFERENCE_CLASS, 'L2VpnVpls' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls', 
                 [], [], 
                 '''                BGP-signalled VPLS configuration options
                 ''',
                 'l2vpn_vpls',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv4-multicast', REFERENCE_CLASS, 'L3VpnIpv4Multicast' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast', 
+            _MetaInfoClassMember('l3vpn-ipv4-multicast', REFERENCE_CLASS, 'L3VpnIpv4Multicast' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast', 
                 [], [], 
                 '''                Multicast IPv4 L3VPN configuration options
                 ''',
                 'l3vpn_ipv4_multicast',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv4-unicast', REFERENCE_CLASS, 'L3VpnIpv4Unicast' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast', 
+            _MetaInfoClassMember('l3vpn-ipv4-unicast', REFERENCE_CLASS, 'L3VpnIpv4Unicast' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast', 
                 [], [], 
                 '''                Unicast IPv4 L3VPN configuration options
                 ''',
                 'l3vpn_ipv4_unicast',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv6-multicast', REFERENCE_CLASS, 'L3VpnIpv6Multicast' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast', 
+            _MetaInfoClassMember('l3vpn-ipv6-multicast', REFERENCE_CLASS, 'L3VpnIpv6Multicast' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast', 
                 [], [], 
                 '''                Multicast IPv6 L3VPN configuration options
                 ''',
                 'l3vpn_ipv6_multicast',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('l3vpn-ipv6-unicast', REFERENCE_CLASS, 'L3VpnIpv6Unicast' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast', 
+            _MetaInfoClassMember('l3vpn-ipv6-unicast', REFERENCE_CLASS, 'L3VpnIpv6Unicast' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast', 
                 [], [], 
                 '''                Unicast IPv6 L3VPN configuration options
                 ''',
                 'l3vpn_ipv6_unicast',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('route-selection-options', REFERENCE_CLASS, 'RouteSelectionOptions' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions', 
+            _MetaInfoClassMember('route-selection-options', REFERENCE_CLASS, 'RouteSelectionOptions' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions', 
                 [], [], 
                 '''                Parameters relating to options for route selection
                 ''',
                 'route_selection_options',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.State', 
                 [], [], 
                 '''                State information relating to the AFI-SAFI
                 ''',
                 'state',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('use-multiple-paths', REFERENCE_CLASS, 'UseMultiplePaths' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths', 
+            _MetaInfoClassMember('use-multiple-paths', REFERENCE_CLASS, 'UseMultiplePaths' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths', 
                 [], [], 
                 '''                Parameters related to the use of multiple paths for the
                 same NLRI
@@ -2620,11 +2620,11 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.AfiSafis' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.AfiSafis',
+    'Bgp.Global_.AfiSafis' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.AfiSafis',
             False, 
             [
-            _MetaInfoClassMember('afi-safi', REFERENCE_LIST, 'AfiSafi' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis.AfiSafi', 
+            _MetaInfoClassMember('afi-safi', REFERENCE_LIST, 'AfiSafi' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis.AfiSafi', 
                 [], [], 
                 '''                AFI,SAFI configuration available for the
                 neighbour or group
@@ -2638,8 +2638,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.ApplyPolicy.Config' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.ApplyPolicy.Config',
+    'Bgp.Global_.ApplyPolicy.Config' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.ApplyPolicy.Config',
             False, 
             [
             _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.openconfig.openconfig_routing_policy', 'DefaultPolicyTypeEnum', 
@@ -2681,8 +2681,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.ApplyPolicy.State' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.ApplyPolicy.State',
+    'Bgp.Global_.ApplyPolicy.State' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.ApplyPolicy.State',
             False, 
             [
             _MetaInfoClassMember('default-export-policy', REFERENCE_ENUM_CLASS, 'DefaultPolicyTypeEnum' , 'ydk.models.openconfig.openconfig_routing_policy', 'DefaultPolicyTypeEnum', 
@@ -2724,17 +2724,17 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global.ApplyPolicy' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global.ApplyPolicy',
+    'Bgp.Global_.ApplyPolicy' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_.ApplyPolicy',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.ApplyPolicy.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.ApplyPolicy.Config', 
                 [], [], 
                 '''                Policy configuration data.
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.ApplyPolicy.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.ApplyPolicy.State', 
                 [], [], 
                 '''                Operational state for routing policy
                 ''',
@@ -2747,17 +2747,17 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp'
         ),
     },
-    'Bgp.Global' : {
-        'meta_info' : _MetaInfoClass('Bgp.Global',
+    'Bgp.Global_' : {
+        'meta_info' : _MetaInfoClass('Bgp.Global_',
             False, 
             [
-            _MetaInfoClassMember('afi-safis', REFERENCE_CLASS, 'AfiSafis' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.AfiSafis', 
+            _MetaInfoClassMember('afi-safis', REFERENCE_CLASS, 'AfiSafis' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.AfiSafis', 
                 [], [], 
                 '''                Address family specific configuration
                 ''',
                 'afi_safis',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('apply-policy', REFERENCE_CLASS, 'ApplyPolicy' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.ApplyPolicy', 
+            _MetaInfoClassMember('apply-policy', REFERENCE_CLASS, 'ApplyPolicy' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.ApplyPolicy', 
                 [], [], 
                 '''                Anchor point for routing policies in the model.
                 Import and export policies are with respect to the local
@@ -2766,20 +2766,20 @@ _meta_table = {
                 ''',
                 'apply_policy',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('confederation', REFERENCE_CLASS, 'Confederation' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.Confederation', 
+            _MetaInfoClassMember('confederation', REFERENCE_CLASS, 'Confederation' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.Confederation', 
                 [], [], 
                 '''                Parameters indicating whether the local system acts as part
                 of a BGP confederation
                 ''',
                 'confederation',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the global BGP router
                 ''',
                 'config',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('default-route-distance', REFERENCE_CLASS, 'DefaultRouteDistance' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.DefaultRouteDistance', 
+            _MetaInfoClassMember('default-route-distance', REFERENCE_CLASS, 'DefaultRouteDistance' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.DefaultRouteDistance', 
                 [], [], 
                 '''                Administrative distance (or preference) assigned to
                 routes received from different sources
@@ -2787,25 +2787,25 @@ _meta_table = {
                 ''',
                 'default_route_distance',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.GracefulRestart', 
+            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.GracefulRestart', 
                 [], [], 
                 '''                Parameters relating the graceful restart mechanism for BGP
                 ''',
                 'graceful_restart',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('route-selection-options', REFERENCE_CLASS, 'RouteSelectionOptions' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.RouteSelectionOptions', 
+            _MetaInfoClassMember('route-selection-options', REFERENCE_CLASS, 'RouteSelectionOptions' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.RouteSelectionOptions', 
                 [], [], 
                 '''                Parameters relating to options for route selection
                 ''',
                 'route_selection_options',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.State', 
                 [], [], 
                 '''                State information relating to the global BGP router
                 ''',
                 'state',
                 'openconfig-bgp', False),
-            _MetaInfoClassMember('use-multiple-paths', REFERENCE_CLASS, 'UseMultiplePaths' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global.UseMultiplePaths', 
+            _MetaInfoClassMember('use-multiple-paths', REFERENCE_CLASS, 'UseMultiplePaths' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_.UseMultiplePaths', 
                 [], [], 
                 '''                Parameters related to the use of multiple paths for the
                 same NLRI
@@ -9670,7 +9670,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp',
             False, 
             [
-            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global', 
+            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global_' , 'ydk.models.openconfig.openconfig_bgp', 'Bgp.Global_', 
                 [], [], 
                 '''                Global configuration for the BGP router
                 ''',
@@ -9696,98 +9696,98 @@ _meta_table = {
         ),
     },
 }
-_meta_table['Bgp.Global.RouteSelectionOptions.Config']['meta_info'].parent =_meta_table['Bgp.Global.RouteSelectionOptions']['meta_info']
-_meta_table['Bgp.Global.RouteSelectionOptions.State']['meta_info'].parent =_meta_table['Bgp.Global.RouteSelectionOptions']['meta_info']
-_meta_table['Bgp.Global.DefaultRouteDistance.Config']['meta_info'].parent =_meta_table['Bgp.Global.DefaultRouteDistance']['meta_info']
-_meta_table['Bgp.Global.DefaultRouteDistance.State']['meta_info'].parent =_meta_table['Bgp.Global.DefaultRouteDistance']['meta_info']
-_meta_table['Bgp.Global.Confederation.Config']['meta_info'].parent =_meta_table['Bgp.Global.Confederation']['meta_info']
-_meta_table['Bgp.Global.Confederation.State']['meta_info'].parent =_meta_table['Bgp.Global.Confederation']['meta_info']
-_meta_table['Bgp.Global.UseMultiplePaths.Ebgp.Config']['meta_info'].parent =_meta_table['Bgp.Global.UseMultiplePaths.Ebgp']['meta_info']
-_meta_table['Bgp.Global.UseMultiplePaths.Ebgp.State']['meta_info'].parent =_meta_table['Bgp.Global.UseMultiplePaths.Ebgp']['meta_info']
-_meta_table['Bgp.Global.UseMultiplePaths.Ibgp.Config']['meta_info'].parent =_meta_table['Bgp.Global.UseMultiplePaths.Ibgp']['meta_info']
-_meta_table['Bgp.Global.UseMultiplePaths.Ibgp.State']['meta_info'].parent =_meta_table['Bgp.Global.UseMultiplePaths.Ibgp']['meta_info']
-_meta_table['Bgp.Global.UseMultiplePaths.Config']['meta_info'].parent =_meta_table['Bgp.Global.UseMultiplePaths']['meta_info']
-_meta_table['Bgp.Global.UseMultiplePaths.State']['meta_info'].parent =_meta_table['Bgp.Global.UseMultiplePaths']['meta_info']
-_meta_table['Bgp.Global.UseMultiplePaths.Ebgp']['meta_info'].parent =_meta_table['Bgp.Global.UseMultiplePaths']['meta_info']
-_meta_table['Bgp.Global.UseMultiplePaths.Ibgp']['meta_info'].parent =_meta_table['Bgp.Global.UseMultiplePaths']['meta_info']
-_meta_table['Bgp.Global.GracefulRestart.Config']['meta_info'].parent =_meta_table['Bgp.Global.GracefulRestart']['meta_info']
-_meta_table['Bgp.Global.GracefulRestart.State']['meta_info'].parent =_meta_table['Bgp.Global.GracefulRestart']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.GracefulRestart']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.GracefulRestart']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.GracefulRestart']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.Config']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.State']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
-_meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info'].parent =_meta_table['Bgp.Global.AfiSafis']['meta_info']
-_meta_table['Bgp.Global.ApplyPolicy.Config']['meta_info'].parent =_meta_table['Bgp.Global.ApplyPolicy']['meta_info']
-_meta_table['Bgp.Global.ApplyPolicy.State']['meta_info'].parent =_meta_table['Bgp.Global.ApplyPolicy']['meta_info']
-_meta_table['Bgp.Global.Config']['meta_info'].parent =_meta_table['Bgp.Global']['meta_info']
-_meta_table['Bgp.Global.State']['meta_info'].parent =_meta_table['Bgp.Global']['meta_info']
-_meta_table['Bgp.Global.RouteSelectionOptions']['meta_info'].parent =_meta_table['Bgp.Global']['meta_info']
-_meta_table['Bgp.Global.DefaultRouteDistance']['meta_info'].parent =_meta_table['Bgp.Global']['meta_info']
-_meta_table['Bgp.Global.Confederation']['meta_info'].parent =_meta_table['Bgp.Global']['meta_info']
-_meta_table['Bgp.Global.UseMultiplePaths']['meta_info'].parent =_meta_table['Bgp.Global']['meta_info']
-_meta_table['Bgp.Global.GracefulRestart']['meta_info'].parent =_meta_table['Bgp.Global']['meta_info']
-_meta_table['Bgp.Global.AfiSafis']['meta_info'].parent =_meta_table['Bgp.Global']['meta_info']
-_meta_table['Bgp.Global.ApplyPolicy']['meta_info'].parent =_meta_table['Bgp.Global']['meta_info']
+_meta_table['Bgp.Global_.RouteSelectionOptions.Config']['meta_info'].parent =_meta_table['Bgp.Global_.RouteSelectionOptions']['meta_info']
+_meta_table['Bgp.Global_.RouteSelectionOptions.State']['meta_info'].parent =_meta_table['Bgp.Global_.RouteSelectionOptions']['meta_info']
+_meta_table['Bgp.Global_.DefaultRouteDistance.Config']['meta_info'].parent =_meta_table['Bgp.Global_.DefaultRouteDistance']['meta_info']
+_meta_table['Bgp.Global_.DefaultRouteDistance.State']['meta_info'].parent =_meta_table['Bgp.Global_.DefaultRouteDistance']['meta_info']
+_meta_table['Bgp.Global_.Confederation.Config']['meta_info'].parent =_meta_table['Bgp.Global_.Confederation']['meta_info']
+_meta_table['Bgp.Global_.Confederation.State']['meta_info'].parent =_meta_table['Bgp.Global_.Confederation']['meta_info']
+_meta_table['Bgp.Global_.UseMultiplePaths.Ebgp.Config']['meta_info'].parent =_meta_table['Bgp.Global_.UseMultiplePaths.Ebgp']['meta_info']
+_meta_table['Bgp.Global_.UseMultiplePaths.Ebgp.State']['meta_info'].parent =_meta_table['Bgp.Global_.UseMultiplePaths.Ebgp']['meta_info']
+_meta_table['Bgp.Global_.UseMultiplePaths.Ibgp.Config']['meta_info'].parent =_meta_table['Bgp.Global_.UseMultiplePaths.Ibgp']['meta_info']
+_meta_table['Bgp.Global_.UseMultiplePaths.Ibgp.State']['meta_info'].parent =_meta_table['Bgp.Global_.UseMultiplePaths.Ibgp']['meta_info']
+_meta_table['Bgp.Global_.UseMultiplePaths.Config']['meta_info'].parent =_meta_table['Bgp.Global_.UseMultiplePaths']['meta_info']
+_meta_table['Bgp.Global_.UseMultiplePaths.State']['meta_info'].parent =_meta_table['Bgp.Global_.UseMultiplePaths']['meta_info']
+_meta_table['Bgp.Global_.UseMultiplePaths.Ebgp']['meta_info'].parent =_meta_table['Bgp.Global_.UseMultiplePaths']['meta_info']
+_meta_table['Bgp.Global_.UseMultiplePaths.Ibgp']['meta_info'].parent =_meta_table['Bgp.Global_.UseMultiplePaths']['meta_info']
+_meta_table['Bgp.Global_.GracefulRestart.Config']['meta_info'].parent =_meta_table['Bgp.Global_.GracefulRestart']['meta_info']
+_meta_table['Bgp.Global_.GracefulRestart.State']['meta_info'].parent =_meta_table['Bgp.Global_.GracefulRestart']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.Config']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.State']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.Config']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.State']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.Config']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.State']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.Config']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.State']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.Config']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.State']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Config']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.State']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Config']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.State']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis.AfiSafi']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis.AfiSafi']['meta_info'].parent =_meta_table['Bgp.Global_.AfiSafis']['meta_info']
+_meta_table['Bgp.Global_.ApplyPolicy.Config']['meta_info'].parent =_meta_table['Bgp.Global_.ApplyPolicy']['meta_info']
+_meta_table['Bgp.Global_.ApplyPolicy.State']['meta_info'].parent =_meta_table['Bgp.Global_.ApplyPolicy']['meta_info']
+_meta_table['Bgp.Global_.Config']['meta_info'].parent =_meta_table['Bgp.Global_']['meta_info']
+_meta_table['Bgp.Global_.State']['meta_info'].parent =_meta_table['Bgp.Global_']['meta_info']
+_meta_table['Bgp.Global_.RouteSelectionOptions']['meta_info'].parent =_meta_table['Bgp.Global_']['meta_info']
+_meta_table['Bgp.Global_.DefaultRouteDistance']['meta_info'].parent =_meta_table['Bgp.Global_']['meta_info']
+_meta_table['Bgp.Global_.Confederation']['meta_info'].parent =_meta_table['Bgp.Global_']['meta_info']
+_meta_table['Bgp.Global_.UseMultiplePaths']['meta_info'].parent =_meta_table['Bgp.Global_']['meta_info']
+_meta_table['Bgp.Global_.GracefulRestart']['meta_info'].parent =_meta_table['Bgp.Global_']['meta_info']
+_meta_table['Bgp.Global_.AfiSafis']['meta_info'].parent =_meta_table['Bgp.Global_']['meta_info']
+_meta_table['Bgp.Global_.ApplyPolicy']['meta_info'].parent =_meta_table['Bgp.Global_']['meta_info']
 _meta_table['Bgp.Neighbors.Neighbor.State.Messages.Sent']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.State.Messages']['meta_info']
 _meta_table['Bgp.Neighbors.Neighbor.State.Messages.Received']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.State.Messages']['meta_info']
 _meta_table['Bgp.Neighbors.Neighbor.State.Messages']['meta_info'].parent =_meta_table['Bgp.Neighbors.Neighbor.State']['meta_info']
@@ -10000,6 +10000,6 @@ _meta_table['Bgp.PeerGroups.PeerGroup.GracefulRestart']['meta_info'].parent =_me
 _meta_table['Bgp.PeerGroups.PeerGroup.ApplyPolicy']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup']['meta_info']
 _meta_table['Bgp.PeerGroups.PeerGroup.UseMultiplePaths']['meta_info'].parent =_meta_table['Bgp.PeerGroups.PeerGroup']['meta_info']
 _meta_table['Bgp.PeerGroups.PeerGroup']['meta_info'].parent =_meta_table['Bgp.PeerGroups']['meta_info']
-_meta_table['Bgp.Global']['meta_info'].parent =_meta_table['Bgp']['meta_info']
+_meta_table['Bgp.Global_']['meta_info'].parent =_meta_table['Bgp']['meta_info']
 _meta_table['Bgp.Neighbors']['meta_info'].parent =_meta_table['Bgp']['meta_info']
 _meta_table['Bgp.PeerGroups']['meta_info'].parent =_meta_table['Bgp']['meta_info']

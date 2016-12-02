@@ -30,19 +30,19 @@ class CryptoSamActionEnum(Enum):
 
     Crypto sam action
 
-    .. data:: PROCEED = 1
+    .. data:: proceed = 1
 
     	To respond YES to the SAM prompt
 
-    .. data:: TERMINATE = 2
+    .. data:: terminate = 2
 
     	To respond NO to the SAM prompt
 
     """
 
-    PROCEED = 1
+    proceed = 1
 
-    TERMINATE = 2
+    terminate = 2
 
 
     @staticmethod
@@ -59,12 +59,12 @@ class Crypto(object):
     .. attribute:: sam
     
     	Software Authentication Manager (SAM) Config
-    	**type**\:  :py:class:`Sam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Sam>`
+    	**type**\:   :py:class:`Sam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Sam>`
     
     .. attribute:: ssh
     
     	Secure Shell configuration
-    	**type**\:  :py:class:`Ssh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh>`
+    	**type**\:   :py:class:`Ssh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh>`
     
     
 
@@ -87,7 +87,9 @@ class Crypto(object):
         .. attribute:: prompt_interval
         
         	Set prompt interval at reboot time
-        	**type**\:  :py:class:`PromptInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Sam.PromptInterval>`
+        	**type**\:   :py:class:`PromptInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Sam.PromptInterval>`
+        
+        	**presence node**\: True
         
         
 
@@ -108,7 +110,7 @@ class Crypto(object):
             .. attribute:: action
             
             	Respond to SAM prompt either Proceed/Terminate
-            	**type**\:  :py:class:`CryptoSamActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.CryptoSamActionEnum>`
+            	**type**\:   :py:class:`CryptoSamActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.CryptoSamActionEnum>`
             
             	**mandatory**\: True
             
@@ -120,6 +122,8 @@ class Crypto(object):
             	**range:** 0..300
             
             	**mandatory**\: True
+            
+            	**units**\: second
             
             .. attribute:: _is_presence
             
@@ -198,12 +202,12 @@ class Crypto(object):
         .. attribute:: client
         
         	Provide SSH client service
-        	**type**\:  :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Client>`
+        	**type**\:   :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Client>`
         
         .. attribute:: server
         
         	Provide SSH server service
-        	**type**\:  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server>`
+        	**type**\:   :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server>`
         
         
 
@@ -310,7 +314,7 @@ class Crypto(object):
             .. attribute:: logging
             
             	Enable ssh server logging
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: netconf
             
@@ -319,10 +323,12 @@ class Crypto(object):
             
             	**range:** 1..65535
             
+            	**default value**\: 830
+            
             .. attribute:: netconf_vrf_table
             
             	Cisco sshd Netconf VRF name
-            	**type**\:  :py:class:`NetconfVrfTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.NetconfVrfTable>`
+            	**type**\:   :py:class:`NetconfVrfTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.NetconfVrfTable>`
             
             .. attribute:: rate_limit
             
@@ -330,6 +336,8 @@ class Crypto(object):
             	**type**\:  int
             
             	**range:** 1..600
+            
+            	**default value**\: 60
             
             .. attribute:: session_limit
             
@@ -345,15 +353,17 @@ class Crypto(object):
             
             	**range:** 5..120
             
+            	**default value**\: 30
+            
             .. attribute:: v2
             
             	Cisco sshd force protocol version 2 only
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: vrf_table
             
             	Cisco sshd VRF name
-            	**type**\:  :py:class:`VrfTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.VrfTable>`
+            	**type**\:   :py:class:`VrfTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.VrfTable>`
             
             
 
@@ -384,7 +394,7 @@ class Crypto(object):
                 .. attribute:: vrf
                 
                 	Enter VRF name
-                	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.VrfTable.Vrf>`
+                	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.VrfTable.Vrf>`
                 
                 
 
@@ -414,7 +424,7 @@ class Crypto(object):
                     .. attribute:: enable
                     
                     	Enable to use VRF
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     	**mandatory**\: True
                     
@@ -511,7 +521,7 @@ class Crypto(object):
                 .. attribute:: vrf
                 
                 	Enter VRF name
-                	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.NetconfVrfTable.Vrf>`
+                	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.NetconfVrfTable.Vrf>`
                 
                 
 
@@ -541,7 +551,7 @@ class Crypto(object):
                     .. attribute:: enable
                     
                     	Enable to use VRF
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     	**mandatory**\: True
                     

@@ -26,19 +26,19 @@ class ObjectTrackingBooleanSignEnum(Enum):
 
     Object tracking boolean sign
 
-    .. data:: WITHOUT_NOT = 0
+    .. data:: without_not = 0
 
     	Object without not
 
-    .. data:: WITH_NOT = 1
+    .. data:: with_not = 1
 
     	Object with not
 
     """
 
-    WITHOUT_NOT = 0
+    without_not = 0
 
-    WITH_NOT = 1
+    with_not = 1
 
 
     @staticmethod

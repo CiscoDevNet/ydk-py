@@ -16,17 +16,17 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'InsertEnum' : _MetaInfoEnum('InsertEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg',
         {
-            'local':'LOCAL',
-            'received':'RECEIVED',
-            'pppoe':'PPPOE',
+            'local':'local',
+            'received':'received',
+            'pppoe':'pppoe',
         }, 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg']),
     'LinkLayerAddrEnum' : _MetaInfoEnum('LinkLayerAddrEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg',
         {
-            'set':'SET',
+            'set':'set',
         }, 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg']),
     'SubscriberIdEnum' : _MetaInfoEnum('SubscriberIdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg',
         {
-            'pppoe':'PPPOE',
+            'pppoe':'pppoe',
         }, 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg']),
     'Dhcpv6.Database' : {
         'meta_info' : _MetaInfoClass('Dhcpv6.Database',
@@ -346,8 +346,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg'
         ),
     },
-    'Dhcpv6.Profiles.Profile.Proxy.Classes.Class.HelperAddresses.HelperAddress' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Profiles.Profile.Proxy.Classes.Class.HelperAddresses.HelperAddress',
+    'Dhcpv6.Profiles.Profile.Proxy.Classes.Class_.HelperAddresses.HelperAddress' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Profiles.Profile.Proxy.Classes.Class_.HelperAddresses.HelperAddress',
             False, 
             [
             _MetaInfoClassMember('helper-address', ATTRIBUTE, 'str' , None, None, 
@@ -369,11 +369,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg'
         ),
     },
-    'Dhcpv6.Profiles.Profile.Proxy.Classes.Class.HelperAddresses' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Profiles.Profile.Proxy.Classes.Class.HelperAddresses',
+    'Dhcpv6.Profiles.Profile.Proxy.Classes.Class_.HelperAddresses' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Profiles.Profile.Proxy.Classes.Class_.HelperAddresses',
             False, 
             [
-            _MetaInfoClassMember('helper-address', REFERENCE_LIST, 'HelperAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'Dhcpv6.Profiles.Profile.Proxy.Classes.Class.HelperAddresses.HelperAddress', 
+            _MetaInfoClassMember('helper-address', REFERENCE_LIST, 'HelperAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'Dhcpv6.Profiles.Profile.Proxy.Classes.Class_.HelperAddresses.HelperAddress', 
                 [], [], 
                 '''                Specify the server helper address
                 ''',
@@ -386,8 +386,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg'
         ),
     },
-    'Dhcpv6.Profiles.Profile.Proxy.Classes.Class' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Profiles.Profile.Proxy.Classes.Class',
+    'Dhcpv6.Profiles.Profile.Proxy.Classes.Class_' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Profiles.Profile.Proxy.Classes.Class_',
             False, 
             [
             _MetaInfoClassMember('class-name', ATTRIBUTE, 'str' , None, None, 
@@ -396,7 +396,7 @@ _meta_table = {
                 ''',
                 'class_name',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', True),
-            _MetaInfoClassMember('helper-addresses', REFERENCE_CLASS, 'HelperAddresses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'Dhcpv6.Profiles.Profile.Proxy.Classes.Class.HelperAddresses', 
+            _MetaInfoClassMember('helper-addresses', REFERENCE_CLASS, 'HelperAddresses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'Dhcpv6.Profiles.Profile.Proxy.Classes.Class_.HelperAddresses', 
                 [], [], 
                 '''                Table of HelperAddress
                 ''',
@@ -432,7 +432,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Dhcpv6.Profiles.Profile.Proxy.Classes',
             False, 
             [
-            _MetaInfoClassMember('class', REFERENCE_LIST, 'Class' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'Dhcpv6.Profiles.Profile.Proxy.Classes.Class', 
+            _MetaInfoClassMember('class', REFERENCE_LIST, 'Class_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'Dhcpv6.Profiles.Profile.Proxy.Classes.Class_', 
                 [], [], 
                 '''                None
                 ''',
@@ -678,8 +678,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg'
         ),
     },
-    'Dhcpv6.Profiles.Profile.Server.Classes.Class.DnsServers' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Profiles.Profile.Server.Classes.Class.DnsServers',
+    'Dhcpv6.Profiles.Profile.Server.Classes.Class_.DnsServers' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Profiles.Profile.Server.Classes.Class_.DnsServers',
             False, 
             [
             _MetaInfoClassMember('dns-server', REFERENCE_UNION, 'str' , None, None, 
@@ -708,8 +708,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg'
         ),
     },
-    'Dhcpv6.Profiles.Profile.Server.Classes.Class' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Profiles.Profile.Server.Classes.Class',
+    'Dhcpv6.Profiles.Profile.Server.Classes.Class_' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Profiles.Profile.Server.Classes.Class_',
             False, 
             [
             _MetaInfoClassMember('class-name', ATTRIBUTE, 'str' , None, None, 
@@ -724,7 +724,7 @@ _meta_table = {
                 ''',
                 'address_pool',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
-            _MetaInfoClassMember('dns-servers', REFERENCE_CLASS, 'DnsServers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'Dhcpv6.Profiles.Profile.Server.Classes.Class.DnsServers', 
+            _MetaInfoClassMember('dns-servers', REFERENCE_CLASS, 'DnsServers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'Dhcpv6.Profiles.Profile.Server.Classes.Class_.DnsServers', 
                 [], [], 
                 '''                DNS servers
                 ''',
@@ -759,7 +759,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Dhcpv6.Profiles.Profile.Server.Classes',
             False, 
             [
-            _MetaInfoClassMember('class', REFERENCE_LIST, 'Class' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'Dhcpv6.Profiles.Profile.Server.Classes.Class', 
+            _MetaInfoClassMember('class', REFERENCE_LIST, 'Class_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'Dhcpv6.Profiles.Profile.Server.Classes.Class_', 
                 [], [], 
                 '''                None
                 ''',
@@ -1163,9 +1163,9 @@ _meta_table['Dhcpv6.Profiles.Profile.Proxy.Relay.Option']['meta_info'].parent =_
 _meta_table['Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses.HelperAddress']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses']['meta_info']
 _meta_table['Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf']['meta_info']
 _meta_table['Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Proxy.Vrfs']['meta_info']
-_meta_table['Dhcpv6.Profiles.Profile.Proxy.Classes.Class.HelperAddresses.HelperAddress']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Proxy.Classes.Class.HelperAddresses']['meta_info']
-_meta_table['Dhcpv6.Profiles.Profile.Proxy.Classes.Class.HelperAddresses']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Proxy.Classes.Class']['meta_info']
-_meta_table['Dhcpv6.Profiles.Profile.Proxy.Classes.Class']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Proxy.Classes']['meta_info']
+_meta_table['Dhcpv6.Profiles.Profile.Proxy.Classes.Class_.HelperAddresses.HelperAddress']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Proxy.Classes.Class_.HelperAddresses']['meta_info']
+_meta_table['Dhcpv6.Profiles.Profile.Proxy.Classes.Class_.HelperAddresses']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Proxy.Classes.Class_']['meta_info']
+_meta_table['Dhcpv6.Profiles.Profile.Proxy.Classes.Class_']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Proxy.Classes']['meta_info']
 _meta_table['Dhcpv6.Profiles.Profile.Proxy.Sessions.Mac.Throttle']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Proxy.Sessions.Mac']['meta_info']
 _meta_table['Dhcpv6.Profiles.Profile.Proxy.Sessions.Mac']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Proxy.Sessions']['meta_info']
 _meta_table['Dhcpv6.Profiles.Profile.Proxy.Interfaces']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Proxy']['meta_info']
@@ -1175,8 +1175,8 @@ _meta_table['Dhcpv6.Profiles.Profile.Proxy.Classes']['meta_info'].parent =_meta_
 _meta_table['Dhcpv6.Profiles.Profile.Proxy.Sessions']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Proxy']['meta_info']
 _meta_table['Dhcpv6.Profiles.Profile.Server.Sessions.Mac.Throttle']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Server.Sessions.Mac']['meta_info']
 _meta_table['Dhcpv6.Profiles.Profile.Server.Sessions.Mac']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Server.Sessions']['meta_info']
-_meta_table['Dhcpv6.Profiles.Profile.Server.Classes.Class.DnsServers']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Server.Classes.Class']['meta_info']
-_meta_table['Dhcpv6.Profiles.Profile.Server.Classes.Class']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Server.Classes']['meta_info']
+_meta_table['Dhcpv6.Profiles.Profile.Server.Classes.Class_.DnsServers']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Server.Classes.Class_']['meta_info']
+_meta_table['Dhcpv6.Profiles.Profile.Server.Classes.Class_']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Server.Classes']['meta_info']
 _meta_table['Dhcpv6.Profiles.Profile.Server.Dhcpv6Options.VendorOptions']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Server.Dhcpv6Options']['meta_info']
 _meta_table['Dhcpv6.Profiles.Profile.Server.Sessions']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Server']['meta_info']
 _meta_table['Dhcpv6.Profiles.Profile.Server.DnsServers']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Server']['meta_info']

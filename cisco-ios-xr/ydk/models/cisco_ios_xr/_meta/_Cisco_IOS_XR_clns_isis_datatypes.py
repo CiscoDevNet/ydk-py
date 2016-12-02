@@ -16,18 +16,18 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'IsisInternalLevelEnum' : _MetaInfoEnum('IsisInternalLevelEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes',
         {
-            'not-set':'NOT_SET',
-            'level1':'LEVEL1',
-            'level2':'LEVEL2',
+            'not-set':'not_set',
+            'level1':'level1',
+            'level2':'level2',
         }, 'Cisco-IOS-XR-clns-isis-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-datatypes']),
     'IsisAddressFamilyEnum' : _MetaInfoEnum('IsisAddressFamilyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes',
         {
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-clns-isis-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-datatypes']),
     'IsisSubAddressFamilyEnum' : _MetaInfoEnum('IsisSubAddressFamilyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes',
         {
-            'unicast':'UNICAST',
-            'multicast':'MULTICAST',
+            'unicast':'unicast',
+            'multicast':'multicast',
         }, 'Cisco-IOS-XR-clns-isis-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-datatypes']),
 }

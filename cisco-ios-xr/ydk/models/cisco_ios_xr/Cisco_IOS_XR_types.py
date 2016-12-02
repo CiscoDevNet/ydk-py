@@ -26,15 +26,15 @@ class EncryptionTypeEnum(Enum):
 
     The type of encryption used on a password string.
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	The password string is clear text.
 
-    .. data:: MD5 = 1
+    .. data:: md5 = 1
 
     	The password is encrypted to an MD5 digest.
 
-    .. data:: PROPRIETARY = 2
+    .. data:: proprietary = 2
 
     	The password is encrypted using Cisco type 7 
 
@@ -42,11 +42,11 @@ class EncryptionTypeEnum(Enum):
 
     """
 
-    NONE = 0
+    none = 0
 
-    MD5 = 1
+    md5 = 1
 
-    PROPRIETARY = 2
+    proprietary = 2
 
 
     @staticmethod

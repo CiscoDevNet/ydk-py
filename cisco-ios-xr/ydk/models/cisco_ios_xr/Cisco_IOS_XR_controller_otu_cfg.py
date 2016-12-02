@@ -30,13 +30,13 @@ class OtnExpTtiTypeDapiEnum(Enum):
 
     Otn exp tti type dapi
 
-    .. data:: EXP_TTI_DAPI_ASCII__FWD_SLASH__DAPI_ASCII = 9
+    .. data:: exp_tti_dapi_ascii__FWD_SLASH__dapi_ascii = 9
 
     	Expected TTI DAPI ASCII string
 
     """
 
-    EXP_TTI_DAPI_ASCII__FWD_SLASH__DAPI_ASCII = 9
+    exp_tti_dapi_ascii__FWD_SLASH__dapi_ascii = 9
 
 
     @staticmethod
@@ -51,19 +51,19 @@ class OtnExpTtiTypeFullEnum(Enum):
 
     Otn exp tti type full
 
-    .. data:: EXP_TTI_FULL_ASCII__FWD_SLASH__FULL_ASCII = 5
+    .. data:: exp_tti_full_ascii__FWD_SLASH__full_ascii = 5
 
     	Expected TTI Full ASCII string
 
-    .. data:: EXP_TTI_HEX__FWD_SLASH__HEX = 7
+    .. data:: exp_tti_hex__FWD_SLASH__hex = 7
 
     	Expected TTI hex string
 
     """
 
-    EXP_TTI_FULL_ASCII__FWD_SLASH__FULL_ASCII = 5
+    exp_tti_full_ascii__FWD_SLASH__full_ascii = 5
 
-    EXP_TTI_HEX__FWD_SLASH__HEX = 7
+    exp_tti_hex__FWD_SLASH__hex = 7
 
 
     @staticmethod
@@ -78,19 +78,19 @@ class OtnExpTtiTypeOsEnum(Enum):
 
     Otn exp tti type os
 
-    .. data:: EXP_TTI_OS_ASCII__FWD_SLASH__OS_ASCII = 11
+    .. data:: exp_tti_os_ascii__FWD_SLASH__os_ascii = 11
 
     	Expected TTI OS ASCII string
 
-    .. data:: EXP_TTI_OS_HEX__FWD_SLASH__OS_HEX = 13
+    .. data:: exp_tti_os_hex__FWD_SLASH__os_hex = 13
 
     	Expected TTI OS HEX string
 
     """
 
-    EXP_TTI_OS_ASCII__FWD_SLASH__OS_ASCII = 11
+    exp_tti_os_ascii__FWD_SLASH__os_ascii = 11
 
-    EXP_TTI_OS_HEX__FWD_SLASH__OS_HEX = 13
+    exp_tti_os_hex__FWD_SLASH__os_hex = 13
 
 
     @staticmethod
@@ -105,13 +105,13 @@ class OtnExpTtiTypeSapiEnum(Enum):
 
     Otn exp tti type sapi
 
-    .. data:: EXP_TTI_SAPI_ASCII__FWD_SLASH__SAPI_ASCII = 15
+    .. data:: exp_tti_sapi_ascii__FWD_SLASH__sapi_ascii = 15
 
     	Expected TTI SAPI ASCII string
 
     """
 
-    EXP_TTI_SAPI_ASCII__FWD_SLASH__SAPI_ASCII = 15
+    exp_tti_sapi_ascii__FWD_SLASH__sapi_ascii = 15
 
 
     @staticmethod
@@ -126,19 +126,19 @@ class OtnLoopbackEnum(Enum):
 
     Otn loopback
 
-    .. data:: LINE = 2
+    .. data:: line = 2
 
     	Line loopback
 
-    .. data:: INTERNAL = 4
+    .. data:: internal = 4
 
     	Internal loopback
 
     """
 
-    LINE = 2
+    line = 2
 
-    INTERNAL = 4
+    internal = 4
 
 
     @staticmethod
@@ -153,19 +153,19 @@ class OtnPerMonEnum(Enum):
 
     Otn per mon
 
-    .. data:: DISABLE = 0
+    .. data:: disable = 0
 
     	Performance Monitoring Disabled
 
-    .. data:: ENABLE = 1
+    .. data:: enable = 1
 
     	Performance Monitoring Enabled
 
     """
 
-    DISABLE = 0
+    disable = 0
 
-    ENABLE = 1
+    enable = 1
 
 
     @staticmethod
@@ -180,19 +180,19 @@ class OtnSecAdminStateEnum(Enum):
 
     Otn sec admin state
 
-    .. data:: NORMAL = 0
+    .. data:: normal = 0
 
     	In normal state
 
-    .. data:: MAINTENANCE = 1
+    .. data:: maintenance = 1
 
     	Under maintenance
 
     """
 
-    NORMAL = 0
+    normal = 0
 
-    MAINTENANCE = 1
+    maintenance = 1
 
 
     @staticmethod
@@ -207,13 +207,13 @@ class OtnSendTtiTypeDapiEnum(Enum):
 
     Otn send tti type dapi
 
-    .. data:: SEND_TTI_DAPI_ASCII__FWD_SLASH__DAPI_ASCII = 8
+    .. data:: send_tti_dapi_ascii__FWD_SLASH__dapi_ascii = 8
 
     	Send TTI DAPI ASCII string
 
     """
 
-    SEND_TTI_DAPI_ASCII__FWD_SLASH__DAPI_ASCII = 8
+    send_tti_dapi_ascii__FWD_SLASH__dapi_ascii = 8
 
 
     @staticmethod
@@ -228,19 +228,19 @@ class OtnSendTtiTypeFullEnum(Enum):
 
     Otn send tti type full
 
-    .. data:: SEND_TTI_FULL_ASCII__FWD_SLASH__FULL_ASCII = 4
+    .. data:: send_tti_full_ascii__FWD_SLASH__full_ascii = 4
 
     	Send TTI Full ASCII string
 
-    .. data:: SEND_TTI_HEX__FWD_SLASH__HEX = 6
+    .. data:: send_tti_hex__FWD_SLASH__hex = 6
 
     	Send TTI hex string
 
     """
 
-    SEND_TTI_FULL_ASCII__FWD_SLASH__FULL_ASCII = 4
+    send_tti_full_ascii__FWD_SLASH__full_ascii = 4
 
-    SEND_TTI_HEX__FWD_SLASH__HEX = 6
+    send_tti_hex__FWD_SLASH__hex = 6
 
 
     @staticmethod
@@ -255,19 +255,19 @@ class OtnSendTtiTypeOsEnum(Enum):
 
     Otn send tti type os
 
-    .. data:: SEND_TTI_OS_ASCII__FWD_SLASH__OS_ASCII = 10
+    .. data:: send_tti_os_ascii__FWD_SLASH__os_ascii = 10
 
     	Send TTI OS ASCII string
 
-    .. data:: SEND_TTI_OS_HEX__FWD_SLASH__OS_HEX = 12
+    .. data:: send_tti_os_hex__FWD_SLASH__os_hex = 12
 
     	Send TTI OS HEX string
 
     """
 
-    SEND_TTI_OS_ASCII__FWD_SLASH__OS_ASCII = 10
+    send_tti_os_ascii__FWD_SLASH__os_ascii = 10
 
-    SEND_TTI_OS_HEX__FWD_SLASH__OS_HEX = 12
+    send_tti_os_hex__FWD_SLASH__os_hex = 12
 
 
     @staticmethod
@@ -282,13 +282,13 @@ class OtnSendTtiTypeSapiEnum(Enum):
 
     Otn send tti type sapi
 
-    .. data:: SEND_TTI_SAPI_ASCII__FWD_SLASH__SAPI_ASCII = 14
+    .. data:: send_tti_sapi_ascii__FWD_SLASH__sapi_ascii = 14
 
     	Send TTI SAPI ASCII string
 
     """
 
-    SEND_TTI_SAPI_ASCII__FWD_SLASH__SAPI_ASCII = 14
+    send_tti_sapi_ascii__FWD_SLASH__sapi_ascii = 14
 
 
     @staticmethod
@@ -303,49 +303,49 @@ class OtuForwardErrorCorrectionEnum(Enum):
 
     Otu forward error correction
 
-    .. data:: NONE = 1
+    .. data:: none = 1
 
     	No Fec
 
-    .. data:: STANDARD = 2
+    .. data:: standard = 2
 
     	Standard Fec
 
-    .. data:: ENHANCED_I7 = 4
+    .. data:: enhanced_i7 = 4
 
     	EnhancedI7 Fec
 
-    .. data:: ENHANCED_I4 = 8
+    .. data:: enhanced_i4 = 8
 
     	Enhanced I4 Fec
 
-    .. data:: ENHANCED_SWIZZLE = 16
+    .. data:: enhanced_swizzle = 16
 
     	EnhancedSwizzle Fec
 
-    .. data:: ENHANCED_HG20 = 32
+    .. data:: enhanced_hg20 = 32
 
     	EnhancedHG20 Fec
 
-    .. data:: ENHANCED_HG7 = 64
+    .. data:: enhanced_hg7 = 64
 
     	EnhancedHG7 Fec
 
     """
 
-    NONE = 1
+    none = 1
 
-    STANDARD = 2
+    standard = 2
 
-    ENHANCED_I7 = 4
+    enhanced_i7 = 4
 
-    ENHANCED_I4 = 8
+    enhanced_i4 = 8
 
-    ENHANCED_SWIZZLE = 16
+    enhanced_swizzle = 16
 
-    ENHANCED_HG20 = 32
+    enhanced_hg20 = 32
 
-    ENHANCED_HG7 = 64
+    enhanced_hg7 = 64
 
 
     @staticmethod

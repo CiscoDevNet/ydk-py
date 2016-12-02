@@ -16,12 +16,12 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'Ipv6NdHopLimitEnum' : _MetaInfoEnum('Ipv6NdHopLimitEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_subscriber_cfg',
         {
-            'unspecified':'UNSPECIFIED',
+            'unspecified':'unspecified',
         }, 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-nd-subscriber-cfg']),
     'Ipv6NdRouterPrefTemplateEnum' : _MetaInfoEnum('Ipv6NdRouterPrefTemplateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_subscriber_cfg',
         {
-            'high':'HIGH',
-            'medium':'MEDIUM',
-            'low':'LOW',
+            'high':'high',
+            'medium':'medium',
+            'low':'low',
         }, 'Cisco-IOS-XR-ipv6-nd-subscriber-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-nd-subscriber-cfg']),
 }

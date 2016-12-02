@@ -34,7 +34,7 @@ class Rcp(object):
     .. attribute:: rcp_client
     
     	RCP client configuration
-    	**type**\:  :py:class:`RcpClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_filesystems_cfg.Rcp.RcpClient>`
+    	**type**\:   :py:class:`RcpClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_filesystems_cfg.Rcp.RcpClient>`
     
     
 
@@ -122,7 +122,7 @@ class Ftp(object):
     .. attribute:: ftp_client
     
     	FTP client configuration
-    	**type**\:  :py:class:`FtpClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_filesystems_cfg.Ftp.FtpClient>`
+    	**type**\:   :py:class:`FtpClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_filesystems_cfg.Ftp.FtpClient>`
     
     
 
@@ -148,7 +148,7 @@ class Ftp(object):
         .. attribute:: passive
         
         	Enable connect using passive mode
-        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: password
         
@@ -239,7 +239,7 @@ class Tftp(object):
     .. attribute:: tftp_client
     
     	TFTP client configuration
-    	**type**\:  :py:class:`TftpClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_filesystems_cfg.Tftp.TftpClient>`
+    	**type**\:   :py:class:`TftpClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_filesystems_cfg.Tftp.TftpClient>`
     
     
 

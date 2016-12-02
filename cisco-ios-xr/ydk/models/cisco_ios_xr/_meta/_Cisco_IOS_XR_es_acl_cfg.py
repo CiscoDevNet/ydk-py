@@ -16,8 +16,8 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'EsAclGrantEnumEnum' : _MetaInfoEnum('EsAclGrantEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg',
         {
-            'deny':'DENY',
-            'permit':'PERMIT',
+            'deny':'deny',
+            'permit':'permit',
         }, 'Cisco-IOS-XR-es-acl-cfg', _yang_ns._namespaces['Cisco-IOS-XR-es-acl-cfg']),
     'EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork' : {
         'meta_info' : _MetaInfoClass('EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork',

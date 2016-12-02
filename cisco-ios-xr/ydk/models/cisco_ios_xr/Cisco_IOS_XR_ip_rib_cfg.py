@@ -7,6 +7,10 @@ This module contains definitions
 for the following management objects\:
   rib\: RIB configuration.
 
+This YANG module augments the
+  Cisco\-IOS\-XR\-infra\-rsi\-cfg
+module with configuration data.
+
 Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
@@ -32,7 +36,7 @@ class Rib(object):
     .. attribute:: af
     
     	RIB address family configuration
-    	**type**\:  :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af>`
+    	**type**\:   :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af>`
     
     .. attribute:: max_recursion_depth
     
@@ -61,12 +65,12 @@ class Rib(object):
         .. attribute:: ipv4
         
         	IPv4 configuration
-        	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv4>`
+        	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv4>`
         
         .. attribute:: ipv6
         
         	IPv6 configuration
-        	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv6>`
+        	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv6>`
         
         
 
@@ -90,12 +94,12 @@ class Rib(object):
             .. attribute:: next_hop_dampening_disable
             
             	Disable next\-hop dampening
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: redistribution_history
             
             	Redistribution history related configs
-            	**type**\:  :py:class:`RedistributionHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv4.RedistributionHistory>`
+            	**type**\:   :py:class:`RedistributionHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv4.RedistributionHistory>`
             
             
 
@@ -125,7 +129,7 @@ class Rib(object):
                 .. attribute:: keep
                 
                 	Retain redistribution history after disconnect
-                	**type**\:  :py:class:`Keep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv4.RedistributionHistory.Keep>`
+                	**type**\:   :py:class:`Keep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv4.RedistributionHistory.Keep>`
                 
                 .. attribute:: protocol_client
                 
@@ -156,7 +160,7 @@ class Rib(object):
                     .. attribute:: bcdl
                     
                     	Enable retain BCDL history
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -252,12 +256,12 @@ class Rib(object):
             .. attribute:: next_hop_dampening_disable
             
             	Disable next\-hop dampening
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: redistribution_history
             
             	Redistribution history related configs
-            	**type**\:  :py:class:`RedistributionHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv6.RedistributionHistory>`
+            	**type**\:   :py:class:`RedistributionHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv6.RedistributionHistory>`
             
             
 
@@ -287,7 +291,7 @@ class Rib(object):
                 .. attribute:: keep
                 
                 	Retain redistribution history after disconnect
-                	**type**\:  :py:class:`Keep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv6.RedistributionHistory.Keep>`
+                	**type**\:   :py:class:`Keep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rib_cfg.Rib.Af.Ipv6.RedistributionHistory.Keep>`
                 
                 .. attribute:: protocol_client
                 
@@ -318,7 +322,7 @@ class Rib(object):
                     .. attribute:: bcdl
                     
                     	Enable retain BCDL history
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     
 

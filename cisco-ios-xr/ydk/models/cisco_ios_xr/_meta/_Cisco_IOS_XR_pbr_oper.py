@@ -16,8 +16,8 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'PolicyStateEnum' : _MetaInfoEnum('PolicyStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper',
         {
-            'active':'ACTIVE',
-            'suspended':'SUSPENDED',
+            'active':'active',
+            'suspended':'suspended',
         }, 'Cisco-IOS-XR-pbr-oper', _yang_ns._namespaces['Cisco-IOS-XR-pbr-oper']),
     'Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats' : {
         'meta_info' : _MetaInfoClass('Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats',

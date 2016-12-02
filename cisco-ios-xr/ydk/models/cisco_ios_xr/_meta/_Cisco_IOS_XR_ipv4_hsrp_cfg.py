@@ -16,9 +16,9 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'HsrpLinklocalEnum' : _MetaInfoEnum('HsrpLinklocalEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg',
         {
-            'manual':'MANUAL',
-            'auto':'AUTO',
-            'legacy':'LEGACY',
+            'manual':'manual',
+            'auto':'auto',
+            'legacy':'legacy',
         }, 'Cisco-IOS-XR-ipv4-hsrp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-hsrp-cfg']),
     'Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Bfd' : {
         'meta_info' : _MetaInfoClass('Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Bfd',

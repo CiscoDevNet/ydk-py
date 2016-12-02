@@ -33,19 +33,19 @@ class EosEnum(Enum):
 
     Eos
 
-    .. data:: EOS0 = 0
+    .. data:: eos0 = 0
 
     	EOS Disable
 
-    .. data:: EOS1 = 1
+    .. data:: eos1 = 1
 
     	EOS Enable
 
     """
 
-    EOS0 = 0
+    eos0 = 0
 
-    EOS1 = 1
+    eos1 = 1
 
 
     @staticmethod
@@ -60,67 +60,67 @@ class FibAdjacencyShowEnum(Enum):
 
     Adjacency types
 
-    .. data:: FIB_ADJACENCY_NORMAL = 0
+    .. data:: fib_adjacency_normal = 0
 
     	Normal adjacency
 
-    .. data:: FIB_ADJACENCY_NULL = 1
+    .. data:: fib_adjacency_null = 1
 
     	Null adjacency
 
-    .. data:: FIB_ADJACENCY_PUNT = 2
+    .. data:: fib_adjacency_punt = 2
 
     	Punt adjacency
 
-    .. data:: FIB_ADJACENCY_DROP = 3
+    .. data:: fib_adjacency_drop = 3
 
     	Drop adjacency
 
-    .. data:: FIB_ADJACENCY_GLEAN = 4
+    .. data:: fib_adjacency_glean = 4
 
     	Glean adjacency
 
-    .. data:: FIB_ADJACENCY_DISCARD = 5
+    .. data:: fib_adjacency_discard = 5
 
     	Discard adjacency
 
-    .. data:: FIB_ADJACENCY_BROADCAST = 6
+    .. data:: fib_adjacency_broadcast = 6
 
     	Broadcast adjacency
 
-    .. data:: FIB_ADJACENCY_EXTERNAL = 7
+    .. data:: fib_adjacency_external = 7
 
     	external adjacency
 
-    .. data:: FIB_ADJACENCY_LISP = 8
+    .. data:: fib_adjacency_lisp = 8
 
     	LISP adjacency
 
-    .. data:: FIB_ADJACENCY_UNKNOWN = 9
+    .. data:: fib_adjacency_unknown = 9
 
     	Unknown adjacency
 
     """
 
-    FIB_ADJACENCY_NORMAL = 0
+    fib_adjacency_normal = 0
 
-    FIB_ADJACENCY_NULL = 1
+    fib_adjacency_null = 1
 
-    FIB_ADJACENCY_PUNT = 2
+    fib_adjacency_punt = 2
 
-    FIB_ADJACENCY_DROP = 3
+    fib_adjacency_drop = 3
 
-    FIB_ADJACENCY_GLEAN = 4
+    fib_adjacency_glean = 4
 
-    FIB_ADJACENCY_DISCARD = 5
+    fib_adjacency_discard = 5
 
-    FIB_ADJACENCY_BROADCAST = 6
+    fib_adjacency_broadcast = 6
 
-    FIB_ADJACENCY_EXTERNAL = 7
+    fib_adjacency_external = 7
 
-    FIB_ADJACENCY_LISP = 8
+    fib_adjacency_lisp = 8
 
-    FIB_ADJACENCY_UNKNOWN = 9
+    fib_adjacency_unknown = 9
 
 
     @staticmethod
@@ -135,25 +135,25 @@ class FibFrrProtocolShowEnum(Enum):
 
     Fib frr protocol show
 
-    .. data:: FRR_PROTOCOL_IPV4 = 0
+    .. data:: frr_protocol_ipv4 = 0
 
     	frr protocol ipv4
 
-    .. data:: FRR_PROTOCOL_IPV6 = 1
+    .. data:: frr_protocol_ipv6 = 1
 
     	frr protocol ipv6
 
-    .. data:: FRR_PROTOCOL_MPLS = 2
+    .. data:: frr_protocol_mpls = 2
 
     	frr protocol mpls
 
     """
 
-    FRR_PROTOCOL_IPV4 = 0
+    frr_protocol_ipv4 = 0
 
-    FRR_PROTOCOL_IPV6 = 1
+    frr_protocol_ipv6 = 1
 
-    FRR_PROTOCOL_MPLS = 2
+    frr_protocol_mpls = 2
 
 
     @staticmethod
@@ -168,25 +168,25 @@ class FibLinkEnum(Enum):
 
     Fib link
 
-    .. data:: LINK_IPV4 = 0
+    .. data:: link_ipv4 = 0
 
     	IPv4 link protocol
 
-    .. data:: LINK_IPV6 = 1
+    .. data:: link_ipv6 = 1
 
     	IPv6 link protocol
 
-    .. data:: LINK_MPLS = 2
+    .. data:: link_mpls = 2
 
     	MPLS link protocol
 
     """
 
-    LINK_IPV4 = 0
+    link_ipv4 = 0
 
-    LINK_IPV6 = 1
+    link_ipv6 = 1
 
-    LINK_MPLS = 2
+    link_mpls = 2
 
 
     @staticmethod
@@ -201,25 +201,25 @@ class FibLoadshareShowEnum(Enum):
 
     Loadsharing type
 
-    .. data:: FIB_LOAD_SHARE_NONE = 0
+    .. data:: fib_load_share_none = 0
 
     	No loadsharing
 
-    .. data:: FIB_LOAD_SHARE_PER_PACKET = 1
+    .. data:: fib_load_share_per_packet = 1
 
     	Per packet loadsharing
 
-    .. data:: FIB_LOAD_SHARE_DEST_SHARING = 2
+    .. data:: fib_load_share_dest_sharing = 2
 
     	Destination loadsharing
 
     """
 
-    FIB_LOAD_SHARE_NONE = 0
+    fib_load_share_none = 0
 
-    FIB_LOAD_SHARE_PER_PACKET = 1
+    fib_load_share_per_packet = 1
 
-    FIB_LOAD_SHARE_DEST_SHARING = 2
+    fib_load_share_dest_sharing = 2
 
 
     @staticmethod
@@ -234,31 +234,31 @@ class FibMplsLlcEntryBagEnum(Enum):
 
     Fib mpls llc entry bag
 
-    .. data:: FIB_MPLS_LLC_BAG_TYPE_XC = 1
+    .. data:: fib_mpls_llc_bag_type_xc = 1
 
     	fib mpls llc bag type xc
 
-    .. data:: FIB_MPLS_LLC_BAG_TYPE_PFX = 2
+    .. data:: fib_mpls_llc_bag_type_pfx = 2
 
     	fib mpls llc bag type pfx
 
-    .. data:: FIB_MPLS_LLC_BAG_TYPE_LSM = 3
+    .. data:: fib_mpls_llc_bag_type_lsm = 3
 
     	fib mpls llc bag type lsm
 
-    .. data:: FIB_MPLS_LLC_BAG_TYPE_MAX = 4
+    .. data:: fib_mpls_llc_bag_type_max = 4
 
     	fib mpls llc bag type max
 
     """
 
-    FIB_MPLS_LLC_BAG_TYPE_XC = 1
+    fib_mpls_llc_bag_type_xc = 1
 
-    FIB_MPLS_LLC_BAG_TYPE_PFX = 2
+    fib_mpls_llc_bag_type_pfx = 2
 
-    FIB_MPLS_LLC_BAG_TYPE_LSM = 3
+    fib_mpls_llc_bag_type_lsm = 3
 
-    FIB_MPLS_LLC_BAG_TYPE_MAX = 4
+    fib_mpls_llc_bag_type_max = 4
 
 
     @staticmethod
@@ -273,25 +273,25 @@ class FibNehEnum(Enum):
 
     Fib neh
 
-    .. data:: NH_LOCAL = 0
+    .. data:: nh_local = 0
 
     	nh local
 
-    .. data:: NH_REMOTE = 1
+    .. data:: nh_remote = 1
 
     	nh remote
 
-    .. data:: NH_SPECIAL = 2
+    .. data:: nh_special = 2
 
     	nh special
 
     """
 
-    NH_LOCAL = 0
+    nh_local = 0
 
-    NH_REMOTE = 1
+    nh_remote = 1
 
-    NH_SPECIAL = 2
+    nh_special = 2
 
 
     @staticmethod
@@ -306,73 +306,73 @@ class FibNehSpecialEnum(Enum):
 
     Fib neh special
 
-    .. data:: NH_NOT_FOUND = 0
+    .. data:: nh_not_found = 0
 
     	nh not found
 
-    .. data:: NH_NULL0 = 1
+    .. data:: nh_null0 = 1
 
     	nh null0
 
-    .. data:: NH_PUNT = 2
+    .. data:: nh_punt = 2
 
     	nh punt
 
-    .. data:: NH_DROP = 3
+    .. data:: nh_drop = 3
 
     	nh drop
 
-    .. data:: NH_GLEAN = 4
+    .. data:: nh_glean = 4
 
     	nh glean
 
-    .. data:: NH_RECEIVE = 5
+    .. data:: nh_receive = 5
 
     	nh receive
 
-    .. data:: NH_BROADCAST = 6
+    .. data:: nh_broadcast = 6
 
     	nh broadcast
 
-    .. data:: NH_EXTERNAL = 7
+    .. data:: nh_external = 7
 
     	nh external
 
-    .. data:: NH_LISP = 8
+    .. data:: nh_lisp = 8
 
     	nh lisp
 
-    .. data:: NH_LOOKUP = 9
+    .. data:: nh_lookup = 9
 
     	nh lookup
 
-    .. data:: NH_MAX_TYPE = 10
+    .. data:: nh_max_type = 10
 
     	nh max type
 
     """
 
-    NH_NOT_FOUND = 0
+    nh_not_found = 0
 
-    NH_NULL0 = 1
+    nh_null0 = 1
 
-    NH_PUNT = 2
+    nh_punt = 2
 
-    NH_DROP = 3
+    nh_drop = 3
 
-    NH_GLEAN = 4
+    nh_glean = 4
 
-    NH_RECEIVE = 5
+    nh_receive = 5
 
-    NH_BROADCAST = 6
+    nh_broadcast = 6
 
-    NH_EXTERNAL = 7
+    nh_external = 7
 
-    NH_LISP = 8
+    nh_lisp = 8
 
-    NH_LOOKUP = 9
+    nh_lookup = 9
 
-    NH_MAX_TYPE = 10
+    nh_max_type = 10
 
 
     @staticmethod
@@ -387,25 +387,25 @@ class FibProtocolEnum(Enum):
 
     Fib protocol
 
-    .. data:: IPV4 = 0
+    .. data:: ipv4 = 0
 
     	ipv4 protocol
 
-    .. data:: IPV6 = 1
+    .. data:: ipv6 = 1
 
     	ipv6 protocol
 
-    .. data:: MPLS = 2
+    .. data:: mpls = 2
 
     	MPLS protocol
 
     """
 
-    IPV4 = 0
+    ipv4 = 0
 
-    IPV6 = 1
+    ipv6 = 1
 
-    MPLS = 2
+    mpls = 2
 
 
     @staticmethod
@@ -420,25 +420,25 @@ class FibRouteSourceEnum(Enum):
 
     Fib route source
 
-    .. data:: LSD = 5
+    .. data:: lsd = 5
 
     	LSD
 
-    .. data:: RIB = 7
+    .. data:: rib = 7
 
     	RIB
 
-    .. data:: MRIB = 13
+    .. data:: mrib = 13
 
     	MRIB
 
     """
 
-    LSD = 5
+    lsd = 5
 
-    RIB = 7
+    rib = 7
 
-    MRIB = 13
+    mrib = 13
 
 
     @staticmethod
@@ -453,25 +453,25 @@ class FibRpfModeEnum(Enum):
 
     RPF mode types
 
-    .. data:: FIB_RPF_MODE_STRICT = 0
+    .. data:: fib_rpf_mode_strict = 0
 
     	RPF mode strict
 
-    .. data:: FIB_RPF_MODE_LOOSE = 1
+    .. data:: fib_rpf_mode_loose = 1
 
     	RPF mode loose
 
-    .. data:: FIB_RPF_MODE_UNKNOWN = 2
+    .. data:: fib_rpf_mode_unknown = 2
 
     	RPF mode unknown
 
     """
 
-    FIB_RPF_MODE_STRICT = 0
+    fib_rpf_mode_strict = 0
 
-    FIB_RPF_MODE_LOOSE = 1
+    fib_rpf_mode_loose = 1
 
-    FIB_RPF_MODE_UNKNOWN = 2
+    fib_rpf_mode_unknown = 2
 
 
     @staticmethod
@@ -486,37 +486,37 @@ class FibShIpencapHdrEnum(Enum):
 
     IP Encap Header Type
 
-    .. data:: FIB_SH_IP_ENCAP_NONE = 0
+    .. data:: fib_sh_ip_encap_none = 0
 
     	No Header
 
-    .. data:: FIB_SH_IP_ENCAP_IP4 = 1
+    .. data:: fib_sh_ip_encap_ip4 = 1
 
     	IPv4 Header
 
-    .. data:: FIB_SH_IP_ENCAP_IP6 = 2
+    .. data:: fib_sh_ip_encap_ip6 = 2
 
     	IPv6 Header
 
-    .. data:: FIB_SH_IP_ENCAP_UDP = 3
+    .. data:: fib_sh_ip_encap_udp = 3
 
     	UDP Header
 
-    .. data:: FIB_SH_IP_ENCAP_LISP = 4
+    .. data:: fib_sh_ip_encap_lisp = 4
 
     	Lisp Header
 
     """
 
-    FIB_SH_IP_ENCAP_NONE = 0
+    fib_sh_ip_encap_none = 0
 
-    FIB_SH_IP_ENCAP_IP4 = 1
+    fib_sh_ip_encap_ip4 = 1
 
-    FIB_SH_IP_ENCAP_IP6 = 2
+    fib_sh_ip_encap_ip6 = 2
 
-    FIB_SH_IP_ENCAP_UDP = 3
+    fib_sh_ip_encap_udp = 3
 
-    FIB_SH_IP_ENCAP_LISP = 4
+    fib_sh_ip_encap_lisp = 4
 
 
     @staticmethod
@@ -531,37 +531,37 @@ class FibidbOperEnum(Enum):
 
     Fibidb oper
 
-    .. data:: FIBIDB_NONE = 0
+    .. data:: fibidb_none = 0
 
     	fibidb none
 
-    .. data:: FIBIDB_CREATE = 1
+    .. data:: fibidb_create = 1
 
     	fibidb create
 
-    .. data:: FIBIDB_DELETE = 2
+    .. data:: fibidb_delete = 2
 
     	fibidb delete
 
-    .. data:: FIBIDB_MODIFY = 3
+    .. data:: fibidb_modify = 3
 
     	fibidb modify
 
-    .. data:: FIBIDB_MAX = 4
+    .. data:: fibidb_max = 4
 
     	fibidb max
 
     """
 
-    FIBIDB_NONE = 0
+    fibidb_none = 0
 
-    FIBIDB_CREATE = 1
+    fibidb_create = 1
 
-    FIBIDB_DELETE = 2
+    fibidb_delete = 2
 
-    FIBIDB_MODIFY = 3
+    fibidb_modify = 3
 
-    FIBIDB_MAX = 4
+    fibidb_max = 4
 
 
     @staticmethod
@@ -576,19 +576,19 @@ class FibllcEntryEnum(Enum):
 
     Fibllc entry
 
-    .. data:: XC = 1
+    .. data:: xc = 1
 
     	LabelXconnect
 
-    .. data:: PFX = 2
+    .. data:: pfx = 2
 
     	IPPrefix
 
     """
 
-    XC = 1
+    xc = 1
 
-    PFX = 2
+    pfx = 2
 
 
     @staticmethod
@@ -603,37 +603,37 @@ class MgmtFibMplsFrrStateEnum(Enum):
 
     MPLS FRR entry state
 
-    .. data:: PARTIAL = 0
+    .. data:: partial = 0
 
     	Partial
 
-    .. data:: ACTIVE = 1
+    .. data:: active = 1
 
     	Active
 
-    .. data:: READY = 2
+    .. data:: ready = 2
 
     	Ready
 
-    .. data:: COMPLETE = 3
+    .. data:: complete = 3
 
     	Complete
 
-    .. data:: ANY = 4
+    .. data:: any = 4
 
     	Any
 
     """
 
-    PARTIAL = 0
+    partial = 0
 
-    ACTIVE = 1
+    active = 1
 
-    READY = 2
+    ready = 2
 
-    COMPLETE = 3
+    complete = 3
 
-    ANY = 4
+    any = 4
 
 
     @staticmethod
@@ -648,19 +648,19 @@ class MgmtFibMplsLspRoleEnum(Enum):
 
     MPLS FRR entry role
 
-    .. data:: HEAD = 0
+    .. data:: head = 0
 
     	Head
 
-    .. data:: MIDPOINT = 1
+    .. data:: midpoint = 1
 
     	Midpoint
 
     """
 
-    HEAD = 0
+    head = 0
 
-    MIDPOINT = 1
+    midpoint = 1
 
 
     @staticmethod
@@ -675,19 +675,19 @@ class MplseosEnum(Enum):
 
     Mplseos
 
-    .. data:: EOS0 = 0
+    .. data:: eos0 = 0
 
     	EOS Disable
 
-    .. data:: EOS1 = 1
+    .. data:: eos1 = 1
 
     	EOS Enable
 
     """
 
-    EOS0 = 0
+    eos0 = 0
 
-    EOS1 = 1
+    eos1 = 1
 
 
     @staticmethod
@@ -702,25 +702,25 @@ class NextHopEnum(Enum):
 
     MPLS Forwarding Next Hop Type
 
-    .. data:: TX = 0
+    .. data:: tx = 0
 
     	TX
 
-    .. data:: RX = 1
+    .. data:: rx = 1
 
     	RX
 
-    .. data:: SPECIAL = 2
+    .. data:: special = 2
 
     	Special
 
     """
 
-    TX = 0
+    tx = 0
 
-    RX = 1
+    rx = 1
 
-    SPECIAL = 2
+    special = 2
 
 
     @staticmethod
@@ -735,25 +735,25 @@ class ProtoEnum(Enum):
 
     MPLS Forwarding Protocol Type
 
-    .. data:: IPV4 = 0
+    .. data:: ipv4 = 0
 
     	IPv4
 
-    .. data:: IPV6 = 1
+    .. data:: ipv6 = 1
 
     	IPv6
 
-    .. data:: MPLS = 2
+    .. data:: mpls = 2
 
     	MPLS
 
     """
 
-    IPV4 = 0
+    ipv4 = 0
 
-    IPV6 = 1
+    ipv6 = 1
 
-    MPLS = 2
+    mpls = 2
 
 
     @staticmethod
@@ -768,19 +768,19 @@ class SsLbaStateEnum(Enum):
 
     Load Balance config
 
-    .. data:: L3 = 0
+    .. data:: l3 = 0
 
     	L3 Load Balance config
 
-    .. data:: L4 = 1
+    .. data:: l4 = 1
 
     	L4 Load Balance config
 
     """
 
-    L3 = 0
+    l3 = 0
 
-    L4 = 1
+    l4 = 1
 
 
     @staticmethod
@@ -797,7 +797,7 @@ class FibStatistics(object):
     .. attribute:: nodes
     
     	List of nodes
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibStatistics.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibStatistics.Nodes>`
     
     
 
@@ -818,7 +818,7 @@ class FibStatistics(object):
         .. attribute:: node
         
         	Specific node operational data
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibStatistics.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibStatistics.Nodes.Node>`
         
         
 
@@ -848,7 +848,7 @@ class FibStatistics(object):
             .. attribute:: drops
             
             	Specific node drops
-            	**type**\:  :py:class:`Drops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibStatistics.Nodes.Node.Drops>`
+            	**type**\:   :py:class:`Drops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibStatistics.Nodes.Node.Drops>`
             
             
 
@@ -1233,7 +1233,7 @@ class Fib(object):
     .. attribute:: nodes
     
     	Table of nodes
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes>`
     
     
 
@@ -1254,7 +1254,7 @@ class Fib(object):
         .. attribute:: node
         
         	Operational data for a specific Node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node>`
         
         
 
@@ -1284,7 +1284,7 @@ class Fib(object):
             .. attribute:: protocols
             
             	Protocol table
-            	**type**\:  :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols>`
+            	**type**\:   :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols>`
             
             
 
@@ -1307,7 +1307,7 @@ class Fib(object):
                 .. attribute:: protocol
                 
                 	Protocol table entry
-                	**type**\: list of  :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol>`
+                	**type**\: list of    :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol>`
                 
                 
 
@@ -1330,42 +1330,47 @@ class Fib(object):
                     .. attribute:: protocol_name  <key>
                     
                     	Protocol Name 
-                    	**type**\:  :py:class:`FibProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibProtocolEnum>`
+                    	**type**\:   :py:class:`FibProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibProtocolEnum>`
                     
                     .. attribute:: external_client_summaries
                     
                     	External Client Summary Table
-                    	**type**\:  :py:class:`ExternalClientSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries>`
+                    	**type**\:   :py:class:`ExternalClientSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries>`
                     
                     .. attribute:: external_summary_all
                     
                     	Summary for all external clients
-                    	**type**\:  :py:class:`ExternalSummaryAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll>`
+                    	**type**\:   :py:class:`ExternalSummaryAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll>`
                     
                     .. attribute:: frr_log
                     
                     	Table of Fast Reroute activation logs
-                    	**type**\:  :py:class:`FrrLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.FrrLog>`
+                    	**type**\:   :py:class:`FrrLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.FrrLog>`
                     
                     .. attribute:: issu_state
                     
                     	CEF ISSU State
-                    	**type**\:  :py:class:`IssuState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.IssuState>`
+                    	**type**\:   :py:class:`IssuState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.IssuState>`
                     
                     .. attribute:: local_label
                     
                     	Local label
-                    	**type**\:  :py:class:`LocalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.LocalLabel>`
+                    	**type**\:   :py:class:`LocalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.LocalLabel>`
                     
                     .. attribute:: misc
                     
                     	CEF misc hidden data
-                    	**type**\:  :py:class:`Misc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc>`
+                    	**type**\:   :py:class:`Misc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc>`
+                    
+                    .. attribute:: summaries
+                    
+                    	Summary for FIB tables
+                    	**type**\:   :py:class:`Summaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Summaries>`
                     
                     .. attribute:: vrfs
                     
                     	VRF table
-                    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs>`
+                    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs>`
                     
                     
 
@@ -1389,6 +1394,8 @@ class Fib(object):
                         self.local_label.parent = self
                         self.misc = Fib.Nodes.Node.Protocols.Protocol.Misc()
                         self.misc.parent = self
+                        self.summaries = Fib.Nodes.Node.Protocols.Protocol.Summaries()
+                        self.summaries.parent = self
                         self.vrfs = Fib.Nodes.Node.Protocols.Protocol.Vrfs()
                         self.vrfs.parent = self
 
@@ -1447,7 +1454,7 @@ class Fib(object):
                         .. attribute:: fis_proto_state
                         
                         	IMDR state for the protocols
-                        	**type**\: list of  :py:class:`FisProtoState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.IssuState.FisProtoState>`
+                        	**type**\: list of    :py:class:`FisProtoState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.IssuState.FisProtoState>`
                         
                         .. attribute:: imdr_eoc_implicit
                         
@@ -1733,6 +1740,1143 @@ class Fib(object):
                             return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.IssuState']['meta_info']
 
 
+                    class Summaries(object):
+                        """
+                        Summary for FIB tables
+                        
+                        .. attribute:: summary
+                        
+                        	Summary for the requested fib table
+                        	**type**\: list of    :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'fib-common-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.summary = YList()
+                            self.summary.parent = self
+                            self.summary.name = 'summary'
+
+
+                        class Summary(object):
+                            """
+                            Summary for the requested fib table
+                            
+                            .. attribute:: cef_route_drops
+                            
+                            	Number of routes dropped by CEF
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: cef_version_mismatch_route_drops
+                            
+                            	the number of routes dropped due to version mismatch
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: cefl_bl_recycled_routes
+                            
+                            	Number of routes updates with recycled label handled
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: cross_shared_load_sharing_element
+                            
+                            	Cross\-table shared load sharing element
+                            	**type**\:   :py:class:`CrossSharedLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.CrossSharedLoadSharingElement>`
+                            
+                            .. attribute:: delete_cache_num_entries
+                            
+                            	Number of entries in the route delete cache
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: exclusive_load_sharing_element
+                            
+                            	Exclusive load sharing element
+                            	**type**\:   :py:class:`ExclusiveLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.ExclusiveLoadSharingElement>`
+                            
+                            .. attribute:: existing_leaves_revisions
+                            
+                            	Number of entries present on addition
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: extended_prefixes
+                            
+                            	Number of prefixes with extended path\-list
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: fib_default_prefix
+                            
+                            	Default prefix
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: fib_default_prefix_mask_length
+                            
+                            	Default prefix mask length
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: forwarding_elements
+                            
+                            	Number of forwarding elements linked to the table
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: imposition_prefixes
+                            
+                            	Number of prefixes with imposition LDI
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: incomplete_next_hops
+                            
+                            	Number of incomplete NHINFOS
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: label_shared_load_sharing_element
+                            
+                            	Label\-shared load sharing element
+                            	**type**\:   :py:class:`LabelSharedLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.LabelSharedLoadSharingElement>`
+                            
+                            .. attribute:: ldi_backwalks
+                            
+                            	pd backwalks on LDI modify with backup path
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: leaves_used_bytes
+                            
+                            	Total memory used by leaves
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: lisp_eid_prefixes
+                            
+                            	Number of lisp eid prefixes associated with table
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: lisp_eid_valid_prefixes
+                            
+                            	Number of lisp eid prefixes eligible for forwarding
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: lisp_rloc_objects
+                            
+                            	Number of lisp rloc objects associated with table
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: load_balancing
+                            
+                            	LBA configuration state
+                            	**type**\:   :py:class:`SsLbaStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.SsLbaStateEnum>`
+                            
+                            .. attribute:: load_sharing_elements
+                            
+                            	Count of load sharing elements
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: load_sharing_references
+                            
+                            	Count of load sharing references
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: max_resolution_timer
+                            
+                            	IP CEF max resolution time in seconds
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: second
+                            
+                            .. attribute:: new_unresolve_entries
+                            
+                            	Number of new unresolved entries
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: next_hops
+                            
+                            	Number of NHINFOS
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: old_unresolve_entries
+                            
+                            	Number of old unresolved entries
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: prefix
+                            
+                            	The router\-id
+                            	**type**\:  str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            .. attribute:: prefix_in_place_modifications
+                            
+                            	Number of inplace modifications
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: protocol_name
+                            
+                            	Protocol Name 
+                            	**type**\:   :py:class:`FibProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibProtocolEnum>`
+                            
+                            .. attribute:: reresolve_entries
+                            
+                            	Number of reresolved entries
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: resolution_timer
+                            
+                            	IP CEF resolution timer in seconds
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: second
+                            
+                            .. attribute:: routes
+                            
+                            	Number of routes
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: shared_load_sharing_element
+                            
+                            	Shared load sharing element
+                            	**type**\:   :py:class:`SharedLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.SharedLoadSharingElement>`
+                            
+                            .. attribute:: slow_process_timer
+                            
+                            	IP CEF slow processing time in seconds
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: second
+                            
+                            .. attribute:: ss_drop_pl_count
+                            
+                            	Number of dropped pathlists
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: ss_prot_route_count
+                            
+                            	Number of routes with FRR protection
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: ss_tbl_id
+                            
+                            	Table Id
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: ss_tbl_id_ptr
+                            
+                            	Table Id Ptr
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: ss_vr_id
+                            
+                            	Virtual router instance Id
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: ss_vrf_id
+                            
+                            	Virtual routing forwarding instance Id
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: ss_vxlan_ltep_ifh
+                            
+                            	VXLAN local Interface handle
+                            	**type**\:  str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: stale_prefix_deletes
+                            
+                            	Number of deleted stale leafs
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: table_id
+                            
+                            	FIB table id
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: total_load_share_element_bytes
+                            
+                            	Total memory used by load sharing elements
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: unresolve_entries
+                            
+                            	Number of total unresolved entries
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: vrf_name
+                            
+                            	VRF Name
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            
+
+                            """
+
+                            _prefix = 'fib-common-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.cef_route_drops = None
+                                self.cef_version_mismatch_route_drops = None
+                                self.cefl_bl_recycled_routes = None
+                                self.cross_shared_load_sharing_element = Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.CrossSharedLoadSharingElement()
+                                self.cross_shared_load_sharing_element.parent = self
+                                self.delete_cache_num_entries = None
+                                self.exclusive_load_sharing_element = Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.ExclusiveLoadSharingElement()
+                                self.exclusive_load_sharing_element.parent = self
+                                self.existing_leaves_revisions = None
+                                self.extended_prefixes = None
+                                self.fib_default_prefix = None
+                                self.fib_default_prefix_mask_length = None
+                                self.forwarding_elements = None
+                                self.imposition_prefixes = None
+                                self.incomplete_next_hops = None
+                                self.label_shared_load_sharing_element = Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.LabelSharedLoadSharingElement()
+                                self.label_shared_load_sharing_element.parent = self
+                                self.ldi_backwalks = None
+                                self.leaves_used_bytes = None
+                                self.lisp_eid_prefixes = None
+                                self.lisp_eid_valid_prefixes = None
+                                self.lisp_rloc_objects = None
+                                self.load_balancing = None
+                                self.load_sharing_elements = None
+                                self.load_sharing_references = None
+                                self.max_resolution_timer = None
+                                self.new_unresolve_entries = None
+                                self.next_hops = None
+                                self.old_unresolve_entries = None
+                                self.prefix = None
+                                self.prefix_in_place_modifications = None
+                                self.protocol_name = None
+                                self.reresolve_entries = None
+                                self.resolution_timer = None
+                                self.routes = None
+                                self.shared_load_sharing_element = Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.SharedLoadSharingElement()
+                                self.shared_load_sharing_element.parent = self
+                                self.slow_process_timer = None
+                                self.ss_drop_pl_count = None
+                                self.ss_prot_route_count = None
+                                self.ss_tbl_id = None
+                                self.ss_tbl_id_ptr = None
+                                self.ss_vr_id = None
+                                self.ss_vrf_id = None
+                                self.ss_vxlan_ltep_ifh = None
+                                self.stale_prefix_deletes = None
+                                self.table_id = None
+                                self.total_load_share_element_bytes = None
+                                self.unresolve_entries = None
+                                self.vrf_name = None
+
+
+                            class ExclusiveLoadSharingElement(object):
+                                """
+                                Exclusive load sharing element
+                                
+                                .. attribute:: platform_shared_load_info_elements
+                                
+                                	Count of platform shared Loadinfo elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: platform_shared_path_list_elements
+                                
+                                	Count of platform shared Pathlist elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: recursive_load_info_elements
+                                
+                                	Count of recursive Loadinfo elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: recursive_path_list_elements
+                                
+                                	Count of recursive Pathlist elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: retry_path_list_elements
+                                
+                                	Count of Pathlist elements in retry
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: total_load_info_elements
+                                
+                                	Total count of Loadinfo elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: total_load_sharing_element_bytes
+                                
+                                	Total memory used by load sharing elements in bytes
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**units**\: byte
+                                
+                                .. attribute:: total_load_sharing_element_references
+                                
+                                	Total count of references to load sharing elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: total_path_list_elements
+                                
+                                	Total count of Pathlist elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'fib-common-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.platform_shared_load_info_elements = None
+                                    self.platform_shared_path_list_elements = None
+                                    self.recursive_load_info_elements = None
+                                    self.recursive_path_list_elements = None
+                                    self.retry_path_list_elements = None
+                                    self.total_load_info_elements = None
+                                    self.total_load_sharing_element_bytes = None
+                                    self.total_load_sharing_element_references = None
+                                    self.total_path_list_elements = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:exclusive-load-sharing-element'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.platform_shared_load_info_elements is not None:
+                                        return True
+
+                                    if self.platform_shared_path_list_elements is not None:
+                                        return True
+
+                                    if self.recursive_load_info_elements is not None:
+                                        return True
+
+                                    if self.recursive_path_list_elements is not None:
+                                        return True
+
+                                    if self.retry_path_list_elements is not None:
+                                        return True
+
+                                    if self.total_load_info_elements is not None:
+                                        return True
+
+                                    if self.total_load_sharing_element_bytes is not None:
+                                        return True
+
+                                    if self.total_load_sharing_element_references is not None:
+                                        return True
+
+                                    if self.total_path_list_elements is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                    return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.ExclusiveLoadSharingElement']['meta_info']
+
+
+                            class SharedLoadSharingElement(object):
+                                """
+                                Shared load sharing element
+                                
+                                .. attribute:: platform_shared_load_info_elements
+                                
+                                	Count of platform shared Loadinfo elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: platform_shared_path_list_elements
+                                
+                                	Count of platform shared Pathlist elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: recursive_load_info_elements
+                                
+                                	Count of recursive Loadinfo elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: recursive_path_list_elements
+                                
+                                	Count of recursive Pathlist elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: retry_path_list_elements
+                                
+                                	Count of Pathlist elements in retry
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: total_load_info_elements
+                                
+                                	Total count of Loadinfo elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: total_load_sharing_element_bytes
+                                
+                                	Total memory used by load sharing elements in bytes
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**units**\: byte
+                                
+                                .. attribute:: total_load_sharing_element_references
+                                
+                                	Total count of references to load sharing elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: total_path_list_elements
+                                
+                                	Total count of Pathlist elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'fib-common-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.platform_shared_load_info_elements = None
+                                    self.platform_shared_path_list_elements = None
+                                    self.recursive_load_info_elements = None
+                                    self.recursive_path_list_elements = None
+                                    self.retry_path_list_elements = None
+                                    self.total_load_info_elements = None
+                                    self.total_load_sharing_element_bytes = None
+                                    self.total_load_sharing_element_references = None
+                                    self.total_path_list_elements = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:shared-load-sharing-element'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.platform_shared_load_info_elements is not None:
+                                        return True
+
+                                    if self.platform_shared_path_list_elements is not None:
+                                        return True
+
+                                    if self.recursive_load_info_elements is not None:
+                                        return True
+
+                                    if self.recursive_path_list_elements is not None:
+                                        return True
+
+                                    if self.retry_path_list_elements is not None:
+                                        return True
+
+                                    if self.total_load_info_elements is not None:
+                                        return True
+
+                                    if self.total_load_sharing_element_bytes is not None:
+                                        return True
+
+                                    if self.total_load_sharing_element_references is not None:
+                                        return True
+
+                                    if self.total_path_list_elements is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                    return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.SharedLoadSharingElement']['meta_info']
+
+
+                            class CrossSharedLoadSharingElement(object):
+                                """
+                                Cross\-table shared load sharing element
+                                
+                                .. attribute:: platform_shared_load_info_elements
+                                
+                                	Count of platform shared Loadinfo elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: platform_shared_path_list_elements
+                                
+                                	Count of platform shared Pathlist elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: recursive_load_info_elements
+                                
+                                	Count of recursive Loadinfo elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: recursive_path_list_elements
+                                
+                                	Count of recursive Pathlist elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: retry_path_list_elements
+                                
+                                	Count of Pathlist elements in retry
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: total_load_info_elements
+                                
+                                	Total count of Loadinfo elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: total_load_sharing_element_bytes
+                                
+                                	Total memory used by load sharing elements in bytes
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**units**\: byte
+                                
+                                .. attribute:: total_load_sharing_element_references
+                                
+                                	Total count of references to load sharing elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: total_path_list_elements
+                                
+                                	Total count of Pathlist elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'fib-common-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.platform_shared_load_info_elements = None
+                                    self.platform_shared_path_list_elements = None
+                                    self.recursive_load_info_elements = None
+                                    self.recursive_path_list_elements = None
+                                    self.retry_path_list_elements = None
+                                    self.total_load_info_elements = None
+                                    self.total_load_sharing_element_bytes = None
+                                    self.total_load_sharing_element_references = None
+                                    self.total_path_list_elements = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:cross-shared-load-sharing-element'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.platform_shared_load_info_elements is not None:
+                                        return True
+
+                                    if self.platform_shared_path_list_elements is not None:
+                                        return True
+
+                                    if self.recursive_load_info_elements is not None:
+                                        return True
+
+                                    if self.recursive_path_list_elements is not None:
+                                        return True
+
+                                    if self.retry_path_list_elements is not None:
+                                        return True
+
+                                    if self.total_load_info_elements is not None:
+                                        return True
+
+                                    if self.total_load_sharing_element_bytes is not None:
+                                        return True
+
+                                    if self.total_load_sharing_element_references is not None:
+                                        return True
+
+                                    if self.total_path_list_elements is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                    return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.CrossSharedLoadSharingElement']['meta_info']
+
+
+                            class LabelSharedLoadSharingElement(object):
+                                """
+                                Label\-shared load sharing element
+                                
+                                .. attribute:: platform_shared_load_info_elements
+                                
+                                	Count of platform shared Loadinfo elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: platform_shared_path_list_elements
+                                
+                                	Count of platform shared Pathlist elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: recursive_load_info_elements
+                                
+                                	Count of recursive Loadinfo elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: recursive_path_list_elements
+                                
+                                	Count of recursive Pathlist elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: retry_path_list_elements
+                                
+                                	Count of Pathlist elements in retry
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: total_load_info_elements
+                                
+                                	Total count of Loadinfo elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: total_load_sharing_element_bytes
+                                
+                                	Total memory used by load sharing elements in bytes
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**units**\: byte
+                                
+                                .. attribute:: total_load_sharing_element_references
+                                
+                                	Total count of references to load sharing elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: total_path_list_elements
+                                
+                                	Total count of Pathlist elements
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'fib-common-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.platform_shared_load_info_elements = None
+                                    self.platform_shared_path_list_elements = None
+                                    self.recursive_load_info_elements = None
+                                    self.recursive_path_list_elements = None
+                                    self.retry_path_list_elements = None
+                                    self.total_load_info_elements = None
+                                    self.total_load_sharing_element_bytes = None
+                                    self.total_load_sharing_element_references = None
+                                    self.total_path_list_elements = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:label-shared-load-sharing-element'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.platform_shared_load_info_elements is not None:
+                                        return True
+
+                                    if self.platform_shared_path_list_elements is not None:
+                                        return True
+
+                                    if self.recursive_load_info_elements is not None:
+                                        return True
+
+                                    if self.recursive_path_list_elements is not None:
+                                        return True
+
+                                    if self.retry_path_list_elements is not None:
+                                        return True
+
+                                    if self.total_load_info_elements is not None:
+                                        return True
+
+                                    if self.total_load_sharing_element_bytes is not None:
+                                        return True
+
+                                    if self.total_load_sharing_element_references is not None:
+                                        return True
+
+                                    if self.total_path_list_elements is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                    return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.LabelSharedLoadSharingElement']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:summary'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.cef_route_drops is not None:
+                                    return True
+
+                                if self.cef_version_mismatch_route_drops is not None:
+                                    return True
+
+                                if self.cefl_bl_recycled_routes is not None:
+                                    return True
+
+                                if self.cross_shared_load_sharing_element is not None and self.cross_shared_load_sharing_element._has_data():
+                                    return True
+
+                                if self.delete_cache_num_entries is not None:
+                                    return True
+
+                                if self.exclusive_load_sharing_element is not None and self.exclusive_load_sharing_element._has_data():
+                                    return True
+
+                                if self.existing_leaves_revisions is not None:
+                                    return True
+
+                                if self.extended_prefixes is not None:
+                                    return True
+
+                                if self.fib_default_prefix is not None:
+                                    return True
+
+                                if self.fib_default_prefix_mask_length is not None:
+                                    return True
+
+                                if self.forwarding_elements is not None:
+                                    return True
+
+                                if self.imposition_prefixes is not None:
+                                    return True
+
+                                if self.incomplete_next_hops is not None:
+                                    return True
+
+                                if self.label_shared_load_sharing_element is not None and self.label_shared_load_sharing_element._has_data():
+                                    return True
+
+                                if self.ldi_backwalks is not None:
+                                    return True
+
+                                if self.leaves_used_bytes is not None:
+                                    return True
+
+                                if self.lisp_eid_prefixes is not None:
+                                    return True
+
+                                if self.lisp_eid_valid_prefixes is not None:
+                                    return True
+
+                                if self.lisp_rloc_objects is not None:
+                                    return True
+
+                                if self.load_balancing is not None:
+                                    return True
+
+                                if self.load_sharing_elements is not None:
+                                    return True
+
+                                if self.load_sharing_references is not None:
+                                    return True
+
+                                if self.max_resolution_timer is not None:
+                                    return True
+
+                                if self.new_unresolve_entries is not None:
+                                    return True
+
+                                if self.next_hops is not None:
+                                    return True
+
+                                if self.old_unresolve_entries is not None:
+                                    return True
+
+                                if self.prefix is not None:
+                                    return True
+
+                                if self.prefix_in_place_modifications is not None:
+                                    return True
+
+                                if self.protocol_name is not None:
+                                    return True
+
+                                if self.reresolve_entries is not None:
+                                    return True
+
+                                if self.resolution_timer is not None:
+                                    return True
+
+                                if self.routes is not None:
+                                    return True
+
+                                if self.shared_load_sharing_element is not None and self.shared_load_sharing_element._has_data():
+                                    return True
+
+                                if self.slow_process_timer is not None:
+                                    return True
+
+                                if self.ss_drop_pl_count is not None:
+                                    return True
+
+                                if self.ss_prot_route_count is not None:
+                                    return True
+
+                                if self.ss_tbl_id is not None:
+                                    return True
+
+                                if self.ss_tbl_id_ptr is not None:
+                                    return True
+
+                                if self.ss_vr_id is not None:
+                                    return True
+
+                                if self.ss_vrf_id is not None:
+                                    return True
+
+                                if self.ss_vxlan_ltep_ifh is not None:
+                                    return True
+
+                                if self.stale_prefix_deletes is not None:
+                                    return True
+
+                                if self.table_id is not None:
+                                    return True
+
+                                if self.total_load_share_element_bytes is not None:
+                                    return True
+
+                                if self.unresolve_entries is not None:
+                                    return True
+
+                                if self.vrf_name is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:summaries'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.summary is not None:
+                                for child_ref in self.summary:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                            return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries']['meta_info']
+
+
                     class ExternalSummaryAll(object):
                         """
                         Summary for all external clients
@@ -1747,7 +2891,7 @@ class Fib(object):
                         .. attribute:: sesa_pl_sum
                         
                         	External pathlist summary
-                        	**type**\:  :py:class:`SesaPlSum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll.SesaPlSum>`
+                        	**type**\:   :py:class:`SesaPlSum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll.SesaPlSum>`
                         
                         
 
@@ -1870,7 +3014,7 @@ class Fib(object):
                         .. attribute:: frr_interfaces
                         
                         	FRR Interface Table
-                        	**type**\:  :py:class:`FrrInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces>`
+                        	**type**\:   :py:class:`FrrInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces>`
                         
                         
 
@@ -1892,7 +3036,7 @@ class Fib(object):
                             .. attribute:: frr_interface
                             
                             	Specify FRR Interface Name
-                            	**type**\: list of  :py:class:`FrrInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces.FrrInterface>`
+                            	**type**\: list of    :py:class:`FrrInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces.FrrInterface>`
                             
                             
 
@@ -1922,7 +3066,7 @@ class Fib(object):
                                 .. attribute:: logs
                                 
                                 	FRR log table
-                                	**type**\:  :py:class:`Logs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces.FrrInterface.Logs>`
+                                	**type**\:   :py:class:`Logs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces.FrrInterface.Logs>`
                                 
                                 
 
@@ -1945,7 +3089,7 @@ class Fib(object):
                                     .. attribute:: log
                                     
                                     	Specify index into frr log table
-                                    	**type**\: list of  :py:class:`Log <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces.FrrInterface.Logs.Log>`
+                                    	**type**\: list of    :py:class:`Log <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces.FrrInterface.Logs.Log>`
                                     
                                     
 
@@ -1996,7 +3140,7 @@ class Fib(object):
                                         .. attribute:: frr_protocol_type
                                         
                                         	FIB Protocol Type
-                                        	**type**\:  :py:class:`FibFrrProtocolShowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibFrrProtocolShowEnum>`
+                                        	**type**\:   :py:class:`FibFrrProtocolShowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibFrrProtocolShowEnum>`
                                         
                                         .. attribute:: frr_switching_time
                                         
@@ -2008,7 +3152,7 @@ class Fib(object):
                                         .. attribute:: frr_timestamp
                                         
                                         	frr timestamp
-                                        	**type**\:  :py:class:`FrrTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces.FrrInterface.Logs.Log.FrrTimestamp>`
+                                        	**type**\:   :py:class:`FrrTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces.FrrInterface.Logs.Log.FrrTimestamp>`
                                         
                                         
 
@@ -2243,7 +3387,7 @@ class Fib(object):
                         .. attribute:: vrf
                         
                         	VRF table entry
-                        	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf>`
+                        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf>`
                         
                         
 
@@ -2273,22 +3417,22 @@ class Fib(object):
                             .. attribute:: interface_infos
                             
                             	Table of InterfaceInfo
-                            	**type**\:  :py:class:`InterfaceInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos>`
+                            	**type**\:   :py:class:`InterfaceInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos>`
                             
                             .. attribute:: ip_prefix_briefs
                             
                             	IP FIB prefix brief table
-                            	**type**\:  :py:class:`IpPrefixBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs>`
+                            	**type**\:   :py:class:`IpPrefixBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs>`
                             
                             .. attribute:: ip_prefix_details
                             
                             	IP FIB prefix detail table
-                            	**type**\:  :py:class:`IpPrefixDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails>`
+                            	**type**\:   :py:class:`IpPrefixDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails>`
                             
                             .. attribute:: summary
                             
                             	Operational data for FIB Tablee
-                            	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary>`
+                            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary>`
                             
                             
 
@@ -2317,7 +3461,7 @@ class Fib(object):
                                 .. attribute:: ip_prefix_detail
                                 
                                 	IP FIB prefix detail table entry
-                                	**type**\: list of  :py:class:`IpPrefixDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail>`
+                                	**type**\: list of    :py:class:`IpPrefixDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail>`
                                 
                                 
 
@@ -2350,7 +3494,7 @@ class Fib(object):
                                     .. attribute:: detail_fib_entry_information
                                     
                                     	Detailed FIB entry information
-                                    	**type**\:  :py:class:`DetailFibEntryInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation>`
+                                    	**type**\:   :py:class:`DetailFibEntryInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation>`
                                     
                                     .. attribute:: dummy_real_zero_route
                                     
@@ -2370,7 +3514,7 @@ class Fib(object):
                                     .. attribute:: fib_entry_path
                                     
                                     	FIB entry path details
-                                    	**type**\:  :py:class:`FibEntryPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath>`
+                                    	**type**\:   :py:class:`FibEntryPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath>`
                                     
                                     .. attribute:: fib_route_download_priority
                                     
@@ -2689,6 +3833,8 @@ class Fib(object):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**units**\: byte
+                                        
                                         .. attribute:: com_string
                                         
                                         	com st
@@ -2739,7 +3885,7 @@ class Fib(object):
                                         .. attribute:: fib_entry_adjacency_type
                                         
                                         	FIB entry adjacency type
-                                        	**type**\:  :py:class:`FibAdjacencyShowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibAdjacencyShowEnum>`
+                                        	**type**\:   :py:class:`FibAdjacencyShowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibAdjacencyShowEnum>`
                                         
                                         .. attribute:: fib_entry_version
                                         
@@ -2791,12 +3937,12 @@ class Fib(object):
                                         .. attribute:: load_sharing_type
                                         
                                         	Load sharing type
-                                        	**type**\:  :py:class:`FibLoadshareShowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibLoadshareShowEnum>`
+                                        	**type**\:   :py:class:`FibLoadshareShowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibLoadshareShowEnum>`
                                         
                                         .. attribute:: loadshare_information
                                         
                                         	Detailed Loadshare info
-                                        	**type**\:  :py:class:`LoadshareInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation>`
+                                        	**type**\:   :py:class:`LoadshareInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation>`
                                         
                                         .. attribute:: lwldi_time_of_last_update_in_msec
                                         
@@ -2957,6 +4103,8 @@ class Fib(object):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**units**\: byte
+                                            
                                             .. attribute:: is_owner
                                             
                                             	Owner flag
@@ -2977,7 +4125,7 @@ class Fib(object):
                                             .. attribute:: load_informtion_internal_data
                                             
                                             	Loadinfo internal data
-                                            	**type**\:  :py:class:`LoadInformtionInternalData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData>`
+                                            	**type**\:   :py:class:`LoadInformtionInternalData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData>`
                                             
                                             .. attribute:: loadinfo_sanity_flag
                                             
@@ -3017,6 +4165,8 @@ class Fib(object):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**units**\: byte
+                                            
                                             .. attribute:: total_packets_through_load_information
                                             
                                             	Total packets through this loadinfo
@@ -3055,7 +4205,7 @@ class Fib(object):
                                                 .. attribute:: adjacency_address
                                                 
                                                 	Adjacency address
-                                                	**type**\: list of  :py:class:`AdjacencyAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.AdjacencyAddress>`
+                                                	**type**\: list of    :py:class:`AdjacencyAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.AdjacencyAddress>`
                                                 
                                                 .. attribute:: interface_handle
                                                 
@@ -3128,7 +4278,7 @@ class Fib(object):
                                                 .. attribute:: pbts_class_is_fallback_mapped
                                                 
                                                 	Does PBTS class fall back to drop or any class
-                                                	**type**\: list of  :py:class:`PbtsClassIsFallbackMapped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.PbtsClassIsFallbackMapped>`
+                                                	**type**\: list of    :py:class:`PbtsClassIsFallbackMapped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.PbtsClassIsFallbackMapped>`
                                                 
                                                 .. attribute:: pbts_class_num_paths
                                                 
@@ -3154,7 +4304,7 @@ class Fib(object):
                                                 .. attribute:: pbts_fallback_to_drop
                                                 
                                                 	PBTS class falls back to drop
-                                                	**type**\: list of  :py:class:`PbtsFallbackToDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.PbtsFallbackToDrop>`
+                                                	**type**\: list of    :py:class:`PbtsFallbackToDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.PbtsFallbackToDrop>`
                                                 
                                                 .. attribute:: platform_hardware_information
                                                 
@@ -3183,7 +4333,7 @@ class Fib(object):
                                                 .. attribute:: tunnel_is_forward_class
                                                 
                                                 	Tunnel is forward class
-                                                	**type**\: list of  :py:class:`TunnelIsForwardClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.TunnelIsForwardClass>`
+                                                	**type**\: list of    :py:class:`TunnelIsForwardClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.TunnelIsForwardClass>`
                                                 
                                                 .. attribute:: weights_of_path
                                                 
@@ -3727,7 +4877,7 @@ class Fib(object):
                                         .. attribute:: fib_sh_tbl_path
                                         
                                         	fib sh tbl path
-                                        	**type**\: list of  :py:class:`FibShTblPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath>`
+                                        	**type**\: list of    :py:class:`FibShTblPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath>`
                                         
                                         
 
@@ -3807,12 +4957,12 @@ class Fib(object):
                                             .. attribute:: more_detail_about_path
                                             
                                             	More detail about this path entry
-                                            	**type**\:  :py:class:`MoreDetailAboutPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MoreDetailAboutPath>`
+                                            	**type**\:   :py:class:`MoreDetailAboutPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MoreDetailAboutPath>`
                                             
                                             .. attribute:: mpls_information_for_path
                                             
                                             	mpls info for this path entry
-                                            	**type**\:  :py:class:`MplsInformationForPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MplsInformationForPath>`
+                                            	**type**\:   :py:class:`MplsInformationForPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MplsInformationForPath>`
                                             
                                             .. attribute:: next_hop_index
                                             
@@ -3936,7 +5086,7 @@ class Fib(object):
                                                 .. attribute:: detail_fib_adjacency_type
                                                 
                                                 	FIB entry adjacency type
-                                                	**type**\:  :py:class:`FibAdjacencyShowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibAdjacencyShowEnum>`
+                                                	**type**\:   :py:class:`FibAdjacencyShowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibAdjacencyShowEnum>`
                                                 
                                                 .. attribute:: detail_next_hop_prefix
                                                 
@@ -3953,12 +5103,12 @@ class Fib(object):
                                                 .. attribute:: fib_path_nh_information_type
                                                 
                                                 	FIB Nhinfo type
-                                                	**type**\:  :py:class:`FibNehEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibNehEnum>`
+                                                	**type**\:   :py:class:`FibNehEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibNehEnum>`
                                                 
                                                 .. attribute:: fib_path_nh_information_type_special
                                                 
                                                 	FIB Nhinfo type special
-                                                	**type**\:  :py:class:`FibNehSpecialEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibNehSpecialEnum>`
+                                                	**type**\:   :py:class:`FibNehSpecialEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibNehSpecialEnum>`
                                                 
                                                 .. attribute:: interface_associated_path
                                                 
@@ -4069,7 +5219,7 @@ class Fib(object):
                                                 .. attribute:: spd_ipencap
                                                 
                                                 	IP Encap
-                                                	**type**\: list of  :py:class:`SpdIpencap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MoreDetailAboutPath.SpdIpencap>`
+                                                	**type**\: list of    :py:class:`SpdIpencap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MoreDetailAboutPath.SpdIpencap>`
                                                 
                                                 .. attribute:: tunnel_class
                                                 
@@ -4144,7 +5294,7 @@ class Fib(object):
                                                     .. attribute:: ip_encap_hdr
                                                     
                                                     	Headers
-                                                    	**type**\: list of  :py:class:`IpEncapHdr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MoreDetailAboutPath.SpdIpencap.IpEncapHdr>`
+                                                    	**type**\: list of    :py:class:`IpEncapHdr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MoreDetailAboutPath.SpdIpencap.IpEncapHdr>`
                                                     
                                                     .. attribute:: ip_encap_hdr_count
                                                     
@@ -4244,7 +5394,7 @@ class Fib(object):
                                                         .. attribute:: ip_encap_hdr_type
                                                         
                                                         	Header Type
-                                                        	**type**\:  :py:class:`FibShIpencapHdrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibShIpencapHdrEnum>`
+                                                        	**type**\:   :py:class:`FibShIpencapHdrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibShIpencapHdrEnum>`
                                                         
                                                         .. attribute:: ip_encap_hdrp
                                                         
@@ -4461,7 +5611,7 @@ class Fib(object):
                                                 .. attribute:: igp_label_stack_array
                                                 
                                                 	igp label stack array
-                                                	**type**\: list of  :py:class:`IgpLabelStackArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MplsInformationForPath.IgpLabelStackArray>`
+                                                	**type**\: list of    :py:class:`IgpLabelStackArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MplsInformationForPath.IgpLabelStackArray>`
                                                 
                                                 .. attribute:: local_lable
                                                 
@@ -4949,7 +6099,7 @@ class Fib(object):
                                 .. attribute:: cross_shared_load_sharing_element
                                 
                                 	Cross\-table shared load sharing element
-                                	**type**\:  :py:class:`CrossSharedLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.CrossSharedLoadSharingElement>`
+                                	**type**\:   :py:class:`CrossSharedLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.CrossSharedLoadSharingElement>`
                                 
                                 .. attribute:: delete_cache_num_entries
                                 
@@ -4961,7 +6111,7 @@ class Fib(object):
                                 .. attribute:: exclusive_load_sharing_element
                                 
                                 	Exclusive load sharing element
-                                	**type**\:  :py:class:`ExclusiveLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.ExclusiveLoadSharingElement>`
+                                	**type**\:   :py:class:`ExclusiveLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.ExclusiveLoadSharingElement>`
                                 
                                 .. attribute:: existing_leaves_revisions
                                 
@@ -5015,7 +6165,7 @@ class Fib(object):
                                 .. attribute:: label_shared_load_sharing_element
                                 
                                 	Label\-shared load sharing element
-                                	**type**\:  :py:class:`LabelSharedLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.LabelSharedLoadSharingElement>`
+                                	**type**\:   :py:class:`LabelSharedLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.LabelSharedLoadSharingElement>`
                                 
                                 .. attribute:: ldi_backwalks
                                 
@@ -5055,7 +6205,7 @@ class Fib(object):
                                 .. attribute:: load_balancing
                                 
                                 	LBA configuration state
-                                	**type**\:  :py:class:`SsLbaStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.SsLbaStateEnum>`
+                                	**type**\:   :py:class:`SsLbaStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.SsLbaStateEnum>`
                                 
                                 .. attribute:: load_sharing_elements
                                 
@@ -5077,6 +6227,8 @@ class Fib(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**units**\: second
                                 
                                 .. attribute:: new_unresolve_entries
                                 
@@ -5127,6 +6279,8 @@ class Fib(object):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**units**\: second
+                                
                                 .. attribute:: routes
                                 
                                 	Number of routes
@@ -5137,7 +6291,7 @@ class Fib(object):
                                 .. attribute:: shared_load_sharing_element
                                 
                                 	Shared load sharing element
-                                	**type**\:  :py:class:`SharedLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.SharedLoadSharingElement>`
+                                	**type**\:   :py:class:`SharedLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.SharedLoadSharingElement>`
                                 
                                 .. attribute:: slow_process_timer
                                 
@@ -5145,6 +6299,8 @@ class Fib(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**units**\: second
                                 
                                 .. attribute:: ss_drop_pl_count
                                 
@@ -5327,6 +6483,8 @@ class Fib(object):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: total_load_sharing_element_references
                                     
                                     	Total count of references to load sharing elements
@@ -5461,6 +6619,8 @@ class Fib(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**units**\: byte
                                     
                                     .. attribute:: total_load_sharing_element_references
                                     
@@ -5597,6 +6757,8 @@ class Fib(object):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: total_load_sharing_element_references
                                     
                                     	Total count of references to load sharing elements
@@ -5731,6 +6893,8 @@ class Fib(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**units**\: byte
                                     
                                     .. attribute:: total_load_sharing_element_references
                                     
@@ -5971,7 +7135,7 @@ class Fib(object):
                                 .. attribute:: interface_info
                                 
                                 	Specify link type
-                                	**type**\: list of  :py:class:`InterfaceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo>`
+                                	**type**\: list of    :py:class:`InterfaceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo>`
                                 
                                 
 
@@ -5994,12 +7158,12 @@ class Fib(object):
                                     .. attribute:: link_type  <key>
                                     
                                     	Link type
-                                    	**type**\:  :py:class:`FibLinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibLinkEnum>`
+                                    	**type**\:   :py:class:`FibLinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibLinkEnum>`
                                     
                                     .. attribute:: interfaces
                                     
                                     	Table of interfaces
-                                    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces>`
+                                    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces>`
                                     
                                     
 
@@ -6022,7 +7186,7 @@ class Fib(object):
                                         .. attribute:: interface
                                         
                                         	Specify Interface name
-                                        	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface>`
+                                        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface>`
                                         
                                         
 
@@ -6052,7 +7216,7 @@ class Fib(object):
                                             .. attribute:: detail_fib_int_information
                                             
                                             	Detailed FIB interface information
-                                            	**type**\:  :py:class:`DetailFibIntInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.DetailFibIntInformation>`
+                                            	**type**\:   :py:class:`DetailFibIntInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.DetailFibIntInformation>`
                                             
                                             .. attribute:: drop_packets_while_fib_switching_flag
                                             
@@ -6114,7 +7278,7 @@ class Fib(object):
                                             .. attribute:: last_operation
                                             
                                             	Last Oper
-                                            	**type**\:  :py:class:`FibidbOperEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibidbOperEnum>`
+                                            	**type**\:   :py:class:`FibidbOperEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibidbOperEnum>`
                                             
                                             .. attribute:: loopback_interface_flag
                                             
@@ -6140,6 +7304,8 @@ class Fib(object):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**units**\: byte
+                                            
                                             .. attribute:: number_of_input_packets
                                             
                                             	Number of input packets
@@ -6153,6 +7319,8 @@ class Fib(object):
                                             	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**units**\: byte
                                             
                                             .. attribute:: number_of_output_packets
                                             
@@ -6224,7 +7392,7 @@ class Fib(object):
                                             .. attribute:: si_internal
                                             
                                             	Internal Information
-                                            	**type**\:  :py:class:`SiInternal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.SiInternal>`
+                                            	**type**\:   :py:class:`SiInternal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.SiInternal>`
                                             
                                             .. attribute:: tunnel_interface_flag
                                             
@@ -6344,7 +7512,7 @@ class Fib(object):
                                                 .. attribute:: rpf_mode
                                                 
                                                 	RPF mode
-                                                	**type**\:  :py:class:`FibRpfModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibRpfModeEnum>`
+                                                	**type**\:   :py:class:`FibRpfModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibRpfModeEnum>`
                                                 
                                                 .. attribute:: self_ping_with_rpf
                                                 
@@ -6456,12 +7624,12 @@ class Fib(object):
                                                 .. attribute:: fib_idb_hist
                                                 
                                                 	Event History for IDB
-                                                	**type**\:  :py:class:`FibIdbHist <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.SiInternal.FibIdbHist>`
+                                                	**type**\:   :py:class:`FibIdbHist <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.SiInternal.FibIdbHist>`
                                                 
                                                 .. attribute:: fib_srte_head_hist
                                                 
                                                 	Event History for Srtehead
-                                                	**type**\:  :py:class:`FibSrteHeadHist <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.SiInternal.FibSrteHeadHist>`
+                                                	**type**\:   :py:class:`FibSrteHeadHist <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.SiInternal.FibSrteHeadHist>`
                                                 
                                                 
 
@@ -6490,7 +7658,7 @@ class Fib(object):
                                                     .. attribute:: evt_entry
                                                     
                                                     	Array of event entries
-                                                    	**type**\: list of  :py:class:`EvtEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.SiInternal.FibIdbHist.EvtEntry>`
+                                                    	**type**\: list of    :py:class:`EvtEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.SiInternal.FibIdbHist.EvtEntry>`
                                                     
                                                     
 
@@ -6646,7 +7814,7 @@ class Fib(object):
                                                     .. attribute:: evt_entry
                                                     
                                                     	Array of event entries
-                                                    	**type**\: list of  :py:class:`EvtEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.SiInternal.FibSrteHeadHist.EvtEntry>`
+                                                    	**type**\: list of    :py:class:`EvtEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos.InterfaceInfo.Interfaces.Interface.SiInternal.FibSrteHeadHist.EvtEntry>`
                                                     
                                                     
 
@@ -7024,7 +8192,7 @@ class Fib(object):
                                 .. attribute:: ip_prefix_brief
                                 
                                 	IP FIB prefix brief table entry
-                                	**type**\: list of  :py:class:`IpPrefixBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief>`
+                                	**type**\: list of    :py:class:`IpPrefixBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief>`
                                 
                                 
 
@@ -7057,7 +8225,7 @@ class Fib(object):
                                     .. attribute:: detail_fib_entry_information
                                     
                                     	Detailed FIB entry information
-                                    	**type**\:  :py:class:`DetailFibEntryInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation>`
+                                    	**type**\:   :py:class:`DetailFibEntryInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation>`
                                     
                                     .. attribute:: dummy_real_zero_route
                                     
@@ -7077,7 +8245,7 @@ class Fib(object):
                                     .. attribute:: fib_entry_path
                                     
                                     	FIB entry path details
-                                    	**type**\:  :py:class:`FibEntryPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath>`
+                                    	**type**\:   :py:class:`FibEntryPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath>`
                                     
                                     .. attribute:: fib_route_download_priority
                                     
@@ -7396,6 +8564,8 @@ class Fib(object):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**units**\: byte
+                                        
                                         .. attribute:: com_string
                                         
                                         	com st
@@ -7446,7 +8616,7 @@ class Fib(object):
                                         .. attribute:: fib_entry_adjacency_type
                                         
                                         	FIB entry adjacency type
-                                        	**type**\:  :py:class:`FibAdjacencyShowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibAdjacencyShowEnum>`
+                                        	**type**\:   :py:class:`FibAdjacencyShowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibAdjacencyShowEnum>`
                                         
                                         .. attribute:: fib_entry_version
                                         
@@ -7498,12 +8668,12 @@ class Fib(object):
                                         .. attribute:: load_sharing_type
                                         
                                         	Load sharing type
-                                        	**type**\:  :py:class:`FibLoadshareShowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibLoadshareShowEnum>`
+                                        	**type**\:   :py:class:`FibLoadshareShowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibLoadshareShowEnum>`
                                         
                                         .. attribute:: loadshare_information
                                         
                                         	Detailed Loadshare info
-                                        	**type**\:  :py:class:`LoadshareInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation>`
+                                        	**type**\:   :py:class:`LoadshareInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation>`
                                         
                                         .. attribute:: lwldi_time_of_last_update_in_msec
                                         
@@ -7664,6 +8834,8 @@ class Fib(object):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**units**\: byte
+                                            
                                             .. attribute:: is_owner
                                             
                                             	Owner flag
@@ -7684,7 +8856,7 @@ class Fib(object):
                                             .. attribute:: load_informtion_internal_data
                                             
                                             	Loadinfo internal data
-                                            	**type**\:  :py:class:`LoadInformtionInternalData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData>`
+                                            	**type**\:   :py:class:`LoadInformtionInternalData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData>`
                                             
                                             .. attribute:: loadinfo_sanity_flag
                                             
@@ -7724,6 +8896,8 @@ class Fib(object):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**units**\: byte
+                                            
                                             .. attribute:: total_packets_through_load_information
                                             
                                             	Total packets through this loadinfo
@@ -7762,7 +8936,7 @@ class Fib(object):
                                                 .. attribute:: adjacency_address
                                                 
                                                 	Adjacency address
-                                                	**type**\: list of  :py:class:`AdjacencyAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.AdjacencyAddress>`
+                                                	**type**\: list of    :py:class:`AdjacencyAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.AdjacencyAddress>`
                                                 
                                                 .. attribute:: interface_handle
                                                 
@@ -7835,7 +9009,7 @@ class Fib(object):
                                                 .. attribute:: pbts_class_is_fallback_mapped
                                                 
                                                 	Does PBTS class fall back to drop or any class
-                                                	**type**\: list of  :py:class:`PbtsClassIsFallbackMapped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.PbtsClassIsFallbackMapped>`
+                                                	**type**\: list of    :py:class:`PbtsClassIsFallbackMapped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.PbtsClassIsFallbackMapped>`
                                                 
                                                 .. attribute:: pbts_class_num_paths
                                                 
@@ -7861,7 +9035,7 @@ class Fib(object):
                                                 .. attribute:: pbts_fallback_to_drop
                                                 
                                                 	PBTS class falls back to drop
-                                                	**type**\: list of  :py:class:`PbtsFallbackToDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.PbtsFallbackToDrop>`
+                                                	**type**\: list of    :py:class:`PbtsFallbackToDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.PbtsFallbackToDrop>`
                                                 
                                                 .. attribute:: platform_hardware_information
                                                 
@@ -7890,7 +9064,7 @@ class Fib(object):
                                                 .. attribute:: tunnel_is_forward_class
                                                 
                                                 	Tunnel is forward class
-                                                	**type**\: list of  :py:class:`TunnelIsForwardClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.TunnelIsForwardClass>`
+                                                	**type**\: list of    :py:class:`TunnelIsForwardClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation.LoadshareInformation.LoadInformtionInternalData.TunnelIsForwardClass>`
                                                 
                                                 .. attribute:: weights_of_path
                                                 
@@ -8434,7 +9608,7 @@ class Fib(object):
                                         .. attribute:: fib_sh_tbl_path
                                         
                                         	fib sh tbl path
-                                        	**type**\: list of  :py:class:`FibShTblPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath>`
+                                        	**type**\: list of    :py:class:`FibShTblPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath>`
                                         
                                         
 
@@ -8514,12 +9688,12 @@ class Fib(object):
                                             .. attribute:: more_detail_about_path
                                             
                                             	More detail about this path entry
-                                            	**type**\:  :py:class:`MoreDetailAboutPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MoreDetailAboutPath>`
+                                            	**type**\:   :py:class:`MoreDetailAboutPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MoreDetailAboutPath>`
                                             
                                             .. attribute:: mpls_information_for_path
                                             
                                             	mpls info for this path entry
-                                            	**type**\:  :py:class:`MplsInformationForPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MplsInformationForPath>`
+                                            	**type**\:   :py:class:`MplsInformationForPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MplsInformationForPath>`
                                             
                                             .. attribute:: next_hop_index
                                             
@@ -8643,7 +9817,7 @@ class Fib(object):
                                                 .. attribute:: detail_fib_adjacency_type
                                                 
                                                 	FIB entry adjacency type
-                                                	**type**\:  :py:class:`FibAdjacencyShowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibAdjacencyShowEnum>`
+                                                	**type**\:   :py:class:`FibAdjacencyShowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibAdjacencyShowEnum>`
                                                 
                                                 .. attribute:: detail_next_hop_prefix
                                                 
@@ -8660,12 +9834,12 @@ class Fib(object):
                                                 .. attribute:: fib_path_nh_information_type
                                                 
                                                 	FIB Nhinfo type
-                                                	**type**\:  :py:class:`FibNehEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibNehEnum>`
+                                                	**type**\:   :py:class:`FibNehEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibNehEnum>`
                                                 
                                                 .. attribute:: fib_path_nh_information_type_special
                                                 
                                                 	FIB Nhinfo type special
-                                                	**type**\:  :py:class:`FibNehSpecialEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibNehSpecialEnum>`
+                                                	**type**\:   :py:class:`FibNehSpecialEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibNehSpecialEnum>`
                                                 
                                                 .. attribute:: interface_associated_path
                                                 
@@ -8776,7 +9950,7 @@ class Fib(object):
                                                 .. attribute:: spd_ipencap
                                                 
                                                 	IP Encap
-                                                	**type**\: list of  :py:class:`SpdIpencap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MoreDetailAboutPath.SpdIpencap>`
+                                                	**type**\: list of    :py:class:`SpdIpencap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MoreDetailAboutPath.SpdIpencap>`
                                                 
                                                 .. attribute:: tunnel_class
                                                 
@@ -8851,7 +10025,7 @@ class Fib(object):
                                                     .. attribute:: ip_encap_hdr
                                                     
                                                     	Headers
-                                                    	**type**\: list of  :py:class:`IpEncapHdr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MoreDetailAboutPath.SpdIpencap.IpEncapHdr>`
+                                                    	**type**\: list of    :py:class:`IpEncapHdr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MoreDetailAboutPath.SpdIpencap.IpEncapHdr>`
                                                     
                                                     .. attribute:: ip_encap_hdr_count
                                                     
@@ -8951,7 +10125,7 @@ class Fib(object):
                                                         .. attribute:: ip_encap_hdr_type
                                                         
                                                         	Header Type
-                                                        	**type**\:  :py:class:`FibShIpencapHdrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibShIpencapHdrEnum>`
+                                                        	**type**\:   :py:class:`FibShIpencapHdrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibShIpencapHdrEnum>`
                                                         
                                                         .. attribute:: ip_encap_hdrp
                                                         
@@ -9168,7 +10342,7 @@ class Fib(object):
                                                 .. attribute:: igp_label_stack_array
                                                 
                                                 	igp label stack array
-                                                	**type**\: list of  :py:class:`IgpLabelStackArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MplsInformationForPath.IgpLabelStackArray>`
+                                                	**type**\: list of    :py:class:`IgpLabelStackArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MplsInformationForPath.IgpLabelStackArray>`
                                                 
                                                 .. attribute:: local_lable
                                                 
@@ -9699,7 +10873,7 @@ class Fib(object):
                         .. attribute:: external_client_summary
                         
                         	Summary of the external clients
-                        	**type**\: list of  :py:class:`ExternalClientSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries.ExternalClientSummary>`
+                        	**type**\: list of    :py:class:`ExternalClientSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries.ExternalClientSummary>`
                         
                         
 
@@ -9783,7 +10957,7 @@ class Fib(object):
                             .. attribute:: ses_pl_sum
                             
                             	ECD pathlist summary
-                            	**type**\:  :py:class:`SesPlSum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries.ExternalClientSummary.SesPlSum>`
+                            	**type**\:   :py:class:`SesPlSum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries.ExternalClientSummary.SesPlSum>`
                             
                             
 
@@ -9997,12 +11171,12 @@ class Fib(object):
                         .. attribute:: mi_del
                         
                         	Timestamps of deleted routes
-                        	**type**\: list of  :py:class:`MiDel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiDel>`
+                        	**type**\: list of    :py:class:`MiDel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiDel>`
                         
                         .. attribute:: mi_frr_stat
                         
                         	FRR statistics
-                        	**type**\: list of  :py:class:`MiFrrStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiFrrStat>`
+                        	**type**\: list of    :py:class:`MiFrrStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiFrrStat>`
                         
                         .. attribute:: mi_idb_ext_cleanup_failed_count
                         
@@ -10021,7 +11195,7 @@ class Fib(object):
                         .. attribute:: mi_idb_purge_cntr
                         
                         	the number of counters used for purge counter stats
-                        	**type**\: list of  :py:class:`MiIdbPurgeCntr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiIdbPurgeCntr>`
+                        	**type**\: list of    :py:class:`MiIdbPurgeCntr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiIdbPurgeCntr>`
                         
                         .. attribute:: mi_idb_recycle_cleanup_count
                         
@@ -10040,7 +11214,7 @@ class Fib(object):
                         .. attribute:: mi_issu_state
                         
                         	FIB ISSU state
-                        	**type**\:  :py:class:`MiIssuState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiIssuState>`
+                        	**type**\:   :py:class:`MiIssuState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiIssuState>`
                         
                         .. attribute:: mi_lrpf_num
                         
@@ -10136,7 +11310,7 @@ class Fib(object):
                         .. attribute:: mi_plat_capabilities
                         
                         	FIB platform capabilities
-                        	**type**\:  :py:class:`MiPlatCapabilities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities>`
+                        	**type**\:   :py:class:`MiPlatCapabilities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities>`
                         
                         .. attribute:: mi_prefer_aib_routes_over_rib_cfg
                         
@@ -10151,7 +11325,7 @@ class Fib(object):
                         .. attribute:: mi_proto_dbg_stat
                         
                         	Per protocol debug stats
-                        	**type**\: list of  :py:class:`MiProtoDbgStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat>`
+                        	**type**\: list of    :py:class:`MiProtoDbgStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat>`
                         
                         .. attribute:: mi_shm_reset_ts
                         
@@ -10306,7 +11480,7 @@ class Fib(object):
                             .. attribute:: fis_proto_state
                             
                             	IMDR state for the protocols
-                            	**type**\: list of  :py:class:`FisProtoState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiIssuState.FisProtoState>`
+                            	**type**\: list of    :py:class:`FisProtoState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiIssuState.FisProtoState>`
                             
                             .. attribute:: imdr_eoc_implicit
                             
@@ -10621,17 +11795,17 @@ class Fib(object):
                             .. attribute:: fpc_lisp_decap_over_v4
                             
                             	LISP Decap over 4
-                            	**type**\: list of  :py:class:`FpcLispDecapOverV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities.FpcLispDecapOverV4>`
+                            	**type**\: list of    :py:class:`FpcLispDecapOverV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities.FpcLispDecapOverV4>`
                             
                             .. attribute:: fpc_lisp_decap_over_v6
                             
                             	LISP Decap over 6
-                            	**type**\: list of  :py:class:`FpcLispDecapOverV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities.FpcLispDecapOverV6>`
+                            	**type**\: list of    :py:class:`FpcLispDecapOverV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities.FpcLispDecapOverV6>`
                             
                             .. attribute:: fpc_lisp_ucmp
                             
                             	LISP UCMP support
-                            	**type**\: list of  :py:class:`FpcLispUcmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities.FpcLispUcmp>`
+                            	**type**\: list of    :py:class:`FpcLispUcmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities.FpcLispUcmp>`
                             
                             .. attribute:: fpc_loadinfo_filter_support
                             
@@ -10732,7 +11906,7 @@ class Fib(object):
                             .. attribute:: fpc_resolve_via_table
                             
                             	Fallback VRF support
-                            	**type**\: list of  :py:class:`FpcResolveViaTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities.FpcResolveViaTable>`
+                            	**type**\: list of    :py:class:`FpcResolveViaTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities.FpcResolveViaTable>`
                             
                             .. attribute:: fpc_slowpath_ingress_inject_reqd
                             
@@ -11174,7 +12348,7 @@ class Fib(object):
                             .. attribute:: fpd_gtrie_timing
                             
                             	Gtrie timing statistics
-                            	**type**\:  :py:class:`FpdGtrieTiming <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdGtrieTiming>`
+                            	**type**\:   :py:class:`FpdGtrieTiming <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdGtrieTiming>`
                             
                             .. attribute:: fpd_lbl_recycled
                             
@@ -11347,7 +12521,7 @@ class Fib(object):
                             .. attribute:: fpd_platf_upd_stats
                             
                             	platform update statistics
-                            	**type**\:  :py:class:`FpdPlatfUpdStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdPlatfUpdStats>`
+                            	**type**\:   :py:class:`FpdPlatfUpdStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdPlatfUpdStats>`
                             
                             .. attribute:: fpd_recursion_constraint_count
                             
@@ -11524,7 +12698,7 @@ class Fib(object):
                                 .. attribute:: fpus_obj_stat
                                 
                                 	Array of max time info indexed by object type
-                                	**type**\: list of  :py:class:`FpusObjStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdPlatfUpdStats.FpusObjStat>`
+                                	**type**\: list of    :py:class:`FpusObjStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdPlatfUpdStats.FpusObjStat>`
                                 
                                 .. attribute:: fpus_upd_total_time
                                 
@@ -11557,7 +12731,7 @@ class Fib(object):
                                     .. attribute:: fos_obj_act_stat
                                     
                                     	Array of max time info indexed by action type
-                                    	**type**\: list of  :py:class:`FosObjActStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdPlatfUpdStats.FpusObjStat.FosObjActStat>`
+                                    	**type**\: list of    :py:class:`FosObjActStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdPlatfUpdStats.FpusObjStat.FosObjActStat>`
                                     
                                     .. attribute:: fos_tot_upd_time
                                     
@@ -11776,7 +12950,7 @@ class Fib(object):
                                 .. attribute:: fgt_gtrie_fn_timing
                                 
                                 	Array of max time info indexed by gtrie function
-                                	**type**\: list of  :py:class:`FgtGtrieFnTiming <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdGtrieTiming.FgtGtrieFnTiming>`
+                                	**type**\: list of    :py:class:`FgtGtrieFnTiming <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdGtrieTiming.FgtGtrieFnTiming>`
                                 
                                 .. attribute:: fgt_num_failure
                                 
@@ -12631,7 +13805,7 @@ class Fib(object):
                         .. attribute:: conflicts
                         
                         	FIB Local\-label conflicts database
-                        	**type**\:  :py:class:`Conflicts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts>`
+                        	**type**\:   :py:class:`Conflicts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts>`
                         
                         
 
@@ -12653,7 +13827,7 @@ class Fib(object):
                             .. attribute:: conflict
                             
                             	CEF Local\-label conflicts entry
-                            	**type**\: list of  :py:class:`Conflict <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict>`
+                            	**type**\: list of    :py:class:`Conflict <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict>`
                             
                             
 
@@ -12676,7 +13850,7 @@ class Fib(object):
                                 .. attribute:: ext
                                 
                                 	ext
-                                	**type**\:  :py:class:`Ext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext>`
+                                	**type**\:   :py:class:`Ext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext>`
                                 
                                 .. attribute:: label
                                 
@@ -12688,7 +13862,7 @@ class Fib(object):
                                 .. attribute:: ll_ctype
                                 
                                 	Type of entry
-                                	**type**\:  :py:class:`FibllcEntryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibllcEntryEnum>`
+                                	**type**\:   :py:class:`FibllcEntryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibllcEntryEnum>`
                                 
                                 .. attribute:: local_label
                                 
@@ -12735,7 +13909,7 @@ class Fib(object):
                                 .. attribute:: source
                                 
                                 	Route source
-                                	**type**\:  :py:class:`FibRouteSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibRouteSourceEnum>`
+                                	**type**\:   :py:class:`FibRouteSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibRouteSourceEnum>`
                                 
                                 .. attribute:: source_xr
                                 
@@ -12782,17 +13956,17 @@ class Fib(object):
                                     .. attribute:: lsm
                                     
                                     	lsm
-                                    	**type**\:  :py:class:`Lsm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext.Lsm>`
+                                    	**type**\:   :py:class:`Lsm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext.Lsm>`
                                     
                                     .. attribute:: pfx
                                     
                                     	pfx
-                                    	**type**\:  :py:class:`Pfx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext.Pfx>`
+                                    	**type**\:   :py:class:`Pfx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext.Pfx>`
                                     
                                     .. attribute:: type
                                     
                                     	type
-                                    	**type**\:  :py:class:`FibMplsLlcEntryBagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMplsLlcEntryBagEnum>`
+                                    	**type**\:   :py:class:`FibMplsLlcEntryBagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMplsLlcEntryBagEnum>`
                                     
                                     
 
@@ -13099,6 +14273,9 @@ class Fib(object):
                         if self.misc is not None and self.misc._has_data():
                             return True
 
+                        if self.summaries is not None and self.summaries._has_data():
+                            return True
+
                         if self.vrfs is not None and self.vrfs._has_data():
                             return True
 
@@ -13216,7 +14393,7 @@ class MplsForwarding(object):
     .. attribute:: nodes
     
     	Table of Nodes
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes>`
     
     
 
@@ -13237,7 +14414,7 @@ class MplsForwarding(object):
         .. attribute:: node
         
         	Operational data for a specific Node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node>`
         
         
 
@@ -13267,12 +14444,12 @@ class MplsForwarding(object):
             .. attribute:: forwarding_summary
             
             	FIB MPLS forwarding summary
-            	**type**\:  :py:class:`ForwardingSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.ForwardingSummary>`
+            	**type**\:   :py:class:`ForwardingSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.ForwardingSummary>`
             
             .. attribute:: label_fib
             
             	Labels For FIB
-            	**type**\:  :py:class:`LabelFib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib>`
+            	**type**\:   :py:class:`LabelFib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib>`
             
             
 
@@ -13652,17 +14829,17 @@ class MplsForwarding(object):
                 .. attribute:: forwarding_details
                 
                 	MPLS Forwarding Detail table
-                	**type**\:  :py:class:`ForwardingDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails>`
+                	**type**\:   :py:class:`ForwardingDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails>`
                 
                 .. attribute:: informations
                 
                 	Forwarding filtering details
-                	**type**\:  :py:class:`Informations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.Informations>`
+                	**type**\:   :py:class:`Informations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.Informations>`
                 
                 .. attribute:: label_security
                 
                 	MPLS label security
-                	**type**\:  :py:class:`LabelSecurity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.LabelSecurity>`
+                	**type**\:   :py:class:`LabelSecurity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.LabelSecurity>`
                 
                 
 
@@ -13688,7 +14865,7 @@ class MplsForwarding(object):
                     .. attribute:: forwarding_detail
                     
                     	FIB MPLS forwarding details
-                    	**type**\: list of  :py:class:`ForwardingDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail>`
+                    	**type**\: list of    :py:class:`ForwardingDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail>`
                     
                     
 
@@ -13718,7 +14895,7 @@ class MplsForwarding(object):
                         .. attribute:: eos
                         
                         	End of stack flag
-                        	**type**\:  :py:class:`MplseosEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplseosEnum>`
+                        	**type**\:   :py:class:`MplseosEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplseosEnum>`
                         
                         .. attribute:: eos_bit
                         
@@ -13737,7 +14914,7 @@ class MplsForwarding(object):
                         .. attribute:: label_information
                         
                         	Label\-infos in FIB leaf
-                        	**type**\: list of  :py:class:`LabelInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation>`
+                        	**type**\: list of    :py:class:`LabelInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation>`
                         
                         .. attribute:: label_value
                         
@@ -13756,7 +14933,7 @@ class MplsForwarding(object):
                         .. attribute:: ldi_information
                         
                         	LDI\-info in FIB leaf
-                        	**type**\:  :py:class:`LdiInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LdiInformation>`
+                        	**type**\:   :py:class:`LdiInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LdiInformation>`
                         
                         .. attribute:: ldi_pointer
                         
@@ -13845,7 +15022,7 @@ class MplsForwarding(object):
                         .. attribute:: multicast_information
                         
                         	The multicast info
-                        	**type**\:  :py:class:`MulticastInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.MulticastInformation>`
+                        	**type**\:   :py:class:`MulticastInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.MulticastInformation>`
                         
                         .. attribute:: multicast_label
                         
@@ -14149,12 +15326,12 @@ class MplsForwarding(object):
                             .. attribute:: label_information_detail
                             
                             	Detail label info
-                            	**type**\:  :py:class:`LabelInformationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.LabelInformationDetail>`
+                            	**type**\:   :py:class:`LabelInformationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.LabelInformationDetail>`
                             
                             .. attribute:: label_information_next_hop_protocol
                             
                             	The address family (v4/v6) 
-                            	**type**\:  :py:class:`ProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.ProtoEnum>`
+                            	**type**\:   :py:class:`ProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.ProtoEnum>`
                             
                             .. attribute:: label_information_next_hop_string
                             
@@ -14164,7 +15341,7 @@ class MplsForwarding(object):
                             .. attribute:: label_information_next_hop_type
                             
                             	NHinfo Type
-                            	**type**\:  :py:class:`NextHopEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.NextHopEnum>`
+                            	**type**\:   :py:class:`NextHopEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.NextHopEnum>`
                             
                             .. attribute:: label_information_path_index
                             
@@ -14263,6 +15440,8 @@ class MplsForwarding(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: byte
+                            
                             .. attribute:: tx_packets
                             
                             	Packets transmitted per LSP
@@ -14337,7 +15516,7 @@ class MplsForwarding(object):
                                 .. attribute:: next_hop_protocol
                                 
                                 	The address family (V4/V6) 
-                                	**type**\:  :py:class:`ProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.ProtoEnum>`
+                                	**type**\:   :py:class:`ProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.ProtoEnum>`
                                 
                                 .. attribute:: next_hop_string
                                 
@@ -14364,6 +15543,8 @@ class MplsForwarding(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
                                 
                                 .. attribute:: transmit_number_of_packets_switched
                                 
@@ -14657,7 +15838,7 @@ class MplsForwarding(object):
                     .. attribute:: information
                     
                     	FIB MPLS forwarding information
-                    	**type**\: list of  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.Informations.Information>`
+                    	**type**\: list of    :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.Informations.Information>`
                     
                     
 
@@ -14687,7 +15868,7 @@ class MplsForwarding(object):
                         .. attribute:: eos
                         
                         	End of stack flag
-                        	**type**\:  :py:class:`MplseosEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplseosEnum>`
+                        	**type**\:   :py:class:`MplseosEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplseosEnum>`
                         
                         .. attribute:: eos_bit
                         
@@ -14706,7 +15887,7 @@ class MplsForwarding(object):
                         .. attribute:: label_information
                         
                         	Label\-infos in FIB leaf
-                        	**type**\: list of  :py:class:`LabelInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation>`
+                        	**type**\: list of    :py:class:`LabelInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation>`
                         
                         .. attribute:: label_value
                         
@@ -14725,7 +15906,7 @@ class MplsForwarding(object):
                         .. attribute:: ldi_information
                         
                         	LDI\-info in FIB leaf
-                        	**type**\:  :py:class:`LdiInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LdiInformation>`
+                        	**type**\:   :py:class:`LdiInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LdiInformation>`
                         
                         .. attribute:: ldi_pointer
                         
@@ -14814,7 +15995,7 @@ class MplsForwarding(object):
                         .. attribute:: multicast_information
                         
                         	The multicast info
-                        	**type**\:  :py:class:`MulticastInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.Informations.Information.MulticastInformation>`
+                        	**type**\:   :py:class:`MulticastInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.Informations.Information.MulticastInformation>`
                         
                         .. attribute:: multicast_label
                         
@@ -15118,12 +16299,12 @@ class MplsForwarding(object):
                             .. attribute:: label_information_detail
                             
                             	Detail label info
-                            	**type**\:  :py:class:`LabelInformationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation.LabelInformationDetail>`
+                            	**type**\:   :py:class:`LabelInformationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation.LabelInformationDetail>`
                             
                             .. attribute:: label_information_next_hop_protocol
                             
                             	The address family (v4/v6) 
-                            	**type**\:  :py:class:`ProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.ProtoEnum>`
+                            	**type**\:   :py:class:`ProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.ProtoEnum>`
                             
                             .. attribute:: label_information_next_hop_string
                             
@@ -15133,7 +16314,7 @@ class MplsForwarding(object):
                             .. attribute:: label_information_next_hop_type
                             
                             	NHinfo Type
-                            	**type**\:  :py:class:`NextHopEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.NextHopEnum>`
+                            	**type**\:   :py:class:`NextHopEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.NextHopEnum>`
                             
                             .. attribute:: label_information_path_index
                             
@@ -15232,6 +16413,8 @@ class MplsForwarding(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: byte
+                            
                             .. attribute:: tx_packets
                             
                             	Packets transmitted per LSP
@@ -15306,7 +16489,7 @@ class MplsForwarding(object):
                                 .. attribute:: next_hop_protocol
                                 
                                 	The address family (V4/V6) 
-                                	**type**\:  :py:class:`ProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.ProtoEnum>`
+                                	**type**\:   :py:class:`ProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.ProtoEnum>`
                                 
                                 .. attribute:: next_hop_string
                                 
@@ -15333,6 +16516,8 @@ class MplsForwarding(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
                                 
                                 .. attribute:: transmit_number_of_packets_switched
                                 
@@ -15626,12 +16811,12 @@ class MplsForwarding(object):
                     .. attribute:: interfaces
                     
                     	MPLS label security interface table
-                    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.LabelSecurity.Interfaces>`
+                    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.LabelSecurity.Interfaces>`
                     
                     .. attribute:: summary
                     
                     	MPLS label security summary
-                    	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.LabelSecurity.Summary>`
+                    	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.LabelSecurity.Summary>`
                     
                     
 
@@ -15655,7 +16840,7 @@ class MplsForwarding(object):
                         .. attribute:: interface
                         
                         	Specify interface Name
-                        	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.LabelSecurity.Interfaces.Interface>`
+                        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.LabelSecurity.Interfaces.Interface>`
                         
                         
 
@@ -16013,7 +17198,7 @@ class FibMpls(object):
     .. attribute:: nodes
     
     	Table of Nodes
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes>`
     
     
 
@@ -16034,7 +17219,7 @@ class FibMpls(object):
         .. attribute:: node
         
         	Operational data for a specific Node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node>`
         
         
 
@@ -16064,27 +17249,27 @@ class FibMpls(object):
             .. attribute:: forwarding_summary
             
             	FIB MPLS forwarding summary
-            	**type**\:  :py:class:`ForwardingSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.ForwardingSummary>`
+            	**type**\:   :py:class:`ForwardingSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.ForwardingSummary>`
             
             .. attribute:: frr_database
             
             	FIB MPLS FRR Database
-            	**type**\:  :py:class:`FrrDatabase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase>`
+            	**type**\:   :py:class:`FrrDatabase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase>`
             
             .. attribute:: frr_logs
             
             	FRR Log Table
-            	**type**\:  :py:class:`FrrLogs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrLogs>`
+            	**type**\:   :py:class:`FrrLogs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrLogs>`
             
             .. attribute:: label_fib
             
             	Labels For FIB
-            	**type**\:  :py:class:`LabelFib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib>`
+            	**type**\:   :py:class:`LabelFib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib>`
             
             .. attribute:: tunnel
             
             	Tunnels Operations
-            	**type**\:  :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel>`
+            	**type**\:   :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel>`
             
             
 
@@ -16115,12 +17300,12 @@ class FibMpls(object):
                 .. attribute:: forwarding_details
                 
                 	MPLS Forwarding Detail table
-                	**type**\:  :py:class:`ForwardingDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails>`
+                	**type**\:   :py:class:`ForwardingDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails>`
                 
                 .. attribute:: forwardings
                 
                 	Forwarding filtering details
-                	**type**\:  :py:class:`Forwardings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings>`
+                	**type**\:   :py:class:`Forwardings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings>`
                 
                 
 
@@ -16144,7 +17329,7 @@ class FibMpls(object):
                     .. attribute:: forwarding
                     
                     	FIB MPLS forwarding information
-                    	**type**\: list of  :py:class:`Forwarding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding>`
+                    	**type**\: list of    :py:class:`Forwarding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding>`
                     
                     
 
@@ -16174,7 +17359,7 @@ class FibMpls(object):
                         .. attribute:: eos
                         
                         	End of stack flag
-                        	**type**\:  :py:class:`EosEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.EosEnum>`
+                        	**type**\:   :py:class:`EosEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.EosEnum>`
                         
                         .. attribute:: eos_bit
                         
@@ -16193,7 +17378,7 @@ class FibMpls(object):
                         .. attribute:: label_information
                         
                         	Label\-info in FIB leaf
-                        	**type**\:  :py:class:`LabelInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation>`
+                        	**type**\:   :py:class:`LabelInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation>`
                         
                         .. attribute:: ldi_flags
                         
@@ -16205,7 +17390,7 @@ class FibMpls(object):
                         .. attribute:: ldi_information
                         
                         	LDI\-info in FIB leaf
-                        	**type**\:  :py:class:`LdiInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LdiInformation>`
+                        	**type**\:   :py:class:`LdiInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LdiInformation>`
                         
                         .. attribute:: ldi_pointer
                         
@@ -16329,7 +17514,7 @@ class FibMpls(object):
                         .. attribute:: multicast_information
                         
                         	The multicast info
-                        	**type**\:  :py:class:`MulticastInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.MulticastInformation>`
+                        	**type**\:   :py:class:`MulticastInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.MulticastInformation>`
                         
                         .. attribute:: multicast_label
                         
@@ -16395,7 +17580,7 @@ class FibMpls(object):
                         .. attribute:: rpf
                         
                         	RPF info
-                        	**type**\:  :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf>`
+                        	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf>`
                         
                         
 
@@ -16454,7 +17639,7 @@ class FibMpls(object):
                             .. attribute:: fib_mpls_adj_info
                             
                             	fib mpls adj info
-                            	**type**\: list of  :py:class:`FibMplsAdjInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo>`
+                            	**type**\: list of    :py:class:`FibMplsAdjInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo>`
                             
                             
 
@@ -16520,7 +17705,7 @@ class FibMpls(object):
                                 .. attribute:: label_information_detail
                                 
                                 	Detail label info
-                                	**type**\:  :py:class:`LabelInformationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo.LabelInformationDetail>`
+                                	**type**\:   :py:class:`LabelInformationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo.LabelInformationDetail>`
                                 
                                 .. attribute:: label_information_encap_id
                                 
@@ -16630,7 +17815,7 @@ class FibMpls(object):
                                 .. attribute:: mpi_info
                                 
                                 	The MPI info
-                                	**type**\:  :py:class:`MpiInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo.MpiInfo>`
+                                	**type**\:   :py:class:`MpiInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo.MpiInfo>`
                                 
                                 .. attribute:: mpls_adjacency_flags
                                 
@@ -16879,6 +18064,8 @@ class FibMpls(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: transmit_number_of_packets_switched
                                     
                                     	Number of packets switched
@@ -16892,6 +18079,8 @@ class FibMpls(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
                                     
                                     .. attribute:: transmit_number_of_tm_packets_switched
                                     
@@ -17712,7 +18901,7 @@ class FibMpls(object):
                             .. attribute:: rpf_if_map
                             
                             	Array of nbr/interface mapping
-                            	**type**\: list of  :py:class:`RpfIfMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfIfMap>`
+                            	**type**\: list of    :py:class:`RpfIfMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfIfMap>`
                             
                             .. attribute:: rpf_mod_ts
                             
@@ -17738,12 +18927,12 @@ class FibMpls(object):
                             .. attribute:: rpf_v4_nbr
                             
                             	Array of V4 neighbours
-                            	**type**\: list of  :py:class:`RpfV4Nbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfV4Nbr>`
+                            	**type**\: list of    :py:class:`RpfV4Nbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfV4Nbr>`
                             
                             .. attribute:: rpf_v6_nbr
                             
                             	Array of V6 neighbours
-                            	**type**\: list of  :py:class:`RpfV6Nbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfV6Nbr>`
+                            	**type**\: list of    :py:class:`RpfV6Nbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfV6Nbr>`
                             
                             
 
@@ -18166,7 +19355,7 @@ class FibMpls(object):
                     .. attribute:: forwarding_detail
                     
                     	FIB MPLS forwarding details
-                    	**type**\: list of  :py:class:`ForwardingDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail>`
+                    	**type**\: list of    :py:class:`ForwardingDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail>`
                     
                     
 
@@ -18196,7 +19385,7 @@ class FibMpls(object):
                         .. attribute:: eos
                         
                         	End of stack flag
-                        	**type**\:  :py:class:`EosEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.EosEnum>`
+                        	**type**\:   :py:class:`EosEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.EosEnum>`
                         
                         .. attribute:: eos_bit
                         
@@ -18215,7 +19404,7 @@ class FibMpls(object):
                         .. attribute:: label_information
                         
                         	Label\-info in FIB leaf
-                        	**type**\:  :py:class:`LabelInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation>`
+                        	**type**\:   :py:class:`LabelInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation>`
                         
                         .. attribute:: ldi_flags
                         
@@ -18227,7 +19416,7 @@ class FibMpls(object):
                         .. attribute:: ldi_information
                         
                         	LDI\-info in FIB leaf
-                        	**type**\:  :py:class:`LdiInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LdiInformation>`
+                        	**type**\:   :py:class:`LdiInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LdiInformation>`
                         
                         .. attribute:: ldi_pointer
                         
@@ -18351,7 +19540,7 @@ class FibMpls(object):
                         .. attribute:: multicast_information
                         
                         	The multicast info
-                        	**type**\:  :py:class:`MulticastInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.MulticastInformation>`
+                        	**type**\:   :py:class:`MulticastInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.MulticastInformation>`
                         
                         .. attribute:: multicast_label
                         
@@ -18417,7 +19606,7 @@ class FibMpls(object):
                         .. attribute:: rpf
                         
                         	RPF info
-                        	**type**\:  :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf>`
+                        	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf>`
                         
                         
 
@@ -18476,7 +19665,7 @@ class FibMpls(object):
                             .. attribute:: fib_mpls_adj_info
                             
                             	fib mpls adj info
-                            	**type**\: list of  :py:class:`FibMplsAdjInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo>`
+                            	**type**\: list of    :py:class:`FibMplsAdjInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo>`
                             
                             
 
@@ -18542,7 +19731,7 @@ class FibMpls(object):
                                 .. attribute:: label_information_detail
                                 
                                 	Detail label info
-                                	**type**\:  :py:class:`LabelInformationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo.LabelInformationDetail>`
+                                	**type**\:   :py:class:`LabelInformationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo.LabelInformationDetail>`
                                 
                                 .. attribute:: label_information_encap_id
                                 
@@ -18652,7 +19841,7 @@ class FibMpls(object):
                                 .. attribute:: mpi_info
                                 
                                 	The MPI info
-                                	**type**\:  :py:class:`MpiInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo.MpiInfo>`
+                                	**type**\:   :py:class:`MpiInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo.MpiInfo>`
                                 
                                 .. attribute:: mpls_adjacency_flags
                                 
@@ -18901,6 +20090,8 @@ class FibMpls(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: transmit_number_of_packets_switched
                                     
                                     	Number of packets switched
@@ -18914,6 +20105,8 @@ class FibMpls(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
                                     
                                     .. attribute:: transmit_number_of_tm_packets_switched
                                     
@@ -19734,7 +20927,7 @@ class FibMpls(object):
                             .. attribute:: rpf_if_map
                             
                             	Array of nbr/interface mapping
-                            	**type**\: list of  :py:class:`RpfIfMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfIfMap>`
+                            	**type**\: list of    :py:class:`RpfIfMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfIfMap>`
                             
                             .. attribute:: rpf_mod_ts
                             
@@ -19760,12 +20953,12 @@ class FibMpls(object):
                             .. attribute:: rpf_v4_nbr
                             
                             	Array of V4 neighbours
-                            	**type**\: list of  :py:class:`RpfV4Nbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfV4Nbr>`
+                            	**type**\: list of    :py:class:`RpfV4Nbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfV4Nbr>`
                             
                             .. attribute:: rpf_v6_nbr
                             
                             	Array of V6 neighbours
-                            	**type**\: list of  :py:class:`RpfV6Nbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfV6Nbr>`
+                            	**type**\: list of    :py:class:`RpfV6Nbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfV6Nbr>`
                             
                             
 
@@ -20215,7 +21408,7 @@ class FibMpls(object):
                 .. attribute:: forwarding_tunnels
                 
                 	Forwarding details
-                	**type**\:  :py:class:`ForwardingTunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels>`
+                	**type**\:   :py:class:`ForwardingTunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels>`
                 
                 
 
@@ -20237,7 +21430,7 @@ class FibMpls(object):
                     .. attribute:: forwarding_tunnel
                     
                     	FIB MPLS Tunnels Interfaces operation
-                    	**type**\: list of  :py:class:`ForwardingTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel>`
+                    	**type**\: list of    :py:class:`ForwardingTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel>`
                     
                     
 
@@ -20267,12 +21460,12 @@ class FibMpls(object):
                         .. attribute:: fwdg
                         
                         	Tunnel forwarding information
-                        	**type**\:  :py:class:`Fwdg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg>`
+                        	**type**\:   :py:class:`Fwdg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg>`
                         
                         .. attribute:: tunnel_info
                         
                         	Tunnel head information
-                        	**type**\:  :py:class:`TunnelInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.TunnelInfo>`
+                        	**type**\:   :py:class:`TunnelInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.TunnelInfo>`
                         
                         
 
@@ -20489,7 +21682,7 @@ class FibMpls(object):
                             .. attribute:: label_information
                             
                             	Label\-info in FIB leaf
-                            	**type**\:  :py:class:`LabelInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation>`
+                            	**type**\:   :py:class:`LabelInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation>`
                             
                             .. attribute:: ldi_flags
                             
@@ -20501,7 +21694,7 @@ class FibMpls(object):
                             .. attribute:: ldi_information
                             
                             	LDI\-info in FIB leaf
-                            	**type**\:  :py:class:`LdiInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LdiInformation>`
+                            	**type**\:   :py:class:`LdiInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LdiInformation>`
                             
                             .. attribute:: ldi_pointer
                             
@@ -20618,7 +21811,7 @@ class FibMpls(object):
                             .. attribute:: multicast_information
                             
                             	The multicast info
-                            	**type**\:  :py:class:`MulticastInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.MulticastInformation>`
+                            	**type**\:   :py:class:`MulticastInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.MulticastInformation>`
                             
                             .. attribute:: multicast_label
                             
@@ -20684,7 +21877,7 @@ class FibMpls(object):
                             .. attribute:: rpf
                             
                             	RPF info
-                            	**type**\:  :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf>`
+                            	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf>`
                             
                             
 
@@ -20741,7 +21934,7 @@ class FibMpls(object):
                                 .. attribute:: fib_mpls_adj_info
                                 
                                 	fib mpls adj info
-                                	**type**\: list of  :py:class:`FibMplsAdjInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo>`
+                                	**type**\: list of    :py:class:`FibMplsAdjInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo>`
                                 
                                 
 
@@ -20807,7 +22000,7 @@ class FibMpls(object):
                                     .. attribute:: label_information_detail
                                     
                                     	Detail label info
-                                    	**type**\:  :py:class:`LabelInformationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo.LabelInformationDetail>`
+                                    	**type**\:   :py:class:`LabelInformationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo.LabelInformationDetail>`
                                     
                                     .. attribute:: label_information_encap_id
                                     
@@ -20917,7 +22110,7 @@ class FibMpls(object):
                                     .. attribute:: mpi_info
                                     
                                     	The MPI info
-                                    	**type**\:  :py:class:`MpiInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo.MpiInfo>`
+                                    	**type**\:   :py:class:`MpiInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo.MpiInfo>`
                                     
                                     .. attribute:: mpls_adjacency_flags
                                     
@@ -21166,6 +22359,8 @@ class FibMpls(object):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**units**\: byte
+                                        
                                         .. attribute:: transmit_number_of_packets_switched
                                         
                                         	Number of packets switched
@@ -21179,6 +22374,8 @@ class FibMpls(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
                                         
                                         .. attribute:: transmit_number_of_tm_packets_switched
                                         
@@ -21999,7 +23196,7 @@ class FibMpls(object):
                                 .. attribute:: rpf_if_map
                                 
                                 	Array of nbr/interface mapping
-                                	**type**\: list of  :py:class:`RpfIfMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfIfMap>`
+                                	**type**\: list of    :py:class:`RpfIfMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfIfMap>`
                                 
                                 .. attribute:: rpf_mod_ts
                                 
@@ -22025,12 +23222,12 @@ class FibMpls(object):
                                 .. attribute:: rpf_v4_nbr
                                 
                                 	Array of V4 neighbours
-                                	**type**\: list of  :py:class:`RpfV4Nbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfV4Nbr>`
+                                	**type**\: list of    :py:class:`RpfV4Nbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfV4Nbr>`
                                 
                                 .. attribute:: rpf_v6_nbr
                                 
                                 	Array of V6 neighbours
-                                	**type**\: list of  :py:class:`RpfV6Nbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfV6Nbr>`
+                                	**type**\: list of    :py:class:`RpfV6Nbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfV6Nbr>`
                                 
                                 
 
@@ -22503,37 +23700,37 @@ class FibMpls(object):
                 .. attribute:: frrdb_backup_interface_summaries
                 
                 	FIB MPLS FRR Database Backup Interface Summary Table
-                	**type**\:  :py:class:`FrrdbBackupInterfaceSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries>`
+                	**type**\:   :py:class:`FrrdbBackupInterfaceSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries>`
                 
                 .. attribute:: frrdb_protected_interface_table_summaries
                 
                 	FIB MPLS FRR Database Protected Interface Summary Table
-                	**type**\:  :py:class:`FrrdbProtectedInterfaceTableSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries>`
+                	**type**\:   :py:class:`FrrdbProtectedInterfaceTableSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries>`
                 
                 .. attribute:: frrdb_summary
                 
                 	FIB MPLS FRR Database Summary
-                	**type**\:  :py:class:`FrrdbSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbSummary>`
+                	**type**\:   :py:class:`FrrdbSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbSummary>`
                 
                 .. attribute:: frrdb_tunnel_head_summary
                 
                 	FIB MPLS FRR Database Tunnel Head Summary
-                	**type**\:  :py:class:`FrrdbTunnelHeadSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeadSummary>`
+                	**type**\:   :py:class:`FrrdbTunnelHeadSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeadSummary>`
                 
                 .. attribute:: frrdb_tunnel_heads
                 
                 	FIB MPLS FRR Database Tunnel Head Table
-                	**type**\:  :py:class:`FrrdbTunnelHeads <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads>`
+                	**type**\:   :py:class:`FrrdbTunnelHeads <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads>`
                 
                 .. attribute:: frrdb_tunnel_midpoint_summary
                 
                 	FIB MPLS FRR Database Tunnel Midpoint Summary
-                	**type**\:  :py:class:`FrrdbTunnelMidpointSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpointSummary>`
+                	**type**\:   :py:class:`FrrdbTunnelMidpointSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpointSummary>`
                 
                 .. attribute:: frrdb_tunnel_midpoints
                 
                 	FIB MPLS FRR Database Tunnel Midpoint Table
-                	**type**\:  :py:class:`FrrdbTunnelMidpoints <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints>`
+                	**type**\:   :py:class:`FrrdbTunnelMidpoints <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints>`
                 
                 
 
@@ -22648,7 +23845,7 @@ class FibMpls(object):
                     .. attribute:: frrdb_backup_interface_summary
                     
                     	FIB MPLS FRR Database Backup Interface Summary
-                    	**type**\: list of  :py:class:`FrrdbBackupInterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries.FrrdbBackupInterfaceSummary>`
+                    	**type**\: list of    :py:class:`FrrdbBackupInterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries.FrrdbBackupInterfaceSummary>`
                     
                     
 
@@ -22872,7 +24069,7 @@ class FibMpls(object):
                     .. attribute:: frrdb_protected_interface_table_summary
                     
                     	FIB MPLS FRR Database Protected Interface Summary
-                    	**type**\: list of  :py:class:`FrrdbProtectedInterfaceTableSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries.FrrdbProtectedInterfaceTableSummary>`
+                    	**type**\: list of    :py:class:`FrrdbProtectedInterfaceTableSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries.FrrdbProtectedInterfaceTableSummary>`
                     
                     
 
@@ -23095,7 +24292,7 @@ class FibMpls(object):
                     .. attribute:: frrdb_tunnel_midpoint
                     
                     	FIB MPLS FRR Database Tunnel Midpoint Entry
-                    	**type**\: list of  :py:class:`FrrdbTunnelMidpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint>`
+                    	**type**\: list of    :py:class:`FrrdbTunnelMidpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint>`
                     
                     
 
@@ -23125,12 +24322,12 @@ class FibMpls(object):
                         .. attribute:: entry_frr_state
                         
                         	MPLS FRR entry state
-                        	**type**\:  :py:class:`MgmtFibMplsFrrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsFrrStateEnum>`
+                        	**type**\:   :py:class:`MgmtFibMplsFrrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsFrrStateEnum>`
                         
                         .. attribute:: frr_entry_id
                         
                         	FRR entry ID
-                        	**type**\:  :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId>`
+                        	**type**\:   :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId>`
                         
                         .. attribute:: frr_interface_name
                         
@@ -23173,7 +24370,7 @@ class FibMpls(object):
                         .. attribute:: multicast_leg
                         
                         	MCAST legs
-                        	**type**\: list of  :py:class:`MulticastLeg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg>`
+                        	**type**\: list of    :py:class:`MulticastLeg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg>`
                         
                         .. attribute:: multicast_tunnel_legs
                         
@@ -23238,17 +24435,17 @@ class FibMpls(object):
                             .. attribute:: head
                             
                             	head
-                            	**type**\:  :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId.Head>`
+                            	**type**\:   :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId.Head>`
                             
                             .. attribute:: midpoint
                             
                             	midpoint
-                            	**type**\:  :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId.Midpoint>`
+                            	**type**\:   :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId.Midpoint>`
                             
                             .. attribute:: role
                             
                             	Role
-                            	**type**\:  :py:class:`MgmtFibMplsLspRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsLspRoleEnum>`
+                            	**type**\:   :py:class:`MgmtFibMplsLspRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsLspRoleEnum>`
                             
                             
 
@@ -23430,12 +24627,12 @@ class FibMpls(object):
                             .. attribute:: entry_frr_state
                             
                             	MPLS FRR entry state
-                            	**type**\:  :py:class:`MgmtFibMplsFrrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsFrrStateEnum>`
+                            	**type**\:   :py:class:`MgmtFibMplsFrrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsFrrStateEnum>`
                             
                             .. attribute:: frr_entry_id
                             
                             	FRR entry ID
-                            	**type**\:  :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId>`
+                            	**type**\:   :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId>`
                             
                             .. attribute:: frr_interface_name
                             
@@ -23520,17 +24717,17 @@ class FibMpls(object):
                                 .. attribute:: head
                                 
                                 	head
-                                	**type**\:  :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId.Head>`
+                                	**type**\:   :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId.Head>`
                                 
                                 .. attribute:: midpoint
                                 
                                 	midpoint
-                                	**type**\:  :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId.Midpoint>`
+                                	**type**\:   :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId.Midpoint>`
                                 
                                 .. attribute:: role
                                 
                                 	Role
-                                	**type**\:  :py:class:`MgmtFibMplsLspRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsLspRoleEnum>`
+                                	**type**\:   :py:class:`MgmtFibMplsLspRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsLspRoleEnum>`
                                 
                                 
 
@@ -23856,7 +25053,7 @@ class FibMpls(object):
                     .. attribute:: frrdb_tunnel_head
                     
                     	FIB MPLS FRR Database Tunnel Head Entry
-                    	**type**\: list of  :py:class:`FrrdbTunnelHead <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead>`
+                    	**type**\: list of    :py:class:`FrrdbTunnelHead <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead>`
                     
                     
 
@@ -23886,12 +25083,12 @@ class FibMpls(object):
                         .. attribute:: entry_frr_state
                         
                         	MPLS FRR entry state
-                        	**type**\:  :py:class:`MgmtFibMplsFrrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsFrrStateEnum>`
+                        	**type**\:   :py:class:`MgmtFibMplsFrrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsFrrStateEnum>`
                         
                         .. attribute:: frr_entry_id
                         
                         	FRR entry ID
-                        	**type**\:  :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId>`
+                        	**type**\:   :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId>`
                         
                         .. attribute:: frr_interface_name
                         
@@ -23934,7 +25131,7 @@ class FibMpls(object):
                         .. attribute:: multicast_leg
                         
                         	MCAST legs
-                        	**type**\: list of  :py:class:`MulticastLeg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg>`
+                        	**type**\: list of    :py:class:`MulticastLeg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg>`
                         
                         .. attribute:: multicast_tunnel_legs
                         
@@ -23999,17 +25196,17 @@ class FibMpls(object):
                             .. attribute:: head
                             
                             	head
-                            	**type**\:  :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId.Head>`
+                            	**type**\:   :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId.Head>`
                             
                             .. attribute:: midpoint
                             
                             	midpoint
-                            	**type**\:  :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId.Midpoint>`
+                            	**type**\:   :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId.Midpoint>`
                             
                             .. attribute:: role
                             
                             	Role
-                            	**type**\:  :py:class:`MgmtFibMplsLspRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsLspRoleEnum>`
+                            	**type**\:   :py:class:`MgmtFibMplsLspRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsLspRoleEnum>`
                             
                             
 
@@ -24191,12 +25388,12 @@ class FibMpls(object):
                             .. attribute:: entry_frr_state
                             
                             	MPLS FRR entry state
-                            	**type**\:  :py:class:`MgmtFibMplsFrrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsFrrStateEnum>`
+                            	**type**\:   :py:class:`MgmtFibMplsFrrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsFrrStateEnum>`
                             
                             .. attribute:: frr_entry_id
                             
                             	FRR entry ID
-                            	**type**\:  :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId>`
+                            	**type**\:   :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId>`
                             
                             .. attribute:: frr_interface_name
                             
@@ -24281,17 +25478,17 @@ class FibMpls(object):
                                 .. attribute:: head
                                 
                                 	head
-                                	**type**\:  :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId.Head>`
+                                	**type**\:   :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId.Head>`
                                 
                                 .. attribute:: midpoint
                                 
                                 	midpoint
-                                	**type**\:  :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId.Midpoint>`
+                                	**type**\:   :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId.Midpoint>`
                                 
                                 .. attribute:: role
                                 
                                 	Role
-                                	**type**\:  :py:class:`MgmtFibMplsLspRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsLspRoleEnum>`
+                                	**type**\:   :py:class:`MgmtFibMplsLspRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsLspRoleEnum>`
                                 
                                 
 
@@ -25003,7 +26200,7 @@ class FibMpls(object):
                 .. attribute:: frr_log
                 
                 	FRR Log information
-                	**type**\: list of  :py:class:`FrrLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrLogs.FrrLog>`
+                	**type**\: list of    :py:class:`FrrLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrLogs.FrrLog>`
                 
                 
 
@@ -25075,7 +26272,7 @@ class FibMpls(object):
                     .. attribute:: start_time
                     
                     	Time of FRR event processing start, Seconds in UTC, and Nano Seconds
-                    	**type**\:  :py:class:`StartTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrLogs.FrrLog.StartTime>`
+                    	**type**\:   :py:class:`StartTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrLogs.FrrLog.StartTime>`
                     
                     .. attribute:: switching_time_nsecs
                     
@@ -25083,6 +26280,8 @@ class FibMpls(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: nanosecond
                     
                     
 
@@ -25117,12 +26316,16 @@ class FibMpls(object):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: seconds
                         
                         	Seconds part of time valueiin UTC
                         	**type**\:  int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**units**\: second
                         
                         
 

@@ -32,7 +32,7 @@ class SdrInventoryVm(object):
     .. attribute:: nodes
     
     	Node directory
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cmproxy_oper.SdrInventoryVm.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cmproxy_oper.SdrInventoryVm.Nodes>`
     
     
 
@@ -53,7 +53,7 @@ class SdrInventoryVm(object):
         .. attribute:: node
         
         	Node name
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cmproxy_oper.SdrInventoryVm.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cmproxy_oper.SdrInventoryVm.Nodes.Node>`
         
         
 
@@ -83,7 +83,7 @@ class SdrInventoryVm(object):
             .. attribute:: node_entries
             
             	VM Information
-            	**type**\:  :py:class:`NodeEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cmproxy_oper.SdrInventoryVm.Nodes.Node.NodeEntries>`
+            	**type**\:   :py:class:`NodeEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cmproxy_oper.SdrInventoryVm.Nodes.Node.NodeEntries>`
             
             
 
@@ -106,7 +106,7 @@ class SdrInventoryVm(object):
                 .. attribute:: node_entry
                 
                 	VM information for a node
-                	**type**\: list of  :py:class:`NodeEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cmproxy_oper.SdrInventoryVm.Nodes.Node.NodeEntries.NodeEntry>`
+                	**type**\: list of    :py:class:`NodeEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cmproxy_oper.SdrInventoryVm.Nodes.Node.NodeEntries.NodeEntry>`
                 
                 
 

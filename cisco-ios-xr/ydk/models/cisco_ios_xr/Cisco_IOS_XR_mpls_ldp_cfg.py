@@ -34,7 +34,7 @@ class MplsLdpAdvertiseBgpaclEnum(Enum):
 
     Mpls ldp advertise bgpacl
 
-    .. data:: PEER_ACL = 1
+    .. data:: peer_acl = 1
 
     	BGP prefixes advertised to peers permitted by
 
@@ -42,7 +42,7 @@ class MplsLdpAdvertiseBgpaclEnum(Enum):
 
     """
 
-    PEER_ACL = 1
+    peer_acl = 1
 
 
     @staticmethod
@@ -57,13 +57,13 @@ class MplsLdpDownstreamOnDemandEnum(Enum):
 
     Mpls ldp downstream on demand
 
-    .. data:: PEER_ACL = 1
+    .. data:: peer_acl = 1
 
     	Downstream on Demand peers permitted by ACL
 
     """
 
-    PEER_ACL = 1
+    peer_acl = 1
 
 
     @staticmethod
@@ -78,25 +78,25 @@ class MplsLdpExpNullEnum(Enum):
 
     Mpls ldp exp null
 
-    .. data:: ALL = 1
+    .. data:: all = 1
 
     	Advertise explicit-null for all connected
 
     	prefixes to all peers
 
-    .. data:: FOR = 2
+    .. data:: for_ = 2
 
     	Advertise explicit-null for prefix(es)
 
     	permitted by prefix ACL
 
-    .. data:: TO = 3
+    .. data:: to = 3
 
     	Advertise explicit-null for all connected
 
     	prefixes to peer(s) permitted by peer ACL
 
-    .. data:: FOR_TO = 4
+    .. data:: for_to = 4
 
     	Advertise explicit-null for prefix(es)
 
@@ -106,13 +106,13 @@ class MplsLdpExpNullEnum(Enum):
 
     """
 
-    ALL = 1
+    all = 1
 
-    FOR = 2
+    for_ = 2
 
-    TO = 3
+    to = 3
 
-    FOR_TO = 4
+    for_to = 4
 
 
     @staticmethod
@@ -127,13 +127,13 @@ class MplsLdpLabelAdvertiseEnum(Enum):
 
     Mpls ldp label advertise
 
-    .. data:: FOR = 1
+    .. data:: for_ = 1
 
     	Advertise label for prefix(es) permitted by
 
     	prefix ACL
 
-    .. data:: FOR_TO = 2
+    .. data:: for_to = 2
 
     	Advertise label for prefix(es) permitted by
 
@@ -141,9 +141,9 @@ class MplsLdpLabelAdvertiseEnum(Enum):
 
     """
 
-    FOR = 1
+    for_ = 1
 
-    FOR_TO = 2
+    for_to = 2
 
 
     @staticmethod
@@ -158,19 +158,19 @@ class MplsLdpLabelAllocationEnum(Enum):
 
     Mpls ldp label allocation
 
-    .. data:: ACL = 1
+    .. data:: acl = 1
 
     	Allocate label for prefixes permitted by ACL
 
-    .. data:: HOST = 2
+    .. data:: host = 2
 
     	Allocate label for host routes only
 
     """
 
-    ACL = 1
+    acl = 1
 
-    HOST = 2
+    host = 2
 
 
     @staticmethod
@@ -185,21 +185,21 @@ class MplsLdpNbrPasswordEnum(Enum):
 
     Mpls ldp nbr password
 
-    .. data:: DISABLE = 1
+    .. data:: disable = 1
 
     	Disable the global default password for this
 
     	neighbor
 
-    .. data:: SPECIFIED = 2
+    .. data:: specified = 2
 
     	Specify a password for this neighbor
 
     """
 
-    DISABLE = 1
+    disable = 1
 
-    SPECIFIED = 2
+    specified = 2
 
 
     @staticmethod
@@ -214,33 +214,33 @@ class MplsLdpSessionProtectionEnum(Enum):
 
     Mpls ldp session protection
 
-    .. data:: ALL = 1
+    .. data:: all = 1
 
     	Protect all peer sessions
 
-    .. data:: FOR = 2
+    .. data:: for_ = 2
 
     	Protect peer session(s) permitted by peer ACL
 
-    .. data:: ALL_WITH_DURATION = 3
+    .. data:: all_with_duration = 3
 
     	Protect all peer sessions and holdup protection
 
     	for given duration
 
-    .. data:: FOR_WITH_DURATION = 4
+    .. data:: for_with_duration = 4
 
     	Protect peer session(s) permitted by peer ACL
 
     	and holdup protection for given duration
 
-    .. data:: ALL_WITH_FOREVER = 5
+    .. data:: all_with_forever = 5
 
     	Protect all peer sessions and holdup protection
 
     	forever
 
-    .. data:: FOR_WITH_FOREVER = 6
+    .. data:: for_with_forever = 6
 
     	Protect peer session(s) permitted by peer ACL
 
@@ -248,17 +248,17 @@ class MplsLdpSessionProtectionEnum(Enum):
 
     """
 
-    ALL = 1
+    all = 1
 
-    FOR = 2
+    for_ = 2
 
-    ALL_WITH_DURATION = 3
+    all_with_duration = 3
 
-    FOR_WITH_DURATION = 4
+    for_with_duration = 4
 
-    ALL_WITH_FOREVER = 5
+    all_with_forever = 5
 
-    FOR_WITH_FOREVER = 6
+    for_with_forever = 6
 
 
     @staticmethod
@@ -273,19 +273,19 @@ class MplsLdpTargetedAcceptEnum(Enum):
 
     Mpls ldp targeted accept
 
-    .. data:: ALL = 1
+    .. data:: all = 1
 
     	Accept targeted hello from all
 
-    .. data:: FROM = 2
+    .. data:: from_ = 2
 
     	Accept targeted hello from peer ACL
 
     """
 
-    ALL = 1
+    all = 1
 
-    FROM = 2
+    from_ = 2
 
 
     @staticmethod
@@ -300,19 +300,19 @@ class MplsLdpTransportAddressEnum(Enum):
 
     Mpls ldp transport address
 
-    .. data:: INTERFACE = 1
+    .. data:: interface = 1
 
     	Use interface IP address
 
-    .. data:: ADDRESS = 2
+    .. data:: address = 2
 
     	Use given IP address
 
     """
 
-    INTERFACE = 1
+    interface = 1
 
-    ADDRESS = 2
+    address = 2
 
 
     @staticmethod
@@ -327,19 +327,19 @@ class MplsLdpafNameEnum(Enum):
 
     Mpls ldpaf name
 
-    .. data:: IPV4 = 4
+    .. data:: ipv4 = 4
 
     	IPv4
 
-    .. data:: IPV6 = 6
+    .. data:: ipv6 = 6
 
     	IPv6
 
     """
 
-    IPV4 = 4
+    ipv4 = 4
 
-    IPV6 = 6
+    ipv6 = 6
 
 
     @staticmethod
@@ -356,22 +356,22 @@ class MplsLdp(object):
     .. attribute:: default_vrf
     
     	Global VRF attribute configuration for MPLS LDP
-    	**type**\:  :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf>`
+    	**type**\:   :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf>`
     
     .. attribute:: enable
     
     	Enable Label Distribution Protocol (LDP) globally.Without creating this object the LDP feature will not be enabled. Deleting this object will stop the LDP feature
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: global_
     
     	Global configuration for MPLS LDP
-    	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global>`
+    	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_>`
     
     .. attribute:: vrfs
     
     	VRF Table attribute configuration for MPLS LDP
-    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs>`
+    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs>`
     
     
 
@@ -384,7 +384,7 @@ class MplsLdp(object):
         self.default_vrf = MplsLdp.DefaultVrf()
         self.default_vrf.parent = self
         self.enable = None
-        self.global_ = MplsLdp.Global()
+        self.global_ = MplsLdp.Global_()
         self.global_.parent = self
         self.vrfs = MplsLdp.Vrfs()
         self.vrfs.parent = self
@@ -397,17 +397,17 @@ class MplsLdp(object):
         .. attribute:: afs
         
         	Address Family specific configuration for MPLS LDP
-        	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs>`
+        	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs>`
         
         .. attribute:: global_
         
         	Default VRF Global configuration for MPLS LDP
-        	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global>`
+        	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global_>`
         
         .. attribute:: interfaces
         
         	MPLS LDP configuration pertaining to interfaces
-        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces>`
+        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces>`
         
         
 
@@ -420,7 +420,7 @@ class MplsLdp(object):
             self.parent = None
             self.afs = MplsLdp.DefaultVrf.Afs()
             self.afs.parent = self
-            self.global_ = MplsLdp.DefaultVrf.Global()
+            self.global_ = MplsLdp.DefaultVrf.Global_()
             self.global_.parent = self
             self.interfaces = MplsLdp.DefaultVrf.Interfaces()
             self.interfaces.parent = self
@@ -434,7 +434,7 @@ class MplsLdp(object):
             .. attribute:: af
             
             	Configure data for given Address Family
-            	**type**\: list of  :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af>`
+            	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af>`
             
             
 
@@ -457,37 +457,37 @@ class MplsLdp(object):
                 .. attribute:: af_name  <key>
                 
                 	Address Family type
-                	**type**\:  :py:class:`MplsLdpafNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
+                	**type**\:   :py:class:`MplsLdpafNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
                 
                 .. attribute:: discovery
                 
                 	Configure Discovery parameters
-                	**type**\:  :py:class:`Discovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Discovery>`
+                	**type**\:   :py:class:`Discovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Discovery>`
                 
                 .. attribute:: enable
                 
                 	Enable Address Family
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: label
                 
                 	Configure Label policies and control
-                	**type**\:  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label>`
+                	**type**\:   :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label>`
                 
                 .. attribute:: neighbor
                 
                 	Configuration related to Neighbors
-                	**type**\:  :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Neighbor>`
+                	**type**\:   :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Neighbor>`
                 
                 .. attribute:: redistribution_protocol
                 
                 	MPLS LDP configuration for protocol redistribution
-                	**type**\:  :py:class:`RedistributionProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol>`
+                	**type**\:   :py:class:`RedistributionProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol>`
                 
                 .. attribute:: traffic_engineering
                 
                 	MPLS Traffic Engingeering parameters for LDP
-                	**type**\:  :py:class:`TrafficEngineering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering>`
+                	**type**\:   :py:class:`TrafficEngineering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering>`
                 
                 
 
@@ -519,12 +519,12 @@ class MplsLdp(object):
                     .. attribute:: local
                     
                     	Configure local label policies and control
-                    	**type**\:  :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local>`
+                    	**type**\:   :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local>`
                     
                     .. attribute:: remote
                     
                     	Configure remote/peer label policies and control
-                    	**type**\:  :py:class:`Remote <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Remote>`
+                    	**type**\:   :py:class:`Remote <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Remote>`
                     
                     
 
@@ -549,7 +549,7 @@ class MplsLdp(object):
                         .. attribute:: accept
                         
                         	Configure inbound label acceptance
-                        	**type**\:  :py:class:`Accept <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept>`
+                        	**type**\:   :py:class:`Accept <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept>`
                         
                         
 
@@ -571,7 +571,7 @@ class MplsLdp(object):
                             .. attribute:: peer_accept_policies
                             
                             	Configuration related to neighbors for inbound label acceptance
-                            	**type**\:  :py:class:`PeerAcceptPolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies>`
+                            	**type**\:   :py:class:`PeerAcceptPolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies>`
                             
                             
 
@@ -594,7 +594,7 @@ class MplsLdp(object):
                                 .. attribute:: peer_accept_policy
                                 
                                 	Control acceptance of labels from a neighbor for prefix(es) using ACL
-                                	**type**\: list of  :py:class:`PeerAcceptPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy>`
+                                	**type**\: list of    :py:class:`PeerAcceptPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy>`
                                 
                                 
 
@@ -765,17 +765,17 @@ class MplsLdp(object):
                         .. attribute:: advertise
                         
                         	Configure outbound label advertisement
-                        	**type**\:  :py:class:`Advertise <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise>`
+                        	**type**\:   :py:class:`Advertise <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise>`
                         
                         .. attribute:: allocate
                         
                         	Control local label allocation for prefix(es)
-                        	**type**\:  :py:class:`Allocate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Allocate>`
+                        	**type**\:   :py:class:`Allocate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Allocate>`
                         
                         .. attribute:: default_route
                         
                         	Enable MPLS forwarding for default route
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: implicit_null_override
                         
@@ -806,27 +806,27 @@ class MplsLdp(object):
                             .. attribute:: disable
                             
                             	Disable label advertisement
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: explicit_null
                             
                             	Configure advertisment of explicit\-null for connected prefixes
-                            	**type**\:  :py:class:`ExplicitNull <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.ExplicitNull>`
+                            	**type**\:   :py:class:`ExplicitNull <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.ExplicitNull>`
                             
                             .. attribute:: interfaces
                             
                             	Configure outbound label advertisement for an interface
-                            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces>`
+                            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces>`
                             
                             .. attribute:: peer_advertise_policies
                             
                             	Configure peer centric outbound label advertisement using ACL
-                            	**type**\:  :py:class:`PeerAdvertisePolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies>`
+                            	**type**\:   :py:class:`PeerAdvertisePolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies>`
                             
                             .. attribute:: prefix_advertise_policies
                             
                             	Configure prefix centric outbound label advertisement using ACL
-                            	**type**\:  :py:class:`PrefixAdvertisePolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies>`
+                            	**type**\:   :py:class:`PrefixAdvertisePolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies>`
                             
                             
 
@@ -856,7 +856,7 @@ class MplsLdp(object):
                                 .. attribute:: peer_advertise_policy
                                 
                                 	Control advertisement of prefix(es) using ACL
-                                	**type**\: list of  :py:class:`PeerAdvertisePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy>`
+                                	**type**\: list of    :py:class:`PeerAdvertisePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy>`
                                 
                                 
 
@@ -980,7 +980,7 @@ class MplsLdp(object):
                                 .. attribute:: prefix_advertise_policy
                                 
                                 	Control advertisement of prefix(es) using ACL
-                                	**type**\: list of  :py:class:`PrefixAdvertisePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies.PrefixAdvertisePolicy>`
+                                	**type**\: list of    :py:class:`PrefixAdvertisePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies.PrefixAdvertisePolicy>`
                                 
                                 
 
@@ -1011,7 +1011,7 @@ class MplsLdp(object):
                                     .. attribute:: advertise_type
                                     
                                     	Label advertise type
-                                    	**type**\:  :py:class:`MplsLdpLabelAdvertiseEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpLabelAdvertiseEnum>`
+                                    	**type**\:   :py:class:`MplsLdpLabelAdvertiseEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpLabelAdvertiseEnum>`
                                     
                                     .. attribute:: peer_acl_name
                                     
@@ -1098,7 +1098,7 @@ class MplsLdp(object):
                                 .. attribute:: explicit_null_type
                                 
                                 	Explicit Null command variant
-                                	**type**\:  :py:class:`MplsLdpExpNullEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpExpNullEnum>`
+                                	**type**\:   :py:class:`MplsLdpExpNullEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpExpNullEnum>`
                                 
                                 .. attribute:: peer_acl_name
                                 
@@ -1162,7 +1162,7 @@ class MplsLdp(object):
                                 .. attribute:: interface
                                 
                                 	Control advertisement of interface's host IP address
-                                	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces.Interface>`
+                                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces.Interface>`
                                 
                                 
 
@@ -1298,7 +1298,7 @@ class MplsLdp(object):
                             .. attribute:: allocation_type
                             
                             	Label allocation type
-                            	**type**\:  :py:class:`MplsLdpLabelAllocationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpLabelAllocationEnum>`
+                            	**type**\:   :py:class:`MplsLdpLabelAllocationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpLabelAllocationEnum>`
                             
                             .. attribute:: prefix_acl_name
                             
@@ -1412,7 +1412,7 @@ class MplsLdp(object):
                     .. attribute:: targeted_hello_accept
                     
                     	Configure acceptance from and responding to targeted hellos
-                    	**type**\:  :py:class:`TargetedHelloAccept <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Discovery.TargetedHelloAccept>`
+                    	**type**\:   :py:class:`TargetedHelloAccept <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Discovery.TargetedHelloAccept>`
                     
                     .. attribute:: transport_address
                     
@@ -1453,7 +1453,7 @@ class MplsLdp(object):
                         .. attribute:: accept_type
                         
                         	Type of acceptance
-                        	**type**\:  :py:class:`MplsLdpTargetedAcceptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpTargetedAcceptEnum>`
+                        	**type**\:   :py:class:`MplsLdpTargetedAcceptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpTargetedAcceptEnum>`
                         
                         .. attribute:: peer_acl_name
                         
@@ -1534,7 +1534,7 @@ class MplsLdp(object):
                     .. attribute:: auto_tunnel_mesh
                     
                     	MPLS Traffic Engineering auto\-tunnel mesh parameters for LDP
-                    	**type**\:  :py:class:`AutoTunnelMesh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh>`
+                    	**type**\:   :py:class:`AutoTunnelMesh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh>`
                     
                     
 
@@ -1557,12 +1557,12 @@ class MplsLdp(object):
                         .. attribute:: group_all
                         
                         	Enable all MPLS TE auto\-tunnel mesh\-group interfaces
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: group_ids
                         
                         	Enable interfaces in specific MPLS TE auto\-tunnel mesh\-groups
-                        	**type**\:  :py:class:`GroupIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds>`
+                        	**type**\:   :py:class:`GroupIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds>`
                         
                         
 
@@ -1586,7 +1586,7 @@ class MplsLdp(object):
                             .. attribute:: group_id
                             
                             	Auto\-mesh group identifier to enable
-                            	**type**\: list of  :py:class:`GroupId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds.GroupId>`
+                            	**type**\: list of    :py:class:`GroupId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds.GroupId>`
                             
                             
 
@@ -1735,7 +1735,7 @@ class MplsLdp(object):
                     .. attribute:: addresses
                     
                     	Configuration related to neighbors using neighbor address
-                    	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses>`
+                    	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses>`
                     
                     
 
@@ -1758,7 +1758,7 @@ class MplsLdp(object):
                         .. attribute:: address
                         
                         	IP address based configuration related to a neighbor
-                        	**type**\: list of  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses.Address>`
+                        	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses.Address>`
                         
                         
 
@@ -1799,7 +1799,7 @@ class MplsLdp(object):
                             .. attribute:: targeted
                             
                             	Establish targeted session with given address
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -1901,7 +1901,7 @@ class MplsLdp(object):
                     .. attribute:: bgp
                     
                     	MPLS LDP configuration for protocol redistribution
-                    	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp>`
+                    	**type**\:   :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp>`
                     
                     
 
@@ -1924,12 +1924,12 @@ class MplsLdp(object):
                         .. attribute:: advertise_to
                         
                         	ACL containing list of neighbors for BGP route redistribution
-                        	**type**\:  :py:class:`AdvertiseTo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.AdvertiseTo>`
+                        	**type**\:   :py:class:`AdvertiseTo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.AdvertiseTo>`
                         
                         .. attribute:: as_
                         
                         	MPLS LDP configuration for protocol redistribution
-                        	**type**\:  :py:class:`As <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As>`
+                        	**type**\:   :py:class:`As_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As_>`
                         
                         
 
@@ -1942,11 +1942,11 @@ class MplsLdp(object):
                             self.parent = None
                             self.advertise_to = MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.AdvertiseTo()
                             self.advertise_to.parent = self
-                            self.as_ = MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As()
+                            self.as_ = MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As_()
                             self.as_.parent = self
 
 
-                        class As(object):
+                        class As_(object):
                             """
                             MPLS LDP configuration for protocol
                             redistribution
@@ -2002,7 +2002,7 @@ class MplsLdp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                                return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As']['meta_info']
+                                return meta._meta_table['MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As_']['meta_info']
 
 
                         class AdvertiseTo(object):
@@ -2018,7 +2018,7 @@ class MplsLdp(object):
                             .. attribute:: type
                             
                             	advertise to peer acl type
-                            	**type**\:  :py:class:`MplsLdpAdvertiseBgpaclEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpAdvertiseBgpaclEnum>`
+                            	**type**\:   :py:class:`MplsLdpAdvertiseBgpaclEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpAdvertiseBgpaclEnum>`
                             
                             
 
@@ -2177,19 +2177,19 @@ class MplsLdp(object):
                 return meta._meta_table['MplsLdp.DefaultVrf.Afs']['meta_info']
 
 
-        class Global(object):
+        class Global_(object):
             """
             Default VRF Global configuration for MPLS LDP
             
             .. attribute:: graceful_restart
             
             	Configuration for per\-VRF LDP Graceful Restart parameters
-            	**type**\:  :py:class:`GracefulRestart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.GracefulRestart>`
+            	**type**\:   :py:class:`GracefulRestart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global_.GracefulRestart>`
             
             .. attribute:: neighbor
             
             	Configuration related to Neighbors
-            	**type**\:  :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Neighbor>`
+            	**type**\:   :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global_.Neighbor>`
             
             .. attribute:: router_id
             
@@ -2201,7 +2201,7 @@ class MplsLdp(object):
             .. attribute:: session
             
             	LDP Session parameters
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global_.Session>`
             
             
 
@@ -2212,12 +2212,12 @@ class MplsLdp(object):
 
             def __init__(self):
                 self.parent = None
-                self.graceful_restart = MplsLdp.DefaultVrf.Global.GracefulRestart()
+                self.graceful_restart = MplsLdp.DefaultVrf.Global_.GracefulRestart()
                 self.graceful_restart.parent = self
-                self.neighbor = MplsLdp.DefaultVrf.Global.Neighbor()
+                self.neighbor = MplsLdp.DefaultVrf.Global_.Neighbor()
                 self.neighbor.parent = self
                 self.router_id = None
-                self.session = MplsLdp.DefaultVrf.Global.Session()
+                self.session = MplsLdp.DefaultVrf.Global_.Session()
                 self.session.parent = self
 
 
@@ -2228,12 +2228,12 @@ class MplsLdp(object):
                 .. attribute:: downstream_on_demand
                 
                 	ACL with the list of neighbors configured for Downstream on Demand
-                	**type**\:  :py:class:`DownstreamOnDemand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Session.DownstreamOnDemand>`
+                	**type**\:   :py:class:`DownstreamOnDemand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global_.Session.DownstreamOnDemand>`
                 
                 .. attribute:: protection
                 
                 	Configure Session Protection parameters
-                	**type**\:  :py:class:`Protection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Session.Protection>`
+                	**type**\:   :py:class:`Protection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global_.Session.Protection>`
                 
                 
 
@@ -2244,9 +2244,9 @@ class MplsLdp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.downstream_on_demand = MplsLdp.DefaultVrf.Global.Session.DownstreamOnDemand()
+                    self.downstream_on_demand = MplsLdp.DefaultVrf.Global_.Session.DownstreamOnDemand()
                     self.downstream_on_demand.parent = self
-                    self.protection = MplsLdp.DefaultVrf.Global.Session.Protection()
+                    self.protection = MplsLdp.DefaultVrf.Global_.Session.Protection()
                     self.protection.parent = self
 
 
@@ -2269,7 +2269,7 @@ class MplsLdp(object):
                     .. attribute:: protection_type
                     
                     	Session protection type
-                    	**type**\:  :py:class:`MplsLdpSessionProtectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpSessionProtectionEnum>`
+                    	**type**\:   :py:class:`MplsLdpSessionProtectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpSessionProtectionEnum>`
                     
                     
 
@@ -2310,7 +2310,7 @@ class MplsLdp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                        return meta._meta_table['MplsLdp.DefaultVrf.Global.Session.Protection']['meta_info']
+                        return meta._meta_table['MplsLdp.DefaultVrf.Global_.Session.Protection']['meta_info']
 
 
                 class DownstreamOnDemand(object):
@@ -2326,7 +2326,7 @@ class MplsLdp(object):
                     .. attribute:: type
                     
                     	Downstream on demand type
-                    	**type**\:  :py:class:`MplsLdpDownstreamOnDemandEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpDownstreamOnDemandEnum>`
+                    	**type**\:   :py:class:`MplsLdpDownstreamOnDemandEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpDownstreamOnDemandEnum>`
                     
                     
 
@@ -2363,7 +2363,7 @@ class MplsLdp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                        return meta._meta_table['MplsLdp.DefaultVrf.Global.Session.DownstreamOnDemand']['meta_info']
+                        return meta._meta_table['MplsLdp.DefaultVrf.Global_.Session.DownstreamOnDemand']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -2388,7 +2388,7 @@ class MplsLdp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                    return meta._meta_table['MplsLdp.DefaultVrf.Global.Session']['meta_info']
+                    return meta._meta_table['MplsLdp.DefaultVrf.Global_.Session']['meta_info']
 
 
             class Neighbor(object):
@@ -2398,12 +2398,12 @@ class MplsLdp(object):
                 .. attribute:: dual_stack
                 
                 	Configuration related to neighbor transport
-                	**type**\:  :py:class:`DualStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Neighbor.DualStack>`
+                	**type**\:   :py:class:`DualStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global_.Neighbor.DualStack>`
                 
                 .. attribute:: ldp_ids
                 
                 	Configuration related to Neighbors using LDP Id
-                	**type**\:  :py:class:`LdpIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Neighbor.LdpIds>`
+                	**type**\:   :py:class:`LdpIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds>`
                 
                 .. attribute:: password
                 
@@ -2421,9 +2421,9 @@ class MplsLdp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.dual_stack = MplsLdp.DefaultVrf.Global.Neighbor.DualStack()
+                    self.dual_stack = MplsLdp.DefaultVrf.Global_.Neighbor.DualStack()
                     self.dual_stack.parent = self
-                    self.ldp_ids = MplsLdp.DefaultVrf.Global.Neighbor.LdpIds()
+                    self.ldp_ids = MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds()
                     self.ldp_ids.parent = self
                     self.password = None
 
@@ -2436,7 +2436,7 @@ class MplsLdp(object):
                     .. attribute:: ldp_id
                     
                     	LDP ID based configuration related to a neigbor
-                    	**type**\: list of  :py:class:`LdpId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId>`
+                    	**type**\: list of    :py:class:`LdpId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds.LdpId>`
                     
                     
 
@@ -2474,7 +2474,7 @@ class MplsLdp(object):
                         .. attribute:: password
                         
                         	Password for MD5 authentication for this neighbor
-                        	**type**\:  :py:class:`Password <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId.Password>`
+                        	**type**\:   :py:class:`Password <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds.LdpId.Password>`
                         
                         
 
@@ -2487,7 +2487,7 @@ class MplsLdp(object):
                             self.parent = None
                             self.label_space_id = None
                             self.lsr_id = None
-                            self.password = MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId.Password()
+                            self.password = MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds.LdpId.Password()
                             self.password.parent = self
 
 
@@ -2499,7 +2499,7 @@ class MplsLdp(object):
                             .. attribute:: command_type
                             
                             	Command type for password configuration
-                            	**type**\:  :py:class:`MplsLdpNbrPasswordEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpNbrPasswordEnum>`
+                            	**type**\:   :py:class:`MplsLdpNbrPasswordEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpNbrPasswordEnum>`
                             
                             .. attribute:: password
                             
@@ -2545,7 +2545,7 @@ class MplsLdp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                                return meta._meta_table['MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId.Password']['meta_info']
+                                return meta._meta_table['MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds.LdpId.Password']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -2577,7 +2577,7 @@ class MplsLdp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                            return meta._meta_table['MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId']['meta_info']
+                            return meta._meta_table['MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds.LdpId']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -2601,7 +2601,7 @@ class MplsLdp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                        return meta._meta_table['MplsLdp.DefaultVrf.Global.Neighbor.LdpIds']['meta_info']
+                        return meta._meta_table['MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds']['meta_info']
 
 
                 class DualStack(object):
@@ -2611,12 +2611,12 @@ class MplsLdp(object):
                     .. attribute:: tlv_compliance
                     
                     	Configuration to enable neighbor dual\-stack tlv\-compliance
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: transport_connection
                     
                     	Configuration related to neighbor transport
-                    	**type**\:  :py:class:`TransportConnection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection>`
+                    	**type**\:   :py:class:`TransportConnection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global_.Neighbor.DualStack.TransportConnection>`
                     
                     
 
@@ -2628,7 +2628,7 @@ class MplsLdp(object):
                     def __init__(self):
                         self.parent = None
                         self.tlv_compliance = None
-                        self.transport_connection = MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection()
+                        self.transport_connection = MplsLdp.DefaultVrf.Global_.Neighbor.DualStack.TransportConnection()
                         self.transport_connection.parent = self
 
 
@@ -2643,10 +2643,12 @@ class MplsLdp(object):
                         
                         	**range:** 0..60
                         
+                        	**units**\: second
+                        
                         .. attribute:: prefer
                         
                         	Configuration related to neighbor dual\-stack xport\-connection preference
-                        	**type**\:  :py:class:`Prefer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection.Prefer>`
+                        	**type**\:   :py:class:`Prefer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global_.Neighbor.DualStack.TransportConnection.Prefer>`
                         
                         
 
@@ -2658,7 +2660,7 @@ class MplsLdp(object):
                         def __init__(self):
                             self.parent = None
                             self.max_wait = None
-                            self.prefer = MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection.Prefer()
+                            self.prefer = MplsLdp.DefaultVrf.Global_.Neighbor.DualStack.TransportConnection.Prefer()
                             self.prefer.parent = self
 
 
@@ -2670,7 +2672,7 @@ class MplsLdp(object):
                             .. attribute:: ipv4
                             
                             	Configuration related to neighbor dual\-stack xport\-connection preference ipv4
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -2703,7 +2705,7 @@ class MplsLdp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                                return meta._meta_table['MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection.Prefer']['meta_info']
+                                return meta._meta_table['MplsLdp.DefaultVrf.Global_.Neighbor.DualStack.TransportConnection.Prefer']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -2728,7 +2730,7 @@ class MplsLdp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                            return meta._meta_table['MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection']['meta_info']
+                            return meta._meta_table['MplsLdp.DefaultVrf.Global_.Neighbor.DualStack.TransportConnection']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -2753,7 +2755,7 @@ class MplsLdp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                        return meta._meta_table['MplsLdp.DefaultVrf.Global.Neighbor.DualStack']['meta_info']
+                        return meta._meta_table['MplsLdp.DefaultVrf.Global_.Neighbor.DualStack']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -2781,7 +2783,7 @@ class MplsLdp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                    return meta._meta_table['MplsLdp.DefaultVrf.Global.Neighbor']['meta_info']
+                    return meta._meta_table['MplsLdp.DefaultVrf.Global_.Neighbor']['meta_info']
 
 
             class GracefulRestart(object):
@@ -2792,7 +2794,7 @@ class MplsLdp(object):
                 .. attribute:: helper_peer
                 
                 	Configure parameters related to GR peer(s) opearating in helper mode
-                	**type**\:  :py:class:`HelperPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global.GracefulRestart.HelperPeer>`
+                	**type**\:   :py:class:`HelperPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Global_.GracefulRestart.HelperPeer>`
                 
                 
 
@@ -2803,7 +2805,7 @@ class MplsLdp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.helper_peer = MplsLdp.DefaultVrf.Global.GracefulRestart.HelperPeer()
+                    self.helper_peer = MplsLdp.DefaultVrf.Global_.GracefulRestart.HelperPeer()
                     self.helper_peer.parent = self
 
 
@@ -2848,7 +2850,7 @@ class MplsLdp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                        return meta._meta_table['MplsLdp.DefaultVrf.Global.GracefulRestart.HelperPeer']['meta_info']
+                        return meta._meta_table['MplsLdp.DefaultVrf.Global_.GracefulRestart.HelperPeer']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -2870,7 +2872,7 @@ class MplsLdp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                    return meta._meta_table['MplsLdp.DefaultVrf.Global.GracefulRestart']['meta_info']
+                    return meta._meta_table['MplsLdp.DefaultVrf.Global_.GracefulRestart']['meta_info']
 
             @property
             def _common_path(self):
@@ -2901,7 +2903,7 @@ class MplsLdp(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                return meta._meta_table['MplsLdp.DefaultVrf.Global']['meta_info']
+                return meta._meta_table['MplsLdp.DefaultVrf.Global_']['meta_info']
 
 
         class Interfaces(object):
@@ -2911,7 +2913,7 @@ class MplsLdp(object):
             .. attribute:: interface
             
             	MPLS LDP configuration for a particular interface
-            	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface>`
+            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface>`
             
             
 
@@ -2942,17 +2944,17 @@ class MplsLdp(object):
                 .. attribute:: afs
                 
                 	Address Family specific configuration for MPLS LDP intf
-                	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Afs>`
+                	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Afs>`
                 
                 .. attribute:: enable
                 
                 	Enable Label Distribution Protocol (LDP) on thisinterface
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: global_
                 
                 	Per VRF interface Global configuration for MPLS LDP
-                	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Global>`
+                	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Global_>`
                 
                 
 
@@ -2967,7 +2969,7 @@ class MplsLdp(object):
                     self.afs = MplsLdp.DefaultVrf.Interfaces.Interface.Afs()
                     self.afs.parent = self
                     self.enable = None
-                    self.global_ = MplsLdp.DefaultVrf.Interfaces.Interface.Global()
+                    self.global_ = MplsLdp.DefaultVrf.Interfaces.Interface.Global_()
                     self.global_.parent = self
 
 
@@ -2979,7 +2981,7 @@ class MplsLdp(object):
                     .. attribute:: af
                     
                     	Configure data for given Address Family
-                    	**type**\: list of  :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af>`
+                    	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af>`
                     
                     
 
@@ -3002,27 +3004,27 @@ class MplsLdp(object):
                         .. attribute:: af_name  <key>
                         
                         	Address Family name
-                        	**type**\:  :py:class:`MplsLdpafNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
+                        	**type**\:   :py:class:`MplsLdpafNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
                         
                         .. attribute:: discovery
                         
                         	Configure interface discovery parameters
-                        	**type**\:  :py:class:`Discovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery>`
+                        	**type**\:   :py:class:`Discovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery>`
                         
                         .. attribute:: enable
                         
                         	Enable Address Family
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: igp
                         
                         	LDP interface IGP configuration
-                        	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Igp>`
+                        	**type**\:   :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Igp>`
                         
                         .. attribute:: mldp
                         
                         	Interface configuration parameters for mLDP
-                        	**type**\:  :py:class:`Mldp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Mldp>`
+                        	**type**\:   :py:class:`Mldp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Mldp>`
                         
                         
 
@@ -3050,7 +3052,7 @@ class MplsLdp(object):
                             .. attribute:: transport_address
                             
                             	MPLS LDP configuration for interface discovery transportaddress
-                            	**type**\:  :py:class:`TransportAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress>`
+                            	**type**\:   :py:class:`TransportAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress>`
                             
                             
 
@@ -3090,7 +3092,7 @@ class MplsLdp(object):
                                 .. attribute:: address_type
                                 
                                 	Transport address option
-                                	**type**\:  :py:class:`MplsLdpTransportAddressEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpTransportAddressEnum>`
+                                	**type**\:   :py:class:`MplsLdpTransportAddressEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpTransportAddressEnum>`
                                 
                                 
 
@@ -3163,7 +3165,7 @@ class MplsLdp(object):
                             .. attribute:: disable_auto_config
                             
                             	Disable IGP Auto\-config on this interface
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -3208,7 +3210,7 @@ class MplsLdp(object):
                             .. attribute:: disable
                             
                             	Disable mLDP on LDP enabled interface
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -3310,7 +3312,7 @@ class MplsLdp(object):
                         return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Afs']['meta_info']
 
 
-                class Global(object):
+                class Global_(object):
                     """
                     Per VRF interface Global configuration for
                     MPLS LDP
@@ -3318,12 +3320,12 @@ class MplsLdp(object):
                     .. attribute:: discovery
                     
                     	Configure interface discovery parameters
-                    	**type**\:  :py:class:`Discovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery>`
+                    	**type**\:   :py:class:`Discovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Discovery>`
                     
                     .. attribute:: igp
                     
                     	LDP IGP configuration
-                    	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp>`
+                    	**type**\:   :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp>`
                     
                     
 
@@ -3334,9 +3336,9 @@ class MplsLdp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.discovery = MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery()
+                        self.discovery = MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Discovery()
                         self.discovery.parent = self
-                        self.igp = MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp()
+                        self.igp = MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp()
                         self.igp.parent = self
 
 
@@ -3347,12 +3349,12 @@ class MplsLdp(object):
                         .. attribute:: disable_quick_start
                         
                         	Disable discovery's quick start mode
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: link_hello
                         
                         	LDP Link Hellos
-                        	**type**\:  :py:class:`LinkHello <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello>`
+                        	**type**\:   :py:class:`LinkHello <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Discovery.LinkHello>`
                         
                         
 
@@ -3364,7 +3366,7 @@ class MplsLdp(object):
                         def __init__(self):
                             self.parent = None
                             self.disable_quick_start = None
-                            self.link_hello = MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello()
+                            self.link_hello = MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Discovery.LinkHello()
                             self.link_hello.parent = self
 
 
@@ -3375,7 +3377,9 @@ class MplsLdp(object):
                             .. attribute:: dual_stack
                             
                             	Dual Stack Address Family Preference
-                            	**type**\:  :py:class:`MplsLdpafNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
+                            	**type**\:   :py:class:`MplsLdpafNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
+                            
+                            	**default value**\: ipv4
                             
                             .. attribute:: hold_time
                             
@@ -3384,12 +3388,20 @@ class MplsLdp(object):
                             
                             	**range:** 1..65535
                             
+                            	**units**\: second
+                            
+                            	**default value**\: 15
+                            
                             .. attribute:: interval
                             
                             	Link Hello interval
                             	**type**\:  int
                             
                             	**range:** 1..65535
+                            
+                            	**units**\: second
+                            
+                            	**default value**\: 5
                             
                             
 
@@ -3432,7 +3444,7 @@ class MplsLdp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                                return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello']['meta_info']
+                                return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Discovery.LinkHello']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -3459,7 +3471,7 @@ class MplsLdp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                            return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery']['meta_info']
+                            return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Discovery']['meta_info']
 
 
                     class Igp(object):
@@ -3469,7 +3481,7 @@ class MplsLdp(object):
                         .. attribute:: sync
                         
                         	LDP IGP synchronization
-                        	**type**\:  :py:class:`Sync <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync>`
+                        	**type**\:   :py:class:`Sync <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync>`
                         
                         
 
@@ -3480,7 +3492,7 @@ class MplsLdp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.sync = MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync()
+                            self.sync = MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync()
                             self.sync.parent = self
 
 
@@ -3491,7 +3503,7 @@ class MplsLdp(object):
                             .. attribute:: delay
                             
                             	LDP IGP synchronization delay time
-                            	**type**\:  :py:class:`Delay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay>`
+                            	**type**\:   :py:class:`Delay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync.Delay>`
                             
                             
 
@@ -3502,7 +3514,7 @@ class MplsLdp(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.delay = MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay()
+                                self.delay = MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync.Delay()
                                 self.delay.parent = self
 
 
@@ -3513,7 +3525,7 @@ class MplsLdp(object):
                                 .. attribute:: on_session_up
                                 
                                 	Interface sync up delay after session up
-                                	**type**\:  :py:class:`OnSessionUp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay.OnSessionUp>`
+                                	**type**\:   :py:class:`OnSessionUp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync.Delay.OnSessionUp>`
                                 
                                 
 
@@ -3524,7 +3536,7 @@ class MplsLdp(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.on_session_up = MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay.OnSessionUp()
+                                    self.on_session_up = MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync.Delay.OnSessionUp()
                                     self.on_session_up.parent = self
 
 
@@ -3535,7 +3547,7 @@ class MplsLdp(object):
                                     .. attribute:: disable
                                     
                                     	Disable delay after session up
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: timeout
                                     
@@ -3543,6 +3555,8 @@ class MplsLdp(object):
                                     	**type**\:  int
                                     
                                     	**range:** 5..300
+                                    
+                                    	**units**\: second
                                     
                                     
 
@@ -3581,7 +3595,7 @@ class MplsLdp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                                        return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay.OnSessionUp']['meta_info']
+                                        return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync.Delay.OnSessionUp']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -3605,7 +3619,7 @@ class MplsLdp(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                                    return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay']['meta_info']
+                                    return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync.Delay']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -3629,7 +3643,7 @@ class MplsLdp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                                return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync']['meta_info']
+                                return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -3653,7 +3667,7 @@ class MplsLdp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                            return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp']['meta_info']
+                            return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -3680,7 +3694,7 @@ class MplsLdp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                        return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global']['meta_info']
+                        return meta._meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global_']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -3775,7 +3789,7 @@ class MplsLdp(object):
         .. attribute:: vrf
         
         	VRF attribute configuration for MPLS LDP
-        	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf>`
+        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf>`
         
         
 
@@ -3805,22 +3819,22 @@ class MplsLdp(object):
             .. attribute:: afs
             
             	Address Family specific configuration for MPLS LDP vrf
-            	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs>`
+            	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs>`
             
             .. attribute:: enable
             
             	Enable VRF
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: global_
             
             	Per VRF Global configuration for MPLS LDP
-            	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global>`
+            	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global_>`
             
             .. attribute:: interfaces
             
             	MPLS LDP configuration pertaining to interfaces
-            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Interfaces>`
+            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Interfaces>`
             
             
 
@@ -3835,25 +3849,25 @@ class MplsLdp(object):
                 self.afs = MplsLdp.Vrfs.Vrf.Afs()
                 self.afs.parent = self
                 self.enable = None
-                self.global_ = MplsLdp.Vrfs.Vrf.Global()
+                self.global_ = MplsLdp.Vrfs.Vrf.Global_()
                 self.global_.parent = self
                 self.interfaces = MplsLdp.Vrfs.Vrf.Interfaces()
                 self.interfaces.parent = self
 
 
-            class Global(object):
+            class Global_(object):
                 """
                 Per VRF Global configuration for MPLS LDP
                 
                 .. attribute:: graceful_restart
                 
                 	Configuration for per\-VRF LDP Graceful Restart parameters
-                	**type**\:  :py:class:`GracefulRestart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global.GracefulRestart>`
+                	**type**\:   :py:class:`GracefulRestart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global_.GracefulRestart>`
                 
                 .. attribute:: neighbor
                 
                 	Configuration related to Neighbors
-                	**type**\:  :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global.Neighbor>`
+                	**type**\:   :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global_.Neighbor>`
                 
                 .. attribute:: router_id
                 
@@ -3865,7 +3879,7 @@ class MplsLdp(object):
                 .. attribute:: session
                 
                 	LDP Session parameters
-                	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global.Session>`
+                	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global_.Session>`
                 
                 
 
@@ -3876,12 +3890,12 @@ class MplsLdp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.graceful_restart = MplsLdp.Vrfs.Vrf.Global.GracefulRestart()
+                    self.graceful_restart = MplsLdp.Vrfs.Vrf.Global_.GracefulRestart()
                     self.graceful_restart.parent = self
-                    self.neighbor = MplsLdp.Vrfs.Vrf.Global.Neighbor()
+                    self.neighbor = MplsLdp.Vrfs.Vrf.Global_.Neighbor()
                     self.neighbor.parent = self
                     self.router_id = None
-                    self.session = MplsLdp.Vrfs.Vrf.Global.Session()
+                    self.session = MplsLdp.Vrfs.Vrf.Global_.Session()
                     self.session.parent = self
 
 
@@ -3892,7 +3906,7 @@ class MplsLdp(object):
                     .. attribute:: downstream_on_demand
                     
                     	ACL with the list of neighbors configured for Downstream on Demand
-                    	**type**\:  :py:class:`DownstreamOnDemand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global.Session.DownstreamOnDemand>`
+                    	**type**\:   :py:class:`DownstreamOnDemand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global_.Session.DownstreamOnDemand>`
                     
                     
 
@@ -3903,7 +3917,7 @@ class MplsLdp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.downstream_on_demand = MplsLdp.Vrfs.Vrf.Global.Session.DownstreamOnDemand()
+                        self.downstream_on_demand = MplsLdp.Vrfs.Vrf.Global_.Session.DownstreamOnDemand()
                         self.downstream_on_demand.parent = self
 
 
@@ -3920,7 +3934,7 @@ class MplsLdp(object):
                         .. attribute:: type
                         
                         	Downstream on demand type
-                        	**type**\:  :py:class:`MplsLdpDownstreamOnDemandEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpDownstreamOnDemandEnum>`
+                        	**type**\:   :py:class:`MplsLdpDownstreamOnDemandEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpDownstreamOnDemandEnum>`
                         
                         
 
@@ -3959,7 +3973,7 @@ class MplsLdp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                            return meta._meta_table['MplsLdp.Vrfs.Vrf.Global.Session.DownstreamOnDemand']['meta_info']
+                            return meta._meta_table['MplsLdp.Vrfs.Vrf.Global_.Session.DownstreamOnDemand']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -3983,7 +3997,7 @@ class MplsLdp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                        return meta._meta_table['MplsLdp.Vrfs.Vrf.Global.Session']['meta_info']
+                        return meta._meta_table['MplsLdp.Vrfs.Vrf.Global_.Session']['meta_info']
 
 
                 class Neighbor(object):
@@ -3993,7 +4007,7 @@ class MplsLdp(object):
                     .. attribute:: ldp_ids
                     
                     	Configuration related to Neighbors using LDP Id
-                    	**type**\:  :py:class:`LdpIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds>`
+                    	**type**\:   :py:class:`LdpIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds>`
                     
                     .. attribute:: password
                     
@@ -4011,7 +4025,7 @@ class MplsLdp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.ldp_ids = MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds()
+                        self.ldp_ids = MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds()
                         self.ldp_ids.parent = self
                         self.password = None
 
@@ -4024,7 +4038,7 @@ class MplsLdp(object):
                         .. attribute:: ldp_id
                         
                         	LDP ID based configuration related to a neigbor
-                        	**type**\: list of  :py:class:`LdpId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId>`
+                        	**type**\: list of    :py:class:`LdpId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds.LdpId>`
                         
                         
 
@@ -4062,7 +4076,7 @@ class MplsLdp(object):
                             .. attribute:: password
                             
                             	Password for MD5 authentication for this neighbor
-                            	**type**\:  :py:class:`Password <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId.Password>`
+                            	**type**\:   :py:class:`Password <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds.LdpId.Password>`
                             
                             
 
@@ -4075,7 +4089,7 @@ class MplsLdp(object):
                                 self.parent = None
                                 self.label_space_id = None
                                 self.lsr_id = None
-                                self.password = MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId.Password()
+                                self.password = MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds.LdpId.Password()
                                 self.password.parent = self
 
 
@@ -4087,7 +4101,7 @@ class MplsLdp(object):
                                 .. attribute:: command_type
                                 
                                 	Command type for password configuration
-                                	**type**\:  :py:class:`MplsLdpNbrPasswordEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpNbrPasswordEnum>`
+                                	**type**\:   :py:class:`MplsLdpNbrPasswordEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpNbrPasswordEnum>`
                                 
                                 .. attribute:: password
                                 
@@ -4133,7 +4147,7 @@ class MplsLdp(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                                    return meta._meta_table['MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId.Password']['meta_info']
+                                    return meta._meta_table['MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds.LdpId.Password']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -4167,7 +4181,7 @@ class MplsLdp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                                return meta._meta_table['MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId']['meta_info']
+                                return meta._meta_table['MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds.LdpId']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -4193,7 +4207,7 @@ class MplsLdp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                            return meta._meta_table['MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds']['meta_info']
+                            return meta._meta_table['MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -4220,7 +4234,7 @@ class MplsLdp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                        return meta._meta_table['MplsLdp.Vrfs.Vrf.Global.Neighbor']['meta_info']
+                        return meta._meta_table['MplsLdp.Vrfs.Vrf.Global_.Neighbor']['meta_info']
 
 
                 class GracefulRestart(object):
@@ -4231,7 +4245,7 @@ class MplsLdp(object):
                     .. attribute:: helper_peer
                     
                     	Configure parameters related to GR peer(s) opearating in helper mode
-                    	**type**\:  :py:class:`HelperPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global.GracefulRestart.HelperPeer>`
+                    	**type**\:   :py:class:`HelperPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Global_.GracefulRestart.HelperPeer>`
                     
                     
 
@@ -4242,7 +4256,7 @@ class MplsLdp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.helper_peer = MplsLdp.Vrfs.Vrf.Global.GracefulRestart.HelperPeer()
+                        self.helper_peer = MplsLdp.Vrfs.Vrf.Global_.GracefulRestart.HelperPeer()
                         self.helper_peer.parent = self
 
 
@@ -4289,7 +4303,7 @@ class MplsLdp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                            return meta._meta_table['MplsLdp.Vrfs.Vrf.Global.GracefulRestart.HelperPeer']['meta_info']
+                            return meta._meta_table['MplsLdp.Vrfs.Vrf.Global_.GracefulRestart.HelperPeer']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -4313,7 +4327,7 @@ class MplsLdp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                        return meta._meta_table['MplsLdp.Vrfs.Vrf.Global.GracefulRestart']['meta_info']
+                        return meta._meta_table['MplsLdp.Vrfs.Vrf.Global_.GracefulRestart']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -4346,7 +4360,7 @@ class MplsLdp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                    return meta._meta_table['MplsLdp.Vrfs.Vrf.Global']['meta_info']
+                    return meta._meta_table['MplsLdp.Vrfs.Vrf.Global_']['meta_info']
 
 
             class Afs(object):
@@ -4357,7 +4371,7 @@ class MplsLdp(object):
                 .. attribute:: af
                 
                 	Configure data for given Address Family
-                	**type**\: list of  :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af>`
+                	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af>`
                 
                 
 
@@ -4380,22 +4394,22 @@ class MplsLdp(object):
                     .. attribute:: af_name  <key>
                     
                     	Address Family name
-                    	**type**\:  :py:class:`MplsLdpafNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
+                    	**type**\:   :py:class:`MplsLdpafNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
                     
                     .. attribute:: discovery
                     
                     	Configure Discovery parameters
-                    	**type**\:  :py:class:`Discovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Discovery>`
+                    	**type**\:   :py:class:`Discovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Discovery>`
                     
                     .. attribute:: enable
                     
                     	Enable Address Family
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: label
                     
                     	Configure Label policies and control
-                    	**type**\:  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label>`
+                    	**type**\:   :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label>`
                     
                     
 
@@ -4466,12 +4480,12 @@ class MplsLdp(object):
                         .. attribute:: local
                         
                         	Configure local label policies and control
-                        	**type**\:  :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local>`
+                        	**type**\:   :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local>`
                         
                         .. attribute:: remote
                         
                         	Configure remote/peer label policies and control
-                        	**type**\:  :py:class:`Remote <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote>`
+                        	**type**\:   :py:class:`Remote <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote>`
                         
                         
 
@@ -4496,7 +4510,7 @@ class MplsLdp(object):
                             .. attribute:: accept
                             
                             	Configure inbound label acceptance
-                            	**type**\:  :py:class:`Accept <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept>`
+                            	**type**\:   :py:class:`Accept <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept>`
                             
                             
 
@@ -4518,7 +4532,7 @@ class MplsLdp(object):
                                 .. attribute:: peer_accept_policies
                                 
                                 	Configuration related to Neighbors for inbound label acceptance
-                                	**type**\:  :py:class:`PeerAcceptPolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies>`
+                                	**type**\:   :py:class:`PeerAcceptPolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies>`
                                 
                                 
 
@@ -4541,7 +4555,7 @@ class MplsLdp(object):
                                     .. attribute:: peer_accept_policy
                                     
                                     	Control acceptasnce of labels from a neighbor for prefix(es) using ACL
-                                    	**type**\: list of  :py:class:`PeerAcceptPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy>`
+                                    	**type**\: list of    :py:class:`PeerAcceptPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy>`
                                     
                                     
 
@@ -4572,12 +4586,12 @@ class MplsLdp(object):
                                         .. attribute:: lsr_id
                                         
                                         	keys\: lsr\-id
-                                        	**type**\: list of  :py:class:`LsrId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.LsrId>`
+                                        	**type**\: list of    :py:class:`LsrId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.LsrId>`
                                         
                                         .. attribute:: peer_accept_policy_data
                                         
                                         	Data container
-                                        	**type**\:  :py:class:`PeerAcceptPolicyData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.PeerAcceptPolicyData>`
+                                        	**type**\:   :py:class:`PeerAcceptPolicyData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.PeerAcceptPolicyData>`
                                         
                                         
 
@@ -4818,17 +4832,17 @@ class MplsLdp(object):
                             .. attribute:: advertise
                             
                             	Configure outbound label advertisement
-                            	**type**\:  :py:class:`Advertise <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise>`
+                            	**type**\:   :py:class:`Advertise <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise>`
                             
                             .. attribute:: allocate
                             
                             	Control local label allocation for prefix(es)
-                            	**type**\:  :py:class:`Allocate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Allocate>`
+                            	**type**\:   :py:class:`Allocate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Allocate>`
                             
                             .. attribute:: default_route
                             
                             	Enable MPLS forwarding for default route
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: implicit_null_override
                             
@@ -4859,22 +4873,22 @@ class MplsLdp(object):
                                 .. attribute:: disable
                                 
                                 	Disable label advertisement
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: explicit_null
                                 
                                 	Configure advertisment of explicit\-null for connected prefixes
-                                	**type**\:  :py:class:`ExplicitNull <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.ExplicitNull>`
+                                	**type**\:   :py:class:`ExplicitNull <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.ExplicitNull>`
                                 
                                 .. attribute:: interfaces
                                 
                                 	Configure outbound label advertisement for an interface
-                                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces>`
+                                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces>`
                                 
                                 .. attribute:: peer_advertise_policies
                                 
                                 	Configure peer centric outbound label advertisement using ACL
-                                	**type**\:  :py:class:`PeerAdvertisePolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies>`
+                                	**type**\:   :py:class:`PeerAdvertisePolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies>`
                                 
                                 
 
@@ -4902,7 +4916,7 @@ class MplsLdp(object):
                                     .. attribute:: peer_advertise_policy
                                     
                                     	Control advertisement of prefix(es) using ACL
-                                    	**type**\: list of  :py:class:`PeerAdvertisePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy>`
+                                    	**type**\: list of    :py:class:`PeerAdvertisePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy>`
                                     
                                     
 
@@ -4933,12 +4947,12 @@ class MplsLdp(object):
                                         .. attribute:: lsr_id
                                         
                                         	keys\: lsr\-id
-                                        	**type**\: list of  :py:class:`LsrId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.LsrId>`
+                                        	**type**\: list of    :py:class:`LsrId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.LsrId>`
                                         
                                         .. attribute:: peer_advertise_policy_data
                                         
                                         	Data container
-                                        	**type**\:  :py:class:`PeerAdvertisePolicyData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.PeerAdvertisePolicyData>`
+                                        	**type**\:   :py:class:`PeerAdvertisePolicyData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.PeerAdvertisePolicyData>`
                                         
                                         
 
@@ -5132,7 +5146,7 @@ class MplsLdp(object):
                                     .. attribute:: interface
                                     
                                     	Control advertisement of interface's host IP address
-                                    	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces.Interface>`
+                                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces.Interface>`
                                     
                                     
 
@@ -5232,7 +5246,7 @@ class MplsLdp(object):
                                     .. attribute:: explicit_null_type
                                     
                                     	Explicit Null command variant
-                                    	**type**\:  :py:class:`MplsLdpExpNullEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpExpNullEnum>`
+                                    	**type**\:   :py:class:`MplsLdpExpNullEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpExpNullEnum>`
                                     
                                     .. attribute:: peer_acl_name
                                     
@@ -5329,7 +5343,7 @@ class MplsLdp(object):
                                 .. attribute:: allocation_type
                                 
                                 	Label allocation type
-                                	**type**\:  :py:class:`MplsLdpLabelAllocationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpLabelAllocationEnum>`
+                                	**type**\:   :py:class:`MplsLdpLabelAllocationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpLabelAllocationEnum>`
                                 
                                 .. attribute:: prefix_acl_name
                                 
@@ -5505,7 +5519,7 @@ class MplsLdp(object):
                 .. attribute:: interface
                 
                 	MPLS LDP configuration for a particular interface
-                	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Interfaces.Interface>`
+                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Interfaces.Interface>`
                 
                 
 
@@ -5536,12 +5550,12 @@ class MplsLdp(object):
                     .. attribute:: afs
                     
                     	Address Family specific configuration for MPLS LDP vrf intf
-                    	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs>`
+                    	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs>`
                     
                     .. attribute:: enable
                     
                     	Enable Label Distribution Protocol (LDP) on thisinterface
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -5566,7 +5580,7 @@ class MplsLdp(object):
                         .. attribute:: af
                         
                         	Configure data for given Address Family
-                        	**type**\: list of  :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af>`
+                        	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af>`
                         
                         
 
@@ -5589,17 +5603,17 @@ class MplsLdp(object):
                             .. attribute:: af_name  <key>
                             
                             	Address Family name
-                            	**type**\:  :py:class:`MplsLdpafNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
+                            	**type**\:   :py:class:`MplsLdpafNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
                             
                             .. attribute:: discovery
                             
                             	Configure interface discovery parameters
-                            	**type**\:  :py:class:`Discovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery>`
+                            	**type**\:   :py:class:`Discovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery>`
                             
                             .. attribute:: enable
                             
                             	Enable Address Family
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -5623,7 +5637,7 @@ class MplsLdp(object):
                                 .. attribute:: transport_address
                                 
                                 	MPLS LDP configuration for interface discovery transportaddress
-                                	**type**\:  :py:class:`TransportAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress>`
+                                	**type**\:   :py:class:`TransportAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress>`
                                 
                                 
 
@@ -5663,7 +5677,7 @@ class MplsLdp(object):
                                     .. attribute:: address_type
                                     
                                     	Transport address option
-                                    	**type**\:  :py:class:`MplsLdpTransportAddressEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpTransportAddressEnum>`
+                                    	**type**\:   :py:class:`MplsLdpTransportAddressEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpTransportAddressEnum>`
                                     
                                     
 
@@ -5905,39 +5919,39 @@ class MplsLdp(object):
             return meta._meta_table['MplsLdp.Vrfs']['meta_info']
 
 
-    class Global(object):
+    class Global_(object):
         """
         Global configuration for MPLS LDP
         
         .. attribute:: disable_implicit_ipv4
         
         	Disable the implicit enabling for IPv4 address family
-        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: discovery
         
         	Configure Discovery parameters
-        	**type**\:  :py:class:`Discovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Discovery>`
+        	**type**\:   :py:class:`Discovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Discovery>`
         
         .. attribute:: enable_logging
         
         	Enable logging of events
-        	**type**\:  :py:class:`EnableLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.EnableLogging>`
+        	**type**\:   :py:class:`EnableLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.EnableLogging>`
         
         .. attribute:: entropy_label
         
         	Configure for LDP Entropy\-Label
-        	**type**\:  :py:class:`EntropyLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.EntropyLabel>`
+        	**type**\:   :py:class:`EntropyLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.EntropyLabel>`
         
         .. attribute:: graceful_restart
         
         	Configuration for LDP Graceful Restart parameters
-        	**type**\:  :py:class:`GracefulRestart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.GracefulRestart>`
+        	**type**\:   :py:class:`GracefulRestart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.GracefulRestart>`
         
         .. attribute:: igp
         
         	LDP IGP configuration
-        	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Igp>`
+        	**type**\:   :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Igp>`
         
         .. attribute:: ltrace_buf_multiplier
         
@@ -5946,25 +5960,27 @@ class MplsLdp(object):
         
         	**range:** 1..5
         
+        	**default value**\: 1
+        
         .. attribute:: mldp
         
         	MPLS mLDP configuration
-        	**type**\:  :py:class:`Mldp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp>`
+        	**type**\:   :py:class:`Mldp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp>`
         
         .. attribute:: nsr
         
         	Configure LDP Non\-Stop Routing
-        	**type**\:  :py:class:`Nsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Nsr>`
+        	**type**\:   :py:class:`Nsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Nsr>`
         
         .. attribute:: session
         
         	LDP Session parameters
-        	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Session>`
+        	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Session>`
         
         .. attribute:: signalling
         
         	Configure LDP signalling parameters
-        	**type**\:  :py:class:`Signalling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Signalling>`
+        	**type**\:   :py:class:`Signalling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Signalling>`
         
         
 
@@ -5976,24 +5992,24 @@ class MplsLdp(object):
         def __init__(self):
             self.parent = None
             self.disable_implicit_ipv4 = None
-            self.discovery = MplsLdp.Global.Discovery()
+            self.discovery = MplsLdp.Global_.Discovery()
             self.discovery.parent = self
-            self.enable_logging = MplsLdp.Global.EnableLogging()
+            self.enable_logging = MplsLdp.Global_.EnableLogging()
             self.enable_logging.parent = self
-            self.entropy_label = MplsLdp.Global.EntropyLabel()
+            self.entropy_label = MplsLdp.Global_.EntropyLabel()
             self.entropy_label.parent = self
-            self.graceful_restart = MplsLdp.Global.GracefulRestart()
+            self.graceful_restart = MplsLdp.Global_.GracefulRestart()
             self.graceful_restart.parent = self
-            self.igp = MplsLdp.Global.Igp()
+            self.igp = MplsLdp.Global_.Igp()
             self.igp.parent = self
             self.ltrace_buf_multiplier = None
-            self.mldp = MplsLdp.Global.Mldp()
+            self.mldp = MplsLdp.Global_.Mldp()
             self.mldp.parent = self
-            self.nsr = MplsLdp.Global.Nsr()
+            self.nsr = MplsLdp.Global_.Nsr()
             self.nsr.parent = self
-            self.session = MplsLdp.Global.Session()
+            self.session = MplsLdp.Global_.Session()
             self.session.parent = self
-            self.signalling = MplsLdp.Global.Signalling()
+            self.signalling = MplsLdp.Global_.Signalling()
             self.signalling.parent = self
 
 
@@ -6004,7 +6020,7 @@ class MplsLdp(object):
             .. attribute:: enable
             
             	none
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -6037,7 +6053,7 @@ class MplsLdp(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                return meta._meta_table['MplsLdp.Global.EntropyLabel']['meta_info']
+                return meta._meta_table['MplsLdp.Global_.EntropyLabel']['meta_info']
 
 
         class Session(object):
@@ -6047,7 +6063,7 @@ class MplsLdp(object):
             .. attribute:: backoff_time
             
             	Configure Session Backoff parameters
-            	**type**\:  :py:class:`BackoffTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Session.BackoffTime>`
+            	**type**\:   :py:class:`BackoffTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Session.BackoffTime>`
             
             .. attribute:: hold_time
             
@@ -6055,6 +6071,10 @@ class MplsLdp(object):
             	**type**\:  int
             
             	**range:** 15..65535
+            
+            	**units**\: second
+            
+            	**default value**\: 180
             
             
 
@@ -6065,7 +6085,7 @@ class MplsLdp(object):
 
             def __init__(self):
                 self.parent = None
-                self.backoff_time = MplsLdp.Global.Session.BackoffTime()
+                self.backoff_time = MplsLdp.Global_.Session.BackoffTime()
                 self.backoff_time.parent = self
                 self.hold_time = None
 
@@ -6081,12 +6101,20 @@ class MplsLdp(object):
                 
                 	**range:** 5..2147483
                 
+                	**units**\: second
+                
+                	**default value**\: 15
+                
                 .. attribute:: max_backoff_time
                 
                 	Maximum session backoff time (seconds)
                 	**type**\:  int
                 
                 	**range:** 5..2147483
+                
+                	**units**\: second
+                
+                	**default value**\: 120
                 
                 
 
@@ -6123,7 +6151,7 @@ class MplsLdp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                    return meta._meta_table['MplsLdp.Global.Session.BackoffTime']['meta_info']
+                    return meta._meta_table['MplsLdp.Global_.Session.BackoffTime']['meta_info']
 
             @property
             def _common_path(self):
@@ -6148,7 +6176,7 @@ class MplsLdp(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                return meta._meta_table['MplsLdp.Global.Session']['meta_info']
+                return meta._meta_table['MplsLdp.Global_.Session']['meta_info']
 
 
         class Igp(object):
@@ -6158,7 +6186,7 @@ class MplsLdp(object):
             .. attribute:: sync
             
             	LDP IGP synchronization
-            	**type**\:  :py:class:`Sync <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Igp.Sync>`
+            	**type**\:   :py:class:`Sync <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Igp.Sync>`
             
             
 
@@ -6169,7 +6197,7 @@ class MplsLdp(object):
 
             def __init__(self):
                 self.parent = None
-                self.sync = MplsLdp.Global.Igp.Sync()
+                self.sync = MplsLdp.Global_.Igp.Sync()
                 self.sync.parent = self
 
 
@@ -6180,7 +6208,7 @@ class MplsLdp(object):
                 .. attribute:: delay
                 
                 	LDP IGP synchronization delay time
-                	**type**\:  :py:class:`Delay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Igp.Sync.Delay>`
+                	**type**\:   :py:class:`Delay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Igp.Sync.Delay>`
                 
                 
 
@@ -6191,7 +6219,7 @@ class MplsLdp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.delay = MplsLdp.Global.Igp.Sync.Delay()
+                    self.delay = MplsLdp.Global_.Igp.Sync.Delay()
                     self.delay.parent = self
 
 
@@ -6206,12 +6234,16 @@ class MplsLdp(object):
                     
                     	**range:** 60..600
                     
+                    	**units**\: second
+                    
                     .. attribute:: on_session_up
                     
                     	Interface sync up delay after session up
                     	**type**\:  int
                     
                     	**range:** 5..300
+                    
+                    	**units**\: second
                     
                     
 
@@ -6248,7 +6280,7 @@ class MplsLdp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                        return meta._meta_table['MplsLdp.Global.Igp.Sync.Delay']['meta_info']
+                        return meta._meta_table['MplsLdp.Global_.Igp.Sync.Delay']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -6270,7 +6302,7 @@ class MplsLdp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                    return meta._meta_table['MplsLdp.Global.Igp.Sync']['meta_info']
+                    return meta._meta_table['MplsLdp.Global_.Igp.Sync']['meta_info']
 
             @property
             def _common_path(self):
@@ -6292,7 +6324,7 @@ class MplsLdp(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                return meta._meta_table['MplsLdp.Global.Igp']['meta_info']
+                return meta._meta_table['MplsLdp.Global_.Igp']['meta_info']
 
 
         class EnableLogging(object):
@@ -6302,27 +6334,27 @@ class MplsLdp(object):
             .. attribute:: adjacency
             
             	Enable logging of adjacency events
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: gr_session_changes
             
             	Enable logging of Graceful Restart (GR) events
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: neighbor_changes
             
             	Enable logging of neighbor events
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: nsr
             
             	Enable logging of NSR events
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: session_protection
             
             	Enable logging of session protection events
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -6371,7 +6403,7 @@ class MplsLdp(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                return meta._meta_table['MplsLdp.Global.EnableLogging']['meta_info']
+                return meta._meta_table['MplsLdp.Global_.EnableLogging']['meta_info']
 
 
         class Signalling(object):
@@ -6384,6 +6416,8 @@ class MplsLdp(object):
             	**type**\:  int
             
             	**range:** 0..63
+            
+            	**default value**\: 48
             
             
 
@@ -6416,7 +6450,7 @@ class MplsLdp(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                return meta._meta_table['MplsLdp.Global.Signalling']['meta_info']
+                return meta._meta_table['MplsLdp.Global_.Signalling']['meta_info']
 
 
         class Nsr(object):
@@ -6426,7 +6460,7 @@ class MplsLdp(object):
             .. attribute:: enable
             
             	none
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -6459,7 +6493,7 @@ class MplsLdp(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                return meta._meta_table['MplsLdp.Global.Nsr']['meta_info']
+                return meta._meta_table['MplsLdp.Global_.Nsr']['meta_info']
 
 
         class GracefulRestart(object):
@@ -6470,7 +6504,7 @@ class MplsLdp(object):
             .. attribute:: enable
             
             	none
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: forwarding_hold_time
             
@@ -6479,12 +6513,20 @@ class MplsLdp(object):
             
             	**range:** 60..1800
             
+            	**units**\: second
+            
+            	**default value**\: 180
+            
             .. attribute:: reconnect_timeout
             
             	Configure Graceful Restart Reconnect Timeout value
             	**type**\:  int
             
             	**range:** 60..1800
+            
+            	**units**\: second
+            
+            	**default value**\: 120
             
             
 
@@ -6525,7 +6567,7 @@ class MplsLdp(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                return meta._meta_table['MplsLdp.Global.GracefulRestart']['meta_info']
+                return meta._meta_table['MplsLdp.Global_.GracefulRestart']['meta_info']
 
 
         class Discovery(object):
@@ -6535,22 +6577,22 @@ class MplsLdp(object):
             .. attribute:: disable_instance_tlv
             
             	Disable transmit and receive processing for private Instance TLV in LDP discovery hello messages
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: disable_quick_start
             
             	Disable discovery's quick start mode
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: link_hello
             
             	LDP Link Hellos
-            	**type**\:  :py:class:`LinkHello <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Discovery.LinkHello>`
+            	**type**\:   :py:class:`LinkHello <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Discovery.LinkHello>`
             
             .. attribute:: targeted_hello
             
             	LDP Targeted Hellos
-            	**type**\:  :py:class:`TargetedHello <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Discovery.TargetedHello>`
+            	**type**\:   :py:class:`TargetedHello <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Discovery.TargetedHello>`
             
             
 
@@ -6563,9 +6605,9 @@ class MplsLdp(object):
                 self.parent = None
                 self.disable_instance_tlv = None
                 self.disable_quick_start = None
-                self.link_hello = MplsLdp.Global.Discovery.LinkHello()
+                self.link_hello = MplsLdp.Global_.Discovery.LinkHello()
                 self.link_hello.parent = self
-                self.targeted_hello = MplsLdp.Global.Discovery.TargetedHello()
+                self.targeted_hello = MplsLdp.Global_.Discovery.TargetedHello()
                 self.targeted_hello.parent = self
 
 
@@ -6580,12 +6622,20 @@ class MplsLdp(object):
                 
                 	**range:** 1..65535
                 
+                	**units**\: second
+                
+                	**default value**\: 15
+                
                 .. attribute:: interval
                 
                 	Link Hello interval
                 	**type**\:  int
                 
                 	**range:** 1..65535
+                
+                	**units**\: second
+                
+                	**default value**\: 5
                 
                 
 
@@ -6622,7 +6672,7 @@ class MplsLdp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                    return meta._meta_table['MplsLdp.Global.Discovery.LinkHello']['meta_info']
+                    return meta._meta_table['MplsLdp.Global_.Discovery.LinkHello']['meta_info']
 
 
             class TargetedHello(object):
@@ -6636,12 +6686,20 @@ class MplsLdp(object):
                 
                 	**range:** 1..65535
                 
+                	**units**\: second
+                
+                	**default value**\: 90
+                
                 .. attribute:: interval
                 
                 	Targeted Hello interval
                 	**type**\:  int
                 
                 	**range:** 1..65535
+                
+                	**units**\: second
+                
+                	**default value**\: 10
                 
                 
 
@@ -6678,7 +6736,7 @@ class MplsLdp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                    return meta._meta_table['MplsLdp.Global.Discovery.TargetedHello']['meta_info']
+                    return meta._meta_table['MplsLdp.Global_.Discovery.TargetedHello']['meta_info']
 
             @property
             def _common_path(self):
@@ -6709,7 +6767,7 @@ class MplsLdp(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                return meta._meta_table['MplsLdp.Global.Discovery']['meta_info']
+                return meta._meta_table['MplsLdp.Global_.Discovery']['meta_info']
 
 
         class Mldp(object):
@@ -6719,22 +6777,22 @@ class MplsLdp(object):
             .. attribute:: default_vrf
             
             	Default VRF attribute configuration for mLDP
-            	**type**\:  :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.DefaultVrf>`
+            	**type**\:   :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.DefaultVrf>`
             
             .. attribute:: enable
             
             	Enable Multicast Label Distribution Protocol (mLDP)
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: mldp_global
             
             	Global configuration for mLDP
-            	**type**\:  :py:class:`MldpGlobal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.MldpGlobal>`
+            	**type**\:   :py:class:`MldpGlobal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.MldpGlobal>`
             
             .. attribute:: vrfs
             
             	VRF Table attribute configuration for MPLS LDP
-            	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.Vrfs>`
+            	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.Vrfs>`
             
             
 
@@ -6745,12 +6803,12 @@ class MplsLdp(object):
 
             def __init__(self):
                 self.parent = None
-                self.default_vrf = MplsLdp.Global.Mldp.DefaultVrf()
+                self.default_vrf = MplsLdp.Global_.Mldp.DefaultVrf()
                 self.default_vrf.parent = self
                 self.enable = None
-                self.mldp_global = MplsLdp.Global.Mldp.MldpGlobal()
+                self.mldp_global = MplsLdp.Global_.Mldp.MldpGlobal()
                 self.mldp_global.parent = self
-                self.vrfs = MplsLdp.Global.Mldp.Vrfs()
+                self.vrfs = MplsLdp.Global_.Mldp.Vrfs()
                 self.vrfs.parent = self
 
 
@@ -6761,7 +6819,7 @@ class MplsLdp(object):
                 .. attribute:: vrf
                 
                 	VRF attribute configuration for MPLS LDP
-                	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.Vrfs.Vrf>`
+                	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.Vrfs.Vrf>`
                 
                 
 
@@ -6791,7 +6849,7 @@ class MplsLdp(object):
                     .. attribute:: afs
                     
                     	Address Family specific operational data
-                    	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.Vrfs.Vrf.Afs>`
+                    	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs>`
                     
                     
 
@@ -6803,7 +6861,7 @@ class MplsLdp(object):
                     def __init__(self):
                         self.parent = None
                         self.vrf_name = None
-                        self.afs = MplsLdp.Global.Mldp.Vrfs.Vrf.Afs()
+                        self.afs = MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs()
                         self.afs.parent = self
 
 
@@ -6814,7 +6872,7 @@ class MplsLdp(object):
                         .. attribute:: af
                         
                         	Operational data for given Address Family
-                        	**type**\: list of  :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af>`
+                        	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af>`
                         
                         
 
@@ -6837,37 +6895,37 @@ class MplsLdp(object):
                             .. attribute:: af_name  <key>
                             
                             	Address Family name
-                            	**type**\:  :py:class:`MplsLdpafNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
+                            	**type**\:   :py:class:`MplsLdpafNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
                             
                             .. attribute:: csc
                             
                             	MPLS mLDP CSC
-                            	**type**\:  :py:class:`Csc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.Csc>`
+                            	**type**\:   :py:class:`Csc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.Csc>`
                             
                             .. attribute:: enable
                             
                             	Enable Multicast Label Distribution Protocol (mLDP) under AF
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: make_before_break
                             
                             	MPLS mLDP Make\-Before\-Break configuration
-                            	**type**\:  :py:class:`MakeBeforeBreak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak>`
+                            	**type**\:   :py:class:`MakeBeforeBreak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak>`
                             
                             .. attribute:: mldp_recursive_fec
                             
                             	MPLS mLDP Recursive FEC
-                            	**type**\:  :py:class:`MldpRecursiveFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec>`
+                            	**type**\:   :py:class:`MldpRecursiveFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec>`
                             
                             .. attribute:: mldp_rib_unicast_always
                             
                             	Enable MPLS MLDP RIB unicast\-always configuration
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: mo_frr
                             
                             	MPLS mLDP MoFRR
-                            	**type**\:  :py:class:`MoFrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr>`
+                            	**type**\:   :py:class:`MoFrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MoFrr>`
                             
                             
 
@@ -6879,15 +6937,15 @@ class MplsLdp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.af_name = None
-                                self.csc = MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.Csc()
+                                self.csc = MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.Csc()
                                 self.csc.parent = self
                                 self.enable = None
-                                self.make_before_break = MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak()
+                                self.make_before_break = MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak()
                                 self.make_before_break.parent = self
-                                self.mldp_recursive_fec = MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec()
+                                self.mldp_recursive_fec = MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec()
                                 self.mldp_recursive_fec.parent = self
                                 self.mldp_rib_unicast_always = None
-                                self.mo_frr = MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr()
+                                self.mo_frr = MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MoFrr()
                                 self.mo_frr.parent = self
 
 
@@ -6898,7 +6956,7 @@ class MplsLdp(object):
                                 .. attribute:: enable_mldp_recursive_fec
                                 
                                 	Enable MPLS mLDP Recursive FEC
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -6933,7 +6991,7 @@ class MplsLdp(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                                    return meta._meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec']['meta_info']
+                                    return meta._meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec']['meta_info']
 
 
                             class MoFrr(object):
@@ -6943,7 +7001,7 @@ class MplsLdp(object):
                                 .. attribute:: enable_mo_frr
                                 
                                 	Enable MPLS mLDP MoFRR
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -6978,7 +7036,7 @@ class MplsLdp(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                                    return meta._meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr']['meta_info']
+                                    return meta._meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MoFrr']['meta_info']
 
 
                             class MakeBeforeBreak(object):
@@ -6988,7 +7046,7 @@ class MplsLdp(object):
                                 .. attribute:: signaling
                                 
                                 	Enable MPLS mLDP MBB signaling
-                                	**type**\:  :py:class:`Signaling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling>`
+                                	**type**\:   :py:class:`Signaling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling>`
                                 
                                 
 
@@ -6999,7 +7057,7 @@ class MplsLdp(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.signaling = MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling()
+                                    self.signaling = MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling()
                                     self.signaling.parent = self
 
 
@@ -7014,12 +7072,16 @@ class MplsLdp(object):
                                     
                                     	**range:** 0..60
                                     
+                                    	**units**\: second
+                                    
                                     .. attribute:: forward_delay
                                     
                                     	Forwarding Delay in Seconds
                                     	**type**\:  int
                                     
                                     	**range:** 0..600
+                                    
+                                    	**units**\: second
                                     
                                     
 
@@ -7058,7 +7120,7 @@ class MplsLdp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                                        return meta._meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling']['meta_info']
+                                        return meta._meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -7082,7 +7144,7 @@ class MplsLdp(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                                    return meta._meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak']['meta_info']
+                                    return meta._meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak']['meta_info']
 
 
                             class Csc(object):
@@ -7092,7 +7154,7 @@ class MplsLdp(object):
                                 .. attribute:: enable_csc
                                 
                                 	Enable MPLS mLDP CSC
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -7127,7 +7189,7 @@ class MplsLdp(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                                    return meta._meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.Csc']['meta_info']
+                                    return meta._meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.Csc']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -7171,7 +7233,7 @@ class MplsLdp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                                return meta._meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af']['meta_info']
+                                return meta._meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -7197,7 +7259,7 @@ class MplsLdp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                            return meta._meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs']['meta_info']
+                            return meta._meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -7224,7 +7286,7 @@ class MplsLdp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                        return meta._meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf']['meta_info']
+                        return meta._meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -7248,7 +7310,7 @@ class MplsLdp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                    return meta._meta_table['MplsLdp.Global.Mldp.Vrfs']['meta_info']
+                    return meta._meta_table['MplsLdp.Global_.Mldp.Vrfs']['meta_info']
 
 
             class DefaultVrf(object):
@@ -7258,7 +7320,7 @@ class MplsLdp(object):
                 .. attribute:: afs
                 
                 	Address Family specific operational data
-                	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.DefaultVrf.Afs>`
+                	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.DefaultVrf.Afs>`
                 
                 
 
@@ -7269,7 +7331,7 @@ class MplsLdp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.afs = MplsLdp.Global.Mldp.DefaultVrf.Afs()
+                    self.afs = MplsLdp.Global_.Mldp.DefaultVrf.Afs()
                     self.afs.parent = self
 
 
@@ -7280,7 +7342,7 @@ class MplsLdp(object):
                     .. attribute:: af
                     
                     	Operational data for given Address Family
-                    	**type**\: list of  :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.DefaultVrf.Afs.Af>`
+                    	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af>`
                     
                     
 
@@ -7303,37 +7365,37 @@ class MplsLdp(object):
                         .. attribute:: af_name  <key>
                         
                         	Address Family name
-                        	**type**\:  :py:class:`MplsLdpafNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
+                        	**type**\:   :py:class:`MplsLdpafNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdpafNameEnum>`
                         
                         .. attribute:: csc
                         
                         	MPLS mLDP CSC
-                        	**type**\:  :py:class:`Csc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.Csc>`
+                        	**type**\:   :py:class:`Csc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.Csc>`
                         
                         .. attribute:: enable
                         
                         	Enable Multicast Label Distribution Protocol (mLDP) under AF
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: make_before_break
                         
                         	MPLS mLDP Make\-Before\-Break configuration
-                        	**type**\:  :py:class:`MakeBeforeBreak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak>`
+                        	**type**\:   :py:class:`MakeBeforeBreak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak>`
                         
                         .. attribute:: mldp_recursive_fec
                         
                         	MPLS mLDP Recursive FEC
-                        	**type**\:  :py:class:`MldpRecursiveFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec>`
+                        	**type**\:   :py:class:`MldpRecursiveFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec>`
                         
                         .. attribute:: mldp_rib_unicast_always
                         
                         	Enable MPLS MLDP RIB unicast\-always configuration
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: mo_frr
                         
                         	MPLS mLDP MoFRR
-                        	**type**\:  :py:class:`MoFrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr>`
+                        	**type**\:   :py:class:`MoFrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MoFrr>`
                         
                         
 
@@ -7345,15 +7407,15 @@ class MplsLdp(object):
                         def __init__(self):
                             self.parent = None
                             self.af_name = None
-                            self.csc = MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.Csc()
+                            self.csc = MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.Csc()
                             self.csc.parent = self
                             self.enable = None
-                            self.make_before_break = MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak()
+                            self.make_before_break = MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak()
                             self.make_before_break.parent = self
-                            self.mldp_recursive_fec = MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec()
+                            self.mldp_recursive_fec = MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec()
                             self.mldp_recursive_fec.parent = self
                             self.mldp_rib_unicast_always = None
-                            self.mo_frr = MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr()
+                            self.mo_frr = MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MoFrr()
                             self.mo_frr.parent = self
 
 
@@ -7364,7 +7426,7 @@ class MplsLdp(object):
                             .. attribute:: enable_mldp_recursive_fec
                             
                             	Enable MPLS mLDP Recursive FEC
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -7399,7 +7461,7 @@ class MplsLdp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                                return meta._meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec']['meta_info']
+                                return meta._meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec']['meta_info']
 
 
                         class MoFrr(object):
@@ -7409,7 +7471,7 @@ class MplsLdp(object):
                             .. attribute:: enable_mo_frr
                             
                             	Enable MPLS mLDP MoFRR
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -7444,7 +7506,7 @@ class MplsLdp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                                return meta._meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr']['meta_info']
+                                return meta._meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MoFrr']['meta_info']
 
 
                         class MakeBeforeBreak(object):
@@ -7454,7 +7516,7 @@ class MplsLdp(object):
                             .. attribute:: signaling
                             
                             	Enable MPLS mLDP MBB signaling
-                            	**type**\:  :py:class:`Signaling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling>`
+                            	**type**\:   :py:class:`Signaling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling>`
                             
                             
 
@@ -7465,7 +7527,7 @@ class MplsLdp(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.signaling = MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling()
+                                self.signaling = MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling()
                                 self.signaling.parent = self
 
 
@@ -7480,12 +7542,16 @@ class MplsLdp(object):
                                 
                                 	**range:** 0..60
                                 
+                                	**units**\: second
+                                
                                 .. attribute:: forward_delay
                                 
                                 	Forwarding Delay in Seconds
                                 	**type**\:  int
                                 
                                 	**range:** 0..600
+                                
+                                	**units**\: second
                                 
                                 
 
@@ -7524,7 +7590,7 @@ class MplsLdp(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                                    return meta._meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling']['meta_info']
+                                    return meta._meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -7548,7 +7614,7 @@ class MplsLdp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                                return meta._meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak']['meta_info']
+                                return meta._meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak']['meta_info']
 
 
                         class Csc(object):
@@ -7558,7 +7624,7 @@ class MplsLdp(object):
                             .. attribute:: enable_csc
                             
                             	Enable MPLS mLDP CSC
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -7593,7 +7659,7 @@ class MplsLdp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                                return meta._meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.Csc']['meta_info']
+                                return meta._meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.Csc']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -7635,7 +7701,7 @@ class MplsLdp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                            return meta._meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af']['meta_info']
+                            return meta._meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -7659,7 +7725,7 @@ class MplsLdp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                        return meta._meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs']['meta_info']
+                        return meta._meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -7681,7 +7747,7 @@ class MplsLdp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                    return meta._meta_table['MplsLdp.Global.Mldp.DefaultVrf']['meta_info']
+                    return meta._meta_table['MplsLdp.Global_.Mldp.DefaultVrf']['meta_info']
 
 
             class MldpGlobal(object):
@@ -7691,7 +7757,7 @@ class MplsLdp(object):
                 .. attribute:: logging
                 
                 	MPLS mLDP logging
-                	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global.Mldp.MldpGlobal.Logging>`
+                	**type**\:   :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.MldpGlobal.Logging>`
                 
                 
 
@@ -7702,7 +7768,7 @@ class MplsLdp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.logging = MplsLdp.Global.Mldp.MldpGlobal.Logging()
+                    self.logging = MplsLdp.Global_.Mldp.MldpGlobal.Logging()
                     self.logging.parent = self
 
 
@@ -7713,7 +7779,7 @@ class MplsLdp(object):
                     .. attribute:: notifications
                     
                     	MPLS mLDP logging notificataions
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -7746,7 +7812,7 @@ class MplsLdp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                        return meta._meta_table['MplsLdp.Global.Mldp.MldpGlobal.Logging']['meta_info']
+                        return meta._meta_table['MplsLdp.Global_.Mldp.MldpGlobal.Logging']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -7768,7 +7834,7 @@ class MplsLdp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                    return meta._meta_table['MplsLdp.Global.Mldp.MldpGlobal']['meta_info']
+                    return meta._meta_table['MplsLdp.Global_.Mldp.MldpGlobal']['meta_info']
 
             @property
             def _common_path(self):
@@ -7799,7 +7865,7 @@ class MplsLdp(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-                return meta._meta_table['MplsLdp.Global.Mldp']['meta_info']
+                return meta._meta_table['MplsLdp.Global_.Mldp']['meta_info']
 
         @property
         def _common_path(self):
@@ -7851,7 +7917,7 @@ class MplsLdp(object):
         @staticmethod
         def _meta_info():
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
-            return meta._meta_table['MplsLdp.Global']['meta_info']
+            return meta._meta_table['MplsLdp.Global_']['meta_info']
 
     @property
     def _common_path(self):

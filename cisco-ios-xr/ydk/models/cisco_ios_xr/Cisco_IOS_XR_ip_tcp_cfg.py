@@ -37,10 +37,14 @@ class IpTcp(object):
     
     	**range:** 1..1000
     
+    	**default value**\: 500
+    
     .. attribute:: directory
     
     	TCP directory details
-    	**type**\:  :py:class:`Directory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.IpTcp.Directory>`
+    	**type**\:   :py:class:`Directory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.IpTcp.Directory>`
+    
+    	**presence node**\: True
     
     .. attribute:: maximum_segment_size
     
@@ -52,7 +56,9 @@ class IpTcp(object):
     .. attribute:: num_thread
     
     	TCP InQueue and OutQueue threads
-    	**type**\:  :py:class:`NumThread <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.IpTcp.NumThread>`
+    	**type**\:   :py:class:`NumThread <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.IpTcp.NumThread>`
+    
+    	**presence node**\: True
     
     .. attribute:: path_mtu_discovery
     
@@ -60,6 +66,10 @@ class IpTcp(object):
     	**type**\:  int
     
     	**range:** \-2147483648..2147483647
+    
+    	**units**\: minute
+    
+    	**default value**\: 10
     
     .. attribute:: receive_q
     
@@ -71,7 +81,7 @@ class IpTcp(object):
     .. attribute:: selective_ack
     
     	Enable TCP selective\-ACK
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: syn_wait_time
     
@@ -80,15 +90,19 @@ class IpTcp(object):
     
     	**range:** 5..30
     
+    	**units**\: second
+    
     .. attribute:: throttle
     
     	Throttle TCP receive buffer (in percentage)
-    	**type**\:  :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.IpTcp.Throttle>`
+    	**type**\:   :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.IpTcp.Throttle>`
+    
+    	**presence node**\: True
     
     .. attribute:: timestamp
     
     	Enable TCP timestamp option
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: window_size
     
@@ -96,6 +110,8 @@ class IpTcp(object):
     	**type**\:  int
     
     	**range:** 2048..65535
+    
+    	**units**\: byte
     
     
 
@@ -146,6 +162,8 @@ class IpTcp(object):
         	**range:** 1024..4294967295
         
         	**mandatory**\: True
+        
+        	**units**\: byte
         
         .. attribute:: _is_presence
         
@@ -398,12 +416,12 @@ class Ip(object):
     .. attribute:: cinetd
     
     	Cinetd configuration data
-    	**type**\:  :py:class:`Cinetd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd>`
+    	**type**\:   :py:class:`Cinetd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd>`
     
     .. attribute:: forward_protocol
     
     	Controls forwarding of physical and directed IP broadcasts
-    	**type**\:  :py:class:`ForwardProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.ForwardProtocol>`
+    	**type**\:   :py:class:`ForwardProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.ForwardProtocol>`
     
     
 
@@ -426,7 +444,7 @@ class Ip(object):
         .. attribute:: services
         
         	Describing services of cinetd
-        	**type**\:  :py:class:`Services <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services>`
+        	**type**\:   :py:class:`Services <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services>`
         
         
 
@@ -448,17 +466,17 @@ class Ip(object):
             .. attribute:: ipv4
             
             	IPV4 related services
-            	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv4>`
+            	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv4>`
             
             .. attribute:: ipv6
             
             	IPV6 related services
-            	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv6>`
+            	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv6>`
             
             .. attribute:: vrfs
             
             	VRF table
-            	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs>`
+            	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs>`
             
             
 
@@ -484,7 +502,7 @@ class Ip(object):
                 .. attribute:: small_servers
                 
                 	Describing IPV4 and IPV6 small servers
-                	**type**\:  :py:class:`SmallServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv4.SmallServers>`
+                	**type**\:   :py:class:`SmallServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv4.SmallServers>`
                 
                 
 
@@ -506,12 +524,16 @@ class Ip(object):
                     .. attribute:: tcp_small_servers
                     
                     	Describing TCP related IPV4 and IPV6 small servers
-                    	**type**\:  :py:class:`TcpSmallServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv4.SmallServers.TcpSmallServers>`
+                    	**type**\:   :py:class:`TcpSmallServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv4.SmallServers.TcpSmallServers>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: udp_small_servers
                     
                     	UDP small servers configuration
-                    	**type**\:  :py:class:`UdpSmallServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv4.SmallServers.UdpSmallServers>`
+                    	**type**\:   :py:class:`UdpSmallServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv4.SmallServers.UdpSmallServers>`
+                    
+                    	**presence node**\: True
                     
                     
 
@@ -715,7 +737,7 @@ class Ip(object):
                 .. attribute:: vrf
                 
                 	VRF specific data
-                	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf>`
+                	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf>`
                 
                 
 
@@ -745,12 +767,12 @@ class Ip(object):
                     .. attribute:: ipv4
                     
                     	IPV4 related services
-                    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv4>`
+                    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv4>`
                     
                     .. attribute:: ipv6
                     
                     	IPV6 related services
-                    	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv6>`
+                    	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv6>`
                     
                     
 
@@ -775,12 +797,12 @@ class Ip(object):
                         .. attribute:: telnet
                         
                         	TELNET server configuration commands
-                        	**type**\:  :py:class:`Telnet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet>`
+                        	**type**\:   :py:class:`Telnet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet>`
                         
                         .. attribute:: tftp
                         
                         	TFTP server configuration commands
-                        	**type**\:  :py:class:`Tftp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp>`
+                        	**type**\:   :py:class:`Tftp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp>`
                         
                         
 
@@ -804,7 +826,9 @@ class Ip(object):
                             .. attribute:: tcp
                             
                             	TCP details
-                            	**type**\:  :py:class:`Tcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet.Tcp>`
+                            	**type**\:   :py:class:`Tcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet.Tcp>`
+                            
+                            	**presence node**\: True
                             
                             
 
@@ -917,7 +941,9 @@ class Ip(object):
                             .. attribute:: udp
                             
                             	UDP details
-                            	**type**\:  :py:class:`Udp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp.Udp>`
+                            	**type**\:   :py:class:`Udp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp.Udp>`
+                            
+                            	**presence node**\: True
                             
                             
 
@@ -1077,12 +1103,12 @@ class Ip(object):
                         .. attribute:: telnet
                         
                         	TELNET server configuration commands
-                        	**type**\:  :py:class:`Telnet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet>`
+                        	**type**\:   :py:class:`Telnet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet>`
                         
                         .. attribute:: tftp
                         
                         	TFTP server configuration commands
-                        	**type**\:  :py:class:`Tftp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp>`
+                        	**type**\:   :py:class:`Tftp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp>`
                         
                         
 
@@ -1106,7 +1132,9 @@ class Ip(object):
                             .. attribute:: tcp
                             
                             	TCP details
-                            	**type**\:  :py:class:`Tcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet.Tcp>`
+                            	**type**\:   :py:class:`Tcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet.Tcp>`
+                            
+                            	**presence node**\: True
                             
                             
 
@@ -1219,7 +1247,9 @@ class Ip(object):
                             .. attribute:: udp
                             
                             	UDP details
-                            	**type**\:  :py:class:`Udp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp.Udp>`
+                            	**type**\:   :py:class:`Udp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp.Udp>`
+                            
+                            	**presence node**\: True
                             
                             
 
@@ -1433,7 +1463,7 @@ class Ip(object):
                 .. attribute:: small_servers
                 
                 	Describing IPV4 and IPV6 small servers
-                	**type**\:  :py:class:`SmallServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv6.SmallServers>`
+                	**type**\:   :py:class:`SmallServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv6.SmallServers>`
                 
                 
 
@@ -1455,7 +1485,9 @@ class Ip(object):
                     .. attribute:: tcp_small_servers
                     
                     	Describing TCP related IPV4 and IPV6 small servers
-                    	**type**\:  :py:class:`TcpSmallServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv6.SmallServers.TcpSmallServers>`
+                    	**type**\:   :py:class:`TcpSmallServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.Cinetd.Services.Ipv6.SmallServers.TcpSmallServers>`
+                    
+                    	**presence node**\: True
                     
                     
 
@@ -1638,7 +1670,7 @@ class Ip(object):
         .. attribute:: udp
         
         	Packets to a specific UDP port
-        	**type**\:  :py:class:`Udp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.ForwardProtocol.Udp>`
+        	**type**\:   :py:class:`Udp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.ForwardProtocol.Udp>`
         
         
 
@@ -1660,12 +1692,12 @@ class Ip(object):
             .. attribute:: disable
             
             	Disable IP Forward Protocol UDP
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: ports
             
             	Port configuration
-            	**type**\:  :py:class:`Ports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.ForwardProtocol.Udp.Ports>`
+            	**type**\:   :py:class:`Ports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.ForwardProtocol.Udp.Ports>`
             
             
 
@@ -1688,7 +1720,7 @@ class Ip(object):
                 .. attribute:: port
                 
                 	Well\-known ports are enabled by default and non well\-known ports are disabled by default. It is not allowed to configure the default
-                	**type**\: list of  :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.ForwardProtocol.Udp.Ports.Port>`
+                	**type**\: list of    :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_cfg.Ip.ForwardProtocol.Udp.Ports.Port>`
                 
                 
 

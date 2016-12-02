@@ -30,19 +30,19 @@ class LldpL3AddrProtocolEnum(Enum):
 
     Lldp l3 addr protocol
 
-    .. data:: IPV4 = 0
+    .. data:: ipv4 = 0
 
     	IPv4
 
-    .. data:: IPV6 = 1
+    .. data:: ipv6 = 1
 
     	IPv6
 
     """
 
-    IPV4 = 0
+    ipv4 = 0
 
-    IPV6 = 1
+    ipv6 = 1
 
 
     @staticmethod
@@ -59,18 +59,217 @@ class LldpSnoopData(object):
     .. attribute:: ethernet_controller_names
     
     	Ethernet controller snoop data
-    	**type**\:  :py:class:`EthernetControllerNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.EthernetControllerNames>`
+    	**type**\:   :py:class:`EthernetControllerNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.EthernetControllerNames>`
+    
+    .. attribute:: lldp_neighbor_brief
+    
+    	NCS1K LLDP Neighbor brief info
+    	**type**\:   :py:class:`LldpNeighborBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.LldpNeighborBrief>`
     
     
 
     """
 
     _prefix = 'ncs1k-mxp-lldp-oper'
-    _revision = '2016-04-05'
+    _revision = '2016-10-13'
 
     def __init__(self):
         self.ethernet_controller_names = LldpSnoopData.EthernetControllerNames()
         self.ethernet_controller_names.parent = self
+        self.lldp_neighbor_brief = LldpSnoopData.LldpNeighborBrief()
+        self.lldp_neighbor_brief.parent = self
+
+
+    class LldpNeighborBrief(object):
+        """
+        NCS1K LLDP Neighbor brief info
+        
+        .. attribute:: neighbours
+        
+        	List of LLDP neighbors
+        	**type**\:   :py:class:`Neighbours <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.LldpNeighborBrief.Neighbours>`
+        
+        .. attribute:: number_of_entries
+        
+        	Number of active neighbors entries
+        	**type**\:  int
+        
+        	**range:** 0..65535
+        
+        
+
+        """
+
+        _prefix = 'ncs1k-mxp-lldp-oper'
+        _revision = '2016-10-13'
+
+        def __init__(self):
+            self.parent = None
+            self.neighbours = LldpSnoopData.LldpNeighborBrief.Neighbours()
+            self.neighbours.parent = self
+            self.number_of_entries = None
+
+
+        class Neighbours(object):
+            """
+            List of LLDP neighbors
+            
+            .. attribute:: lldp_neighbor_brief_entry
+            
+            	lldp neighbor brief entry
+            	**type**\: list of    :py:class:`LldpNeighborBriefEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.LldpNeighborBrief.Neighbours.LldpNeighborBriefEntry>`
+            
+            
+
+            """
+
+            _prefix = 'ncs1k-mxp-lldp-oper'
+            _revision = '2016-10-13'
+
+            def __init__(self):
+                self.parent = None
+                self.lldp_neighbor_brief_entry = YList()
+                self.lldp_neighbor_brief_entry.parent = self
+                self.lldp_neighbor_brief_entry.name = 'lldp_neighbor_brief_entry'
+
+
+            class LldpNeighborBriefEntry(object):
+                """
+                lldp neighbor brief entry
+                
+                .. attribute:: chassis_id
+                
+                	Chassis id
+                	**type**\:  str
+                
+                .. attribute:: enabled_capabilities
+                
+                	Enabled Capabilities
+                	**type**\:  str
+                
+                .. attribute:: hold_time
+                
+                	Remaining hold time
+                	**type**\:  int
+                
+                	**range:** 0..65535
+                
+                .. attribute:: port_id_detail
+                
+                	Outgoing port identifier
+                	**type**\:  str
+                
+                .. attribute:: recv_intf
+                
+                	Receive Interface
+                	**type**\:  str
+                
+                .. attribute:: system_name
+                
+                	System Name
+                	**type**\:  str
+                
+                
+
+                """
+
+                _prefix = 'ncs1k-mxp-lldp-oper'
+                _revision = '2016-10-13'
+
+                def __init__(self):
+                    self.parent = None
+                    self.chassis_id = None
+                    self.enabled_capabilities = None
+                    self.hold_time = None
+                    self.port_id_detail = None
+                    self.recv_intf = None
+                    self.system_name = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-ncs1k-mxp-lldp-oper:lldp-snoop-data/Cisco-IOS-XR-ncs1k-mxp-lldp-oper:lldp-neighbor-brief/Cisco-IOS-XR-ncs1k-mxp-lldp-oper:neighbours/Cisco-IOS-XR-ncs1k-mxp-lldp-oper:lldp-neighbor-brief-entry'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.chassis_id is not None:
+                        return True
+
+                    if self.enabled_capabilities is not None:
+                        return True
+
+                    if self.hold_time is not None:
+                        return True
+
+                    if self.port_id_detail is not None:
+                        return True
+
+                    if self.recv_intf is not None:
+                        return True
+
+                    if self.system_name is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_mxp_lldp_oper as meta
+                    return meta._meta_table['LldpSnoopData.LldpNeighborBrief.Neighbours.LldpNeighborBriefEntry']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-ncs1k-mxp-lldp-oper:lldp-snoop-data/Cisco-IOS-XR-ncs1k-mxp-lldp-oper:lldp-neighbor-brief/Cisco-IOS-XR-ncs1k-mxp-lldp-oper:neighbours'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.lldp_neighbor_brief_entry is not None:
+                    for child_ref in self.lldp_neighbor_brief_entry:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_mxp_lldp_oper as meta
+                return meta._meta_table['LldpSnoopData.LldpNeighborBrief.Neighbours']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-ncs1k-mxp-lldp-oper:lldp-snoop-data/Cisco-IOS-XR-ncs1k-mxp-lldp-oper:lldp-neighbor-brief'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.neighbours is not None and self.neighbours._has_data():
+                return True
+
+            if self.number_of_entries is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_mxp_lldp_oper as meta
+            return meta._meta_table['LldpSnoopData.LldpNeighborBrief']['meta_info']
 
 
     class EthernetControllerNames(object):
@@ -80,14 +279,14 @@ class LldpSnoopData(object):
         .. attribute:: ethernet_controller_name
         
         	port Name
-        	**type**\: list of  :py:class:`EthernetControllerName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.EthernetControllerNames.EthernetControllerName>`
+        	**type**\: list of    :py:class:`EthernetControllerName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.EthernetControllerNames.EthernetControllerName>`
         
         
 
         """
 
         _prefix = 'ncs1k-mxp-lldp-oper'
-        _revision = '2016-04-05'
+        _revision = '2016-10-13'
 
         def __init__(self):
             self.parent = None
@@ -112,6 +311,11 @@ class LldpSnoopData(object):
             	Chassis id
             	**type**\:  str
             
+            .. attribute:: drop_enabled
+            
+            	LLDP Packet Drop Enabled
+            	**type**\:  bool
+            
             .. attribute:: enabled_capabilities
             
             	Enabled Capabilities
@@ -134,7 +338,7 @@ class LldpSnoopData(object):
             .. attribute:: network_address
             
             	Management Address
-            	**type**\:  :py:class:`NetworkAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress>`
+            	**type**\:   :py:class:`NetworkAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress>`
             
             .. attribute:: port_description
             
@@ -152,6 +356,13 @@ class LldpSnoopData(object):
             
             	Outgoing port identifier
             	**type**\:  str
+            
+            .. attribute:: rx_lldp_pkts
+            
+            	Received LLDP Packets count
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
             
             .. attribute:: source_mac
             
@@ -178,12 +389,13 @@ class LldpSnoopData(object):
             """
 
             _prefix = 'ncs1k-mxp-lldp-oper'
-            _revision = '2016-04-05'
+            _revision = '2016-10-13'
 
             def __init__(self):
                 self.parent = None
                 self.name = None
                 self.chassis_id = None
+                self.drop_enabled = None
                 self.enabled_capabilities = None
                 self.hold_time = None
                 self.lldp_neighbor = None
@@ -192,6 +404,7 @@ class LldpSnoopData(object):
                 self.port_description = None
                 self.port_id_ckt = None
                 self.port_id_detail = None
+                self.rx_lldp_pkts = None
                 self.source_mac = None
                 self.system_capabilities = None
                 self.system_description = None
@@ -205,7 +418,7 @@ class LldpSnoopData(object):
                 .. attribute:: address
                 
                 	Network layer address
-                	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress.Address>`
+                	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress.Address>`
                 
                 .. attribute:: if_num
                 
@@ -226,7 +439,7 @@ class LldpSnoopData(object):
                 """
 
                 _prefix = 'ncs1k-mxp-lldp-oper'
-                _revision = '2016-04-05'
+                _revision = '2016-10-13'
 
                 def __init__(self):
                     self.parent = None
@@ -243,7 +456,7 @@ class LldpSnoopData(object):
                     .. attribute:: address_type
                     
                     	AddressType
-                    	**type**\:  :py:class:`LldpL3AddrProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpL3AddrProtocolEnum>`
+                    	**type**\:   :py:class:`LldpL3AddrProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpL3AddrProtocolEnum>`
                     
                     .. attribute:: ipv4_address
                     
@@ -264,7 +477,7 @@ class LldpSnoopData(object):
                     """
 
                     _prefix = 'ncs1k-mxp-lldp-oper'
-                    _revision = '2016-04-05'
+                    _revision = '2016-10-13'
 
                     def __init__(self):
                         self.parent = None
@@ -352,6 +565,9 @@ class LldpSnoopData(object):
                 if self.chassis_id is not None:
                     return True
 
+                if self.drop_enabled is not None:
+                    return True
+
                 if self.enabled_capabilities is not None:
                     return True
 
@@ -371,6 +587,9 @@ class LldpSnoopData(object):
                     return True
 
                 if self.port_id_detail is not None:
+                    return True
+
+                if self.rx_lldp_pkts is not None:
                     return True
 
                 if self.source_mac is not None:
@@ -429,6 +648,9 @@ class LldpSnoopData(object):
         if not self.is_config():
             return False
         if self.ethernet_controller_names is not None and self.ethernet_controller_names._has_data():
+            return True
+
+        if self.lldp_neighbor_brief is not None and self.lldp_neighbor_brief._has_data():
             return True
 
         return False

@@ -30,79 +30,79 @@ class ClockMonthEnum(Enum):
 
     Clock month
 
-    .. data:: JANUARY = 0
+    .. data:: january = 0
 
     	January
 
-    .. data:: FEBRUARY = 1
+    .. data:: february = 1
 
     	February
 
-    .. data:: MARCH = 2
+    .. data:: march = 2
 
     	March
 
-    .. data:: APRIL = 3
+    .. data:: april = 3
 
     	April
 
-    .. data:: MAY = 4
+    .. data:: may = 4
 
     	May
 
-    .. data:: JUNE = 5
+    .. data:: june = 5
 
     	June
 
-    .. data:: JULY = 6
+    .. data:: july = 6
 
     	July
 
-    .. data:: AUGUST = 7
+    .. data:: august = 7
 
     	August
 
-    .. data:: SEPTEMBER = 8
+    .. data:: september = 8
 
     	September
 
-    .. data:: OCTOBER = 9
+    .. data:: october = 9
 
     	October
 
-    .. data:: NOVEMBER = 10
+    .. data:: november = 10
 
     	November
 
-    .. data:: DECEMBER = 11
+    .. data:: december = 11
 
     	December
 
     """
 
-    JANUARY = 0
+    january = 0
 
-    FEBRUARY = 1
+    february = 1
 
-    MARCH = 2
+    march = 2
 
-    APRIL = 3
+    april = 3
 
-    MAY = 4
+    may = 4
 
-    JUNE = 5
+    june = 5
 
-    JULY = 6
+    july = 6
 
-    AUGUST = 7
+    august = 7
 
-    SEPTEMBER = 8
+    september = 8
 
-    OCTOBER = 9
+    october = 9
 
-    NOVEMBER = 10
+    november = 10
 
-    DECEMBER = 11
+    december = 11
 
 
     @staticmethod
@@ -117,19 +117,19 @@ class ClockSummerTimeModeEnum(Enum):
 
     Clock summer time mode
 
-    .. data:: RECURRING = 0
+    .. data:: recurring = 0
 
     	Recurring summer time
 
-    .. data:: DATE = 1
+    .. data:: date = 1
 
     	Absolute summer time
 
     """
 
-    RECURRING = 0
+    recurring = 0
 
-    DATE = 1
+    date = 1
 
 
     @staticmethod
@@ -146,12 +146,16 @@ class Clock(object):
     .. attribute:: summer_time
     
     	Configure summer (daylight savings) time
-    	**type**\:  :py:class:`SummerTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.Clock.SummerTime>`
+    	**type**\:   :py:class:`SummerTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.Clock.SummerTime>`
+    
+    	**presence node**\: True
     
     .. attribute:: time_zone
     
     	Configure time zone
-    	**type**\:  :py:class:`TimeZone <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.Clock.TimeZone>`
+    	**type**\:   :py:class:`TimeZone <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.Clock.TimeZone>`
+    
+    	**presence node**\: True
     
     
 
@@ -186,7 +190,7 @@ class Clock(object):
         .. attribute:: end_month
         
         	 Month to end 
-        	**type**\:  :py:class:`ClockMonthEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.ClockMonthEnum>`
+        	**type**\:   :py:class:`ClockMonthEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.ClockMonthEnum>`
         
         .. attribute:: end_week_number_or_end_date
         
@@ -205,7 +209,7 @@ class Clock(object):
         .. attribute:: mode
         
         	Summer time mode
-        	**type**\:  :py:class:`ClockSummerTimeModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.ClockSummerTimeModeEnum>`
+        	**type**\:   :py:class:`ClockSummerTimeModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.ClockSummerTimeModeEnum>`
         
         	**mandatory**\: True
         
@@ -215,6 +219,8 @@ class Clock(object):
         	**type**\:  int
         
         	**range:** 1..1440
+        
+        	**units**\: minute
         
         .. attribute:: start_hour
         
@@ -233,7 +239,7 @@ class Clock(object):
         .. attribute:: start_month
         
         	 Month to start 
-        	**type**\:  :py:class:`ClockMonthEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.ClockMonthEnum>`
+        	**type**\:   :py:class:`ClockMonthEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.ClockMonthEnum>`
         
         .. attribute:: start_week_number_or_start_date
         
@@ -361,12 +367,18 @@ class Clock(object):
         
         	**mandatory**\: True
         
+        	**units**\: hour
+        
         .. attribute:: minute_offset
         
         	Minutes offset from UTC
         	**type**\:  int
         
         	**range:** 0..59
+        
+        	**units**\: minute
+        
+        	**default value**\: 0
         
         .. attribute:: time_zone_name
         

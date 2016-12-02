@@ -26,151 +26,151 @@ class BgpAddressFamilyEnum(Enum):
 
     Bgp address family
 
-    .. data:: IPV4_UNICAST = 0
+    .. data:: ipv4_unicast = 0
 
     	IPv4 unicast
 
-    .. data:: IPV4_MULTICAST = 1
+    .. data:: ipv4_multicast = 1
 
     	IPv4 multicast
 
-    .. data:: IPV4_LABELED_UNICAST = 2
+    .. data:: ipv4_labeled_unicast = 2
 
     	IPv4 labeled-unicast
 
-    .. data:: IPV4_TUNNEL = 3
+    .. data:: ipv4_tunnel = 3
 
     	IPv4 tunnel
 
-    .. data:: VP_NV4_UNICAST = 4
+    .. data:: vp_nv4_unicast = 4
 
     	VPNv4 unicast
 
-    .. data:: IPV6_UNICAST = 5
+    .. data:: ipv6_unicast = 5
 
     	IPv6 unicast
 
-    .. data:: IPV6_MULTICAST = 6
+    .. data:: ipv6_multicast = 6
 
     	IPv6 multicast
 
-    .. data:: IPV6_LABELED_UNICAST = 7
+    .. data:: ipv6_labeled_unicast = 7
 
     	IPv6 labeled-unicast
 
-    .. data:: VP_NV6_UNICAST = 8
+    .. data:: vp_nv6_unicast = 8
 
     	VPNv6 unicast
 
-    .. data:: IPV4MDT = 9
+    .. data:: ipv4mdt = 9
 
     	IPv4 MDT
 
-    .. data:: L2VPNVPLS = 10
+    .. data:: l2vpnvpls = 10
 
     	L2VPN VPLS-VPWS
 
-    .. data:: IPV4RT_CONSTRAINT = 11
+    .. data:: ipv4rt_constraint = 11
 
     	IPv4 rt-filter
 
-    .. data:: IPV4MVPN = 12
+    .. data:: ipv4mvpn = 12
 
     	IPv4 MVPN
 
-    .. data:: IPV6MVPN = 13
+    .. data:: ipv6mvpn = 13
 
     	IPv6 MVPN
 
-    .. data:: L2VPNEVPN = 14
+    .. data:: l2vpnevpn = 14
 
     	L2VPN EVPN
 
-    .. data:: LSLS = 15
+    .. data:: lsls = 15
 
     	Link-state link-state
 
-    .. data:: VP_NV4_MULTICAST = 16
+    .. data:: vp_nv4_multicast = 16
 
     	VPNv4 Multicast
 
-    .. data:: VP_NV6_MULTICAST = 17
+    .. data:: vp_nv6_multicast = 17
 
     	VPNv6 Multicast
 
-    .. data:: IPV4_FLOWSPEC = 18
+    .. data:: ipv4_flowspec = 18
 
     	IPv4 flowspec
 
-    .. data:: IPV6_FLOWSPEC = 19
+    .. data:: ipv6_flowspec = 19
 
     	IPv6 flowspec
 
-    .. data:: VP_NV4_FLOWSPEC = 20
+    .. data:: vp_nv4_flowspec = 20
 
     	VPNv4 flowspec
 
-    .. data:: VP_NV6_FLOWSPEC = 21
+    .. data:: vp_nv6_flowspec = 21
 
     	VPNv6 flowspec
 
-    .. data:: L2VPNMSPW = 22
+    .. data:: l2vpnmspw = 22
 
     	L2VPN MSPW
 
-    .. data:: ALL_ADDRESS_FAMILY = 23
+    .. data:: all_address_family = 23
 
     	All Address Families
 
     """
 
-    IPV4_UNICAST = 0
+    ipv4_unicast = 0
 
-    IPV4_MULTICAST = 1
+    ipv4_multicast = 1
 
-    IPV4_LABELED_UNICAST = 2
+    ipv4_labeled_unicast = 2
 
-    IPV4_TUNNEL = 3
+    ipv4_tunnel = 3
 
-    VP_NV4_UNICAST = 4
+    vp_nv4_unicast = 4
 
-    IPV6_UNICAST = 5
+    ipv6_unicast = 5
 
-    IPV6_MULTICAST = 6
+    ipv6_multicast = 6
 
-    IPV6_LABELED_UNICAST = 7
+    ipv6_labeled_unicast = 7
 
-    VP_NV6_UNICAST = 8
+    vp_nv6_unicast = 8
 
-    IPV4MDT = 9
+    ipv4mdt = 9
 
-    L2VPNVPLS = 10
+    l2vpnvpls = 10
 
-    IPV4RT_CONSTRAINT = 11
+    ipv4rt_constraint = 11
 
-    IPV4MVPN = 12
+    ipv4mvpn = 12
 
-    IPV6MVPN = 13
+    ipv6mvpn = 13
 
-    L2VPNEVPN = 14
+    l2vpnevpn = 14
 
-    LSLS = 15
+    lsls = 15
 
-    VP_NV4_MULTICAST = 16
+    vp_nv4_multicast = 16
 
-    VP_NV6_MULTICAST = 17
+    vp_nv6_multicast = 17
 
-    IPV4_FLOWSPEC = 18
+    ipv4_flowspec = 18
 
-    IPV6_FLOWSPEC = 19
+    ipv6_flowspec = 19
 
-    VP_NV4_FLOWSPEC = 20
+    vp_nv4_flowspec = 20
 
-    VP_NV6_FLOWSPEC = 21
+    vp_nv6_flowspec = 21
 
-    L2VPNMSPW = 22
+    l2vpnmspw = 22
 
-    ALL_ADDRESS_FAMILY = 23
+    all_address_family = 23
 
 
     @staticmethod
@@ -185,19 +185,19 @@ class BgpNbrCapAdditionalPathsCfgEnum(Enum):
 
     Bgp nbr cap additional paths cfg
 
-    .. data:: ENABLE = 1
+    .. data:: enable = 1
 
     	Enable
 
-    .. data:: DISABLE = 2
+    .. data:: disable = 2
 
     	Disable
 
     """
 
-    ENABLE = 1
+    enable = 1
 
-    DISABLE = 2
+    disable = 2
 
 
     @staticmethod
@@ -212,37 +212,37 @@ class BgpOfficialAddressFamilyEnum(Enum):
 
     Bgp official address family
 
-    .. data:: IPV4 = 1
+    .. data:: ipv4 = 1
 
     	IPv4
 
-    .. data:: IPV6 = 2
+    .. data:: ipv6 = 2
 
     	IPv6
 
-    .. data:: L2VPN = 25
+    .. data:: l2vpn = 25
 
     	L2VPN
 
-    .. data:: LS = 16388
+    .. data:: ls = 16388
 
     	LS
 
-    .. data:: ALL = 65534
+    .. data:: all = 65534
 
     	All
 
     """
 
-    IPV4 = 1
+    ipv4 = 1
 
-    IPV6 = 2
+    ipv6 = 2
 
-    L2VPN = 25
+    l2vpn = 25
 
-    LS = 16388
+    ls = 16388
 
-    ALL = 65534
+    all = 65534
 
 
     @staticmethod
@@ -257,175 +257,175 @@ class BgpPrecedenceDscpEnum(Enum):
 
     Bgp precedence dscp
 
-    .. data:: AF11 = 10
+    .. data:: af11 = 10
 
     	AF11 dscp (001010)
 
-    .. data:: AF12 = 12
+    .. data:: af12 = 12
 
     	AF12 dscp (001100)
 
-    .. data:: AF13 = 14
+    .. data:: af13 = 14
 
     	AF13 dscp (001110)
 
-    .. data:: AF21 = 18
+    .. data:: af21 = 18
 
     	AF21 dscp (010010)
 
-    .. data:: AF22 = 20
+    .. data:: af22 = 20
 
     	AF22 dscp (010100)
 
-    .. data:: AF23 = 22
+    .. data:: af23 = 22
 
     	AF23 dscp (010110)
 
-    .. data:: AF31 = 26
+    .. data:: af31 = 26
 
     	AF31 dscp (011010)
 
-    .. data:: AF32 = 28
+    .. data:: af32 = 28
 
     	AF32 dscp (011100)
 
-    .. data:: AF33 = 30
+    .. data:: af33 = 30
 
     	AF33 dscp (011110)
 
-    .. data:: AF41 = 34
+    .. data:: af41 = 34
 
     	AF41 dscp (100010)
 
-    .. data:: AF42 = 36
+    .. data:: af42 = 36
 
     	AF42 dscp (100100)
 
-    .. data:: AF43 = 38
+    .. data:: af43 = 38
 
     	AF43 dscp (100110)
 
-    .. data:: CS1 = 8
+    .. data:: cs1 = 8
 
     	CS1 dscp (001000)
 
-    .. data:: CS2 = 16
+    .. data:: cs2 = 16
 
     	CS2 dscp (010000)
 
-    .. data:: CS3 = 24
+    .. data:: cs3 = 24
 
     	CS3 dscp (011000)
 
-    .. data:: CS4 = 32
+    .. data:: cs4 = 32
 
     	CS4 dscp (100000)
 
-    .. data:: CS5 = 40
+    .. data:: cs5 = 40
 
     	CS5 dscp (101000)
 
-    .. data:: CS6 = 48
+    .. data:: cs6 = 48
 
     	CS6 dscp (110000)
 
-    .. data:: CS7 = 56
+    .. data:: cs7 = 56
 
     	CS7 dscp (111000)
 
-    .. data:: EF = 46
+    .. data:: ef = 46
 
     	EF dscp (101110)
 
-    .. data:: CRITICAL = 5
+    .. data:: critical = 5
 
     	critical precedence (5)
 
-    .. data:: FLASH = 3
+    .. data:: flash = 3
 
     	flash precedence (3)
 
-    .. data:: FLASH_OVERRIDE = 4
+    .. data:: flash_override = 4
 
     	flash override precedence (4)
 
-    .. data:: IMMEDIATE = 2
+    .. data:: immediate = 2
 
     	immediate precedence (2)
 
-    .. data:: INTERNET = 6
+    .. data:: internet = 6
 
     	internetwork control precedence (6)
 
-    .. data:: NETWORK = 7
+    .. data:: network = 7
 
     	network control precedence (7)
 
-    .. data:: PRIORITY = 1
+    .. data:: priority = 1
 
     	priority precedence (1)
 
-    .. data:: DEFAULT_OR_ROUTINE = 0
+    .. data:: default_or_routine = 0
 
     	default dscp or routine precedence (0)
 
     """
 
-    AF11 = 10
+    af11 = 10
 
-    AF12 = 12
+    af12 = 12
 
-    AF13 = 14
+    af13 = 14
 
-    AF21 = 18
+    af21 = 18
 
-    AF22 = 20
+    af22 = 20
 
-    AF23 = 22
+    af23 = 22
 
-    AF31 = 26
+    af31 = 26
 
-    AF32 = 28
+    af32 = 28
 
-    AF33 = 30
+    af33 = 30
 
-    AF41 = 34
+    af41 = 34
 
-    AF42 = 36
+    af42 = 36
 
-    AF43 = 38
+    af43 = 38
 
-    CS1 = 8
+    cs1 = 8
 
-    CS2 = 16
+    cs2 = 16
 
-    CS3 = 24
+    cs3 = 24
 
-    CS4 = 32
+    cs4 = 32
 
-    CS5 = 40
+    cs5 = 40
 
-    CS6 = 48
+    cs6 = 48
 
-    CS7 = 56
+    cs7 = 56
 
-    EF = 46
+    ef = 46
 
-    CRITICAL = 5
+    critical = 5
 
-    FLASH = 3
+    flash = 3
 
-    FLASH_OVERRIDE = 4
+    flash_override = 4
 
-    IMMEDIATE = 2
+    immediate = 2
 
-    INTERNET = 6
+    internet = 6
 
-    NETWORK = 7
+    network = 7
 
-    PRIORITY = 1
+    priority = 1
 
-    DEFAULT_OR_ROUTINE = 0
+    default_or_routine = 0
 
 
     @staticmethod
@@ -440,109 +440,109 @@ class BgpSubsequentAddressFamilyEnum(Enum):
 
     Bgp subsequent address family
 
-    .. data:: UNICAST = 1
+    .. data:: unicast = 1
 
     	Unicast
 
-    .. data:: MULTICAST = 2
+    .. data:: multicast = 2
 
     	Multicast
 
-    .. data:: LABELED_UNICAST = 4
+    .. data:: labeled_unicast = 4
 
     	Labeled unicast
 
-    .. data:: MVPN = 5
+    .. data:: mvpn = 5
 
     	MVPN
 
-    .. data:: MSPW = 6
+    .. data:: mspw = 6
 
     	MSPW
 
-    .. data:: TUNNEL = 64
+    .. data:: tunnel = 64
 
     	Tunnel
 
-    .. data:: VPLS = 65
+    .. data:: vpls = 65
 
     	VPLS
 
-    .. data:: MDT = 66
+    .. data:: mdt = 66
 
     	MDT
 
-    .. data:: VPWS = 68
+    .. data:: vpws = 68
 
     	VPWS
 
-    .. data:: EVPN = 70
+    .. data:: evpn = 70
 
     	EVPN
 
-    .. data:: LS = 71
+    .. data:: ls = 71
 
     	LS
 
-    .. data:: VPN = 128
+    .. data:: vpn = 128
 
     	VPN
 
-    .. data:: VPN_MCAST = 129
+    .. data:: vpn_mcast = 129
 
     	VPN MCAST
 
-    .. data:: RT_FILTER = 132
+    .. data:: rt_filter = 132
 
     	Rt filter
 
-    .. data:: FLOWSPEC = 133
+    .. data:: flowspec = 133
 
     	Flowspec
 
-    .. data:: VPN_FLOWSPEC = 134
+    .. data:: vpn_flowspec = 134
 
     	VPN Flowspec
 
-    .. data:: ALL = 254
+    .. data:: all = 254
 
     	All
 
     """
 
-    UNICAST = 1
+    unicast = 1
 
-    MULTICAST = 2
+    multicast = 2
 
-    LABELED_UNICAST = 4
+    labeled_unicast = 4
 
-    MVPN = 5
+    mvpn = 5
 
-    MSPW = 6
+    mspw = 6
 
-    TUNNEL = 64
+    tunnel = 64
 
-    VPLS = 65
+    vpls = 65
 
-    MDT = 66
+    mdt = 66
 
-    VPWS = 68
+    vpws = 68
 
-    EVPN = 70
+    evpn = 70
 
-    LS = 71
+    ls = 71
 
-    VPN = 128
+    vpn = 128
 
-    VPN_MCAST = 129
+    vpn_mcast = 129
 
-    RT_FILTER = 132
+    rt_filter = 132
 
-    FLOWSPEC = 133
+    flowspec = 133
 
-    VPN_FLOWSPEC = 134
+    vpn_flowspec = 134
 
-    ALL = 254
+    all = 254
 
 
     @staticmethod
@@ -557,19 +557,19 @@ class BgpTosEnum(Enum):
 
     Bgp tos
 
-    .. data:: PRECEDENCE = 0
+    .. data:: precedence = 0
 
     	Precedence
 
-    .. data:: DSCP = 1
+    .. data:: dscp = 1
 
     	DSCP
 
     """
 
-    PRECEDENCE = 0
+    precedence = 0
 
-    DSCP = 1
+    dscp = 1
 
 
     @staticmethod
@@ -584,19 +584,19 @@ class BgpUpdateFilterActionEnum(Enum):
 
     Bgp update filter action
 
-    .. data:: TREAT_AS_WITHDRAW = 1
+    .. data:: treat_as_withdraw = 1
 
     	Treat as withdraw
 
-    .. data:: DISCARD_ATTIBUTE = 2
+    .. data:: discard_attibute = 2
 
     	Discard attribute
 
     """
 
-    TREAT_AS_WITHDRAW = 1
+    treat_as_withdraw = 1
 
-    DISCARD_ATTIBUTE = 2
+    discard_attibute = 2
 
 
     @staticmethod
@@ -611,19 +611,19 @@ class BgpafAdditionalPathsCfgEnum(Enum):
 
     Bgpaf additional paths cfg
 
-    .. data:: ENABLE = 1
+    .. data:: enable = 1
 
     	Enable
 
-    .. data:: DISABLE = 2
+    .. data:: disable = 2
 
     	Disable
 
     """
 
-    ENABLE = 1
+    enable = 1
 
-    DISABLE = 2
+    disable = 2
 
 
     @staticmethod

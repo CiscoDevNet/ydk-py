@@ -30,19 +30,19 @@ class SourcePolicyEnum(Enum):
 
     Source policy
 
-    .. data:: VRF = 1
+    .. data:: vrf = 1
 
     	Set Source Selection Policy to vrf
 
-    .. data:: RFC = 2
+    .. data:: rfc = 2
 
     	Set Source Selection Policy to rfc
 
     """
 
-    VRF = 1
+    vrf = 1
 
-    RFC = 2
+    rfc = 2
 
 
     @staticmethod
@@ -59,7 +59,7 @@ class Icmp(object):
     .. attribute:: ip_protocol
     
     	IP Protocol Type
-    	**type**\: list of  :py:class:`IpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.IpProtocol>`
+    	**type**\: list of    :py:class:`IpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.IpProtocol>`
     
     
 
@@ -88,12 +88,12 @@ class Icmp(object):
         .. attribute:: rate_limit
         
         	Set ratelimit of ICMP packets
-        	**type**\:  :py:class:`RateLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.IpProtocol.RateLimit>`
+        	**type**\:   :py:class:`RateLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.IpProtocol.RateLimit>`
         
         .. attribute:: source
         
         	IP ICMP Source Address Selection Policy
-        	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.IpProtocol.Source>`
+        	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.IpProtocol.Source>`
         
         
 
@@ -118,7 +118,7 @@ class Icmp(object):
             .. attribute:: unreachable
             
             	Set unreachable ICMP packets ratelimit
-            	**type**\:  :py:class:`Unreachable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.IpProtocol.RateLimit.Unreachable>`
+            	**type**\:   :py:class:`Unreachable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.IpProtocol.RateLimit.Unreachable>`
             
             
 
@@ -222,7 +222,7 @@ class Icmp(object):
             .. attribute:: source_address_policy
             
             	Configure Source Address Policy
-            	**type**\:  :py:class:`SourcePolicyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.SourcePolicyEnum>`
+            	**type**\:   :py:class:`SourcePolicyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.SourcePolicyEnum>`
             
             
 

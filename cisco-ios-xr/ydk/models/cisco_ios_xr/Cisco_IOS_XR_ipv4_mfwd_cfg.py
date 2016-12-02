@@ -30,19 +30,19 @@ class AccountingModeEnum(Enum):
 
     Accounting mode
 
-    .. data:: ENABLE = 0
+    .. data:: enable = 0
 
     	Enable per (S,G) accounting
 
-    .. data:: FORWARD_ONLY_ENABLE = 1
+    .. data:: forward_only_enable = 1
 
     	Enable per (S,G) forward-only accounting
 
     """
 
-    ENABLE = 0
+    enable = 0
 
-    FORWARD_ONLY_ENABLE = 1
+    forward_only_enable = 1
 
 
     @staticmethod
@@ -59,12 +59,14 @@ class Mfwd(object):
     .. attribute:: default_context
     
     	Default Context
-    	**type**\:  :py:class:`DefaultContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext>`
+    	**type**\:   :py:class:`DefaultContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext>`
+    
+    	**presence node**\: True
     
     .. attribute:: vrfs
     
     	VRF Table
-    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs>`
+    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs>`
     
     .. attribute:: _is_presence
     
@@ -94,12 +96,12 @@ class Mfwd(object):
         .. attribute:: ipv4
         
         	VRF table for IPV4 commands
-        	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv4>`
+        	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv4>`
         
         .. attribute:: ipv6
         
         	VRF table for IPV6 commands
-        	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv6>`
+        	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv6>`
         
         .. attribute:: _is_presence
         
@@ -131,12 +133,12 @@ class Mfwd(object):
             .. attribute:: accounting
             
             	Per\-prefix accounting mode
-            	**type**\:  :py:class:`AccountingModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.AccountingModeEnum>`
+            	**type**\:   :py:class:`AccountingModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.AccountingModeEnum>`
             
             .. attribute:: enable_on_all_interfaces
             
             	Configure all interfaces for multicast routing and forwarding
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: forwarding_latency
             
@@ -145,25 +147,27 @@ class Mfwd(object):
             
             	**range:** 5..500
             
+            	**units**\: millisecond
+            
             .. attribute:: interface_inheritance_disable
             
             	Disable interface inheritance configuration
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: interfaces
             
             	Interface\-level Configuration
-            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv6.Interfaces>`
+            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv6.Interfaces>`
             
             .. attribute:: log_traps
             
             	Enable logging trap event
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: maximum_checking_disable
             
             	Disable state limit maximum checking
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: mofrr_lockout_timer_config
             
@@ -182,22 +186,22 @@ class Mfwd(object):
             .. attribute:: multicast_forwarding
             
             	Enable IP multicast routing and forwarding
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: nsf
             
             	Configure IP Multicast NSF state
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: rate_per_route
             
             	Enable per (S,G) rate calculation
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: static_rpf_rules
             
             	Configure a static RPF rule for a given prefix
-            	**type**\:  :py:class:`StaticRpfRules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv6.StaticRpfRules>`
+            	**type**\:   :py:class:`StaticRpfRules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv6.StaticRpfRules>`
             
             
 
@@ -232,7 +236,7 @@ class Mfwd(object):
                 .. attribute:: static_rpf_rule
                 
                 	RPF prefix address and mask
-                	**type**\: list of  :py:class:`StaticRpfRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv6.StaticRpfRules.StaticRpfRule>`
+                	**type**\: list of    :py:class:`StaticRpfRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv6.StaticRpfRules.StaticRpfRule>`
                 
                 
 
@@ -387,7 +391,7 @@ class Mfwd(object):
                 .. attribute:: interface
                 
                 	The name of the interface
-                	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv6.Interfaces.Interface>`
+                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv6.Interfaces.Interface>`
                 
                 
 
@@ -568,12 +572,12 @@ class Mfwd(object):
             .. attribute:: accounting
             
             	Per\-prefix accounting mode
-            	**type**\:  :py:class:`AccountingModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.AccountingModeEnum>`
+            	**type**\:   :py:class:`AccountingModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.AccountingModeEnum>`
             
             .. attribute:: enable_on_all_interfaces
             
             	Configure all interfaces for multicast routing and forwarding
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: forwarding_latency
             
@@ -582,25 +586,27 @@ class Mfwd(object):
             
             	**range:** 5..500
             
+            	**units**\: millisecond
+            
             .. attribute:: interface_inheritance_disable
             
             	Disable interface inheritance configuration
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: interfaces
             
             	Interface\-level Configuration
-            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv4.Interfaces>`
+            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv4.Interfaces>`
             
             .. attribute:: log_traps
             
             	Enable logging trap event
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: maximum_checking_disable
             
             	Disable state limit maximum checking
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: mofrr_lockout_timer_config
             
@@ -619,27 +625,27 @@ class Mfwd(object):
             .. attribute:: multicast_forwarding
             
             	Enable IP multicast routing and forwarding
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: nsf
             
             	Configure IP Multicast NSF state
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: out_of_memory_handling
             
             	Enable out\-of\-memory handling
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: rate_per_route
             
             	Enable per (S,G) rate calculation
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: static_rpf_rules
             
             	Configure a static RPF rule for a given prefix
-            	**type**\:  :py:class:`StaticRpfRules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv4.StaticRpfRules>`
+            	**type**\:   :py:class:`StaticRpfRules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv4.StaticRpfRules>`
             
             
 
@@ -675,7 +681,7 @@ class Mfwd(object):
                 .. attribute:: static_rpf_rule
                 
                 	RPF prefix address and mask
-                	**type**\: list of  :py:class:`StaticRpfRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv4.StaticRpfRules.StaticRpfRule>`
+                	**type**\: list of    :py:class:`StaticRpfRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv4.StaticRpfRules.StaticRpfRule>`
                 
                 
 
@@ -830,7 +836,7 @@ class Mfwd(object):
                 .. attribute:: interface
                 
                 	The name of the interface
-                	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv4.Interfaces.Interface>`
+                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv4.Interfaces.Interface>`
                 
                 
 
@@ -1041,7 +1047,7 @@ class Mfwd(object):
         .. attribute:: vrf
         
         	VRF table names
-        	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf>`
+        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf>`
         
         
 
@@ -1071,12 +1077,12 @@ class Mfwd(object):
             .. attribute:: ipv4
             
             	VRF table for IPV4 commands
-            	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv4>`
+            	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv4>`
             
             .. attribute:: ipv6
             
             	VRF table for IPV6 commands
-            	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv6>`
+            	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv6>`
             
             
 
@@ -1101,12 +1107,12 @@ class Mfwd(object):
                 .. attribute:: accounting
                 
                 	Per\-prefix accounting mode
-                	**type**\:  :py:class:`AccountingModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.AccountingModeEnum>`
+                	**type**\:   :py:class:`AccountingModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.AccountingModeEnum>`
                 
                 .. attribute:: enable_on_all_interfaces
                 
                 	Configure all interfaces for multicast routing and forwarding
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: forwarding_latency
                 
@@ -1115,25 +1121,27 @@ class Mfwd(object):
                 
                 	**range:** 5..500
                 
+                	**units**\: millisecond
+                
                 .. attribute:: interface_inheritance_disable
                 
                 	Disable interface inheritance configuration
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: interfaces
                 
                 	Interface\-level Configuration
-                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv6.Interfaces>`
+                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv6.Interfaces>`
                 
                 .. attribute:: log_traps
                 
                 	Enable logging trap event
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: maximum_checking_disable
                 
                 	Disable state limit maximum checking
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: mofrr_lockout_timer_config
                 
@@ -1152,22 +1160,22 @@ class Mfwd(object):
                 .. attribute:: multicast_forwarding
                 
                 	Enable IP multicast routing and forwarding
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: nsf
                 
                 	Configure IP Multicast NSF state
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: rate_per_route
                 
                 	Enable per (S,G) rate calculation
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: static_rpf_rules
                 
                 	Configure a static RPF rule for a given prefix
-                	**type**\:  :py:class:`StaticRpfRules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules>`
+                	**type**\:   :py:class:`StaticRpfRules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules>`
                 
                 
 
@@ -1202,7 +1210,7 @@ class Mfwd(object):
                     .. attribute:: static_rpf_rule
                     
                     	RPF prefix address and mask
-                    	**type**\: list of  :py:class:`StaticRpfRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules.StaticRpfRule>`
+                    	**type**\: list of    :py:class:`StaticRpfRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules.StaticRpfRule>`
                     
                     
 
@@ -1361,7 +1369,7 @@ class Mfwd(object):
                     .. attribute:: interface
                     
                     	The name of the interface
-                    	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv6.Interfaces.Interface>`
+                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv6.Interfaces.Interface>`
                     
                     
 
@@ -1548,12 +1556,12 @@ class Mfwd(object):
                 .. attribute:: accounting
                 
                 	Per\-prefix accounting mode
-                	**type**\:  :py:class:`AccountingModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.AccountingModeEnum>`
+                	**type**\:   :py:class:`AccountingModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.AccountingModeEnum>`
                 
                 .. attribute:: enable_on_all_interfaces
                 
                 	Configure all interfaces for multicast routing and forwarding
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: forwarding_latency
                 
@@ -1562,25 +1570,27 @@ class Mfwd(object):
                 
                 	**range:** 5..500
                 
+                	**units**\: millisecond
+                
                 .. attribute:: interface_inheritance_disable
                 
                 	Disable interface inheritance configuration
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: interfaces
                 
                 	Interface\-level Configuration
-                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv4.Interfaces>`
+                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv4.Interfaces>`
                 
                 .. attribute:: log_traps
                 
                 	Enable logging trap event
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: maximum_checking_disable
                 
                 	Disable state limit maximum checking
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: mofrr_lockout_timer_config
                 
@@ -1599,27 +1609,27 @@ class Mfwd(object):
                 .. attribute:: multicast_forwarding
                 
                 	Enable IP multicast routing and forwarding
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: nsf
                 
                 	Configure IP Multicast NSF state
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: out_of_memory_handling
                 
                 	Enable out\-of\-memory handling
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: rate_per_route
                 
                 	Enable per (S,G) rate calculation
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: static_rpf_rules
                 
                 	Configure a static RPF rule for a given prefix
-                	**type**\:  :py:class:`StaticRpfRules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules>`
+                	**type**\:   :py:class:`StaticRpfRules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules>`
                 
                 
 
@@ -1655,7 +1665,7 @@ class Mfwd(object):
                     .. attribute:: static_rpf_rule
                     
                     	RPF prefix address and mask
-                    	**type**\: list of  :py:class:`StaticRpfRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules.StaticRpfRule>`
+                    	**type**\: list of    :py:class:`StaticRpfRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules.StaticRpfRule>`
                     
                     
 
@@ -1814,7 +1824,7 @@ class Mfwd(object):
                     .. attribute:: interface
                     
                     	The name of the interface
-                    	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv4.Interfaces.Interface>`
+                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.Vrfs.Vrf.Ipv4.Interfaces.Interface>`
                     
                     
 

@@ -32,7 +32,7 @@ class Aaa(object):
     .. attribute:: usernames
     
     	Configure local username
-    	**type**\:  :py:class:`Usernames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames>`
+    	**type**\:   :py:class:`Usernames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames>`
     
     
 
@@ -53,7 +53,7 @@ class Aaa(object):
         .. attribute:: username
         
         	Admin Username
-        	**type**\: list of  :py:class:`Username <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames.Username>`
+        	**type**\: list of    :py:class:`Username <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames.Username>`
         
         
 
@@ -88,7 +88,7 @@ class Aaa(object):
             .. attribute:: usergroup_under_usernames
             
             	Specify the usergroup to which this admin user belongs
-            	**type**\:  :py:class:`UsergroupUnderUsernames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames>`
+            	**type**\:   :py:class:`UsergroupUnderUsernames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames>`
             
             
 
@@ -113,7 +113,7 @@ class Aaa(object):
                 .. attribute:: usergroup_under_username
                 
                 	Name of the usergroup
-                	**type**\: list of  :py:class:`UsergroupUnderUsername <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername>`
+                	**type**\: list of    :py:class:`UsergroupUnderUsername <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername>`
                 
                 
 

@@ -30,7 +30,7 @@ class Ipv6ReachableViaEnum(Enum):
 
     Ipv6 reachable via
 
-    .. data:: RECEIVED = 1
+    .. data:: received = 1
 
     	Source is reachable via interface on which
 
@@ -38,7 +38,7 @@ class Ipv6ReachableViaEnum(Enum):
 
     """
 
-    RECEIVED = 1
+    received = 1
 
 
     @staticmethod

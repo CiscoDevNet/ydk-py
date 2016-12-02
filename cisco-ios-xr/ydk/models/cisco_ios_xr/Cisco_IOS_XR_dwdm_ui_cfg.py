@@ -30,31 +30,31 @@ class DwdmAdminStateEnum(Enum):
 
     Dwdm admin state
 
-    .. data:: OUT_OF_SERVICE = 0
+    .. data:: out_of_service = 0
 
     	Out of service
 
-    .. data:: IN_SERVICE = 1
+    .. data:: in_service = 1
 
     	In service
 
-    .. data:: MAINTENANCE = 2
+    .. data:: maintenance = 2
 
     	Out of service maintenance
 
-    .. data:: IN_SERVICE_CONFIG_ALLOWED = 3
+    .. data:: in_service_config_allowed = 3
 
     	In service Config allowed
 
     """
 
-    OUT_OF_SERVICE = 0
+    out_of_service = 0
 
-    IN_SERVICE = 1
+    in_service = 1
 
-    MAINTENANCE = 2
+    maintenance = 2
 
-    IN_SERVICE_CONFIG_ALLOWED = 3
+    in_service_config_allowed = 3
 
 
     @staticmethod
@@ -69,25 +69,25 @@ class DwdmLoopbackEnum(Enum):
 
     Dwdm loopback
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	No Loopback
 
-    .. data:: LINE = 1
+    .. data:: line = 1
 
     	Line Loopback
 
-    .. data:: INTERNAL = 2
+    .. data:: internal = 2
 
     	Internal Loopback
 
     """
 
-    NONE = 0
+    none = 0
 
-    LINE = 1
+    line = 1
 
-    INTERNAL = 2
+    internal = 2
 
 
     @staticmethod
@@ -102,27 +102,27 @@ class EfecEnum(Enum):
 
     Efec
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	default submode to handle backward
 
     	compatibility
 
-    .. data:: I__DOT__4 = 1
+    .. data:: i__DOT__4 = 1
 
     	efec i.4
 
-    .. data:: I__DOT__7 = 2
+    .. data:: i__DOT__7 = 2
 
     	efec i.7
 
     """
 
-    NONE = 0
+    none = 0
 
-    I__DOT__4 = 1
+    i__DOT__4 = 1
 
-    I__DOT__7 = 2
+    i__DOT__7 = 2
 
 
     @staticmethod
@@ -137,19 +137,19 @@ class ExpectedTtiEnum(Enum):
 
     Expected tti
 
-    .. data:: EXPECTED_TTI_ASCII = 3
+    .. data:: expected_tti_ascii = 3
 
     	Expected TTI ascii string
 
-    .. data:: EXPECTED_TTI_HEX = 4
+    .. data:: expected_tti_hex = 4
 
     	Expected TTI hex string
 
     """
 
-    EXPECTED_TTI_ASCII = 3
+    expected_tti_ascii = 3
 
-    EXPECTED_TTI_HEX = 4
+    expected_tti_hex = 4
 
 
     @staticmethod
@@ -164,39 +164,39 @@ class FecEnum(Enum):
 
     Fec
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	No FEC
 
-    .. data:: STANDARD = 1
+    .. data:: standard = 1
 
     	Standard FEC
 
-    .. data:: ENHANCED = 2
+    .. data:: enhanced = 2
 
     	Enhanced FEC
 
-    .. data:: HIGH_GAIN_HD = 3
+    .. data:: high_gain_hd = 3
 
     	High-Gain Hard Decision
 
-    .. data:: LONG_HAUL_HD = 4
+    .. data:: long_haul_hd = 4
 
     	Long-Haul Hard Decision
 
-    .. data:: HIGH_GAIN_SD = 5
+    .. data:: high_gain_sd = 5
 
     	High-Gain Soft Decision
 
-    .. data:: LONG_HAUL_SD = 6
+    .. data:: long_haul_sd = 6
 
     	Long-Haul Soft Decision
 
-    .. data:: CI_BCH = 7
+    .. data:: ci_bch = 7
 
     	Ci BCH
 
-    .. data:: HIGH_GAIN_MULTIVENDOR_HD = 8
+    .. data:: high_gain_multivendor_hd = 8
 
     	High-Gain Multivendor Interoperable Hard
 
@@ -204,23 +204,23 @@ class FecEnum(Enum):
 
     """
 
-    NONE = 0
+    none = 0
 
-    STANDARD = 1
+    standard = 1
 
-    ENHANCED = 2
+    enhanced = 2
 
-    HIGH_GAIN_HD = 3
+    high_gain_hd = 3
 
-    LONG_HAUL_HD = 4
+    long_haul_hd = 4
 
-    HIGH_GAIN_SD = 5
+    high_gain_sd = 5
 
-    LONG_HAUL_SD = 6
+    long_haul_sd = 6
 
-    CI_BCH = 7
+    ci_bch = 7
 
-    HIGH_GAIN_MULTIVENDOR_HD = 8
+    high_gain_multivendor_hd = 8
 
 
     @staticmethod
@@ -235,19 +235,19 @@ class FramingEnum(Enum):
 
     Framing
 
-    .. data:: OPU1E = 1
+    .. data:: opu1e = 1
 
     	opu1e Framing
 
-    .. data:: OPU2E = 2
+    .. data:: opu2e = 2
 
     	opu2e Framing
 
     """
 
-    OPU1E = 1
+    opu1e = 1
 
-    OPU2E = 2
+    opu2e = 2
 
 
     @staticmethod
@@ -262,55 +262,55 @@ class OduAlarmEnum(Enum):
 
     Odu alarm
 
-    .. data:: OCI = 14
+    .. data:: oci = 14
 
     	ODU OCI
 
-    .. data:: ODU_AIS = 15
+    .. data:: odu_ais = 15
 
     	ODU AIS
 
-    .. data:: LCK = 16
+    .. data:: lck = 16
 
     	ODU LCK
 
-    .. data:: ODU_BDI = 17
+    .. data:: odu_bdi = 17
 
     	ODU BDI
 
-    .. data:: ODU_SF = 20
+    .. data:: odu_sf = 20
 
     	ODU SF BER
 
-    .. data:: ODU_SD = 21
+    .. data:: odu_sd = 21
 
     	ODU SD BER
 
-    .. data:: PLM = 22
+    .. data:: plm = 22
 
     	ODU PTIM
 
-    .. data:: ODU_TIM = 23
+    .. data:: odu_tim = 23
 
     	ODU TIM
 
     """
 
-    OCI = 14
+    oci = 14
 
-    ODU_AIS = 15
+    odu_ais = 15
 
-    LCK = 16
+    lck = 16
 
-    ODU_BDI = 17
+    odu_bdi = 17
 
-    ODU_SF = 20
+    odu_sf = 20
 
-    ODU_SD = 21
+    odu_sd = 21
 
-    PLM = 22
+    plm = 22
 
-    ODU_TIM = 23
+    odu_tim = 23
 
 
     @staticmethod
@@ -325,19 +325,19 @@ class OduThresholdEnum(Enum):
 
     Odu threshold
 
-    .. data:: ODU_SD = 8
+    .. data:: odu_sd = 8
 
     	ODU SD BER threshold
 
-    .. data:: ODU_SF = 9
+    .. data:: odu_sf = 9
 
     	ODU SF BER threshold
 
     """
 
-    ODU_SD = 8
+    odu_sd = 8
 
-    ODU_SF = 9
+    odu_sf = 9
 
 
     @staticmethod
@@ -352,73 +352,73 @@ class OtuAlarmEnum(Enum):
 
     Otu alarm
 
-    .. data:: LOS = 0
+    .. data:: los = 0
 
     	LOS
 
-    .. data:: LOF = 1
+    .. data:: lof = 1
 
     	LOF
 
-    .. data:: LOM = 2
+    .. data:: lom = 2
 
     	LOM
 
-    .. data:: IAE = 6
+    .. data:: iae = 6
 
     	OTU IAE
 
-    .. data:: OTU_BDI = 7
+    .. data:: otu_bdi = 7
 
     	OTU BDI
 
-    .. data:: OTU_TIM = 8
+    .. data:: otu_tim = 8
 
     	OTU TIM
 
-    .. data:: OTU_SF = 10
+    .. data:: otu_sf = 10
 
     	OTU SF BER
 
-    .. data:: OTU_SD = 11
+    .. data:: otu_sd = 11
 
     	OTU SD BER
 
-    .. data:: FEC_MISMATCH = 24
+    .. data:: fec_mismatch = 24
 
     	FEC mismatch
 
-    .. data:: PREFEC_SD_BER = 31
+    .. data:: prefec_sd_ber = 31
 
     	PREFEC SD BER
 
-    .. data:: PREFEC_SF_BER = 32
+    .. data:: prefec_sf_ber = 32
 
     	PREFEC SF BER
 
     """
 
-    LOS = 0
+    los = 0
 
-    LOF = 1
+    lof = 1
 
-    LOM = 2
+    lom = 2
 
-    IAE = 6
+    iae = 6
 
-    OTU_BDI = 7
+    otu_bdi = 7
 
-    OTU_TIM = 8
+    otu_tim = 8
 
-    OTU_SF = 10
+    otu_sf = 10
 
-    OTU_SD = 11
+    otu_sd = 11
 
-    FEC_MISMATCH = 24
+    fec_mismatch = 24
 
-    PREFEC_SD_BER = 31
+    prefec_sd_ber = 31
 
-    PREFEC_SF_BER = 32
+    prefec_sf_ber = 32
 
 
     @staticmethod
@@ -433,31 +433,31 @@ class OtuThresholdEnum(Enum):
 
     Otu threshold
 
-    .. data:: PREFEC_SD = 0
+    .. data:: prefec_sd = 0
 
     	PREFEC SD BER THRESHOLD
 
-    .. data:: PREFEC_SF = 1
+    .. data:: prefec_sf = 1
 
     	PREFEC SF BER THRESHOLD
 
-    .. data:: OTU_SD = 4
+    .. data:: otu_sd = 4
 
     	OTU SD BER threshold
 
-    .. data:: OTU_SF = 5
+    .. data:: otu_sf = 5
 
     	OTU SF BER threshold
 
     """
 
-    PREFEC_SD = 0
+    prefec_sd = 0
 
-    PREFEC_SF = 1
+    prefec_sf = 1
 
-    OTU_SD = 4
+    otu_sd = 4
 
-    OTU_SF = 5
+    otu_sf = 5
 
 
     @staticmethod
@@ -472,31 +472,31 @@ class PrbsModeEnum(Enum):
 
     Prbs mode
 
-    .. data:: SOURCE = 0
+    .. data:: source = 0
 
     	Source Mode
 
-    .. data:: SINK = 1
+    .. data:: sink = 1
 
     	Sink Mode
 
-    .. data:: SOURCE_SINK = 2
+    .. data:: source_sink = 2
 
     	Source-Sink Mode
 
-    .. data:: INVALID = 3
+    .. data:: invalid = 3
 
     	Invalid Mode
 
     """
 
-    SOURCE = 0
+    source = 0
 
-    SINK = 1
+    sink = 1
 
-    SOURCE_SINK = 2
+    source_sink = 2
 
-    INVALID = 3
+    invalid = 3
 
 
     @staticmethod
@@ -511,37 +511,37 @@ class PrbsPatternEnum(Enum):
 
     Prbs pattern
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	None Pattern
 
-    .. data:: NULL = 1
+    .. data:: null = 1
 
     	Null Pattern
 
-    .. data:: PN11 = 2
+    .. data:: pn11 = 2
 
     	PN11 Pattern
 
-    .. data:: PN23 = 3
+    .. data:: pn23 = 3
 
     	PN23 Pattern
 
-    .. data:: PN31 = 4
+    .. data:: pn31 = 4
 
     	PN31 Pattern
 
     """
 
-    NONE = 0
+    none = 0
 
-    NULL = 1
+    null = 1
 
-    PN11 = 2
+    pn11 = 2
 
-    PN23 = 3
+    pn23 = 3
 
-    PN31 = 4
+    pn31 = 4
 
 
     @staticmethod
@@ -556,19 +556,19 @@ class ProactiveEnum(Enum):
 
     Proactive
 
-    .. data:: DEFAULT = 1
+    .. data:: default = 1
 
     	Proactive Protection Default Mode
 
-    .. data:: GRACEFUL = 2
+    .. data:: graceful = 2
 
     	Proactive Protection Graceful Mode
 
     """
 
-    DEFAULT = 1
+    default = 1
 
-    GRACEFUL = 2
+    graceful = 2
 
 
     @staticmethod
@@ -583,19 +583,19 @@ class TxTtiEnum(Enum):
 
     Tx tti
 
-    .. data:: TX_TTI_ASCII = 0
+    .. data:: tx_tti_ascii = 0
 
     	TX TTI ascii string
 
-    .. data:: TX_TTI_HEX = 1
+    .. data:: tx_tti_hex = 1
 
     	TX TTI hex string
 
     """
 
-    TX_TTI_ASCII = 0
+    tx_tti_ascii = 0
 
-    TX_TTI_HEX = 1
+    tx_tti_hex = 1
 
 
     @staticmethod
@@ -610,31 +610,31 @@ class WaveChannelNumEnum(Enum):
 
     Wave channel num
 
-    .. data:: DEFAULT = 0
+    .. data:: default = 0
 
     	Default Wave Channel Number
 
-    .. data:: CHANNEL_WAVELENGTH = 1
+    .. data:: channel_wavelength = 1
 
     	Wavelength Wave Channel Number
 
-    .. data:: CHANNEL_FREQUENCY = 2
+    .. data:: channel_frequency = 2
 
     	Frequency Wave Channel Number
 
-    .. data:: Y_100MHZ_FREQUENCY = 4
+    .. data:: Y_100mhz_frequency = 4
 
     	Frequency in Steps of 100MHz
 
     """
 
-    DEFAULT = 0
+    default = 0
 
-    CHANNEL_WAVELENGTH = 1
+    channel_wavelength = 1
 
-    CHANNEL_FREQUENCY = 2
+    channel_frequency = 2
 
-    Y_100MHZ_FREQUENCY = 4
+    Y_100mhz_frequency = 4
 
 
     @staticmethod

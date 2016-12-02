@@ -16,8 +16,8 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'SrmsMiFlagEnum' : _MetaInfoEnum('SrmsMiFlagEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg',
         {
-            'disable':'DISABLE',
-            'enable':'ENABLE',
+            'disable':'disable',
+            'enable':'enable',
         }, 'Cisco-IOS-XR-segment-routing-ms-cfg', _yang_ns._namespaces['Cisco-IOS-XR-segment-routing-ms-cfg']),
     'Sr.GlobalBlock' : {
         'meta_info' : _MetaInfoClass('Sr.GlobalBlock',
