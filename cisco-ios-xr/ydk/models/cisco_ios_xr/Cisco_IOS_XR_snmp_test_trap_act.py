@@ -2066,7 +2066,7 @@ class RoutingMplsLdpSessionDownRpc(object):
         	entity ldp\-id in x.x.x.x.y.y format where x.x.x.x is the entity IP address and y.y is the label space
         	**type**\:  str
         
-        	**range:** 23
+        	**length:** 23
         
         .. attribute:: entity_index
         
@@ -2080,7 +2080,7 @@ class RoutingMplsLdpSessionDownRpc(object):
         	peer ldp\-id in x.x.x.x.y.y format where x.x.x.x is the entity IP address and y.y is the label space
         	**type**\:  str
         
-        	**range:** 23
+        	**length:** 23
         
         
 

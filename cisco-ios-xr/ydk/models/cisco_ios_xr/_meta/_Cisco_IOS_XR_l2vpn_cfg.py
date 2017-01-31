@@ -531,8 +531,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
         ),
     },
-    'L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.None' : {
-        'meta_info' : _MetaInfoClass('L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.None',
+    'L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.None_' : {
+        'meta_info' : _MetaInfoClass('L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.None_',
             False, 
             [
             _MetaInfoClassMember('monitor', ATTRIBUTE, 'str' , None, None, 
@@ -581,7 +581,7 @@ _meta_table = {
                 ''',
                 'erp_port_type',
                 'Cisco-IOS-XR-l2vpn-cfg', True),
-            _MetaInfoClassMember('none', REFERENCE_CLASS, 'None' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.None', 
+            _MetaInfoClassMember('none', REFERENCE_CLASS, 'None_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.None_', 
                 [], [], 
                 '''                none
                 ''',
@@ -7050,7 +7050,7 @@ _meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Po
 _meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl']['meta_info'].parent =_meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance']['meta_info']
 _meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps']['meta_info'].parent =_meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance']['meta_info']
 _meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance']['meta_info'].parent =_meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances']['meta_info']
-_meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.None']['meta_info'].parent =_meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1']['meta_info']
+_meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.None_']['meta_info'].parent =_meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1']['meta_info']
 _meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.VirtualOrInterface']['meta_info'].parent =_meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1']['meta_info']
 _meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1']['meta_info'].parent =_meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S']['meta_info']
 _meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort0S']['meta_info'].parent =_meta_table['L2Vpn.Database.G8032Rings.G8032Ring']['meta_info']

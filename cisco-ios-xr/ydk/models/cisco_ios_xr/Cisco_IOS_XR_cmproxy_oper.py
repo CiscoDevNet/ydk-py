@@ -145,7 +145,7 @@ class SdrInventoryVm(object):
                     	card type string
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     .. attribute:: node_ip
                     
@@ -159,14 +159,14 @@ class SdrInventoryVm(object):
                     	node IPv4 address string
                     	**type**\:  str
                     
-                    	**range:** 0..16
+                    	**length:** 0..16
                     
                     .. attribute:: node_name
                     
                     	node name string
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     .. attribute:: node_sw_state
                     
@@ -180,7 +180,7 @@ class SdrInventoryVm(object):
                     	current software state string
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     .. attribute:: nodeid
                     
@@ -201,7 +201,7 @@ class SdrInventoryVm(object):
                     	partner name string
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     .. attribute:: prev_sw_state
                     
@@ -215,7 +215,7 @@ class SdrInventoryVm(object):
                     	previous software state string
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     .. attribute:: red_state
                     
@@ -229,7 +229,7 @@ class SdrInventoryVm(object):
                     	redundancy state string
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     .. attribute:: valid
                     

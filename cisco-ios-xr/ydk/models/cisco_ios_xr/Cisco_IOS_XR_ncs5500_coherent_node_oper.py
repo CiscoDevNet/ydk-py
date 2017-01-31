@@ -130,28 +130,28 @@ class Coherent(object):
                 	device created
                 	**type**\:  str
                 
-                	**range:** 0..255
+                	**length:** 0..255
                 
                 .. attribute:: driver_init
                 
                 	driver init
                 	**type**\:  str
                 
-                	**range:** 0..255
+                	**length:** 0..255
                 
                 .. attribute:: driver_operational
                 
                 	driver operational
                 	**type**\:  str
                 
-                	**range:** 0..255
+                	**length:** 0..255
                 
                 .. attribute:: dsp_controllers_created
                 
                 	dsp controllers created
                 	**type**\:  str
                 
-                	**range:** 0..255
+                	**length:** 0..255
                 
                 .. attribute:: dsp_ea_bulk_create
                 
@@ -168,14 +168,14 @@ class Coherent(object):
                 	eth intf created
                 	**type**\:  str
                 
-                	**range:** 0..255
+                	**length:** 0..255
                 
                 .. attribute:: optics_controllers_created
                 
                 	optics controllers created
                 	**type**\:  str
                 
-                	**range:** 0..255
+                	**length:** 0..255
                 
                 .. attribute:: opts_ea_bulk_create
                 
@@ -229,28 +229,28 @@ class Coherent(object):
                     	end
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: start
                     
                     	start
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: time_taken
                     
                     	time taken
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: worst_time
                     
                     	worst time
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     
 
@@ -309,28 +309,28 @@ class Coherent(object):
                     	end
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: start
                     
                     	start
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: time_taken
                     
                     	time taken
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: worst_time
                     
                     	worst time
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     
 
@@ -389,28 +389,28 @@ class Coherent(object):
                     	end
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: start
                     
                     	start
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: time_taken
                     
                     	time taken
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: worst_time
                     
                     	worst time
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     
 
@@ -469,28 +469,28 @@ class Coherent(object):
                     	end
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: start
                     
                     	start
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: time_taken
                     
                     	time taken
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: worst_time
                     
                     	worst time
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     
 
@@ -659,28 +659,28 @@ class Coherent(object):
                         	end
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         .. attribute:: start
                         
                         	start
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         .. attribute:: time_taken
                         
                         	time taken
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         .. attribute:: worst_time
                         
                         	worst time
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         
 
@@ -739,28 +739,28 @@ class Coherent(object):
                         	end
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         .. attribute:: start
                         
                         	start
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         .. attribute:: time_taken
                         
                         	time taken
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         .. attribute:: worst_time
                         
                         	worst time
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         
 
@@ -819,28 +819,28 @@ class Coherent(object):
                         	end
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         .. attribute:: start
                         
                         	start
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         .. attribute:: time_taken
                         
                         	time taken
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         .. attribute:: worst_time
                         
                         	worst time
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         
 
@@ -899,28 +899,28 @@ class Coherent(object):
                         	end
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         .. attribute:: start
                         
                         	start
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         .. attribute:: time_taken
                         
                         	time taken
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         .. attribute:: worst_time
                         
                         	worst time
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         
 
@@ -979,28 +979,28 @@ class Coherent(object):
                         	end
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         .. attribute:: start
                         
                         	start
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         .. attribute:: time_taken
                         
                         	time taken
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         .. attribute:: worst_time
                         
                         	worst time
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         
 
@@ -1059,28 +1059,28 @@ class Coherent(object):
                         	end
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         .. attribute:: start
                         
                         	start
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         .. attribute:: time_taken
                         
                         	time taken
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         .. attribute:: worst_time
                         
                         	worst time
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         
 
@@ -1139,28 +1139,28 @@ class Coherent(object):
                         	end
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         .. attribute:: start
                         
                         	start
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         .. attribute:: time_taken
                         
                         	time taken
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         .. attribute:: worst_time
                         
                         	worst time
                         	**type**\:  str
                         
-                        	**range:** 0..255
+                        	**length:** 0..255
                         
                         
 
@@ -1467,14 +1467,14 @@ class Coherent(object):
                 	board type
                 	**type**\:  str
                 
-                	**range:** 0..255
+                	**length:** 0..255
                 
                 .. attribute:: denali_version
                 
                 	denali version
                 	**type**\:  str
                 
-                	**range:** 0..255
+                	**length:** 0..255
                 
                 .. attribute:: dsp_ea_conn
                 
@@ -1491,7 +1491,7 @@ class Coherent(object):
                 	jlink op
                 	**type**\:  str
                 
-                	**range:** 0..1024
+                	**length:** 0..1024
                 
                 .. attribute:: morgoth_alive
                 
@@ -1503,21 +1503,21 @@ class Coherent(object):
                 	morgoth downloaded version
                 	**type**\:  str
                 
-                	**range:** 0..255
+                	**length:** 0..255
                 
                 .. attribute:: morgoth_golden_version
                 
                 	morgoth golden version
                 	**type**\:  str
                 
-                	**range:** 0..255
+                	**length:** 0..255
                 
                 .. attribute:: morgoth_running_version
                 
                 	morgoth running version
                 	**type**\:  str
                 
-                	**range:** 0..255
+                	**length:** 0..255
                 
                 .. attribute:: optics_ea_conn
                 
@@ -1549,7 +1549,7 @@ class Coherent(object):
                 	sdk version
                 	**type**\:  str
                 
-                	**range:** 0..255
+                	**length:** 0..255
                 
                 .. attribute:: sysdb_state
                 
@@ -1714,7 +1714,7 @@ class Coherent(object):
                         	CLEI code number
                         	**type**\:  str
                         
-                        	**range:** 0..10
+                        	**length:** 0..10
                         
                         .. attribute:: ctp_type
                         
@@ -1728,21 +1728,21 @@ class Coherent(object):
                         	date code number
                         	**type**\:  str
                         
-                        	**range:** 0..10
+                        	**length:** 0..10
                         
                         .. attribute:: description
                         
                         	description
                         	**type**\:  str
                         
-                        	**range:** 0..64
+                        	**length:** 0..64
                         
                         .. attribute:: deviation
                         
                         	deviation
                         	**type**\:  str
                         
-                        	**range:** 0..16
+                        	**length:** 0..16
                         
                         .. attribute:: module_firmware_committed_version_number
                         
@@ -1770,35 +1770,35 @@ class Coherent(object):
                         	part number
                         	**type**\:  str
                         
-                        	**range:** 0..16
+                        	**length:** 0..16
                         
                         .. attribute:: pid
                         
                         	pid
                         	**type**\:  str
                         
-                        	**range:** 0..16
+                        	**length:** 0..16
                         
                         .. attribute:: serial_number
                         
                         	serial number
                         	**type**\:  str
                         
-                        	**range:** 0..16
+                        	**length:** 0..16
                         
                         .. attribute:: vendorname
                         
                         	vendorname
                         	**type**\:  str
                         
-                        	**range:** 0..16
+                        	**length:** 0..16
                         
                         .. attribute:: vid
                         
                         	vid
                         	**type**\:  str
                         
-                        	**range:** 0..16
+                        	**length:** 0..16
                         
                         
 
@@ -1929,7 +1929,7 @@ class Coherent(object):
                             	ifname
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             .. attribute:: intf_handle
                             

@@ -125,7 +125,7 @@ class Ipv6AclAndPrefixList(object):
             	Name of a prefix list
             	**type**\:  str
             
-            	**range:** 0..65
+            	**length:** 0..65
             
             .. attribute:: prefix_list_entries
             
@@ -513,7 +513,7 @@ class Ipv6AclAndPrefixList(object):
             	Name of the access list
             	**type**\:  str
             
-            	**range:** 0..65
+            	**length:** 0..65
             
             .. attribute:: access_list_entries
             
@@ -595,14 +595,14 @@ class Ipv6AclAndPrefixList(object):
                     	Destination port object group name
                     	**type**\:  str
                     
-                    	**range:** 1..64
+                    	**length:** 1..64
                     
                     .. attribute:: destination_prefix_group
                     
                     	IPv6 destination network object group name
                     	**type**\:  str
                     
-                    	**range:** 1..64
+                    	**length:** 1..64
                     
                     .. attribute:: dscp
                     
@@ -694,7 +694,7 @@ class Ipv6AclAndPrefixList(object):
                     	Sequence String for the ace
                     	**type**\:  str
                     
-                    	**range:** 1..64
+                    	**length:** 1..64
                     
                     .. attribute:: source_network
                     
@@ -711,14 +711,14 @@ class Ipv6AclAndPrefixList(object):
                     	Source port object group name
                     	**type**\:  str
                     
-                    	**range:** 1..64
+                    	**length:** 1..64
                     
                     .. attribute:: source_prefix_group
                     
                     	IPv6 source network object group name
                     	**type**\:  str
                     
-                    	**range:** 1..64
+                    	**length:** 1..64
                     
                     .. attribute:: tcp
                     

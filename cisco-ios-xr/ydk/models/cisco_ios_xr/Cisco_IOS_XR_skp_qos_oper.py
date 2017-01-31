@@ -900,21 +900,21 @@ class PlatformQos(object):
                                     	Direction
                                     	**type**\:  str
                                     
-                                    	**range:** 0..11
+                                    	**length:** 0..11
                                     
                                     .. attribute:: interface_name
                                     
                                     	Interface Name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..101
+                                    	**length:** 0..101
                                     
                                     .. attribute:: policy_name
                                     
                                     	Policy name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     
 
@@ -1237,7 +1237,7 @@ class PlatformQos(object):
                                         	Class name
                                         	**type**\:  str
                                         
-                                        	**range:** 0..65
+                                        	**length:** 0..65
                                         
                                         .. attribute:: marking
                                         
@@ -1303,7 +1303,7 @@ class PlatformQos(object):
                                             	Queue Type
                                             	**type**\:  str
                                             
-                                            	**range:** 0..101
+                                            	**length:** 0..101
                                             
                                             
 
@@ -2561,21 +2561,21 @@ class PlatformQos(object):
                                     	Direction
                                     	**type**\:  str
                                     
-                                    	**range:** 0..11
+                                    	**length:** 0..11
                                     
                                     .. attribute:: interface_name
                                     
                                     	Interface Name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..101
+                                    	**length:** 0..101
                                     
                                     .. attribute:: policy_name
                                     
                                     	Policy name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     
 
@@ -2898,7 +2898,7 @@ class PlatformQos(object):
                                         	Class name
                                         	**type**\:  str
                                         
-                                        	**range:** 0..65
+                                        	**length:** 0..65
                                         
                                         .. attribute:: marking
                                         
@@ -2964,7 +2964,7 @@ class PlatformQos(object):
                                             	Queue Type
                                             	**type**\:  str
                                             
-                                            	**range:** 0..101
+                                            	**length:** 0..101
                                             
                                             
 
@@ -4530,21 +4530,21 @@ class PlatformQos(object):
                             	Direction
                             	**type**\:  str
                             
-                            	**range:** 0..11
+                            	**length:** 0..11
                             
                             .. attribute:: interface_name
                             
                             	Interface Name
                             	**type**\:  str
                             
-                            	**range:** 0..101
+                            	**length:** 0..101
                             
                             .. attribute:: policy_name
                             
                             	Policy name
                             	**type**\:  str
                             
-                            	**range:** 0..65
+                            	**length:** 0..65
                             
                             
 
@@ -4867,7 +4867,7 @@ class PlatformQos(object):
                                 	Class name
                                 	**type**\:  str
                                 
-                                	**range:** 0..65
+                                	**length:** 0..65
                                 
                                 .. attribute:: marking
                                 
@@ -4933,7 +4933,7 @@ class PlatformQos(object):
                                     	Queue Type
                                     	**type**\:  str
                                     
-                                    	**range:** 0..101
+                                    	**length:** 0..101
                                     
                                     
 
@@ -6191,21 +6191,21 @@ class PlatformQos(object):
                             	Direction
                             	**type**\:  str
                             
-                            	**range:** 0..11
+                            	**length:** 0..11
                             
                             .. attribute:: interface_name
                             
                             	Interface Name
                             	**type**\:  str
                             
-                            	**range:** 0..101
+                            	**length:** 0..101
                             
                             .. attribute:: policy_name
                             
                             	Policy name
                             	**type**\:  str
                             
-                            	**range:** 0..65
+                            	**length:** 0..65
                             
                             
 
@@ -6528,7 +6528,7 @@ class PlatformQos(object):
                                 	Class name
                                 	**type**\:  str
                                 
-                                	**range:** 0..65
+                                	**length:** 0..65
                                 
                                 .. attribute:: marking
                                 
@@ -6594,7 +6594,7 @@ class PlatformQos(object):
                                     	Queue Type
                                     	**type**\:  str
                                     
-                                    	**range:** 0..101
+                                    	**length:** 0..101
                                     
                                     
 
@@ -8207,21 +8207,21 @@ class PlatformQosEa(object):
                                         	Direction
                                         	**type**\:  str
                                         
-                                        	**range:** 0..11
+                                        	**length:** 0..11
                                         
                                         .. attribute:: interface_name
                                         
                                         	Interface Name
                                         	**type**\:  str
                                         
-                                        	**range:** 0..101
+                                        	**length:** 0..101
                                         
                                         .. attribute:: policy_name
                                         
                                         	Policy name
                                         	**type**\:  str
                                         
-                                        	**range:** 0..65
+                                        	**length:** 0..65
                                         
                                         
 
@@ -8308,7 +8308,7 @@ class PlatformQosEa(object):
                                         	Interface Type
                                         	**type**\:  str
                                         
-                                        	**range:** 0..101
+                                        	**length:** 0..101
                                         
                                         .. attribute:: policy_map_id
                                         
@@ -8322,7 +8322,7 @@ class PlatformQosEa(object):
                                         	Policy name
                                         	**type**\:  str
                                         
-                                        	**range:** 0..65
+                                        	**length:** 0..65
                                         
                                         .. attribute:: port
                                         
@@ -8478,7 +8478,7 @@ class PlatformQosEa(object):
                                             	Class name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..65
+                                            	**length:** 0..65
                                             
                                             .. attribute:: config
                                             
@@ -8497,14 +8497,14 @@ class PlatformQosEa(object):
                                             	Node Flags
                                             	**type**\:  str
                                             
-                                            	**range:** 0..101
+                                            	**length:** 0..101
                                             
                                             .. attribute:: policy_name
                                             
                                             	Policy name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..65
+                                            	**length:** 0..65
                                             
                                             .. attribute:: result
                                             
@@ -8516,7 +8516,7 @@ class PlatformQosEa(object):
                                             	Statistical Flags
                                             	**type**\:  str
                                             
-                                            	**range:** 0..101
+                                            	**length:** 0..101
                                             
                                             
 
@@ -8548,7 +8548,7 @@ class PlatformQosEa(object):
                                                 	Node Config
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..101
+                                                	**length:** 0..101
                                                 
                                                 .. attribute:: police
                                                 
@@ -9575,21 +9575,21 @@ class PlatformQosEa(object):
                                         	Direction
                                         	**type**\:  str
                                         
-                                        	**range:** 0..11
+                                        	**length:** 0..11
                                         
                                         .. attribute:: interface_name
                                         
                                         	Interface Name
                                         	**type**\:  str
                                         
-                                        	**range:** 0..101
+                                        	**length:** 0..101
                                         
                                         .. attribute:: policy_name
                                         
                                         	Policy name
                                         	**type**\:  str
                                         
-                                        	**range:** 0..65
+                                        	**length:** 0..65
                                         
                                         
 
@@ -9676,7 +9676,7 @@ class PlatformQosEa(object):
                                         	Interface Type
                                         	**type**\:  str
                                         
-                                        	**range:** 0..101
+                                        	**length:** 0..101
                                         
                                         .. attribute:: policy_map_id
                                         
@@ -9690,7 +9690,7 @@ class PlatformQosEa(object):
                                         	Policy name
                                         	**type**\:  str
                                         
-                                        	**range:** 0..65
+                                        	**length:** 0..65
                                         
                                         .. attribute:: port
                                         
@@ -9846,7 +9846,7 @@ class PlatformQosEa(object):
                                             	Class name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..65
+                                            	**length:** 0..65
                                             
                                             .. attribute:: config
                                             
@@ -9865,14 +9865,14 @@ class PlatformQosEa(object):
                                             	Node Flags
                                             	**type**\:  str
                                             
-                                            	**range:** 0..101
+                                            	**length:** 0..101
                                             
                                             .. attribute:: policy_name
                                             
                                             	Policy name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..65
+                                            	**length:** 0..65
                                             
                                             .. attribute:: result
                                             
@@ -9884,7 +9884,7 @@ class PlatformQosEa(object):
                                             	Statistical Flags
                                             	**type**\:  str
                                             
-                                            	**range:** 0..101
+                                            	**length:** 0..101
                                             
                                             
 
@@ -9916,7 +9916,7 @@ class PlatformQosEa(object):
                                                 	Node Config
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..101
+                                                	**length:** 0..101
                                                 
                                                 .. attribute:: police
                                                 
@@ -11116,21 +11116,21 @@ class PlatformQosEa(object):
                                 	Direction
                                 	**type**\:  str
                                 
-                                	**range:** 0..11
+                                	**length:** 0..11
                                 
                                 .. attribute:: interface_name
                                 
                                 	Interface Name
                                 	**type**\:  str
                                 
-                                	**range:** 0..101
+                                	**length:** 0..101
                                 
                                 .. attribute:: policy_name
                                 
                                 	Policy name
                                 	**type**\:  str
                                 
-                                	**range:** 0..65
+                                	**length:** 0..65
                                 
                                 
 
@@ -11217,7 +11217,7 @@ class PlatformQosEa(object):
                                 	Interface Type
                                 	**type**\:  str
                                 
-                                	**range:** 0..101
+                                	**length:** 0..101
                                 
                                 .. attribute:: policy_map_id
                                 
@@ -11231,7 +11231,7 @@ class PlatformQosEa(object):
                                 	Policy name
                                 	**type**\:  str
                                 
-                                	**range:** 0..65
+                                	**length:** 0..65
                                 
                                 .. attribute:: port
                                 
@@ -11387,7 +11387,7 @@ class PlatformQosEa(object):
                                     	Class name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     .. attribute:: config
                                     
@@ -11406,14 +11406,14 @@ class PlatformQosEa(object):
                                     	Node Flags
                                     	**type**\:  str
                                     
-                                    	**range:** 0..101
+                                    	**length:** 0..101
                                     
                                     .. attribute:: policy_name
                                     
                                     	Policy name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     .. attribute:: result
                                     
@@ -11425,7 +11425,7 @@ class PlatformQosEa(object):
                                     	Statistical Flags
                                     	**type**\:  str
                                     
-                                    	**range:** 0..101
+                                    	**length:** 0..101
                                     
                                     
 
@@ -11457,7 +11457,7 @@ class PlatformQosEa(object):
                                         	Node Config
                                         	**type**\:  str
                                         
-                                        	**range:** 0..101
+                                        	**length:** 0..101
                                         
                                         .. attribute:: police
                                         
@@ -12484,21 +12484,21 @@ class PlatformQosEa(object):
                                 	Direction
                                 	**type**\:  str
                                 
-                                	**range:** 0..11
+                                	**length:** 0..11
                                 
                                 .. attribute:: interface_name
                                 
                                 	Interface Name
                                 	**type**\:  str
                                 
-                                	**range:** 0..101
+                                	**length:** 0..101
                                 
                                 .. attribute:: policy_name
                                 
                                 	Policy name
                                 	**type**\:  str
                                 
-                                	**range:** 0..65
+                                	**length:** 0..65
                                 
                                 
 
@@ -12585,7 +12585,7 @@ class PlatformQosEa(object):
                                 	Interface Type
                                 	**type**\:  str
                                 
-                                	**range:** 0..101
+                                	**length:** 0..101
                                 
                                 .. attribute:: policy_map_id
                                 
@@ -12599,7 +12599,7 @@ class PlatformQosEa(object):
                                 	Policy name
                                 	**type**\:  str
                                 
-                                	**range:** 0..65
+                                	**length:** 0..65
                                 
                                 .. attribute:: port
                                 
@@ -12755,7 +12755,7 @@ class PlatformQosEa(object):
                                     	Class name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     .. attribute:: config
                                     
@@ -12774,14 +12774,14 @@ class PlatformQosEa(object):
                                     	Node Flags
                                     	**type**\:  str
                                     
-                                    	**range:** 0..101
+                                    	**length:** 0..101
                                     
                                     .. attribute:: policy_name
                                     
                                     	Policy name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     .. attribute:: result
                                     
@@ -12793,7 +12793,7 @@ class PlatformQosEa(object):
                                     	Statistical Flags
                                     	**type**\:  str
                                     
-                                    	**range:** 0..101
+                                    	**length:** 0..101
                                     
                                     
 
@@ -12825,7 +12825,7 @@ class PlatformQosEa(object):
                                         	Node Config
                                         	**type**\:  str
                                         
-                                        	**range:** 0..101
+                                        	**length:** 0..101
                                         
                                         .. attribute:: police
                                         

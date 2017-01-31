@@ -620,14 +620,14 @@ class Inventory(object):
                             	useful for storing an entity alias 
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: asset_id_str
                             
                             	asset Identification string
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: asset_identification
                             
@@ -646,7 +646,7 @@ class Inventory(object):
                             	chip module hw revision string
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: composite_class_code
                             
@@ -660,21 +660,21 @@ class Inventory(object):
                             	describes in user\-readable terms 						what the entity in question does
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: environmental_monitor_path
                             
                             	sysdb name of sensor in the envmon EDM
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: firmware_revision
                             
                             	firmware revision string
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: group_flag
                             
@@ -686,7 +686,7 @@ class Inventory(object):
                             	hw revision string
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: is_field_replaceable_unit
                             
@@ -705,7 +705,7 @@ class Inventory(object):
                             	manufacturer's name
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: memory_size
                             
@@ -719,14 +719,14 @@ class Inventory(object):
                             	model name
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: name
                             
                             	name string for the entity
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: new_deviation_number
                             
@@ -754,14 +754,14 @@ class Inventory(object):
                             	serial number
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: software_revision
                             
                             	software revision string
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: unrecognized_fru
                             
@@ -773,7 +773,7 @@ class Inventory(object):
                             	maps to the vendor OID string
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: xr_scoped
                             
@@ -1602,14 +1602,14 @@ class Inventory(object):
                                                             	useful for storing an entity alias 
                                                             	**type**\:  str
                                                             
-                                                            	**range:** 0..255
+                                                            	**length:** 0..255
                                                             
                                                             .. attribute:: asset_id_str
                                                             
                                                             	asset Identification string
                                                             	**type**\:  str
                                                             
-                                                            	**range:** 0..255
+                                                            	**length:** 0..255
                                                             
                                                             .. attribute:: asset_identification
                                                             
@@ -1628,7 +1628,7 @@ class Inventory(object):
                                                             	chip module hw revision string
                                                             	**type**\:  str
                                                             
-                                                            	**range:** 0..255
+                                                            	**length:** 0..255
                                                             
                                                             .. attribute:: composite_class_code
                                                             
@@ -1642,21 +1642,21 @@ class Inventory(object):
                                                             	describes in user\-readable terms 						what the entity in question does
                                                             	**type**\:  str
                                                             
-                                                            	**range:** 0..255
+                                                            	**length:** 0..255
                                                             
                                                             .. attribute:: environmental_monitor_path
                                                             
                                                             	sysdb name of sensor in the envmon EDM
                                                             	**type**\:  str
                                                             
-                                                            	**range:** 0..255
+                                                            	**length:** 0..255
                                                             
                                                             .. attribute:: firmware_revision
                                                             
                                                             	firmware revision string
                                                             	**type**\:  str
                                                             
-                                                            	**range:** 0..255
+                                                            	**length:** 0..255
                                                             
                                                             .. attribute:: group_flag
                                                             
@@ -1668,7 +1668,7 @@ class Inventory(object):
                                                             	hw revision string
                                                             	**type**\:  str
                                                             
-                                                            	**range:** 0..255
+                                                            	**length:** 0..255
                                                             
                                                             .. attribute:: is_field_replaceable_unit
                                                             
@@ -1687,7 +1687,7 @@ class Inventory(object):
                                                             	manufacturer's name
                                                             	**type**\:  str
                                                             
-                                                            	**range:** 0..255
+                                                            	**length:** 0..255
                                                             
                                                             .. attribute:: memory_size
                                                             
@@ -1701,14 +1701,14 @@ class Inventory(object):
                                                             	model name
                                                             	**type**\:  str
                                                             
-                                                            	**range:** 0..255
+                                                            	**length:** 0..255
                                                             
                                                             .. attribute:: name
                                                             
                                                             	name string for the entity
                                                             	**type**\:  str
                                                             
-                                                            	**range:** 0..255
+                                                            	**length:** 0..255
                                                             
                                                             .. attribute:: new_deviation_number
                                                             
@@ -1736,14 +1736,14 @@ class Inventory(object):
                                                             	serial number
                                                             	**type**\:  str
                                                             
-                                                            	**range:** 0..255
+                                                            	**length:** 0..255
                                                             
                                                             .. attribute:: software_revision
                                                             
                                                             	software revision string
                                                             	**type**\:  str
                                                             
-                                                            	**range:** 0..255
+                                                            	**length:** 0..255
                                                             
                                                             .. attribute:: unrecognized_fru
                                                             
@@ -1755,7 +1755,7 @@ class Inventory(object):
                                                             	maps to the vendor OID string
                                                             	**type**\:  str
                                                             
-                                                            	**range:** 0..255
+                                                            	**length:** 0..255
                                                             
                                                             .. attribute:: xr_scoped
                                                             
@@ -2235,14 +2235,14 @@ class Inventory(object):
                                                         	useful for storing an entity alias 
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: asset_id_str
                                                         
                                                         	asset Identification string
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: asset_identification
                                                         
@@ -2261,7 +2261,7 @@ class Inventory(object):
                                                         	chip module hw revision string
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: composite_class_code
                                                         
@@ -2275,21 +2275,21 @@ class Inventory(object):
                                                         	describes in user\-readable terms 						what the entity in question does
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: environmental_monitor_path
                                                         
                                                         	sysdb name of sensor in the envmon EDM
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: firmware_revision
                                                         
                                                         	firmware revision string
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: group_flag
                                                         
@@ -2301,7 +2301,7 @@ class Inventory(object):
                                                         	hw revision string
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: is_field_replaceable_unit
                                                         
@@ -2320,7 +2320,7 @@ class Inventory(object):
                                                         	manufacturer's name
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: memory_size
                                                         
@@ -2334,14 +2334,14 @@ class Inventory(object):
                                                         	model name
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: name
                                                         
                                                         	name string for the entity
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: new_deviation_number
                                                         
@@ -2369,14 +2369,14 @@ class Inventory(object):
                                                         	serial number
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: software_revision
                                                         
                                                         	software revision string
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: unrecognized_fru
                                                         
@@ -2388,7 +2388,7 @@ class Inventory(object):
                                                         	maps to the vendor OID string
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: xr_scoped
                                                         
@@ -2956,14 +2956,14 @@ class Inventory(object):
                                                         	useful for storing an entity alias 
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: asset_id_str
                                                         
                                                         	asset Identification string
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: asset_identification
                                                         
@@ -2982,7 +2982,7 @@ class Inventory(object):
                                                         	chip module hw revision string
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: composite_class_code
                                                         
@@ -2996,21 +2996,21 @@ class Inventory(object):
                                                         	describes in user\-readable terms 						what the entity in question does
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: environmental_monitor_path
                                                         
                                                         	sysdb name of sensor in the envmon EDM
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: firmware_revision
                                                         
                                                         	firmware revision string
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: group_flag
                                                         
@@ -3022,7 +3022,7 @@ class Inventory(object):
                                                         	hw revision string
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: is_field_replaceable_unit
                                                         
@@ -3041,7 +3041,7 @@ class Inventory(object):
                                                         	manufacturer's name
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: memory_size
                                                         
@@ -3055,14 +3055,14 @@ class Inventory(object):
                                                         	model name
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: name
                                                         
                                                         	name string for the entity
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: new_deviation_number
                                                         
@@ -3090,14 +3090,14 @@ class Inventory(object):
                                                         	serial number
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: software_revision
                                                         
                                                         	software revision string
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: unrecognized_fru
                                                         
@@ -3109,7 +3109,7 @@ class Inventory(object):
                                                         	maps to the vendor OID string
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: xr_scoped
                                                         
@@ -3620,14 +3620,14 @@ class Inventory(object):
                                                 	useful for storing an entity alias 
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: asset_id_str
                                                 
                                                 	asset Identification string
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: asset_identification
                                                 
@@ -3646,7 +3646,7 @@ class Inventory(object):
                                                 	chip module hw revision string
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: composite_class_code
                                                 
@@ -3660,21 +3660,21 @@ class Inventory(object):
                                                 	describes in user\-readable terms 						what the entity in question does
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: environmental_monitor_path
                                                 
                                                 	sysdb name of sensor in the envmon EDM
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: firmware_revision
                                                 
                                                 	firmware revision string
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: group_flag
                                                 
@@ -3686,7 +3686,7 @@ class Inventory(object):
                                                 	hw revision string
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: is_field_replaceable_unit
                                                 
@@ -3705,7 +3705,7 @@ class Inventory(object):
                                                 	manufacturer's name
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: memory_size
                                                 
@@ -3719,14 +3719,14 @@ class Inventory(object):
                                                 	model name
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: name
                                                 
                                                 	name string for the entity
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: new_deviation_number
                                                 
@@ -3754,14 +3754,14 @@ class Inventory(object):
                                                 	serial number
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: software_revision
                                                 
                                                 	software revision string
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: unrecognized_fru
                                                 
@@ -3773,7 +3773,7 @@ class Inventory(object):
                                                 	maps to the vendor OID string
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: xr_scoped
                                                 
@@ -4259,14 +4259,14 @@ class Inventory(object):
                                             	useful for storing an entity alias 
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: asset_id_str
                                             
                                             	asset Identification string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: asset_identification
                                             
@@ -4285,7 +4285,7 @@ class Inventory(object):
                                             	chip module hw revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: composite_class_code
                                             
@@ -4299,21 +4299,21 @@ class Inventory(object):
                                             	describes in user\-readable terms 						what the entity in question does
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: environmental_monitor_path
                                             
                                             	sysdb name of sensor in the envmon EDM
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: firmware_revision
                                             
                                             	firmware revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: group_flag
                                             
@@ -4325,7 +4325,7 @@ class Inventory(object):
                                             	hw revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: is_field_replaceable_unit
                                             
@@ -4344,7 +4344,7 @@ class Inventory(object):
                                             	manufacturer's name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: memory_size
                                             
@@ -4358,14 +4358,14 @@ class Inventory(object):
                                             	model name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: name
                                             
                                             	name string for the entity
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: new_deviation_number
                                             
@@ -4393,14 +4393,14 @@ class Inventory(object):
                                             	serial number
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: software_revision
                                             
                                             	software revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: unrecognized_fru
                                             
@@ -4412,7 +4412,7 @@ class Inventory(object):
                                             	maps to the vendor OID string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: xr_scoped
                                             
@@ -5041,14 +5041,14 @@ class Inventory(object):
                                                     	useful for storing an entity alias 
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: asset_id_str
                                                     
                                                     	asset Identification string
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: asset_identification
                                                     
@@ -5067,7 +5067,7 @@ class Inventory(object):
                                                     	chip module hw revision string
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: composite_class_code
                                                     
@@ -5081,21 +5081,21 @@ class Inventory(object):
                                                     	describes in user\-readable terms 						what the entity in question does
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: environmental_monitor_path
                                                     
                                                     	sysdb name of sensor in the envmon EDM
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: firmware_revision
                                                     
                                                     	firmware revision string
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: group_flag
                                                     
@@ -5107,7 +5107,7 @@ class Inventory(object):
                                                     	hw revision string
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: is_field_replaceable_unit
                                                     
@@ -5126,7 +5126,7 @@ class Inventory(object):
                                                     	manufacturer's name
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: memory_size
                                                     
@@ -5140,14 +5140,14 @@ class Inventory(object):
                                                     	model name
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: name
                                                     
                                                     	name string for the entity
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: new_deviation_number
                                                     
@@ -5175,14 +5175,14 @@ class Inventory(object):
                                                     	serial number
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: software_revision
                                                     
                                                     	software revision string
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: unrecognized_fru
                                                     
@@ -5194,7 +5194,7 @@ class Inventory(object):
                                                     	maps to the vendor OID string
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: xr_scoped
                                                     
@@ -5705,14 +5705,14 @@ class Inventory(object):
                                             	useful for storing an entity alias 
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: asset_id_str
                                             
                                             	asset Identification string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: asset_identification
                                             
@@ -5731,7 +5731,7 @@ class Inventory(object):
                                             	chip module hw revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: composite_class_code
                                             
@@ -5745,21 +5745,21 @@ class Inventory(object):
                                             	describes in user\-readable terms 						what the entity in question does
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: environmental_monitor_path
                                             
                                             	sysdb name of sensor in the envmon EDM
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: firmware_revision
                                             
                                             	firmware revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: group_flag
                                             
@@ -5771,7 +5771,7 @@ class Inventory(object):
                                             	hw revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: is_field_replaceable_unit
                                             
@@ -5790,7 +5790,7 @@ class Inventory(object):
                                             	manufacturer's name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: memory_size
                                             
@@ -5804,14 +5804,14 @@ class Inventory(object):
                                             	model name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: name
                                             
                                             	name string for the entity
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: new_deviation_number
                                             
@@ -5839,14 +5839,14 @@ class Inventory(object):
                                             	serial number
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: software_revision
                                             
                                             	software revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: unrecognized_fru
                                             
@@ -5858,7 +5858,7 @@ class Inventory(object):
                                             	maps to the vendor OID string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: xr_scoped
                                             
@@ -6455,14 +6455,14 @@ class Inventory(object):
                                                 	useful for storing an entity alias 
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: asset_id_str
                                                 
                                                 	asset Identification string
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: asset_identification
                                                 
@@ -6481,7 +6481,7 @@ class Inventory(object):
                                                 	chip module hw revision string
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: composite_class_code
                                                 
@@ -6495,21 +6495,21 @@ class Inventory(object):
                                                 	describes in user\-readable terms 						what the entity in question does
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: environmental_monitor_path
                                                 
                                                 	sysdb name of sensor in the envmon EDM
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: firmware_revision
                                                 
                                                 	firmware revision string
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: group_flag
                                                 
@@ -6521,7 +6521,7 @@ class Inventory(object):
                                                 	hw revision string
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: is_field_replaceable_unit
                                                 
@@ -6540,7 +6540,7 @@ class Inventory(object):
                                                 	manufacturer's name
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: memory_size
                                                 
@@ -6554,14 +6554,14 @@ class Inventory(object):
                                                 	model name
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: name
                                                 
                                                 	name string for the entity
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: new_deviation_number
                                                 
@@ -6589,14 +6589,14 @@ class Inventory(object):
                                                 	serial number
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: software_revision
                                                 
                                                 	software revision string
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: unrecognized_fru
                                                 
@@ -6608,7 +6608,7 @@ class Inventory(object):
                                                 	maps to the vendor OID string
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: xr_scoped
                                                 
@@ -7088,14 +7088,14 @@ class Inventory(object):
                                             	useful for storing an entity alias 
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: asset_id_str
                                             
                                             	asset Identification string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: asset_identification
                                             
@@ -7114,7 +7114,7 @@ class Inventory(object):
                                             	chip module hw revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: composite_class_code
                                             
@@ -7128,21 +7128,21 @@ class Inventory(object):
                                             	describes in user\-readable terms 						what the entity in question does
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: environmental_monitor_path
                                             
                                             	sysdb name of sensor in the envmon EDM
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: firmware_revision
                                             
                                             	firmware revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: group_flag
                                             
@@ -7154,7 +7154,7 @@ class Inventory(object):
                                             	hw revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: is_field_replaceable_unit
                                             
@@ -7173,7 +7173,7 @@ class Inventory(object):
                                             	manufacturer's name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: memory_size
                                             
@@ -7187,14 +7187,14 @@ class Inventory(object):
                                             	model name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: name
                                             
                                             	name string for the entity
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: new_deviation_number
                                             
@@ -7222,14 +7222,14 @@ class Inventory(object):
                                             	serial number
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: software_revision
                                             
                                             	software revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: unrecognized_fru
                                             
@@ -7241,7 +7241,7 @@ class Inventory(object):
                                             	maps to the vendor OID string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: xr_scoped
                                             
@@ -7809,14 +7809,14 @@ class Inventory(object):
                                             	useful for storing an entity alias 
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: asset_id_str
                                             
                                             	asset Identification string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: asset_identification
                                             
@@ -7835,7 +7835,7 @@ class Inventory(object):
                                             	chip module hw revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: composite_class_code
                                             
@@ -7849,21 +7849,21 @@ class Inventory(object):
                                             	describes in user\-readable terms 						what the entity in question does
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: environmental_monitor_path
                                             
                                             	sysdb name of sensor in the envmon EDM
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: firmware_revision
                                             
                                             	firmware revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: group_flag
                                             
@@ -7875,7 +7875,7 @@ class Inventory(object):
                                             	hw revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: is_field_replaceable_unit
                                             
@@ -7894,7 +7894,7 @@ class Inventory(object):
                                             	manufacturer's name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: memory_size
                                             
@@ -7908,14 +7908,14 @@ class Inventory(object):
                                             	model name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: name
                                             
                                             	name string for the entity
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: new_deviation_number
                                             
@@ -7943,14 +7943,14 @@ class Inventory(object):
                                             	serial number
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: software_revision
                                             
                                             	software revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: unrecognized_fru
                                             
@@ -7962,7 +7962,7 @@ class Inventory(object):
                                             	maps to the vendor OID string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: xr_scoped
                                             
@@ -8473,14 +8473,14 @@ class Inventory(object):
                                     	useful for storing an entity alias 
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: asset_id_str
                                     
                                     	asset Identification string
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: asset_identification
                                     
@@ -8499,7 +8499,7 @@ class Inventory(object):
                                     	chip module hw revision string
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: composite_class_code
                                     
@@ -8513,21 +8513,21 @@ class Inventory(object):
                                     	describes in user\-readable terms 						what the entity in question does
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: environmental_monitor_path
                                     
                                     	sysdb name of sensor in the envmon EDM
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: firmware_revision
                                     
                                     	firmware revision string
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: group_flag
                                     
@@ -8539,7 +8539,7 @@ class Inventory(object):
                                     	hw revision string
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: is_field_replaceable_unit
                                     
@@ -8558,7 +8558,7 @@ class Inventory(object):
                                     	manufacturer's name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: memory_size
                                     
@@ -8572,14 +8572,14 @@ class Inventory(object):
                                     	model name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: name
                                     
                                     	name string for the entity
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: new_deviation_number
                                     
@@ -8607,14 +8607,14 @@ class Inventory(object):
                                     	serial number
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: software_revision
                                     
                                     	software revision string
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: unrecognized_fru
                                     
@@ -8626,7 +8626,7 @@ class Inventory(object):
                                     	maps to the vendor OID string
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: xr_scoped
                                     
@@ -9149,14 +9149,14 @@ class Inventory(object):
                             	useful for storing an entity alias 
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: asset_id_str
                             
                             	asset Identification string
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: asset_identification
                             
@@ -9175,7 +9175,7 @@ class Inventory(object):
                             	chip module hw revision string
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: composite_class_code
                             
@@ -9189,21 +9189,21 @@ class Inventory(object):
                             	describes in user\-readable terms 						what the entity in question does
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: environmental_monitor_path
                             
                             	sysdb name of sensor in the envmon EDM
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: firmware_revision
                             
                             	firmware revision string
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: group_flag
                             
@@ -9215,7 +9215,7 @@ class Inventory(object):
                             	hw revision string
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: is_field_replaceable_unit
                             
@@ -9234,7 +9234,7 @@ class Inventory(object):
                             	manufacturer's name
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: memory_size
                             
@@ -9248,14 +9248,14 @@ class Inventory(object):
                             	model name
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: name
                             
                             	name string for the entity
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: new_deviation_number
                             
@@ -9283,14 +9283,14 @@ class Inventory(object):
                             	serial number
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: software_revision
                             
                             	software revision string
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: unrecognized_fru
                             
@@ -9302,7 +9302,7 @@ class Inventory(object):
                             	maps to the vendor OID string
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: xr_scoped
                             
@@ -9610,14 +9610,14 @@ class Inventory(object):
                             	useful for storing an entity alias 
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: asset_id_str
                             
                             	asset Identification string
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: asset_identification
                             
@@ -9636,7 +9636,7 @@ class Inventory(object):
                             	chip module hw revision string
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: composite_class_code
                             
@@ -9650,21 +9650,21 @@ class Inventory(object):
                             	describes in user\-readable terms 						what the entity in question does
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: environmental_monitor_path
                             
                             	sysdb name of sensor in the envmon EDM
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: firmware_revision
                             
                             	firmware revision string
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: group_flag
                             
@@ -9676,7 +9676,7 @@ class Inventory(object):
                             	hw revision string
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: is_field_replaceable_unit
                             
@@ -9695,7 +9695,7 @@ class Inventory(object):
                             	manufacturer's name
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: memory_size
                             
@@ -9709,14 +9709,14 @@ class Inventory(object):
                             	model name
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: name
                             
                             	name string for the entity
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: new_deviation_number
                             
@@ -9744,14 +9744,14 @@ class Inventory(object):
                             	serial number
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: software_revision
                             
                             	software revision string
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: unrecognized_fru
                             
@@ -9763,7 +9763,7 @@ class Inventory(object):
                             	maps to the vendor OID string
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: xr_scoped
                             
@@ -10244,14 +10244,14 @@ class Inventory(object):
                     	useful for storing an entity alias 
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: asset_id_str
                     
                     	asset Identification string
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: asset_identification
                     
@@ -10270,7 +10270,7 @@ class Inventory(object):
                     	chip module hw revision string
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: composite_class_code
                     
@@ -10284,21 +10284,21 @@ class Inventory(object):
                     	describes in user\-readable terms 						what the entity in question does
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: environmental_monitor_path
                     
                     	sysdb name of sensor in the envmon EDM
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: firmware_revision
                     
                     	firmware revision string
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: group_flag
                     
@@ -10310,7 +10310,7 @@ class Inventory(object):
                     	hw revision string
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: is_field_replaceable_unit
                     
@@ -10329,7 +10329,7 @@ class Inventory(object):
                     	manufacturer's name
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: memory_size
                     
@@ -10343,14 +10343,14 @@ class Inventory(object):
                     	model name
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: name
                     
                     	name string for the entity
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: new_deviation_number
                     
@@ -10378,14 +10378,14 @@ class Inventory(object):
                     	serial number
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: software_revision
                     
                     	software revision string
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: unrecognized_fru
                     
@@ -10397,7 +10397,7 @@ class Inventory(object):
                     	maps to the vendor OID string
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: xr_scoped
                     

@@ -429,7 +429,7 @@ class EsAcl(object):
                     	Name of the Access List
                     	**type**\:  str
                     
-                    	**range:** 0..65
+                    	**length:** 0..65
                     
                     .. attribute:: acl_sequence_numbers
                     
@@ -884,7 +884,7 @@ class EsAcl(object):
                 	Name of the Access List
                 	**type**\:  str
                 
-                	**range:** 0..65
+                	**length:** 0..65
                 
                 .. attribute:: current_configured_ac_es
                 
@@ -1035,7 +1035,7 @@ class EsAcl(object):
                 	Name of the ACL
                 	**type**\:  str
                 
-                	**range:** 0..65
+                	**length:** 0..65
                 
                 .. attribute:: usage_details
                 

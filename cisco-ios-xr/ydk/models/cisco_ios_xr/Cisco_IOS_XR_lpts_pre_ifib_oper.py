@@ -263,7 +263,7 @@ class LptsPifib(object):
                         	Deliver List String
                         	**type**\:  str
                         
-                        	**range:** 0..1024
+                        	**length:** 0..1024
                         
                         .. attribute:: drops
                         

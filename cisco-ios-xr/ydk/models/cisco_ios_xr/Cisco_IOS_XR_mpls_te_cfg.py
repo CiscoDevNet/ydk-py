@@ -1921,7 +1921,7 @@ class MplsTe(object):
                 	Tunnel name
                 	**type**\:  str
                 
-                	**range:** 0..59
+                	**length:** 0..59
                 
                 .. attribute:: tunnel_type  <key>
                 
@@ -5684,7 +5684,7 @@ class MplsTe(object):
                     	The name of the tunnel to be included in signalling messages
                     	**type**\:  str
                     
-                    	**range:** 0..254
+                    	**length:** 0..254
                     
                     .. attribute:: tunnel_id
                     
@@ -5806,7 +5806,7 @@ class MplsTe(object):
                             	The name of the XRO attribute set to be used for this path\-option
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             .. attribute:: xro_type
                             
@@ -7062,7 +7062,7 @@ class MplsTe(object):
                         	The name of auto\-mesh attribute set to be applied to this group
                         	**type**\:  str
                         
-                        	**range:** 0..64
+                        	**length:** 0..64
                         
                         .. attribute:: create
                         
@@ -7074,7 +7074,7 @@ class MplsTe(object):
                         	The name of prefix\-list to be applied to this destination\-list
                         	**type**\:  str
                         
-                        	**range:** 0..32
+                        	**length:** 0..32
                         
                         .. attribute:: disable
                         
@@ -8015,7 +8015,7 @@ class MplsTe(object):
                     	SRLG membership name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: admin_weight
                     
@@ -8712,7 +8712,7 @@ class MplsTe(object):
                     	Attribute Set Name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: affinity_mask
                     
@@ -8873,7 +8873,7 @@ class MplsTe(object):
                         	Path selection exclude list name configuration
                         	**type**\:  str
                         
-                        	**range:** 0..64
+                        	**length:** 0..64
                         
                         
 
@@ -10883,7 +10883,7 @@ class MplsTe(object):
                     	Attribute Set Name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: affinity_mask
                     
@@ -12956,7 +12956,7 @@ class MplsTe(object):
                     	Attribute Set Name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: affinity_mask
                     
@@ -15273,7 +15273,7 @@ class MplsTe(object):
                     	Attribute Set Name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: affinity_mask
                     
@@ -17252,7 +17252,7 @@ class MplsTe(object):
                     	Attribute Set Name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: aps_protection_mode
                     
@@ -17350,7 +17350,7 @@ class MplsTe(object):
                             	Enter 64 characters for revert schedule name
                             	**type**\:  str
                             
-                            	**range:** 0..254
+                            	**length:** 0..254
                             
                             .. attribute:: revert_schedule_frequency
                             
@@ -17919,7 +17919,7 @@ class MplsTe(object):
                     	Attribute Set Name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: affinity_mask
                     
@@ -20084,7 +20084,7 @@ class MplsTe(object):
                     	Attribute Set Name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: enable
                     
@@ -20846,7 +20846,7 @@ class MplsTe(object):
             	Keychain based authentication
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             .. attribute:: logging
             
@@ -20916,7 +20916,7 @@ class MplsTe(object):
             	PCE speaker entity identifier
             	**type**\:  str
             
-            	**range:** 0..256
+            	**length:** 0..256
             
             .. attribute:: timer
             
@@ -21196,7 +21196,7 @@ class MplsTe(object):
                     	Keychain based authentication
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     .. attribute:: password
                     
@@ -22099,7 +22099,7 @@ class MplsTe(object):
                 	Affinity Name
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: value
                 
@@ -22941,7 +22941,7 @@ class MplsTe(object):
                 	Name of mid\-point
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: destination
                 
@@ -24042,7 +24042,7 @@ class MplsTe(object):
                     	Process name
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     
 
@@ -24580,7 +24580,7 @@ class MplsTe(object):
                         	Tunnel name
                         	**type**\:  str
                         
-                        	**range:** 0..59
+                        	**length:** 0..59
                         
                         
 
@@ -24677,7 +24677,7 @@ class MplsTe(object):
                         	The name of attribute set to be applied to this auto backup lsp
                         	**type**\:  str
                         
-                        	**range:** 0..64
+                        	**length:** 0..64
                         
                         .. attribute:: enable
                         
@@ -25071,7 +25071,7 @@ class MplsTe(object):
                 	Name of IGP instance
                 	**type**\:  str
                 
-                	**range:** 0..40
+                	**length:** 0..40
                 
                 .. attribute:: igp_type  <key>
                 
@@ -25758,7 +25758,7 @@ class MplsTe(object):
                 	The name of the path\-protection profile to be included in signalling messages
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: path_selection_metric
                 
@@ -25800,7 +25800,7 @@ class MplsTe(object):
                 	The name of the tunnel to be included in signalling messages
                 	**type**\:  str
                 
-                	**range:** 0..254
+                	**length:** 0..254
                 
                 .. attribute:: standby_lsp_shutdown
                 
@@ -26136,7 +26136,7 @@ class MplsTe(object):
                         	The name of the XRO attribute set to be used for this path\-option
                         	**type**\:  str
                         
-                        	**range:** 0..64
+                        	**length:** 0..64
                         
                         .. attribute:: xro_type
                         
@@ -26259,7 +26259,7 @@ class MplsTe(object):
                     	Name of  ingress controller
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     
 

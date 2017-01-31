@@ -3193,7 +3193,7 @@ class Aaa(object):
                 	IP address buffer
                 	**type**\:  str
                 
-                	**range:** 0..46
+                	**length:** 0..46
                 
                 .. attribute:: bytes_in
                 
@@ -3237,7 +3237,7 @@ class Aaa(object):
                 	IP address Family
                 	**type**\:  str
                 
-                	**range:** 0..5
+                	**length:** 0..5
                 
                 .. attribute:: is_private
                 
@@ -3301,7 +3301,7 @@ class Aaa(object):
                 	VRF in which server is reachable
                 	**type**\:  str
                 
-                	**range:** 0..33
+                	**length:** 0..33
                 
                 
 
@@ -3482,7 +3482,7 @@ class Aaa(object):
                 	vrf of the group
                 	**type**\:  str
                 
-                	**range:** 0..33
+                	**length:** 0..33
                 
                 
 
@@ -3524,7 +3524,7 @@ class Aaa(object):
                     	IP address buffer
                     	**type**\:  str
                     
-                    	**range:** 0..46
+                    	**length:** 0..46
                     
                     .. attribute:: bytes_in
                     
@@ -3568,7 +3568,7 @@ class Aaa(object):
                     	IP address Family
                     	**type**\:  str
                     
-                    	**range:** 0..5
+                    	**length:** 0..5
                     
                     .. attribute:: is_private
                     
@@ -3632,7 +3632,7 @@ class Aaa(object):
                     	VRF in which server is reachable
                     	**type**\:  str
                     
-                    	**range:** 0..33
+                    	**length:** 0..33
                     
                     
 

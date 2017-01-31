@@ -326,7 +326,7 @@ class Vrrp(object):
                             	VRRP Session Name
                             	**type**\:  str
                             
-                            	**range:** 0..16
+                            	**length:** 0..16
                             
                             .. attribute:: timer
                             
@@ -1502,7 +1502,7 @@ class Vrrp(object):
                             	VRRP Session Name
                             	**type**\:  str
                             
-                            	**range:** 0..16
+                            	**length:** 0..16
                             
                             .. attribute:: timer
                             
@@ -2395,7 +2395,7 @@ class Vrrp(object):
                             	VRRP Session Name
                             	**type**\:  str
                             
-                            	**range:** 0..16
+                            	**length:** 0..16
                             
                             .. attribute:: text_password
                             

@@ -410,7 +410,7 @@ class LogicalChannels(object):
         	Description (Max 255 characters)
         	**type**\:  str
         
-        	**range:** 0..255
+        	**length:** 0..255
         
         .. attribute:: ingress_client_port
         
@@ -531,7 +531,7 @@ class LogicalChannels(object):
                 	Configure description for this assignment
                 	**type**\:  str
                 
-                	**range:** 0..255
+                	**length:** 0..255
                 
                 .. attribute:: logical_channel_id
                 
@@ -643,14 +643,14 @@ class LogicalChannels(object):
             	Trail trace identifier (TTI) message expectedTrail trace identifier (TTI) message expected
             	**type**\:  str
             
-            	**range:** 0..255
+            	**length:** 0..255
             
             .. attribute:: tti_msg_transmit
             
             	Trail trace identifier (TTI) message transmittedTrail trace identifier (TTI) message transmitted
             	**type**\:  str
             
-            	**range:** 0..255
+            	**length:** 0..255
             
             
 

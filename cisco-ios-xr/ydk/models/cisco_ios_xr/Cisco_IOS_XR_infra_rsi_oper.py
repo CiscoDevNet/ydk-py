@@ -241,7 +241,7 @@ class VrfGroup(object):
                     	Group name
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     .. attribute:: forward_reference
                     
@@ -525,7 +525,7 @@ class Srlg(object):
             	SRLG name
             	**type**\:  str
             
-            	**range:** 0..64
+            	**length:** 0..64
             
             .. attribute:: srlg_name_xr
             
@@ -734,7 +734,7 @@ class Srlg(object):
                     	SRLG name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: srlg_name_xr
                     
@@ -1721,7 +1721,7 @@ class Srlg(object):
                     	SRLG name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: interfaces
                     
@@ -1967,7 +1967,7 @@ class Srlg(object):
             	SRLG name
             	**type**\:  str
             
-            	**range:** 0..64
+            	**length:** 0..64
             
             .. attribute:: interfaces
             

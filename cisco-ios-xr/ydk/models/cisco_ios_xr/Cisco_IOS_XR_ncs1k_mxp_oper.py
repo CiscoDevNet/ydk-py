@@ -179,14 +179,14 @@ class HwModule(object):
                 	DpFpgaFwType
                 	**type**\:  str
                 
-                	**range:** 0..10
+                	**length:** 0..10
                 
                 .. attribute:: dp_fpga_fw_ver
                 
                 	DpFpgaFwVer
                 	**type**\:  str
                 
-                	**range:** 0..10
+                	**length:** 0..10
                 
                 .. attribute:: encryption_supported
                 
@@ -256,7 +256,7 @@ class HwModule(object):
                     	ClientName
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: if_index
                     
@@ -302,14 +302,14 @@ class HwModule(object):
                         	Percentage
                         	**type**\:  str
                         
-                        	**range:** 0..8
+                        	**length:** 0..8
                         
                         .. attribute:: trunk_name
                         
                         	TrunkName
                         	**type**\:  str
                         
-                        	**range:** 0..64
+                        	**length:** 0..64
                         
                         
 
@@ -537,14 +537,14 @@ class HwModule(object):
             	DpFpgaFwType
             	**type**\:  str
             
-            	**range:** 0..10
+            	**length:** 0..10
             
             .. attribute:: dp_fpga_fw_ver
             
             	DpFpgaFwVer
             	**type**\:  str
             
-            	**range:** 0..10
+            	**length:** 0..10
             
             .. attribute:: encryption_supported
             
@@ -614,7 +614,7 @@ class HwModule(object):
                 	ClientName
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: if_index
                 
@@ -660,14 +660,14 @@ class HwModule(object):
                     	Percentage
                     	**type**\:  str
                     
-                    	**range:** 0..8
+                    	**length:** 0..8
                     
                     .. attribute:: trunk_name
                     
                     	TrunkName
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     
 

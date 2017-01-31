@@ -1646,7 +1646,7 @@ class TcpConnection(object):
                         	Transport client name
                         	**type**\:  str
                         
-                        	**range:** 0..21
+                        	**length:** 0..21
                         
                         .. attribute:: ipv4_received_packets
                         
@@ -4993,7 +4993,7 @@ class TcpConnection(object):
                     	RX Syn acl name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: sack_blk
                     

@@ -545,7 +545,7 @@ class Hsrp(object):
                 	Authentication string
                 	**type**\:  str
                 
-                	**range:** 0..9
+                	**length:** 0..9
                 
                 .. attribute:: bfd_enabled
                 
@@ -656,7 +656,7 @@ class Hsrp(object):
                 	Followed Session Name
                 	**type**\:  str
                 
-                	**range:** 0..16
+                	**length:** 0..16
                 
                 .. attribute:: global_address
                 
@@ -728,7 +728,7 @@ class Hsrp(object):
                 	Interface Name
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: is_slave
                 
@@ -828,7 +828,7 @@ class Hsrp(object):
                 	Session Name
                 	**type**\:  str
                 
-                	**range:** 0..16
+                	**length:** 0..16
                 
                 .. attribute:: slaves
                 
@@ -2038,7 +2038,7 @@ class Hsrp(object):
                 	Tracked Interface Name
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 
 
@@ -2474,7 +2474,7 @@ class Hsrp(object):
             	Session Name
             	**type**\:  str
             
-            	**range:** 0..16
+            	**length:** 0..16
             
             .. attribute:: primary_session_number
             
@@ -2522,7 +2522,7 @@ class Hsrp(object):
                 	Interface of slave group
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: slave_group_number
                 
@@ -2759,7 +2759,7 @@ class Hsrp(object):
                 	Tracked Interface Name
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 
 
@@ -2959,7 +2959,7 @@ class Hsrp(object):
                 	Authentication string
                 	**type**\:  str
                 
-                	**range:** 0..9
+                	**length:** 0..9
                 
                 .. attribute:: bfd_enabled
                 
@@ -3070,7 +3070,7 @@ class Hsrp(object):
                 	Followed Session Name
                 	**type**\:  str
                 
-                	**range:** 0..16
+                	**length:** 0..16
                 
                 .. attribute:: global_address
                 
@@ -3142,7 +3142,7 @@ class Hsrp(object):
                 	Interface Name
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: is_slave
                 
@@ -3242,7 +3242,7 @@ class Hsrp(object):
                 	Session Name
                 	**type**\:  str
                 
-                	**range:** 0..16
+                	**length:** 0..16
                 
                 .. attribute:: slaves
                 
@@ -4711,7 +4711,7 @@ class Hsrp(object):
             	BFD Interface Name
             	**type**\:  str
             
-            	**range:** 0..64
+            	**length:** 0..64
             
             .. attribute:: bfd_interval
             
@@ -4795,7 +4795,7 @@ class Hsrp(object):
                 	Interface Name
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 
 

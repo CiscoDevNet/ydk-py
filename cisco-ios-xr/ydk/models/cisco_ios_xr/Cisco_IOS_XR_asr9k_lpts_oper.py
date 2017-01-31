@@ -167,7 +167,7 @@ class PlatformLptspIfib(object):
                     	avgrate type
                     	**type**\:  str
                     
-                    	**range:** 0..50
+                    	**length:** 0..50
                     
                     .. attribute:: burst
                     
@@ -195,7 +195,7 @@ class PlatformLptspIfib(object):
                     	flow type
                     	**type**\:  str
                     
-                    	**range:** 0..50
+                    	**length:** 0..50
                     
                     .. attribute:: iptos_value
                     

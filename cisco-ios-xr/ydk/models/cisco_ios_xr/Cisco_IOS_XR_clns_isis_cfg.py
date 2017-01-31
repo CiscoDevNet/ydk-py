@@ -1567,7 +1567,7 @@ class Isis(object):
             	Instance identifier
             	**type**\:  str
             
-            	**range:** 0..40
+            	**length:** 0..40
             
             .. attribute:: afs
             
@@ -6099,7 +6099,7 @@ class Isis(object):
                         	Topology Name
                         	**type**\:  str
                         
-                        	**range:** 0..32
+                        	**length:** 0..32
                         
                         .. attribute:: adjacency_check
                         
@@ -10424,7 +10424,7 @@ class Isis(object):
                     	Link Group Name
                     	**type**\:  str
                     
-                    	**range:** 0..40
+                    	**length:** 0..40
                     
                     .. attribute:: enable
                     
@@ -14004,7 +14004,7 @@ class Isis(object):
                                     	Link Group
                                     	**type**\:  str
                                     
-                                    	**range:** 0..40
+                                    	**length:** 0..40
                                     
                                     	**mandatory**\: True
                                     
@@ -14379,7 +14379,7 @@ class Isis(object):
                                 	Topology Name
                                 	**type**\:  str
                                 
-                                	**range:** 0..32
+                                	**length:** 0..32
                                 
                                 .. attribute:: admin_tags
                                 
@@ -15864,7 +15864,7 @@ class Isis(object):
                                     	Link Group
                                     	**type**\:  str
                                     
-                                    	**range:** 0..40
+                                    	**length:** 0..40
                                     
                                     	**mandatory**\: True
                                     

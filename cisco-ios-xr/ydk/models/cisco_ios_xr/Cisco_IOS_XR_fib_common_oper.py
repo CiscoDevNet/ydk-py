@@ -1409,35 +1409,35 @@ class Fib(object):
                         	End\-of\-config received from IMDR timestamp
                         	**type**\:  str
                         
-                        	**range:** 0..33
+                        	**length:** 0..33
                         
                         .. attribute:: eoc_received_slc_time_stamp
                         
                         	End\-of\-config received from SLC timestamp
                         	**type**\:  str
                         
-                        	**range:** 0..33
+                        	**length:** 0..33
                         
                         .. attribute:: eod_received_im_time_stamp
                         
                         	End\-of\-download received from IM timestamp
                         	**type**\:  str
                         
-                        	**range:** 0..33
+                        	**length:** 0..33
                         
                         .. attribute:: eod_sent_imdr_time_stamp
                         
                         	End\-of\-download send to IMDR timestamp
                         	**type**\:  str
                         
-                        	**range:** 0..33
+                        	**length:** 0..33
                         
                         .. attribute:: eod_sent_slc_time_stamp
                         
                         	End\-of\-download send to SLC timestamp
                         	**type**\:  str
                         
-                        	**range:** 0..33
+                        	**length:** 0..33
                         
                         .. attribute:: fis_issu_error_ts
                         
@@ -1510,7 +1510,7 @@ class Fib(object):
                             	AIB EODTimeStamp
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: bcdl_tables
                             
@@ -1531,7 +1531,7 @@ class Fib(object):
                             	LMRIB EOD received timestamp
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: lmrib_eod_valid
                             
@@ -1543,7 +1543,7 @@ class Fib(object):
                             	LSD EOD received timestamp
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: lsd_eod_valid
                             
@@ -1555,7 +1555,7 @@ class Fib(object):
                             	Protocol EOD sent timestamp
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: protocol_eod_valid
                             
@@ -1567,7 +1567,7 @@ class Fib(object):
                             	Protocol name
                             	**type**\:  str
                             
-                            	**range:** 0..6
+                            	**length:** 0..6
                             
                             .. attribute:: rib_info_valid
                             
@@ -1579,14 +1579,14 @@ class Fib(object):
                             	All RIB tables converged timestamp
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: rsi_eod_time_stamp
                             
                             	RSI EOD received timestamp
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: rsi_eod_valid
                             
@@ -3135,7 +3135,7 @@ class Fib(object):
                                         	nh prefix
                                         	**type**\:  str
                                         
-                                        	**range:** 0..52
+                                        	**length:** 0..52
                                         
                                         .. attribute:: frr_protocol_type
                                         
@@ -4398,7 +4398,7 @@ class Fib(object):
                                                     	address
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..60
+                                                    	**length:** 0..60
                                                     
                                                     
 
@@ -4931,21 +4931,21 @@ class Fib(object):
                                             	Next hop prefix
                                             	**type**\:  str
                                             
-                                            	**range:** 0..52
+                                            	**length:** 0..52
                                             
                                             .. attribute:: brief_pnode_address
                                             
                                             	P\-node address
                                             	**type**\:  str
                                             
-                                            	**range:** 0..52
+                                            	**length:** 0..52
                                             
                                             .. attribute:: brief_qnode_address
                                             
                                             	Q\-node address
                                             	**type**\:  str
                                             
-                                            	**range:** 0..52
+                                            	**length:** 0..52
                                             
                                             .. attribute:: hardware_information
                                             
@@ -5093,7 +5093,7 @@ class Fib(object):
                                                 	Next hop prefix
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..52
+                                                	**length:** 0..52
                                                 
                                                 .. attribute:: external_adjacency
                                                 
@@ -5122,7 +5122,7 @@ class Fib(object):
                                                 	IP address to recurse to
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..52
+                                                	**length:** 0..52
                                                 
                                                 .. attribute:: label_to_recurse
                                                 
@@ -5157,7 +5157,7 @@ class Fib(object):
                                                 	Next hop VRF
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..33
+                                                	**length:** 0..33
                                                 
                                                 .. attribute:: next_prefix_length
                                                 
@@ -5685,7 +5685,7 @@ class Fib(object):
                                                     	NHAddress
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..52
+                                                    	**length:** 0..52
                                                     
                                                     .. attribute:: number_of_labels
                                                     
@@ -7351,14 +7351,14 @@ class Fib(object):
                                             	Pimary local v4 address for the interface
                                             	**type**\:  str
                                             
-                                            	**range:** 0..52
+                                            	**length:** 0..52
                                             
                                             .. attribute:: primary_ipv6_address
                                             
                                             	Pimary local v6 address for the interface
                                             	**type**\:  str
                                             
-                                            	**range:** 0..52
+                                            	**length:** 0..52
                                             
                                             .. attribute:: protocol_enabled
                                             
@@ -9129,7 +9129,7 @@ class Fib(object):
                                                     	address
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..60
+                                                    	**length:** 0..60
                                                     
                                                     
 
@@ -9662,21 +9662,21 @@ class Fib(object):
                                             	Next hop prefix
                                             	**type**\:  str
                                             
-                                            	**range:** 0..52
+                                            	**length:** 0..52
                                             
                                             .. attribute:: brief_pnode_address
                                             
                                             	P\-node address
                                             	**type**\:  str
                                             
-                                            	**range:** 0..52
+                                            	**length:** 0..52
                                             
                                             .. attribute:: brief_qnode_address
                                             
                                             	Q\-node address
                                             	**type**\:  str
                                             
-                                            	**range:** 0..52
+                                            	**length:** 0..52
                                             
                                             .. attribute:: hardware_information
                                             
@@ -9824,7 +9824,7 @@ class Fib(object):
                                                 	Next hop prefix
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..52
+                                                	**length:** 0..52
                                                 
                                                 .. attribute:: external_adjacency
                                                 
@@ -9853,7 +9853,7 @@ class Fib(object):
                                                 	IP address to recurse to
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..52
+                                                	**length:** 0..52
                                                 
                                                 .. attribute:: label_to_recurse
                                                 
@@ -9888,7 +9888,7 @@ class Fib(object):
                                                 	Next hop VRF
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..33
+                                                	**length:** 0..33
                                                 
                                                 .. attribute:: next_prefix_length
                                                 
@@ -10416,7 +10416,7 @@ class Fib(object):
                                                     	NHAddress
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..52
+                                                    	**length:** 0..52
                                                     
                                                     .. attribute:: number_of_labels
                                                     
@@ -11435,35 +11435,35 @@ class Fib(object):
                             	End\-of\-config received from IMDR timestamp
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: eoc_received_slc_time_stamp
                             
                             	End\-of\-config received from SLC timestamp
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: eod_received_im_time_stamp
                             
                             	End\-of\-download received from IM timestamp
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: eod_sent_imdr_time_stamp
                             
                             	End\-of\-download send to IMDR timestamp
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: eod_sent_slc_time_stamp
                             
                             	End\-of\-download send to SLC timestamp
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: fis_issu_error_ts
                             
@@ -11536,7 +11536,7 @@ class Fib(object):
                                 	AIB EODTimeStamp
                                 	**type**\:  str
                                 
-                                	**range:** 0..33
+                                	**length:** 0..33
                                 
                                 .. attribute:: bcdl_tables
                                 
@@ -11557,7 +11557,7 @@ class Fib(object):
                                 	LMRIB EOD received timestamp
                                 	**type**\:  str
                                 
-                                	**range:** 0..33
+                                	**length:** 0..33
                                 
                                 .. attribute:: lmrib_eod_valid
                                 
@@ -11569,7 +11569,7 @@ class Fib(object):
                                 	LSD EOD received timestamp
                                 	**type**\:  str
                                 
-                                	**range:** 0..33
+                                	**length:** 0..33
                                 
                                 .. attribute:: lsd_eod_valid
                                 
@@ -11581,7 +11581,7 @@ class Fib(object):
                                 	Protocol EOD sent timestamp
                                 	**type**\:  str
                                 
-                                	**range:** 0..33
+                                	**length:** 0..33
                                 
                                 .. attribute:: protocol_eod_valid
                                 
@@ -11593,7 +11593,7 @@ class Fib(object):
                                 	Protocol name
                                 	**type**\:  str
                                 
-                                	**range:** 0..6
+                                	**length:** 0..6
                                 
                                 .. attribute:: rib_info_valid
                                 
@@ -11605,14 +11605,14 @@ class Fib(object):
                                 	All RIB tables converged timestamp
                                 	**type**\:  str
                                 
-                                	**range:** 0..33
+                                	**length:** 0..33
                                 
                                 .. attribute:: rsi_eod_time_stamp
                                 
                                 	RSI EOD received timestamp
                                 	**type**\:  str
                                 
-                                	**range:** 0..33
+                                	**length:** 0..33
                                 
                                 .. attribute:: rsi_eod_valid
                                 
@@ -12999,7 +12999,7 @@ class Fib(object):
                                     	Gtrie operation
                                     	**type**\:  str
                                     
-                                    	**range:** 0..64
+                                    	**length:** 0..64
                                     
                                     .. attribute:: fgft_max_time
                                     
@@ -13375,7 +13375,7 @@ class Fib(object):
                             	prfx
                             	**type**\:  str
                             
-                            	**range:** 0..16
+                            	**length:** 0..16
                             
                             .. attribute:: prfx_len
                             
@@ -13993,7 +13993,7 @@ class Fib(object):
                                         	pfx
                                         	**type**\:  str
                                         
-                                        	**range:** 0..52
+                                        	**length:** 0..52
                                         
                                         .. attribute:: tbl_id
                                         
@@ -14058,7 +14058,7 @@ class Fib(object):
                                         	nh
                                         	**type**\:  str
                                         
-                                        	**range:** 0..52
+                                        	**length:** 0..52
                                         
                                         
 

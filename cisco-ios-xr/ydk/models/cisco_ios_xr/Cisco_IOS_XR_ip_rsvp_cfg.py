@@ -281,7 +281,7 @@ class Rsvp(object):
                 	Key chain to authenticate RSVP signalling messages
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: life_time
                 
@@ -1614,7 +1614,7 @@ class Rsvp(object):
                 	Key chain to authenticate RSVP signalling messages
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: life_time
                 
@@ -1821,7 +1821,7 @@ class Rsvp(object):
             	VRF used for out\-of\-band control signalling
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             
 
@@ -1939,7 +1939,7 @@ class Rsvp(object):
             	Configure an ACL to perform prefix filtering of RSVP Router Alert messages
             	**type**\:  str
             
-            	**range:** 0..65
+            	**length:** 0..65
             
             .. attribute:: default_deny_action
             
@@ -2169,7 +2169,7 @@ class Rsvp(object):
         	Key chain to authenticate RSVP signalling messages
         	**type**\:  str
         
-        	**range:** 0..32
+        	**length:** 0..32
         
         .. attribute:: life_time
         

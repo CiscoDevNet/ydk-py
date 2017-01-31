@@ -162,7 +162,7 @@ class IpDomain(object):
                 	Domain list
                 	**type**\:  list of str
                 
-                	**range:** 0..256
+                	**length:** 0..256
                 
                 .. attribute:: domain_lookup
                 
@@ -174,7 +174,7 @@ class IpDomain(object):
                 	Domain name
                 	**type**\:  str
                 
-                	**range:** 0..256
+                	**length:** 0..256
                 
                 .. attribute:: server_address
                 
@@ -389,7 +389,7 @@ class IpDomain(object):
                         	Host alias list
                         	**type**\:  list of str
                         
-                        	**range:** 0..256
+                        	**length:** 0..256
                         
                         
 

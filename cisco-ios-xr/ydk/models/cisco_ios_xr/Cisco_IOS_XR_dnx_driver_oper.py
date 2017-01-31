@@ -6566,7 +6566,7 @@ class Fia(object):
                                         	Block Name
                                         	**type**\:  str
                                         
-                                        	**range:** 0..11
+                                        	**length:** 0..11
                                         
                                         .. attribute:: field_info
                                         
@@ -6605,7 +6605,7 @@ class Fia(object):
                                             	Field Name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..51
+                                            	**length:** 0..51
                                             
                                             .. attribute:: field_value
                                             
@@ -7303,98 +7303,98 @@ class Fia(object):
                                                 	RX 8b 10b code errors
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: rx_8b_10b_disparity_errors
                                                 
                                                 	RX 8b 10b disparity errors
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: rx_asyn_fifo_rate
                                                 
                                                 	RX Asyn fifo rate
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: rx_control_cells_counter
                                                 
                                                 	RX Control cells counter
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: rx_crc_errors_counter
                                                 
                                                 	RX CRC errors counter
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: rx_data_byte_counter
                                                 
                                                 	RX Data byte counter
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: rx_data_cell_counter
                                                 
                                                 	RX Data cell counter
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: rx_dropped_retransmitted_control
                                                 
                                                 	RX dropped retransmitted control
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: rx_lfec_fec_correctable_error
                                                 
                                                 	RX LFEC FEC correctable error
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: rx_lfec_fec_uncorrectable_errors
                                                 
                                                 	RX LFEC FEC uncorrectable errors
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: tx_asyn_fifo_rate
                                                 
                                                 	TX Asyn fifo rate
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: tx_control_cells_counter
                                                 
                                                 	TX Control cells counter
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: tx_data_byte_counter
                                                 
                                                 	TX Data byte counter
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: tx_data_cell_counter
                                                 
                                                 	TX Data cell counter
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 
 
@@ -7873,98 +7873,98 @@ class Fia(object):
                                                 	RX 8b 10b code errors
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: rx_8b_10b_disparity_errors
                                                 
                                                 	RX 8b 10b disparity errors
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: rx_asyn_fifo_rate
                                                 
                                                 	RX Asyn fifo rate
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: rx_control_cells_counter
                                                 
                                                 	RX Control cells counter
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: rx_crc_errors_counter
                                                 
                                                 	RX CRC errors counter
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: rx_data_byte_counter
                                                 
                                                 	RX Data byte counter
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: rx_data_cell_counter
                                                 
                                                 	RX Data cell counter
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: rx_dropped_retransmitted_control
                                                 
                                                 	RX dropped retransmitted control
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: rx_lfec_fec_correctable_error
                                                 
                                                 	RX LFEC FEC correctable error
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: rx_lfec_fec_uncorrectable_errors
                                                 
                                                 	RX LFEC FEC uncorrectable errors
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: tx_asyn_fifo_rate
                                                 
                                                 	TX Asyn fifo rate
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: tx_control_cells_counter
                                                 
                                                 	TX Control cells counter
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: tx_data_byte_counter
                                                 
                                                 	TX Data byte counter
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 .. attribute:: tx_data_cell_counter
                                                 
                                                 	TX Data cell counter
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..6
+                                                	**length:** 0..6
                                                 
                                                 
 

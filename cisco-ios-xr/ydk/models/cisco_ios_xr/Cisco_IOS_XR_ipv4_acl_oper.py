@@ -1373,7 +1373,7 @@ class Ipv4AclAndPrefixList(object):
                             	VRF name
                             	**type**\:  str
                             
-                            	**range:** 0..32
+                            	**length:** 0..32
                             
                             
 

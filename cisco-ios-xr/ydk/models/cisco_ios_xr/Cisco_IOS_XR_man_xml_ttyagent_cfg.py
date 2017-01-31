@@ -298,28 +298,28 @@ class XrXml(object):
                     	VRF name
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     .. attribute:: access_list
                     
                     	Access list for XML agent
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     .. attribute:: ipv4_access_list
                     
                     	IPv4 Transport Access list for VRF
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     .. attribute:: ipv6_access_list
                     
                     	IPv6 Transport Access list for VRF
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     .. attribute:: shutdown
                     
@@ -846,28 +846,28 @@ class XrXml(object):
                     	VRF name
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     .. attribute:: access_list
                     
                     	Access list for XML agent
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     .. attribute:: ipv4_access_list
                     
                     	IPv4 Transport Access list for VRF
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     .. attribute:: ipv6_access_list
                     
                     	IPv6 Transport Access list for VRF
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     .. attribute:: shutdown
                     

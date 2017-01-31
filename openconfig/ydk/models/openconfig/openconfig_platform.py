@@ -945,7 +945,7 @@ class Components(object):
                 	Transceiver serial number. 16\-octet field that contains ASCII characters, left\-aligned and padded on the right with ASCII spaces (20h). If part serial number is undefined, all 16 octets = 0h
                 	**type**\:  str
                 
-                	**range:** 1..16
+                	**length:** 1..16
                 
                 .. attribute:: sonet_sdh_compliance_code
                 
@@ -957,21 +957,21 @@ class Components(object):
                 	Full name of transceiver vendor. 16\-octet field that contains ASCII characters, left\-aligned and padded on the right with ASCII spaces (20h)
                 	**type**\:  str
                 
-                	**range:** 1..16
+                	**length:** 1..16
                 
                 .. attribute:: vendor_part
                 
                 	Transceiver vendor's part number. 16\-octet field that contains ASCII characters, left\-aligned and padded on the right with ASCII spaces (20h). If part number is undefined, all 16 octets = 0h
                 	**type**\:  str
                 
-                	**range:** 1..16
+                	**length:** 1..16
                 
                 .. attribute:: vendor_rev
                 
                 	Transceiver vendor's revision number. 2\-octet field that contains ASCII characters, left\-aligned and padded on the right with ASCII spaces (20h)
                 	**type**\:  str
                 
-                	**range:** 1..2
+                	**length:** 1..2
                 
                 
 

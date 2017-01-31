@@ -499,7 +499,7 @@ class InterfaceConfigurations(object):
         	Track Name
         	**type**\:  str
         
-        	**range:** 0..32
+        	**length:** 0..32
         
         .. attribute:: transport_profile_tunnel
         
@@ -531,7 +531,7 @@ class InterfaceConfigurations(object):
         	Assign the interface to a VRF
         	**type**\:  str
         
-        	**range:** 0..32
+        	**length:** 0..32
         
         .. attribute:: wanphy
         
@@ -989,7 +989,7 @@ class InterfaceConfigurations(object):
             	Name of the interface list
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             .. attribute:: l2_overhead
             
@@ -1047,7 +1047,7 @@ class InterfaceConfigurations(object):
             	Name of the interface list
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             .. attribute:: l2_overhead
             
@@ -1558,7 +1558,7 @@ class InterfaceConfigurations(object):
                         	Session Name
                         	**type**\:  str
                         
-                        	**range:** 0..79
+                        	**length:** 0..79
                         
                         	**mandatory**\: True
                         
@@ -1763,7 +1763,7 @@ class InterfaceConfigurations(object):
                             	Name of policy\-map
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             .. attribute:: account_type
                             
@@ -1919,7 +1919,7 @@ class InterfaceConfigurations(object):
                             	Name of policy\-map
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             .. attribute:: account_type
                             
@@ -2177,7 +2177,7 @@ class InterfaceConfigurations(object):
                             	Name of policy\-map
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             .. attribute:: account_type
                             
@@ -2333,7 +2333,7 @@ class InterfaceConfigurations(object):
                             	Name of policy\-map
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             .. attribute:: account_type
                             
@@ -2584,7 +2584,7 @@ class InterfaceConfigurations(object):
             	Name of the VC class
             	**type**\:  str
             
-            	**range:** 0..30
+            	**length:** 0..30
             
             .. attribute:: vp_tunnels
             
@@ -2996,7 +2996,7 @@ class InterfaceConfigurations(object):
                     	Name of the VC class
                     	**type**\:  str
                     
-                    	**range:** 0..30
+                    	**length:** 0..30
                     
                     
 
@@ -5215,7 +5215,7 @@ class InterfaceConfigurations(object):
             	Configure optics port description 
             	**type**\:  str
             
-            	**range:** 0..255
+            	**length:** 0..255
             
             .. attribute:: optics_dgd_high_threshold
             
@@ -6009,14 +6009,14 @@ class InterfaceConfigurations(object):
                 	OS ASCII text (Max 32 characters)
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: oshex_string
                 
                 	OS HEX text (Max 64 characters)
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: string_type
                 
@@ -6076,7 +6076,7 @@ class InterfaceConfigurations(object):
                 	DAPI ASCII text (Max 14 characters)
                 	**type**\:  str
                 
-                	**range:** 0..14
+                	**length:** 0..14
                 
                 .. attribute:: string_type
                 
@@ -6133,7 +6133,7 @@ class InterfaceConfigurations(object):
                 	SAPI ASCII text (Max 14 characters)
                 	**type**\:  str
                 
-                	**range:** 0..14
+                	**length:** 0..14
                 
                 .. attribute:: string_type
                 
@@ -6684,14 +6684,14 @@ class InterfaceConfigurations(object):
                 	Full ASCII text (Max 64 characters)
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: hex_string
                 
                 	Hex nibbles (Max 128 \- The string length should be an even number)
                 	**type**\:  str
                 
-                	**range:** 0..128
+                	**length:** 0..128
                 
                 .. attribute:: string_type
                 
@@ -6752,7 +6752,7 @@ class InterfaceConfigurations(object):
                 	DAPI ASCII text (Max 14 characters)
                 	**type**\:  str
                 
-                	**range:** 0..14
+                	**length:** 0..14
                 
                 .. attribute:: string_type
                 
@@ -6808,7 +6808,7 @@ class InterfaceConfigurations(object):
                 	SAPI ASCII text (Max 14 characters)
                 	**type**\:  str
                 
-                	**range:** 0..14
+                	**length:** 0..14
                 
                 .. attribute:: string_type
                 
@@ -6864,14 +6864,14 @@ class InterfaceConfigurations(object):
                 	OS ASCII text (Max 32 characters)
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: oshex_string
                 
                 	OS HEX text (Max 64 characters)
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: string_type
                 
@@ -6932,14 +6932,14 @@ class InterfaceConfigurations(object):
                 	Full ASCII text (Max 64 characters)
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: hex_string
                 
                 	Hex nibbles (Max 128 \- The string length should be an even number)
                 	**type**\:  str
                 
-                	**range:** 0..128
+                	**length:** 0..128
                 
                 .. attribute:: string_type
                 
@@ -7528,14 +7528,14 @@ class InterfaceConfigurations(object):
             	Configure network connection id
             	**type**\:  str
             
-            	**range:** 0..64
+            	**length:** 0..64
             
             .. attribute:: network_port_id
             
             	Configure network port id
             	**type**\:  str
             
-            	**range:** 0..64
+            	**length:** 0..64
             
             .. attribute:: network_srlgs
             
@@ -7811,7 +7811,7 @@ class InterfaceConfigurations(object):
                 	Configure proactive protection log file
                 	**type**\:  str
                 
-                	**range:** 0..128
+                	**length:** 0..128
                 
                 .. attribute:: tim_to_gais
                 
@@ -8104,14 +8104,14 @@ class InterfaceConfigurations(object):
                         	ASCII text (Max 64 characters)
                         	**type**\:  str
                         
-                        	**range:** 0..64
+                        	**length:** 0..64
                         
                         .. attribute:: hex_string
                         
                         	Hex nibbles (Max 128\- The string length should be an even number)
                         	**type**\:  str
                         
-                        	**range:** 0..128
+                        	**length:** 0..128
                         
                         .. attribute:: string_type
                         
@@ -8171,14 +8171,14 @@ class InterfaceConfigurations(object):
                         	ASCII text (Max 64 characters)
                         	**type**\:  str
                         
-                        	**range:** 0..64
+                        	**length:** 0..64
                         
                         .. attribute:: hex_string
                         
                         	Hex nibbles (Max 128\- The string length should be an even number)
                         	**type**\:  str
                         
-                        	**range:** 0..128
+                        	**length:** 0..128
                         
                         .. attribute:: string_type
                         
@@ -8321,14 +8321,14 @@ class InterfaceConfigurations(object):
                         	ASCII text (Max 64 characters)
                         	**type**\:  str
                         
-                        	**range:** 0..64
+                        	**length:** 0..64
                         
                         .. attribute:: hex_string
                         
                         	Hex nibbles (Max 128\- The string length should be an even number)
                         	**type**\:  str
                         
-                        	**range:** 0..128
+                        	**length:** 0..128
                         
                         .. attribute:: string_type
                         
@@ -8960,14 +8960,14 @@ class InterfaceConfigurations(object):
                         	ASCII text (Max 64 characters)
                         	**type**\:  str
                         
-                        	**range:** 0..64
+                        	**length:** 0..64
                         
                         .. attribute:: hex_string
                         
                         	Hex nibbles (Max 128\- The string length should be an even number)
                         	**type**\:  str
                         
-                        	**range:** 0..128
+                        	**length:** 0..128
                         
                         .. attribute:: string_type
                         
@@ -9253,7 +9253,7 @@ class InterfaceConfigurations(object):
                 	Enter Frequency Data in THz
                 	**type**\:  str
                 
-                	**range:** 0..128
+                	**length:** 0..128
                 
                 .. attribute:: wave_channel
                 
@@ -10840,7 +10840,7 @@ class InterfaceConfigurations(object):
                         	Maintenance Domain
                         	**type**\:  str
                         
-                        	**range:** 0..79
+                        	**length:** 0..79
                         
                         .. attribute:: mep
                         
@@ -11113,7 +11113,7 @@ class InterfaceConfigurations(object):
                                 	Service (Maintenance Association)
                                 	**type**\:  str
                                 
-                                	**range:** 0..79
+                                	**length:** 0..79
                                 
                                 	**mandatory**\: True
                                 
@@ -13724,7 +13724,7 @@ class InterfaceConfigurations(object):
                     	Session Name
                     	**type**\:  str
                     
-                    	**range:** 0..79
+                    	**length:** 0..79
                     
                     	**mandatory**\: True
                     
@@ -13880,7 +13880,7 @@ class InterfaceConfigurations(object):
                 	Name of policy\-map
                 	**type**\:  str
                 
-                	**range:** 0..63
+                	**length:** 0..63
                 
                 
 
@@ -14058,7 +14058,7 @@ class InterfaceConfigurations(object):
                 	Topology name
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 
 
@@ -14230,14 +14230,14 @@ class InterfaceConfigurations(object):
                 	Array of IPv6 Packet Filter Names to be applied to Inbound packets
                 	**type**\:  list of str
                 
-                	**range:** 0..65
+                	**length:** 0..65
                 
                 .. attribute:: common_acl_name
                 
                 	Reserved for backward compatibility. IPv6 Packet Filter Name to be applied to Inbound packets, ACL providing HW optimization when applied on multiple interfaces. NOTE\: This parameter is mandatory if 'Name' is not specified
                 	**type**\:  str
                 
-                	**range:** 0..65
+                	**length:** 0..65
                 
                 .. attribute:: compression_level
                 
@@ -14261,7 +14261,7 @@ class InterfaceConfigurations(object):
                 	Reserved for backward compatibility. IPv6 Packet Filter Name to be applied to Inbound  NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
                 	**type**\:  str
                 
-                	**range:** 0..65
+                	**length:** 0..65
                 
                 
 
@@ -14337,7 +14337,7 @@ class InterfaceConfigurations(object):
                 	Array of IPv6 Packet Filter Names to be applied to Inbound packets
                 	**type**\:  list of str
                 
-                	**range:** 0..65
+                	**length:** 0..65
                 
                 .. attribute:: compression_level
                 
@@ -14351,7 +14351,7 @@ class InterfaceConfigurations(object):
                 	Reserved.  Error if specified
                 	**type**\:  str
                 
-                	**range:** 0..65
+                	**length:** 0..65
                 
                 .. attribute:: interface_statistics
                 
@@ -14368,7 +14368,7 @@ class InterfaceConfigurations(object):
                 	Reserved for backward compatibility. IPv6 Packet Filter Name to be applied to Outbound  packets
                 	**type**\:  str
                 
-                	**range:** 0..65
+                	**length:** 0..65
                 
                 
 
@@ -14471,14 +14471,14 @@ class InterfaceConfigurations(object):
             	Name of filter to be applied to inbound packets
             	**type**\:  str
             
-            	**range:** 0..65
+            	**length:** 0..65
             
             .. attribute:: outbound
             
             	Name of filter to be applied to outbound packets
             	**type**\:  str
             
-            	**range:** 0..65
+            	**length:** 0..65
             
             
 
@@ -14560,7 +14560,7 @@ class InterfaceConfigurations(object):
                 	Array of IPv4 Packet Filter Names to be applied to Outbound packets
                 	**type**\:  list of str
                 
-                	**range:** 0..65
+                	**length:** 0..65
                 
                 .. attribute:: compression_level
                 
@@ -14574,7 +14574,7 @@ class InterfaceConfigurations(object):
                 	Reserved.  Error if specified
                 	**type**\:  str
                 
-                	**range:** 0..65
+                	**length:** 0..65
                 
                 .. attribute:: hardware_count
                 
@@ -14596,7 +14596,7 @@ class InterfaceConfigurations(object):
                 	Reserved for backward compatibility. IPv4 Packet Filter Name to be applied to Outbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
                 	**type**\:  str
                 
-                	**range:** 0..65
+                	**length:** 0..65
                 
                 
 
@@ -14676,14 +14676,14 @@ class InterfaceConfigurations(object):
                 	Array of IPv4 Packet Filter Names to be applied to Inbound packets
                 	**type**\:  list of str
                 
-                	**range:** 0..65
+                	**length:** 0..65
                 
                 .. attribute:: common_acl_name
                 
                 	Reserved for backward compatibility. IPv4 Packet Filter Name to be applied to Inbound packets, ACL providing HW optimization when applied on multiple interfaces. NOTE\: This parameter is mandatory if 'Name' is not specified
                 	**type**\:  str
                 
-                	**range:** 0..65
+                	**length:** 0..65
                 
                 .. attribute:: compression_level
                 
@@ -14712,7 +14712,7 @@ class InterfaceConfigurations(object):
                 	Reserved for backward compatibility. IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
                 	**type**\:  str
                 
-                	**range:** 0..65
+                	**length:** 0..65
                 
                 
 
@@ -16185,7 +16185,7 @@ class InterfaceConfigurations(object):
                     	VRF name
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     
 
@@ -18196,7 +18196,7 @@ class InterfaceConfigurations(object):
                     	Prefix zone
                     	**type**\:  str
                     
-                    	**range:** 0..9
+                    	**length:** 0..9
                     
                     .. attribute:: valid_lifetime
                     
@@ -18553,7 +18553,7 @@ class InterfaceConfigurations(object):
             	The name of the tunnel to be included in signalling messages
             	**type**\:  str
             
-            	**range:** 0..254
+            	**length:** 0..254
             
             .. attribute:: soft_preemption
             
@@ -19095,7 +19095,7 @@ class InterfaceConfigurations(object):
                             	IGP instance name
                             	**type**\:  str
                             
-                            	**range:** 0..40
+                            	**length:** 0..40
                             
                             .. attribute:: igp_type
                             
@@ -23800,7 +23800,7 @@ class InterfaceConfigurations(object):
             	The name of the P2MP tunnel to be included in signalling messages
             	**type**\:  str
             
-            	**range:** 0..254
+            	**length:** 0..254
             
             .. attribute:: signalled_payload
             
@@ -24850,7 +24850,7 @@ class InterfaceConfigurations(object):
                     	Configure description for this assignment
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: logical_channel_id
                     
@@ -24974,7 +24974,7 @@ class InterfaceConfigurations(object):
                     	Configure description for this Lane
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     
 
@@ -28538,7 +28538,7 @@ class InterfaceConfigurations(object):
                             	Fec Threshold Value
                             	**type**\:  str
                             
-                            	**range:** 0..16
+                            	**length:** 0..16
                             
                             	**mandatory**\: True
                             
@@ -30607,7 +30607,7 @@ class InterfaceConfigurations(object):
                             	Fec threshold value
                             	**type**\:  str
                             
-                            	**range:** 0..16
+                            	**length:** 0..16
                             
                             	**mandatory**\: True
                             
@@ -34012,7 +34012,7 @@ class InterfaceConfigurations(object):
                             	Fec Threshold Value
                             	**type**\:  str
                             
-                            	**range:** 0..16
+                            	**length:** 0..16
                             
                             	**mandatory**\: True
                             
@@ -34668,7 +34668,7 @@ class InterfaceConfigurations(object):
                     	Name of policy\-map
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: account_type
                     
@@ -34824,7 +34824,7 @@ class InterfaceConfigurations(object):
                     	Name of policy\-map
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: account_type
                     
@@ -36061,7 +36061,7 @@ class InterfaceConfigurations(object):
             	Tunnel vrf label name
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             
 
@@ -36366,7 +36366,7 @@ class InterfaceConfigurations(object):
                 	Prefix\-list to validate destination's resolving prefix
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: type
                 

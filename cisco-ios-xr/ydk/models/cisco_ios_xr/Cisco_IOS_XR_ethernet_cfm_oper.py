@@ -3576,7 +3576,7 @@ class Cfm(object):
                     	Maintenance Domain
                     	**type**\:  str
                     
-                    	**range:** 0..79
+                    	**length:** 0..79
                     
                     .. attribute:: mac_address  <key>
                     
@@ -3590,7 +3590,7 @@ class Cfm(object):
                     	Service (Maintenance Association)
                     	**type**\:  str
                     
-                    	**range:** 0..79
+                    	**length:** 0..79
                     
                     .. attribute:: domain_xr
                     
@@ -3892,7 +3892,7 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
-                	**range:** 0..79
+                	**length:** 0..79
                 
                 .. attribute:: interface  <key>
                 
@@ -3913,7 +3913,7 @@ class Cfm(object):
                 	Service (Maintenance Association)
                 	**type**\:  str
                 
-                	**range:** 0..79
+                	**length:** 0..79
                 
                 .. attribute:: transaction_id  <key>
                 
@@ -4420,7 +4420,7 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
-                	**range:** 0..79
+                	**length:** 0..79
                 
                 .. attribute:: interface  <key>
                 
@@ -4434,7 +4434,7 @@ class Cfm(object):
                 	Service (Maintenance Association)
                 	**type**\:  str
                 
-                	**range:** 0..79
+                	**length:** 0..79
                 
                 .. attribute:: mac_address
                 
@@ -4665,14 +4665,14 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
-                	**range:** 0..79
+                	**length:** 0..79
                 
                 .. attribute:: service  <key>
                 
                 	Service (Maintenance Association)
                 	**type**\:  str
                 
-                	**range:** 0..79
+                	**length:** 0..79
                 
                 .. attribute:: bridge_domain_id
                 
@@ -4914,7 +4914,7 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
-                	**range:** 0..79
+                	**length:** 0..79
                 
                 .. attribute:: interface  <key>
                 
@@ -4928,7 +4928,7 @@ class Cfm(object):
                 	Service (Maintenance Association)
                 	**type**\:  str
                 
-                	**range:** 0..79
+                	**length:** 0..79
                 
                 .. attribute:: ais_configured
                 
@@ -5786,7 +5786,7 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
-                	**range:** 0..79
+                	**length:** 0..79
                 
                 .. attribute:: interface  <key>
                 
@@ -5807,7 +5807,7 @@ class Cfm(object):
                 	Service (Maintenance Association)
                 	**type**\:  str
                 
-                	**range:** 0..79
+                	**length:** 0..79
                 
                 .. attribute:: transaction_id  <key>
                 
@@ -9103,7 +9103,7 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
-                	**range:** 0..79
+                	**length:** 0..79
                 
                 .. attribute:: interface  <key>
                 
@@ -9124,7 +9124,7 @@ class Cfm(object):
                 	Service (Maintenance Association)
                 	**type**\:  str
                 
-                	**range:** 0..79
+                	**length:** 0..79
                 
                 .. attribute:: ais_statistics
                 
@@ -10349,7 +10349,7 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
-                	**range:** 0..79
+                	**length:** 0..79
                 
                 .. attribute:: interface  <key>
                 
@@ -10384,7 +10384,7 @@ class Cfm(object):
                 	Service (Maintenance Association)
                 	**type**\:  str
                 
-                	**range:** 0..79
+                	**length:** 0..79
                 
                 .. attribute:: domain_xr
                 

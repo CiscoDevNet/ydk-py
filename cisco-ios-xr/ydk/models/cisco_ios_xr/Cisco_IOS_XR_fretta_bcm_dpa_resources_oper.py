@@ -172,7 +172,7 @@ class Dpa(object):
                         	name
                         	**type**\:  str
                         
-                        	**range:** 0..64
+                        	**length:** 0..64
                         
                         .. attribute:: npu_tblr
                         

@@ -811,14 +811,14 @@ class ObjectGroup(object):
                 	Port object group name \- maximum 64 characters
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: description
                 
                 	Up to 100 characters describing this object
                 	**type**\:  str
                 
-                	**range:** 0..100
+                	**length:** 0..100
                 
                 .. attribute:: nested_groups
                 
@@ -1003,7 +1003,7 @@ class ObjectGroup(object):
                         	Name of a nested object group
                         	**type**\:  str
                         
-                        	**range:** 0..64
+                        	**length:** 0..64
                         
                         
 
@@ -1361,7 +1361,7 @@ class ObjectGroup(object):
                     	IPv6 object group name \- maximum 64 characters
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: address_ranges
                     
@@ -1378,7 +1378,7 @@ class ObjectGroup(object):
                     	Up to 100 characters describing this object
                     	**type**\:  str
                     
-                    	**range:** 0..100
+                    	**length:** 0..100
                     
                     .. attribute:: hosts
                     
@@ -1443,7 +1443,7 @@ class ObjectGroup(object):
                             	Enter the name of a nested object group
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             
 
@@ -2008,7 +2008,7 @@ class ObjectGroup(object):
                     	IPv4 object group name \- maximum 64 characters
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: address_ranges
                     
@@ -2025,7 +2025,7 @@ class ObjectGroup(object):
                     	Up to 100 characters describing this object
                     	**type**\:  str
                     
-                    	**range:** 0..100
+                    	**length:** 0..100
                     
                     .. attribute:: hosts
                     
@@ -2090,7 +2090,7 @@ class ObjectGroup(object):
                             	Nested object group
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             
 

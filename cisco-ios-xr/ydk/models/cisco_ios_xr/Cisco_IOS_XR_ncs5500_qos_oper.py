@@ -904,7 +904,7 @@ class PlatformQos(object):
                                 	Policy name
                                 	**type**\:  str
                                 
-                                	**range:** 0..64
+                                	**length:** 0..64
                                 
                                 .. attribute:: policy_status
                                 
@@ -2805,7 +2805,7 @@ class PlatformQos(object):
                         	Policy name
                         	**type**\:  str
                         
-                        	**range:** 0..64
+                        	**length:** 0..64
                         
                         .. attribute:: policy_status
                         
@@ -4781,7 +4781,7 @@ class PlatformQos(object):
                         	Policy name
                         	**type**\:  str
                         
-                        	**range:** 0..64
+                        	**length:** 0..64
                         
                         .. attribute:: policy_status
                         
@@ -6708,7 +6708,7 @@ class PlatformQos(object):
                     	Policy Name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: remote_class
                     
@@ -6758,7 +6758,7 @@ class PlatformQos(object):
                         	Class Name
                         	**type**\:  str
                         
-                        	**range:** 0..64
+                        	**length:** 0..64
                         
                         .. attribute:: cos_q
                         

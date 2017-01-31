@@ -93,7 +93,7 @@ class RedundancyGroupManager(object):
             	Backup interface name
             	**type**\:  str
             
-            	**range:** 0..64
+            	**length:** 0..64
             
             .. attribute:: backup_interface_next_hop_ip_address
             
@@ -114,21 +114,21 @@ class RedundancyGroupManager(object):
             	Name of controller being backed up
             	**type**\:  str
             
-            	**range:** 0..64
+            	**length:** 0..64
             
             .. attribute:: inter_chassis_group_state
             
             	Configured interchassis redundancy group state
             	**type**\:  str
             
-            	**range:** 0..64
+            	**length:** 0..64
             
             .. attribute:: multi_router_aps_group_number
             
             	Configured interchassis redundancy group number
             	**type**\:  str
             
-            	**range:** 0..64
+            	**length:** 0..64
             
             
 

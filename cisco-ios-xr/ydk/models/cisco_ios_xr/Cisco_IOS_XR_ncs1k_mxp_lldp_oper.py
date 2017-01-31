@@ -333,7 +333,7 @@ class LldpSnoopData(object):
             	LldpNeighbor
             	**type**\:  str
             
-            	**range:** 0..40
+            	**length:** 0..40
             
             .. attribute:: network_address
             

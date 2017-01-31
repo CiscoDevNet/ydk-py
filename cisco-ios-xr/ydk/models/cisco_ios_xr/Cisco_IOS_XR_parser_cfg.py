@@ -199,7 +199,7 @@ class Parser(object):
                 	Exec Alias name
                 	**type**\:  str
                 
-                	**range:** 0..30
+                	**length:** 0..30
                 
                 .. attribute:: identifier_xr
                 
@@ -304,7 +304,7 @@ class Parser(object):
                 	Configuration alias name
                 	**type**\:  str
                 
-                	**range:** 0..30
+                	**length:** 0..30
                 
                 .. attribute:: identifier_xr
                 
@@ -409,7 +409,7 @@ class Parser(object):
                 	Alias name
                 	**type**\:  str
                 
-                	**range:** 0..30
+                	**length:** 0..30
                 
                 .. attribute:: identifier_xr
                 

@@ -13799,7 +13799,7 @@ class RsvpStandby(object):
                     	AccessList Name
                     	**type**\:  str
                     
-                    	**range:** 0..65
+                    	**length:** 0..65
                     
                     .. attribute:: dropped
                     
@@ -16478,7 +16478,7 @@ class RsvpStandby(object):
             	Integrity receive password
             	**type**\:  str
             
-            	**range:** 0..40
+            	**length:** 0..40
             
             .. attribute:: integrity_receive_password_optional
             
@@ -16492,7 +16492,7 @@ class RsvpStandby(object):
             	Integrity send password
             	**type**\:  str
             
-            	**range:** 0..40
+            	**length:** 0..40
             
             .. attribute:: interface_name_xr
             
@@ -32710,7 +32710,7 @@ class Rsvp(object):
             	Integrity receive password
             	**type**\:  str
             
-            	**range:** 0..40
+            	**length:** 0..40
             
             .. attribute:: integrity_receive_password_optional
             
@@ -32724,7 +32724,7 @@ class Rsvp(object):
             	Integrity send password
             	**type**\:  str
             
-            	**range:** 0..40
+            	**length:** 0..40
             
             .. attribute:: interface_name_xr
             
@@ -49652,7 +49652,7 @@ class Rsvp(object):
                     	AccessList Name
                     	**type**\:  str
                     
-                    	**range:** 0..65
+                    	**length:** 0..65
                     
                     .. attribute:: dropped
                     
@@ -52331,7 +52331,7 @@ class Rsvp(object):
             	Integrity receive password
             	**type**\:  str
             
-            	**range:** 0..40
+            	**length:** 0..40
             
             .. attribute:: integrity_receive_password_optional
             
@@ -52345,7 +52345,7 @@ class Rsvp(object):
             	Integrity send password
             	**type**\:  str
             
-            	**range:** 0..40
+            	**length:** 0..40
             
             .. attribute:: interface_name_xr
             

@@ -233,7 +233,7 @@ class Crypto(object):
             	Source interface VRF for ssh client sessions
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             .. attribute:: dscp
             
@@ -419,7 +419,7 @@ class Crypto(object):
                     	Enter VRF name
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     .. attribute:: enable
                     
@@ -433,14 +433,14 @@ class Crypto(object):
                     	SSH v4 access\-list name
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     .. attribute:: ipv6_access_list
                     
                     	SSH v6 access\-list name
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     
 
@@ -546,7 +546,7 @@ class Crypto(object):
                     	Enter VRF name
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     .. attribute:: enable
                     
@@ -560,14 +560,14 @@ class Crypto(object):
                     	SSH v4 access\-list name
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     .. attribute:: ipv6_access_list
                     
                     	SSH v6 access\-list name
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     
 

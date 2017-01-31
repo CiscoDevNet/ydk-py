@@ -852,7 +852,7 @@ class Dwdm(object):
                             	Pattern first found at timestamp
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             .. attribute:: found_count
                             
@@ -871,7 +871,7 @@ class Dwdm(object):
                             	Pattern first lost at timestamp
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             .. attribute:: lost_count
                             
@@ -890,14 +890,14 @@ class Dwdm(object):
                             	Interval start timestamp
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             .. attribute:: stop_at
                             
                             	Interval stop timestamp
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             
 
@@ -1105,7 +1105,7 @@ class Dwdm(object):
                             	Pattern first found at timestamp
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             .. attribute:: found_count
                             
@@ -1124,7 +1124,7 @@ class Dwdm(object):
                             	Pattern first lost at timestamp
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             .. attribute:: lost_count
                             
@@ -1143,14 +1143,14 @@ class Dwdm(object):
                             	Interval start timestamp
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             .. attribute:: stop_at
                             
                             	Interval stop timestamp
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             
 
@@ -1530,7 +1530,7 @@ class Dwdm(object):
                     	FEC BER String 
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: fec_ber
                     
@@ -1595,14 +1595,14 @@ class Dwdm(object):
                     	Network connection ID
                     	**type**\:  str
                     
-                    	**range:** 0..65
+                    	**length:** 0..65
                     
                     .. attribute:: network_port_id
                     
                     	Network port ID
                     	**type**\:  str
                     
-                    	**range:** 0..65
+                    	**length:** 0..65
                     
                     .. attribute:: odu_info
                     
@@ -1640,14 +1640,14 @@ class Dwdm(object):
                     	QMargin String
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: qstr
                     
                     	Q String 
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: remote_fec_mode
                     
@@ -3796,56 +3796,56 @@ class Dwdm(object):
                             	 Expected DAPI Range String
                             	**type**\:  str
                             
-                            	**range:** 0..6
+                            	**length:** 0..6
                             
                             .. attribute:: exp_oper_spec_range
                             
                             	 Expected Operator Specific Field Range String
                             	**type**\:  str
                             
-                            	**range:** 0..6
+                            	**length:** 0..6
                             
                             .. attribute:: exp_sapi_range
                             
                             	 Expected SAPI Range String
                             	**type**\:  str
                             
-                            	**range:** 0..6
+                            	**length:** 0..6
                             
                             .. attribute:: expected_dapi
                             
                             	Expected DAPI[1\-15] Field
                             	**type**\:  str
                             
-                            	**range:** 0..16
+                            	**length:** 0..16
                             
                             .. attribute:: expected_dapi0
                             
                             	Expected DAPI[0] Field
                             	**type**\:  str
                             
-                            	**range:** 0..5
+                            	**length:** 0..5
                             
                             .. attribute:: expected_oper_spec
                             
                             	Expected Operator Specific Field
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: expected_sapi
                             
                             	Expected SAPI[1\-15] Field
                             	**type**\:  str
                             
-                            	**range:** 0..16
+                            	**length:** 0..16
                             
                             .. attribute:: expected_sapi0
                             
                             	Expected SAPI[0] Field
                             	**type**\:  str
                             
-                            	**range:** 0..5
+                            	**length:** 0..5
                             
                             .. attribute:: expected_string_type
                             
@@ -3859,63 +3859,63 @@ class Dwdm(object):
                             	Expected TTI String
                             	**type**\:  str
                             
-                            	**range:** 0..129
+                            	**length:** 0..129
                             
                             .. attribute:: rx_dapi
                             
                             	Rx DAPI[1\-15] Field
                             	**type**\:  str
                             
-                            	**range:** 0..16
+                            	**length:** 0..16
                             
                             .. attribute:: rx_dapi0
                             
                             	Rx DAPI[0] Field
                             	**type**\:  str
                             
-                            	**range:** 0..5
+                            	**length:** 0..5
                             
                             .. attribute:: rx_dapi_range
                             
                             	 Rx DAPI Range String
                             	**type**\:  str
                             
-                            	**range:** 0..6
+                            	**length:** 0..6
                             
                             .. attribute:: rx_oper_spec
                             
                             	Rx Operator Specific Field
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: rx_oper_spec_range
                             
                             	 Rx Operator Specific Field Range String
                             	**type**\:  str
                             
-                            	**range:** 0..6
+                            	**length:** 0..6
                             
                             .. attribute:: rx_sapi
                             
                             	Rx SAPI[1\-15] Field
                             	**type**\:  str
                             
-                            	**range:** 0..16
+                            	**length:** 0..16
                             
                             .. attribute:: rx_sapi0
                             
                             	Rx SAPI[0] Field
                             	**type**\:  str
                             
-                            	**range:** 0..5
+                            	**length:** 0..5
                             
                             .. attribute:: rx_sapi_range
                             
                             	 Rx SAPI Range String
                             	**type**\:  str
                             
-                            	**range:** 0..6
+                            	**length:** 0..6
                             
                             .. attribute:: rx_string_type
                             
@@ -3929,63 +3929,63 @@ class Dwdm(object):
                             	Rx TTI String 
                             	**type**\:  str
                             
-                            	**range:** 0..129
+                            	**length:** 0..129
                             
                             .. attribute:: tx_dapi
                             
                             	Tx DAPI[1\-15] Field
                             	**type**\:  str
                             
-                            	**range:** 0..16
+                            	**length:** 0..16
                             
                             .. attribute:: tx_dapi0
                             
                             	Tx DAPI[0] Field
                             	**type**\:  str
                             
-                            	**range:** 0..5
+                            	**length:** 0..5
                             
                             .. attribute:: tx_dapi_range
                             
                             	 Tx DAPI Range String
                             	**type**\:  str
                             
-                            	**range:** 0..6
+                            	**length:** 0..6
                             
                             .. attribute:: tx_oper_spec
                             
                             	Tx Operator Specific Field
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: tx_oper_spec_range
                             
                             	 Tx Operator Specific Field Range String
                             	**type**\:  str
                             
-                            	**range:** 0..6
+                            	**length:** 0..6
                             
                             .. attribute:: tx_sapi
                             
                             	Tx SAPI[1\-15] Field
                             	**type**\:  str
                             
-                            	**range:** 0..16
+                            	**length:** 0..16
                             
                             .. attribute:: tx_sapi0
                             
                             	Tx SAPI[0] Field
                             	**type**\:  str
                             
-                            	**range:** 0..5
+                            	**length:** 0..5
                             
                             .. attribute:: tx_sapi_range
                             
                             	 Tx SAPI Range String
                             	**type**\:  str
                             
-                            	**range:** 0..6
+                            	**length:** 0..6
                             
                             .. attribute:: tx_string_type
                             
@@ -3999,7 +3999,7 @@ class Dwdm(object):
                             	Tx TTI String 
                             	**type**\:  str
                             
-                            	**range:** 0..129
+                            	**length:** 0..129
                             
                             
 
@@ -5669,56 +5669,56 @@ class Dwdm(object):
                             	 Expected DAPI Range String
                             	**type**\:  str
                             
-                            	**range:** 0..6
+                            	**length:** 0..6
                             
                             .. attribute:: exp_oper_spec_range
                             
                             	 Expected Operator Specific Field Range String
                             	**type**\:  str
                             
-                            	**range:** 0..6
+                            	**length:** 0..6
                             
                             .. attribute:: exp_sapi_range
                             
                             	 Expected SAPI Range String
                             	**type**\:  str
                             
-                            	**range:** 0..6
+                            	**length:** 0..6
                             
                             .. attribute:: expected_dapi
                             
                             	Expected DAPI[1\-15] Field
                             	**type**\:  str
                             
-                            	**range:** 0..16
+                            	**length:** 0..16
                             
                             .. attribute:: expected_dapi0
                             
                             	Expected DAPI[0] Field
                             	**type**\:  str
                             
-                            	**range:** 0..5
+                            	**length:** 0..5
                             
                             .. attribute:: expected_oper_spec
                             
                             	Expected Operator Specific Field
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: expected_sapi
                             
                             	Expected SAPI[1\-15] Field
                             	**type**\:  str
                             
-                            	**range:** 0..16
+                            	**length:** 0..16
                             
                             .. attribute:: expected_sapi0
                             
                             	Expected SAPI[0] Field
                             	**type**\:  str
                             
-                            	**range:** 0..5
+                            	**length:** 0..5
                             
                             .. attribute:: expected_string_type
                             
@@ -5732,63 +5732,63 @@ class Dwdm(object):
                             	Expected TTI String
                             	**type**\:  str
                             
-                            	**range:** 0..129
+                            	**length:** 0..129
                             
                             .. attribute:: rx_dapi
                             
                             	Rx DAPI[1\-15] Field
                             	**type**\:  str
                             
-                            	**range:** 0..16
+                            	**length:** 0..16
                             
                             .. attribute:: rx_dapi0
                             
                             	Rx DAPI[0] Field
                             	**type**\:  str
                             
-                            	**range:** 0..5
+                            	**length:** 0..5
                             
                             .. attribute:: rx_dapi_range
                             
                             	 Rx DAPI Range String
                             	**type**\:  str
                             
-                            	**range:** 0..6
+                            	**length:** 0..6
                             
                             .. attribute:: rx_oper_spec
                             
                             	Rx Operator Specific Field
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: rx_oper_spec_range
                             
                             	 Rx Operator Specific Field Range String
                             	**type**\:  str
                             
-                            	**range:** 0..6
+                            	**length:** 0..6
                             
                             .. attribute:: rx_sapi
                             
                             	Rx SAPI[1\-15] Field
                             	**type**\:  str
                             
-                            	**range:** 0..16
+                            	**length:** 0..16
                             
                             .. attribute:: rx_sapi0
                             
                             	Rx SAPI[0] Field
                             	**type**\:  str
                             
-                            	**range:** 0..5
+                            	**length:** 0..5
                             
                             .. attribute:: rx_sapi_range
                             
                             	 Rx SAPI Range String
                             	**type**\:  str
                             
-                            	**range:** 0..6
+                            	**length:** 0..6
                             
                             .. attribute:: rx_string_type
                             
@@ -5802,63 +5802,63 @@ class Dwdm(object):
                             	Rx TTI String 
                             	**type**\:  str
                             
-                            	**range:** 0..129
+                            	**length:** 0..129
                             
                             .. attribute:: tx_dapi
                             
                             	Tx DAPI[1\-15] Field
                             	**type**\:  str
                             
-                            	**range:** 0..16
+                            	**length:** 0..16
                             
                             .. attribute:: tx_dapi0
                             
                             	Tx DAPI[0] Field
                             	**type**\:  str
                             
-                            	**range:** 0..5
+                            	**length:** 0..5
                             
                             .. attribute:: tx_dapi_range
                             
                             	 Tx DAPI Range String
                             	**type**\:  str
                             
-                            	**range:** 0..6
+                            	**length:** 0..6
                             
                             .. attribute:: tx_oper_spec
                             
                             	Tx Operator Specific Field
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: tx_oper_spec_range
                             
                             	 Tx Operator Specific Field Range String
                             	**type**\:  str
                             
-                            	**range:** 0..6
+                            	**length:** 0..6
                             
                             .. attribute:: tx_sapi
                             
                             	Tx SAPI[1\-15] Field
                             	**type**\:  str
                             
-                            	**range:** 0..16
+                            	**length:** 0..16
                             
                             .. attribute:: tx_sapi0
                             
                             	Tx SAPI[0] Field
                             	**type**\:  str
                             
-                            	**range:** 0..5
+                            	**length:** 0..5
                             
                             .. attribute:: tx_sapi_range
                             
                             	 Tx SAPI Range String
                             	**type**\:  str
                             
-                            	**range:** 0..6
+                            	**length:** 0..6
                             
                             .. attribute:: tx_string_type
                             
@@ -5872,7 +5872,7 @@ class Dwdm(object):
                             	Tx TTI String 
                             	**type**\:  str
                             
-                            	**range:** 0..129
+                            	**length:** 0..129
                             
                             
 
@@ -6323,7 +6323,7 @@ class Dwdm(object):
                     	Optics type name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: output_power_fail
                     
@@ -6468,7 +6468,7 @@ class Dwdm(object):
                     	Wave Frequency Information for Progressive Frequencies
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: wavelength_progressive
                     
@@ -6482,7 +6482,7 @@ class Dwdm(object):
                     	Wavelength Information for Progressive Frequencies
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     
 
@@ -7151,7 +7151,7 @@ class Dwdm(object):
                     	Log file name 
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     
 

@@ -22,8 +22,8 @@ from .executor_service import ExecutorService
 from .service import Service
 from enum import Enum
 from ydk.errors import YPYModelError, YPYServiceError
-from ydk.models.ydktest import ietf_netconf
-from ydk.models.ydktest import ietf_netconf_with_defaults
+from . import ietf_netconf
+from . import ietf_netconf_with_defaults
 
 from ydk.types import Empty
 import logging
@@ -335,7 +335,10 @@ class NetconfService(Service):
         rpc.input.with_defaults = with_defaults_option
 
         payload = self.executor.execute_rpc(provider, rpc)
-        return provider.decode(payload_convert(payload), None)
+        data = payload_convert(payload)
+        if len(data) == 0:
+            return None
+        return provider.decode(data, None)
 
     def get(self, provider, get_filter, with_defaults_option=None):
         """Execute a get operation to retrieve running configuration and device
@@ -372,7 +375,10 @@ class NetconfService(Service):
         rpc.input.with_defaults = with_defaults_option
 
         payload = self.executor.execute_rpc(provider, rpc)
-        return provider.decode(payload_convert(payload), None)
+        data = payload_convert(payload)
+        if len(data) == 0:
+            return None
+        return provider.decode(data, None)
 
     def kill_session(self, provider, session_id):
         """Execute a kill-session operation to force the termination of a
@@ -523,6 +529,8 @@ def payload_convert(payload):
 
     rt = etree.fromstring(payload.encode('utf-8'))
     chchs = rt.getchildren()[0].getchildren()
+    if len(chchs) == 0:
+        return ''
     return etree.tostring(chchs[0], pretty_print=True, encoding='utf-8').decode('utf-8')
 
 

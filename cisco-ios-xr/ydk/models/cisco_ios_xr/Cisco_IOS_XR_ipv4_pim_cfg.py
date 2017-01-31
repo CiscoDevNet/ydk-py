@@ -2875,7 +2875,7 @@ class Pim(object):
                             	Access\-list to account for
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             .. attribute:: maximum
                             
@@ -7082,7 +7082,7 @@ class Pim(object):
                             	Access\-list to account for
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             .. attribute:: maximum
                             
@@ -10226,7 +10226,7 @@ class Pim(object):
                         	Access\-list to account for
                         	**type**\:  str
                         
-                        	**range:** 0..64
+                        	**length:** 0..64
                         
                         .. attribute:: maximum
                         
@@ -14337,7 +14337,7 @@ class Pim(object):
                         	Access\-list to account for
                         	**type**\:  str
                         
-                        	**range:** 0..64
+                        	**length:** 0..64
                         
                         .. attribute:: maximum
                         

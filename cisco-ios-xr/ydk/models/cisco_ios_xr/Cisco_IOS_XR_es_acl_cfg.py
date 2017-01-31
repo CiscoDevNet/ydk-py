@@ -105,7 +105,7 @@ class EsAcl(object):
             	Name of the access list
             	**type**\:  str
             
-            	**range:** 0..65
+            	**length:** 0..65
             
             .. attribute:: access_list_entries
             
@@ -243,7 +243,7 @@ class EsAcl(object):
                     	Sequence String for the ace
                     	**type**\:  str
                     
-                    	**range:** 1..64
+                    	**length:** 1..64
                     
                     .. attribute:: source_network
                     

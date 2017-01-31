@@ -3175,7 +3175,7 @@ class GlobalServiceFunctionChaining(object):
                 	Name
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: data
                 
@@ -4190,7 +4190,7 @@ class GlobalServiceFunctionChaining(object):
                 	Name
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: data
                 

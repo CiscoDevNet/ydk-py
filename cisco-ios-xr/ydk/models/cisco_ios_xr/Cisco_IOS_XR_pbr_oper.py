@@ -237,14 +237,14 @@ class Pbr(object):
                                 	NodeName
                                 	**type**\:  str
                                 
-                                	**range:** 0..42
+                                	**length:** 0..42
                                 
                                 .. attribute:: policy_name
                                 
                                 	PolicyName
                                 	**type**\:  str
                                 
-                                	**range:** 0..65
+                                	**length:** 0..65
                                 
                                 .. attribute:: state
                                 
@@ -256,7 +256,7 @@ class Pbr(object):
                                 	StateDescription
                                 	**type**\:  str
                                 
-                                	**range:** 0..128
+                                	**length:** 0..128
                                 
                                 
 
@@ -292,7 +292,7 @@ class Pbr(object):
                                     	ClassName
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     .. attribute:: counter_validity_bitmask
                                     

@@ -922,7 +922,7 @@ class Ospfv3(object):
             	OSPFv3 process name
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             .. attribute:: af
             
