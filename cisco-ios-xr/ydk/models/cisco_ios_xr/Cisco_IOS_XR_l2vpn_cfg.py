@@ -1301,7 +1301,7 @@ class L2Vpn(object):
     	MS\-PW global description
     	**type**\:  str
     
-    	**range:** 0..64
+    	**length:** 0..64
     
     .. attribute:: mtu_mismatch_ignore
     
@@ -1724,7 +1724,7 @@ class L2Vpn(object):
                 	Name of the G8032 ring
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: erp_instances
                 
@@ -1930,7 +1930,7 @@ class L2Vpn(object):
                         	Ethernet ring protection instance description
                         	**type**\:  str
                         
-                        	**range:** 0..32
+                        	**length:** 0..32
                         
                         .. attribute:: inclusion_list
                         
@@ -1942,7 +1942,7 @@ class L2Vpn(object):
                         	Ethernet ring protection instance profile
                         	**type**\:  str
                         
-                        	**range:** 0..32
+                        	**length:** 0..32
                         
                         .. attribute:: rpl
                         
@@ -2253,7 +2253,7 @@ class L2Vpn(object):
                         .. attribute:: none
                         
                         	none
-                        	**type**\:   :py:class:`None <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.None>`
+                        	**type**\:   :py:class:`None_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.None_>`
                         
                         	**presence node**\: True
                         
@@ -2278,7 +2278,7 @@ class L2Vpn(object):
                             self.virtual_or_interface.name = 'virtual_or_interface'
 
 
-                        class None(object):
+                        class None_(object):
                             """
                             none
                             
@@ -2332,7 +2332,7 @@ class L2Vpn(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2vpn_cfg as meta
-                                return meta._meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.None']['meta_info']
+                                return meta._meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.None_']['meta_info']
 
 
                         class VirtualOrInterface(object):
@@ -2553,7 +2553,7 @@ class L2Vpn(object):
                 	Name of the xconnect group
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: mp2mp_xconnects
                 
@@ -2613,7 +2613,7 @@ class L2Vpn(object):
                         	Name of the point to point xconnect
                         	**type**\:  str
                         
-                        	**range:** 0..38
+                        	**length:** 0..38
                         
                         .. attribute:: attachment_circuits
                         
@@ -2640,7 +2640,7 @@ class L2Vpn(object):
                         	cross connect description Name
                         	**type**\:  str
                         
-                        	**range:** 0..64
+                        	**length:** 0..64
                         
                         .. attribute:: pseudowire_evpns
                         
@@ -2995,7 +2995,7 @@ class L2Vpn(object):
                                     	Name of the pseudowire class
                                     	**type**\:  str
                                     
-                                    	**range:** 0..32
+                                    	**length:** 0..32
                                     
                                     .. attribute:: l2tp_static
                                     
@@ -3169,7 +3169,7 @@ class L2Vpn(object):
                                             	PW class template name to use for the backup PW
                                             	**type**\:  str
                                             
-                                            	**range:** 0..32
+                                            	**length:** 0..32
                                             
                                             
 
@@ -3720,7 +3720,7 @@ class L2Vpn(object):
                                     	Name of the pseudowire class
                                     	**type**\:  str
                                     
-                                    	**range:** 0..32
+                                    	**length:** 0..32
                                     
                                     .. attribute:: l2tp_static
                                     
@@ -3894,7 +3894,7 @@ class L2Vpn(object):
                                             	PW class template name to use for the backup PW
                                             	**type**\:  str
                                             
-                                            	**range:** 0..32
+                                            	**length:** 0..32
                                             
                                             
 
@@ -4511,7 +4511,7 @@ class L2Vpn(object):
                                 	Name of the monitor session
                                 	**type**\:  str
                                 
-                                	**range:** 0..64
+                                	**length:** 0..64
                                 
                                 .. attribute:: enable
                                 
@@ -4646,7 +4646,7 @@ class L2Vpn(object):
                                 	Name of the pseudowire class
                                 	**type**\:  str
                                 
-                                	**range:** 0..32
+                                	**length:** 0..32
                                 
                                 .. attribute:: tag_impose
                                 
@@ -4960,7 +4960,7 @@ class L2Vpn(object):
                         	Name of the multi point to multi point xconnect
                         	**type**\:  str
                         
-                        	**range:** 0..26
+                        	**length:** 0..26
                         
                         .. attribute:: mp2mp_auto_discovery
                         
@@ -6017,7 +6017,7 @@ class L2Vpn(object):
                 	Name of the Bridge group
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: bridge_domains
                 
@@ -6070,7 +6070,7 @@ class L2Vpn(object):
                         	Name of the bridge domain
                         	**type**\:  str
                         
-                        	**range:** 0..27
+                        	**length:** 0..27
                         
                         .. attribute:: bd_attachment_circuits
                         
@@ -6131,7 +6131,7 @@ class L2Vpn(object):
                         	DHCPv4 Snooping profile name
                         	**type**\:  str
                         
-                        	**range:** 0..32
+                        	**length:** 0..32
                         
                         .. attribute:: flooding
                         
@@ -6148,7 +6148,7 @@ class L2Vpn(object):
                         	Attach IGMP Snooping Profile Name
                         	**type**\:  str
                         
-                        	**range:** 0..32
+                        	**length:** 0..32
                         
                         .. attribute:: igmp_snooping_disable
                         
@@ -6170,7 +6170,7 @@ class L2Vpn(object):
                         	Attach MLD Snooping Profile Name
                         	**type**\:  str
                         
-                        	**range:** 0..32
+                        	**length:** 0..32
                         
                         .. attribute:: nv_satellite
                         
@@ -7169,7 +7169,7 @@ class L2Vpn(object):
                                     	Core BD Name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..27
+                                    	**length:** 0..27
                                     
                                     .. attribute:: isid  <key>
                                     
@@ -7188,7 +7188,7 @@ class L2Vpn(object):
                                     	Attach a IGMP Snooping profile
                                     	**type**\:  str
                                     
-                                    	**range:** 0..32
+                                    	**length:** 0..32
                                     
                                     .. attribute:: pbb_edge_mac
                                     
@@ -7767,7 +7767,7 @@ class L2Vpn(object):
                                 	Attach a IGMP Snooping profile
                                 	**type**\:  str
                                 
-                                	**range:** 0..32
+                                	**length:** 0..32
                                 
                                 .. attribute:: pbb_core_mac
                                 
@@ -8358,7 +8358,7 @@ class L2Vpn(object):
                                 	PW class template name to use for this pseudowire
                                 	**type**\:  str
                                 
-                                	**range:** 0..32
+                                	**length:** 0..32
                                 
                                 .. attribute:: bd_pw_mpls_static_labels
                                 
@@ -8405,7 +8405,7 @@ class L2Vpn(object):
                                 	Attach a IGMP Snooping profile
                                 	**type**\:  str
                                 
-                                	**range:** 0..32
+                                	**length:** 0..32
                                 
                                 .. attribute:: pseudowire_ip_source_guard
                                 
@@ -8422,7 +8422,7 @@ class L2Vpn(object):
                                 	Attach a MLD Snooping profile
                                 	**type**\:  str
                                 
-                                	**range:** 0..32
+                                	**length:** 0..32
                                 
                                 .. attribute:: pseudowire_profile
                                 
@@ -9466,7 +9466,7 @@ class L2Vpn(object):
                                         	PW class template name to use for this pseudowire
                                         	**type**\:  str
                                         
-                                        	**range:** 0..32
+                                        	**length:** 0..32
                                         
                                         
 
@@ -9674,7 +9674,7 @@ class L2Vpn(object):
                                 	Name of the Virtual Forwarding Interface
                                 	**type**\:  str
                                 
-                                	**range:** 0..32
+                                	**length:** 0..32
                                 
                                 .. attribute:: bgp_auto_discovery
                                 
@@ -9797,7 +9797,7 @@ class L2Vpn(object):
                                             	Multicast P2MP TE Attribute Set Name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..64
+                                            	**length:** 0..64
                                             
                                             
 
@@ -10046,7 +10046,7 @@ class L2Vpn(object):
                                         	PW class template name to use for this pseudowire
                                         	**type**\:  str
                                         
-                                        	**range:** 0..32
+                                        	**length:** 0..32
                                         
                                         .. attribute:: vfi_pw_dhcp_snoop
                                         
@@ -10058,14 +10058,14 @@ class L2Vpn(object):
                                         	Attach a IGMP Snooping profile
                                         	**type**\:  str
                                         
-                                        	**range:** 0..32
+                                        	**length:** 0..32
                                         
                                         .. attribute:: vfi_pw_mld_snoop
                                         
                                         	Attach a MLD Snooping profile
                                         	**type**\:  str
                                         
-                                        	**range:** 0..32
+                                        	**length:** 0..32
                                         
                                         .. attribute:: vfi_pw_mpls_static_labels
                                         
@@ -11350,7 +11350,7 @@ class L2Vpn(object):
                                 	Attach a IGMP Snooping profile
                                 	**type**\:  str
                                 
-                                	**range:** 0..32
+                                	**length:** 0..32
                                 
                                 .. attribute:: interface_ip_source_guard
                                 
@@ -11367,7 +11367,7 @@ class L2Vpn(object):
                                 	Attach a MLD Snooping profile
                                 	**type**\:  str
                                 
-                                	**range:** 0..32
+                                	**length:** 0..32
                                 
                                 .. attribute:: interface_profile
                                 
@@ -12998,7 +12998,7 @@ class L2Vpn(object):
                 	Name of the pseudowire class
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: backup_disable_delay
                 
@@ -13255,7 +13255,7 @@ class L2Vpn(object):
                         	Name of the L2TPv3 class name
                         	**type**\:  str
                         
-                        	**range:** 0..32
+                        	**length:** 0..32
                         
                         .. attribute:: protocol
                         
@@ -14042,7 +14042,7 @@ class L2Vpn(object):
                     	Name of the Flexible XConnect Service
                     	**type**\:  str
                     
-                    	**range:** 0..23
+                    	**length:** 0..23
                     
                     .. attribute:: vlan_unaware_fxc_attachment_circuits
                     
@@ -15286,7 +15286,7 @@ class GenericInterfaceLists(object):
         	Name of the interface list
         	**type**\:  str
         
-        	**range:** 0..32
+        	**length:** 0..32
         
         .. attribute:: enable
         
@@ -15669,7 +15669,7 @@ class Evpn(object):
                 	Description for EVPN EVI
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: evpnevibgp_auto_discovery
                 
@@ -16770,14 +16770,14 @@ class Evpn(object):
                             	Primary services list
                             	**type**\:  str
                             
-                            	**range:** 0..150
+                            	**length:** 0..150
                             
                             .. attribute:: secondary
                             
                             	Secondary services list
                             	**type**\:  str
                             
-                            	**range:** 0..150
+                            	**length:** 0..150
                             
                             
 

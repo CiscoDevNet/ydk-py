@@ -81,7 +81,7 @@ class Qos(object):
     	Name of the fabric service policy
     	**type**\:  str
     
-    	**range:** 0..63
+    	**length:** 0..63
     
     
 

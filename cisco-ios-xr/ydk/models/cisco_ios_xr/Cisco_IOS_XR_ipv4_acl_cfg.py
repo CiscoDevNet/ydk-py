@@ -206,14 +206,14 @@ class Ipv4AclAndPrefixList(object):
                     	Destination port object group name
                     	**type**\:  str
                     
-                    	**range:** 1..64
+                    	**length:** 1..64
                     
                     .. attribute:: destination_prefix_group
                     
                     	IPv4 destination network object group name
                     	**type**\:  str
                     
-                    	**range:** 1..64
+                    	**length:** 1..64
                     
                     .. attribute:: dscp
                     
@@ -310,7 +310,7 @@ class Ipv4AclAndPrefixList(object):
                     	Sequence String for the ace
                     	**type**\:  str
                     
-                    	**range:** 1..64
+                    	**length:** 1..64
                     
                     .. attribute:: source_network
                     
@@ -327,14 +327,14 @@ class Ipv4AclAndPrefixList(object):
                     	Source port object group name
                     	**type**\:  str
                     
-                    	**range:** 1..64
+                    	**length:** 1..64
                     
                     .. attribute:: source_prefix_group
                     
                     	IPv4 source network object group name
                     	**type**\:  str
                     
-                    	**range:** 1..64
+                    	**length:** 1..64
                     
                     .. attribute:: tcp
                     

@@ -400,7 +400,7 @@ class Dhcpv6(object):
                         	VRF name
                         	**type**\:  str
                         
-                        	**range:** 0..32
+                        	**length:** 0..32
                         
                         
 
@@ -751,7 +751,7 @@ class Dhcpv6(object):
                         	Enter remote\-id value
                         	**type**\:  str
                         
-                        	**range:** 0..256
+                        	**length:** 0..256
                         
                         .. attribute:: subscriber_id
                         
@@ -1138,7 +1138,7 @@ class Dhcpv6(object):
                         	Class name
                         	**type**\:  str
                         
-                        	**range:** 0..128
+                        	**length:** 0..128
                         
                         .. attribute:: helper_addresses
                         
@@ -1216,7 +1216,7 @@ class Dhcpv6(object):
                                 	VRF name
                                 	**type**\:  str
                                 
-                                	**range:** 0..32
+                                	**length:** 0..32
                                 
                                 
 
@@ -1568,14 +1568,14 @@ class Dhcpv6(object):
                 	Address pool name
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: aftr_name
                 
                 	AFTR name
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: classes
                 
@@ -1597,7 +1597,7 @@ class Dhcpv6(object):
                 	Domain name
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: enable
                 
@@ -1623,7 +1623,7 @@ class Dhcpv6(object):
                 	Prefix pool name
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: rapid_commit
                 
@@ -1930,14 +1930,14 @@ class Dhcpv6(object):
                         	class name
                         	**type**\:  str
                         
-                        	**range:** 0..128
+                        	**length:** 0..128
                         
                         .. attribute:: address_pool
                         
                         	Address pool name
                         	**type**\:  str
                         
-                        	**range:** 0..64
+                        	**length:** 0..64
                         
                         .. attribute:: dns_servers
                         
@@ -1949,7 +1949,7 @@ class Dhcpv6(object):
                         	Domain name
                         	**type**\:  str
                         
-                        	**range:** 0..64
+                        	**length:** 0..64
                         
                         .. attribute:: preference
                         
@@ -1963,7 +1963,7 @@ class Dhcpv6(object):
                         	Prefix pool name
                         	**type**\:  str
                         
-                        	**range:** 0..64
+                        	**length:** 0..64
                         
                         
 
@@ -2231,7 +2231,7 @@ class Dhcpv6(object):
                         	Vendor options
                         	**type**\:  str
                         
-                        	**range:** 0..512
+                        	**length:** 0..512
                         
                         
 
@@ -2496,7 +2496,7 @@ class Dhcpv6(object):
                 	Enter profile name
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 
 
@@ -2543,7 +2543,7 @@ class Dhcpv6(object):
                 	Enter profile name
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 
 
@@ -2590,7 +2590,7 @@ class Dhcpv6(object):
                 	Enter profile name
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 
 
@@ -2637,7 +2637,7 @@ class Dhcpv6(object):
                 	Enter profile name
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 
 

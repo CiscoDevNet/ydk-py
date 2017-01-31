@@ -1014,7 +1014,7 @@ class Vrrp(object):
                 	Tracked item index
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: tracked_item_type
                 
@@ -1313,7 +1313,7 @@ class Vrrp(object):
                 	Followed Session Name
                 	**type**\:  str
                 
-                	**range:** 0..16
+                	**length:** 0..16
                 
                 .. attribute:: force_timer_flag
                 
@@ -1339,7 +1339,7 @@ class Vrrp(object):
                 	IM Interface Name
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: invalid_auth_type_count
                 
@@ -1535,7 +1535,7 @@ class Vrrp(object):
                 	Session Name
                 	**type**\:  str
                 
-                	**range:** 0..16
+                	**length:** 0..16
                 
                 .. attribute:: slaves
                 
@@ -2834,7 +2834,7 @@ class Vrrp(object):
                 	Tracked item index
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: tracked_item_type
                 
@@ -3133,7 +3133,7 @@ class Vrrp(object):
                 	Followed Session Name
                 	**type**\:  str
                 
-                	**range:** 0..16
+                	**length:** 0..16
                 
                 .. attribute:: force_timer_flag
                 
@@ -3159,7 +3159,7 @@ class Vrrp(object):
                 	IM Interface Name
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: invalid_auth_type_count
                 
@@ -3355,7 +3355,7 @@ class Vrrp(object):
                 	Session Name
                 	**type**\:  str
                 
-                	**range:** 0..16
+                	**length:** 0..16
                 
                 .. attribute:: slaves
                 
@@ -4297,7 +4297,7 @@ class Vrrp(object):
             	Session Name
             	**type**\:  str
             
-            	**range:** 0..16
+            	**length:** 0..16
             
             .. attribute:: primary_session_number
             
@@ -4345,7 +4345,7 @@ class Vrrp(object):
                 	Interface of slave
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: slave_virtual_router_id
                 

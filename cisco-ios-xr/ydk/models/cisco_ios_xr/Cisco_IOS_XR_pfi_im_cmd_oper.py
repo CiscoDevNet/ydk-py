@@ -4832,14 +4832,14 @@ class Interfaces(object):
             	Interface encapsulation description string
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             .. attribute:: hardware_type_string
             
             	Hardware type description string
             	**type**\:  str
             
-            	**range:** 0..64
+            	**length:** 0..64
             
             .. attribute:: if_index
             
@@ -12553,7 +12553,7 @@ class Interfaces(object):
             	Interface encapsulation description string
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             .. attribute:: interface
             

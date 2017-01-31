@@ -52,7 +52,7 @@ class Groups(object):
         	Group name
         	**type**\:  str
         
-        	**range:** 0..32
+        	**length:** 0..32
         
         
 

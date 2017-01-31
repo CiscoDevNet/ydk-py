@@ -170,7 +170,7 @@ class Vrfs(object):
         	VRF name
         	**type**\:  str
         
-        	**range:** 0..32
+        	**length:** 0..32
         
         .. attribute:: afs
         
@@ -187,14 +187,14 @@ class Vrfs(object):
         	A textual description of the VRF
         	**type**\:  str
         
-        	**range:** 0..244
+        	**length:** 0..244
         
         .. attribute:: fallback_vrf
         
         	Fallback VRF
         	**type**\:  str
         
-        	**range:** 0..32
+        	**length:** 0..32
         
         .. attribute:: mode_big
         
@@ -354,7 +354,7 @@ class Vrfs(object):
                 	Topology name
                 	**type**\:  str
                 
-                	**range:** 0..244
+                	**length:** 0..244
                 
                 .. attribute:: bgp
                 
@@ -1771,7 +1771,7 @@ class GlobalAf(object):
             	Topology name
             	**type**\:  str
             
-            	**range:** 0..244
+            	**length:** 0..244
             
             .. attribute:: create
             
@@ -2389,7 +2389,7 @@ class Srlg(object):
                     	SRLG name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     
 
@@ -2550,7 +2550,7 @@ class Srlg(object):
             	SRLG name
             	**type**\:  str
             
-            	**range:** 0..64
+            	**length:** 0..64
             
             .. attribute:: srlg_value
             
@@ -3161,7 +3161,7 @@ class VrfGroups(object):
         	VRF group name
         	**type**\:  str
         
-        	**range:** 0..32
+        	**length:** 0..32
         
         .. attribute:: enable
         
@@ -3220,7 +3220,7 @@ class VrfGroups(object):
                 	VRF name
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 
 

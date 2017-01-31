@@ -1,3 +1,16 @@
+**2017-01-30 version 0.5.3:**
+
+* Fixed issues with netconf service ([#323](https://github.com/CiscoDevNet/ydk-gen/issues/323), [#305](https://github.com/CiscoDevNet/ydk-gen/issues/305))
+* Disambiguated model API classes called 'None' ([#318](https://github.com/CiscoDevNet/ydk-gen/issues/318))
+* Removed 'Bits' from classes representing bits leafs ([#318](https://github.com/CiscoDevNet/ydk-gen/issues/318), [#320](https://github.com/CiscoDevNet/ydk-gen/issues/320))
+
+### Documentation
+
+* Included model revision in documentation ([#272](https://github.com/CiscoDevNet/ydk-gen/issues/272))
+* Improved documentation for string leafs ([#346](https://github.com/CiscoDevNet/ydk-gen/issues/346)), decimal64 leafs ([#300](https://github.com/CiscoDevNet/ydk-gen/issues/300), [#294](https://github.com/CiscoDevNet/ydk-gen/issues/294))
+* Improved look and feel of documentation ([#361](https://github.com/CiscoDevNet/ydk-gen/pull/361), [#356](https://github.com/CiscoDevNet/ydk-gen/pull/356))
+
+
 **2016-11-30 version 0.5.2:**
 
 * CRUD service / Codec service / Netconf service improvements

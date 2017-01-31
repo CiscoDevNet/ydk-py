@@ -2000,7 +2000,7 @@ class InterfaceProperties(object):
                             	Interface encapsulation description string
                             	**type**\:  str
                             
-                            	**range:** 0..32
+                            	**length:** 0..32
                             
                             .. attribute:: interface
                             
@@ -2341,7 +2341,7 @@ class InterfaceProperties(object):
                             	Interface encapsulation description string
                             	**type**\:  str
                             
-                            	**range:** 0..32
+                            	**length:** 0..32
                             
                             .. attribute:: interface
                             
@@ -2649,7 +2649,7 @@ class InterfaceProperties(object):
                         	Interface encapsulation description string
                         	**type**\:  str
                         
-                        	**range:** 0..32
+                        	**length:** 0..32
                         
                         .. attribute:: interface
                         

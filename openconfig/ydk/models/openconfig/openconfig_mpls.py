@@ -5430,7 +5430,7 @@ class Mpls(object):
                             	authenticate RSVP signaling messages
                             	**type**\:  str
                             
-                            	**range:** 1..32
+                            	**length:** 1..32
                             
                             .. attribute:: enable
                             
@@ -5489,7 +5489,7 @@ class Mpls(object):
                             	authenticate RSVP signaling messages
                             	**type**\:  str
                             
-                            	**range:** 1..32
+                            	**length:** 1..32
                             
                             .. attribute:: enable
                             

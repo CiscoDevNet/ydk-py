@@ -1940,7 +1940,7 @@ class UdpConnection(object):
                         	Transport client name
                         	**type**\:  str
                         
-                        	**range:** 0..21
+                        	**length:** 0..21
                         
                         .. attribute:: ipv4_received_packets
                         

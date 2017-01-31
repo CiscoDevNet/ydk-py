@@ -430,7 +430,7 @@ class SpanMonitorSession(object):
                 	Session Name
                 	**type**\:  str
                 
-                	**range:** 0..79
+                	**length:** 0..79
                 
                 .. attribute:: octets_not_mirrored
                 
@@ -597,7 +597,7 @@ class SpanMonitorSession(object):
                 	Session Name
                 	**type**\:  str
                 
-                	**range:** 0..79
+                	**length:** 0..79
                 
                 .. attribute:: destination_data
                 
@@ -1428,7 +1428,7 @@ class SpanMonitorSession(object):
                     	Session Name
                     	**type**\:  str
                     
-                    	**range:** 0..79
+                    	**length:** 0..79
                     
                     .. attribute:: dest_pw_type_not_supported
                     

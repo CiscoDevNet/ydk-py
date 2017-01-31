@@ -94,14 +94,14 @@ class HeadlessFuncData(object):
             	Headless End Time
             	**type**\:  str
             
-            	**range:** 0..64
+            	**length:** 0..64
             
             .. attribute:: headless_start_time
             
             	Headless Start Time
             	**type**\:  str
             
-            	**range:** 0..64
+            	**length:** 0..64
             
             .. attribute:: otn_statistics
             
@@ -315,14 +315,14 @@ class HeadlessFuncData(object):
             	Headless End Time
             	**type**\:  str
             
-            	**range:** 0..64
+            	**length:** 0..64
             
             .. attribute:: headless_start_time
             
             	Headless Start Time
             	**type**\:  str
             
-            	**range:** 0..64
+            	**length:** 0..64
             
             .. attribute:: started_stateful
             

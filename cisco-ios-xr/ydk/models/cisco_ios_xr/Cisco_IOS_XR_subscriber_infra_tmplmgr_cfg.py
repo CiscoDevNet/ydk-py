@@ -149,7 +149,7 @@ class DynamicTemplate(object):
             	Assign the interface to a VRF 
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             
 
@@ -278,7 +278,7 @@ class DynamicTemplate(object):
                         	Session Name
                         	**type**\:  str
                         
-                        	**range:** 0..79
+                        	**length:** 0..79
                         
                         	**mandatory**\: True
                         
@@ -456,7 +456,7 @@ class DynamicTemplate(object):
                     	IPv4 Packet Filter Name to be applied to Outbound packets
                     	**type**\:  str
                     
-                    	**range:** 0..65
+                    	**length:** 0..65
                     
                     	**mandatory**\: True
                     
@@ -543,7 +543,7 @@ class DynamicTemplate(object):
                     	IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
                     	**type**\:  str
                     
-                    	**range:** 0..65
+                    	**length:** 0..65
                     
                     
 
@@ -671,7 +671,7 @@ class DynamicTemplate(object):
                     	IPv6 Packet Filter Name to be applied to Inbound  NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
                     	**type**\:  str
                     
-                    	**range:** 0..65
+                    	**length:** 0..65
                     
                     
 
@@ -737,7 +737,7 @@ class DynamicTemplate(object):
                     	IPv6 Packet Filter Name to be applied to Outbound packets
                     	**type**\:  str
                     
-                    	**range:** 0..65
+                    	**length:** 0..65
                     
                     	**mandatory**\: True
                     
@@ -2596,7 +2596,7 @@ class DynamicTemplate(object):
             	Assign the interface to a VRF 
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             
 
@@ -2723,7 +2723,7 @@ class DynamicTemplate(object):
                         	Session Name
                         	**type**\:  str
                         
-                        	**range:** 0..79
+                        	**length:** 0..79
                         
                         	**mandatory**\: True
                         
@@ -2901,7 +2901,7 @@ class DynamicTemplate(object):
                     	IPv4 Packet Filter Name to be applied to Outbound packets
                     	**type**\:  str
                     
-                    	**range:** 0..65
+                    	**length:** 0..65
                     
                     	**mandatory**\: True
                     
@@ -2988,7 +2988,7 @@ class DynamicTemplate(object):
                     	IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
                     	**type**\:  str
                     
-                    	**range:** 0..65
+                    	**length:** 0..65
                     
                     
 
@@ -3116,7 +3116,7 @@ class DynamicTemplate(object):
                     	IPv6 Packet Filter Name to be applied to Inbound  NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
                     	**type**\:  str
                     
-                    	**range:** 0..65
+                    	**length:** 0..65
                     
                     
 
@@ -3182,7 +3182,7 @@ class DynamicTemplate(object):
                     	IPv6 Packet Filter Name to be applied to Outbound packets
                     	**type**\:  str
                     
-                    	**range:** 0..65
+                    	**length:** 0..65
                     
                     	**mandatory**\: True
                     
@@ -4789,7 +4789,7 @@ class DynamicTemplate(object):
             	Assign the interface to a VRF 
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             
 
@@ -4914,7 +4914,7 @@ class DynamicTemplate(object):
                         	Session Name
                         	**type**\:  str
                         
-                        	**range:** 0..79
+                        	**length:** 0..79
                         
                         	**mandatory**\: True
                         
@@ -5092,7 +5092,7 @@ class DynamicTemplate(object):
                     	IPv4 Packet Filter Name to be applied to Outbound packets
                     	**type**\:  str
                     
-                    	**range:** 0..65
+                    	**length:** 0..65
                     
                     	**mandatory**\: True
                     
@@ -5179,7 +5179,7 @@ class DynamicTemplate(object):
                     	IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
                     	**type**\:  str
                     
-                    	**range:** 0..65
+                    	**length:** 0..65
                     
                     
 
@@ -5307,7 +5307,7 @@ class DynamicTemplate(object):
                     	IPv6 Packet Filter Name to be applied to Inbound  NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
                     	**type**\:  str
                     
-                    	**range:** 0..65
+                    	**length:** 0..65
                     
                     
 
@@ -5373,7 +5373,7 @@ class DynamicTemplate(object):
                     	IPv6 Packet Filter Name to be applied to Outbound packets
                     	**type**\:  str
                     
-                    	**range:** 0..65
+                    	**length:** 0..65
                     
                     	**mandatory**\: True
                     

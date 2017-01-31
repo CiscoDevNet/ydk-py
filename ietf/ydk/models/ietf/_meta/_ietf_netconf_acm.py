@@ -91,7 +91,7 @@ _meta_table = {
                         ''',
                         'access_operations',
                         'ietf-netconf-acm', False),
-                    _MetaInfoClassMember('access-operations', REFERENCE_BITS, 'AccessOperationsTypeBits' , 'ydk.models.ietf.ietf_netconf_acm', 'AccessOperationsTypeBits', 
+                    _MetaInfoClassMember('access-operations', REFERENCE_BITS, 'AccessOperationsType' , 'ydk.models.ietf.ietf_netconf_acm', 'AccessOperationsType', 
                         [], [], 
                         '''                        Access operations associated with this rule.
                         

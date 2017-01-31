@@ -1104,7 +1104,7 @@ class Ospf(object):
             	Name for this OSPF process
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             .. attribute:: default_vrf
             

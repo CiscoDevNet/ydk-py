@@ -216,7 +216,7 @@ class Srms(object):
                 	Area (OSPF) or Level (ISIS)
                 	**type**\:  str
                 
-                	**range:** 0..30
+                	**length:** 0..30
                 
                 .. attribute:: flag_attached
                 
@@ -235,7 +235,7 @@ class Srms(object):
                 	Last IP Prefix
                 	**type**\:  str
                 
-                	**range:** 0..50
+                	**length:** 0..50
                 
                 .. attribute:: last_sid_index
                 
@@ -263,7 +263,7 @@ class Srms(object):
                 	Router ID
                 	**type**\:  str
                 
-                	**range:** 0..30
+                	**length:** 0..30
                 
                 .. attribute:: sid_count
                 
@@ -493,7 +493,7 @@ class Srms(object):
                 	Area (OSPF) or Level (ISIS)
                 	**type**\:  str
                 
-                	**range:** 0..30
+                	**length:** 0..30
                 
                 .. attribute:: flag_attached
                 
@@ -512,7 +512,7 @@ class Srms(object):
                 	Last IP Prefix
                 	**type**\:  str
                 
-                	**range:** 0..50
+                	**length:** 0..50
                 
                 .. attribute:: last_sid_index
                 
@@ -540,7 +540,7 @@ class Srms(object):
                 	Router ID
                 	**type**\:  str
                 
-                	**range:** 0..30
+                	**length:** 0..30
                 
                 .. attribute:: sid_count
                 
@@ -856,7 +856,7 @@ class Srms(object):
                     	Area (OSPF) or Level (ISIS)
                     	**type**\:  str
                     
-                    	**range:** 0..30
+                    	**length:** 0..30
                     
                     .. attribute:: flag_attached
                     
@@ -868,7 +868,7 @@ class Srms(object):
                     	Last IP Prefix
                     	**type**\:  str
                     
-                    	**range:** 0..50
+                    	**length:** 0..50
                     
                     .. attribute:: last_sid_index
                     
@@ -889,7 +889,7 @@ class Srms(object):
                     	Router ID
                     	**type**\:  str
                     
-                    	**range:** 0..30
+                    	**length:** 0..30
                     
                     .. attribute:: sid_count
                     
@@ -1122,7 +1122,7 @@ class Srms(object):
                     	Area (OSPF) or Level (ISIS)
                     	**type**\:  str
                     
-                    	**range:** 0..30
+                    	**length:** 0..30
                     
                     .. attribute:: flag_attached
                     
@@ -1134,7 +1134,7 @@ class Srms(object):
                     	Last IP Prefix
                     	**type**\:  str
                     
-                    	**range:** 0..50
+                    	**length:** 0..50
                     
                     .. attribute:: last_sid_index
                     
@@ -1155,7 +1155,7 @@ class Srms(object):
                     	Router ID
                     	**type**\:  str
                     
-                    	**range:** 0..30
+                    	**length:** 0..30
                     
                     .. attribute:: sid_count
                     
@@ -1442,7 +1442,7 @@ class Srms(object):
                     	Area (OSPF) or Level (ISIS)
                     	**type**\:  str
                     
-                    	**range:** 0..30
+                    	**length:** 0..30
                     
                     .. attribute:: flag_attached
                     
@@ -1454,7 +1454,7 @@ class Srms(object):
                     	Last IP Prefix
                     	**type**\:  str
                     
-                    	**range:** 0..50
+                    	**length:** 0..50
                     
                     .. attribute:: last_sid_index
                     
@@ -1475,7 +1475,7 @@ class Srms(object):
                     	Router ID
                     	**type**\:  str
                     
-                    	**range:** 0..30
+                    	**length:** 0..30
                     
                     .. attribute:: sid_count
                     
@@ -1708,7 +1708,7 @@ class Srms(object):
                     	Area (OSPF) or Level (ISIS)
                     	**type**\:  str
                     
-                    	**range:** 0..30
+                    	**length:** 0..30
                     
                     .. attribute:: flag_attached
                     
@@ -1720,7 +1720,7 @@ class Srms(object):
                     	Last IP Prefix
                     	**type**\:  str
                     
-                    	**range:** 0..50
+                    	**length:** 0..50
                     
                     .. attribute:: last_sid_index
                     
@@ -1741,7 +1741,7 @@ class Srms(object):
                     	Router ID
                     	**type**\:  str
                     
-                    	**range:** 0..30
+                    	**length:** 0..30
                     
                     .. attribute:: sid_count
                     

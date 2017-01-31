@@ -650,7 +650,7 @@ class Watchdog(object):
                     	Current throttle start time in format  \:day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
                     	**type**\:  str
                     
-                    	**range:** 0..25
+                    	**length:** 0..25
                     
                     .. attribute:: throttle_duration
                     
@@ -710,14 +710,14 @@ class Watchdog(object):
                     	Last throttle start time in format \:day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
                     	**type**\:  str
                     
-                    	**range:** 0..25
+                    	**length:** 0..25
                     
                     .. attribute:: stop_time
                     
                     	Last throttle stop time in format \:day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
                     	**type**\:  str
                     
-                    	**range:** 0..25
+                    	**length:** 0..25
                     
                     .. attribute:: throttle_duration
                     

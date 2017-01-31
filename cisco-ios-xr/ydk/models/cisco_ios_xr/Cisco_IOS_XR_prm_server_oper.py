@@ -211,7 +211,7 @@ class HardwareModule(object):
                             	CosQ Name
                             	**type**\:  str
                             
-                            	**range:** 0..1024
+                            	**length:** 0..1024
                             
                             .. attribute:: dropped
                             
@@ -425,7 +425,7 @@ class HardwareModule(object):
                             	Captured Packet
                             	**type**\:  str
                             
-                            	**range:** 0..1024
+                            	**length:** 0..1024
                             
                             .. attribute:: days
                             
@@ -663,7 +663,7 @@ class HardwareModule(object):
                             	Drop Reason
                             	**type**\:  str
                             
-                            	**range:** 0..1024
+                            	**length:** 0..1024
                             
                             
 
@@ -1052,7 +1052,7 @@ class Prm(object):
                             	Resource Name
                             	**type**\:  str
                             
-                            	**range:** 0..1024
+                            	**length:** 0..1024
                             
                             .. attribute:: resource_type
                             

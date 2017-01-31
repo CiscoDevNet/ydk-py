@@ -1778,21 +1778,21 @@ class PlatformInventory(object):
                                             	describes in user\-readable terms                 what the entity in question does
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: firmware_revision
                                             
                                             	firmware revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: hardware_revision
                                             
                                             	hw revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: is_field_replaceable_unit
                                             
@@ -1804,35 +1804,35 @@ class PlatformInventory(object):
                                             	model name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: name
                                             
                                             	name string for the entity
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: serial_number
                                             
                                             	serial number
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: software_revision
                                             
                                             	software revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: vendor_type
                                             
                                             	maps to the vendor OID string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             
 
@@ -2261,21 +2261,21 @@ class PlatformInventory(object):
                                     	Type e.g. 7457
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: revision
                                     
                                     	Revision. e.g 1.1
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: speed
                                     
                                     	Speed e.g. 1197Mhz
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     
 
@@ -2386,7 +2386,7 @@ class PlatformInventory(object):
                                         	Image name
                                         	**type**\:  str
                                         
-                                        	**range:** 0..255
+                                        	**length:** 0..255
                                         
                                         .. attribute:: major_version
                                         
@@ -2400,7 +2400,7 @@ class PlatformInventory(object):
                                         	Micro image version
                                         	**type**\:  str
                                         
-                                        	**range:** 0..255
+                                        	**length:** 0..255
                                         
                                         .. attribute:: minor_version
                                         
@@ -2414,14 +2414,14 @@ class PlatformInventory(object):
                                         	Platform specific text
                                         	**type**\:  str
                                         
-                                        	**range:** 0..255
+                                        	**length:** 0..255
                                         
                                         .. attribute:: release_type
                                         
                                         	Release type
                                         	**type**\:  str
                                         
-                                        	**range:** 0..255
+                                        	**length:** 0..255
                                         
                                         
 
@@ -2497,14 +2497,14 @@ class PlatformInventory(object):
                                         	Bootflash type e.g. SIMM
                                         	**type**\:  str
                                         
-                                        	**range:** 0..255
+                                        	**length:** 0..255
                                         
                                         .. attribute:: image_name
                                         
                                         	Image name
                                         	**type**\:  str
                                         
-                                        	**range:** 0..255
+                                        	**length:** 0..255
                                         
                                         .. attribute:: major_version
                                         
@@ -2518,7 +2518,7 @@ class PlatformInventory(object):
                                         	Micro image version
                                         	**type**\:  str
                                         
-                                        	**range:** 0..255
+                                        	**length:** 0..255
                                         
                                         .. attribute:: minor_version
                                         
@@ -2532,21 +2532,21 @@ class PlatformInventory(object):
                                         	Platform specific text
                                         	**type**\:  str
                                         
-                                        	**range:** 0..255
+                                        	**length:** 0..255
                                         
                                         .. attribute:: platform_type
                                         
                                         	Platform Type
                                         	**type**\:  str
                                         
-                                        	**range:** 0..255
+                                        	**length:** 0..255
                                         
                                         .. attribute:: release_type
                                         
                                         	Release type
                                         	**type**\:  str
                                         
-                                        	**range:** 0..255
+                                        	**length:** 0..255
                                         
                                         .. attribute:: sector_size
                                         
@@ -2638,21 +2638,21 @@ class PlatformInventory(object):
                                         	Type e.g. 7457
                                         	**type**\:  str
                                         
-                                        	**range:** 0..255
+                                        	**length:** 0..255
                                         
                                         .. attribute:: revision
                                         
                                         	Revision. e.g 1.1
                                         	**type**\:  str
                                         
-                                        	**range:** 0..255
+                                        	**length:** 0..255
                                         
                                         .. attribute:: speed
                                         
                                         	Speed e.g. 1197Mhz
                                         	**type**\:  str
                                         
-                                        	**range:** 0..255
+                                        	**length:** 0..255
                                         
                                         
 
@@ -2752,14 +2752,14 @@ class PlatformInventory(object):
                                     	Bootflash type e.g. SIMM
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: image_name
                                     
                                     	Image name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: major_version
                                     
@@ -2773,7 +2773,7 @@ class PlatformInventory(object):
                                     	Micro image version
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: minor_version
                                     
@@ -2787,21 +2787,21 @@ class PlatformInventory(object):
                                     	Platform specific text
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: platform_type
                                     
                                     	Platform Type
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: release_type
                                     
                                     	Release type
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: sector_size
                                     
@@ -2893,7 +2893,7 @@ class PlatformInventory(object):
                                     	(Deprecated) Disk name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: disk_size
                                     
@@ -2944,7 +2944,7 @@ class PlatformInventory(object):
                                         	Disk name
                                         	**type**\:  str
                                         
-                                        	**range:** 0..255
+                                        	**length:** 0..255
                                         
                                         .. attribute:: disk_size
                                         
@@ -3299,21 +3299,21 @@ class PlatformInventory(object):
                                                             	describes in user\-readable terms                 what the entity in question does
                                                             	**type**\:  str
                                                             
-                                                            	**range:** 0..255
+                                                            	**length:** 0..255
                                                             
                                                             .. attribute:: firmware_revision
                                                             
                                                             	firmware revision string
                                                             	**type**\:  str
                                                             
-                                                            	**range:** 0..255
+                                                            	**length:** 0..255
                                                             
                                                             .. attribute:: hardware_revision
                                                             
                                                             	hw revision string
                                                             	**type**\:  str
                                                             
-                                                            	**range:** 0..255
+                                                            	**length:** 0..255
                                                             
                                                             .. attribute:: is_field_replaceable_unit
                                                             
@@ -3325,35 +3325,35 @@ class PlatformInventory(object):
                                                             	model name
                                                             	**type**\:  str
                                                             
-                                                            	**range:** 0..255
+                                                            	**length:** 0..255
                                                             
                                                             .. attribute:: name
                                                             
                                                             	name string for the entity
                                                             	**type**\:  str
                                                             
-                                                            	**range:** 0..255
+                                                            	**length:** 0..255
                                                             
                                                             .. attribute:: serial_number
                                                             
                                                             	serial number
                                                             	**type**\:  str
                                                             
-                                                            	**range:** 0..255
+                                                            	**length:** 0..255
                                                             
                                                             .. attribute:: software_revision
                                                             
                                                             	software revision string
                                                             	**type**\:  str
                                                             
-                                                            	**range:** 0..255
+                                                            	**length:** 0..255
                                                             
                                                             .. attribute:: vendor_type
                                                             
                                                             	maps to the vendor OID string
                                                             	**type**\:  str
                                                             
-                                                            	**range:** 0..255
+                                                            	**length:** 0..255
                                                             
                                                             
 
@@ -3790,21 +3790,21 @@ class PlatformInventory(object):
                                                                 	describes in user\-readable terms                 what the entity in question does
                                                                 	**type**\:  str
                                                                 
-                                                                	**range:** 0..255
+                                                                	**length:** 0..255
                                                                 
                                                                 .. attribute:: firmware_revision
                                                                 
                                                                 	firmware revision string
                                                                 	**type**\:  str
                                                                 
-                                                                	**range:** 0..255
+                                                                	**length:** 0..255
                                                                 
                                                                 .. attribute:: hardware_revision
                                                                 
                                                                 	hw revision string
                                                                 	**type**\:  str
                                                                 
-                                                                	**range:** 0..255
+                                                                	**length:** 0..255
                                                                 
                                                                 .. attribute:: is_field_replaceable_unit
                                                                 
@@ -3816,35 +3816,35 @@ class PlatformInventory(object):
                                                                 	model name
                                                                 	**type**\:  str
                                                                 
-                                                                	**range:** 0..255
+                                                                	**length:** 0..255
                                                                 
                                                                 .. attribute:: name
                                                                 
                                                                 	name string for the entity
                                                                 	**type**\:  str
                                                                 
-                                                                	**range:** 0..255
+                                                                	**length:** 0..255
                                                                 
                                                                 .. attribute:: serial_number
                                                                 
                                                                 	serial number
                                                                 	**type**\:  str
                                                                 
-                                                                	**range:** 0..255
+                                                                	**length:** 0..255
                                                                 
                                                                 .. attribute:: software_revision
                                                                 
                                                                 	software revision string
                                                                 	**type**\:  str
                                                                 
-                                                                	**range:** 0..255
+                                                                	**length:** 0..255
                                                                 
                                                                 .. attribute:: vendor_type
                                                                 
                                                                 	maps to the vendor OID string
                                                                 	**type**\:  str
                                                                 
-                                                                	**range:** 0..255
+                                                                	**length:** 0..255
                                                                 
                                                                 
 
@@ -4259,21 +4259,21 @@ class PlatformInventory(object):
                                                         	describes in user\-readable terms                 what the entity in question does
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: firmware_revision
                                                         
                                                         	firmware revision string
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: hardware_revision
                                                         
                                                         	hw revision string
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: is_field_replaceable_unit
                                                         
@@ -4285,35 +4285,35 @@ class PlatformInventory(object):
                                                         	model name
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: name
                                                         
                                                         	name string for the entity
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: serial_number
                                                         
                                                         	serial number
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: software_revision
                                                         
                                                         	software revision string
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: vendor_type
                                                         
                                                         	maps to the vendor OID string
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         
 
@@ -4787,21 +4787,21 @@ class PlatformInventory(object):
                                                         	describes in user\-readable terms                 what the entity in question does
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: firmware_revision
                                                         
                                                         	firmware revision string
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: hardware_revision
                                                         
                                                         	hw revision string
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: is_field_replaceable_unit
                                                         
@@ -4813,35 +4813,35 @@ class PlatformInventory(object):
                                                         	model name
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: name
                                                         
                                                         	name string for the entity
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: serial_number
                                                         
                                                         	serial number
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: software_revision
                                                         
                                                         	software revision string
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         .. attribute:: vendor_type
                                                         
                                                         	maps to the vendor OID string
                                                         	**type**\:  str
                                                         
-                                                        	**range:** 0..255
+                                                        	**length:** 0..255
                                                         
                                                         
 
@@ -5256,21 +5256,21 @@ class PlatformInventory(object):
                                                 	describes in user\-readable terms                 what the entity in question does
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: firmware_revision
                                                 
                                                 	firmware revision string
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: hardware_revision
                                                 
                                                 	hw revision string
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: is_field_replaceable_unit
                                                 
@@ -5282,35 +5282,35 @@ class PlatformInventory(object):
                                                 	model name
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: name
                                                 
                                                 	name string for the entity
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: serial_number
                                                 
                                                 	serial number
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: software_revision
                                                 
                                                 	software revision string
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: vendor_type
                                                 
                                                 	maps to the vendor OID string
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 
 
@@ -5700,21 +5700,21 @@ class PlatformInventory(object):
                                             	describes in user\-readable terms                 what the entity in question does
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: firmware_revision
                                             
                                             	firmware revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: hardware_revision
                                             
                                             	hw revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: is_field_replaceable_unit
                                             
@@ -5726,35 +5726,35 @@ class PlatformInventory(object):
                                             	model name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: name
                                             
                                             	name string for the entity
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: serial_number
                                             
                                             	serial number
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: software_revision
                                             
                                             	software revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: vendor_type
                                             
                                             	maps to the vendor OID string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             
 
@@ -6285,21 +6285,21 @@ class PlatformInventory(object):
                                                     	describes in user\-readable terms                 what the entity in question does
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: firmware_revision
                                                     
                                                     	firmware revision string
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: hardware_revision
                                                     
                                                     	hw revision string
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: is_field_replaceable_unit
                                                     
@@ -6311,35 +6311,35 @@ class PlatformInventory(object):
                                                     	model name
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: name
                                                     
                                                     	name string for the entity
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: serial_number
                                                     
                                                     	serial number
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: software_revision
                                                     
                                                     	software revision string
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: vendor_type
                                                     
                                                     	maps to the vendor OID string
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     
 
@@ -6754,21 +6754,21 @@ class PlatformInventory(object):
                                             	describes in user\-readable terms                 what the entity in question does
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: firmware_revision
                                             
                                             	firmware revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: hardware_revision
                                             
                                             	hw revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: is_field_replaceable_unit
                                             
@@ -6780,35 +6780,35 @@ class PlatformInventory(object):
                                             	model name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: name
                                             
                                             	name string for the entity
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: serial_number
                                             
                                             	serial number
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: software_revision
                                             
                                             	software revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: vendor_type
                                             
                                             	maps to the vendor OID string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             
 
@@ -7315,21 +7315,21 @@ class PlatformInventory(object):
                                                 	describes in user\-readable terms                 what the entity in question does
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: firmware_revision
                                                 
                                                 	firmware revision string
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: hardware_revision
                                                 
                                                 	hw revision string
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: is_field_replaceable_unit
                                                 
@@ -7341,35 +7341,35 @@ class PlatformInventory(object):
                                                 	model name
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: name
                                                 
                                                 	name string for the entity
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: serial_number
                                                 
                                                 	serial number
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: software_revision
                                                 
                                                 	software revision string
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 .. attribute:: vendor_type
                                                 
                                                 	maps to the vendor OID string
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..255
+                                                	**length:** 0..255
                                                 
                                                 
 
@@ -7806,21 +7806,21 @@ class PlatformInventory(object):
                                                     	describes in user\-readable terms                 what the entity in question does
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: firmware_revision
                                                     
                                                     	firmware revision string
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: hardware_revision
                                                     
                                                     	hw revision string
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: is_field_replaceable_unit
                                                     
@@ -7832,35 +7832,35 @@ class PlatformInventory(object):
                                                     	model name
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: name
                                                     
                                                     	name string for the entity
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: serial_number
                                                     
                                                     	serial number
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: software_revision
                                                     
                                                     	software revision string
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     .. attribute:: vendor_type
                                                     
                                                     	maps to the vendor OID string
                                                     	**type**\:  str
                                                     
-                                                    	**range:** 0..255
+                                                    	**length:** 0..255
                                                     
                                                     
 
@@ -8275,21 +8275,21 @@ class PlatformInventory(object):
                                             	describes in user\-readable terms                 what the entity in question does
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: firmware_revision
                                             
                                             	firmware revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: hardware_revision
                                             
                                             	hw revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: is_field_replaceable_unit
                                             
@@ -8301,35 +8301,35 @@ class PlatformInventory(object):
                                             	model name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: name
                                             
                                             	name string for the entity
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: serial_number
                                             
                                             	serial number
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: software_revision
                                             
                                             	software revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: vendor_type
                                             
                                             	maps to the vendor OID string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             
 
@@ -8803,21 +8803,21 @@ class PlatformInventory(object):
                                             	describes in user\-readable terms                 what the entity in question does
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: firmware_revision
                                             
                                             	firmware revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: hardware_revision
                                             
                                             	hw revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: is_field_replaceable_unit
                                             
@@ -8829,35 +8829,35 @@ class PlatformInventory(object):
                                             	model name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: name
                                             
                                             	name string for the entity
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: serial_number
                                             
                                             	serial number
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: software_revision
                                             
                                             	software revision string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             .. attribute:: vendor_type
                                             
                                             	maps to the vendor OID string
                                             	**type**\:  str
                                             
-                                            	**range:** 0..255
+                                            	**length:** 0..255
                                             
                                             
 
@@ -9272,21 +9272,21 @@ class PlatformInventory(object):
                                     	describes in user\-readable terms                 what the entity in question does
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: firmware_revision
                                     
                                     	firmware revision string
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: hardware_revision
                                     
                                     	hw revision string
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: is_field_replaceable_unit
                                     
@@ -9298,35 +9298,35 @@ class PlatformInventory(object):
                                     	model name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: name
                                     
                                     	name string for the entity
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: serial_number
                                     
                                     	serial number
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: software_revision
                                     
                                     	software revision string
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     .. attribute:: vendor_type
                                     
                                     	maps to the vendor OID string
                                     	**type**\:  str
                                     
-                                    	**range:** 0..255
+                                    	**length:** 0..255
                                     
                                     
 
@@ -9759,21 +9759,21 @@ class PlatformInventory(object):
                             	describes in user\-readable terms                 what the entity in question does
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: firmware_revision
                             
                             	firmware revision string
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: hardware_revision
                             
                             	hw revision string
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: is_field_replaceable_unit
                             
@@ -9785,35 +9785,35 @@ class PlatformInventory(object):
                             	model name
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: name
                             
                             	name string for the entity
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: serial_number
                             
                             	serial number
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: software_revision
                             
                             	software revision string
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             .. attribute:: vendor_type
                             
                             	maps to the vendor OID string
                             	**type**\:  str
                             
-                            	**range:** 0..255
+                            	**length:** 0..255
                             
                             
 
@@ -10231,21 +10231,21 @@ class PlatformInventory(object):
                     	describes in user\-readable terms                 what the entity in question does
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: firmware_revision
                     
                     	firmware revision string
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: hardware_revision
                     
                     	hw revision string
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: is_field_replaceable_unit
                     
@@ -10257,35 +10257,35 @@ class PlatformInventory(object):
                     	model name
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: name
                     
                     	name string for the entity
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: serial_number
                     
                     	serial number
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: software_revision
                     
                     	software revision string
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     .. attribute:: vendor_type
                     
                     	maps to the vendor OID string
                     	**type**\:  str
                     
-                    	**range:** 0..255
+                    	**length:** 0..255
                     
                     
 

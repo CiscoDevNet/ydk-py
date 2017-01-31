@@ -270,7 +270,7 @@ class Dhcpv6(object):
         	Last full write file name
         	**type**\:  str
         
-        	**range:** 0..64
+        	**length:** 0..64
         
         .. attribute:: last_full_write_time
         
@@ -291,7 +291,7 @@ class Dhcpv6(object):
         	Last incremental write file name
         	**type**\:  str
         
-        	**range:** 0..64
+        	**length:** 0..64
         
         .. attribute:: last_incremental_write_time
         
@@ -2104,7 +2104,7 @@ class Dhcpv6(object):
                                 	DHCP access interface
                                 	**type**\:  str
                                 
-                                	**range:** 0..65
+                                	**length:** 0..65
                                 
                                 .. attribute:: state
                                 
@@ -2216,7 +2216,7 @@ class Dhcpv6(object):
                             	Interface names
                             	**type**\:  list of str
                             
-                            	**range:** 0..65
+                            	**length:** 0..65
                             
                             .. attribute:: interface_references
                             
@@ -2242,21 +2242,21 @@ class Dhcpv6(object):
                             	Proxy profile name
                             	**type**\:  str
                             
-                            	**range:** 0..65
+                            	**length:** 0..65
                             
                             .. attribute:: remote_id
                             
                             	Remote id
                             	**type**\:  str
                             
-                            	**range:** 0..257
+                            	**length:** 0..257
                             
                             .. attribute:: vrf_name
                             
                             	VRF names
                             	**type**\:  list of str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: vrf_references
                             
@@ -2324,14 +2324,14 @@ class Dhcpv6(object):
                                     	Interface name for interface id
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     .. attribute:: proxy_interface_id
                                     
                                     	Interface id
                                     	**type**\:  str
                                     
-                                    	**range:** 0..257
+                                    	**length:** 0..257
                                     
                                     
 
@@ -2431,7 +2431,7 @@ class Dhcpv6(object):
                                     	VRF name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..33
+                                    	**length:** 0..33
                                     
                                     
 
@@ -2527,7 +2527,7 @@ class Dhcpv6(object):
                                     	Interface name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     
 
@@ -2740,7 +2740,7 @@ class Dhcpv6(object):
                         	DHCPv6 L3 VRF name
                         	**type**\:  str
                         
-                        	**range:** 0..33
+                        	**length:** 0..33
                         
                         
 
@@ -2946,14 +2946,14 @@ class Dhcpv6(object):
                             	DHCPV6 access VRF name to client
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: class_name
                             
                             	DHCPV6 class name
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             .. attribute:: client_flag
                             
@@ -3015,14 +3015,14 @@ class Dhcpv6(object):
                             	DHCPV6 pool name
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             .. attribute:: profile_name
                             
                             	DHCPV6 profile name
                             	**type**\:  str
                             
-                            	**range:** 0..65
+                            	**length:** 0..65
                             
                             .. attribute:: proxy_binding_inner_tag
                             
@@ -3050,14 +3050,14 @@ class Dhcpv6(object):
                             	DHCPV6 received Interface ID
                             	**type**\:  str
                             
-                            	**range:** 0..771
+                            	**length:** 0..771
                             
                             .. attribute:: rx_remote_id
                             
                             	DHCPV6 received Remote ID
                             	**type**\:  str
                             
-                            	**range:** 0..771
+                            	**length:** 0..771
                             
                             .. attribute:: server_ipv6_address
                             
@@ -3085,7 +3085,7 @@ class Dhcpv6(object):
                             	DHCPV6 SRG VRF NAME
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: srgp2p
                             
@@ -3104,21 +3104,21 @@ class Dhcpv6(object):
                             	DHCPV6 transmitted Interface ID
                             	**type**\:  str
                             
-                            	**range:** 0..771
+                            	**length:** 0..771
                             
                             .. attribute:: tx_remote_id
                             
                             	DHCPV6 transmitted Remote ID
                             	**type**\:  str
                             
-                            	**range:** 0..771
+                            	**length:** 0..771
                             
                             .. attribute:: vrf_name
                             
                             	DHCPVV6 client/subscriber VRF name
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             
 
@@ -4336,21 +4336,21 @@ class Dhcpv6(object):
                             	DHCPV6 access VRF name to client
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: address_pool_name
                             
                             	DHCPV6 server address pool name
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             .. attribute:: class_name
                             
                             	DHCPV6 class name
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             .. attribute:: client_flag
                             
@@ -4433,35 +4433,35 @@ class Dhcpv6(object):
                             	DHCPV6 pool name
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             .. attribute:: prefix_pool_name
                             
                             	DHCPV6 server prefix pool name
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             .. attribute:: profile_name
                             
                             	DHCPV6 profile name
                             	**type**\:  str
                             
-                            	**range:** 0..64
+                            	**length:** 0..64
                             
                             .. attribute:: rx_interface_id
                             
                             	DHCPV6 received Interface ID
                             	**type**\:  str
                             
-                            	**range:** 0..771
+                            	**length:** 0..771
                             
                             .. attribute:: rx_remote_id
                             
                             	DHCPV6 received Remote ID
                             	**type**\:  str
                             
-                            	**range:** 0..771
+                            	**length:** 0..771
                             
                             .. attribute:: server_binding_inner_tag
                             
@@ -4503,7 +4503,7 @@ class Dhcpv6(object):
                             	DHCPV6 SRG VRF NAME
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: srgp2p
                             
@@ -4522,7 +4522,7 @@ class Dhcpv6(object):
                             	DHCPVV6 client/subscriber VRF name
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             
 
@@ -6567,28 +6567,28 @@ class Dhcpv6(object):
                             	Server aftr name
                             	**type**\:  str
                             
-                            	**range:** 0..65
+                            	**length:** 0..65
                             
                             .. attribute:: delegated_prefix_pool_name
                             
                             	Server delegated prefix pool name
                             	**type**\:  str
                             
-                            	**range:** 0..65
+                            	**length:** 0..65
                             
                             .. attribute:: domain_name
                             
                             	Server domain name
                             	**type**\:  str
                             
-                            	**range:** 0..65
+                            	**length:** 0..65
                             
                             .. attribute:: framed_addr_pool_name
                             
                             	Server framed address pool name
                             	**type**\:  str
                             
-                            	**range:** 0..65
+                            	**length:** 0..65
                             
                             .. attribute:: interface_references
                             
@@ -6619,7 +6619,7 @@ class Dhcpv6(object):
                             	Server profile name
                             	**type**\:  str
                             
-                            	**range:** 0..65
+                            	**length:** 0..65
                             
                             .. attribute:: rapid_commit
                             
@@ -6669,7 +6669,7 @@ class Dhcpv6(object):
                                 	Time in format HH\:MM\:SS
                                 	**type**\:  str
                                 
-                                	**range:** 0..10
+                                	**length:** 0..10
                                 
                                 
 
@@ -6743,7 +6743,7 @@ class Dhcpv6(object):
                                     	Interface name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     
 
@@ -6906,7 +6906,7 @@ class Dhcpv6(object):
                                 	DHCP access interface
                                 	**type**\:  str
                                 
-                                	**range:** 0..65
+                                	**length:** 0..65
                                 
                                 .. attribute:: state
                                 
@@ -7099,7 +7099,7 @@ class Dhcpv6(object):
                         	DHCPv6 L3 VRF name
                         	**type**\:  str
                         
-                        	**range:** 0..33
+                        	**length:** 0..33
                         
                         
 
@@ -7704,7 +7704,7 @@ class Dhcpv6(object):
                         	DHCPv6 L3 VRF name
                         	**type**\:  str
                         
-                        	**range:** 0..33
+                        	**length:** 0..33
                         
                         
 
@@ -7976,7 +7976,7 @@ class Dhcpv6(object):
                             	Interface name
                             	**type**\:  str
                             
-                            	**range:** 0..65
+                            	**length:** 0..65
                             
                             .. attribute:: lifetime
                             
@@ -8011,7 +8011,7 @@ class Dhcpv6(object):
                             	Relay Profile name
                             	**type**\:  str
                             
-                            	**range:** 0..65
+                            	**length:** 0..65
                             
                             .. attribute:: rem_life_time
                             
@@ -8025,7 +8025,7 @@ class Dhcpv6(object):
                             	DHCPv6 client/subscriber Vrf name
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             
 

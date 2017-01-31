@@ -7073,7 +7073,7 @@ class Ipv6Rib(object):
                                                 	Instance name
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..41
+                                                	**length:** 0..41
                                                 
                                                 .. attribute:: number_of_extended_communities
                                                 
@@ -34063,7 +34063,7 @@ class Ipv6RibStdby(object):
                                                 	Instance name
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..41
+                                                	**length:** 0..41
                                                 
                                                 .. attribute:: number_of_extended_communities
                                                 

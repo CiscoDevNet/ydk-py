@@ -40,7 +40,7 @@ def _get_obj_system():
     obj_udp.address = '1.2.3.4'
     obj_udp.port = 22
     obj_server.udp = obj_udp
-    obj_server.association_type = ietf_system.System.Ntp.Server.AssociationTypeEnum.PEER
+    obj_server.association_type = ietf_system.System.Ntp.Server.AssociationTypeEnum.peer
     obj_ntp.server.append(obj_server)
     obj_system.ntp = obj_ntp
 

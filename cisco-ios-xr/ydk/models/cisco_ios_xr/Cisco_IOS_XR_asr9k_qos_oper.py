@@ -1400,7 +1400,7 @@ class PlatformQos(object):
                                 	Policy name
                                 	**type**\:  str
                                 
-                                	**range:** 0..65
+                                	**length:** 0..65
                                 
                                 .. attribute:: programmed_bandwidth
                                 
@@ -1852,7 +1852,7 @@ class PlatformQos(object):
                                     	Class name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     .. attribute:: mark
                                     
@@ -1864,14 +1864,14 @@ class PlatformQos(object):
                                     	Parent class name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     .. attribute:: parent_policy_name
                                     
                                     	Parent policy name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     .. attribute:: police
                                     
@@ -1883,7 +1883,7 @@ class PlatformQos(object):
                                     	Policy name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     .. attribute:: queue
                                     
@@ -1949,7 +1949,7 @@ class PlatformQos(object):
                                         	Class name
                                         	**type**\:  str
                                         
-                                        	**range:** 0..65
+                                        	**length:** 0..65
                                         
                                         .. attribute:: queue_id
                                         
@@ -5045,7 +5045,7 @@ class PlatformQos(object):
                                     	Class name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     .. attribute:: mark
                                     
@@ -5057,14 +5057,14 @@ class PlatformQos(object):
                                     	Parent class name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     .. attribute:: parent_policy_name
                                     
                                     	Parent policy name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     .. attribute:: police
                                     
@@ -5076,7 +5076,7 @@ class PlatformQos(object):
                                     	Policy name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     .. attribute:: queue
                                     
@@ -5142,7 +5142,7 @@ class PlatformQos(object):
                                         	Class name
                                         	**type**\:  str
                                         
-                                        	**range:** 0..65
+                                        	**length:** 0..65
                                         
                                         .. attribute:: queue_id
                                         
@@ -8517,7 +8517,7 @@ class PlatformQos(object):
                                 	Policy name
                                 	**type**\:  str
                                 
-                                	**range:** 0..65
+                                	**length:** 0..65
                                 
                                 .. attribute:: programmed_bandwidth
                                 
@@ -8969,7 +8969,7 @@ class PlatformQos(object):
                                     	Class name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     .. attribute:: mark
                                     
@@ -8981,14 +8981,14 @@ class PlatformQos(object):
                                     	Parent class name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     .. attribute:: parent_policy_name
                                     
                                     	Parent policy name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     .. attribute:: police
                                     
@@ -9000,7 +9000,7 @@ class PlatformQos(object):
                                     	Policy name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     .. attribute:: queue
                                     
@@ -9066,7 +9066,7 @@ class PlatformQos(object):
                                         	Class name
                                         	**type**\:  str
                                         
-                                        	**range:** 0..65
+                                        	**length:** 0..65
                                         
                                         .. attribute:: queue_id
                                         
@@ -12162,7 +12162,7 @@ class PlatformQos(object):
                                     	Class name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     .. attribute:: mark
                                     
@@ -12174,14 +12174,14 @@ class PlatformQos(object):
                                     	Parent class name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     .. attribute:: parent_policy_name
                                     
                                     	Parent policy name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     .. attribute:: police
                                     
@@ -12193,7 +12193,7 @@ class PlatformQos(object):
                                     	Policy name
                                     	**type**\:  str
                                     
-                                    	**range:** 0..65
+                                    	**length:** 0..65
                                     
                                     .. attribute:: queue
                                     
@@ -12259,7 +12259,7 @@ class PlatformQos(object):
                                         	Class name
                                         	**type**\:  str
                                         
-                                        	**range:** 0..65
+                                        	**length:** 0..65
                                         
                                         .. attribute:: queue_id
                                         
@@ -15805,7 +15805,7 @@ class PlatformQos(object):
                                         	Policy name
                                         	**type**\:  str
                                         
-                                        	**range:** 0..65
+                                        	**length:** 0..65
                                         
                                         .. attribute:: programmed_bandwidth
                                         
@@ -16257,7 +16257,7 @@ class PlatformQos(object):
                                             	Class name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..65
+                                            	**length:** 0..65
                                             
                                             .. attribute:: mark
                                             
@@ -16269,14 +16269,14 @@ class PlatformQos(object):
                                             	Parent class name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..65
+                                            	**length:** 0..65
                                             
                                             .. attribute:: parent_policy_name
                                             
                                             	Parent policy name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..65
+                                            	**length:** 0..65
                                             
                                             .. attribute:: police
                                             
@@ -16288,7 +16288,7 @@ class PlatformQos(object):
                                             	Policy name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..65
+                                            	**length:** 0..65
                                             
                                             .. attribute:: queue
                                             
@@ -16354,7 +16354,7 @@ class PlatformQos(object):
                                                 	Class name
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..65
+                                                	**length:** 0..65
                                                 
                                                 .. attribute:: queue_id
                                                 
@@ -19450,7 +19450,7 @@ class PlatformQos(object):
                                             	Class name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..65
+                                            	**length:** 0..65
                                             
                                             .. attribute:: mark
                                             
@@ -19462,14 +19462,14 @@ class PlatformQos(object):
                                             	Parent class name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..65
+                                            	**length:** 0..65
                                             
                                             .. attribute:: parent_policy_name
                                             
                                             	Parent policy name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..65
+                                            	**length:** 0..65
                                             
                                             .. attribute:: police
                                             
@@ -19481,7 +19481,7 @@ class PlatformQos(object):
                                             	Policy name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..65
+                                            	**length:** 0..65
                                             
                                             .. attribute:: queue
                                             
@@ -19547,7 +19547,7 @@ class PlatformQos(object):
                                                 	Class name
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..65
+                                                	**length:** 0..65
                                                 
                                                 .. attribute:: queue_id
                                                 
@@ -23030,7 +23030,7 @@ class PlatformQos(object):
                                         	Policy name
                                         	**type**\:  str
                                         
-                                        	**range:** 0..65
+                                        	**length:** 0..65
                                         
                                         .. attribute:: programmed_bandwidth
                                         
@@ -23482,7 +23482,7 @@ class PlatformQos(object):
                                             	Class name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..65
+                                            	**length:** 0..65
                                             
                                             .. attribute:: mark
                                             
@@ -23494,14 +23494,14 @@ class PlatformQos(object):
                                             	Parent class name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..65
+                                            	**length:** 0..65
                                             
                                             .. attribute:: parent_policy_name
                                             
                                             	Parent policy name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..65
+                                            	**length:** 0..65
                                             
                                             .. attribute:: police
                                             
@@ -23513,7 +23513,7 @@ class PlatformQos(object):
                                             	Policy name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..65
+                                            	**length:** 0..65
                                             
                                             .. attribute:: queue
                                             
@@ -23579,7 +23579,7 @@ class PlatformQos(object):
                                                 	Class name
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..65
+                                                	**length:** 0..65
                                                 
                                                 .. attribute:: queue_id
                                                 
@@ -26675,7 +26675,7 @@ class PlatformQos(object):
                                             	Class name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..65
+                                            	**length:** 0..65
                                             
                                             .. attribute:: mark
                                             
@@ -26687,14 +26687,14 @@ class PlatformQos(object):
                                             	Parent class name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..65
+                                            	**length:** 0..65
                                             
                                             .. attribute:: parent_policy_name
                                             
                                             	Parent policy name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..65
+                                            	**length:** 0..65
                                             
                                             .. attribute:: police
                                             
@@ -26706,7 +26706,7 @@ class PlatformQos(object):
                                             	Policy name
                                             	**type**\:  str
                                             
-                                            	**range:** 0..65
+                                            	**length:** 0..65
                                             
                                             .. attribute:: queue
                                             
@@ -26772,7 +26772,7 @@ class PlatformQos(object):
                                                 	Class name
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..65
+                                                	**length:** 0..65
                                                 
                                                 .. attribute:: queue_id
                                                 

@@ -623,7 +623,7 @@ class Ipv6AclAndPrefixList(object):
                 	Name of the prefix list
                 	**type**\:  str
                 
-                	**range:** 0..65
+                	**length:** 0..65
                 
                 .. attribute:: prefix_list_sequences
                 
@@ -938,7 +938,7 @@ class Ipv6AclAndPrefixList(object):
                 	Name of the ACL
                 	**type**\:  str
                 
-                	**range:** 0..65
+                	**length:** 0..65
                 
                 .. attribute:: application_id
                 
@@ -1061,7 +1061,7 @@ class Ipv6AclAndPrefixList(object):
                 	Name of the Access List
                 	**type**\:  str
                 
-                	**range:** 0..65
+                	**length:** 0..65
                 
                 .. attribute:: access_list_sequences
                 
@@ -1495,7 +1495,7 @@ class Ipv6AclAndPrefixList(object):
                             	Vrf Name
                             	**type**\:  str
                             
-                            	**range:** 0..32
+                            	**length:** 0..32
                             
                             
 
@@ -1578,14 +1578,14 @@ class Ipv6AclAndPrefixList(object):
                             	Track name
                             	**type**\:  str
                             
-                            	**range:** 0..33
+                            	**length:** 0..33
                             
                             .. attribute:: vrf_name
                             
                             	Vrf Name
                             	**type**\:  str
                             
-                            	**range:** 0..32
+                            	**length:** 0..32
                             
                             
 
@@ -2291,7 +2291,7 @@ class Ipv6AclAndPrefixList(object):
                 	Name of the Access List
                 	**type**\:  str
                 
-                	**range:** 0..65
+                	**length:** 0..65
                 
                 .. attribute:: is_current_configured_ac_ls
                 
@@ -2474,7 +2474,7 @@ class Ipv6AclAndPrefixList(object):
                 	Name of a prefix list
                 	**type**\:  str
                 
-                	**range:** 0..65
+                	**length:** 0..65
                 
                 .. attribute:: is_current_configured_ac_ls
                 

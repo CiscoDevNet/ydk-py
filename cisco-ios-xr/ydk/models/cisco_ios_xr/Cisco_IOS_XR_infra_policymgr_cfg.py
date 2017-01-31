@@ -489,14 +489,14 @@ class PolicyManager(object):
                 	Match Circuit ID
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: circuit_id_regex
                 
                 	Match Circuit id regex
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: cos
                 
@@ -546,14 +546,14 @@ class PolicyManager(object):
                 	Match dhcp client ID
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: dhcp_client_id_regex
                 
                 	Match dhcp client id regex
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: discard_class
                 
@@ -584,7 +584,7 @@ class PolicyManager(object):
                 	Match Ethernet Services
                 	**type**\:  str
                 
-                	**range:** 1..64
+                	**length:** 1..64
                 
                 .. attribute:: ethertype
                 
@@ -673,7 +673,7 @@ class PolicyManager(object):
                 	Match IPv4 ACL
                 	**type**\:  str
                 
-                	**range:** 1..64
+                	**length:** 1..64
                 
                 .. attribute:: ipv4_dscp
                 
@@ -711,7 +711,7 @@ class PolicyManager(object):
                 	Match IPv6 ACL
                 	**type**\:  str
                 
-                	**range:** 1..64
+                	**length:** 1..64
                 
                 .. attribute:: ipv6_dscp
                 
@@ -749,14 +749,14 @@ class PolicyManager(object):
                 	Match MPLS Label Disposition IPv4 access list
                 	**type**\:  str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: mpls_disposition_ipv6_access_list
                 
                 	Match MPLS Label Disposition IPv6 access list
                 	**type**\:  str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: mpls_experimental_imposition
                 
@@ -815,28 +815,28 @@ class PolicyManager(object):
                 	Match remote ID
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: remote_id_regex
                 
                 	Match remote id regex
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: service_name
                 
                 	Match servicve name
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: service_name_regex
                 
                 	Match servicve name regular expression
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: source_address_ipv4
                 
@@ -872,14 +872,14 @@ class PolicyManager(object):
                 	Match timer
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: timer_regex
                 
                 	Match timer regular expression
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: traffic_class
                 
@@ -893,14 +893,14 @@ class PolicyManager(object):
                 	Match user name
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: user_name_regex
                 
                 	Match user name regular expression
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: vlan
                 
@@ -1366,14 +1366,14 @@ class PolicyManager(object):
                     	Domain\-format name
                     	**type**\:  str
                     
-                    	**range:** 1..32
+                    	**length:** 1..32
                     
                     .. attribute:: name  <key>
                     
                     	Domain name or regular expression
                     	**type**\:  str
                     
-                    	**range:** 1..32
+                    	**length:** 1..32
                     
                     
 
@@ -1428,14 +1428,14 @@ class PolicyManager(object):
                     	Domain\-format name
                     	**type**\:  str
                     
-                    	**range:** 1..32
+                    	**length:** 1..32
                     
                     .. attribute:: regex  <key>
                     
                     	Domain name or regular expression
                     	**type**\:  str
                     
-                    	**range:** 1..32
+                    	**length:** 1..32
                     
                     
 
@@ -1937,14 +1937,14 @@ class PolicyManager(object):
                 	Match Circuit ID
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: circuit_id_regex
                 
                 	Match Circuit id regex
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: cos
                 
@@ -1994,14 +1994,14 @@ class PolicyManager(object):
                 	Match dhcp client ID
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: dhcp_client_id_regex
                 
                 	Match dhcp client id regex
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: discard_class
                 
@@ -2032,7 +2032,7 @@ class PolicyManager(object):
                 	Match Ethernet Services
                 	**type**\:  str
                 
-                	**range:** 1..64
+                	**length:** 1..64
                 
                 .. attribute:: ethertype
                 
@@ -2121,7 +2121,7 @@ class PolicyManager(object):
                 	Match IPv4 ACL
                 	**type**\:  str
                 
-                	**range:** 1..64
+                	**length:** 1..64
                 
                 .. attribute:: ipv4_dscp
                 
@@ -2159,7 +2159,7 @@ class PolicyManager(object):
                 	Match IPv6 ACL
                 	**type**\:  str
                 
-                	**range:** 1..64
+                	**length:** 1..64
                 
                 .. attribute:: ipv6_dscp
                 
@@ -2197,14 +2197,14 @@ class PolicyManager(object):
                 	Match MPLS Label Disposition IPv4 access list
                 	**type**\:  str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: mpls_disposition_ipv6_access_list
                 
                 	Match MPLS Label Disposition IPv6 access list
                 	**type**\:  str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: mpls_experimental_imposition
                 
@@ -2263,28 +2263,28 @@ class PolicyManager(object):
                 	Match remote ID
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: remote_id_regex
                 
                 	Match remote id regex
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: service_name
                 
                 	Match servicve name
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: service_name_regex
                 
                 	Match servicve name regular expression
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: source_address_ipv4
                 
@@ -2320,14 +2320,14 @@ class PolicyManager(object):
                 	Match timer
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: timer_regex
                 
                 	Match timer regular expression
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: traffic_class
                 
@@ -2341,14 +2341,14 @@ class PolicyManager(object):
                 	Match user name
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: user_name_regex
                 
                 	Match user name regular expression
                 	**type**\:  list of str
                 
-                	**range:** 1..32
+                	**length:** 1..32
                 
                 .. attribute:: vlan
                 
@@ -2810,14 +2810,14 @@ class PolicyManager(object):
                     	Domain\-format name
                     	**type**\:  str
                     
-                    	**range:** 1..32
+                    	**length:** 1..32
                     
                     .. attribute:: name  <key>
                     
                     	Domain name or regular expression
                     	**type**\:  str
                     
-                    	**range:** 1..32
+                    	**length:** 1..32
                     
                     
 
@@ -2872,14 +2872,14 @@ class PolicyManager(object):
                     	Domain\-format name
                     	**type**\:  str
                     
-                    	**range:** 1..32
+                    	**length:** 1..32
                     
                     .. attribute:: regex  <key>
                     
                     	Domain name or regular expression
                     	**type**\:  str
                     
-                    	**range:** 1..32
+                    	**length:** 1..32
                     
                     
 

@@ -293,7 +293,7 @@ class EnvironmentalMonitoring(object):
                                     	Enter Reason for the State
                                     	**type**\:  str
                                     
-                                    	**range:** 0..50
+                                    	**length:** 0..50
                                     
                                     .. attribute:: power_unit_multiplier
                                     
@@ -773,7 +773,7 @@ class EnvironmentalMonitoring(object):
                                                 	Device Name
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..50
+                                                	**length:** 0..50
                                                 
                                                 .. attribute:: device_id
                                                 
@@ -815,7 +815,7 @@ class EnvironmentalMonitoring(object):
                                                 	Units of variable being read
                                                 	**type**\:  str
                                                 
-                                                	**range:** 0..50
+                                                	**length:** 0..50
                                                 
                                                 .. attribute:: update_rate
                                                 

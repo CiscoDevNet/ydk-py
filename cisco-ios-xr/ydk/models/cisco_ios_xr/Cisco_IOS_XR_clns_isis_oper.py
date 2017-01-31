@@ -2394,7 +2394,7 @@ class Isis(object):
             	Instance identifier
             	**type**\:  str
             
-            	**range:** 0..40
+            	**length:** 0..40
             
             .. attribute:: checkpoint_adjacencies
             
@@ -9259,7 +9259,7 @@ class Isis(object):
                     	Topology Name
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     
 
@@ -49268,7 +49268,7 @@ class Isis(object):
                                 	Area (OSPF) or Level (ISIS)
                                 	**type**\:  str
                                 
-                                	**range:** 0..30
+                                	**length:** 0..30
                                 
                                 .. attribute:: flag_attached
                                 
@@ -49280,7 +49280,7 @@ class Isis(object):
                                 	Last IP Prefix
                                 	**type**\:  str
                                 
-                                	**range:** 0..50
+                                	**length:** 0..50
                                 
                                 .. attribute:: last_sid_index
                                 
@@ -49301,7 +49301,7 @@ class Isis(object):
                                 	Router ID
                                 	**type**\:  str
                                 
-                                	**range:** 0..30
+                                	**length:** 0..30
                                 
                                 .. attribute:: sid_count
                                 
@@ -49538,7 +49538,7 @@ class Isis(object):
                                 	Area (OSPF) or Level (ISIS)
                                 	**type**\:  str
                                 
-                                	**range:** 0..30
+                                	**length:** 0..30
                                 
                                 .. attribute:: flag_attached
                                 
@@ -49550,7 +49550,7 @@ class Isis(object):
                                 	Last IP Prefix
                                 	**type**\:  str
                                 
-                                	**range:** 0..50
+                                	**length:** 0..50
                                 
                                 .. attribute:: last_sid_index
                                 
@@ -49571,7 +49571,7 @@ class Isis(object):
                                 	Router ID
                                 	**type**\:  str
                                 
-                                	**range:** 0..30
+                                	**length:** 0..30
                                 
                                 .. attribute:: sid_count
                                 
@@ -49864,7 +49864,7 @@ class Isis(object):
                                 	Area (OSPF) or Level (ISIS)
                                 	**type**\:  str
                                 
-                                	**range:** 0..30
+                                	**length:** 0..30
                                 
                                 .. attribute:: flag_attached
                                 
@@ -49876,7 +49876,7 @@ class Isis(object):
                                 	Last IP Prefix
                                 	**type**\:  str
                                 
-                                	**range:** 0..50
+                                	**length:** 0..50
                                 
                                 .. attribute:: last_sid_index
                                 
@@ -49897,7 +49897,7 @@ class Isis(object):
                                 	Router ID
                                 	**type**\:  str
                                 
-                                	**range:** 0..30
+                                	**length:** 0..30
                                 
                                 .. attribute:: sid_count
                                 
@@ -50134,7 +50134,7 @@ class Isis(object):
                                 	Area (OSPF) or Level (ISIS)
                                 	**type**\:  str
                                 
-                                	**range:** 0..30
+                                	**length:** 0..30
                                 
                                 .. attribute:: flag_attached
                                 
@@ -50146,7 +50146,7 @@ class Isis(object):
                                 	Last IP Prefix
                                 	**type**\:  str
                                 
-                                	**range:** 0..50
+                                	**length:** 0..50
                                 
                                 .. attribute:: last_sid_index
                                 
@@ -50167,7 +50167,7 @@ class Isis(object):
                                 	Router ID
                                 	**type**\:  str
                                 
-                                	**range:** 0..30
+                                	**length:** 0..30
                                 
                                 .. attribute:: sid_count
                                 

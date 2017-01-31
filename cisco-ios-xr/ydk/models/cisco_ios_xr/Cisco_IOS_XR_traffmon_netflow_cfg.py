@@ -151,7 +151,7 @@ class NetFlow(object):
             	Exporter map name
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             .. attribute:: destination
             
@@ -637,7 +637,7 @@ class NetFlow(object):
             	Sampler map name
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             .. attribute:: sampling_modes
             
@@ -863,7 +863,7 @@ class NetFlow(object):
             	Monitor map name
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             .. attribute:: cache_active_aging_timeout
             
@@ -1051,7 +1051,7 @@ class NetFlow(object):
                     	Exporter name
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     
 
@@ -1133,7 +1133,7 @@ class NetFlow(object):
                 	Flow record format (Either 'ipv4\-raw' ,'ipv4\-peer\-as', 'ipv6', 'mpls', 'mpls\-ipv4', 'mpls\-ipv6', 'mpls\-ipv4\-ipv6', 'ipv6\-peer\-as')
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 	**mandatory**\: True
                 
@@ -1294,7 +1294,7 @@ class NetFlow(object):
             	Monitor map name
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             .. attribute:: cache_active_aging_timeout
             
@@ -1482,7 +1482,7 @@ class NetFlow(object):
                     	Exporter name
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     
 
@@ -1564,7 +1564,7 @@ class NetFlow(object):
                 	Flow record format (Either 'ipv4\-raw' ,'ipv4\-peer\-as', 'ipv6', 'mpls', 'mpls\-ipv4', 'mpls\-ipv6', 'mpls\-ipv4\-ipv6', 'ipv6\-peer\-as')
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 	**mandatory**\: True
                 

@@ -18,13 +18,12 @@
 """
 from __future__ import print_function
 import os
-'''import shutil
-import platform
 import subprocess
-from git import Repo'''
-from codecs import open as copen
+import sysconfig
 
-from setuptools import setup, find_packages
+from setuptools.command.build_ext import build_ext
+from setuptools import setup, Extension, find_packages
+
 
 NMSP_PKG_NAME = "$PACKAGE$"
 NMSP_PKG_VERSION = "$VERSION$"
@@ -33,79 +32,101 @@ NMSP_PKG_DEPENDENCIES = ["$DEPENDENCY$"]
 # Define and modify version number and package name here,
 # Namespace packages are share same prefix: "ydk-models"
 NAME = 'ydk'
-VERSION = '0.5.2'
+VERSION = '0.5.3'
 INSTALL_REQUIREMENTS = ['ecdsa==0.13',
                         'enum34==1.1.3',
                         'lxml==3.4.4',
                         'paramiko==1.15.2',
                         'pyang==1.6',
                         'pycrypto==2.6.1',
-                        'Twisted>=16.0.0',
-                        'protobuf==3.0.0b2.post2',
-                        'ncclient>=0.4.7']
-
-if NMSP_PKG_NAME != "$PACKAGE$":
-    NAME = NMSP_PKG_NAME
-if NMSP_PKG_VERSION != "$VERSION$":
-    VERSION = NMSP_PKG_VERSION
-if NMSP_PKG_DEPENDENCIES != ["$DEPENDENCY$"]:
-    INSTALL_REQUIREMENTS.extend(NMSP_PKG_DEPENDENCIES)
+                        'ncclient>=0.4.7',
+                        'pybind11==1.8.1']
 
 
-here = os.path.abspath(os.path.dirname(__file__))
+LONG_DESCRIPTION = '''
+                   The YANG Development Kit (YDK) is a Software Development Kit
+                    that provides API's that are modeled in YANG. The main goal
+                    of YDK is to reduce the learning curve of YANG data models by
+                    expressing the model semantics in an API and abstracting
+                    protocol/encoding details. YDK is composed of a core package
+                    that defines services and providers, plus one or more module
+                    bundles that are based on YANG models. Each module bundle
+                    is generated using a bundle profile and the ydk-gen tool.
+                   '''
 
-# Get the long description from the README file
-with copen(os.path.join(here, 'README.md'), encoding='utf-8') as f:
-    LONG_DESCRIPTION = f.read()
 
 YDK_PACKAGES = find_packages(exclude=['contrib', 'docs*', 'tests*',
                                       'ncclient', 'samples'])
-ext = []
-'''
-
-lib_path = here + '/.libs'
-libnetconf_include_path = here + '/.includes/'
-lib_paths = [lib_path]
-if platform.system() == 'Darwin' and subprocess.call(['brew info python &> /dev/null'], shell=True) == 0:
-    python_homebrew_path='/usr/local/opt/python/Frameworks/Python.framework/Versions/2.7/lib'
-    if os.path.isdir(python_homebrew_path) and os.path.exists(python_homebrew_path):
-        lib_paths = [lib_path, python_homebrew_path]
 
 
-def _build_ydk_client_using_prebuilt_libnetconf():
-    prebuilt_lib_path = lib_path + '/prebuilt/' + platform.system() + '/libnetconf.a'
-    shutil.copy(prebuilt_lib_path, lib_path)
-    return subprocess.call(['g++ -I/usr/include/python2.7 -I/usr/include/boost -I' + libnetconf_include_path +
-                            ' -shared -fPIC ' + here + '/ydk/providers/_cpp_files/netconf_client.cpp'
-                            ' -L/' + lib_path + ' -lnetconf -lpython2.7 -lboost_python -lxml2 -lcurl -lssh -lssh_threads -lxslt'], shell=True)
+class CMakeExtension(Extension):
+    def __init__(self, name, sourcedir=''):
+        Extension.__init__(self, name, sources=[])
+        self.sourcedir = os.path.abspath(sourcedir)
 
 
-# Compile the YDK C++ code
-if platform.system() != 'Windows':
-    libnetconf_path=here + '/.libs/libnetconf/'
-    if os.listdir(libnetconf_path) == []:
-        print('Checking out libnetconf')
-        repo = Repo.clone_from("https://github.com/abhikeshav/libnetconf.git", libnetconf_path)
-        repo.git.checkout('57f44ce2425bfb17d231a111995d6537ae4dd7cb')
-    exit_status = subprocess.call(['cd ' + here + '/.libs/libnetconf/ && ./configure > /dev/null && make > /dev/null && cp .libs/libnetconf.a .. '], shell=True)
-    if exit_status != 0:
-        exit_status = _build_ydk_client_using_prebuilt_libnetconf()
+class YdkBuildExtension(build_ext):
+    def run(self):
+        try:
+            subprocess.check_output(['cmake', '--version'])
+        except OSError:
+            raise RuntimeError("CMake must be installed to build the following extensions: " +
+                               ", ".join(e.name for e in self.extensions))
+
+        for ext in self.extensions:
+            self.build_extension(ext)
+
+    def build_extension(self, ext):
+        try:
+            import pybind11
+        except ImportError:
+            import pip
+            pip.main(['install', 'pybind11==1.8.1'])
+            import pybind11
+
+        extdir = os.path.abspath(os.path.dirname(self.get_ext_fullpath(ext.name)))
+        cmake_args = ['-DCMAKE_LIBRARY_OUTPUT_DIRECTORY={0}'.format(extdir),
+                      '-DPYBIND11_INCLUDE={0};{1}'.format(
+                                      pybind11.get_include(),
+                                      pybind11.get_include(user=True)),
+                      '-DPYTHON_LIBRARY={0}'.format(
+                                      get_python_library()),
+                      '-DPYTHON_INCLUDE={0}'.format(
+                                      get_python_include())]
+
+        if not os.path.exists(self.build_temp):
+            os.makedirs(self.build_temp)
+
+        subprocess.check_call(['cmake', ext.sourcedir] + cmake_args, cwd=self.build_temp)
+        subprocess.check_call(['cmake', '--build', '.'], cwd=self.build_temp)
 
 
-    if exit_status != 0:
-        print('\nFailed to build libnetconf. Install all the dependencies mentioned in the README. No native code is being built.')
-        ext = []
-    else:
-        ext = [extension.Extension(
-                                  'ydk_client',
-                                  sources=[here + '/ydk/providers/_cpp_files/netconf_client.cpp'],
-                                  language='c++',
-                                  libraries=['netconf', 'python2.7', 'boost_python', 'xml2', 'curl', 'ssh', 'ssh_threads', 'xslt'],
-                                  extra_compile_args=['-Wall', '-std=c++0x'],
-                                  include_dirs=['/usr/include/python2.7', '/usr/include/boost', libnetconf_include_path],
-                                  library_dirs=lib_paths
-                                  )]
-'''
+def get_python_version():
+    python_version = sysconfig.get_config_var('LDVERSION')
+    if python_version is None or len(python_version) == 0:
+        python_version = sysconfig.get_config_var('VERSION')        
+    return python_version
+
+
+def get_python_library():
+    library_prefix = sysconfig.get_config_var('LIBPL')
+    library_path = os.path.join(library_prefix, sysconfig.get_config_var('LDLIBRARY'))
+    if not os.path.exists(library_path):
+        library_prefix = sysconfig.get_config_var('PYTHONFRAMEWORKPREFIX')
+        library_path = os.path.join(library_prefix, sysconfig.get_config_var('LDLIBRARY'))
+
+    assert os.path.exists(library_path), 'Could not find python library in {0}. Check your python installation'.format(library_path)
+    return library_path
+
+
+def get_python_include():
+    include_path = sysconfig.get_config_var('INCLUDEPY')
+    if include_path is None or len(include_path) == 0:
+        prefix = sysconfig.get_config_var('INCLUDEDIR')
+        include_path = os.path.join(prefix, 'python{0}'.format(get_python_version()))
+    return include_path
+
+
 setup(
     name=NAME,
     version=VERSION,
@@ -118,12 +139,27 @@ setup(
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
+        'Intended Audience :: Education',
+        'Intended Audience :: Information Technology',
+        'Intended Audience :: Science/Research',
+        'Intended Audience :: System Administrators',
         'Topic :: Software Development :: Build Tools',
-        'License :: OSI Approved :: Apache 2.0 License',
+        'Topic :: Software Development :: Libraries',
+        'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.2',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: C++'
     ],
-    keywords='yang',
+    keywords='yang, C++11, python bindings',
     packages=YDK_PACKAGES,
     install_requires=INSTALL_REQUIREMENTS,
-    ext_modules=ext,
+#    ext_modules=[CMakeExtension('ydk_')],
+#    cmdclass={
+#             'build_ext' :YdkBuildExtension
+#             },
+    zip_safe=False,
 )

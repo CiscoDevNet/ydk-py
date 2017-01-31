@@ -413,7 +413,7 @@ class OpticalInterface(object):
                     	OpticalChannel
                     	**type**\:  str
                     
-                    	**range:** 0..128
+                    	**length:** 0..128
                     
                     
 
@@ -609,14 +609,14 @@ class OpticalInterface(object):
                 	Description
                 	**type**\:  str
                 
-                	**range:** 0..128
+                	**length:** 0..128
                 
                 .. attribute:: vendor_id
                 
                 	VendorId
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 
 
@@ -895,7 +895,7 @@ class OpticalInterface(object):
                     	OpticalChannel
                     	**type**\:  str
                     
-                    	**range:** 0..128
+                    	**length:** 0..128
                     
                     
 

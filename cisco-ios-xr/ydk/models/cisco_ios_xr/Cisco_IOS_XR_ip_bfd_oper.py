@@ -1800,7 +1800,7 @@ class Bfd(object):
                 	Client process name
                 	**type**\:  str
                 
-                	**range:** 0..257
+                	**length:** 0..257
                 
                 .. attribute:: node_id
                 
@@ -4486,7 +4486,7 @@ class Bfd(object):
                 	Client process name
                 	**type**\:  str
                 
-                	**range:** 0..257
+                	**length:** 0..257
                 
                 
 
@@ -4603,7 +4603,7 @@ class Bfd(object):
                     	Session Interface Name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: ip_destination_address
                     
@@ -4646,7 +4646,7 @@ class Bfd(object):
                     	Session VRF Name
                     	**type**\:  str
                     
-                    	**range:** 0..120
+                    	**length:** 0..120
                     
                     
 
@@ -5239,7 +5239,7 @@ class Bfd(object):
                     	Client process name
                     	**type**\:  str
                     
-                    	**range:** 0..257
+                    	**length:** 0..257
                     
                     
 
@@ -7459,7 +7459,7 @@ class Bfd(object):
                 	Client process name
                 	**type**\:  str
                 
-                	**range:** 0..257
+                	**length:** 0..257
                 
                 
 
@@ -7576,7 +7576,7 @@ class Bfd(object):
                     	Session Interface Name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: ip_destination_address
                     
@@ -7619,7 +7619,7 @@ class Bfd(object):
                     	Session VRF Name
                     	**type**\:  str
                     
-                    	**range:** 0..120
+                    	**length:** 0..120
                     
                     
 
@@ -8212,7 +8212,7 @@ class Bfd(object):
                     	Client process name
                     	**type**\:  str
                     
-                    	**range:** 0..257
+                    	**length:** 0..257
                     
                     
 
@@ -12108,7 +12108,7 @@ class Bfd(object):
                 	Client process name
                 	**type**\:  str
                 
-                	**range:** 0..257
+                	**length:** 0..257
                 
                 
 
@@ -12225,7 +12225,7 @@ class Bfd(object):
                     	Session Interface Name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: ip_destination_address
                     
@@ -12268,7 +12268,7 @@ class Bfd(object):
                     	Session VRF Name
                     	**type**\:  str
                     
-                    	**range:** 0..120
+                    	**length:** 0..120
                     
                     
 
@@ -12861,7 +12861,7 @@ class Bfd(object):
                     	Client process name
                     	**type**\:  str
                     
-                    	**range:** 0..257
+                    	**length:** 0..257
                     
                     
 
@@ -16360,7 +16360,7 @@ class Bfd(object):
                 	Client process name
                 	**type**\:  str
                 
-                	**range:** 0..257
+                	**length:** 0..257
                 
                 
 
@@ -16477,7 +16477,7 @@ class Bfd(object):
                     	Session Interface Name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: ip_destination_address
                     
@@ -16520,7 +16520,7 @@ class Bfd(object):
                     	Session VRF Name
                     	**type**\:  str
                     
-                    	**range:** 0..120
+                    	**length:** 0..120
                     
                     
 
@@ -17113,7 +17113,7 @@ class Bfd(object):
                     	Client process name
                     	**type**\:  str
                     
-                    	**range:** 0..257
+                    	**length:** 0..257
                     
                     
 
@@ -17745,7 +17745,7 @@ class Bfd(object):
             	Session Interface Name
             	**type**\:  str
             
-            	**range:** 0..64
+            	**length:** 0..64
             
             .. attribute:: last_down_diag
             
@@ -22230,7 +22230,7 @@ class Bfd(object):
                 	Client process name
                 	**type**\:  str
                 
-                	**range:** 0..257
+                	**length:** 0..257
                 
                 
 
@@ -22347,7 +22347,7 @@ class Bfd(object):
                     	Session Interface Name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: ip_destination_address
                     
@@ -22390,7 +22390,7 @@ class Bfd(object):
                     	Session VRF Name
                     	**type**\:  str
                     
-                    	**range:** 0..120
+                    	**length:** 0..120
                     
                     
 
@@ -22983,7 +22983,7 @@ class Bfd(object):
                     	Client process name
                     	**type**\:  str
                     
-                    	**range:** 0..257
+                    	**length:** 0..257
                     
                     
 
@@ -25210,7 +25210,7 @@ class Bfd(object):
                 	Client process name
                 	**type**\:  str
                 
-                	**range:** 0..257
+                	**length:** 0..257
                 
                 
 
@@ -25327,7 +25327,7 @@ class Bfd(object):
                     	Session Interface Name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: ip_destination_address
                     
@@ -25370,7 +25370,7 @@ class Bfd(object):
                     	Session VRF Name
                     	**type**\:  str
                     
-                    	**range:** 0..120
+                    	**length:** 0..120
                     
                     
 
@@ -25963,7 +25963,7 @@ class Bfd(object):
                     	Client process name
                     	**type**\:  str
                     
-                    	**range:** 0..257
+                    	**length:** 0..257
                     
                     
 
@@ -28422,7 +28422,7 @@ class Bfd(object):
                 	Client process name
                 	**type**\:  str
                 
-                	**range:** 0..257
+                	**length:** 0..257
                 
                 
 
@@ -28539,7 +28539,7 @@ class Bfd(object):
                     	Session Interface Name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: ip_destination_address
                     
@@ -28582,7 +28582,7 @@ class Bfd(object):
                     	Session VRF Name
                     	**type**\:  str
                     
-                    	**range:** 0..120
+                    	**length:** 0..120
                     
                     
 
@@ -29175,7 +29175,7 @@ class Bfd(object):
                     	Client process name
                     	**type**\:  str
                     
-                    	**range:** 0..257
+                    	**length:** 0..257
                     
                     
 
@@ -32690,7 +32690,7 @@ class Bfd(object):
                 	Client process name
                 	**type**\:  str
                 
-                	**range:** 0..257
+                	**length:** 0..257
                 
                 
 
@@ -32807,7 +32807,7 @@ class Bfd(object):
                     	Session Interface Name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: ip_destination_address
                     
@@ -32850,7 +32850,7 @@ class Bfd(object):
                     	Session VRF Name
                     	**type**\:  str
                     
-                    	**range:** 0..120
+                    	**length:** 0..120
                     
                     
 
@@ -33443,7 +33443,7 @@ class Bfd(object):
                     	Client process name
                     	**type**\:  str
                     
-                    	**range:** 0..257
+                    	**length:** 0..257
                     
                     
 
@@ -33721,7 +33721,7 @@ class Bfd(object):
                 	Session Interface Name
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: state
                 
@@ -33862,7 +33862,7 @@ class Bfd(object):
             	Client process name
             	**type**\:  str
             
-            	**range:** 0..257
+            	**length:** 0..257
             
             .. attribute:: node_id
             
@@ -34352,7 +34352,7 @@ class Bfd(object):
                 	Session Interface Name
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: local_discriminator
                 
@@ -34473,7 +34473,7 @@ class Bfd(object):
                     	Session Interface Name
                     	**type**\:  str
                     
-                    	**range:** 0..64
+                    	**length:** 0..64
                     
                     .. attribute:: ip_destination_address
                     
@@ -34516,7 +34516,7 @@ class Bfd(object):
                     	Session VRF Name
                     	**type**\:  str
                     
-                    	**range:** 0..120
+                    	**length:** 0..120
                     
                     
 
@@ -35109,7 +35109,7 @@ class Bfd(object):
                     	Client process name
                     	**type**\:  str
                     
-                    	**range:** 0..257
+                    	**length:** 0..257
                     
                     
 

@@ -1335,7 +1335,7 @@ class Snmp(object):
                 	SNMP community string
                 	**type**\:  str
                 
-                	**range:** 0..128
+                	**length:** 0..128
                 
                 .. attribute:: owner
                 
@@ -2194,21 +2194,21 @@ class Snmp(object):
         	String to uniquely identify this chassis
         	**type**\:  str
         
-        	**range:** 0..255
+        	**length:** 0..255
         
         .. attribute:: contact
         
         	identification of the contact person for this managed node
         	**type**\:  str
         
-        	**range:** 0..255
+        	**length:** 0..255
         
         .. attribute:: location
         
         	The physical location of this node
         	**type**\:  str
         
-        	**range:** 0..255
+        	**length:** 0..255
         
         
 
@@ -5500,7 +5500,7 @@ class Snmp(object):
                 	Rule name
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: applied_to
                 
@@ -6422,7 +6422,7 @@ class Snmp(object):
                 	Ruleset name
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: applied_to
                 
@@ -6482,7 +6482,7 @@ class Snmp(object):
                         	Rule name
                         	**type**\:  str
                         
-                        	**range:** 0..32
+                        	**length:** 0..32
                         
                         
 
@@ -6884,7 +6884,7 @@ class Snmp(object):
                 	The name of the schema
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: instance
                 
@@ -6907,7 +6907,7 @@ class Snmp(object):
                 	Name of an object List
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: type
                 
@@ -7136,7 +7136,7 @@ class Snmp(object):
                 	Name of the object List
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: objects
                 
@@ -7346,7 +7346,7 @@ class Snmp(object):
                 	Name of bulk transfer
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: buffer_size
                 
@@ -7467,7 +7467,7 @@ class Snmp(object):
                         	Schema that contains objects to be collected
                         	**type**\:  str
                         
-                        	**range:** 0..32
+                        	**length:** 0..32
                         
                         
 
@@ -7674,7 +7674,7 @@ class Snmp(object):
             	SNMP community map
             	**type**\:  str
             
-            	**range:** 0..128
+            	**length:** 0..128
             
             .. attribute:: context
             
@@ -8559,7 +8559,7 @@ class Snmp(object):
                                 	SNMPv2c community string or SNMPv3 user
                                 	**type**\:  str
                                 
-                                	**range:** 0..128
+                                	**length:** 0..128
                                 
                                 .. attribute:: advanced_trap_types1
                                 
@@ -8926,7 +8926,7 @@ class Snmp(object):
                             	SNMPv1/v2c community string or SNMPv3 user
                             	**type**\:  str
                             
-                            	**range:** 0..128
+                            	**length:** 0..128
                             
                             .. attribute:: advanced_trap_types1
                             
@@ -9444,7 +9444,7 @@ class Snmp(object):
             	Name of the group
             	**type**\:  str
             
-            	**range:** 0..128
+            	**length:** 0..128
             
             .. attribute:: context_name
             
@@ -9909,7 +9909,7 @@ class Snmp(object):
                         	SNMPv2c community string or SNMPv3 user
                         	**type**\:  str
                         
-                        	**range:** 0..128
+                        	**length:** 0..128
                         
                         .. attribute:: advanced_trap_types1
                         
@@ -10276,7 +10276,7 @@ class Snmp(object):
                     	SNMPv1/v2c community string or SNMPv3 user
                     	**type**\:  str
                     
-                    	**range:** 0..128
+                    	**length:** 0..128
                     
                     .. attribute:: advanced_trap_types1
                     

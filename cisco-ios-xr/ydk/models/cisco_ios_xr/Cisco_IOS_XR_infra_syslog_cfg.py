@@ -4778,7 +4778,7 @@ class Syslog(object):
                 	Rule name
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: applied_to
                 
@@ -5939,7 +5939,7 @@ class Syslog(object):
                             	Context
                             	**type**\:  str
                             
-                            	**range:** 0..32
+                            	**length:** 0..32
                             
                             
 
@@ -6228,7 +6228,7 @@ class Syslog(object):
                 	Ruleset name
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: applied_to
                 
@@ -6288,7 +6288,7 @@ class Syslog(object):
                         	Rule name
                         	**type**\:  str
                         
-                        	**range:** 0..32
+                        	**length:** 0..32
                         
                         
 
@@ -6421,7 +6421,7 @@ class Syslog(object):
                             	Context
                             	**type**\:  str
                             
-                            	**range:** 0..32
+                            	**length:** 0..32
                             
                             
 
@@ -6752,7 +6752,7 @@ class Syslog(object):
                 	Rule name
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: alarm_causes
                 
@@ -6972,21 +6972,21 @@ class Syslog(object):
                         	Category
                         	**type**\:  str
                         
-                        	**range:** 0..32
+                        	**length:** 0..32
                         
                         .. attribute:: code  <key>
                         
                         	Code
                         	**type**\:  str
                         
-                        	**range:** 0..32
+                        	**length:** 0..32
                         
                         .. attribute:: group  <key>
                         
                         	Group
                         	**type**\:  str
                         
-                        	**range:** 0..32
+                        	**length:** 0..32
                         
                         
 

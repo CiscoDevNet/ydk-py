@@ -1236,7 +1236,7 @@ class Tty(object):
                     	Incoming host address(max)
                     	**type**\:  str
                     
-                    	**range:** 0..46
+                    	**length:** 0..46
                     
                     .. attribute:: service
                     

@@ -5016,7 +5016,7 @@ class Snmp(object):
                 	Correlation Rule Name
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: apply_host
                 
@@ -5589,7 +5589,7 @@ class Snmp(object):
                 	Ruleset Name
                 	**type**\:  str
                 
-                	**range:** 0..32
+                	**length:** 0..32
                 
                 .. attribute:: rule_set_name_xr
                 
@@ -7450,7 +7450,7 @@ class Snmp(object):
                 	Device Name
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: device_id
                 
@@ -7499,7 +7499,7 @@ class Snmp(object):
                 	Units of variable being read
                 	**type**\:  str
                 
-                	**range:** 0..64
+                	**length:** 0..64
                 
                 .. attribute:: update_rate
                 

@@ -236,13 +236,13 @@ def _check_type_mismatch(value, member):
     # type mismatches for ATTRIBUTE, REFERENCE_ENUM, REFERENCE_IDENTITY,
     # REFREENCE_BITS and REFREENCE_ANYXML are covered by validation
     if member.mtype == REFERENCE_CLASS:
-        if any((not value.__class__.__module__.startswith('ydk.models'),
+        value_clazz_name = value.__class__.__name__
+        member_clazz_name = member.clazz_name.split('.')[-1]
+        if any((# not value.__class__.__module__.startswith('ydk.models'),
                 isinstance(value, list),
-                value.__class__.__name__.endswith('Identity'),
-                value.__class__.__name__.endswith('Enum'),
-                value.__class__.__name__.endswith('Bits'))):
+                value_clazz_name != member_clazz_name)):
             raise YPYServiceError(error_msg=_TYPE_MISMATCH_CLASS.format(
-                                  value.__class__.__name__, member.clazz_name))
+                                  value_clazz_name, member_clazz_name))
     elif member.mtype == REFERENCE_LIST:
         if not type(value) == YList:
             raise YPYServiceError(error_msg=_TYPE_MISMATCH_LIST.format(

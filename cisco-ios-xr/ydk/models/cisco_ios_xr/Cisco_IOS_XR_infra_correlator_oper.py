@@ -224,7 +224,7 @@ class Suppression(object):
             	Suppression Rule Name
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             .. attribute:: rule_name_xr
             
@@ -348,7 +348,7 @@ class Suppression(object):
             	Suppression Rule Name
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             .. attribute:: alarm_severity
             
@@ -715,14 +715,14 @@ class Correlator(object):
             	Correlation Rule Name
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             .. attribute:: apply_context
             
             	Contexts (Interfaces) to which the rule is applied
             	**type**\:  list of str
             
-            	**range:** 0..33
+            	**length:** 0..33
             
             .. attribute:: apply_location
             
@@ -1255,7 +1255,7 @@ class Correlator(object):
             	Ruleset Name
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             .. attribute:: rule_set_name_xr
             
@@ -1358,7 +1358,7 @@ class Correlator(object):
             	Ruleset Name
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             .. attribute:: rule_set_name_xr
             
@@ -1549,14 +1549,14 @@ class Correlator(object):
             	Correlation Rule Name
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             .. attribute:: apply_context
             
             	Contexts (Interfaces) to which the rule is applied
             	**type**\:  list of str
             
-            	**range:** 0..33
+            	**length:** 0..33
             
             .. attribute:: apply_location
             
@@ -1892,7 +1892,7 @@ class Correlator(object):
             	Correlation Rule Name
             	**type**\:  str
             
-            	**range:** 0..32
+            	**length:** 0..32
             
             .. attribute:: buffered_alarms_count
             

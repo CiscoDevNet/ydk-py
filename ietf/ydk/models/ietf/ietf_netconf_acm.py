@@ -58,9 +58,9 @@ class ActionTypeEnum(Enum):
         return meta._meta_table['ActionTypeEnum']
 
 
-class AccessOperationsTypeBits(FixedBitsDict):
+class AccessOperationsType(FixedBitsDict):
     """
-    AccessOperationsTypeBits
+    AccessOperationsType
 
     NETCONF Access Operation.
     Keys are:- read , create , exec , update , delete
@@ -219,7 +219,7 @@ class Nacm(object):
             	Each entry identifies the username of a member of the group associated with this entry
             	**type**\:  list of str
             
-            	**range:** 1..18446744073709551615
+            	**length:** 1..18446744073709551615
             
             
 
@@ -298,7 +298,7 @@ class Nacm(object):
         	Arbitrary name assigned to the rule\-list
         	**type**\:  str
         
-        	**range:** 1..18446744073709551615
+        	**length:** 1..18446744073709551615
         
         .. attribute:: group
         
@@ -355,7 +355,7 @@ class Nacm(object):
             	Arbitrary name assigned to the rule
             	**type**\:  str
             
-            	**range:** 1..18446744073709551615
+            	**length:** 1..18446744073709551615
             
             .. attribute:: access_operations
             
@@ -370,7 +370,7 @@ class Nacm(object):
             
             
             ----
-            	**type**\:   :py:class:`AccessOperationsTypeBits <ydk.models.ietf.ietf_netconf_acm.AccessOperationsTypeBits>`
+            	**type**\:   :py:class:`AccessOperationsType <ydk.models.ietf.ietf_netconf_acm.AccessOperationsType>`
             
             	**default value**\: *
             

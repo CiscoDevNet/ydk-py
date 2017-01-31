@@ -1299,7 +1299,7 @@ class OpticsOper(object):
                     	Frequency
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     .. attribute:: g694_chan_num
                     
@@ -1320,7 +1320,7 @@ class OpticsOper(object):
                     	Wavelength
                     	**type**\:  str
                     
-                    	**range:** 0..32
+                    	**length:** 0..32
                     
                     
 

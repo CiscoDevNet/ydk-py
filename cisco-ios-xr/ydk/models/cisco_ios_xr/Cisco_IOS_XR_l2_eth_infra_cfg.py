@@ -384,7 +384,7 @@ class EthernetFeatures(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
-                	**range:** 0..79
+                	**length:** 0..79
                 
                 .. attribute:: domain_properties
                 
@@ -445,7 +445,7 @@ class EthernetFeatures(object):
                         	Service (Maintenance Association)
                         	**type**\:  str
                         
-                        	**range:** 0..79
+                        	**length:** 0..79
                         
                         .. attribute:: ais
                         
@@ -1100,7 +1100,7 @@ class EthernetFeatures(object):
                             	ITU Carrier Code (ICC), if format is ICCBased
                             	**type**\:  str
                             
-                            	**range:** 0..6
+                            	**length:** 0..6
                             
                             .. attribute:: short_ma_name_number
                             
@@ -1121,14 +1121,14 @@ class EthernetFeatures(object):
                             	String Short MA Name, if format is String
                             	**type**\:  str
                             
-                            	**range:** 0..45
+                            	**length:** 0..45
                             
                             .. attribute:: short_ma_name_umc
                             
                             	Unique MEG ID Code (UMC), if format is ICCBased
                             	**type**\:  str
                             
-                            	**range:** 0..12
+                            	**length:** 0..12
                             
                             .. attribute:: short_ma_name_vpn_index
                             
@@ -1364,7 +1364,7 @@ class EthernetFeatures(object):
                     	String MDID, if MDID format is String or DNSLike
                     	**type**\:  str
                     
-                    	**range:** 0..43
+                    	**length:** 0..43
                     
                     
 

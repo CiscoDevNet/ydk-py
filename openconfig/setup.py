@@ -20,7 +20,6 @@
 
 """
 from os import path
-from codecs import open as copen
 from setuptools import setup, find_packages
 
 HERE = path.abspath(path.dirname(__file__))
@@ -31,10 +30,8 @@ INSTALL_REQUIREMENTS = ['ecdsa==0.13',
                         'paramiko==1.15.2',
                         'pyang==1.6',
                         'pycrypto==2.6.1',
-                        'Twisted>=16.0.0',
-                        'protobuf==3.0.0b2.post2',
                         'ncclient>=0.4.7',
-                        'ydk>=0.5.1']
+                        'ydk>=0.5.2']
 
 NMSP_PKG_NAME = "ydk-models-openconfig"
 NMSP_PKG_VERSION = "0.1.1"
@@ -49,8 +46,16 @@ YDK_PACKAGES = find_packages(exclude=['contrib', 'docs*', 'tests*',
                                       'ncclient', 'samples'])
 
 
-with copen(path.join(HERE, 'README.md'), encoding='utf-8') as f:
-    LONG_DESCRIPTION = f.read()
+LONG_DESCRIPTION = '''
+                   The YANG Development Kit (YDK) is a Software Development Kit
+                    that provides API's that are modeled in YANG. The main goal
+                    of YDK is to reduce the learning curve of YANG data models by
+                    expressing the model semantics in an API and abstracting
+                    protocol/encoding details. YDK is composed of a core package
+                    that defines services and providers, plus one or more module
+                    bundles that are based on YANG models. Each module bundle
+                    is generated using a bundle profile and the ydk-gen tool.
+                   '''
 
 setup(
     name=NMSP_PKG_NAME,
@@ -64,11 +69,22 @@ setup(
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
+        'Intended Audience :: Education',
+        'Intended Audience :: Information Technology',
+        'Intended Audience :: Science/Research',
+        'Intended Audience :: System Administrators',
         'Topic :: Software Development :: Build Tools',
-        'License :: OSI Approved :: Apache 2.0 License',
+        'Topic :: Software Development :: Libraries',
+        'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.2',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: C++'
     ],
-    keywords='yang',
+    keywords='yang, C++11, python bindings',
     packages=YDK_PACKAGES,
     namespace_packages=NMSP_PACKAGES,
     install_requires=INSTALL_REQUIREMENTS

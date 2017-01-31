@@ -167,7 +167,7 @@ class Nve(object):
             	L2RIB Topology Name
             	**type**\:  str
             
-            	**range:** 0..50
+            	**length:** 0..50
             
             .. attribute:: topo_valid
             
