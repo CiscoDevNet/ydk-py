@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'LldpL3AddrProtocolEnum' : _MetaInfoEnum('LldpL3AddrProtocolEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper',
         {
@@ -106,8 +105,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper'
         ),
     },
-    'LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress.Address' : {
-        'meta_info' : _MetaInfoClass('LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress.Address',
+    'LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses.LldpAddrEntry.Address' : {
+        'meta_info' : _MetaInfoClass('LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses.LldpAddrEntry.Address',
             False, 
             [
             _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'LldpL3AddrProtocolEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper', 'LldpL3AddrProtocolEnum', 
@@ -135,11 +134,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper'
         ),
     },
-    'LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress' : {
-        'meta_info' : _MetaInfoClass('LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress',
+    'LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses.LldpAddrEntry' : {
+        'meta_info' : _MetaInfoClass('LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses.LldpAddrEntry',
             False, 
             [
-            _MetaInfoClassMember('address', REFERENCE_CLASS, 'Address' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper', 'LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress.Address', 
+            _MetaInfoClassMember('address', REFERENCE_CLASS, 'Address' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper', 'LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses.LldpAddrEntry.Address', 
                 [], [], 
                 '''                Network layer address
                 ''',
@@ -159,7 +158,24 @@ _meta_table = {
                 'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
             ],
             'Cisco-IOS-XR-ncs1k-mxp-lldp-oper',
-            'network-address',
+            'lldp-addr-entry',
+            _yang_ns._namespaces['Cisco-IOS-XR-ncs1k-mxp-lldp-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper'
+        ),
+    },
+    'LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses' : {
+        'meta_info' : _MetaInfoClass('LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses',
+            False, 
+            [
+            _MetaInfoClassMember('lldp-addr-entry', REFERENCE_LIST, 'LldpAddrEntry' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper', 'LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses.LldpAddrEntry', 
+                [], [], 
+                '''                lldp addr entry
+                ''',
+                'lldp_addr_entry',
+                'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
+            ],
+            'Cisco-IOS-XR-ncs1k-mxp-lldp-oper',
+            'network-addresses',
             _yang_ns._namespaces['Cisco-IOS-XR-ncs1k-mxp-lldp-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper'
         ),
@@ -204,23 +220,17 @@ _meta_table = {
                 ''',
                 'lldp_neighbor',
                 'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
-            _MetaInfoClassMember('network-address', REFERENCE_CLASS, 'NetworkAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper', 'LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress', 
+            _MetaInfoClassMember('network-addresses', REFERENCE_CLASS, 'NetworkAddresses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper', 'LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses', 
                 [], [], 
-                '''                Management Address
+                '''                Management Addresses
                 ''',
-                'network_address',
+                'network_addresses',
                 'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
             _MetaInfoClassMember('port-description', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Port Description
                 ''',
                 'port_description',
-                'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
-            _MetaInfoClassMember('port-id-ckt', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Outgoing port identifier circuit id
-                ''',
-                'port_id_ckt',
                 'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
             _MetaInfoClassMember('port-id-detail', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -308,8 +318,9 @@ _meta_table = {
 }
 _meta_table['LldpSnoopData.LldpNeighborBrief.Neighbours.LldpNeighborBriefEntry']['meta_info'].parent =_meta_table['LldpSnoopData.LldpNeighborBrief.Neighbours']['meta_info']
 _meta_table['LldpSnoopData.LldpNeighborBrief.Neighbours']['meta_info'].parent =_meta_table['LldpSnoopData.LldpNeighborBrief']['meta_info']
-_meta_table['LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress.Address']['meta_info'].parent =_meta_table['LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress']['meta_info']
-_meta_table['LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress']['meta_info'].parent =_meta_table['LldpSnoopData.EthernetControllerNames.EthernetControllerName']['meta_info']
+_meta_table['LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses.LldpAddrEntry.Address']['meta_info'].parent =_meta_table['LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses.LldpAddrEntry']['meta_info']
+_meta_table['LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses.LldpAddrEntry']['meta_info'].parent =_meta_table['LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses']['meta_info']
+_meta_table['LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses']['meta_info'].parent =_meta_table['LldpSnoopData.EthernetControllerNames.EthernetControllerName']['meta_info']
 _meta_table['LldpSnoopData.EthernetControllerNames.EthernetControllerName']['meta_info'].parent =_meta_table['LldpSnoopData.EthernetControllerNames']['meta_info']
 _meta_table['LldpSnoopData.LldpNeighborBrief']['meta_info'].parent =_meta_table['LldpSnoopData']['meta_info']
 _meta_table['LldpSnoopData.EthernetControllerNames']['meta_info'].parent =_meta_table['LldpSnoopData']['meta_info']

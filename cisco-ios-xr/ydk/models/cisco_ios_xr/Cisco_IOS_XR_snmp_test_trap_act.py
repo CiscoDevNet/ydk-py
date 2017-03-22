@@ -30,7 +30,7 @@ class SnmpColdStartRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
 
@@ -65,7 +65,7 @@ class SnmpWarmStartRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
 
@@ -105,7 +105,7 @@ class InterfaceLinkUpRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
         self.input = InterfaceLinkUpRpc.Input()
@@ -130,7 +130,7 @@ class InterfaceLinkUpRpc(object):
         """
 
         _prefix = 'snmp-test-trap-act'
-        _revision = '2016-04-17'
+        _revision = '2016-10-25'
 
         def __init__(self):
             self.parent = None
@@ -197,7 +197,7 @@ class InterfaceLinkDownRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
         self.input = InterfaceLinkDownRpc.Input()
@@ -222,7 +222,7 @@ class InterfaceLinkDownRpc(object):
         """
 
         _prefix = 'snmp-test-trap-act'
-        _revision = '2016-04-17'
+        _revision = '2016-10-25'
 
         def __init__(self):
             self.parent = None
@@ -289,7 +289,7 @@ class SonetSectionStatusRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
         self.input = SonetSectionStatusRpc.Input()
@@ -314,7 +314,7 @@ class SonetSectionStatusRpc(object):
         """
 
         _prefix = 'snmp-test-trap-act'
-        _revision = '2016-04-17'
+        _revision = '2016-10-25'
 
         def __init__(self):
             self.parent = None
@@ -381,7 +381,7 @@ class SonetLineStatusRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
         self.input = SonetLineStatusRpc.Input()
@@ -406,7 +406,7 @@ class SonetLineStatusRpc(object):
         """
 
         _prefix = 'snmp-test-trap-act'
-        _revision = '2016-04-17'
+        _revision = '2016-10-25'
 
         def __init__(self):
             self.parent = None
@@ -473,7 +473,7 @@ class SonetPathStatusRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
         self.input = SonetPathStatusRpc.Input()
@@ -498,7 +498,7 @@ class SonetPathStatusRpc(object):
         """
 
         _prefix = 'snmp-test-trap-act'
-        _revision = '2016-04-17'
+        _revision = '2016-10-25'
 
         def __init__(self):
             self.parent = None
@@ -560,7 +560,7 @@ class InfraSyslogMessageGeneratedRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
 
@@ -595,7 +595,7 @@ class InfraFlashDeviceInsertedRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
 
@@ -630,7 +630,7 @@ class InfraFlashDeviceRemovedRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
 
@@ -665,7 +665,7 @@ class InfraRedundancyProgressionRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
 
@@ -700,7 +700,7 @@ class InfraRedundancySwitchRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
 
@@ -735,7 +735,7 @@ class InfraBridgeNewRootRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
 
@@ -770,7 +770,7 @@ class InfraBridgeTopologyChangeRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
 
@@ -805,7 +805,7 @@ class InfraConfigEventRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
 
@@ -845,7 +845,7 @@ class EntitySensorThresholdNotificationRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
         self.input = EntitySensorThresholdNotificationRpc.Input()
@@ -870,7 +870,7 @@ class EntitySensorThresholdNotificationRpc(object):
         """
 
         _prefix = 'snmp-test-trap-act'
-        _revision = '2016-04-17'
+        _revision = '2016-10-25'
 
         def __init__(self):
             self.parent = None
@@ -937,7 +937,7 @@ class EntityFruPowerStatusChangeFailedRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
         self.input = EntityFruPowerStatusChangeFailedRpc.Input()
@@ -962,7 +962,7 @@ class EntityFruPowerStatusChangeFailedRpc(object):
         """
 
         _prefix = 'snmp-test-trap-act'
-        _revision = '2016-04-17'
+        _revision = '2016-10-25'
 
         def __init__(self):
             self.parent = None
@@ -1029,7 +1029,7 @@ class EntityFruModuleStatusChangeUpRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
         self.input = EntityFruModuleStatusChangeUpRpc.Input()
@@ -1054,7 +1054,7 @@ class EntityFruModuleStatusChangeUpRpc(object):
         """
 
         _prefix = 'snmp-test-trap-act'
-        _revision = '2016-04-17'
+        _revision = '2016-10-25'
 
         def __init__(self):
             self.parent = None
@@ -1121,7 +1121,7 @@ class EntityFruModuleStatusChangeDownRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
         self.input = EntityFruModuleStatusChangeDownRpc.Input()
@@ -1146,7 +1146,7 @@ class EntityFruModuleStatusChangeDownRpc(object):
         """
 
         _prefix = 'snmp-test-trap-act'
-        _revision = '2016-04-17'
+        _revision = '2016-10-25'
 
         def __init__(self):
             self.parent = None
@@ -1213,7 +1213,7 @@ class EntityFruFanTrayOperStatusUpRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
         self.input = EntityFruFanTrayOperStatusUpRpc.Input()
@@ -1238,7 +1238,7 @@ class EntityFruFanTrayOperStatusUpRpc(object):
         """
 
         _prefix = 'snmp-test-trap-act'
-        _revision = '2016-04-17'
+        _revision = '2016-10-25'
 
         def __init__(self):
             self.parent = None
@@ -1305,7 +1305,7 @@ class EntityFruFanTrayInsertedRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
         self.input = EntityFruFanTrayInsertedRpc.Input()
@@ -1330,7 +1330,7 @@ class EntityFruFanTrayInsertedRpc(object):
         """
 
         _prefix = 'snmp-test-trap-act'
-        _revision = '2016-04-17'
+        _revision = '2016-10-25'
 
         def __init__(self):
             self.parent = None
@@ -1397,7 +1397,7 @@ class EntityFruFanTrayRemovedRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
         self.input = EntityFruFanTrayRemovedRpc.Input()
@@ -1422,7 +1422,7 @@ class EntityFruFanTrayRemovedRpc(object):
         """
 
         _prefix = 'snmp-test-trap-act'
-        _revision = '2016-04-17'
+        _revision = '2016-10-25'
 
         def __init__(self):
             self.parent = None
@@ -1489,7 +1489,7 @@ class PlatformHfrBundleDownedLinkRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
         self.input = PlatformHfrBundleDownedLinkRpc.Input()
@@ -1512,7 +1512,7 @@ class PlatformHfrBundleDownedLinkRpc(object):
         """
 
         _prefix = 'snmp-test-trap-act'
-        _revision = '2016-04-17'
+        _revision = '2016-10-25'
 
         def __init__(self):
             self.parent = None
@@ -1579,7 +1579,7 @@ class PlatformHfrBundleStateRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
         self.input = PlatformHfrBundleStateRpc.Input()
@@ -1602,7 +1602,7 @@ class PlatformHfrBundleStateRpc(object):
         """
 
         _prefix = 'snmp-test-trap-act'
-        _revision = '2016-04-17'
+        _revision = '2016-10-25'
 
         def __init__(self):
             self.parent = None
@@ -1669,7 +1669,7 @@ class PlatformHfrPlaneStateRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
         self.input = PlatformHfrPlaneStateRpc.Input()
@@ -1694,7 +1694,7 @@ class PlatformHfrPlaneStateRpc(object):
         """
 
         _prefix = 'snmp-test-trap-act'
-        _revision = '2016-04-17'
+        _revision = '2016-10-25'
 
         def __init__(self):
             self.parent = None
@@ -1747,9 +1747,44 @@ class PlatformHfrPlaneStateRpc(object):
         return meta._meta_table['PlatformHfrPlaneStateRpc']['meta_info']
 
 
+class RoutingBgpEstablishedRpc(object):
+    """
+    Generate BGP4\-MIB\:\:bglEstablishedNotification
+    
+    
+
+    """
+
+    _prefix = 'snmp-test-trap-act'
+    _revision = '2016-10-25'
+
+    def __init__(self):
+
+        self.is_rpc = True
+
+    @property
+    def _common_path(self):
+
+        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-established'
+
+    def is_config(self):
+        ''' Returns True if this instance represents config data else returns False '''
+        return True
+
+    def _has_data(self):
+        if not self.is_config():
+            return False
+        return False
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['RoutingBgpEstablishedRpc']['meta_info']
+
+
 class RoutingBgpEstablishedRemotePeerRpc(object):
     """
-    Generate BGP4\-MIB\:\:bglEstablishedNotification trap
+    Generate BGP4\-MIB\:\:bglEstablishedNotification remote peer
     
     .. attribute:: input
     
@@ -1761,7 +1796,7 @@ class RoutingBgpEstablishedRemotePeerRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
         self.input = RoutingBgpEstablishedRemotePeerRpc.Input()
@@ -1781,12 +1816,14 @@ class RoutingBgpEstablishedRemotePeerRpc(object):
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
+        	**mandatory**\: True
+        
         
 
         """
 
         _prefix = 'snmp-test-trap-act'
-        _revision = '2016-04-17'
+        _revision = '2016-10-25'
 
         def __init__(self):
             self.parent = None
@@ -1839,9 +1876,44 @@ class RoutingBgpEstablishedRemotePeerRpc(object):
         return meta._meta_table['RoutingBgpEstablishedRemotePeerRpc']['meta_info']
 
 
-class RoutingBgpStateChangeRemotePeerRpc(object):
+class RoutingBgpStateChangeRpc(object):
     """
     Generate CISCO\-BGP\-MIB\:\:cbgpBackwardTransition
+    
+    
+
+    """
+
+    _prefix = 'snmp-test-trap-act'
+    _revision = '2016-10-25'
+
+    def __init__(self):
+
+        self.is_rpc = True
+
+    @property
+    def _common_path(self):
+
+        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-state-change'
+
+    def is_config(self):
+        ''' Returns True if this instance represents config data else returns False '''
+        return True
+
+    def _has_data(self):
+        if not self.is_config():
+            return False
+        return False
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['RoutingBgpStateChangeRpc']['meta_info']
+
+
+class RoutingBgpStateChangeRemotePeerRpc(object):
+    """
+    Generate CISCO\-BGP\-MIB\:\:cbgpBackwardTransition remote peer
     
     .. attribute:: input
     
@@ -1853,7 +1925,7 @@ class RoutingBgpStateChangeRemotePeerRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
         self.input = RoutingBgpStateChangeRemotePeerRpc.Input()
@@ -1873,12 +1945,14 @@ class RoutingBgpStateChangeRemotePeerRpc(object):
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
+        	**mandatory**\: True
+        
         
 
         """
 
         _prefix = 'snmp-test-trap-act'
-        _revision = '2016-04-17'
+        _revision = '2016-10-25'
 
         def __init__(self):
             self.parent = None
@@ -1935,20 +2009,55 @@ class RoutingOspfNeighborStateChangeRpc(object):
     """
     Generate OSPF\-TRAP\-MIB\:\:ospfNbrStateChange
     
+    
+
+    """
+
+    _prefix = 'snmp-test-trap-act'
+    _revision = '2016-10-25'
+
+    def __init__(self):
+
+        self.is_rpc = True
+
+    @property
+    def _common_path(self):
+
+        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-ospf-neighbor-state-change'
+
+    def is_config(self):
+        ''' Returns True if this instance represents config data else returns False '''
+        return True
+
+    def _has_data(self):
+        if not self.is_config():
+            return False
+        return False
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['RoutingOspfNeighborStateChangeRpc']['meta_info']
+
+
+class RoutingOspfNeighborStateChangeAddressRpc(object):
+    """
+    Generate OSPF\-TRAP\-MIB\:\:ospfNbrStateChange address
+    
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingOspfNeighborStateChangeRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingOspfNeighborStateChangeAddressRpc.Input>`
     
     
 
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = RoutingOspfNeighborStateChangeRpc.Input()
+        self.input = RoutingOspfNeighborStateChangeAddressRpc.Input()
         self.input.parent = self
 
         self.is_rpc = True
@@ -1965,6 +2074,8 @@ class RoutingOspfNeighborStateChangeRpc(object):
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
+        	**mandatory**\: True
+        
         .. attribute:: ifindex
         
         	0 for interfaces having IP addresses or IF\-MIB ifindex of addressless interface
@@ -1972,12 +2083,14 @@ class RoutingOspfNeighborStateChangeRpc(object):
         
         	**range:** 0..2147483647
         
+        	**mandatory**\: True
+        
         
 
         """
 
         _prefix = 'snmp-test-trap-act'
-        _revision = '2016-04-17'
+        _revision = '2016-10-25'
 
         def __init__(self):
             self.parent = None
@@ -1987,7 +2100,7 @@ class RoutingOspfNeighborStateChangeRpc(object):
         @property
         def _common_path(self):
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:routing-ospf-neighbor-state-change/Cisco-IOS-XR-snmp-test-trap-act:input'
+            return '/Cisco-IOS-XR-snmp-test-trap-act:routing-ospf-neighbor-state-change-address/Cisco-IOS-XR-snmp-test-trap-act:input'
 
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
@@ -2009,12 +2122,12 @@ class RoutingOspfNeighborStateChangeRpc(object):
         @staticmethod
         def _meta_info():
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['RoutingOspfNeighborStateChangeRpc.Input']['meta_info']
+            return meta._meta_table['RoutingOspfNeighborStateChangeAddressRpc.Input']['meta_info']
 
     @property
     def _common_path(self):
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-ospf-neighbor-state-change'
+        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-ospf-neighbor-state-change-address'
 
     def is_config(self):
         ''' Returns True if this instance represents config data else returns False '''
@@ -2031,27 +2144,62 @@ class RoutingOspfNeighborStateChangeRpc(object):
     @staticmethod
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['RoutingOspfNeighborStateChangeRpc']['meta_info']
+        return meta._meta_table['RoutingOspfNeighborStateChangeAddressRpc']['meta_info']
 
 
 class RoutingMplsLdpSessionDownRpc(object):
     """
     Generate MPLS\-LDP\-STD\-MIB\:\:mplsLdpSessionDown
     
+    
+
+    """
+
+    _prefix = 'snmp-test-trap-act'
+    _revision = '2016-10-25'
+
+    def __init__(self):
+
+        self.is_rpc = True
+
+    @property
+    def _common_path(self):
+
+        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-ldp-session-down'
+
+    def is_config(self):
+        ''' Returns True if this instance represents config data else returns False '''
+        return True
+
+    def _has_data(self):
+        if not self.is_config():
+            return False
+        return False
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['RoutingMplsLdpSessionDownRpc']['meta_info']
+
+
+class RoutingMplsLdpSessionDownEntityIdRpc(object):
+    """
+    Generate MPLS\-LDP\-STD\-MIB\:\:mplsLdpSessionDown entity\-id
+    
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsLdpSessionDownRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsLdpSessionDownEntityIdRpc.Input>`
     
     
 
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = RoutingMplsLdpSessionDownRpc.Input()
+        self.input = RoutingMplsLdpSessionDownEntityIdRpc.Input()
         self.input.parent = self
 
         self.is_rpc = True
@@ -2068,12 +2216,16 @@ class RoutingMplsLdpSessionDownRpc(object):
         
         	**length:** 23
         
+        	**mandatory**\: True
+        
         .. attribute:: entity_index
         
         	entity index for which to generate the trap
         	**type**\:  int
         
         	**range:** 1..4294967295
+        
+        	**mandatory**\: True
         
         .. attribute:: peer_id
         
@@ -2082,12 +2234,14 @@ class RoutingMplsLdpSessionDownRpc(object):
         
         	**length:** 23
         
+        	**mandatory**\: True
+        
         
 
         """
 
         _prefix = 'snmp-test-trap-act'
-        _revision = '2016-04-17'
+        _revision = '2016-10-25'
 
         def __init__(self):
             self.parent = None
@@ -2098,7 +2252,7 @@ class RoutingMplsLdpSessionDownRpc(object):
         @property
         def _common_path(self):
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-ldp-session-down/Cisco-IOS-XR-snmp-test-trap-act:input'
+            return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-ldp-session-down-entity-id/Cisco-IOS-XR-snmp-test-trap-act:input'
 
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
@@ -2123,12 +2277,12 @@ class RoutingMplsLdpSessionDownRpc(object):
         @staticmethod
         def _meta_info():
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['RoutingMplsLdpSessionDownRpc.Input']['meta_info']
+            return meta._meta_table['RoutingMplsLdpSessionDownEntityIdRpc.Input']['meta_info']
 
     @property
     def _common_path(self):
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-ldp-session-down'
+        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-ldp-session-down-entity-id'
 
     def is_config(self):
         ''' Returns True if this instance represents config data else returns False '''
@@ -2145,110 +2299,23 @@ class RoutingMplsLdpSessionDownRpc(object):
     @staticmethod
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-        return meta._meta_table['RoutingMplsLdpSessionDownRpc']['meta_info']
+        return meta._meta_table['RoutingMplsLdpSessionDownEntityIdRpc']['meta_info']
 
 
 class RoutingMplsTunnelReRoutedRpc(object):
     """
     Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelRerouted
     
-    .. attribute:: input
-    
-    	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsTunnelReRoutedRpc.Input>`
-    
     
 
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = RoutingMplsTunnelReRoutedRpc.Input()
-        self.input.parent = self
 
         self.is_rpc = True
-
-
-    class Input(object):
-        """
-        
-        
-        .. attribute:: destination
-        
-        	destination address for which to generate the trap
-        	**type**\:  str
-        
-        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-        
-        .. attribute:: index
-        
-        	tunnel index for which to generate the trap
-        	**type**\:  int
-        
-        	**range:** 0..65535
-        
-        .. attribute:: instance
-        
-        	tunnel instance for which to generate the trap
-        	**type**\:  int
-        
-        	**range:** 0..65535
-        
-        .. attribute:: source
-        
-        	source address for which to generate the trap
-        	**type**\:  str
-        
-        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-        
-        
-
-        """
-
-        _prefix = 'snmp-test-trap-act'
-        _revision = '2016-04-17'
-
-        def __init__(self):
-            self.parent = None
-            self.destination = None
-            self.index = None
-            self.instance = None
-            self.source = None
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-routed/Cisco-IOS-XR-snmp-test-trap-act:input'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.destination is not None:
-                return True
-
-            if self.index is not None:
-                return True
-
-            if self.instance is not None:
-                return True
-
-            if self.source is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['RoutingMplsTunnelReRoutedRpc.Input']['meta_info']
 
     @property
     def _common_path(self):
@@ -2262,9 +2329,6 @@ class RoutingMplsTunnelReRoutedRpc(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.input is not None and self.input._has_data():
-            return True
-
         return False
 
     @staticmethod
@@ -2273,24 +2337,24 @@ class RoutingMplsTunnelReRoutedRpc(object):
         return meta._meta_table['RoutingMplsTunnelReRoutedRpc']['meta_info']
 
 
-class RoutingMplsTunnelReOptimizedRpc(object):
+class RoutingMplsTunnelReRoutedIndexRpc(object):
     """
-    Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelReoptimized
+    Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelRerouted index
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsTunnelReOptimizedRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsTunnelReRoutedIndexRpc.Input>`
     
     
 
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = RoutingMplsTunnelReOptimizedRpc.Input()
+        self.input = RoutingMplsTunnelReRoutedIndexRpc.Input()
         self.input.parent = self
 
         self.is_rpc = True
@@ -2307,12 +2371,16 @@ class RoutingMplsTunnelReOptimizedRpc(object):
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
+        	**mandatory**\: True
+        
         .. attribute:: index
         
         	tunnel index for which to generate the trap
         	**type**\:  int
         
         	**range:** 0..65535
+        
+        	**mandatory**\: True
         
         .. attribute:: instance
         
@@ -2321,6 +2389,8 @@ class RoutingMplsTunnelReOptimizedRpc(object):
         
         	**range:** 0..65535
         
+        	**mandatory**\: True
+        
         .. attribute:: source
         
         	source address for which to generate the trap
@@ -2328,12 +2398,14 @@ class RoutingMplsTunnelReOptimizedRpc(object):
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
+        	**mandatory**\: True
+        
         
 
         """
 
         _prefix = 'snmp-test-trap-act'
-        _revision = '2016-04-17'
+        _revision = '2016-10-25'
 
         def __init__(self):
             self.parent = None
@@ -2345,7 +2417,7 @@ class RoutingMplsTunnelReOptimizedRpc(object):
         @property
         def _common_path(self):
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-optimized/Cisco-IOS-XR-snmp-test-trap-act:input'
+            return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-routed-index/Cisco-IOS-XR-snmp-test-trap-act:input'
 
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
@@ -2373,7 +2445,45 @@ class RoutingMplsTunnelReOptimizedRpc(object):
         @staticmethod
         def _meta_info():
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['RoutingMplsTunnelReOptimizedRpc.Input']['meta_info']
+            return meta._meta_table['RoutingMplsTunnelReRoutedIndexRpc.Input']['meta_info']
+
+    @property
+    def _common_path(self):
+
+        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-routed-index'
+
+    def is_config(self):
+        ''' Returns True if this instance represents config data else returns False '''
+        return True
+
+    def _has_data(self):
+        if not self.is_config():
+            return False
+        if self.input is not None and self.input._has_data():
+            return True
+
+        return False
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['RoutingMplsTunnelReRoutedIndexRpc']['meta_info']
+
+
+class RoutingMplsTunnelReOptimizedRpc(object):
+    """
+    Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelReoptimized
+    
+    
+
+    """
+
+    _prefix = 'snmp-test-trap-act'
+    _revision = '2016-10-25'
+
+    def __init__(self):
+
+        self.is_rpc = True
 
     @property
     def _common_path(self):
@@ -2387,9 +2497,6 @@ class RoutingMplsTunnelReOptimizedRpc(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.input is not None and self.input._has_data():
-            return True
-
         return False
 
     @staticmethod
@@ -2398,24 +2505,24 @@ class RoutingMplsTunnelReOptimizedRpc(object):
         return meta._meta_table['RoutingMplsTunnelReOptimizedRpc']['meta_info']
 
 
-class RoutingMplsTunnelDownRpc(object):
+class RoutingMplsTunnelReOptimizedIndexRpc(object):
     """
-    Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelDown
+    Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelReoptimized index
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsTunnelDownRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsTunnelReOptimizedIndexRpc.Input>`
     
     
 
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
-        self.input = RoutingMplsTunnelDownRpc.Input()
+        self.input = RoutingMplsTunnelReOptimizedIndexRpc.Input()
         self.input.parent = self
 
         self.is_rpc = True
@@ -2432,12 +2539,16 @@ class RoutingMplsTunnelDownRpc(object):
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
+        	**mandatory**\: True
+        
         .. attribute:: index
         
         	tunnel index for which to generate the trap
         	**type**\:  int
         
         	**range:** 0..65535
+        
+        	**mandatory**\: True
         
         .. attribute:: instance
         
@@ -2446,19 +2557,23 @@ class RoutingMplsTunnelDownRpc(object):
         
         	**range:** 0..65535
         
+        	**mandatory**\: True
+        
         .. attribute:: source
         
-        	src address
+        	source address for which to generate the trap
         	**type**\:  str
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        	**mandatory**\: True
         
         
 
         """
 
         _prefix = 'snmp-test-trap-act'
-        _revision = '2016-04-17'
+        _revision = '2016-10-25'
 
         def __init__(self):
             self.parent = None
@@ -2470,7 +2585,7 @@ class RoutingMplsTunnelDownRpc(object):
         @property
         def _common_path(self):
 
-            return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-down/Cisco-IOS-XR-snmp-test-trap-act:input'
+            return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-optimized-index/Cisco-IOS-XR-snmp-test-trap-act:input'
 
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
@@ -2498,12 +2613,12 @@ class RoutingMplsTunnelDownRpc(object):
         @staticmethod
         def _meta_info():
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
-            return meta._meta_table['RoutingMplsTunnelDownRpc.Input']['meta_info']
+            return meta._meta_table['RoutingMplsTunnelReOptimizedIndexRpc.Input']['meta_info']
 
     @property
     def _common_path(self):
 
-        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-down'
+        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-optimized-index'
 
     def is_config(self):
         ''' Returns True if this instance represents config data else returns False '''
@@ -2520,7 +2635,175 @@ class RoutingMplsTunnelDownRpc(object):
     @staticmethod
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['RoutingMplsTunnelReOptimizedIndexRpc']['meta_info']
+
+
+class RoutingMplsTunnelDownRpc(object):
+    """
+    Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelDown
+    
+    
+
+    """
+
+    _prefix = 'snmp-test-trap-act'
+    _revision = '2016-10-25'
+
+    def __init__(self):
+
+        self.is_rpc = True
+
+    @property
+    def _common_path(self):
+
+        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-down'
+
+    def is_config(self):
+        ''' Returns True if this instance represents config data else returns False '''
+        return True
+
+    def _has_data(self):
+        if not self.is_config():
+            return False
+        return False
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
         return meta._meta_table['RoutingMplsTunnelDownRpc']['meta_info']
+
+
+class RoutingMplsTunnelDownIndexRpc(object):
+    """
+    Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelDown index
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsTunnelDownIndexRpc.Input>`
+    
+    
+
+    """
+
+    _prefix = 'snmp-test-trap-act'
+    _revision = '2016-10-25'
+
+    def __init__(self):
+        self.input = RoutingMplsTunnelDownIndexRpc.Input()
+        self.input.parent = self
+
+        self.is_rpc = True
+
+
+    class Input(object):
+        """
+        
+        
+        .. attribute:: destination
+        
+        	destination address for which to generate the trap
+        	**type**\:  str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        	**mandatory**\: True
+        
+        .. attribute:: index
+        
+        	tunnel index for which to generate the trap
+        	**type**\:  int
+        
+        	**range:** 0..65535
+        
+        	**mandatory**\: True
+        
+        .. attribute:: instance
+        
+        	tunnel instance for which to generate the trap
+        	**type**\:  int
+        
+        	**range:** 0..65535
+        
+        	**mandatory**\: True
+        
+        .. attribute:: source
+        
+        	src address
+        	**type**\:  str
+        
+        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        	**mandatory**\: True
+        
+        
+
+        """
+
+        _prefix = 'snmp-test-trap-act'
+        _revision = '2016-10-25'
+
+        def __init__(self):
+            self.parent = None
+            self.destination = None
+            self.index = None
+            self.instance = None
+            self.source = None
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-down-index/Cisco-IOS-XR-snmp-test-trap-act:input'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            if self.parent is None:
+                raise YPYError('Parent reference is needed to determine if entity has configuration data')
+            return self.parent.is_config()
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.destination is not None:
+                return True
+
+            if self.index is not None:
+                return True
+
+            if self.instance is not None:
+                return True
+
+            if self.source is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+            return meta._meta_table['RoutingMplsTunnelDownIndexRpc.Input']['meta_info']
+
+    @property
+    def _common_path(self):
+
+        return '/Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-down-index'
+
+    def is_config(self):
+        ''' Returns True if this instance represents config data else returns False '''
+        return True
+
+    def _has_data(self):
+        if not self.is_config():
+            return False
+        if self.input is not None and self.input._has_data():
+            return True
+
+        return False
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_test_trap_act as meta
+        return meta._meta_table['RoutingMplsTunnelDownIndexRpc']['meta_info']
 
 
 class AllRpc(object):
@@ -2532,7 +2815,7 @@ class AllRpc(object):
     """
 
     _prefix = 'snmp-test-trap-act'
-    _revision = '2016-04-17'
+    _revision = '2016-10-25'
 
     def __init__(self):
 

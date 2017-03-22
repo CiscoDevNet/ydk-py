@@ -153,7 +153,7 @@ class Vrfs(object):
     """
 
     _prefix = 'infra-rsi-cfg'
-    _revision = '2015-07-30'
+    _revision = '2016-12-19'
 
     def __init__(self):
         self.vrf = YList()
@@ -170,7 +170,7 @@ class Vrfs(object):
         	VRF name
         	**type**\:  str
         
-        	**length:** 0..32
+        	**length:** 1..32
         
         .. attribute:: afs
         
@@ -187,14 +187,14 @@ class Vrfs(object):
         	A textual description of the VRF
         	**type**\:  str
         
-        	**length:** 0..244
+        	**length:** 1..244
         
         .. attribute:: fallback_vrf
         
         	Fallback VRF
         	**type**\:  str
         
-        	**length:** 0..32
+        	**length:** 1..32
         
         .. attribute:: mode_big
         
@@ -223,7 +223,7 @@ class Vrfs(object):
         """
 
         _prefix = 'infra-rsi-cfg'
-        _revision = '2015-07-30'
+        _revision = '2016-12-19'
 
         def __init__(self):
             self.parent = None
@@ -249,7 +249,7 @@ class Vrfs(object):
             	Index of VPNID Index
             	**type**\:  int
             
-            	**range:** 0..16777215
+            	**range:** 0..4294967295
             
             	**mandatory**\: True
             
@@ -258,7 +258,7 @@ class Vrfs(object):
             	OUI of VPNID OUI
             	**type**\:  int
             
-            	**range:** 0..4294967295
+            	**range:** 0..16777215
             
             	**mandatory**\: True
             
@@ -274,7 +274,7 @@ class Vrfs(object):
             """
 
             _prefix = 'infra-rsi-cfg'
-            _revision = '2015-07-30'
+            _revision = '2016-12-19'
 
             def __init__(self):
                 self.parent = None
@@ -326,7 +326,7 @@ class Vrfs(object):
             """
 
             _prefix = 'infra-rsi-cfg'
-            _revision = '2015-07-30'
+            _revision = '2016-12-19'
 
             def __init__(self):
                 self.parent = None
@@ -354,7 +354,7 @@ class Vrfs(object):
                 	Topology name
                 	**type**\:  str
                 
-                	**length:** 0..244
+                	**length:** 1..244
                 
                 .. attribute:: bgp
                 
@@ -378,7 +378,7 @@ class Vrfs(object):
                 """
 
                 _prefix = 'infra-rsi-cfg'
-                _revision = '2015-07-30'
+                _revision = '2016-12-19'
 
                 def __init__(self):
                     self.parent = None
@@ -389,76 +389,6 @@ class Vrfs(object):
                     self.bgp.parent = self
                     self.create = None
                     self.maximum_prefix = None
-
-
-                class MaximumPrefix(object):
-                    """
-                    Set maximum prefix limits
-                    
-                    .. attribute:: mid_threshold
-                    
-                    	Mid\-threshold (% of maximum)
-                    	**type**\:  int
-                    
-                    	**range:** 1..100
-                    
-                    .. attribute:: prefix_limit
-                    
-                    	Set table's maximum prefix limit
-                    	**type**\:  int
-                    
-                    	**range:** 32..5000000
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ip-rib-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.mid_threshold = None
-                        self.prefix_limit = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-rib-cfg:maximum-prefix'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self._is_presence:
-                            return True
-                        if self.mid_threshold is not None:
-                            return True
-
-                        if self.prefix_limit is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
-                        return meta._meta_table['Vrfs.Vrf.Afs.Af.MaximumPrefix']['meta_info']
 
 
                 class Bgp(object):
@@ -497,6 +427,11 @@ class Vrfs(object):
                     	Import Route targets
                     	**type**\:   :py:class:`ImportRouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets>`
                     
+                    .. attribute:: import_vrf_options
+                    
+                    	TRUE Enable advertising imported paths to PEsFALSE Disable advertising imported paths to PEs
+                    	**type**\:  bool
+                    
                     .. attribute:: vrf_to_global_export_route_policy
                     
                     	Route policy for vrf to global export filtering
@@ -522,6 +457,7 @@ class Vrfs(object):
                         self.import_route_policy = None
                         self.import_route_targets = Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets()
                         self.import_route_targets.parent = self
+                        self.import_vrf_options = None
                         self.vrf_to_global_export_route_policy = None
 
 
@@ -1404,6 +1340,9 @@ class Vrfs(object):
                         if self.import_route_targets is not None and self.import_route_targets._has_data():
                             return True
 
+                        if self.import_vrf_options is not None:
+                            return True
+
                         if self.vrf_to_global_export_route_policy is not None and self.vrf_to_global_export_route_policy._has_data():
                             return True
 
@@ -1413,6 +1352,76 @@ class Vrfs(object):
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
                         return meta._meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info']
+
+
+                class MaximumPrefix(object):
+                    """
+                    Set maximum prefix limits
+                    
+                    .. attribute:: mid_threshold
+                    
+                    	Mid\-threshold (% of maximum)
+                    	**type**\:  int
+                    
+                    	**range:** 1..100
+                    
+                    .. attribute:: prefix_limit
+                    
+                    	Set table's maximum prefix limit
+                    	**type**\:  int
+                    
+                    	**range:** 32..5000000
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ip-rib-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self._is_presence = True
+                        self.mid_threshold = None
+                        self.prefix_limit = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ip-rib-cfg:maximum-prefix'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self._is_presence:
+                            return True
+                        if self.mid_threshold is not None:
+                            return True
+
+                        if self.prefix_limit is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                        return meta._meta_table['Vrfs.Vrf.Afs.Af.MaximumPrefix']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -1722,7 +1731,7 @@ class GlobalAf(object):
     """
 
     _prefix = 'infra-rsi-cfg'
-    _revision = '2015-07-30'
+    _revision = '2016-12-19'
 
     def __init__(self):
         self.afs = GlobalAf.Afs()
@@ -1743,7 +1752,7 @@ class GlobalAf(object):
         """
 
         _prefix = 'infra-rsi-cfg'
-        _revision = '2015-07-30'
+        _revision = '2016-12-19'
 
         def __init__(self):
             self.parent = None
@@ -1771,7 +1780,7 @@ class GlobalAf(object):
             	Topology name
             	**type**\:  str
             
-            	**length:** 0..244
+            	**length:** 1..244
             
             .. attribute:: create
             
@@ -1783,7 +1792,7 @@ class GlobalAf(object):
             """
 
             _prefix = 'infra-rsi-cfg'
-            _revision = '2015-07-30'
+            _revision = '2016-12-19'
 
             def __init__(self):
                 self.parent = None
@@ -1910,7 +1919,7 @@ class Srlg(object):
     """
 
     _prefix = 'infra-rsi-cfg'
-    _revision = '2015-07-30'
+    _revision = '2016-12-19'
 
     def __init__(self):
         self.enable = None
@@ -1938,7 +1947,7 @@ class Srlg(object):
         """
 
         _prefix = 'infra-rsi-cfg'
-        _revision = '2015-07-30'
+        _revision = '2016-12-19'
 
         def __init__(self):
             self.parent = None
@@ -1988,7 +1997,7 @@ class Srlg(object):
             """
 
             _prefix = 'infra-rsi-cfg'
-            _revision = '2015-07-30'
+            _revision = '2016-12-19'
 
             def __init__(self):
                 self.parent = None
@@ -2025,7 +2034,7 @@ class Srlg(object):
                 """
 
                 _prefix = 'infra-rsi-cfg'
-                _revision = '2015-07-30'
+                _revision = '2016-12-19'
 
                 def __init__(self):
                     self.parent = None
@@ -2079,7 +2088,7 @@ class Srlg(object):
                 """
 
                 _prefix = 'infra-rsi-cfg'
-                _revision = '2015-07-30'
+                _revision = '2016-12-19'
 
                 def __init__(self):
                     self.parent = None
@@ -2102,7 +2111,7 @@ class Srlg(object):
                     """
 
                     _prefix = 'infra-rsi-cfg'
-                    _revision = '2015-07-30'
+                    _revision = '2016-12-19'
 
                     def __init__(self):
                         self.parent = None
@@ -2141,7 +2150,7 @@ class Srlg(object):
                         """
 
                         _prefix = 'infra-rsi-cfg'
-                        _revision = '2015-07-30'
+                        _revision = '2016-12-19'
 
                         def __init__(self):
                             self.parent = None
@@ -2249,7 +2258,7 @@ class Srlg(object):
                 """
 
                 _prefix = 'infra-rsi-cfg'
-                _revision = '2015-07-30'
+                _revision = '2016-12-19'
 
                 def __init__(self):
                     self.parent = None
@@ -2290,7 +2299,7 @@ class Srlg(object):
                     """
 
                     _prefix = 'infra-rsi-cfg'
-                    _revision = '2015-07-30'
+                    _revision = '2016-12-19'
 
                     def __init__(self):
                         self.parent = None
@@ -2371,7 +2380,7 @@ class Srlg(object):
                 """
 
                 _prefix = 'infra-rsi-cfg'
-                _revision = '2015-07-30'
+                _revision = '2016-12-19'
 
                 def __init__(self):
                     self.parent = None
@@ -2389,14 +2398,14 @@ class Srlg(object):
                     	SRLG name
                     	**type**\:  str
                     
-                    	**length:** 0..64
+                    	**length:** 1..64
                     
                     
 
                     """
 
                     _prefix = 'infra-rsi-cfg'
-                    _revision = '2015-07-30'
+                    _revision = '2016-12-19'
 
                     def __init__(self):
                         self.parent = None
@@ -2532,7 +2541,7 @@ class Srlg(object):
         """
 
         _prefix = 'infra-rsi-cfg'
-        _revision = '2015-07-30'
+        _revision = '2016-12-19'
 
         def __init__(self):
             self.parent = None
@@ -2550,7 +2559,7 @@ class Srlg(object):
             	SRLG name
             	**type**\:  str
             
-            	**length:** 0..64
+            	**length:** 1..64
             
             .. attribute:: srlg_value
             
@@ -2566,7 +2575,7 @@ class Srlg(object):
             """
 
             _prefix = 'infra-rsi-cfg'
-            _revision = '2015-07-30'
+            _revision = '2016-12-19'
 
             def __init__(self):
                 self.parent = None
@@ -2639,7 +2648,7 @@ class Srlg(object):
         """
 
         _prefix = 'infra-rsi-cfg'
-        _revision = '2015-07-30'
+        _revision = '2016-12-19'
 
         def __init__(self):
             self.parent = None
@@ -2674,7 +2683,7 @@ class Srlg(object):
             """
 
             _prefix = 'infra-rsi-cfg'
-            _revision = '2015-07-30'
+            _revision = '2016-12-19'
 
             def __init__(self):
                 self.parent = None
@@ -2698,7 +2707,7 @@ class Srlg(object):
                 """
 
                 _prefix = 'infra-rsi-cfg'
-                _revision = '2015-07-30'
+                _revision = '2016-12-19'
 
                 def __init__(self):
                     self.parent = None
@@ -2739,7 +2748,7 @@ class Srlg(object):
                     """
 
                     _prefix = 'infra-rsi-cfg'
-                    _revision = '2015-07-30'
+                    _revision = '2016-12-19'
 
                     def __init__(self):
                         self.parent = None
@@ -2874,7 +2883,7 @@ class Srlg(object):
         """
 
         _prefix = 'infra-rsi-cfg'
-        _revision = '2015-07-30'
+        _revision = '2016-12-19'
 
         def __init__(self):
             self.parent = None
@@ -2909,7 +2918,7 @@ class Srlg(object):
             """
 
             _prefix = 'infra-rsi-cfg'
-            _revision = '2015-07-30'
+            _revision = '2016-12-19'
 
             def __init__(self):
                 self.parent = None
@@ -2934,7 +2943,7 @@ class Srlg(object):
                 """
 
                 _prefix = 'infra-rsi-cfg'
-                _revision = '2015-07-30'
+                _revision = '2016-12-19'
 
                 def __init__(self):
                     self.parent = None
@@ -2975,7 +2984,7 @@ class Srlg(object):
                     """
 
                     _prefix = 'infra-rsi-cfg'
-                    _revision = '2015-07-30'
+                    _revision = '2016-12-19'
 
                     def __init__(self):
                         self.parent = None
@@ -3144,7 +3153,7 @@ class VrfGroups(object):
     """
 
     _prefix = 'infra-rsi-cfg'
-    _revision = '2015-07-30'
+    _revision = '2016-12-19'
 
     def __init__(self):
         self.vrf_group = YList()
@@ -3161,7 +3170,7 @@ class VrfGroups(object):
         	VRF group name
         	**type**\:  str
         
-        	**length:** 0..32
+        	**length:** 1..32
         
         .. attribute:: enable
         
@@ -3178,7 +3187,7 @@ class VrfGroups(object):
         """
 
         _prefix = 'infra-rsi-cfg'
-        _revision = '2015-07-30'
+        _revision = '2016-12-19'
 
         def __init__(self):
             self.parent = None
@@ -3202,7 +3211,7 @@ class VrfGroups(object):
             """
 
             _prefix = 'infra-rsi-cfg'
-            _revision = '2015-07-30'
+            _revision = '2016-12-19'
 
             def __init__(self):
                 self.parent = None
@@ -3220,14 +3229,14 @@ class VrfGroups(object):
                 	VRF name
                 	**type**\:  str
                 
-                	**length:** 0..32
+                	**length:** 1..32
                 
                 
 
                 """
 
                 _prefix = 'infra-rsi-cfg'
-                _revision = '2015-07-30'
+                _revision = '2016-12-19'
 
                 def __init__(self):
                     self.parent = None
@@ -3354,7 +3363,7 @@ class SelectiveVrfDownload(object):
     """
 
     _prefix = 'infra-rsi-cfg'
-    _revision = '2015-07-30'
+    _revision = '2016-12-19'
 
     def __init__(self):
         self.disable = None

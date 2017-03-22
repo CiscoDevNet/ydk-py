@@ -4637,6 +4637,11 @@ class Syslog(object):
         """
         Alarm Logger Properties
         
+        .. attribute:: alarm_filter_strings
+        
+        	List of filter strings
+        	**type**\:   :py:class:`AlarmFilterStrings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger.AlarmFilterStrings>`
+        
         .. attribute:: buffer_size
         
         	Set size of the local event buffer
@@ -4668,14 +4673,110 @@ class Syslog(object):
         """
 
         _prefix = 'infra-alarm-logger-cfg'
-        _revision = '2015-07-30'
+        _revision = '2016-08-10'
 
         def __init__(self):
             self.parent = None
+            self.alarm_filter_strings = Syslog.AlarmLogger.AlarmFilterStrings()
+            self.alarm_filter_strings.parent = self
             self.buffer_size = None
             self.severity_level = None
             self.source_location = None
             self.threshold = None
+
+
+        class AlarmFilterStrings(object):
+            """
+            List of filter strings
+            
+            .. attribute:: alarm_filter_string
+            
+            	Match string to filter alarms
+            	**type**\: list of    :py:class:`AlarmFilterString <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString>`
+            
+            
+
+            """
+
+            _prefix = 'infra-alarm-logger-cfg'
+            _revision = '2016-08-10'
+
+            def __init__(self):
+                self.parent = None
+                self.alarm_filter_string = YList()
+                self.alarm_filter_string.parent = self
+                self.alarm_filter_string.name = 'alarm_filter_string'
+
+
+            class AlarmFilterString(object):
+                """
+                Match string to filter alarms
+                
+                .. attribute:: filter_string  <key>
+                
+                	Filter String
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                
+
+                """
+
+                _prefix = 'infra-alarm-logger-cfg'
+                _revision = '2016-08-10'
+
+                def __init__(self):
+                    self.parent = None
+                    self.filter_string = None
+
+                @property
+                def _common_path(self):
+                    if self.filter_string is None:
+                        raise YPYModelError('Key property filter_string is None')
+
+                    return '/Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger/Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-filter-strings/Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-filter-string[Cisco-IOS-XR-infra-alarm-logger-cfg:filter-string = ' + str(self.filter_string) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.filter_string is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                    return meta._meta_table['Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger/Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-filter-strings'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.alarm_filter_string is not None:
+                    for child_ref in self.alarm_filter_string:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                return meta._meta_table['Syslog.AlarmLogger.AlarmFilterStrings']['meta_info']
 
         @property
         def _common_path(self):
@@ -4689,6 +4790,9 @@ class Syslog(object):
         def _has_data(self):
             if not self.is_config():
                 return False
+            if self.alarm_filter_strings is not None and self.alarm_filter_strings._has_data():
+                return True
+
             if self.buffer_size is not None:
                 return True
 
@@ -4778,7 +4882,7 @@ class Syslog(object):
                 	Rule name
                 	**type**\:  str
                 
-                	**length:** 0..32
+                	**length:** 1..32
                 
                 .. attribute:: applied_to
                 
@@ -5939,7 +6043,7 @@ class Syslog(object):
                             	Context
                             	**type**\:  str
                             
-                            	**length:** 0..32
+                            	**length:** 1..32
                             
                             
 
@@ -6228,7 +6332,7 @@ class Syslog(object):
                 	Ruleset name
                 	**type**\:  str
                 
-                	**length:** 0..32
+                	**length:** 1..32
                 
                 .. attribute:: applied_to
                 
@@ -6288,7 +6392,7 @@ class Syslog(object):
                         	Rule name
                         	**type**\:  str
                         
-                        	**length:** 0..32
+                        	**length:** 1..32
                         
                         
 
@@ -6421,7 +6525,7 @@ class Syslog(object):
                             	Context
                             	**type**\:  str
                             
-                            	**length:** 0..32
+                            	**length:** 1..32
                             
                             
 
@@ -6752,7 +6856,7 @@ class Syslog(object):
                 	Rule name
                 	**type**\:  str
                 
-                	**length:** 0..32
+                	**length:** 1..32
                 
                 .. attribute:: alarm_causes
                 
@@ -6972,21 +7076,21 @@ class Syslog(object):
                         	Category
                         	**type**\:  str
                         
-                        	**length:** 0..32
+                        	**length:** 1..32
                         
                         .. attribute:: code  <key>
                         
                         	Code
                         	**type**\:  str
                         
-                        	**length:** 0..32
+                        	**length:** 1..32
                         
                         .. attribute:: group  <key>
                         
                         	Group
                         	**type**\:  str
                         
-                        	**length:** 0..32
+                        	**length:** 1..32
                         
                         
 

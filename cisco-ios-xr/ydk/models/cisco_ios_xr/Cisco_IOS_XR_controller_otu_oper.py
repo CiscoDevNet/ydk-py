@@ -631,6 +631,16 @@ class Otu(object):
                 """
                 OTU port operational data
                 
+                .. attribute:: auto_tti_flag
+                
+                	Auto tti flag
+                	**type**\:  bool
+                
+                .. attribute:: config_sec_state
+                
+                	Sec State
+                	**type**\:   :py:class:`OtuSecStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecStateEnum>`
+                
                 .. attribute:: derivedstate_mode
                 
                 	Derived State
@@ -669,6 +679,11 @@ class Otu(object):
                 	**type**\:  int
                 
                 	**range:** 0..255
+                
+                .. attribute:: inherit_sec_state
+                
+                	Sec State
+                	**type**\:   :py:class:`OtuSecStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecStateEnum>`
                 
                 .. attribute:: local
                 
@@ -758,32 +773,12 @@ class Otu(object):
                 	Remote
                 	**type**\:   :py:class:`Remote <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Remote>`
                 
-                .. attribute:: remote_host_ip
-                
-                	Remote host ip
-                	**type**\:  str
-                
-                .. attribute:: remote_host_name
-                
-                	Remote host name
-                	**type**\:  str
-                
-                .. attribute:: remote_intf_name
-                
-                	Remote Interface Name
-                	**type**\:  str
-                
                 .. attribute:: sd
                 
                 	SD in the form of 1.0E \- <SD>
                 	**type**\:  int
                 
                 	**range:** 0..255
-                
-                .. attribute:: sec_state
-                
-                	Sec State
-                	**type**\:   :py:class:`OtuSecStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecStateEnum>`
                 
                 .. attribute:: sf
                 
@@ -823,6 +818,8 @@ class Otu(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.auto_tti_flag = None
+                    self.config_sec_state = None
                     self.derivedstate_mode = None
                     self.ec = None
                     self.ec_value = None
@@ -830,6 +827,7 @@ class Otu(object):
                     self.gcc_mode = None
                     self.gmpls_tti_mode = None
                     self.gmpls_tvm_id = None
+                    self.inherit_sec_state = None
                     self.local = Otu.Controllers.Controller.Info.Local()
                     self.local.parent = self
                     self.loopback_mode = None
@@ -852,11 +850,7 @@ class Otu(object):
                     self.q_margin = None
                     self.remote = Otu.Controllers.Controller.Info.Remote()
                     self.remote.parent = self
-                    self.remote_host_ip = None
-                    self.remote_host_name = None
-                    self.remote_intf_name = None
                     self.sd = None
-                    self.sec_state = None
                     self.sf = None
                     self.state = None
                     self.tti_mode = Otu.Controllers.Controller.Info.TtiMode()
@@ -1010,6 +1004,21 @@ class Otu(object):
                     	String Received
                     	**type**\:   :py:class:`Rec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Rec>`
                     
+                    .. attribute:: remote_host_name
+                    
+                    	Remote host name
+                    	**type**\:  str
+                    
+                    .. attribute:: remote_interface
+                    
+                    	Remote Interface Name
+                    	**type**\:  str
+                    
+                    .. attribute:: remote_ip_addr
+                    
+                    	Remote host ip
+                    	**type**\:  str
+                    
                     .. attribute:: tx
                     
                     	String Sent
@@ -1031,6 +1040,9 @@ class Otu(object):
                         self.g709tti_sent_mode = None
                         self.rec = Otu.Controllers.Controller.Info.TtiMode.Rec()
                         self.rec.parent = self
+                        self.remote_host_name = None
+                        self.remote_interface = None
+                        self.remote_ip_addr = None
                         self.tx = Otu.Controllers.Controller.Info.TtiMode.Tx()
                         self.tx.parent = self
 
@@ -1045,6 +1057,11 @@ class Otu(object):
                         	**type**\:  list of int
                         
                         	**range:** 0..255
+                        
+                        .. attribute:: full_tti_ascii_string
+                        
+                        	full tti ascii String 
+                        	**type**\:  str
                         
                         .. attribute:: operator_specific
                         
@@ -1072,6 +1089,7 @@ class Otu(object):
                             self.dapi = YLeafList()
                             self.dapi.parent = self
                             self.dapi.name = 'dapi'
+                            self.full_tti_ascii_string = None
                             self.operator_specific = YLeafList()
                             self.operator_specific.parent = self
                             self.operator_specific.name = 'operator_specific'
@@ -1097,6 +1115,9 @@ class Otu(object):
                                 for child in self.dapi:
                                     if child is not None:
                                         return True
+
+                            if self.full_tti_ascii_string is not None:
+                                return True
 
                             if self.operator_specific is not None:
                                 for child in self.operator_specific:
@@ -1127,6 +1148,11 @@ class Otu(object):
                         
                         	**range:** 0..255
                         
+                        .. attribute:: full_tti_ascii_string
+                        
+                        	full tti ascii String 
+                        	**type**\:  str
+                        
                         .. attribute:: operator_specific
                         
                         	rec String 
@@ -1153,6 +1179,7 @@ class Otu(object):
                             self.dapi = YLeafList()
                             self.dapi.parent = self
                             self.dapi.name = 'dapi'
+                            self.full_tti_ascii_string = None
                             self.operator_specific = YLeafList()
                             self.operator_specific.parent = self
                             self.operator_specific.name = 'operator_specific'
@@ -1178,6 +1205,9 @@ class Otu(object):
                                 for child in self.dapi:
                                     if child is not None:
                                         return True
+
+                            if self.full_tti_ascii_string is not None:
+                                return True
 
                             if self.operator_specific is not None:
                                 for child in self.operator_specific:
@@ -1208,6 +1238,11 @@ class Otu(object):
                         
                         	**range:** 0..255
                         
+                        .. attribute:: full_tti_ascii_string
+                        
+                        	full tti ascii String 
+                        	**type**\:  str
+                        
                         .. attribute:: operator_specific
                         
                         	rec String 
@@ -1234,6 +1269,7 @@ class Otu(object):
                             self.dapi = YLeafList()
                             self.dapi.parent = self
                             self.dapi.name = 'dapi'
+                            self.full_tti_ascii_string = None
                             self.operator_specific = YLeafList()
                             self.operator_specific.parent = self
                             self.operator_specific.name = 'operator_specific'
@@ -1259,6 +1295,9 @@ class Otu(object):
                                 for child in self.dapi:
                                     if child is not None:
                                         return True
+
+                            if self.full_tti_ascii_string is not None:
+                                return True
 
                             if self.operator_specific is not None:
                                 for child in self.operator_specific:
@@ -1306,6 +1345,15 @@ class Otu(object):
                         if self.rec is not None and self.rec._has_data():
                             return True
 
+                        if self.remote_host_name is not None:
+                            return True
+
+                        if self.remote_interface is not None:
+                            return True
+
+                        if self.remote_ip_addr is not None:
+                            return True
+
                         if self.tx is not None and self.tx._has_data():
                             return True
 
@@ -1345,10 +1393,17 @@ class Otu(object):
                         Array of Network Shared Risk Link Group
                         information
                         
+                        .. attribute:: set_id
+                        
+                        	Array to maintain set id number
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: srlg
                         
                         	Shared Risk Link Group information expressed in integer format
-                        	**type**\:  int
+                        	**type**\:  list of int
                         
                         	**range:** 0..4294967295
                         
@@ -1361,7 +1416,10 @@ class Otu(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.srlg = None
+                            self.set_id = None
+                            self.srlg = YLeafList()
+                            self.srlg.parent = self
+                            self.srlg.name = 'srlg'
 
                         @property
                         def _common_path(self):
@@ -1377,8 +1435,13 @@ class Otu(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.srlg is not None:
+                            if self.set_id is not None:
                                 return True
+
+                            if self.srlg is not None:
+                                for child in self.srlg:
+                                    if child is not None:
+                                        return True
 
                             return False
 
@@ -2882,6 +2945,16 @@ class Otu(object):
                     """
                     Proactive Protection
                     
+                    .. attribute:: config_sec_state
+                    
+                    	Sec State
+                    	**type**\:   :py:class:`OtuSecStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecStateEnum>`
+                    
+                    .. attribute:: inherit_sec_state
+                    
+                    	Secondary Admin State
+                    	**type**\:   :py:class:`OtuSecStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecStateEnum>`
+                    
                     .. attribute:: proactive_fsm_if_state
                     
                     	Proactive FSM IF State
@@ -2918,11 +2991,6 @@ class Otu(object):
                     
                     	**range:** 0..255
                     
-                    .. attribute:: sec_state
-                    
-                    	Secondary Admin State
-                    	**type**\:   :py:class:`OtuSecStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecStateEnum>`
-                    
                     .. attribute:: trig_thresh_coeff
                     
                     	Trigger threshold coefficient
@@ -2953,13 +3021,14 @@ class Otu(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.config_sec_state = None
+                        self.inherit_sec_state = None
                         self.proactive_fsm_if_state = None
                         self.proactive_fsm_state = None
                         self.proactive_status = None
                         self.revert_window = None
                         self.rvrt_thresh_coeff = None
                         self.rvrt_thresh_power = None
-                        self.sec_state = None
                         self.trig_thresh_coeff = None
                         self.trig_thresh_power = None
                         self.trigger_window = None
@@ -2978,6 +3047,12 @@ class Otu(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.config_sec_state is not None:
+                            return True
+
+                        if self.inherit_sec_state is not None:
+                            return True
+
                         if self.proactive_fsm_if_state is not None:
                             return True
 
@@ -2994,9 +3069,6 @@ class Otu(object):
                             return True
 
                         if self.rvrt_thresh_power is not None:
-                            return True
-
-                        if self.sec_state is not None:
                             return True
 
                         if self.trig_thresh_coeff is not None:
@@ -3083,6 +3155,12 @@ class Otu(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.auto_tti_flag is not None:
+                        return True
+
+                    if self.config_sec_state is not None:
+                        return True
+
                     if self.derivedstate_mode is not None:
                         return True
 
@@ -3102,6 +3180,9 @@ class Otu(object):
                         return True
 
                     if self.gmpls_tvm_id is not None:
+                        return True
+
+                    if self.inherit_sec_state is not None:
                         return True
 
                     if self.local is not None and self.local._has_data():
@@ -3152,19 +3233,7 @@ class Otu(object):
                     if self.remote is not None and self.remote._has_data():
                         return True
 
-                    if self.remote_host_ip is not None:
-                        return True
-
-                    if self.remote_host_name is not None:
-                        return True
-
-                    if self.remote_intf_name is not None:
-                        return True
-
                     if self.sd is not None:
-                        return True
-
-                    if self.sec_state is not None:
                         return True
 
                     if self.sf is not None:

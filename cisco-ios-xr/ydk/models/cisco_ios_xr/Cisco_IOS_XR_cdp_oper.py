@@ -2259,7 +2259,7 @@ class Cdp(object):
                     	Interface encapsulation
                     	**type**\:  str
                     
-                    .. attribute:: interface_name_xr
+                    .. attribute:: interface_handle
                     
                     	Interface
                     	**type**\:  str
@@ -2279,7 +2279,7 @@ class Cdp(object):
                         self.basecaps_state = None
                         self.cdp_protocol_state = None
                         self.interface_encaps = None
-                        self.interface_name_xr = None
+                        self.interface_handle = None
 
                     @property
                     def _common_path(self):
@@ -2309,7 +2309,7 @@ class Cdp(object):
                         if self.interface_encaps is not None:
                             return True
 
-                        if self.interface_name_xr is not None:
+                        if self.interface_handle is not None:
                             return True
 
                         return False

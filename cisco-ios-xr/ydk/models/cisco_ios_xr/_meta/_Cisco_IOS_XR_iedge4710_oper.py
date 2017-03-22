@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'AaaTunnelProtoEnum' : _MetaInfoEnum('AaaTunnelProtoEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper',
         {
@@ -690,6 +689,910 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
         ),
     },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start',
+            False, 
+            [
+            _MetaInfoClassMember('aaa-errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA errored requests
+                ''',
+                'aaa_errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-failed-responses', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA failed responses
+                ''',
+                'aaa_failed_responses',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-sent-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA requests sent
+                ''',
+                'aaa_sent_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-succeeded-responses', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA succeeded responses
+                ''',
+                'aaa_succeeded_responses',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Errored requests
+                ''',
+                'errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'start',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop',
+            False, 
+            [
+            _MetaInfoClassMember('aaa-errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA errored requests
+                ''',
+                'aaa_errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-failed-responses', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA failed responses
+                ''',
+                'aaa_failed_responses',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-sent-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA requests sent
+                ''',
+                'aaa_sent_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-succeeded-responses', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA succeeded responses
+                ''',
+                'aaa_succeeded_responses',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Errored requests
+                ''',
+                'errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'stop',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim',
+            False, 
+            [
+            _MetaInfoClassMember('aaa-errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA errored requests
+                ''',
+                'aaa_errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-failed-responses', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA failed responses
+                ''',
+                'aaa_failed_responses',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-sent-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA requests sent
+                ''',
+                'aaa_sent_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-succeeded-responses', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA succeeded responses
+                ''',
+                'aaa_succeeded_responses',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Errored requests
+                ''',
+                'errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'interim',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough',
+            False, 
+            [
+            _MetaInfoClassMember('aaa-errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA errored requests
+                ''',
+                'aaa_errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-failed-responses', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA failed responses
+                ''',
+                'aaa_failed_responses',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-sent-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA requests sent
+                ''',
+                'aaa_sent_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-succeeded-responses', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA succeeded responses
+                ''',
+                'aaa_succeeded_responses',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Errored requests
+                ''',
+                'errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'pass-through',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update',
+            False, 
+            [
+            _MetaInfoClassMember('aaa-errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA errored requests
+                ''',
+                'aaa_errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-failed-responses', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA failed responses
+                ''',
+                'aaa_failed_responses',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-sent-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA requests sent
+                ''',
+                'aaa_sent_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-succeeded-responses', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA succeeded responses
+                ''',
+                'aaa_succeeded_responses',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Errored requests
+                ''',
+                'errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'update',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight',
+            False, 
+            [
+            _MetaInfoClassMember('accepted-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Accepted requests
+                ''',
+                'accepted_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('denied-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Denied requests
+                ''',
+                'denied_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('low-water-mark-quota-of-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Low water mark quota of requests
+                ''',
+                'low_water_mark_quota_of_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('quota-exhausts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Quota exhausts
+                ''',
+                'quota_exhausts',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('remaining-quota-of-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Remaining quota of requests
+                ''',
+                'remaining_quota_of_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('total-quota-of-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Total quota of requests
+                ''',
+                'total_quota_of_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'interim-inflight',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics',
+            False, 
+            [
+            _MetaInfoClassMember('active-sessions', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Active sessions
+                ''',
+                'active_sessions',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('interim', REFERENCE_CLASS, 'Interim' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim', 
+                [], [], 
+                '''                Interim statistics
+                ''',
+                'interim',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('interim-inflight', REFERENCE_CLASS, 'InterimInflight' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight', 
+                [], [], 
+                '''                Interim inflight details
+                ''',
+                'interim_inflight',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('pass-through', REFERENCE_CLASS, 'PassThrough' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough', 
+                [], [], 
+                '''                Pass-through statistics
+                ''',
+                'pass_through',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('policy-plane-errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Policy plane errored requests
+                ''',
+                'policy_plane_errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('policy-plane-unknown-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Policy plane unknown requests
+                ''',
+                'policy_plane_unknown_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('start', REFERENCE_CLASS, 'Start' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start', 
+                [], [], 
+                '''                Start statistics
+                ''',
+                'start',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('started-sessions', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Started sessions
+                ''',
+                'started_sessions',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('stop', REFERENCE_CLASS, 'Stop' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop', 
+                [], [], 
+                '''                Stop statistics
+                ''',
+                'stop',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('stopped-sessions', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Stopped sessions
+                ''',
+                'stopped_sessions',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('update', REFERENCE_CLASS, 'Update' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update', 
+                [], [], 
+                '''                Update statistics
+                ''',
+                'update',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'accounting-statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics',
+            False, 
+            [
+            _MetaInfoClassMember('accepted-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Request accepted by Radius server
+                ''',
+                'accepted_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Unexpected errors
+                ''',
+                'errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('incomplete-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Incomplete requests - missing attributes
+                ''',
+                'incomplete_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('rejected-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Requests rejected by radius server
+                ''',
+                'rejected_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('sent-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Requests sent to radius server
+                ''',
+                'sent_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('successful-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Requests which are successful
+                ''',
+                'successful_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('terminated-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Requests terminated by disconnect
+                ''',
+                'terminated_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('unreachable-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Radius server not available
+                ''',
+                'unreachable_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'authentication-statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics',
+            False, 
+            [
+            _MetaInfoClassMember('accepted-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Request accepted by Radius server
+                ''',
+                'accepted_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Unexpected errors
+                ''',
+                'errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('incomplete-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Incomplete requests - missing attributes
+                ''',
+                'incomplete_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('rejected-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Requests rejected by radius server
+                ''',
+                'rejected_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('sent-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Requests sent to radius server
+                ''',
+                'sent_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('successful-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Requests which are successful
+                ''',
+                'successful_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('terminated-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Requests terminated by disconnect
+                ''',
+                'terminated_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('unreachable-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Radius server not available
+                ''',
+                'unreachable_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'authorization-statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon',
+            False, 
+            [
+            _MetaInfoClassMember('acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Acknowledged requests
+                ''',
+                'acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('non-acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Non acknowledged requests
+                ''',
+                'non_acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'account-logon',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff',
+            False, 
+            [
+            _MetaInfoClassMember('acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Acknowledged requests
+                ''',
+                'acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('non-acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Non acknowledged requests
+                ''',
+                'non_acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'account-logoff',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate',
+            False, 
+            [
+            _MetaInfoClassMember('acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Acknowledged requests
+                ''',
+                'acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('non-acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Non acknowledged requests
+                ''',
+                'non_acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'account-update',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect',
+            False, 
+            [
+            _MetaInfoClassMember('acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Acknowledged requests
+                ''',
+                'acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('non-acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Non acknowledged requests
+                ''',
+                'non_acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'session-disconnect',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon',
+            False, 
+            [
+            _MetaInfoClassMember('acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Acknowledged requests
+                ''',
+                'acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('non-acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Non acknowledged requests
+                ''',
+                'non_acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'single-service-logon',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff',
+            False, 
+            [
+            _MetaInfoClassMember('acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Acknowledged requests
+                ''',
+                'acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('non-acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Non acknowledged requests
+                ''',
+                'non_acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'single-service-logoff',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify',
+            False, 
+            [
+            _MetaInfoClassMember('acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Acknowledged requests
+                ''',
+                'acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('non-acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Non acknowledged requests
+                ''',
+                'non_acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'single-service-modify',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti',
+            False, 
+            [
+            _MetaInfoClassMember('acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Acknowledged requests
+                ''',
+                'acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('non-acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Non acknowledged requests
+                ''',
+                'non_acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'service-multi',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics',
+            False, 
+            [
+            _MetaInfoClassMember('account-logoff', REFERENCE_CLASS, 'AccountLogoff' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff', 
+                [], [], 
+                '''                Account logoff request statistics
+                ''',
+                'account_logoff',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('account-logon', REFERENCE_CLASS, 'AccountLogon' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon', 
+                [], [], 
+                '''                Account logon request statistics
+                ''',
+                'account_logon',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('account-update', REFERENCE_CLASS, 'AccountUpdate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate', 
+                [], [], 
+                '''                Account update request statistics
+                ''',
+                'account_update',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('attr-list-retrieve-failure-resps', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Responses to attribute list failure errors
+                ''',
+                'attr_list_retrieve_failure_resps',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('internal-err-resps', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Responses to internal error
+                ''',
+                'internal_err_resps',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('no-cmd-resps', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Responses empty (no command) COA request
+                ''',
+                'no_cmd_resps',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('no-session-found-resps', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Responses to COA with unknown session identifier
+                ''',
+                'no_session_found_resps',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('no-session-peer-resps', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Responses to session peer not found error
+                ''',
+                'no_session_peer_resps',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('resp-send-failure', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Response send failures
+                ''',
+                'resp_send_failure',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('service-multi', REFERENCE_CLASS, 'ServiceMulti' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti', 
+                [], [], 
+                '''                MA-CoA Service request statistics
+                ''',
+                'service_multi',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('service-profile-push-failure-resps', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Responses to service profile push failures
+                ''',
+                'service_profile_push_failure_resps',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('session-disconnect', REFERENCE_CLASS, 'SessionDisconnect' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect', 
+                [], [], 
+                '''                Session disconnect request statistics
+                ''',
+                'session_disconnect',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('single-service-logoff', REFERENCE_CLASS, 'SingleServiceLogoff' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff', 
+                [], [], 
+                '''                Single Service logoff request statistics
+                ''',
+                'single_service_logoff',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('single-service-logon', REFERENCE_CLASS, 'SingleServiceLogon' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon', 
+                [], [], 
+                '''                Service logon request statistics
+                ''',
+                'single_service_logon',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('single-service-modify', REFERENCE_CLASS, 'SingleServiceModify' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify', 
+                [], [], 
+                '''                Single Service Modify request statistics
+                ''',
+                'single_service_modify',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('unknown-account-cmd-resps', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Responses to unknown account command
+                ''',
+                'unknown_account_cmd_resps',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('unknown-cmd-resps', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Responses to unknown command
+                ''',
+                'unknown_cmd_resps',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('unknown-service-cmd-resps', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Responses to unknown service command
+                ''',
+                'unknown_service_cmd_resps',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'change-of-authorization-statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics',
+            False, 
+            [
+            _MetaInfoClassMember('receive-response-failures', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Response receive failures
+                ''',
+                'receive_response_failures',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('receive-response-successes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Response receive success
+                ''',
+                'receive_response_successes',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('send-request-failures', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Request send failures
+                ''',
+                'send_request_failures',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('send-request-successes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Request send success
+                ''',
+                'send_request_successes',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'mobility-statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll',
+            False, 
+            [
+            _MetaInfoClassMember('accounting-statistics', REFERENCE_CLASS, 'AccountingStatistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics', 
+                [], [], 
+                '''                List of stats for accounting
+                ''',
+                'accounting_statistics',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('authentication-statistics', REFERENCE_CLASS, 'AuthenticationStatistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics', 
+                [], [], 
+                '''                List of stats for authentication
+                ''',
+                'authentication_statistics',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('authorization-statistics', REFERENCE_CLASS, 'AuthorizationStatistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics', 
+                [], [], 
+                '''                List of stats for authorization
+                ''',
+                'authorization_statistics',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('change-of-authorization-statistics', REFERENCE_CLASS, 'ChangeOfAuthorizationStatistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics', 
+                [], [], 
+                '''                List of stats for COA
+                ''',
+                'change_of_authorization_statistics',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('mobility-statistics', REFERENCE_CLASS, 'MobilityStatistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics', 
+                [], [], 
+                '''                List of stats for Mobility
+                ''',
+                'mobility_statistics',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'accounting-stats-all',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
     'Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon' : {
         'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon',
             False, 
@@ -1155,6 +2058,910 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-iedge4710-oper',
             'aggregate-authorization',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start',
+            False, 
+            [
+            _MetaInfoClassMember('aaa-errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA errored requests
+                ''',
+                'aaa_errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-failed-responses', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA failed responses
+                ''',
+                'aaa_failed_responses',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-sent-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA requests sent
+                ''',
+                'aaa_sent_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-succeeded-responses', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA succeeded responses
+                ''',
+                'aaa_succeeded_responses',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Errored requests
+                ''',
+                'errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'start',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop',
+            False, 
+            [
+            _MetaInfoClassMember('aaa-errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA errored requests
+                ''',
+                'aaa_errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-failed-responses', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA failed responses
+                ''',
+                'aaa_failed_responses',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-sent-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA requests sent
+                ''',
+                'aaa_sent_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-succeeded-responses', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA succeeded responses
+                ''',
+                'aaa_succeeded_responses',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Errored requests
+                ''',
+                'errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'stop',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim',
+            False, 
+            [
+            _MetaInfoClassMember('aaa-errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA errored requests
+                ''',
+                'aaa_errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-failed-responses', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA failed responses
+                ''',
+                'aaa_failed_responses',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-sent-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA requests sent
+                ''',
+                'aaa_sent_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-succeeded-responses', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA succeeded responses
+                ''',
+                'aaa_succeeded_responses',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Errored requests
+                ''',
+                'errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'interim',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough',
+            False, 
+            [
+            _MetaInfoClassMember('aaa-errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA errored requests
+                ''',
+                'aaa_errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-failed-responses', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA failed responses
+                ''',
+                'aaa_failed_responses',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-sent-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA requests sent
+                ''',
+                'aaa_sent_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-succeeded-responses', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA succeeded responses
+                ''',
+                'aaa_succeeded_responses',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Errored requests
+                ''',
+                'errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'pass-through',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update',
+            False, 
+            [
+            _MetaInfoClassMember('aaa-errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA errored requests
+                ''',
+                'aaa_errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-failed-responses', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA failed responses
+                ''',
+                'aaa_failed_responses',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-sent-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA requests sent
+                ''',
+                'aaa_sent_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aaa-succeeded-responses', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                AAA succeeded responses
+                ''',
+                'aaa_succeeded_responses',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Errored requests
+                ''',
+                'errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'update',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight',
+            False, 
+            [
+            _MetaInfoClassMember('accepted-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Accepted requests
+                ''',
+                'accepted_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('denied-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Denied requests
+                ''',
+                'denied_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('low-water-mark-quota-of-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Low water mark quota of requests
+                ''',
+                'low_water_mark_quota_of_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('quota-exhausts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Quota exhausts
+                ''',
+                'quota_exhausts',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('remaining-quota-of-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Remaining quota of requests
+                ''',
+                'remaining_quota_of_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('total-quota-of-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Total quota of requests
+                ''',
+                'total_quota_of_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'interim-inflight',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics',
+            False, 
+            [
+            _MetaInfoClassMember('active-sessions', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Active sessions
+                ''',
+                'active_sessions',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('interim', REFERENCE_CLASS, 'Interim' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim', 
+                [], [], 
+                '''                Interim statistics
+                ''',
+                'interim',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('interim-inflight', REFERENCE_CLASS, 'InterimInflight' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight', 
+                [], [], 
+                '''                Interim inflight details
+                ''',
+                'interim_inflight',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('pass-through', REFERENCE_CLASS, 'PassThrough' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough', 
+                [], [], 
+                '''                Pass-through statistics
+                ''',
+                'pass_through',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('policy-plane-errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Policy plane errored requests
+                ''',
+                'policy_plane_errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('policy-plane-unknown-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Policy plane unknown requests
+                ''',
+                'policy_plane_unknown_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('start', REFERENCE_CLASS, 'Start' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start', 
+                [], [], 
+                '''                Start statistics
+                ''',
+                'start',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('started-sessions', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Started sessions
+                ''',
+                'started_sessions',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('stop', REFERENCE_CLASS, 'Stop' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop', 
+                [], [], 
+                '''                Stop statistics
+                ''',
+                'stop',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('stopped-sessions', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Stopped sessions
+                ''',
+                'stopped_sessions',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('update', REFERENCE_CLASS, 'Update' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update', 
+                [], [], 
+                '''                Update statistics
+                ''',
+                'update',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'accounting-statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics',
+            False, 
+            [
+            _MetaInfoClassMember('accepted-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Request accepted by Radius server
+                ''',
+                'accepted_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Unexpected errors
+                ''',
+                'errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('incomplete-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Incomplete requests - missing attributes
+                ''',
+                'incomplete_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('rejected-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Requests rejected by radius server
+                ''',
+                'rejected_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('sent-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Requests sent to radius server
+                ''',
+                'sent_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('successful-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Requests which are successful
+                ''',
+                'successful_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('terminated-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Requests terminated by disconnect
+                ''',
+                'terminated_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('unreachable-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Radius server not available
+                ''',
+                'unreachable_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'authentication-statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics',
+            False, 
+            [
+            _MetaInfoClassMember('accepted-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Request accepted by Radius server
+                ''',
+                'accepted_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('errored-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Unexpected errors
+                ''',
+                'errored_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('incomplete-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Incomplete requests - missing attributes
+                ''',
+                'incomplete_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('rejected-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Requests rejected by radius server
+                ''',
+                'rejected_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('sent-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Requests sent to radius server
+                ''',
+                'sent_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('successful-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Requests which are successful
+                ''',
+                'successful_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('terminated-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Requests terminated by disconnect
+                ''',
+                'terminated_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('unreachable-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Radius server not available
+                ''',
+                'unreachable_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'authorization-statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon',
+            False, 
+            [
+            _MetaInfoClassMember('acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Acknowledged requests
+                ''',
+                'acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('non-acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Non acknowledged requests
+                ''',
+                'non_acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'account-logon',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff',
+            False, 
+            [
+            _MetaInfoClassMember('acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Acknowledged requests
+                ''',
+                'acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('non-acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Non acknowledged requests
+                ''',
+                'non_acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'account-logoff',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate',
+            False, 
+            [
+            _MetaInfoClassMember('acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Acknowledged requests
+                ''',
+                'acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('non-acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Non acknowledged requests
+                ''',
+                'non_acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'account-update',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect',
+            False, 
+            [
+            _MetaInfoClassMember('acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Acknowledged requests
+                ''',
+                'acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('non-acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Non acknowledged requests
+                ''',
+                'non_acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'session-disconnect',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon',
+            False, 
+            [
+            _MetaInfoClassMember('acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Acknowledged requests
+                ''',
+                'acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('non-acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Non acknowledged requests
+                ''',
+                'non_acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'single-service-logon',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff',
+            False, 
+            [
+            _MetaInfoClassMember('acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Acknowledged requests
+                ''',
+                'acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('non-acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Non acknowledged requests
+                ''',
+                'non_acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'single-service-logoff',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify',
+            False, 
+            [
+            _MetaInfoClassMember('acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Acknowledged requests
+                ''',
+                'acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('non-acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Non acknowledged requests
+                ''',
+                'non_acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'single-service-modify',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti',
+            False, 
+            [
+            _MetaInfoClassMember('acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Acknowledged requests
+                ''',
+                'acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('non-acknowledged-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Non acknowledged requests
+                ''',
+                'non_acknowledged_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('received-requests', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received requests
+                ''',
+                'received_requests',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'service-multi',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics',
+            False, 
+            [
+            _MetaInfoClassMember('account-logoff', REFERENCE_CLASS, 'AccountLogoff' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff', 
+                [], [], 
+                '''                Account logoff request statistics
+                ''',
+                'account_logoff',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('account-logon', REFERENCE_CLASS, 'AccountLogon' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon', 
+                [], [], 
+                '''                Account logon request statistics
+                ''',
+                'account_logon',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('account-update', REFERENCE_CLASS, 'AccountUpdate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate', 
+                [], [], 
+                '''                Account update request statistics
+                ''',
+                'account_update',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('attr-list-retrieve-failure-resps', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Responses to attribute list failure errors
+                ''',
+                'attr_list_retrieve_failure_resps',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('internal-err-resps', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Responses to internal error
+                ''',
+                'internal_err_resps',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('no-cmd-resps', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Responses empty (no command) COA request
+                ''',
+                'no_cmd_resps',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('no-session-found-resps', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Responses to COA with unknown session identifier
+                ''',
+                'no_session_found_resps',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('no-session-peer-resps', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Responses to session peer not found error
+                ''',
+                'no_session_peer_resps',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('resp-send-failure', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Response send failures
+                ''',
+                'resp_send_failure',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('service-multi', REFERENCE_CLASS, 'ServiceMulti' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti', 
+                [], [], 
+                '''                MA-CoA Service request statistics
+                ''',
+                'service_multi',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('service-profile-push-failure-resps', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Responses to service profile push failures
+                ''',
+                'service_profile_push_failure_resps',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('session-disconnect', REFERENCE_CLASS, 'SessionDisconnect' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect', 
+                [], [], 
+                '''                Session disconnect request statistics
+                ''',
+                'session_disconnect',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('single-service-logoff', REFERENCE_CLASS, 'SingleServiceLogoff' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff', 
+                [], [], 
+                '''                Single Service logoff request statistics
+                ''',
+                'single_service_logoff',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('single-service-logon', REFERENCE_CLASS, 'SingleServiceLogon' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon', 
+                [], [], 
+                '''                Service logon request statistics
+                ''',
+                'single_service_logon',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('single-service-modify', REFERENCE_CLASS, 'SingleServiceModify' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify', 
+                [], [], 
+                '''                Single Service Modify request statistics
+                ''',
+                'single_service_modify',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('unknown-account-cmd-resps', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Responses to unknown account command
+                ''',
+                'unknown_account_cmd_resps',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('unknown-cmd-resps', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Responses to unknown command
+                ''',
+                'unknown_cmd_resps',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('unknown-service-cmd-resps', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Responses to unknown service command
+                ''',
+                'unknown_service_cmd_resps',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'change-of-authorization-statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics',
+            False, 
+            [
+            _MetaInfoClassMember('receive-response-failures', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Response receive failures
+                ''',
+                'receive_response_failures',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('receive-response-successes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Response receive success
+                ''',
+                'receive_response_successes',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('send-request-failures', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Request send failures
+                ''',
+                'send_request_failures',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('send-request-successes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Request send success
+                ''',
+                'send_request_successes',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'mobility-statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
+        ),
+    },
+    'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll' : {
+        'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll',
+            False, 
+            [
+            _MetaInfoClassMember('accounting-statistics', REFERENCE_CLASS, 'AccountingStatistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics', 
+                [], [], 
+                '''                List of stats for accounting
+                ''',
+                'accounting_statistics',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('authentication-statistics', REFERENCE_CLASS, 'AuthenticationStatistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics', 
+                [], [], 
+                '''                List of stats for authentication
+                ''',
+                'authentication_statistics',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('authorization-statistics', REFERENCE_CLASS, 'AuthorizationStatistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics', 
+                [], [], 
+                '''                List of stats for authorization
+                ''',
+                'authorization_statistics',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('change-of-authorization-statistics', REFERENCE_CLASS, 'ChangeOfAuthorizationStatistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics', 
+                [], [], 
+                '''                List of stats for COA
+                ''',
+                'change_of_authorization_statistics',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('mobility-statistics', REFERENCE_CLASS, 'MobilityStatistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics', 
+                [], [], 
+                '''                List of stats for Mobility
+                ''',
+                'mobility_statistics',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-oper',
+            'aggregate-accounting-stats-all',
             _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper'
         ),
@@ -1914,11 +3721,25 @@ _meta_table = {
                 ''',
                 'accounting',
                 'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('accounting-stats-all', REFERENCE_CLASS, 'AccountingStatsAll' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll', 
+                [], [], 
+                '''                Display all subscriber management
+                statistics
+                ''',
+                'accounting_stats_all',
+                'Cisco-IOS-XR-iedge4710-oper', False),
             _MetaInfoClassMember('aggregate-accounting', REFERENCE_CLASS, 'AggregateAccounting' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting', 
                 [], [], 
                 '''                Aggregate accounting statistics
                 ''',
                 'aggregate_accounting',
+                'Cisco-IOS-XR-iedge4710-oper', False),
+            _MetaInfoClassMember('aggregate-accounting-stats-all', REFERENCE_CLASS, 'AggregateAccountingStatsAll' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll', 
+                [], [], 
+                '''                Display all subscriber management total
+                statistics
+                ''',
+                'aggregate_accounting_stats_all',
                 'Cisco-IOS-XR-iedge4710-oper', False),
             _MetaInfoClassMember('aggregate-authentication', REFERENCE_CLASS, 'AggregateAuthentication' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication', 
                 [], [], 
@@ -8420,6 +10241,25 @@ _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.In
 _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.PassThrough']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting']['meta_info']
 _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Update']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting']['meta_info']
 _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.InterimInflight']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll']['meta_info']
 _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization']['meta_info']
 _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogoff']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization']['meta_info']
 _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountUpdate']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization']['meta_info']
@@ -8428,6 +10268,25 @@ _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.
 _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogoff']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization']['meta_info']
 _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceModify']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization']['meta_info']
 _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.ServiceMulti']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll']['meta_info']
 _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Start']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting']['meta_info']
 _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Stop']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting']['meta_info']
 _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Interim']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting']['meta_info']
@@ -8446,9 +10305,11 @@ _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting'][
 _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authentication']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa']['meta_info']
 _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateMobility']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa']['meta_info']
 _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa']['meta_info']
 _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa']['meta_info']
 _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authorization']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa']['meta_info']
 _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa']['meta_info']
+_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa']['meta_info']
 _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa']['meta_info']
 _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.Mobility']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa']['meta_info']
 _meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization']['meta_info'].parent =_meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa']['meta_info']

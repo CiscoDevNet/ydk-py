@@ -58,7 +58,7 @@ class Ipv6Arm(object):
     """
 
     _prefix = 'ip-iarm-v6-oper'
-    _revision = '2015-11-09'
+    _revision = '2016-12-19'
 
     def __init__(self):
         self.addresses = Ipv6Arm.Addresses()
@@ -84,7 +84,7 @@ class Ipv6Arm(object):
         """
 
         _prefix = 'ip-iarm-v6-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-12-19'
 
         def __init__(self):
             self.parent = None
@@ -106,7 +106,7 @@ class Ipv6Arm(object):
             """
 
             _prefix = 'ip-iarm-v6-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-12-19'
 
             def __init__(self):
                 self.parent = None
@@ -139,7 +139,7 @@ class Ipv6Arm(object):
                 """
 
                 _prefix = 'ip-iarm-v6-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-19'
 
                 def __init__(self):
                     self.parent = None
@@ -165,7 +165,7 @@ class Ipv6Arm(object):
                     """
 
                     _prefix = 'ip-iarm-v6-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-19'
 
                     def __init__(self):
                         self.parent = None
@@ -224,7 +224,7 @@ class Ipv6Arm(object):
                         """
 
                         _prefix = 'ip-iarm-v6-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-12-19'
 
                         def __init__(self):
                             self.parent = None
@@ -246,6 +246,11 @@ class Ipv6Arm(object):
                             
                             	Address
                             	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v6_oper.Ipv6Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address>`
+                            
+                            .. attribute:: is_prefix_sid
+                            
+                            	Is prefix\_sid valid \- valid only for IPV6 addresses
+                            	**type**\:  bool
                             
                             .. attribute:: is_primary
                             
@@ -281,12 +286,13 @@ class Ipv6Arm(object):
                             """
 
                             _prefix = 'ip-iarm-v6-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-19'
 
                             def __init__(self):
                                 self.parent = None
                                 self.address = Ipv6Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address()
                                 self.address.parent = self
+                                self.is_prefix_sid = None
                                 self.is_primary = None
                                 self.is_tentative = None
                                 self.prefix_length = None
@@ -324,7 +330,7 @@ class Ipv6Arm(object):
                                 """
 
                                 _prefix = 'ip-iarm-v6-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-19'
 
                                 def __init__(self):
                                     self.parent = None
@@ -377,6 +383,9 @@ class Ipv6Arm(object):
                                 if not self.is_config():
                                     return False
                                 if self.address is not None and self.address._has_data():
+                                    return True
+
+                                if self.is_prefix_sid is not None:
                                     return True
 
                                 if self.is_primary is not None:
@@ -485,7 +494,7 @@ class Ipv6Arm(object):
                     """
 
                     _prefix = 'ip-iarm-v6-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-19'
 
                     def __init__(self):
                         self.parent = None
@@ -525,7 +534,7 @@ class Ipv6Arm(object):
                         """
 
                         _prefix = 'ip-iarm-v6-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-12-19'
 
                         def __init__(self):
                             self.parent = None
@@ -545,6 +554,11 @@ class Ipv6Arm(object):
                             
                             	Address
                             	**type**\:   :py:class:`Address_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v6_oper.Ipv6Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_>`
+                            
+                            .. attribute:: is_prefix_sid
+                            
+                            	Is prefix\_sid valid \- valid only for IPV6 addresses
+                            	**type**\:  bool
                             
                             .. attribute:: is_primary
                             
@@ -580,12 +594,13 @@ class Ipv6Arm(object):
                             """
 
                             _prefix = 'ip-iarm-v6-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-19'
 
                             def __init__(self):
                                 self.parent = None
                                 self.address = Ipv6Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_()
                                 self.address.parent = self
+                                self.is_prefix_sid = None
                                 self.is_primary = None
                                 self.is_tentative = None
                                 self.prefix_length = None
@@ -623,7 +638,7 @@ class Ipv6Arm(object):
                                 """
 
                                 _prefix = 'ip-iarm-v6-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-19'
 
                                 def __init__(self):
                                     self.parent = None
@@ -676,6 +691,9 @@ class Ipv6Arm(object):
                                 if not self.is_config():
                                     return False
                                 if self.address is not None and self.address._has_data():
+                                    return True
+
+                                if self.is_prefix_sid is not None:
                                     return True
 
                                 if self.is_primary is not None:
@@ -884,7 +902,7 @@ class Ipv6Arm(object):
         """
 
         _prefix = 'ip-iarm-v6-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-12-19'
 
         def __init__(self):
             self.parent = None
@@ -943,7 +961,7 @@ class Ipv6Arm(object):
         """
 
         _prefix = 'ip-iarm-v6-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-12-19'
 
         def __init__(self):
             self.parent = None
@@ -978,7 +996,7 @@ class Ipv6Arm(object):
             """
 
             _prefix = 'ip-iarm-v6-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-12-19'
 
             def __init__(self):
                 self.parent = None

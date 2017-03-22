@@ -188,9 +188,14 @@ class Macsec(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: delay_protect
+                        .. attribute:: delay_protection
                         
                         	Delay Protect
+                        	**type**\:  bool
+                        
+                        .. attribute:: include_icv_indicator
+                        
+                        	IncludeICVIndicator
                         	**type**\:  bool
                         
                         .. attribute:: inherited_policy
@@ -206,11 +211,6 @@ class Macsec(object):
                         .. attribute:: interface_name
                         
                         	macsec configured interface
-                        	**type**\:  str
-                        
-                        .. attribute:: key_chain
-                        
-                        	Key Chain name
                         	**type**\:  str
                         
                         .. attribute:: mac_sec_desired
@@ -265,12 +265,12 @@ class Macsec(object):
                             self.capability = None
                             self.cipher_str = None
                             self.confidentiality_offset = None
-                            self.delay_protect = None
+                            self.delay_protection = None
+                            self.include_icv_indicator = None
                             self.inherited_policy = None
                             self.inner_tag = Macsec.Mka.Interfaces.Interface.Session.SessionSummary.InnerTag()
                             self.inner_tag.parent = self
                             self.interface_name = None
-                            self.key_chain = None
                             self.mac_sec_desired = None
                             self.my_mac = None
                             self.outer_tag = Macsec.Mka.Interfaces.Interface.Session.SessionSummary.OuterTag()
@@ -466,7 +466,10 @@ class Macsec(object):
                             if self.confidentiality_offset is not None:
                                 return True
 
-                            if self.delay_protect is not None:
+                            if self.delay_protection is not None:
+                                return True
+
+                            if self.include_icv_indicator is not None:
                                 return True
 
                             if self.inherited_policy is not None:
@@ -476,9 +479,6 @@ class Macsec(object):
                                 return True
 
                             if self.interface_name is not None:
-                                return True
-
-                            if self.key_chain is not None:
                                 return True
 
                             if self.mac_sec_desired is not None:
@@ -598,6 +598,11 @@ class Macsec(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: time_to_sak_rekey
+                        
+                        	Next SAK Rekey time in Sec
+                        	**type**\:  str
+                        
                         .. attribute:: virtual_port_id
                         
                         	Virtual Port ID
@@ -635,6 +640,7 @@ class Macsec(object):
                             self.old_tx = None
                             self.retire_time = None
                             self.ssci = None
+                            self.time_to_sak_rekey = None
                             self.virtual_port_id = None
                             self.wait_time = None
 
@@ -694,6 +700,9 @@ class Macsec(object):
                             if self.ssci is not None:
                                 return True
 
+                            if self.time_to_sak_rekey is not None:
+                                return True
+
                             if self.virtual_port_id is not None:
                                 return True
 
@@ -711,6 +720,11 @@ class Macsec(object):
                     class Ca(object):
                         """
                         CA List for a Session
+                        
+                        .. attribute:: authentication_mode
+                        
+                        	CA Authentication Mode \:PRIMARY\-PSK/FALLBACK\-PSK/EAP
+                        	**type**\:  str
                         
                         .. attribute:: authenticator
                         
@@ -736,6 +750,11 @@ class Macsec(object):
                         
                         	Is Key Server
                         	**type**\:  bool
+                        
+                        .. attribute:: key_chain
+                        
+                        	Key Chain name
+                        	**type**\:  str
                         
                         .. attribute:: live_peer
                         
@@ -799,6 +818,7 @@ class Macsec(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.authentication_mode = None
                             self.authenticator = None
                             self.ckn = None
                             self.dormant_peer = YList()
@@ -806,6 +826,7 @@ class Macsec(object):
                             self.dormant_peer.name = 'dormant_peer'
                             self.first_ca = None
                             self.is_key_server = None
+                            self.key_chain = None
                             self.live_peer = YList()
                             self.live_peer.parent = self
                             self.live_peer.name = 'live_peer'
@@ -1095,6 +1116,9 @@ class Macsec(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self.authentication_mode is not None:
+                                return True
+
                             if self.authenticator is not None:
                                 return True
 
@@ -1110,6 +1134,9 @@ class Macsec(object):
                                 return True
 
                             if self.is_key_server is not None:
+                                return True
+
+                            if self.key_chain is not None:
                                 return True
 
                             if self.live_peer is not None:

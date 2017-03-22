@@ -224,7 +224,7 @@ class Suppression(object):
             	Suppression Rule Name
             	**type**\:  str
             
-            	**length:** 0..32
+            	**length:** 1..32
             
             .. attribute:: rule_name_xr
             
@@ -348,7 +348,7 @@ class Suppression(object):
             	Suppression Rule Name
             	**type**\:  str
             
-            	**length:** 0..32
+            	**length:** 1..32
             
             .. attribute:: alarm_severity
             
@@ -715,7 +715,7 @@ class Correlator(object):
             	Correlation Rule Name
             	**type**\:  str
             
-            	**length:** 0..32
+            	**length:** 1..32
             
             .. attribute:: apply_context
             
@@ -1255,7 +1255,7 @@ class Correlator(object):
             	Ruleset Name
             	**type**\:  str
             
-            	**length:** 0..32
+            	**length:** 1..32
             
             .. attribute:: rule_set_name_xr
             
@@ -1358,7 +1358,7 @@ class Correlator(object):
             	Ruleset Name
             	**type**\:  str
             
-            	**length:** 0..32
+            	**length:** 1..32
             
             .. attribute:: rule_set_name_xr
             
@@ -1549,7 +1549,7 @@ class Correlator(object):
             	Correlation Rule Name
             	**type**\:  str
             
-            	**length:** 0..32
+            	**length:** 1..32
             
             .. attribute:: apply_context
             
@@ -1892,7 +1892,7 @@ class Correlator(object):
             	Correlation Rule Name
             	**type**\:  str
             
-            	**length:** 0..32
+            	**length:** 1..32
             
             .. attribute:: buffered_alarms_count
             

@@ -191,7 +191,7 @@ class AfiSafiTypeIdentity(object):
     """
 
     _prefix = 'bgp-types'
-    _revision = '2015-10-09'
+    _revision = '2015-05-15'
 
     def __init__(self):
         pass
@@ -211,7 +211,7 @@ class BgpCapabilityIdentity(object):
     """
 
     _prefix = 'bgp-types'
-    _revision = '2015-10-09'
+    _revision = '2015-05-15'
 
     def __init__(self):
         pass
@@ -233,7 +233,7 @@ class BgpWellKnownStdCommunityIdentity(object):
     """
 
     _prefix = 'bgp-types'
-    _revision = '2015-10-09'
+    _revision = '2015-05-15'
 
     def __init__(self):
         pass
@@ -253,7 +253,7 @@ class RouteRefreshIdentity(BgpCapabilityIdentity):
     """
 
     _prefix = 'bgp-types'
-    _revision = '2015-10-09'
+    _revision = '2015-05-15'
 
     def __init__(self):
         BgpCapabilityIdentity.__init__(self)
@@ -262,26 +262,6 @@ class RouteRefreshIdentity(BgpCapabilityIdentity):
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
         return meta._meta_table['RouteRefreshIdentity']['meta_info']
-
-
-class L2VpnEvpnIdentity(AfiSafiTypeIdentity):
-    """
-    BGP MPLS Based Ethernet VPN (AFI,SAFI = 25,70)
-    
-    
-
-    """
-
-    _prefix = 'bgp-types'
-    _revision = '2015-10-09'
-
-    def __init__(self):
-        AfiSafiTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['L2VpnEvpnIdentity']['meta_info']
 
 
 class No_Export_SubconfedIdentity(BgpWellKnownStdCommunityIdentity):
@@ -295,7 +275,7 @@ class No_Export_SubconfedIdentity(BgpWellKnownStdCommunityIdentity):
     """
 
     _prefix = 'bgp-types'
-    _revision = '2015-10-09'
+    _revision = '2015-05-15'
 
     def __init__(self):
         BgpWellKnownStdCommunityIdentity.__init__(self)
@@ -317,7 +297,7 @@ class No_AdvertiseIdentity(BgpWellKnownStdCommunityIdentity):
     """
 
     _prefix = 'bgp-types'
-    _revision = '2015-10-09'
+    _revision = '2015-05-15'
 
     def __init__(self):
         BgpWellKnownStdCommunityIdentity.__init__(self)
@@ -337,7 +317,7 @@ class MpbgpIdentity(BgpCapabilityIdentity):
     """
 
     _prefix = 'bgp-types'
-    _revision = '2015-10-09'
+    _revision = '2015-05-15'
 
     def __init__(self):
         BgpCapabilityIdentity.__init__(self)
@@ -348,16 +328,16 @@ class MpbgpIdentity(BgpCapabilityIdentity):
         return meta._meta_table['MpbgpIdentity']['meta_info']
 
 
-class L3VpnIpv6MulticastIdentity(AfiSafiTypeIdentity):
+class Ipv4UnicastIdentity(AfiSafiTypeIdentity):
     """
-    Multicast IPv6 MPLS L3VPN (AFI,SAFI = 2,129)
+    IPv4 unicast (AFI,SAFI = 1,1)
     
     
 
     """
 
     _prefix = 'bgp-types'
-    _revision = '2015-10-09'
+    _revision = '2015-05-15'
 
     def __init__(self):
         AfiSafiTypeIdentity.__init__(self)
@@ -365,7 +345,7 @@ class L3VpnIpv6MulticastIdentity(AfiSafiTypeIdentity):
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['L3VpnIpv6MulticastIdentity']['meta_info']
+        return meta._meta_table['Ipv4UnicastIdentity']['meta_info']
 
 
 class AddPathsIdentity(BgpCapabilityIdentity):
@@ -377,7 +357,7 @@ class AddPathsIdentity(BgpCapabilityIdentity):
     """
 
     _prefix = 'bgp-types'
-    _revision = '2015-10-09'
+    _revision = '2015-05-15'
 
     def __init__(self):
         BgpCapabilityIdentity.__init__(self)
@@ -397,7 +377,7 @@ class L3VpnIpv4MulticastIdentity(AfiSafiTypeIdentity):
     """
 
     _prefix = 'bgp-types'
-    _revision = '2015-10-09'
+    _revision = '2015-05-15'
 
     def __init__(self):
         AfiSafiTypeIdentity.__init__(self)
@@ -406,66 +386,6 @@ class L3VpnIpv4MulticastIdentity(AfiSafiTypeIdentity):
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
         return meta._meta_table['L3VpnIpv4MulticastIdentity']['meta_info']
-
-
-class Ipv6UnicastIdentity(AfiSafiTypeIdentity):
-    """
-    IPv6 unicast (AFI,SAFI = 2,1)
-    
-    
-
-    """
-
-    _prefix = 'bgp-types'
-    _revision = '2015-10-09'
-
-    def __init__(self):
-        AfiSafiTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['Ipv6UnicastIdentity']['meta_info']
-
-
-class L3VpnIpv6UnicastIdentity(AfiSafiTypeIdentity):
-    """
-    Unicast IPv6 MPLS L3VPN (AFI,SAFI = 2,128)
-    
-    
-
-    """
-
-    _prefix = 'bgp-types'
-    _revision = '2015-10-09'
-
-    def __init__(self):
-        AfiSafiTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['L3VpnIpv6UnicastIdentity']['meta_info']
-
-
-class Ipv4LabelledUnicastIdentity(AfiSafiTypeIdentity):
-    """
-    Labelled IPv4 unicast (AFI,SAFI = 1,4)
-    
-    
-
-    """
-
-    _prefix = 'bgp-types'
-    _revision = '2015-10-09'
-
-    def __init__(self):
-        AfiSafiTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['Ipv4LabelledUnicastIdentity']['meta_info']
 
 
 class No_ExportIdentity(BgpWellKnownStdCommunityIdentity):
@@ -480,7 +400,7 @@ class No_ExportIdentity(BgpWellKnownStdCommunityIdentity):
     """
 
     _prefix = 'bgp-types'
-    _revision = '2015-10-09'
+    _revision = '2015-05-15'
 
     def __init__(self):
         BgpWellKnownStdCommunityIdentity.__init__(self)
@@ -489,6 +409,66 @@ class No_ExportIdentity(BgpWellKnownStdCommunityIdentity):
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
         return meta._meta_table['No_ExportIdentity']['meta_info']
+
+
+class L2VpnEvpnIdentity(AfiSafiTypeIdentity):
+    """
+    BGP MPLS Based Ethernet VPN (AFI,SAFI = 25,70)
+    
+    
+
+    """
+
+    _prefix = 'bgp-types'
+    _revision = '2015-05-15'
+
+    def __init__(self):
+        AfiSafiTypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
+        return meta._meta_table['L2VpnEvpnIdentity']['meta_info']
+
+
+class Ipv4LabelledUnicastIdentity(AfiSafiTypeIdentity):
+    """
+    Labelled IPv4 unicast (AFI,SAFI = 1,4)
+    
+    
+
+    """
+
+    _prefix = 'bgp-types'
+    _revision = '2015-05-15'
+
+    def __init__(self):
+        AfiSafiTypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
+        return meta._meta_table['Ipv4LabelledUnicastIdentity']['meta_info']
+
+
+class L3VpnIpv6UnicastIdentity(AfiSafiTypeIdentity):
+    """
+    Unicast IPv6 MPLS L3VPN (AFI,SAFI = 2,128)
+    
+    
+
+    """
+
+    _prefix = 'bgp-types'
+    _revision = '2015-05-15'
+
+    def __init__(self):
+        AfiSafiTypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
+        return meta._meta_table['L3VpnIpv6UnicastIdentity']['meta_info']
 
 
 class Ipv6LabelledUnicastIdentity(AfiSafiTypeIdentity):
@@ -500,7 +480,7 @@ class Ipv6LabelledUnicastIdentity(AfiSafiTypeIdentity):
     """
 
     _prefix = 'bgp-types'
-    _revision = '2015-10-09'
+    _revision = '2015-05-15'
 
     def __init__(self):
         AfiSafiTypeIdentity.__init__(self)
@@ -511,16 +491,16 @@ class Ipv6LabelledUnicastIdentity(AfiSafiTypeIdentity):
         return meta._meta_table['Ipv6LabelledUnicastIdentity']['meta_info']
 
 
-class Ipv4UnicastIdentity(AfiSafiTypeIdentity):
+class L3VpnIpv6MulticastIdentity(AfiSafiTypeIdentity):
     """
-    IPv4 unicast (AFI,SAFI = 1,1)
+    Multicast IPv6 MPLS L3VPN (AFI,SAFI = 2,129)
     
     
 
     """
 
     _prefix = 'bgp-types'
-    _revision = '2015-10-09'
+    _revision = '2015-05-15'
 
     def __init__(self):
         AfiSafiTypeIdentity.__init__(self)
@@ -528,7 +508,7 @@ class Ipv4UnicastIdentity(AfiSafiTypeIdentity):
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
-        return meta._meta_table['Ipv4UnicastIdentity']['meta_info']
+        return meta._meta_table['L3VpnIpv6MulticastIdentity']['meta_info']
 
 
 class GracefulRestartIdentity(BgpCapabilityIdentity):
@@ -540,7 +520,7 @@ class GracefulRestartIdentity(BgpCapabilityIdentity):
     """
 
     _prefix = 'bgp-types'
-    _revision = '2015-10-09'
+    _revision = '2015-05-15'
 
     def __init__(self):
         BgpCapabilityIdentity.__init__(self)
@@ -549,6 +529,26 @@ class GracefulRestartIdentity(BgpCapabilityIdentity):
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
         return meta._meta_table['GracefulRestartIdentity']['meta_info']
+
+
+class Ipv6UnicastIdentity(AfiSafiTypeIdentity):
+    """
+    IPv6 unicast (AFI,SAFI = 2,1)
+    
+    
+
+    """
+
+    _prefix = 'bgp-types'
+    _revision = '2015-05-15'
+
+    def __init__(self):
+        AfiSafiTypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_bgp_types as meta
+        return meta._meta_table['Ipv6UnicastIdentity']['meta_info']
 
 
 class L2VpnVplsIdentity(AfiSafiTypeIdentity):
@@ -560,7 +560,7 @@ class L2VpnVplsIdentity(AfiSafiTypeIdentity):
     """
 
     _prefix = 'bgp-types'
-    _revision = '2015-10-09'
+    _revision = '2015-05-15'
 
     def __init__(self):
         AfiSafiTypeIdentity.__init__(self)
@@ -580,7 +580,7 @@ class Asn32Identity(BgpCapabilityIdentity):
     """
 
     _prefix = 'bgp-types'
-    _revision = '2015-10-09'
+    _revision = '2015-05-15'
 
     def __init__(self):
         BgpCapabilityIdentity.__init__(self)
@@ -600,7 +600,7 @@ class L3VpnIpv4UnicastIdentity(AfiSafiTypeIdentity):
     """
 
     _prefix = 'bgp-types'
-    _revision = '2015-10-09'
+    _revision = '2015-05-15'
 
     def __init__(self):
         AfiSafiTypeIdentity.__init__(self)
@@ -624,7 +624,7 @@ class NopeerIdentity(BgpWellKnownStdCommunityIdentity):
     """
 
     _prefix = 'bgp-types'
-    _revision = '2015-10-09'
+    _revision = '2015-05-15'
 
     def __init__(self):
         BgpWellKnownStdCommunityIdentity.__init__(self)

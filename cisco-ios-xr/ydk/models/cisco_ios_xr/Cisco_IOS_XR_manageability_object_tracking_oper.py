@@ -1125,7 +1125,7 @@ class ObjectTracking(object):
             	Track name
             	**type**\:  str
             
-            	**length:** 0..32
+            	**length:** 1..32
             
             .. attribute:: track_info_brief
             
@@ -3068,7 +3068,7 @@ class ObjectTracking(object):
             	Track name
             	**type**\:  str
             
-            	**length:** 0..32
+            	**length:** 1..32
             
             .. attribute:: track_info
             

@@ -12,7 +12,6 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'RadiusAuthenticationTypeIdentity' : {
         'meta_info' : _MetaInfoClass('RadiusAuthenticationTypeIdentity',

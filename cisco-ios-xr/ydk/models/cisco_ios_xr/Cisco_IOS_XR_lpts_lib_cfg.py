@@ -619,7 +619,7 @@ class Lpts(object):
             	Probability of packets to be sampled
             	**type**\:  str
             
-            	**length:** 0..32
+            	**length:** 1..32
             
             .. attribute:: subscriber_interfaces
             

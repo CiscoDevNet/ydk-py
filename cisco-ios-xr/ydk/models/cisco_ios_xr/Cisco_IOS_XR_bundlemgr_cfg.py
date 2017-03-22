@@ -8,8 +8,9 @@ for the following management objects\:
   lacp\: Link Aggregation Control Protocol commands
 
 This YANG module augments the
-  Cisco\-IOS\-XR\-ifmgr\-cfg
-module with configuration data.
+  Cisco\-IOS\-XR\-ifmgr\-cfg,
+  Cisco\-IOS\-XR\-rgmgr\-cfg,
+modules with configuration data.
 
 Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
@@ -162,6 +163,45 @@ class BundleMaximumActiveLinksModeEnum(Enum):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
         return meta._meta_table['BundleMaximumActiveLinksModeEnum']
+
+
+class BundleMinimumBandwidthRangeEnum(Enum):
+    """
+    BundleMinimumBandwidthRangeEnum
+
+    Bundle minimum bandwidth range
+
+    .. data:: none = 0
+
+    	None
+
+    .. data:: kbps = 1
+
+    	kbps
+
+    .. data:: mbps = 2
+
+    	mbps
+
+    .. data:: gbps = 3
+
+    	gbps
+
+    """
+
+    none = 0
+
+    kbps = 1
+
+    mbps = 2
+
+    gbps = 3
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
+        return meta._meta_table['BundleMinimumBandwidthRangeEnum']
 
 
 class BundleModeEnum(Enum):
@@ -391,7 +431,7 @@ class Lacp(object):
     """
 
     _prefix = 'bundlemgr-cfg'
-    _revision = '2016-05-12'
+    _revision = '2016-12-16'
 
     def __init__(self):
         self.system_mac = None

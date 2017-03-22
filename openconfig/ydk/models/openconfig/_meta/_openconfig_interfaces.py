@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'Interfaces.Interface.Config' : {
         'meta_info' : _MetaInfoClass('Interfaces.Interface.Config',
@@ -1333,7 +1332,6 @@ _meta_table = {
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The IPv4 address on the interface.
                 ''',
                 'ip',
@@ -1341,7 +1339,6 @@ _meta_table = {
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
                 [('0', '32')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The length of the subnet prefix.
                 ''',
                 'prefix_length',
@@ -1360,7 +1357,6 @@ _meta_table = {
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The IPv4 address on the interface.
                 ''',
                 'ip',
@@ -1375,7 +1371,6 @@ _meta_table = {
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
                 [('0', '32')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The length of the subnet prefix.
                 ''',
                 'prefix_length',
@@ -1826,10 +1821,8 @@ _meta_table = {
                 [('68', '65535')], [], 
                 '''                The size, in octets, of the largest IPv4 packet that the
                 interface will send and receive.
-                
                 The server may restrict the allowed values for this leaf,
                 depending on the interface's type.
-                
                 If this leaf is not configured, the operationally used MTU
                 depends on the interface's type.
                 ''',
@@ -1859,10 +1852,8 @@ _meta_table = {
                 [('68', '65535')], [], 
                 '''                The size, in octets, of the largest IPv4 packet that the
                 interface will send and receive.
-                
                 The server may restrict the allowed values for this leaf,
                 depending on the interface's type.
-                
                 If this leaf is not configured, the operationally used MTU
                 depends on the interface's type.
                 ''',
@@ -1895,7 +1886,6 @@ _meta_table = {
                 [], [], 
                 '''                A list of mappings from IPv4 addresses to
                 link-layer addresses.
-                
                 Entries in this list are used as static entries in the
                 ARP Cache.
                 ''',
@@ -1921,7 +1911,6 @@ _meta_table = {
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The IPv6 address on the interface.
                 ''',
                 'ip',
@@ -1929,7 +1918,6 @@ _meta_table = {
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
                 [('0', '128')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The length of the subnet prefix.
                 ''',
                 'prefix_length',
@@ -1959,7 +1947,6 @@ _meta_table = {
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The IPv6 address on the interface.
                 ''',
                 'ip',
@@ -1967,7 +1954,6 @@ _meta_table = {
             _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'IpAddressOriginEnum' , 'ydk.models.openconfig.openconfig_if_ip', 'IpAddressOriginEnum', 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The origin of this address, e.g., static, dhcp, etc.
                 ''',
                 'origin',
@@ -1975,7 +1961,6 @@ _meta_table = {
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
                 [('0', '128')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The length of the subnet prefix.
                 ''',
                 'prefix_length',
@@ -1983,7 +1968,6 @@ _meta_table = {
             _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'StatusEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.State.StatusEnum', 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The status of an address.  Most of the states correspond
                 to states from the IPv6 Stateless Address
                 Autoconfiguration protocol.
@@ -2387,7 +2371,6 @@ _meta_table = {
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The IPv6 address of the neighbor node.
                 ''',
                 'ip',
@@ -2395,7 +2378,6 @@ _meta_table = {
             _MetaInfoClassMember('link-layer-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The link-layer address of the neighbor node.
                 ''',
                 'link_layer_address',
@@ -2422,7 +2404,6 @@ _meta_table = {
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The IPv6 address of the neighbor node.
                 ''',
                 'ip',
@@ -2430,7 +2411,6 @@ _meta_table = {
             _MetaInfoClassMember('is-router', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 Indicates that the neighbor node acts as a router.
                 ''',
                 'is_router',
@@ -2438,7 +2418,6 @@ _meta_table = {
             _MetaInfoClassMember('link-layer-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The link-layer address of the neighbor node.
                 ''',
                 'link_layer_address',
@@ -2446,7 +2425,6 @@ _meta_table = {
             _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborStateEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor.State.NeighborStateEnum', 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The Neighbor Unreachability Detection state of this
                 entry.
                 ''',
@@ -2455,7 +2433,6 @@ _meta_table = {
             _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'NeighborOriginEnum' , 'ydk.models.openconfig.openconfig_if_ip', 'NeighborOriginEnum', 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The origin of this neighbor entry.
                 ''',
                 'origin',
@@ -2505,7 +2482,6 @@ _meta_table = {
             _MetaInfoClassMember('dup-addr-detect-transmits', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The number of consecutive Neighbor Solicitation messages
                 sent while performing Duplicate Address Detection on a
                 tentative address.  A value of zero indicates that
@@ -2518,7 +2494,6 @@ _meta_table = {
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 Controls whether IPv6 is enabled or disabled on this
                 interface.  When IPv6 is enabled, this interface is
                 connected to an IPv6 stack, and the interface can send
@@ -2529,13 +2504,10 @@ _meta_table = {
             _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
                 [('1280', '4294967295')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The size, in octets, of the largest IPv6 packet that the
                 interface will send and receive.
-                
                 The server may restrict the allowed values for this leaf,
                 depending on the interface's type.
-                
                 If this leaf is not configured, the operationally used MTU
                 depends on the interface's type.
                 ''',
@@ -2555,7 +2527,6 @@ _meta_table = {
             _MetaInfoClassMember('dup-addr-detect-transmits', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The number of consecutive Neighbor Solicitation messages
                 sent while performing Duplicate Address Detection on a
                 tentative address.  A value of zero indicates that
@@ -2568,7 +2539,6 @@ _meta_table = {
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 Controls whether IPv6 is enabled or disabled on this
                 interface.  When IPv6 is enabled, this interface is
                 connected to an IPv6 stack, and the interface can send
@@ -2579,13 +2549,10 @@ _meta_table = {
             _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
                 [('1280', '4294967295')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The size, in octets, of the largest IPv6 packet that the
                 interface will send and receive.
-                
                 The server may restrict the allowed values for this leaf,
                 depending on the interface's type.
-                
                 If this leaf is not configured, the operationally used MTU
                 depends on the interface's type.
                 ''',
@@ -2605,7 +2572,6 @@ _meta_table = {
             _MetaInfoClassMember('create-global-addresses', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 If enabled, the host creates global addresses as
                 described in RFC 4862.
                 ''',
@@ -2614,7 +2580,6 @@ _meta_table = {
             _MetaInfoClassMember('create-temporary-addresses', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 If enabled, the host creates temporary addresses as
                 described in RFC 4941.
                 ''',
@@ -2623,7 +2588,6 @@ _meta_table = {
             _MetaInfoClassMember('temporary-preferred-lifetime', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The time period during which the temporary address is
                 preferred.
                 ''',
@@ -2632,7 +2596,6 @@ _meta_table = {
             _MetaInfoClassMember('temporary-valid-lifetime', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The time period during which the temporary address
                 is valid.
                 ''',
@@ -2652,7 +2615,6 @@ _meta_table = {
             _MetaInfoClassMember('create-global-addresses', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 If enabled, the host creates global addresses as
                 described in RFC 4862.
                 ''',
@@ -2661,7 +2623,6 @@ _meta_table = {
             _MetaInfoClassMember('create-temporary-addresses', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 If enabled, the host creates temporary addresses as
                 described in RFC 4941.
                 ''',
@@ -2670,7 +2631,6 @@ _meta_table = {
             _MetaInfoClassMember('temporary-preferred-lifetime', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The time period during which the temporary address is
                 preferred.
                 ''',
@@ -2679,7 +2639,6 @@ _meta_table = {
             _MetaInfoClassMember('temporary-valid-lifetime', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The time period during which the temporary address
                 is valid.
                 ''',
@@ -2699,7 +2658,6 @@ _meta_table = {
             _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.Config', 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 Parameters to control the autoconfiguration of IPv6
                 addresses, as described in RFC 4862.
                 ''',
@@ -2744,7 +2702,6 @@ _meta_table = {
                 [], [], 
                 '''                A list of mappings from IPv6 addresses to
                 link-layer addresses.
-                
                 Entries in this list are used as static entries in the
                 Neighbor Cache.
                 ''',
@@ -4162,7 +4119,6 @@ _meta_table = {
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The IPv4 address on the interface.
                 ''',
                 'ip',
@@ -4170,7 +4126,6 @@ _meta_table = {
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
                 [('0', '32')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The length of the subnet prefix.
                 ''',
                 'prefix_length',
@@ -4189,7 +4144,6 @@ _meta_table = {
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The IPv4 address on the interface.
                 ''',
                 'ip',
@@ -4204,7 +4158,6 @@ _meta_table = {
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
                 [('0', '32')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The length of the subnet prefix.
                 ''',
                 'prefix_length',
@@ -4655,10 +4608,8 @@ _meta_table = {
                 [('68', '65535')], [], 
                 '''                The size, in octets, of the largest IPv4 packet that the
                 interface will send and receive.
-                
                 The server may restrict the allowed values for this leaf,
                 depending on the interface's type.
-                
                 If this leaf is not configured, the operationally used MTU
                 depends on the interface's type.
                 ''',
@@ -4688,10 +4639,8 @@ _meta_table = {
                 [('68', '65535')], [], 
                 '''                The size, in octets, of the largest IPv4 packet that the
                 interface will send and receive.
-                
                 The server may restrict the allowed values for this leaf,
                 depending on the interface's type.
-                
                 If this leaf is not configured, the operationally used MTU
                 depends on the interface's type.
                 ''',
@@ -4724,7 +4673,6 @@ _meta_table = {
                 [], [], 
                 '''                A list of mappings from IPv4 addresses to
                 link-layer addresses.
-                
                 Entries in this list are used as static entries in the
                 ARP Cache.
                 ''',
@@ -4750,7 +4698,6 @@ _meta_table = {
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The IPv6 address on the interface.
                 ''',
                 'ip',
@@ -4758,7 +4705,6 @@ _meta_table = {
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
                 [('0', '128')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The length of the subnet prefix.
                 ''',
                 'prefix_length',
@@ -4788,7 +4734,6 @@ _meta_table = {
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The IPv6 address on the interface.
                 ''',
                 'ip',
@@ -4796,7 +4741,6 @@ _meta_table = {
             _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'IpAddressOriginEnum' , 'ydk.models.openconfig.openconfig_if_ip', 'IpAddressOriginEnum', 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The origin of this address, e.g., static, dhcp, etc.
                 ''',
                 'origin',
@@ -4804,7 +4748,6 @@ _meta_table = {
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
                 [('0', '128')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The length of the subnet prefix.
                 ''',
                 'prefix_length',
@@ -4812,7 +4755,6 @@ _meta_table = {
             _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'StatusEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv6.Address.State.StatusEnum', 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The status of an address.  Most of the states correspond
                 to states from the IPv6 Stateless Address
                 Autoconfiguration protocol.
@@ -5216,7 +5158,6 @@ _meta_table = {
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The IPv6 address of the neighbor node.
                 ''',
                 'ip',
@@ -5224,7 +5165,6 @@ _meta_table = {
             _MetaInfoClassMember('link-layer-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The link-layer address of the neighbor node.
                 ''',
                 'link_layer_address',
@@ -5251,7 +5191,6 @@ _meta_table = {
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The IPv6 address of the neighbor node.
                 ''',
                 'ip',
@@ -5259,7 +5198,6 @@ _meta_table = {
             _MetaInfoClassMember('is-router', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 Indicates that the neighbor node acts as a router.
                 ''',
                 'is_router',
@@ -5267,7 +5205,6 @@ _meta_table = {
             _MetaInfoClassMember('link-layer-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The link-layer address of the neighbor node.
                 ''',
                 'link_layer_address',
@@ -5275,7 +5212,6 @@ _meta_table = {
             _MetaInfoClassMember('neighbor-state', REFERENCE_ENUM_CLASS, 'NeighborStateEnum' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv6.Neighbor.State.NeighborStateEnum', 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The Neighbor Unreachability Detection state of this
                 entry.
                 ''',
@@ -5284,7 +5220,6 @@ _meta_table = {
             _MetaInfoClassMember('origin', REFERENCE_ENUM_CLASS, 'NeighborOriginEnum' , 'ydk.models.openconfig.openconfig_if_ip', 'NeighborOriginEnum', 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The origin of this neighbor entry.
                 ''',
                 'origin',
@@ -5334,7 +5269,6 @@ _meta_table = {
             _MetaInfoClassMember('dup-addr-detect-transmits', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The number of consecutive Neighbor Solicitation messages
                 sent while performing Duplicate Address Detection on a
                 tentative address.  A value of zero indicates that
@@ -5347,7 +5281,6 @@ _meta_table = {
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 Controls whether IPv6 is enabled or disabled on this
                 interface.  When IPv6 is enabled, this interface is
                 connected to an IPv6 stack, and the interface can send
@@ -5358,13 +5291,10 @@ _meta_table = {
             _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
                 [('1280', '4294967295')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The size, in octets, of the largest IPv6 packet that the
                 interface will send and receive.
-                
                 The server may restrict the allowed values for this leaf,
                 depending on the interface's type.
-                
                 If this leaf is not configured, the operationally used MTU
                 depends on the interface's type.
                 ''',
@@ -5384,7 +5314,6 @@ _meta_table = {
             _MetaInfoClassMember('dup-addr-detect-transmits', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The number of consecutive Neighbor Solicitation messages
                 sent while performing Duplicate Address Detection on a
                 tentative address.  A value of zero indicates that
@@ -5397,7 +5326,6 @@ _meta_table = {
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 Controls whether IPv6 is enabled or disabled on this
                 interface.  When IPv6 is enabled, this interface is
                 connected to an IPv6 stack, and the interface can send
@@ -5408,13 +5336,10 @@ _meta_table = {
             _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
                 [('1280', '4294967295')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The size, in octets, of the largest IPv6 packet that the
                 interface will send and receive.
-                
                 The server may restrict the allowed values for this leaf,
                 depending on the interface's type.
-                
                 If this leaf is not configured, the operationally used MTU
                 depends on the interface's type.
                 ''',
@@ -5434,7 +5359,6 @@ _meta_table = {
             _MetaInfoClassMember('create-global-addresses', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 If enabled, the host creates global addresses as
                 described in RFC 4862.
                 ''',
@@ -5443,7 +5367,6 @@ _meta_table = {
             _MetaInfoClassMember('create-temporary-addresses', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 If enabled, the host creates temporary addresses as
                 described in RFC 4941.
                 ''',
@@ -5452,7 +5375,6 @@ _meta_table = {
             _MetaInfoClassMember('temporary-preferred-lifetime', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The time period during which the temporary address is
                 preferred.
                 ''',
@@ -5461,7 +5383,6 @@ _meta_table = {
             _MetaInfoClassMember('temporary-valid-lifetime', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The time period during which the temporary address
                 is valid.
                 ''',
@@ -5481,7 +5402,6 @@ _meta_table = {
             _MetaInfoClassMember('create-global-addresses', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 If enabled, the host creates global addresses as
                 described in RFC 4862.
                 ''',
@@ -5490,7 +5410,6 @@ _meta_table = {
             _MetaInfoClassMember('create-temporary-addresses', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 If enabled, the host creates temporary addresses as
                 described in RFC 4941.
                 ''',
@@ -5499,7 +5418,6 @@ _meta_table = {
             _MetaInfoClassMember('temporary-preferred-lifetime', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The time period during which the temporary address is
                 preferred.
                 ''',
@@ -5508,7 +5426,6 @@ _meta_table = {
             _MetaInfoClassMember('temporary-valid-lifetime', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 The time period during which the temporary address
                 is valid.
                 ''',
@@ -5528,7 +5445,6 @@ _meta_table = {
             _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_interfaces', 'Interfaces.Interface.RoutedVlan.Ipv6.Autoconf.Config', 
                 [], [], 
                 '''                [adapted from IETF IP model RFC 7277]
-                
                 Parameters to control the autoconfiguration of IPv6
                 addresses, as described in RFC 4862.
                 ''',
@@ -5573,7 +5489,6 @@ _meta_table = {
                 [], [], 
                 '''                A list of mappings from IPv6 addresses to
                 link-layer addresses.
-                
                 Entries in this list are used as static entries in the
                 Neighbor Cache.
                 ''',

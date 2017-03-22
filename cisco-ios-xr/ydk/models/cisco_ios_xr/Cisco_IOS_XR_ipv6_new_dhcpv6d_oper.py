@@ -160,15 +160,252 @@ class BagDhcpv6DIaIdEnum(Enum):
         return meta._meta_table['BagDhcpv6DIaIdEnum']
 
 
+class BagDhcpv6DIntfSergRoleEnum(Enum):
+    """
+    BagDhcpv6DIntfSergRoleEnum
+
+    Bag dhcpv6d intf serg role
+
+    .. data:: none = 0
+
+    	DHCPv6 Interface SERG role NONE
+
+    .. data:: master = 1
+
+    	DHCPv6 Interface SERG role Master
+
+    .. data:: slave = 2
+
+    	DHCPv6 Interface SERG role Slave
+
+    """
+
+    none = 0
+
+    master = 1
+
+    slave = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+        return meta._meta_table['BagDhcpv6DIntfSergRoleEnum']
+
+
+class BagDhcpv6DIntfSrgRoleEnum(Enum):
+    """
+    BagDhcpv6DIntfSrgRoleEnum
+
+    Bag dhcpv6d intf srg role
+
+    .. data:: none = 0
+
+    	DHCPv6 Interface SRG role NONE
+
+    .. data:: master = 1
+
+    	DHCPv6 Interface SRG role Master
+
+    .. data:: slave = 2
+
+    	DHCPv6 Interface SRG role Slave
+
+    """
+
+    none = 0
+
+    master = 1
+
+    slave = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+        return meta._meta_table['BagDhcpv6DIntfSrgRoleEnum']
+
+
+class BagDhcpv6DSubModeEnum(Enum):
+    """
+    BagDhcpv6DSubModeEnum
+
+    Bag dhcpv6d sub mode
+
+    .. data:: base = 0
+
+    	DHCPv6 Base mode
+
+    .. data:: server = 1
+
+    	DHCPv6 Server mode
+
+    .. data:: proxy = 2
+
+    	DHCPv6 Proxy mode
+
+    """
+
+    base = 0
+
+    server = 1
+
+    proxy = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+        return meta._meta_table['BagDhcpv6DSubModeEnum']
+
+
+class DhcpIssuPhaseEnum(Enum):
+    """
+    DhcpIssuPhaseEnum
+
+    Dhcp issu phase
+
+    .. data:: phase_not_started = 0
+
+    	An ISSU event has not started
+
+    .. data:: phase_load = 1
+
+    	ISSU Load Phase
+
+    .. data:: phase_run = 2
+
+    	ISSU Run Phase
+
+    .. data:: phase_completed = 3
+
+    	An ISSU event has completed successfully
+
+    .. data:: phase_aborted = 4
+
+    	An ISSU event has aborted
+
+    """
+
+    phase_not_started = 0
+
+    phase_load = 1
+
+    phase_run = 2
+
+    phase_completed = 3
+
+    phase_aborted = 4
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+        return meta._meta_table['DhcpIssuPhaseEnum']
+
+
+class Dhcpv6IssuRoleEnum(Enum):
+    """
+    Dhcpv6IssuRoleEnum
+
+    Dhcpv6 issu role
+
+    .. data:: role_primary = 0
+
+    	Primary role
+
+    .. data:: role_secondary = 1
+
+    	Secondary role
+
+    """
+
+    role_primary = 0
+
+    role_secondary = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+        return meta._meta_table['Dhcpv6IssuRoleEnum']
+
+
+class Dhcpv6IssuVersionEnum(Enum):
+    """
+    Dhcpv6IssuVersionEnum
+
+    Dhcpv6 issu version
+
+    .. data:: version1 = 0
+
+    	Version 1
+
+    .. data:: version2 = 1
+
+    	Version 2
+
+    """
+
+    version1 = 0
+
+    version2 = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+        return meta._meta_table['Dhcpv6IssuVersionEnum']
+
+
+class LeaseLimitEnum(Enum):
+    """
+    LeaseLimitEnum
+
+    Profile lease limit type
+
+    .. data:: none = 0
+
+    	Lease limit type none
+
+    .. data:: interface = 1
+
+    	Lease limit type interface
+
+    .. data:: circuit_id = 2
+
+    	Lease limit type circuit ID
+
+    .. data:: remote_id = 3
+
+    	Lease limit type remote ID
+
+    """
+
+    none = 0
+
+    interface = 1
+
+    circuit_id = 2
+
+    remote_id = 3
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+        return meta._meta_table['LeaseLimitEnum']
+
+
 
 class Dhcpv6(object):
     """
     IPV6 DHCPD operational data
     
-    .. attribute:: database
+    .. attribute:: issu_status
     
-    	DHCP database
-    	**type**\:   :py:class:`Database <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Database>`
+    	DHCP IssuStatus
+    	**type**\:   :py:class:`IssuStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.IssuStatus>`
     
     .. attribute:: nodes
     
@@ -183,129 +420,89 @@ class Dhcpv6(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.database = Dhcpv6.Database()
-        self.database.parent = self
+        self.issu_status = Dhcpv6.IssuStatus()
+        self.issu_status.parent = self
         self.nodes = Dhcpv6.Nodes()
         self.nodes.parent = self
 
 
-    class Database(object):
+    class IssuStatus(object):
         """
-        DHCP database
+        DHCP IssuStatus
         
-        .. attribute:: configured
+        .. attribute:: big_bang_time
         
-        	Database feature configured
+        	Timestamp for the Big Bang notification time in nanoseconds since Epoch, i.e. since 00\:00\:00 UTC , January 1, 1970
+        	**type**\:  int
+        
+        	**range:** 0..18446744073709551615
+        
+        	**units**\: nanosecond
+        
+        .. attribute:: issu_ready_issu_mgr_connection
+        
+        	Whether or not DHCP is currently connected to ISSU Manager during the ISSU Load Phase
         	**type**\:  bool
         
-        .. attribute:: failed_full_file_write_count
+        .. attribute:: issu_ready_time
         
-        	Failed full file write count
+        	Timestamp for the ISSU ready declaration in nanoseconds since Epoch, i.e. since 00\:00\:00 UTC , January 1, 1970
         	**type**\:  int
         
-        	**range:** 0..4294967295
+        	**range:** 0..18446744073709551615
         
-        .. attribute:: failed_incremental_file_write_count
+        	**units**\: nanosecond
         
-        	Failed incremental file write count
+        .. attribute:: issu_sync_complete_time
+        
+        	Timestamp for the ISSU sync complete in nanoseconds since Epoch, i.e. since 00\:00\:00 UTC , January 1, 1970
         	**type**\:  int
         
-        	**range:** 0..4294967295
+        	**range:** 0..18446744073709551615
         
-        .. attribute:: full_file_record_count
+        	**units**\: nanosecond
         
-        	Full file record count
+        .. attribute:: issu_sync_start_time
+        
+        	Timestamp for the ISSU sync start in nanoseconds since Epoch, i.e. since 00\:00\:00 UTC, January 1, 1970
         	**type**\:  int
         
-        	**range:** 0..4294967295
+        	**range:** 0..18446744073709551615
         
-        .. attribute:: full_file_write_count
+        	**units**\: nanosecond
         
-        	Full file write count
+        .. attribute:: phase
+        
+        	The current ISSU phase of the DHCP process
+        	**type**\:   :py:class:`DhcpIssuPhaseEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.DhcpIssuPhaseEnum>`
+        
+        .. attribute:: primary_role_time
+        
+        	Timestamp for the change to Primary role notification time in nanoseconds since Epoch, i .e. since 00\:00\:00 UTC, January 1, 1970
         	**type**\:  int
         
-        	**range:** 0..4294967295
+        	**range:** 0..18446744073709551615
         
-        .. attribute:: full_file_write_interval
+        	**units**\: nanosecond
         
-        	Full file write interval in minutes
+        .. attribute:: process_start_time
+        
+        	Timestamp for the process start time in nanoseconds since Epoch, i.e. since 00\:00\:00 UTC , January 1, 1970
         	**type**\:  int
         
-        	**range:** 0..4294967295
+        	**range:** 0..18446744073709551615
         
-        	**units**\: minute
+        	**units**\: nanosecond
         
-        .. attribute:: incremental_file_record_count
+        .. attribute:: role
         
-        	Incremental file record count
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: incremental_file_write_count
-        
-        	Incremental file write count
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: incremental_file_write_interval
-        
-        	Incremental file write interval in minutes
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        	**units**\: minute
-        
-        .. attribute:: last_full_file_write_error_timestamp
-        
-        	Last full file write error timestamp since epoch
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: last_full_write_file_name
-        
-        	Last full write file name
-        	**type**\:  str
-        
-        	**length:** 0..64
-        
-        .. attribute:: last_full_write_time
-        
-        	Last full write time since epoch
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: last_incremental_file_write_error_timestamp
-        
-        	Last incremental file write error timestamp since epoch
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: last_incremental_write_file_name
-        
-        	Last incremental write file name
-        	**type**\:  str
-        
-        	**length:** 0..64
-        
-        .. attribute:: last_incremental_write_time
-        
-        	Last incremental write time since epoch
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
+        	The current role of the DHCP process
+        	**type**\:   :py:class:`Dhcpv6IssuRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6IssuRoleEnum>`
         
         .. attribute:: version
         
-        	Current file version
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
+        	The current version of the DHCP process in the context of an ISSU
+        	**type**\:   :py:class:`Dhcpv6IssuVersionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6IssuVersionEnum>`
         
         
 
@@ -316,27 +513,21 @@ class Dhcpv6(object):
 
         def __init__(self):
             self.parent = None
-            self.configured = None
-            self.failed_full_file_write_count = None
-            self.failed_incremental_file_write_count = None
-            self.full_file_record_count = None
-            self.full_file_write_count = None
-            self.full_file_write_interval = None
-            self.incremental_file_record_count = None
-            self.incremental_file_write_count = None
-            self.incremental_file_write_interval = None
-            self.last_full_file_write_error_timestamp = None
-            self.last_full_write_file_name = None
-            self.last_full_write_time = None
-            self.last_incremental_file_write_error_timestamp = None
-            self.last_incremental_write_file_name = None
-            self.last_incremental_write_time = None
+            self.big_bang_time = None
+            self.issu_ready_issu_mgr_connection = None
+            self.issu_ready_time = None
+            self.issu_sync_complete_time = None
+            self.issu_sync_start_time = None
+            self.phase = None
+            self.primary_role_time = None
+            self.process_start_time = None
+            self.role = None
             self.version = None
 
         @property
         def _common_path(self):
 
-            return '/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:database'
+            return '/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:issu-status'
 
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
@@ -345,49 +536,31 @@ class Dhcpv6(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.configured is not None:
+            if self.big_bang_time is not None:
                 return True
 
-            if self.failed_full_file_write_count is not None:
+            if self.issu_ready_issu_mgr_connection is not None:
                 return True
 
-            if self.failed_incremental_file_write_count is not None:
+            if self.issu_ready_time is not None:
                 return True
 
-            if self.full_file_record_count is not None:
+            if self.issu_sync_complete_time is not None:
                 return True
 
-            if self.full_file_write_count is not None:
+            if self.issu_sync_start_time is not None:
                 return True
 
-            if self.full_file_write_interval is not None:
+            if self.phase is not None:
                 return True
 
-            if self.incremental_file_record_count is not None:
+            if self.primary_role_time is not None:
                 return True
 
-            if self.incremental_file_write_count is not None:
+            if self.process_start_time is not None:
                 return True
 
-            if self.incremental_file_write_interval is not None:
-                return True
-
-            if self.last_full_file_write_error_timestamp is not None:
-                return True
-
-            if self.last_full_write_file_name is not None:
-                return True
-
-            if self.last_full_write_time is not None:
-                return True
-
-            if self.last_incremental_file_write_error_timestamp is not None:
-                return True
-
-            if self.last_incremental_write_file_name is not None:
-                return True
-
-            if self.last_incremental_write_time is not None:
+            if self.role is not None:
                 return True
 
             if self.version is not None:
@@ -398,7 +571,7 @@ class Dhcpv6(object):
         @staticmethod
         def _meta_info():
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
-            return meta._meta_table['Dhcpv6.Database']['meta_info']
+            return meta._meta_table['Dhcpv6.IssuStatus']['meta_info']
 
 
     class Nodes(object):
@@ -435,6 +608,11 @@ class Dhcpv6(object):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            .. attribute:: base
+            
+            	IPv6 DHCP Base
+            	**type**\:   :py:class:`Base <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Base>`
+            
             .. attribute:: proxy
             
             	IPv6 DHCP proxy operational data
@@ -460,6 +638,8 @@ class Dhcpv6(object):
             def __init__(self):
                 self.parent = None
                 self.node_name = None
+                self.base = Dhcpv6.Nodes.Node.Base()
+                self.base.parent = self
                 self.proxy = Dhcpv6.Nodes.Node.Proxy()
                 self.proxy.parent = self
                 self.relay = Dhcpv6.Nodes.Node.Relay()
@@ -476,6 +656,11 @@ class Dhcpv6(object):
                 
                 	DHCPV6 proxy bindings
                 	**type**\:   :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding>`
+                
+                .. attribute:: interfaces
+                
+                	DHCPV6 proxy interface
+                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Interfaces>`
                 
                 .. attribute:: profiles
                 
@@ -503,6 +688,8 @@ class Dhcpv6(object):
                     self.parent = None
                     self.binding = Dhcpv6.Nodes.Node.Proxy.Binding()
                     self.binding.parent = self
+                    self.interfaces = Dhcpv6.Nodes.Node.Proxy.Interfaces()
+                    self.interfaces.parent = self
                     self.profiles = Dhcpv6.Nodes.Node.Proxy.Profiles()
                     self.profiles.parent = self
                     self.statistics = Dhcpv6.Nodes.Node.Proxy.Statistics()
@@ -2703,6 +2890,213 @@ class Dhcpv6(object):
                         return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles']['meta_info']
 
 
+                class Interfaces(object):
+                    """
+                    DHCPV6 proxy interface
+                    
+                    .. attribute:: interface
+                    
+                    	IPv6 DHCP proxy interface
+                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Interfaces.Interface>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-new-dhcpv6d-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.interface = YList()
+                        self.interface.parent = self
+                        self.interface.name = 'interface'
+
+
+                    class Interface(object):
+                        """
+                        IPv6 DHCP proxy interface
+                        
+                        .. attribute:: interface_name  <key>
+                        
+                        	Interface Name
+                        	**type**\:  str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                        
+                        .. attribute:: is_proxy_interface_ambiguous
+                        
+                        	Is interface ambiguous
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: mac_throttle
+                        
+                        	Mac Throttle Status
+                        	**type**\:  bool
+                        
+                        .. attribute:: proxy_interface_lease_limit_type
+                        
+                        	Lease limit type on interface
+                        	**type**\:   :py:class:`LeaseLimitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.LeaseLimitEnum>`
+                        
+                        .. attribute:: proxy_interface_lease_limits
+                        
+                        	Lease limit count on interface
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: proxy_interface_mode
+                        
+                        	Mode of interface
+                        	**type**\:   :py:class:`BagDhcpv6DSubModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6DSubModeEnum>`
+                        
+                        .. attribute:: proxy_interface_profile_name
+                        
+                        	Name of profile attached to the interface
+                        	**type**\:  str
+                        
+                        	**length:** 0..65
+                        
+                        .. attribute:: proxy_vrf_name
+                        
+                        	VRF name
+                        	**type**\:  str
+                        
+                        	**length:** 0..33
+                        
+                        .. attribute:: serg_role
+                        
+                        	DHCPv6 Interface SERG role
+                        	**type**\:   :py:class:`BagDhcpv6DIntfSergRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6DIntfSergRoleEnum>`
+                        
+                        .. attribute:: srg_role
+                        
+                        	DHCPv6 Interface SRG role
+                        	**type**\:   :py:class:`BagDhcpv6DIntfSrgRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6DIntfSrgRoleEnum>`
+                        
+                        .. attribute:: srg_vrf_name
+                        
+                        	SRG VRF name
+                        	**type**\:  str
+                        
+                        	**length:** 0..33
+                        
+                        .. attribute:: srgp2p
+                        
+                        	SRG P2P Status
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-new-dhcpv6d-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.interface_name = None
+                            self.is_proxy_interface_ambiguous = None
+                            self.mac_throttle = None
+                            self.proxy_interface_lease_limit_type = None
+                            self.proxy_interface_lease_limits = None
+                            self.proxy_interface_mode = None
+                            self.proxy_interface_profile_name = None
+                            self.proxy_vrf_name = None
+                            self.serg_role = None
+                            self.srg_role = None
+                            self.srg_vrf_name = None
+                            self.srgp2p = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            if self.interface_name is None:
+                                raise YPYModelError('Key property interface_name is None')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:interface[Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:interface-name = ' + str(self.interface_name) + ']'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.interface_name is not None:
+                                return True
+
+                            if self.is_proxy_interface_ambiguous is not None:
+                                return True
+
+                            if self.mac_throttle is not None:
+                                return True
+
+                            if self.proxy_interface_lease_limit_type is not None:
+                                return True
+
+                            if self.proxy_interface_lease_limits is not None:
+                                return True
+
+                            if self.proxy_interface_mode is not None:
+                                return True
+
+                            if self.proxy_interface_profile_name is not None:
+                                return True
+
+                            if self.proxy_vrf_name is not None:
+                                return True
+
+                            if self.serg_role is not None:
+                                return True
+
+                            if self.srg_role is not None:
+                                return True
+
+                            if self.srg_vrf_name is not None:
+                                return True
+
+                            if self.srgp2p is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Interfaces.Interface']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:interfaces'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.interface is not None:
+                            for child_ref in self.interface:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Proxy.Interfaces']['meta_info']
+
+
                 class Statistics(object):
                     """
                     DHCPv6 proxy statistics
@@ -3059,6 +3453,20 @@ class Dhcpv6(object):
                             
                             	**length:** 0..771
                             
+                            .. attribute:: serg_intf_role
+                            
+                            	DHCPV6 SERG Intf Role
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: serg_state
+                            
+                            	DHCPV6 SERG state
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: server_ipv6_address
                             
                             	DHCPV6 server IPv6 address
@@ -3149,6 +3557,8 @@ class Dhcpv6(object):
                                 self.proxy_binding_tags = None
                                 self.rx_interface_id = None
                                 self.rx_remote_id = None
+                                self.serg_intf_role = None
+                                self.serg_state = None
                                 self.server_ipv6_address = None
                                 self.srg_intf_role = None
                                 self.srg_state = None
@@ -3509,6 +3919,12 @@ class Dhcpv6(object):
                                     return True
 
                                 if self.rx_remote_id is not None:
+                                    return True
+
+                                if self.serg_intf_role is not None:
+                                    return True
+
+                                if self.serg_state is not None:
                                     return True
 
                                 if self.server_ipv6_address is not None:
@@ -3908,6 +4324,9 @@ class Dhcpv6(object):
                     if self.binding is not None and self.binding._has_data():
                         return True
 
+                    if self.interfaces is not None and self.interfaces._has_data():
+                        return True
+
                     if self.profiles is not None and self.profiles._has_data():
                         return True
 
@@ -3925,6 +4344,636 @@ class Dhcpv6(object):
                     return meta._meta_table['Dhcpv6.Nodes.Node.Proxy']['meta_info']
 
 
+            class Base(object):
+                """
+                IPv6 DHCP Base
+                
+                .. attribute:: addr_bindings
+                
+                	IPv6 DHCP Base Binding
+                	**type**\:   :py:class:`AddrBindings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Base.AddrBindings>`
+                
+                .. attribute:: database
+                
+                	DHCP database
+                	**type**\:   :py:class:`Database <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Base.Database>`
+                
+                
+
+                """
+
+                _prefix = 'ipv6-new-dhcpv6d-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.addr_bindings = Dhcpv6.Nodes.Node.Base.AddrBindings()
+                    self.addr_bindings.parent = self
+                    self.database = Dhcpv6.Nodes.Node.Base.Database()
+                    self.database.parent = self
+
+
+                class Database(object):
+                    """
+                    DHCP database
+                    
+                    .. attribute:: configured
+                    
+                    	Database feature configured
+                    	**type**\:  bool
+                    
+                    .. attribute:: failed_full_file_write_count
+                    
+                    	Failed full file write count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: failed_incremental_file_write_count
+                    
+                    	Failed incremental file write count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: full_file_record_count
+                    
+                    	Full file record count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: full_file_write_count
+                    
+                    	Full file write count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: full_file_write_interval
+                    
+                    	Full file write interval in minutes
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: minute
+                    
+                    .. attribute:: incremental_file_record_count
+                    
+                    	Incremental file record count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: incremental_file_write_count
+                    
+                    	Incremental file write count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: incremental_file_write_interval
+                    
+                    	Incremental file write interval in minutes
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: minute
+                    
+                    .. attribute:: last_full_file_write_error_timestamp
+                    
+                    	Last full file write error timestamp since epoch
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_full_write_file_name
+                    
+                    	Last full write file name
+                    	**type**\:  str
+                    
+                    	**length:** 0..64
+                    
+                    .. attribute:: last_full_write_time
+                    
+                    	Last full write time since epoch
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_incremental_file_write_error_timestamp
+                    
+                    	Last incremental file write error timestamp since epoch
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_incremental_write_file_name
+                    
+                    	Last incremental write file name
+                    	**type**\:  str
+                    
+                    	**length:** 0..64
+                    
+                    .. attribute:: last_incremental_write_time
+                    
+                    	Last incremental write time since epoch
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: version
+                    
+                    	Current file version
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-new-dhcpv6d-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.configured = None
+                        self.failed_full_file_write_count = None
+                        self.failed_incremental_file_write_count = None
+                        self.full_file_record_count = None
+                        self.full_file_write_count = None
+                        self.full_file_write_interval = None
+                        self.incremental_file_record_count = None
+                        self.incremental_file_write_count = None
+                        self.incremental_file_write_interval = None
+                        self.last_full_file_write_error_timestamp = None
+                        self.last_full_write_file_name = None
+                        self.last_full_write_time = None
+                        self.last_incremental_file_write_error_timestamp = None
+                        self.last_incremental_write_file_name = None
+                        self.last_incremental_write_time = None
+                        self.version = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:database'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.configured is not None:
+                            return True
+
+                        if self.failed_full_file_write_count is not None:
+                            return True
+
+                        if self.failed_incremental_file_write_count is not None:
+                            return True
+
+                        if self.full_file_record_count is not None:
+                            return True
+
+                        if self.full_file_write_count is not None:
+                            return True
+
+                        if self.full_file_write_interval is not None:
+                            return True
+
+                        if self.incremental_file_record_count is not None:
+                            return True
+
+                        if self.incremental_file_write_count is not None:
+                            return True
+
+                        if self.incremental_file_write_interval is not None:
+                            return True
+
+                        if self.last_full_file_write_error_timestamp is not None:
+                            return True
+
+                        if self.last_full_write_file_name is not None:
+                            return True
+
+                        if self.last_full_write_time is not None:
+                            return True
+
+                        if self.last_incremental_file_write_error_timestamp is not None:
+                            return True
+
+                        if self.last_incremental_write_file_name is not None:
+                            return True
+
+                        if self.last_incremental_write_time is not None:
+                            return True
+
+                        if self.version is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Base.Database']['meta_info']
+
+
+                class AddrBindings(object):
+                    """
+                    IPv6 DHCP Base Binding
+                    
+                    .. attribute:: addr_binding
+                    
+                    	DHCPv6 base stats debug
+                    	**type**\: list of    :py:class:`AddrBinding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Base.AddrBindings.AddrBinding>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-new-dhcpv6d-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.addr_binding = YList()
+                        self.addr_binding.parent = self
+                        self.addr_binding.name = 'addr_binding'
+
+
+                    class AddrBinding(object):
+                        """
+                        DHCPv6 base stats debug
+                        
+                        .. attribute:: addr_string  <key>
+                        
+                        	Address String
+                        	**type**\:  str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                        
+                        .. attribute:: access_vrf_name
+                        
+                        	DHCPV6 access interface VRF name
+                        	**type**\:  str
+                        
+                        	**length:** 0..33
+                        
+                        .. attribute:: base_binding_inner_tag
+                        
+                        	DHCPV6 VLAN Inner VLAN
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: base_binding_outer_tag
+                        
+                        	DHCPV6 VLAN Outer VLAN
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: base_binding_tags
+                        
+                        	DHCPV6 VLAN tag count
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: interface_name
+                        
+                        	DHCPV6 access interface to client
+                        	**type**\:  str
+                        
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        
+                        .. attribute:: ipv6_address
+                        
+                        	DHCPV6 IPv6 address
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: is_nak_next_renew
+                        
+                        	Is true if DHCPV6 next renew from client will be NAK'd
+                        	**type**\:  bool
+                        
+                        .. attribute:: lease_time
+                        
+                        	Lease time in seconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: second
+                        
+                        .. attribute:: mac_address
+                        
+                        	DHCPV6 client MAC address
+                        	**type**\:  str
+                        
+                        .. attribute:: old_subscriber_label
+                        
+                        	DHCPV6 old subscriber label
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: profile_name
+                        
+                        	DHCPV6 profile name
+                        	**type**\:  str
+                        
+                        	**length:** 0..64
+                        
+                        .. attribute:: remaining_lease_time
+                        
+                        	Remaining lease time in seconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: second
+                        
+                        .. attribute:: reply_server_ipv6_address
+                        
+                        	DHCPV6 reply server IPv6 address
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: rx_client_duid
+                        
+                        	DHCPV6 received client DUID
+                        	**type**\:  str
+                        
+                        	**length:** 0..771
+                        
+                        .. attribute:: rx_interface_id
+                        
+                        	DHCPV6 received Interface ID
+                        	**type**\:  str
+                        
+                        	**length:** 0..771
+                        
+                        .. attribute:: rx_remote_id
+                        
+                        	DHCPV6 received Remote ID
+                        	**type**\:  str
+                        
+                        	**length:** 0..771
+                        
+                        .. attribute:: server_ipv6_address
+                        
+                        	DHCPV6 server IPv6 address
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: server_vrf_name
+                        
+                        	DHCPV6 server VRF name
+                        	**type**\:  str
+                        
+                        	**length:** 0..33
+                        
+                        .. attribute:: state
+                        
+                        	DHCPV6 client state
+                        	**type**\:   :py:class:`BagDhcpv6DFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6DFsmStateEnum>`
+                        
+                        .. attribute:: subscriber_label
+                        
+                        	DHCPV6 subscriber label
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: tx_client_uid
+                        
+                        	DHCPV6 transmitted client DUID
+                        	**type**\:  str
+                        
+                        	**length:** 0..771
+                        
+                        .. attribute:: tx_interface_id
+                        
+                        	DHCPV6 transmitted Interface ID
+                        	**type**\:  str
+                        
+                        	**length:** 0..771
+                        
+                        .. attribute:: tx_remote_id
+                        
+                        	DHCPV6 transmitted Remote ID
+                        	**type**\:  str
+                        
+                        	**length:** 0..771
+                        
+                        .. attribute:: vrf_name
+                        
+                        	DHCPV6 client/subscriber VRF name
+                        	**type**\:  str
+                        
+                        	**length:** 0..33
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-new-dhcpv6d-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.addr_string = None
+                            self.access_vrf_name = None
+                            self.base_binding_inner_tag = None
+                            self.base_binding_outer_tag = None
+                            self.base_binding_tags = None
+                            self.interface_name = None
+                            self.ipv6_address = None
+                            self.is_nak_next_renew = None
+                            self.lease_time = None
+                            self.mac_address = None
+                            self.old_subscriber_label = None
+                            self.profile_name = None
+                            self.remaining_lease_time = None
+                            self.reply_server_ipv6_address = None
+                            self.rx_client_duid = None
+                            self.rx_interface_id = None
+                            self.rx_remote_id = None
+                            self.server_ipv6_address = None
+                            self.server_vrf_name = None
+                            self.state = None
+                            self.subscriber_label = None
+                            self.tx_client_uid = None
+                            self.tx_interface_id = None
+                            self.tx_remote_id = None
+                            self.vrf_name = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            if self.addr_string is None:
+                                raise YPYModelError('Key property addr_string is None')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:addr-binding[Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:addr-string = ' + str(self.addr_string) + ']'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.addr_string is not None:
+                                return True
+
+                            if self.access_vrf_name is not None:
+                                return True
+
+                            if self.base_binding_inner_tag is not None:
+                                return True
+
+                            if self.base_binding_outer_tag is not None:
+                                return True
+
+                            if self.base_binding_tags is not None:
+                                return True
+
+                            if self.interface_name is not None:
+                                return True
+
+                            if self.ipv6_address is not None:
+                                return True
+
+                            if self.is_nak_next_renew is not None:
+                                return True
+
+                            if self.lease_time is not None:
+                                return True
+
+                            if self.mac_address is not None:
+                                return True
+
+                            if self.old_subscriber_label is not None:
+                                return True
+
+                            if self.profile_name is not None:
+                                return True
+
+                            if self.remaining_lease_time is not None:
+                                return True
+
+                            if self.reply_server_ipv6_address is not None:
+                                return True
+
+                            if self.rx_client_duid is not None:
+                                return True
+
+                            if self.rx_interface_id is not None:
+                                return True
+
+                            if self.rx_remote_id is not None:
+                                return True
+
+                            if self.server_ipv6_address is not None:
+                                return True
+
+                            if self.server_vrf_name is not None:
+                                return True
+
+                            if self.state is not None:
+                                return True
+
+                            if self.subscriber_label is not None:
+                                return True
+
+                            if self.tx_client_uid is not None:
+                                return True
+
+                            if self.tx_interface_id is not None:
+                                return True
+
+                            if self.tx_remote_id is not None:
+                                return True
+
+                            if self.vrf_name is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Base.AddrBindings.AddrBinding']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:addr-bindings'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.addr_binding is not None:
+                            for child_ref in self.addr_binding:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Base.AddrBindings']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:base'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.addr_bindings is not None and self.addr_bindings._has_data():
+                        return True
+
+                    if self.database is not None and self.database._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                    return meta._meta_table['Dhcpv6.Nodes.Node.Base']['meta_info']
+
+
             class Server(object):
                 """
                 IPv6 DHCP server operational data
@@ -3938,6 +4987,11 @@ class Dhcpv6(object):
                 
                 	DHCPv6 server binding with options
                 	**type**\:   :py:class:`BindingOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.BindingOptions>`
+                
+                .. attribute:: interfaces
+                
+                	DHCPV6 server interface
+                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Interfaces>`
                 
                 .. attribute:: profiles
                 
@@ -3967,6 +5021,8 @@ class Dhcpv6(object):
                     self.binding.parent = self
                     self.binding_options = Dhcpv6.Nodes.Node.Server.BindingOptions()
                     self.binding_options.parent = self
+                    self.interfaces = Dhcpv6.Nodes.Node.Server.Interfaces()
+                    self.interfaces.parent = self
                     self.profiles = Dhcpv6.Nodes.Node.Server.Profiles()
                     self.profiles.parent = self
                     self.statistics = Dhcpv6.Nodes.Node.Server.Statistics()
@@ -4463,6 +5519,13 @@ class Dhcpv6(object):
                             
                             	**length:** 0..771
                             
+                            .. attribute:: serg_intf_role
+                            
+                            	DHCPV6 SERG Intf Role
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: server_binding_inner_tag
                             
                             	DHCPV6 VLAN Inner VLAN
@@ -4483,6 +5546,13 @@ class Dhcpv6(object):
                             	**type**\:  int
                             
                             	**range:** 0..255
+                            
+                            .. attribute:: sesrg_state
+                            
+                            	DHCPV6 SERG state
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
                             
                             .. attribute:: srg_intf_role
                             
@@ -4555,9 +5625,11 @@ class Dhcpv6(object):
                                 self.profile_name = None
                                 self.rx_interface_id = None
                                 self.rx_remote_id = None
+                                self.serg_intf_role = None
                                 self.server_binding_inner_tag = None
                                 self.server_binding_outer_tag = None
                                 self.server_binding_tags = None
+                                self.sesrg_state = None
                                 self.srg_intf_role = None
                                 self.srg_state = None
                                 self.srg_vrf_name = None
@@ -4923,6 +5995,9 @@ class Dhcpv6(object):
                                 if self.rx_remote_id is not None:
                                     return True
 
+                                if self.serg_intf_role is not None:
+                                    return True
+
                                 if self.server_binding_inner_tag is not None:
                                     return True
 
@@ -4930,6 +6005,9 @@ class Dhcpv6(object):
                                     return True
 
                                 if self.server_binding_tags is not None:
+                                    return True
+
+                                if self.sesrg_state is not None:
                                     return True
 
                                 if self.srg_intf_role is not None:
@@ -7062,6 +8140,213 @@ class Dhcpv6(object):
                         return meta._meta_table['Dhcpv6.Nodes.Node.Server.Profiles']['meta_info']
 
 
+                class Interfaces(object):
+                    """
+                    DHCPV6 server interface
+                    
+                    .. attribute:: interface
+                    
+                    	IPv6 DHCP server interface
+                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Interfaces.Interface>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-new-dhcpv6d-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.interface = YList()
+                        self.interface.parent = self
+                        self.interface.name = 'interface'
+
+
+                    class Interface(object):
+                        """
+                        IPv6 DHCP server interface
+                        
+                        .. attribute:: interface_name  <key>
+                        
+                        	Interface Name
+                        	**type**\:  str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                        
+                        .. attribute:: is_server_interface_ambiguous
+                        
+                        	Is interface ambiguous
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: mac_throttle
+                        
+                        	Mac Throttle Status
+                        	**type**\:  bool
+                        
+                        .. attribute:: serg_role
+                        
+                        	DHCPv6 Interface SERG role
+                        	**type**\:   :py:class:`BagDhcpv6DIntfSergRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6DIntfSergRoleEnum>`
+                        
+                        .. attribute:: server_interface_lease_limit_type
+                        
+                        	Lease limit type on interface
+                        	**type**\:   :py:class:`LeaseLimitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.LeaseLimitEnum>`
+                        
+                        .. attribute:: server_interface_lease_limits
+                        
+                        	Lease limit count on interface
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: server_interface_mode
+                        
+                        	Mode of interface
+                        	**type**\:   :py:class:`BagDhcpv6DSubModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6DSubModeEnum>`
+                        
+                        .. attribute:: server_interface_profile_name
+                        
+                        	Name of profile attached to the interface
+                        	**type**\:  str
+                        
+                        	**length:** 0..65
+                        
+                        .. attribute:: server_vrf_name
+                        
+                        	VRF name
+                        	**type**\:  str
+                        
+                        	**length:** 0..33
+                        
+                        .. attribute:: srg_role
+                        
+                        	DHCPv6 Interface SRG role
+                        	**type**\:   :py:class:`BagDhcpv6DIntfSrgRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6DIntfSrgRoleEnum>`
+                        
+                        .. attribute:: srg_vrf_name
+                        
+                        	SRG VRF name
+                        	**type**\:  str
+                        
+                        	**length:** 0..33
+                        
+                        .. attribute:: srgp2p
+                        
+                        	SRG P2P Status
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-new-dhcpv6d-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.interface_name = None
+                            self.is_server_interface_ambiguous = None
+                            self.mac_throttle = None
+                            self.serg_role = None
+                            self.server_interface_lease_limit_type = None
+                            self.server_interface_lease_limits = None
+                            self.server_interface_mode = None
+                            self.server_interface_profile_name = None
+                            self.server_vrf_name = None
+                            self.srg_role = None
+                            self.srg_vrf_name = None
+                            self.srgp2p = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            if self.interface_name is None:
+                                raise YPYModelError('Key property interface_name is None')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:interface[Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:interface-name = ' + str(self.interface_name) + ']'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.interface_name is not None:
+                                return True
+
+                            if self.is_server_interface_ambiguous is not None:
+                                return True
+
+                            if self.mac_throttle is not None:
+                                return True
+
+                            if self.serg_role is not None:
+                                return True
+
+                            if self.server_interface_lease_limit_type is not None:
+                                return True
+
+                            if self.server_interface_lease_limits is not None:
+                                return True
+
+                            if self.server_interface_mode is not None:
+                                return True
+
+                            if self.server_interface_profile_name is not None:
+                                return True
+
+                            if self.server_vrf_name is not None:
+                                return True
+
+                            if self.srg_role is not None:
+                                return True
+
+                            if self.srg_vrf_name is not None:
+                                return True
+
+                            if self.srgp2p is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Server.Interfaces.Interface']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:interfaces'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.interface is not None:
+                            for child_ref in self.interface:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Server.Interfaces']['meta_info']
+
+
                 class Statistics(object):
                     """
                     DHCPv6 server statistics
@@ -7612,6 +8897,9 @@ class Dhcpv6(object):
                         return True
 
                     if self.binding_options is not None and self.binding_options._has_data():
+                        return True
+
+                    if self.interfaces is not None and self.interfaces._has_data():
                         return True
 
                     if self.profiles is not None and self.profiles._has_data():
@@ -9695,6 +10983,9 @@ class Dhcpv6(object):
                 if self.node_name is not None:
                     return True
 
+                if self.base is not None and self.base._has_data():
+                    return True
+
                 if self.proxy is not None and self.proxy._has_data():
                     return True
 
@@ -9747,7 +11038,7 @@ class Dhcpv6(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.database is not None and self.database._has_data():
+        if self.issu_status is not None and self.issu_status._has_data():
             return True
 
         if self.nodes is not None and self.nodes._has_data():

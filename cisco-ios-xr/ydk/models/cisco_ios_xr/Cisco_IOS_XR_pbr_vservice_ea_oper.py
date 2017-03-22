@@ -3256,7 +3256,7 @@ class ServiceFunctionChaining(object):
                             	Name
                             	**type**\:  str
                             
-                            	**length:** 0..32
+                            	**length:** 1..32
                             
                             .. attribute:: data
                             
@@ -5231,7 +5231,7 @@ class ServiceFunctionChaining(object):
                             	Name
                             	**type**\:  str
                             
-                            	**length:** 0..32
+                            	**length:** 1..32
                             
                             .. attribute:: data
                             

@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'ImCmdIntfTypeEnumEnum' : _MetaInfoEnum('ImCmdIntfTypeEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
@@ -315,6 +314,7 @@ _meta_table = {
             'bm-mbr-state-reason-bfd-ipv6-down':'bm_mbr_state_reason_bfd_ipv6_down',
             'bm-mbr-state-reason-bfd-ipv6-nbr-unconfig':'bm_mbr_state_reason_bfd_ipv6_nbr_unconfig',
             'bm-mbr-state-reason-timer-running':'bm_mbr_state_reason_timer_running',
+            'bm-mbr-state-reason-client-bundle-ctrl':'bm_mbr_state_reason_client_bundle_ctrl',
             'bm-mbr-state-reason-count':'bm_mbr_state_reason_count',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
     'BmSeverityEnum' : _MetaInfoEnum('BmSeverityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper',
@@ -3146,6 +3146,12 @@ _meta_table = {
                 ''',
                 'destination_ip_address',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('destination-ip-address-length', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Tunnel destination IP address length
+                ''',
+                'destination_ip_address_length',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('df-bit-state', REFERENCE_ENUM_CLASS, 'TunnelKaDfStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'TunnelKaDfStateEnum', 
                 [], [], 
                 '''                DF Bit State
@@ -3199,6 +3205,12 @@ _meta_table = {
                 '''                Tunnel GRE Mode
                 ''',
                 'tunnel_mode',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('tunnel-mode-decap', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Tunnel Mode Decap
+                ''',
+                'tunnel_mode_decap',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('tunnel-tos', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 

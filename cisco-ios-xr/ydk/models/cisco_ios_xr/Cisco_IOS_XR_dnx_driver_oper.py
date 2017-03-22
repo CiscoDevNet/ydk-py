@@ -262,9 +262,9 @@ class AsicEnum(Enum):
 
     	asic b2b
 
-    .. data:: asic_unknown = 6
+    .. data:: asic_type_unknown = 6
 
-    	asic unknown
+    	asic type unknown
 
     """
 
@@ -282,7 +282,7 @@ class AsicEnum(Enum):
 
     asic_b2b = 5
 
-    asic_unknown = 6
+    asic_type_unknown = 6
 
 
     @staticmethod
@@ -1034,7 +1034,7 @@ class Fia(object):
                                         	End number
                                         	**type**\:  int
                                         
-                                        	**range:** 0..35
+                                        	**range:** 0..47
                                         
                                         .. attribute:: rx_link
                                         
@@ -1046,7 +1046,7 @@ class Fia(object):
                                         	Start number
                                         	**type**\:  int
                                         
-                                        	**range:** 0..35
+                                        	**range:** 0..47
                                         
                                         .. attribute:: status_option
                                         
@@ -1087,6 +1087,13 @@ class Fia(object):
                                             
                                             	Admin State
                                             	**type**\:   :py:class:`AdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminStateEnum>`
+                                            
+                                            .. attribute:: correctable_errors
+                                            
+                                            	correctable errors
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..18446744073709551615
                                             
                                             .. attribute:: error_state
                                             
@@ -1159,6 +1166,13 @@ class Fia(object):
                                             	this link
                                             	**type**\:   :py:class:`ThisLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink>`
                                             
+                                            .. attribute:: uncorrectable_errors
+                                            
+                                            	uncorrectable errors
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..18446744073709551615
+                                            
                                             
 
                                             """
@@ -1170,6 +1184,7 @@ class Fia(object):
                                                 self.parent = None
                                                 self.link = None
                                                 self.admin_state = None
+                                                self.correctable_errors = None
                                                 self.error_state = None
                                                 self.far_end_link = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink()
                                                 self.far_end_link.parent = self
@@ -1187,6 +1202,7 @@ class Fia(object):
                                                 self.stage = None
                                                 self.this_link = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink()
                                                 self.this_link.parent = self
+                                                self.uncorrectable_errors = None
 
 
                                             class ThisLink(object):
@@ -1883,6 +1899,9 @@ class Fia(object):
                                                 if self.admin_state is not None:
                                                     return True
 
+                                                if self.correctable_errors is not None:
+                                                    return True
+
                                                 if self.error_state is not None:
                                                     return True
 
@@ -1920,6 +1939,9 @@ class Fia(object):
                                                     return True
 
                                                 if self.this_link is not None and self.this_link._has_data():
+                                                    return True
+
+                                                if self.uncorrectable_errors is not None:
                                                     return True
 
                                                 return False
@@ -2205,6 +2227,13 @@ class Fia(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                .. attribute:: fabric_mode
+                
+                	fabric mode
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
                 .. attribute:: fc_mode
                 
                 	FC Mode
@@ -2299,6 +2328,11 @@ class Fia(object):
                 
                 	**range:** 0..255
                 
+                .. attribute:: node_id
+                
+                	node id
+                	**type**\:  str
+                
                 .. attribute:: num_cm_conn_reqs
                 
                 	num cm conn reqs
@@ -2354,11 +2388,6 @@ class Fia(object):
                 	**type**\:  int
                 
                 	**range:** 0..255
-                
-                .. attribute:: rack_name
-                
-                	rack name
-                	**type**\:  str
                 
                 .. attribute:: rack_num
                 
@@ -2427,6 +2456,7 @@ class Fia(object):
                     self.drvr_current_startup_timestamp = None
                     self.drvr_initial_startup_timestamp = None
                     self.exp_asic_avail_mask = None
+                    self.fabric_mode = None
                     self.fc_mode = None
                     self.fgid_conn_active = None
                     self.fgid_reg_active = None
@@ -2445,6 +2475,7 @@ class Fia(object):
                     self.issu_mgr_reg_active = None
                     self.issu_ready_ntfy_pending = None
                     self.issu_role = None
+                    self.node_id = None
                     self.num_cm_conn_reqs = None
                     self.num_fgid_conn_reqs = None
                     self.num_fsdb_conn_reqs = None
@@ -2453,7 +2484,6 @@ class Fia(object):
                     self.num_issu_mgr_conn_reqs = None
                     self.num_peer_fia_conn_reqs = None
                     self.num_pm_conn_reqs = None
-                    self.rack_name = None
                     self.rack_num = None
                     self.rack_type = None
                     self.respawn_count = None
@@ -3157,6 +3187,9 @@ class Fia(object):
                     if self.exp_asic_avail_mask is not None:
                         return True
 
+                    if self.fabric_mode is not None:
+                        return True
+
                     if self.fc_mode is not None:
                         return True
 
@@ -3211,6 +3244,9 @@ class Fia(object):
                     if self.issu_role is not None:
                         return True
 
+                    if self.node_id is not None:
+                        return True
+
                     if self.num_cm_conn_reqs is not None:
                         return True
 
@@ -3233,9 +3269,6 @@ class Fia(object):
                         return True
 
                     if self.num_pm_conn_reqs is not None:
-                        return True
-
-                    if self.rack_name is not None:
                         return True
 
                     if self.rack_num is not None:
@@ -3573,14 +3606,14 @@ class Fia(object):
                                         	End number
                                         	**type**\:  int
                                         
-                                        	**range:** 0..35
+                                        	**range:** 0..47
                                         
                                         .. attribute:: start_number
                                         
                                         	Start number
                                         	**type**\:  int
                                         
-                                        	**range:** 0..35
+                                        	**range:** 0..47
                                         
                                         .. attribute:: tx_link
                                         
@@ -5192,6 +5225,13 @@ class Fia(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                .. attribute:: fabric_mode
+                                
+                                	fabric mode
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
                                 .. attribute:: fc_mode
                                 
                                 	FC Mode
@@ -5286,6 +5326,11 @@ class Fia(object):
                                 
                                 	**range:** 0..255
                                 
+                                .. attribute:: node_id
+                                
+                                	node id
+                                	**type**\:  str
+                                
                                 .. attribute:: num_cm_conn_reqs
                                 
                                 	num cm conn reqs
@@ -5341,11 +5386,6 @@ class Fia(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..255
-                                
-                                .. attribute:: rack_name
-                                
-                                	rack name
-                                	**type**\:  str
                                 
                                 .. attribute:: rack_num
                                 
@@ -5415,6 +5455,7 @@ class Fia(object):
                                     self.drvr_current_startup_timestamp = None
                                     self.drvr_initial_startup_timestamp = None
                                     self.exp_asic_avail_mask = None
+                                    self.fabric_mode = None
                                     self.fc_mode = None
                                     self.fgid_conn_active = None
                                     self.fgid_reg_active = None
@@ -5433,6 +5474,7 @@ class Fia(object):
                                     self.issu_mgr_reg_active = None
                                     self.issu_ready_ntfy_pending = None
                                     self.issu_role = None
+                                    self.node_id = None
                                     self.num_cm_conn_reqs = None
                                     self.num_fgid_conn_reqs = None
                                     self.num_fsdb_conn_reqs = None
@@ -5441,7 +5483,6 @@ class Fia(object):
                                     self.num_issu_mgr_conn_reqs = None
                                     self.num_peer_fia_conn_reqs = None
                                     self.num_pm_conn_reqs = None
-                                    self.rack_name = None
                                     self.rack_num = None
                                     self.rack_type = None
                                     self.respawn_count = None
@@ -6150,6 +6191,9 @@ class Fia(object):
                                     if self.exp_asic_avail_mask is not None:
                                         return True
 
+                                    if self.fabric_mode is not None:
+                                        return True
+
                                     if self.fc_mode is not None:
                                         return True
 
@@ -6204,6 +6248,9 @@ class Fia(object):
                                     if self.issu_role is not None:
                                         return True
 
+                                    if self.node_id is not None:
+                                        return True
+
                                     if self.num_cm_conn_reqs is not None:
                                         return True
 
@@ -6226,9 +6273,6 @@ class Fia(object):
                                         return True
 
                                     if self.num_pm_conn_reqs is not None:
-                                        return True
-
-                                    if self.rack_name is not None:
                                         return True
 
                                     if self.rack_num is not None:
@@ -6566,7 +6610,7 @@ class Fia(object):
                                         	Block Name
                                         	**type**\:  str
                                         
-                                        	**length:** 0..11
+                                        	**length:** 0..10
                                         
                                         .. attribute:: field_info
                                         
@@ -6605,7 +6649,7 @@ class Fia(object):
                                             	Field Name
                                             	**type**\:  str
                                             
-                                            	**length:** 0..51
+                                            	**length:** 0..80
                                             
                                             .. attribute:: field_value
                                             

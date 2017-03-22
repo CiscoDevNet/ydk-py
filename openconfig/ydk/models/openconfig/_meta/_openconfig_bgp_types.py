@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'RemovePrivateAsOptionEnum' : _MetaInfoEnum('RemovePrivateAsOptionEnum', 'ydk.models.openconfig.openconfig_bgp_types',
         {
@@ -86,17 +85,6 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp_types'
         ),
     },
-    'L2VpnEvpnIdentity' : {
-        'meta_info' : _MetaInfoClass('L2VpnEvpnIdentity',
-            False, 
-            [
-            ],
-            'openconfig-bgp-types',
-            'L2VPN-EVPN',
-            _yang_ns._namespaces['openconfig-bgp-types'],
-        'ydk.models.openconfig.openconfig_bgp_types'
-        ),
-    },
     'No_Export_SubconfedIdentity' : {
         'meta_info' : _MetaInfoClass('No_Export_SubconfedIdentity',
             False, 
@@ -130,13 +118,13 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp_types'
         ),
     },
-    'L3VpnIpv6MulticastIdentity' : {
-        'meta_info' : _MetaInfoClass('L3VpnIpv6MulticastIdentity',
+    'Ipv4UnicastIdentity' : {
+        'meta_info' : _MetaInfoClass('Ipv4UnicastIdentity',
             False, 
             [
             ],
             'openconfig-bgp-types',
-            'L3VPN-IPV6-MULTICAST',
+            'ipv4-unicast',
             _yang_ns._namespaces['openconfig-bgp-types'],
         'ydk.models.openconfig.openconfig_bgp_types'
         ),
@@ -158,40 +146,7 @@ _meta_table = {
             [
             ],
             'openconfig-bgp-types',
-            'L3VPN-IPV4-MULTICAST',
-            _yang_ns._namespaces['openconfig-bgp-types'],
-        'ydk.models.openconfig.openconfig_bgp_types'
-        ),
-    },
-    'Ipv6UnicastIdentity' : {
-        'meta_info' : _MetaInfoClass('Ipv6UnicastIdentity',
-            False, 
-            [
-            ],
-            'openconfig-bgp-types',
-            'IPV6-UNICAST',
-            _yang_ns._namespaces['openconfig-bgp-types'],
-        'ydk.models.openconfig.openconfig_bgp_types'
-        ),
-    },
-    'L3VpnIpv6UnicastIdentity' : {
-        'meta_info' : _MetaInfoClass('L3VpnIpv6UnicastIdentity',
-            False, 
-            [
-            ],
-            'openconfig-bgp-types',
-            'L3VPN-IPV6-UNICAST',
-            _yang_ns._namespaces['openconfig-bgp-types'],
-        'ydk.models.openconfig.openconfig_bgp_types'
-        ),
-    },
-    'Ipv4LabelledUnicastIdentity' : {
-        'meta_info' : _MetaInfoClass('Ipv4LabelledUnicastIdentity',
-            False, 
-            [
-            ],
-            'openconfig-bgp-types',
-            'IPV4-LABELLED-UNICAST',
+            'l3vpn-ipv4-multicast',
             _yang_ns._namespaces['openconfig-bgp-types'],
         'ydk.models.openconfig.openconfig_bgp_types'
         ),
@@ -207,24 +162,57 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp_types'
         ),
     },
+    'L2VpnEvpnIdentity' : {
+        'meta_info' : _MetaInfoClass('L2VpnEvpnIdentity',
+            False, 
+            [
+            ],
+            'openconfig-bgp-types',
+            'l2vpn-evpn',
+            _yang_ns._namespaces['openconfig-bgp-types'],
+        'ydk.models.openconfig.openconfig_bgp_types'
+        ),
+    },
+    'Ipv4LabelledUnicastIdentity' : {
+        'meta_info' : _MetaInfoClass('Ipv4LabelledUnicastIdentity',
+            False, 
+            [
+            ],
+            'openconfig-bgp-types',
+            'ipv4-labelled-unicast',
+            _yang_ns._namespaces['openconfig-bgp-types'],
+        'ydk.models.openconfig.openconfig_bgp_types'
+        ),
+    },
+    'L3VpnIpv6UnicastIdentity' : {
+        'meta_info' : _MetaInfoClass('L3VpnIpv6UnicastIdentity',
+            False, 
+            [
+            ],
+            'openconfig-bgp-types',
+            'l3vpn-ipv6-unicast',
+            _yang_ns._namespaces['openconfig-bgp-types'],
+        'ydk.models.openconfig.openconfig_bgp_types'
+        ),
+    },
     'Ipv6LabelledUnicastIdentity' : {
         'meta_info' : _MetaInfoClass('Ipv6LabelledUnicastIdentity',
             False, 
             [
             ],
             'openconfig-bgp-types',
-            'IPV6-LABELLED-UNICAST',
+            'ipv6-labelled-unicast',
             _yang_ns._namespaces['openconfig-bgp-types'],
         'ydk.models.openconfig.openconfig_bgp_types'
         ),
     },
-    'Ipv4UnicastIdentity' : {
-        'meta_info' : _MetaInfoClass('Ipv4UnicastIdentity',
+    'L3VpnIpv6MulticastIdentity' : {
+        'meta_info' : _MetaInfoClass('L3VpnIpv6MulticastIdentity',
             False, 
             [
             ],
             'openconfig-bgp-types',
-            'IPV4-UNICAST',
+            'l3vpn-ipv6-multicast',
             _yang_ns._namespaces['openconfig-bgp-types'],
         'ydk.models.openconfig.openconfig_bgp_types'
         ),
@@ -240,13 +228,24 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_bgp_types'
         ),
     },
+    'Ipv6UnicastIdentity' : {
+        'meta_info' : _MetaInfoClass('Ipv6UnicastIdentity',
+            False, 
+            [
+            ],
+            'openconfig-bgp-types',
+            'ipv6-unicast',
+            _yang_ns._namespaces['openconfig-bgp-types'],
+        'ydk.models.openconfig.openconfig_bgp_types'
+        ),
+    },
     'L2VpnVplsIdentity' : {
         'meta_info' : _MetaInfoClass('L2VpnVplsIdentity',
             False, 
             [
             ],
             'openconfig-bgp-types',
-            'L2VPN-VPLS',
+            'l2vpn-vpls',
             _yang_ns._namespaces['openconfig-bgp-types'],
         'ydk.models.openconfig.openconfig_bgp_types'
         ),
@@ -268,7 +267,7 @@ _meta_table = {
             [
             ],
             'openconfig-bgp-types',
-            'L3VPN-IPV4-UNICAST',
+            'l3vpn-ipv4-unicast',
             _yang_ns._namespaces['openconfig-bgp-types'],
         'ydk.models.openconfig.openconfig_bgp_types'
         ),

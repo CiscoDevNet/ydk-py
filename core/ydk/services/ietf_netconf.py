@@ -130,7 +130,7 @@ class EditOperationTypeEnum(Enum):
 
     @staticmethod
     def _meta_info():
-        from _meta import _ietf_netconf as meta
+        from ydk.services._meta import _ietf_netconf as meta
         return meta._meta_table['EditOperationTypeEnum']
 
 
@@ -157,7 +157,7 @@ class ErrorSeverityTypeEnum(Enum):
 
     @staticmethod
     def _meta_info():
-        from _meta import _ietf_netconf as meta
+        from ydk.services._meta import _ietf_netconf as meta
         return meta._meta_table['ErrorSeverityTypeEnum']
 
 
@@ -336,7 +336,7 @@ class ErrorTagTypeEnum(Enum):
 
     @staticmethod
     def _meta_info():
-        from _meta import _ietf_netconf as meta
+        from ydk.services._meta import _ietf_netconf as meta
         return meta._meta_table['ErrorTagTypeEnum']
 
 
@@ -464,7 +464,7 @@ class GetConfigRpc(object):
 
             @staticmethod
             def _meta_info():
-                from _meta import _ietf_netconf as meta
+                from ydk.services._meta import _ietf_netconf as meta
                 return meta._meta_table['GetConfigRpc.Input.Source']['meta_info']
 
         @property
@@ -494,7 +494,7 @@ class GetConfigRpc(object):
 
         @staticmethod
         def _meta_info():
-            from _meta import _ietf_netconf as meta
+            from ydk.services._meta import _ietf_netconf as meta
             return meta._meta_table['GetConfigRpc.Input']['meta_info']
 
 
@@ -539,7 +539,7 @@ class GetConfigRpc(object):
 
         @staticmethod
         def _meta_info():
-            from _meta import _ietf_netconf as meta
+            from ydk.services._meta import _ietf_netconf as meta
             return meta._meta_table['GetConfigRpc.Output']['meta_info']
 
     @property
@@ -564,7 +564,7 @@ class GetConfigRpc(object):
 
     @staticmethod
     def _meta_info():
-        from _meta import _ietf_netconf as meta
+        from ydk.services._meta import _ietf_netconf as meta
         return meta._meta_table['GetConfigRpc']['meta_info']
 
 
@@ -672,7 +672,7 @@ class EditConfigRpc(object):
 
             @staticmethod
             def _meta_info():
-                from _meta import _ietf_netconf as meta
+                from ydk.services._meta import _ietf_netconf as meta
                 return meta._meta_table['EditConfigRpc.Input.DefaultOperationEnum']
 
 
@@ -709,7 +709,7 @@ class EditConfigRpc(object):
 
             @staticmethod
             def _meta_info():
-                from _meta import _ietf_netconf as meta
+                from ydk.services._meta import _ietf_netconf as meta
                 return meta._meta_table['EditConfigRpc.Input.ErrorOptionEnum']
 
 
@@ -744,7 +744,7 @@ class EditConfigRpc(object):
 
             @staticmethod
             def _meta_info():
-                from _meta import _ietf_netconf as meta
+                from ydk.services._meta import _ietf_netconf as meta
                 return meta._meta_table['EditConfigRpc.Input.TestOptionEnum']
 
 
@@ -799,7 +799,7 @@ class EditConfigRpc(object):
 
             @staticmethod
             def _meta_info():
-                from _meta import _ietf_netconf as meta
+                from ydk.services._meta import _ietf_netconf as meta
                 return meta._meta_table['EditConfigRpc.Input.Target']['meta_info']
 
         @property
@@ -838,7 +838,7 @@ class EditConfigRpc(object):
 
         @staticmethod
         def _meta_info():
-            from _meta import _ietf_netconf as meta
+            from ydk.services._meta import _ietf_netconf as meta
             return meta._meta_table['EditConfigRpc.Input']['meta_info']
 
     @property
@@ -860,7 +860,7 @@ class EditConfigRpc(object):
 
     @staticmethod
     def _meta_info():
-        from _meta import _ietf_netconf as meta
+        from ydk.services._meta import _ietf_netconf as meta
         return meta._meta_table['EditConfigRpc']['meta_info']
 
 
@@ -991,7 +991,7 @@ class CopyConfigRpc(object):
 
             @staticmethod
             def _meta_info():
-                from _meta import _ietf_netconf as meta
+                from ydk.services._meta import _ietf_netconf as meta
                 return meta._meta_table['CopyConfigRpc.Input.Target']['meta_info']
 
 
@@ -1072,7 +1072,7 @@ class CopyConfigRpc(object):
 
             @staticmethod
             def _meta_info():
-                from _meta import _ietf_netconf as meta
+                from ydk.services._meta import _ietf_netconf as meta
                 return meta._meta_table['CopyConfigRpc.Input.Source']['meta_info']
 
         @property
@@ -1102,7 +1102,7 @@ class CopyConfigRpc(object):
 
         @staticmethod
         def _meta_info():
-            from _meta import _ietf_netconf as meta
+            from ydk.services._meta import _ietf_netconf as meta
             return meta._meta_table['CopyConfigRpc.Input']['meta_info']
 
     @property
@@ -1124,7 +1124,7 @@ class CopyConfigRpc(object):
 
     @staticmethod
     def _meta_info():
-        from _meta import _ietf_netconf as meta
+        from ydk.services._meta import _ietf_netconf as meta
         return meta._meta_table['CopyConfigRpc']['meta_info']
 
 
@@ -1223,7 +1223,7 @@ class DeleteConfigRpc(object):
 
             @staticmethod
             def _meta_info():
-                from _meta import _ietf_netconf as meta
+                from ydk.services._meta import _ietf_netconf as meta
                 return meta._meta_table['DeleteConfigRpc.Input.Target']['meta_info']
 
         @property
@@ -1247,7 +1247,7 @@ class DeleteConfigRpc(object):
 
         @staticmethod
         def _meta_info():
-            from _meta import _ietf_netconf as meta
+            from ydk.services._meta import _ietf_netconf as meta
             return meta._meta_table['DeleteConfigRpc.Input']['meta_info']
 
     @property
@@ -1269,7 +1269,7 @@ class DeleteConfigRpc(object):
 
     @staticmethod
     def _meta_info():
-        from _meta import _ietf_netconf as meta
+        from ydk.services._meta import _ietf_netconf as meta
         return meta._meta_table['DeleteConfigRpc']['meta_info']
 
 
@@ -1378,7 +1378,7 @@ class LockRpc(object):
 
             @staticmethod
             def _meta_info():
-                from _meta import _ietf_netconf as meta
+                from ydk.services._meta import _ietf_netconf as meta
                 return meta._meta_table['LockRpc.Input.Target']['meta_info']
 
         @property
@@ -1402,7 +1402,7 @@ class LockRpc(object):
 
         @staticmethod
         def _meta_info():
-            from _meta import _ietf_netconf as meta
+            from ydk.services._meta import _ietf_netconf as meta
             return meta._meta_table['LockRpc.Input']['meta_info']
 
     @property
@@ -1424,7 +1424,7 @@ class LockRpc(object):
 
     @staticmethod
     def _meta_info():
-        from _meta import _ietf_netconf as meta
+        from ydk.services._meta import _ietf_netconf as meta
         return meta._meta_table['LockRpc']['meta_info']
 
 
@@ -1533,7 +1533,7 @@ class UnlockRpc(object):
 
             @staticmethod
             def _meta_info():
-                from _meta import _ietf_netconf as meta
+                from ydk.services._meta import _ietf_netconf as meta
                 return meta._meta_table['UnlockRpc.Input.Target']['meta_info']
 
         @property
@@ -1557,7 +1557,7 @@ class UnlockRpc(object):
 
         @staticmethod
         def _meta_info():
-            from _meta import _ietf_netconf as meta
+            from ydk.services._meta import _ietf_netconf as meta
             return meta._meta_table['UnlockRpc.Input']['meta_info']
 
     @property
@@ -1579,7 +1579,7 @@ class UnlockRpc(object):
 
     @staticmethod
     def _meta_info():
-        from _meta import _ietf_netconf as meta
+        from ydk.services._meta import _ietf_netconf as meta
         return meta._meta_table['UnlockRpc']['meta_info']
 
 
@@ -1663,7 +1663,7 @@ class GetRpc(object):
 
         @staticmethod
         def _meta_info():
-            from _meta import _ietf_netconf as meta
+            from ydk.services._meta import _ietf_netconf as meta
             return meta._meta_table['GetRpc.Input']['meta_info']
 
 
@@ -1708,7 +1708,7 @@ class GetRpc(object):
 
         @staticmethod
         def _meta_info():
-            from _meta import _ietf_netconf as meta
+            from ydk.services._meta import _ietf_netconf as meta
             return meta._meta_table['GetRpc.Output']['meta_info']
 
     @property
@@ -1733,7 +1733,7 @@ class GetRpc(object):
 
     @staticmethod
     def _meta_info():
-        from _meta import _ietf_netconf as meta
+        from ydk.services._meta import _ietf_netconf as meta
         return meta._meta_table['GetRpc']['meta_info']
 
 
@@ -1768,7 +1768,7 @@ class CloseSessionRpc(object):
 
     @staticmethod
     def _meta_info():
-        from _meta import _ietf_netconf as meta
+        from ydk.services._meta import _ietf_netconf as meta
         return meta._meta_table['CloseSessionRpc']['meta_info']
 
 
@@ -1840,7 +1840,7 @@ class KillSessionRpc(object):
 
         @staticmethod
         def _meta_info():
-            from _meta import _ietf_netconf as meta
+            from ydk.services._meta import _ietf_netconf as meta
             return meta._meta_table['KillSessionRpc.Input']['meta_info']
 
     @property
@@ -1862,7 +1862,7 @@ class KillSessionRpc(object):
 
     @staticmethod
     def _meta_info():
-        from _meta import _ietf_netconf as meta
+        from ydk.services._meta import _ietf_netconf as meta
         return meta._meta_table['KillSessionRpc']['meta_info']
 
 
@@ -1960,7 +1960,7 @@ class CommitRpc(object):
 
         @staticmethod
         def _meta_info():
-            from _meta import _ietf_netconf as meta
+            from ydk.services._meta import _ietf_netconf as meta
             return meta._meta_table['CommitRpc.Input']['meta_info']
 
     @property
@@ -1982,7 +1982,7 @@ class CommitRpc(object):
 
     @staticmethod
     def _meta_info():
-        from _meta import _ietf_netconf as meta
+        from ydk.services._meta import _ietf_netconf as meta
         return meta._meta_table['CommitRpc']['meta_info']
 
 
@@ -2018,7 +2018,7 @@ class DiscardChangesRpc(object):
 
     @staticmethod
     def _meta_info():
-        from _meta import _ietf_netconf as meta
+        from ydk.services._meta import _ietf_netconf as meta
         return meta._meta_table['DiscardChangesRpc']['meta_info']
 
 
@@ -2089,7 +2089,7 @@ class CancelCommitRpc(object):
 
         @staticmethod
         def _meta_info():
-            from _meta import _ietf_netconf as meta
+            from ydk.services._meta import _ietf_netconf as meta
             return meta._meta_table['CancelCommitRpc.Input']['meta_info']
 
     @property
@@ -2111,7 +2111,7 @@ class CancelCommitRpc(object):
 
     @staticmethod
     def _meta_info():
-        from _meta import _ietf_netconf as meta
+        from ydk.services._meta import _ietf_netconf as meta
         return meta._meta_table['CancelCommitRpc']['meta_info']
 
 
@@ -2237,7 +2237,7 @@ class ValidateRpc(object):
 
             @staticmethod
             def _meta_info():
-                from _meta import _ietf_netconf as meta
+                from ydk.services._meta import _ietf_netconf as meta
                 return meta._meta_table['ValidateRpc.Input.Source']['meta_info']
 
         @property
@@ -2261,7 +2261,7 @@ class ValidateRpc(object):
 
         @staticmethod
         def _meta_info():
-            from _meta import _ietf_netconf as meta
+            from ydk.services._meta import _ietf_netconf as meta
             return meta._meta_table['ValidateRpc.Input']['meta_info']
 
     @property
@@ -2283,7 +2283,7 @@ class ValidateRpc(object):
 
     @staticmethod
     def _meta_info():
-        from _meta import _ietf_netconf as meta
+        from ydk.services._meta import _ietf_netconf as meta
         return meta._meta_table['ValidateRpc']['meta_info']
 
 

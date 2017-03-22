@@ -384,7 +384,7 @@ class EthernetFeatures(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
-                	**length:** 0..79
+                	**length:** 1..79
                 
                 .. attribute:: domain_properties
                 
@@ -445,7 +445,7 @@ class EthernetFeatures(object):
                         	Service (Maintenance Association)
                         	**type**\:  str
                         
-                        	**length:** 0..79
+                        	**length:** 1..79
                         
                         .. attribute:: ais
                         
@@ -1100,7 +1100,7 @@ class EthernetFeatures(object):
                             	ITU Carrier Code (ICC), if format is ICCBased
                             	**type**\:  str
                             
-                            	**length:** 0..6
+                            	**length:** 1..6
                             
                             .. attribute:: short_ma_name_number
                             
@@ -1121,14 +1121,14 @@ class EthernetFeatures(object):
                             	String Short MA Name, if format is String
                             	**type**\:  str
                             
-                            	**length:** 0..45
+                            	**length:** 1..45
                             
                             .. attribute:: short_ma_name_umc
                             
                             	Unique MEG ID Code (UMC), if format is ICCBased
                             	**type**\:  str
                             
-                            	**length:** 0..12
+                            	**length:** 1..12
                             
                             .. attribute:: short_ma_name_vpn_index
                             
@@ -1364,7 +1364,7 @@ class EthernetFeatures(object):
                     	String MDID, if MDID format is String or DNSLike
                     	**type**\:  str
                     
-                    	**length:** 0..43
+                    	**length:** 1..43
                     
                     
 
@@ -1564,27 +1564,27 @@ class EthernetFeatures(object):
                 .. attribute:: hello_interval
                 
                 	Possible Ethernet Link OAM hello intervals
-                	**type**\:   :py:class:`EtherLinkOamProfileHelloIntervalEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamProfileHelloIntervalEnumEnum>`
+                	**type**\:   :py:class:`EtherLinkOamHelloIntervalEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamHelloIntervalEnumEnum>`
                 
-                .. attribute:: link_monitor
+                .. attribute:: link_monitoring
                 
                 	Configure link monitor parameters
-                	**type**\:   :py:class:`LinkMonitor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor>`
+                	**type**\:   :py:class:`LinkMonitoring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring>`
                 
                 .. attribute:: mib_retrieval
                 
-                	Enable MIB retrieval support
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	Enable or disable MIB retrieval support
+                	**type**\:  bool
                 
                 .. attribute:: mode
                 
                 	Set the OAM mode to passive
-                	**type**\:   :py:class:`EtherLinkOamProfileModeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamProfileModeEnumEnum>`
+                	**type**\:   :py:class:`EtherLinkOamModeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamModeEnumEnum>`
                 
                 .. attribute:: remote_loopback
                 
-                	Enable remote loopback support
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	Enable or disable remote loopback support
+                	**type**\:  bool
                 
                 .. attribute:: require_remote
                 
@@ -1600,8 +1600,8 @@ class EthernetFeatures(object):
                 
                 .. attribute:: udlf
                 
-                	Enable uni\-directional link\-fault detection support
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	Enable or disable uni\-directional link\-fault detection support
+                	**type**\:  bool
                 
                 
 
@@ -1616,8 +1616,8 @@ class EthernetFeatures(object):
                     self.action = EthernetFeatures.EtherLinkOam.Profiles.Profile.Action()
                     self.action.parent = self
                     self.hello_interval = None
-                    self.link_monitor = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor()
-                    self.link_monitor.parent = self
+                    self.link_monitoring = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring()
+                    self.link_monitoring.parent = self
                     self.mib_retrieval = None
                     self.mode = None
                     self.remote_loopback = None
@@ -1627,556 +1627,6 @@ class EthernetFeatures(object):
                     self.udlf = None
 
 
-                class LinkMonitor(object):
-                    """
-                    Configure link monitor parameters
-                    
-                    .. attribute:: frame
-                    
-                    	Frame event configuration
-                    	**type**\:   :py:class:`Frame <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame>`
-                    
-                    .. attribute:: frame_period
-                    
-                    	Frame\-period event configuration
-                    	**type**\:   :py:class:`FramePeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FramePeriod>`
-                    
-                    .. attribute:: frame_seconds
-                    
-                    	Frame\-seconds event configuration
-                    	**type**\:   :py:class:`FrameSeconds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FrameSeconds>`
-                    
-                    .. attribute:: monitoring
-                    
-                    	Disable monitoring
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: symbol_period
-                    
-                    	Symbol\-period event configuration
-                    	**type**\:   :py:class:`SymbolPeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.SymbolPeriod>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ethernet-link-oam-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.frame = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame()
-                        self.frame.parent = self
-                        self.frame_period = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FramePeriod()
-                        self.frame_period.parent = self
-                        self.frame_seconds = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FrameSeconds()
-                        self.frame_seconds.parent = self
-                        self.monitoring = None
-                        self.symbol_period = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.SymbolPeriod()
-                        self.symbol_period.parent = self
-
-
-                    class FramePeriod(object):
-                        """
-                        Frame\-period event configuration
-                        
-                        .. attribute:: threshold
-                        
-                        	Threshold configuration for frame\-period events
-                        	**type**\:   :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FramePeriod.Threshold>`
-                        
-                        .. attribute:: window
-                        
-                        	Window size configuration for frame\-period events
-                        	**type**\:  int
-                        
-                        	**range:** 100..60000
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-link-oam-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FramePeriod.Threshold()
-                            self.threshold.parent = self
-                            self.window = None
-
-
-                        class Threshold(object):
-                            """
-                            Threshold configuration for frame\-period
-                            events
-                            
-                            .. attribute:: threshold_high
-                            
-                            	The high threshold for frame\-period events
-                            	**type**\:  int
-                            
-                            	**range:** 1..1000000
-                            
-                            .. attribute:: threshold_low
-                            
-                            	The low threshold for frame\-period events
-                            	**type**\:  int
-                            
-                            	**range:** 1..1000000
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-link-oam-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.threshold_high = None
-                                self.threshold_low = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:threshold'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.threshold_high is not None:
-                                    return True
-
-                                if self.threshold_low is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FramePeriod.Threshold']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:frame-period'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.threshold is not None and self.threshold._has_data():
-                                return True
-
-                            if self.window is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                            return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FramePeriod']['meta_info']
-
-
-                    class FrameSeconds(object):
-                        """
-                        Frame\-seconds event configuration
-                        
-                        .. attribute:: threshold
-                        
-                        	Threshold configuration for frame\-seconds events
-                        	**type**\:   :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FrameSeconds.Threshold>`
-                        
-                        .. attribute:: window
-                        
-                        	Window size configuration for frame\-seconds events
-                        	**type**\:  int
-                        
-                        	**range:** 10000..900000
-                        
-                        	**units**\: second
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-link-oam-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FrameSeconds.Threshold()
-                            self.threshold.parent = self
-                            self.window = None
-
-
-                        class Threshold(object):
-                            """
-                            Threshold configuration for frame\-seconds
-                            events
-                            
-                            .. attribute:: threshold_high
-                            
-                            	The high threshold for frame\-seconds events
-                            	**type**\:  int
-                            
-                            	**range:** 1..900
-                            
-                            .. attribute:: threshold_low
-                            
-                            	The low threshold for frame\-seconds events
-                            	**type**\:  int
-                            
-                            	**range:** 1..900
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-link-oam-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.threshold_high = None
-                                self.threshold_low = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:threshold'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.threshold_high is not None:
-                                    return True
-
-                                if self.threshold_low is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FrameSeconds.Threshold']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:frame-seconds'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.threshold is not None and self.threshold._has_data():
-                                return True
-
-                            if self.window is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                            return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FrameSeconds']['meta_info']
-
-
-                    class Frame(object):
-                        """
-                        Frame event configuration
-                        
-                        .. attribute:: threshold
-                        
-                        	Threshold configuration for frame events
-                        	**type**\:   :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame.Threshold>`
-                        
-                        .. attribute:: window
-                        
-                        	Window size configuration for frame events
-                        	**type**\:  int
-                        
-                        	**range:** 1000..60000
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-link-oam-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame.Threshold()
-                            self.threshold.parent = self
-                            self.window = None
-
-
-                        class Threshold(object):
-                            """
-                            Threshold configuration for frame events
-                            
-                            .. attribute:: threshold_high
-                            
-                            	The high threshold for frame events
-                            	**type**\:  int
-                            
-                            	**range:** 1..12000000
-                            
-                            .. attribute:: threshold_low
-                            
-                            	The low threshold for frame events
-                            	**type**\:  int
-                            
-                            	**range:** 1..12000000
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-link-oam-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.threshold_high = None
-                                self.threshold_low = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:threshold'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.threshold_high is not None:
-                                    return True
-
-                                if self.threshold_low is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame.Threshold']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:frame'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.threshold is not None and self.threshold._has_data():
-                                return True
-
-                            if self.window is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                            return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame']['meta_info']
-
-
-                    class SymbolPeriod(object):
-                        """
-                        Symbol\-period event configuration
-                        
-                        .. attribute:: threshold
-                        
-                        	Threshold configuration for symbol\-period events
-                        	**type**\:   :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.SymbolPeriod.Threshold>`
-                        
-                        .. attribute:: window
-                        
-                        	Window size configuration for symbol\-period events
-                        	**type**\:  int
-                        
-                        	**range:** 1000..60000
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-link-oam-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.SymbolPeriod.Threshold()
-                            self.threshold.parent = self
-                            self.window = None
-
-
-                        class Threshold(object):
-                            """
-                            Threshold configuration for symbol\-period
-                            events
-                            
-                            .. attribute:: threshold_high
-                            
-                            	The high threshold for symbol\-period
-                            	**type**\:  int
-                            
-                            	**range:** 1..60000000
-                            
-                            .. attribute:: threshold_low
-                            
-                            	The low threshold for symbol\-period
-                            	**type**\:  int
-                            
-                            	**range:** 1..60000000
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-link-oam-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.threshold_high = None
-                                self.threshold_low = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:threshold'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.threshold_high is not None:
-                                    return True
-
-                                if self.threshold_low is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.SymbolPeriod.Threshold']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:symbol-period'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.threshold is not None and self.threshold._has_data():
-                                return True
-
-                            if self.window is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                            return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.SymbolPeriod']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:link-monitor'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.frame is not None and self.frame._has_data():
-                            return True
-
-                        if self.frame_period is not None and self.frame_period._has_data():
-                            return True
-
-                        if self.frame_seconds is not None and self.frame_seconds._has_data():
-                            return True
-
-                        if self.monitoring is not None:
-                            return True
-
-                        if self.symbol_period is not None and self.symbol_period._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                        return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor']['meta_info']
-
-
                 class Action(object):
                     """
                     Configure action parameters
@@ -2184,52 +1634,52 @@ class EthernetFeatures(object):
                     .. attribute:: capabilities_conflict
                     
                     	Action to perform when a capabilities conflict occurs
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnum5Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum5Enum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
                     
                     .. attribute:: critical_event
                     
                     	Action to perform when a critical event occurs
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnum2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum2Enum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEnum>`
                     
                     .. attribute:: discovery_timeout
                     
                     	Action to perform when discovery timeout occurs
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnum5Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum5Enum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
                     
                     .. attribute:: dying_gasp
                     
                     	Action to perform when a dying gasp occurs
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnum2Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum2Enum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEnum>`
                     
                     .. attribute:: high_threshold
                     
                     	Action to perform when a high\-threshold event occurs
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnum1Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum1Enum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEnum>`
                     
                     .. attribute:: link_fault
                     
                     	Action to perform when a link fault message is received
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnum5Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum5Enum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
                     
                     .. attribute:: remote_loopback
                     
                     	Action to perform when remote loopback is entered or exited
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnum4Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum4Enum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionPrimEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionPrimEnumEnum>`
                     
                     .. attribute:: session_down
                     
                     	Action to perform when a session goes down
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnum5Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum5Enum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
                     
                     .. attribute:: session_up
                     
                     	Action to perform when a session comes up
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnum4Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum4Enum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionPrimEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionPrimEnumEnum>`
                     
                     .. attribute:: wiring_conflict
                     
                     	Action to perform when a wiring conflict occurs
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnum6Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum6Enum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
                     
                     
 
@@ -2309,23 +1759,23 @@ class EthernetFeatures(object):
                     
                     .. attribute:: link_monitoring
                     
-                    	Enable link monitoring requirement
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	Enable or disable link monitoring requirement
+                    	**type**\:  bool
                     
                     .. attribute:: mib_retrieval
                     
-                    	Enable MIB retrieval requirement
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	Enable or disable MIB retrieval requirement
+                    	**type**\:  bool
                     
                     .. attribute:: mode
                     
                     	Possible required OAM modes
-                    	**type**\:   :py:class:`EtherLinkOamProfileRequireModeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamProfileRequireModeEnumEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamRequireModeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamRequireModeEnumEnum>`
                     
                     .. attribute:: remote_loopback
                     
-                    	Enable remote loopback requirement
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	Enable or disable remote loopback requirement
+                    	**type**\:  bool
                     
                     
 
@@ -2374,6 +1824,820 @@ class EthernetFeatures(object):
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
                         return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote']['meta_info']
 
+
+                class LinkMonitoring(object):
+                    """
+                    Configure link monitor parameters
+                    
+                    .. attribute:: frame
+                    
+                    	Frame event configuration
+                    	**type**\:   :py:class:`Frame <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame>`
+                    
+                    .. attribute:: frame_period
+                    
+                    	Frame\-period event configuration
+                    	**type**\:   :py:class:`FramePeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod>`
+                    
+                    .. attribute:: frame_seconds
+                    
+                    	Frame\-seconds event configuration
+                    	**type**\:   :py:class:`FrameSeconds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds>`
+                    
+                    .. attribute:: monitoring
+                    
+                    	Enable or disable monitoring
+                    	**type**\:  bool
+                    
+                    .. attribute:: symbol_period
+                    
+                    	Symbol\-period event configuration
+                    	**type**\:   :py:class:`SymbolPeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-link-oam-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.frame = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame()
+                        self.frame.parent = self
+                        self.frame_period = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod()
+                        self.frame_period.parent = self
+                        self.frame_seconds = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds()
+                        self.frame_seconds.parent = self
+                        self.monitoring = None
+                        self.symbol_period = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod()
+                        self.symbol_period.parent = self
+
+
+                    class SymbolPeriod(object):
+                        """
+                        Symbol\-period event configuration
+                        
+                        .. attribute:: threshold
+                        
+                        	Threshold configuration for symbol\-period events
+                        	**type**\:   :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold>`
+                        
+                        .. attribute:: window
+                        
+                        	Window size configuration for symbol\-period events
+                        	**type**\:   :py:class:`Window <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Window>`
+                        
+                        	**presence node**\: True
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-link-oam-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold()
+                            self.threshold.parent = self
+                            self.window = None
+
+
+                        class Window(object):
+                            """
+                            Window size configuration for symbol\-period
+                            events
+                            
+                            .. attribute:: multiplier
+                            
+                            	The multiplier to use for this window (only valid if 'Units' is Symbols and treated as 1 if unspecified)
+                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnumEnum>`
+                            
+                            	**default value**\: none
+                            
+                            .. attribute:: units
+                            
+                            	Units to use for this window
+                            	**type**\:   :py:class:`EtherLinkOamWindowUnitsSymbolsEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamWindowUnitsSymbolsEnumEnum>`
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: window
+                            
+                            	Size of the symbol\-period window
+                            	**type**\:  int
+                            
+                            	**range:** 1..4294967295
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'ethernet-link-oam-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self._is_presence = True
+                                self.multiplier = None
+                                self.units = None
+                                self.window = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:window'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self._is_presence:
+                                    return True
+                                if self.multiplier is not None:
+                                    return True
+
+                                if self.units is not None:
+                                    return True
+
+                                if self.window is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Window']['meta_info']
+
+
+                        class Threshold(object):
+                            """
+                            Threshold configuration for symbol\-period
+                            events
+                            
+                            .. attribute:: multiplier_high
+                            
+                            	The multiplier to use for the high threshold (only valid if 'Units' is Symbols and treated as 1 if unspecified)
+                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnumEnum>`
+                            
+                            .. attribute:: multiplier_low
+                            
+                            	The multiplier to use for the low threshold (only valid if 'Units' is Symbols and treated as 1 if unspecified)
+                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnumEnum>`
+                            
+                            	**default value**\: none
+                            
+                            .. attribute:: threshold_high
+                            
+                            	The high threshold for symbol\-period
+                            	**type**\:  int
+                            
+                            	**range:** 1..4294967295
+                            
+                            .. attribute:: threshold_low
+                            
+                            	The low threshold for symbol\-period
+                            	**type**\:  int
+                            
+                            	**range:** 1..4294967295
+                            
+                            	**default value**\: 1
+                            
+                            .. attribute:: units
+                            
+                            	The units to use for these thresholds
+                            	**type**\:   :py:class:`EtherLinkOamThresholdUnitsSymbolsEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdUnitsSymbolsEnumEnum>`
+                            
+                            	**default value**\: symbols
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-link-oam-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.multiplier_high = None
+                                self.multiplier_low = None
+                                self.threshold_high = None
+                                self.threshold_low = None
+                                self.units = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:threshold'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.multiplier_high is not None:
+                                    return True
+
+                                if self.multiplier_low is not None:
+                                    return True
+
+                                if self.threshold_high is not None:
+                                    return True
+
+                                if self.threshold_low is not None:
+                                    return True
+
+                                if self.units is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:symbol-period'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.threshold is not None and self.threshold._has_data():
+                                return True
+
+                            if self.window is not None and self.window._has_data():
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                            return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod']['meta_info']
+
+
+                    class FramePeriod(object):
+                        """
+                        Frame\-period event configuration
+                        
+                        .. attribute:: threshold
+                        
+                        	Threshold configuration for frame\-period events
+                        	**type**\:   :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold>`
+                        
+                        .. attribute:: window
+                        
+                        	Window size configuration for frame\-period events
+                        	**type**\:   :py:class:`Window <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Window>`
+                        
+                        	**presence node**\: True
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-link-oam-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold()
+                            self.threshold.parent = self
+                            self.window = None
+
+
+                        class Window(object):
+                            """
+                            Window size configuration for frame\-period
+                            events
+                            
+                            .. attribute:: multiplier
+                            
+                            	The multiplier to use for this window (only valid if 'Units' is Frames and treated as 1 if unspecified)
+                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnumEnum>`
+                            
+                            	**default value**\: none
+                            
+                            .. attribute:: units
+                            
+                            	The units to use for this window
+                            	**type**\:   :py:class:`EtherLinkOamWindowUnitsFramesEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamWindowUnitsFramesEnumEnum>`
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: window
+                            
+                            	Size of the frame\-period window
+                            	**type**\:  int
+                            
+                            	**range:** 1..4294967295
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'ethernet-link-oam-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self._is_presence = True
+                                self.multiplier = None
+                                self.units = None
+                                self.window = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:window'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self._is_presence:
+                                    return True
+                                if self.multiplier is not None:
+                                    return True
+
+                                if self.units is not None:
+                                    return True
+
+                                if self.window is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Window']['meta_info']
+
+
+                        class Threshold(object):
+                            """
+                            Threshold configuration for frame\-period
+                            events
+                            
+                            .. attribute:: multiplier_high
+                            
+                            	The multiplier to use for the high threshold (only valid if 'Units' is Frames and treated as 1 if unspecified)
+                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnumEnum>`
+                            
+                            .. attribute:: multiplier_low
+                            
+                            	The multiplier to use for the low threshold (only valid if 'Units' is Frames and treated as 1 if unspecified)
+                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnumEnum>`
+                            
+                            	**default value**\: none
+                            
+                            .. attribute:: threshold_high
+                            
+                            	The high threshold for frame\-period events
+                            	**type**\:  int
+                            
+                            	**range:** 1..4294967295
+                            
+                            .. attribute:: threshold_low
+                            
+                            	The low threshold for frame\-period events
+                            	**type**\:  int
+                            
+                            	**range:** 1..4294967295
+                            
+                            	**default value**\: 1
+                            
+                            .. attribute:: units
+                            
+                            	The units to use for these thresholds
+                            	**type**\:   :py:class:`EtherLinkOamThresholdUnitsFramesEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdUnitsFramesEnumEnum>`
+                            
+                            	**default value**\: ppm
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-link-oam-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.multiplier_high = None
+                                self.multiplier_low = None
+                                self.threshold_high = None
+                                self.threshold_low = None
+                                self.units = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:threshold'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.multiplier_high is not None:
+                                    return True
+
+                                if self.multiplier_low is not None:
+                                    return True
+
+                                if self.threshold_high is not None:
+                                    return True
+
+                                if self.threshold_low is not None:
+                                    return True
+
+                                if self.units is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:frame-period'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.threshold is not None and self.threshold._has_data():
+                                return True
+
+                            if self.window is not None and self.window._has_data():
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                            return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod']['meta_info']
+
+
+                    class FrameSeconds(object):
+                        """
+                        Frame\-seconds event configuration
+                        
+                        .. attribute:: threshold
+                        
+                        	Threshold configuration for frame\-seconds events
+                        	**type**\:   :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold>`
+                        
+                        .. attribute:: window
+                        
+                        	Window size configuration for frame\-seconds events
+                        	**type**\:  int
+                        
+                        	**range:** 10000..900000
+                        
+                        	**units**\: millisecond
+                        
+                        	**default value**\: 60000
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-link-oam-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold()
+                            self.threshold.parent = self
+                            self.window = None
+
+
+                        class Threshold(object):
+                            """
+                            Threshold configuration for frame\-seconds
+                            events
+                            
+                            .. attribute:: threshold_high
+                            
+                            	The high threshold for frame\-seconds events
+                            	**type**\:  int
+                            
+                            	**range:** 1..900
+                            
+                            	**units**\: second
+                            
+                            .. attribute:: threshold_low
+                            
+                            	The low threshold for frame\-seconds events
+                            	**type**\:  int
+                            
+                            	**range:** 1..900
+                            
+                            	**units**\: second
+                            
+                            	**default value**\: 1
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-link-oam-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.threshold_high = None
+                                self.threshold_low = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:threshold'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.threshold_high is not None:
+                                    return True
+
+                                if self.threshold_low is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:frame-seconds'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.threshold is not None and self.threshold._has_data():
+                                return True
+
+                            if self.window is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                            return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds']['meta_info']
+
+
+                    class Frame(object):
+                        """
+                        Frame event configuration
+                        
+                        .. attribute:: threshold
+                        
+                        	Threshold configuration for frame events
+                        	**type**\:   :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold>`
+                        
+                        .. attribute:: window
+                        
+                        	Window size configuration for frame events
+                        	**type**\:  int
+                        
+                        	**range:** 1000..60000
+                        
+                        	**units**\: millisecond
+                        
+                        	**default value**\: 1000
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-link-oam-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold()
+                            self.threshold.parent = self
+                            self.window = None
+
+
+                        class Threshold(object):
+                            """
+                            Threshold configuration for frame events
+                            
+                            .. attribute:: multiplier_high
+                            
+                            	The multiplier to use for the high threshold (treated as 1 if unspecified)
+                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnumEnum>`
+                            
+                            .. attribute:: multiplier_low
+                            
+                            	The multiplier to use for the low threshold (treated as 1 if unspecified)
+                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnumEnum>`
+                            
+                            	**default value**\: none
+                            
+                            .. attribute:: threshold_high
+                            
+                            	The high threshold for frame events
+                            	**type**\:  int
+                            
+                            	**range:** 1..4294967295
+                            
+                            .. attribute:: threshold_low
+                            
+                            	The low threshold for frame events
+                            	**type**\:  int
+                            
+                            	**range:** 1..4294967295
+                            
+                            	**default value**\: 1
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-link-oam-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.multiplier_high = None
+                                self.multiplier_low = None
+                                self.threshold_high = None
+                                self.threshold_low = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:threshold'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.multiplier_high is not None:
+                                    return True
+
+                                if self.multiplier_low is not None:
+                                    return True
+
+                                if self.threshold_high is not None:
+                                    return True
+
+                                if self.threshold_low is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:frame'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.threshold is not None and self.threshold._has_data():
+                                return True
+
+                            if self.window is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                            return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:link-monitoring'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.frame is not None and self.frame._has_data():
+                            return True
+
+                        if self.frame_period is not None and self.frame_period._has_data():
+                            return True
+
+                        if self.frame_seconds is not None and self.frame_seconds._has_data():
+                            return True
+
+                        if self.monitoring is not None:
+                            return True
+
+                        if self.symbol_period is not None and self.symbol_period._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
+                        return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring']['meta_info']
+
                 @property
                 def _common_path(self):
                     if self.profile is None:
@@ -2397,7 +2661,7 @@ class EthernetFeatures(object):
                     if self.hello_interval is not None:
                         return True
 
-                    if self.link_monitor is not None and self.link_monitor._has_data():
+                    if self.link_monitoring is not None and self.link_monitoring._has_data():
                         return True
 
                     if self.mib_retrieval is not None:

@@ -145,7 +145,7 @@ class Dhcpv6(object):
     """
 
     _prefix = 'ipv6-new-dhcpv6d-cfg'
-    _revision = '2016-03-08'
+    _revision = '2016-10-10'
 
     def __init__(self):
         self._is_presence = True
@@ -202,7 +202,7 @@ class Dhcpv6(object):
         """
 
         _prefix = 'ipv6-new-dhcpv6d-cfg'
-        _revision = '2016-03-08'
+        _revision = '2016-10-10'
 
         def __init__(self):
             self.parent = None
@@ -261,7 +261,7 @@ class Dhcpv6(object):
         """
 
         _prefix = 'ipv6-new-dhcpv6d-cfg'
-        _revision = '2016-03-08'
+        _revision = '2016-10-10'
 
         def __init__(self):
             self.parent = None
@@ -280,6 +280,13 @@ class Dhcpv6(object):
             	**type**\:  str
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+            
+            .. attribute:: base
+            
+            	None
+            	**type**\:   :py:class:`Base <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base>`
+            
+            	**presence node**\: True
             
             .. attribute:: proxy
             
@@ -307,11 +314,12 @@ class Dhcpv6(object):
             """
 
             _prefix = 'ipv6-new-dhcpv6d-cfg'
-            _revision = '2016-03-08'
+            _revision = '2016-10-10'
 
             def __init__(self):
                 self.parent = None
                 self.profile_name = None
+                self.base = None
                 self.proxy = None
                 self.relay = None
                 self.server = None
@@ -350,7 +358,7 @@ class Dhcpv6(object):
                 """
 
                 _prefix = 'ipv6-new-dhcpv6d-cfg'
-                _revision = '2016-03-08'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
@@ -375,7 +383,7 @@ class Dhcpv6(object):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-cfg'
-                    _revision = '2016-03-08'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
@@ -400,14 +408,14 @@ class Dhcpv6(object):
                         	VRF name
                         	**type**\:  str
                         
-                        	**length:** 0..32
+                        	**length:** 1..32
                         
                         
 
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-cfg'
-                        _revision = '2016-03-08'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -504,6 +512,377 @@ class Dhcpv6(object):
                     return meta._meta_table['Dhcpv6.Profiles.Profile.Relay']['meta_info']
 
 
+            class Base(object):
+                """
+                None
+                
+                .. attribute:: classes
+                
+                	Enter match option
+                	**type**\:   :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Classes>`
+                
+                .. attribute:: default
+                
+                	Default match option
+                	**type**\:   :py:class:`Default <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Default>`
+                
+                .. attribute:: enable
+                
+                	Enable None. Deletion of this object also causes deletion of all associated objects under Base
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                	**mandatory**\: True
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                
+
+                This class is a :ref:`presence class<presence-class>`
+
+                """
+
+                _prefix = 'ipv6-new-dhcpv6d-cfg'
+                _revision = '2016-10-10'
+
+                def __init__(self):
+                    self.parent = None
+                    self._is_presence = True
+                    self.classes = Dhcpv6.Profiles.Profile.Base.Classes()
+                    self.classes.parent = self
+                    self.default = Dhcpv6.Profiles.Profile.Base.Default()
+                    self.default.parent = self
+                    self.enable = None
+
+
+                class Default(object):
+                    """
+                    Default match option
+                    
+                    .. attribute:: profile
+                    
+                    	Enter proxy or server profile
+                    	**type**\: list of    :py:class:`Profile_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Default.Profile_>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-new-dhcpv6d-cfg'
+                    _revision = '2016-10-10'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.profile = YList()
+                        self.profile.parent = self
+                        self.profile.name = 'profile'
+
+
+                    class Profile_(object):
+                        """
+                        Enter proxy or server profile
+                        
+                        .. attribute:: profile_name  <key>
+                        
+                        	Profile name
+                        	**type**\:  str
+                        
+                        	**length:** 1..64
+                        
+                        .. attribute:: proxy_mode
+                        
+                        	Specify mode\-class based Proxy Option
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        
+                        .. attribute:: server_mode
+                        
+                        	Specify mode\-class based Server option
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-new-dhcpv6d-cfg'
+                        _revision = '2016-10-10'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.profile_name = None
+                            self.proxy_mode = None
+                            self.server_mode = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            if self.profile_name is None:
+                                raise YPYModelError('Key property profile_name is None')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:profile[Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:profile-name = ' + str(self.profile_name) + ']'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.profile_name is not None:
+                                return True
+
+                            if self.proxy_mode is not None:
+                                return True
+
+                            if self.server_mode is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg as meta
+                            return meta._meta_table['Dhcpv6.Profiles.Profile.Base.Default.Profile_']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:default'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.profile is not None:
+                            for child_ref in self.profile:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg as meta
+                        return meta._meta_table['Dhcpv6.Profiles.Profile.Base.Default']['meta_info']
+
+
+                class Classes(object):
+                    """
+                    Enter match option
+                    
+                    .. attribute:: class_
+                    
+                    	Specify PPP/IPoE class option
+                    	**type**\: list of    :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Classes.Class_>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-new-dhcpv6d-cfg'
+                    _revision = '2016-10-10'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.class_ = YList()
+                        self.class_.parent = self
+                        self.class_.name = 'class_'
+
+
+                    class Class_(object):
+                        """
+                        Specify PPP/IPoE class option
+                        
+                        .. attribute:: class_name  <key>
+                        
+                        	Class name
+                        	**type**\:  str
+                        
+                        	**length:** 1..128
+                        
+                        .. attribute:: profile
+                        
+                        	Enter proxy or server profile
+                        	**type**\: list of    :py:class:`Profile_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Classes.Class_.Profile_>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-new-dhcpv6d-cfg'
+                        _revision = '2016-10-10'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.class_name = None
+                            self.profile = YList()
+                            self.profile.parent = self
+                            self.profile.name = 'profile'
+
+
+                        class Profile_(object):
+                            """
+                            Enter proxy or server profile
+                            
+                            .. attribute:: profile_name  <key>
+                            
+                            	Profile name
+                            	**type**\:  str
+                            
+                            	**length:** 1..64
+                            
+                            .. attribute:: proxy_mode
+                            
+                            	Specify mode\-class based Proxy Option
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            
+                            .. attribute:: server_mode
+                            
+                            	Specify mode\-class based Server option
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv6-new-dhcpv6d-cfg'
+                            _revision = '2016-10-10'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.profile_name = None
+                                self.proxy_mode = None
+                                self.server_mode = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.profile_name is None:
+                                    raise YPYModelError('Key property profile_name is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:profile[Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:profile-name = ' + str(self.profile_name) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.profile_name is not None:
+                                    return True
+
+                                if self.proxy_mode is not None:
+                                    return True
+
+                                if self.server_mode is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg as meta
+                                return meta._meta_table['Dhcpv6.Profiles.Profile.Base.Classes.Class_.Profile_']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            if self.class_name is None:
+                                raise YPYModelError('Key property class_name is None')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:class[Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:class-name = ' + str(self.class_name) + ']'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.class_name is not None:
+                                return True
+
+                            if self.profile is not None:
+                                for child_ref in self.profile:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg as meta
+                            return meta._meta_table['Dhcpv6.Profiles.Profile.Base.Classes.Class_']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:classes'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.class_ is not None:
+                            for child_ref in self.class_:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg as meta
+                        return meta._meta_table['Dhcpv6.Profiles.Profile.Base.Classes']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:base'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self._is_presence:
+                        return True
+                    if self.classes is not None and self.classes._has_data():
+                        return True
+
+                    if self.default is not None and self.default._has_data():
+                        return True
+
+                    if self.enable is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg as meta
+                    return meta._meta_table['Dhcpv6.Profiles.Profile.Base']['meta_info']
+
+
             class Proxy(object):
                 """
                 None
@@ -547,6 +926,11 @@ class Dhcpv6(object):
                 	Specify relay configuration
                 	**type**\:   :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Relay>`
                 
+                .. attribute:: route_add_disable
+                
+                	RouteDisable
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
                 .. attribute:: sessions
                 
                 	Change sessions configuration
@@ -576,7 +960,7 @@ class Dhcpv6(object):
                 """
 
                 _prefix = 'ipv6-new-dhcpv6d-cfg'
-                _revision = '2016-03-08'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
@@ -589,6 +973,7 @@ class Dhcpv6(object):
                     self.link_address = None
                     self.relay = Dhcpv6.Profiles.Profile.Proxy.Relay()
                     self.relay.parent = self
+                    self.route_add_disable = None
                     self.sessions = Dhcpv6.Profiles.Profile.Proxy.Sessions()
                     self.sessions.parent = self
                     self.src_intf_name = None
@@ -610,7 +995,7 @@ class Dhcpv6(object):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-cfg'
-                    _revision = '2016-03-08'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
@@ -640,7 +1025,7 @@ class Dhcpv6(object):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-cfg'
-                        _revision = '2016-03-08'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -717,7 +1102,7 @@ class Dhcpv6(object):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-cfg'
-                    _revision = '2016-03-08'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
@@ -751,7 +1136,7 @@ class Dhcpv6(object):
                         	Enter remote\-id value
                         	**type**\:  str
                         
-                        	**length:** 0..256
+                        	**length:** 1..256
                         
                         .. attribute:: subscriber_id
                         
@@ -763,7 +1148,7 @@ class Dhcpv6(object):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-cfg'
-                        _revision = '2016-03-08'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -789,7 +1174,7 @@ class Dhcpv6(object):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-cfg'
-                            _revision = '2016-03-08'
+                            _revision = '2016-10-10'
 
                             def __init__(self):
                                 self.parent = None
@@ -894,7 +1279,7 @@ class Dhcpv6(object):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-cfg'
-                    _revision = '2016-03-08'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
@@ -924,7 +1309,7 @@ class Dhcpv6(object):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-cfg'
-                        _revision = '2016-03-08'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -947,7 +1332,7 @@ class Dhcpv6(object):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-cfg'
-                            _revision = '2016-03-08'
+                            _revision = '2016-10-10'
 
                             def __init__(self):
                                 self.parent = None
@@ -984,7 +1369,7 @@ class Dhcpv6(object):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-cfg'
-                                _revision = '2016-03-08'
+                                _revision = '2016-10-10'
 
                                 def __init__(self):
                                     self.parent = None
@@ -1120,7 +1505,7 @@ class Dhcpv6(object):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-cfg'
-                    _revision = '2016-03-08'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
@@ -1138,7 +1523,7 @@ class Dhcpv6(object):
                         	Class name
                         	**type**\:  str
                         
-                        	**length:** 0..128
+                        	**length:** 1..128
                         
                         .. attribute:: helper_addresses
                         
@@ -1167,7 +1552,7 @@ class Dhcpv6(object):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-cfg'
-                        _revision = '2016-03-08'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -1191,7 +1576,7 @@ class Dhcpv6(object):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-cfg'
-                            _revision = '2016-03-08'
+                            _revision = '2016-10-10'
 
                             def __init__(self):
                                 self.parent = None
@@ -1216,14 +1601,14 @@ class Dhcpv6(object):
                                 	VRF name
                                 	**type**\:  str
                                 
-                                	**length:** 0..32
+                                	**length:** 1..32
                                 
                                 
 
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-cfg'
-                                _revision = '2016-03-08'
+                                _revision = '2016-10-10'
 
                                 def __init__(self):
                                     self.parent = None
@@ -1360,7 +1745,7 @@ class Dhcpv6(object):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-cfg'
-                    _revision = '2016-03-08'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
@@ -1382,7 +1767,7 @@ class Dhcpv6(object):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-cfg'
-                        _revision = '2016-03-08'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -1425,7 +1810,7 @@ class Dhcpv6(object):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-cfg'
-                            _revision = '2016-03-08'
+                            _revision = '2016-10-10'
 
                             def __init__(self):
                                 self.parent = None
@@ -1542,6 +1927,9 @@ class Dhcpv6(object):
                     if self.relay is not None and self.relay._has_data():
                         return True
 
+                    if self.route_add_disable is not None:
+                        return True
+
                     if self.sessions is not None and self.sessions._has_data():
                         return True
 
@@ -1568,14 +1956,14 @@ class Dhcpv6(object):
                 	Address pool name
                 	**type**\:  str
                 
-                	**length:** 0..64
+                	**length:** 1..64
                 
                 .. attribute:: aftr_name
                 
                 	AFTR name
                 	**type**\:  str
                 
-                	**length:** 0..64
+                	**length:** 1..64
                 
                 .. attribute:: classes
                 
@@ -1597,7 +1985,7 @@ class Dhcpv6(object):
                 	Domain name
                 	**type**\:  str
                 
-                	**length:** 0..64
+                	**length:** 1..64
                 
                 .. attribute:: enable
                 
@@ -1623,7 +2011,7 @@ class Dhcpv6(object):
                 	Prefix pool name
                 	**type**\:  str
                 
-                	**length:** 0..64
+                	**length:** 1..64
                 
                 .. attribute:: rapid_commit
                 
@@ -1647,7 +2035,7 @@ class Dhcpv6(object):
                 """
 
                 _prefix = 'ipv6-new-dhcpv6d-cfg'
-                _revision = '2016-03-08'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
@@ -1685,7 +2073,7 @@ class Dhcpv6(object):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-cfg'
-                    _revision = '2016-03-08'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
@@ -1707,7 +2095,7 @@ class Dhcpv6(object):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-cfg'
-                        _revision = '2016-03-08'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -1750,7 +2138,7 @@ class Dhcpv6(object):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-cfg'
-                            _revision = '2016-03-08'
+                            _revision = '2016-10-10'
 
                             def __init__(self):
                                 self.parent = None
@@ -1863,7 +2251,7 @@ class Dhcpv6(object):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-cfg'
-                    _revision = '2016-03-08'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
@@ -1912,7 +2300,7 @@ class Dhcpv6(object):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-cfg'
-                    _revision = '2016-03-08'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
@@ -1930,14 +2318,14 @@ class Dhcpv6(object):
                         	class name
                         	**type**\:  str
                         
-                        	**length:** 0..128
+                        	**length:** 1..128
                         
                         .. attribute:: address_pool
                         
                         	Address pool name
                         	**type**\:  str
                         
-                        	**length:** 0..64
+                        	**length:** 1..64
                         
                         .. attribute:: dns_servers
                         
@@ -1949,7 +2337,7 @@ class Dhcpv6(object):
                         	Domain name
                         	**type**\:  str
                         
-                        	**length:** 0..64
+                        	**length:** 1..64
                         
                         .. attribute:: preference
                         
@@ -1963,14 +2351,14 @@ class Dhcpv6(object):
                         	Prefix pool name
                         	**type**\:  str
                         
-                        	**length:** 0..64
+                        	**length:** 1..64
                         
                         
 
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-cfg'
-                        _revision = '2016-03-08'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -2009,7 +2397,7 @@ class Dhcpv6(object):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-cfg'
-                            _revision = '2016-03-08'
+                            _revision = '2016-10-10'
 
                             def __init__(self):
                                 self.parent = None
@@ -2152,7 +2540,7 @@ class Dhcpv6(object):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-cfg'
-                    _revision = '2016-03-08'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
@@ -2209,7 +2597,7 @@ class Dhcpv6(object):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-cfg'
-                    _revision = '2016-03-08'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
@@ -2231,14 +2619,14 @@ class Dhcpv6(object):
                         	Vendor options
                         	**type**\:  str
                         
-                        	**length:** 0..512
+                        	**length:** 1..512
                         
                         
 
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-cfg'
-                        _revision = '2016-03-08'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -2372,6 +2760,9 @@ class Dhcpv6(object):
                 if self.profile_name is not None:
                     return True
 
+                if self.base is not None and self.base._has_data():
+                    return True
+
                 if self.proxy is not None and self.proxy._has_data():
                     return True
 
@@ -2427,7 +2818,7 @@ class Dhcpv6(object):
         """
 
         _prefix = 'ipv6-new-dhcpv6d-cfg'
-        _revision = '2016-03-08'
+        _revision = '2016-10-10'
 
         def __init__(self):
             self.parent = None
@@ -2446,6 +2837,11 @@ class Dhcpv6(object):
             	**type**\:  str
             
             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            
+            .. attribute:: base
+            
+            	Assign a base profile to interface
+            	**type**\:   :py:class:`Base <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Base>`
             
             .. attribute:: pppoe
             
@@ -2472,11 +2868,13 @@ class Dhcpv6(object):
             """
 
             _prefix = 'ipv6-new-dhcpv6d-cfg'
-            _revision = '2016-03-08'
+            _revision = '2016-10-10'
 
             def __init__(self):
                 self.parent = None
                 self.interface_name = None
+                self.base = Dhcpv6.Interfaces.Interface.Base()
+                self.base.parent = self
                 self.pppoe = Dhcpv6.Interfaces.Interface.Pppoe()
                 self.pppoe.parent = self
                 self.proxy = Dhcpv6.Interfaces.Interface.Proxy()
@@ -2496,14 +2894,14 @@ class Dhcpv6(object):
                 	Enter profile name
                 	**type**\:  str
                 
-                	**length:** 0..64
+                	**length:** 1..64
                 
                 
 
                 """
 
                 _prefix = 'ipv6-new-dhcpv6d-cfg'
-                _revision = '2016-03-08'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
@@ -2543,14 +2941,14 @@ class Dhcpv6(object):
                 	Enter profile name
                 	**type**\:  str
                 
-                	**length:** 0..64
+                	**length:** 1..64
                 
                 
 
                 """
 
                 _prefix = 'ipv6-new-dhcpv6d-cfg'
-                _revision = '2016-03-08'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
@@ -2581,6 +2979,53 @@ class Dhcpv6(object):
                     return meta._meta_table['Dhcpv6.Interfaces.Interface.Proxy']['meta_info']
 
 
+            class Base(object):
+                """
+                Assign a base profile to interface
+                
+                .. attribute:: profile
+                
+                	Enter profile name
+                	**type**\:  str
+                
+                	**length:** 1..64
+                
+                
+
+                """
+
+                _prefix = 'ipv6-new-dhcpv6d-cfg'
+                _revision = '2016-10-10'
+
+                def __init__(self):
+                    self.parent = None
+                    self.profile = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:base'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.profile is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg as meta
+                    return meta._meta_table['Dhcpv6.Interfaces.Interface.Base']['meta_info']
+
+
             class Server(object):
                 """
                 Assign a server profile to interface
@@ -2590,14 +3035,14 @@ class Dhcpv6(object):
                 	Enter profile name
                 	**type**\:  str
                 
-                	**length:** 0..64
+                	**length:** 1..64
                 
                 
 
                 """
 
                 _prefix = 'ipv6-new-dhcpv6d-cfg'
-                _revision = '2016-03-08'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
@@ -2637,14 +3082,14 @@ class Dhcpv6(object):
                 	Enter profile name
                 	**type**\:  str
                 
-                	**length:** 0..64
+                	**length:** 1..64
                 
                 
 
                 """
 
                 _prefix = 'ipv6-new-dhcpv6d-cfg'
-                _revision = '2016-03-08'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
@@ -2689,6 +3134,9 @@ class Dhcpv6(object):
                 if not self.is_config():
                     return False
                 if self.interface_name is not None:
+                    return True
+
+                if self.base is not None and self.base._has_data():
                     return True
 
                 if self.pppoe is not None and self.pppoe._has_data():

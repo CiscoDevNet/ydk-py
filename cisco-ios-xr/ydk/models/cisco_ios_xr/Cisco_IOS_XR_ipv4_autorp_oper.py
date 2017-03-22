@@ -84,10 +84,10 @@ class AutoRp(object):
         """
         Standby Process
         
-        .. attribute:: candidate_rps
+        .. attribute:: candidate_rp
         
-        	AutoRP Candidate RP Table
-        	**type**\:   :py:class:`CandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.CandidateRps>`
+        	AutoRP Candidate RP
+        	**type**\:   :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.CandidateRp>`
         
         .. attribute:: mapping_agent
         
@@ -103,20 +103,25 @@ class AutoRp(object):
 
         def __init__(self):
             self.parent = None
-            self.candidate_rps = AutoRp.Standby.CandidateRps()
-            self.candidate_rps.parent = self
+            self.candidate_rp = AutoRp.Standby.CandidateRp()
+            self.candidate_rp.parent = self
             self.mapping_agent = AutoRp.Standby.MappingAgent()
             self.mapping_agent.parent = self
 
 
-        class CandidateRps(object):
+        class CandidateRp(object):
             """
-            AutoRP Candidate RP Table
+            AutoRP Candidate RP
             
-            .. attribute:: candidate_rp
+            .. attribute:: rps
             
-            	AutoRP Candidate RP Entry
-            	**type**\: list of    :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.CandidateRps.CandidateRp>`
+            	AutoRP Candidate RP Table
+            	**type**\:   :py:class:`Rps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.CandidateRp.Rps>`
+            
+            .. attribute:: traffic
+            
+            	AutoRP Candidate Traffic Counters
+            	**type**\:   :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.CandidateRp.Traffic>`
             
             
 
@@ -127,57 +132,29 @@ class AutoRp(object):
 
             def __init__(self):
                 self.parent = None
-                self.candidate_rp = YList()
-                self.candidate_rp.parent = self
-                self.candidate_rp.name = 'candidate_rp'
+                self.rps = AutoRp.Standby.CandidateRp.Rps()
+                self.rps.parent = self
+                self.traffic = AutoRp.Standby.CandidateRp.Traffic()
+                self.traffic.parent = self
 
 
-            class CandidateRp(object):
+            class Traffic(object):
                 """
-                AutoRP Candidate RP Entry
+                AutoRP Candidate Traffic Counters
                 
-                .. attribute:: access_list_name
+                .. attribute:: active_sent_packets
                 
-                	ACL Name
-                	**type**\:  str
-                
-                .. attribute:: announce_period
-                
-                	Announce Period
+                	Number of packets sent in active role
                 	**type**\:  int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
-                .. attribute:: candidate_rp_address
+                .. attribute:: standby_sent_packets
                 
-                	Candidate RP IP Address
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: interface_name
-                
-                	Interface Name
-                	**type**\:  str
-                
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                
-                .. attribute:: protocol_mode
-                
-                	Protocol Mode
-                	**type**\:   :py:class:`AutoRpProtocolModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_datatypes.AutoRpProtocolModeEnum>`
-                
-                .. attribute:: protocol_mode_xr
-                
-                	Protocol Mode
-                	**type**\:   :py:class:`AutorpProtocolModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolModeEnum>`
-                
-                .. attribute:: ttl
-                
-                	TTL
+                	Number of packets dropped in send path in standby role
                 	**type**\:  int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 
 
@@ -188,18 +165,13 @@ class AutoRp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.access_list_name = None
-                    self.announce_period = None
-                    self.candidate_rp_address = None
-                    self.interface_name = None
-                    self.protocol_mode = None
-                    self.protocol_mode_xr = None
-                    self.ttl = None
+                    self.active_sent_packets = None
+                    self.standby_sent_packets = None
 
                 @property
                 def _common_path(self):
 
-                    return '/Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/Cisco-IOS-XR-ipv4-autorp-oper:standby/Cisco-IOS-XR-ipv4-autorp-oper:candidate-rps/Cisco-IOS-XR-ipv4-autorp-oper:candidate-rp'
+                    return '/Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/Cisco-IOS-XR-ipv4-autorp-oper:standby/Cisco-IOS-XR-ipv4-autorp-oper:candidate-rp/Cisco-IOS-XR-ipv4-autorp-oper:traffic'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -208,25 +180,10 @@ class AutoRp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.access_list_name is not None:
+                    if self.active_sent_packets is not None:
                         return True
 
-                    if self.announce_period is not None:
-                        return True
-
-                    if self.candidate_rp_address is not None:
-                        return True
-
-                    if self.interface_name is not None:
-                        return True
-
-                    if self.protocol_mode is not None:
-                        return True
-
-                    if self.protocol_mode_xr is not None:
-                        return True
-
-                    if self.ttl is not None:
+                    if self.standby_sent_packets is not None:
                         return True
 
                     return False
@@ -234,12 +191,164 @@ class AutoRp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
-                    return meta._meta_table['AutoRp.Standby.CandidateRps.CandidateRp']['meta_info']
+                    return meta._meta_table['AutoRp.Standby.CandidateRp.Traffic']['meta_info']
+
+
+            class Rps(object):
+                """
+                AutoRP Candidate RP Table
+                
+                .. attribute:: rp
+                
+                	AutoRP Candidate RP Entry
+                	**type**\: list of    :py:class:`Rp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.CandidateRp.Rps.Rp>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-autorp-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.rp = YList()
+                    self.rp.parent = self
+                    self.rp.name = 'rp'
+
+
+                class Rp(object):
+                    """
+                    AutoRP Candidate RP Entry
+                    
+                    .. attribute:: access_list_name
+                    
+                    	ACL Name
+                    	**type**\:  str
+                    
+                    .. attribute:: announce_period
+                    
+                    	Announce Period
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: candidate_rp_address
+                    
+                    	Candidate RP IP Address
+                    	**type**\:  str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: interface_name
+                    
+                    	Interface Name
+                    	**type**\:  str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: protocol_mode
+                    
+                    	Protocol Mode
+                    	**type**\:   :py:class:`AutoRpProtocolModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_datatypes.AutoRpProtocolModeEnum>`
+                    
+                    .. attribute:: protocol_mode_xr
+                    
+                    	Protocol Mode
+                    	**type**\:   :py:class:`AutorpProtocolModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolModeEnum>`
+                    
+                    .. attribute:: ttl
+                    
+                    	TTL
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-autorp-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.access_list_name = None
+                        self.announce_period = None
+                        self.candidate_rp_address = None
+                        self.interface_name = None
+                        self.protocol_mode = None
+                        self.protocol_mode_xr = None
+                        self.ttl = None
+
+                    @property
+                    def _common_path(self):
+
+                        return '/Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/Cisco-IOS-XR-ipv4-autorp-oper:standby/Cisco-IOS-XR-ipv4-autorp-oper:candidate-rp/Cisco-IOS-XR-ipv4-autorp-oper:rps/Cisco-IOS-XR-ipv4-autorp-oper:rp'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.access_list_name is not None:
+                            return True
+
+                        if self.announce_period is not None:
+                            return True
+
+                        if self.candidate_rp_address is not None:
+                            return True
+
+                        if self.interface_name is not None:
+                            return True
+
+                        if self.protocol_mode is not None:
+                            return True
+
+                        if self.protocol_mode_xr is not None:
+                            return True
+
+                        if self.ttl is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                        return meta._meta_table['AutoRp.Standby.CandidateRp.Rps.Rp']['meta_info']
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/Cisco-IOS-XR-ipv4-autorp-oper:standby/Cisco-IOS-XR-ipv4-autorp-oper:candidate-rp/Cisco-IOS-XR-ipv4-autorp-oper:rps'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.rp is not None:
+                        for child_ref in self.rp:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                    return meta._meta_table['AutoRp.Standby.CandidateRp.Rps']['meta_info']
 
             @property
             def _common_path(self):
 
-                return '/Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/Cisco-IOS-XR-ipv4-autorp-oper:standby/Cisco-IOS-XR-ipv4-autorp-oper:candidate-rps'
+                return '/Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/Cisco-IOS-XR-ipv4-autorp-oper:standby/Cisco-IOS-XR-ipv4-autorp-oper:candidate-rp'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
@@ -248,17 +357,18 @@ class AutoRp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.candidate_rp is not None:
-                    for child_ref in self.candidate_rp:
-                        if child_ref._has_data():
-                            return True
+                if self.rps is not None and self.rps._has_data():
+                    return True
+
+                if self.traffic is not None and self.traffic._has_data():
+                    return True
 
                 return False
 
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
-                return meta._meta_table['AutoRp.Standby.CandidateRps']['meta_info']
+                return meta._meta_table['AutoRp.Standby.CandidateRp']['meta_info']
 
 
         class MappingAgent(object):
@@ -275,6 +385,11 @@ class AutoRp(object):
             	AutoRP Mapping Agent Summary Information
             	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.Summary>`
             
+            .. attribute:: traffic
+            
+            	AutoRP Mapping Agent Traffic Counters
+            	**type**\:   :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.Traffic>`
+            
             
 
             """
@@ -288,6 +403,86 @@ class AutoRp(object):
                 self.rp_addresses.parent = self
                 self.summary = AutoRp.Standby.MappingAgent.Summary()
                 self.summary.parent = self
+                self.traffic = AutoRp.Standby.MappingAgent.Traffic()
+                self.traffic.parent = self
+
+
+            class Traffic(object):
+                """
+                AutoRP Mapping Agent Traffic Counters
+                
+                .. attribute:: active_received_packets
+                
+                	Number of packets received in active role
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: active_sent_packets
+                
+                	Number of packets sent in active role
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: standby_received_packets
+                
+                	Number of packets dropped in receive path in standby role
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: standby_sent_packets
+                
+                	Number of packets dropped in send path in standby role
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'ipv4-autorp-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.active_received_packets = None
+                    self.active_sent_packets = None
+                    self.standby_received_packets = None
+                    self.standby_sent_packets = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/Cisco-IOS-XR-ipv4-autorp-oper:standby/Cisco-IOS-XR-ipv4-autorp-oper:mapping-agent/Cisco-IOS-XR-ipv4-autorp-oper:traffic'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.active_received_packets is not None:
+                        return True
+
+                    if self.active_sent_packets is not None:
+                        return True
+
+                    if self.standby_received_packets is not None:
+                        return True
+
+                    if self.standby_sent_packets is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                    return meta._meta_table['AutoRp.Standby.MappingAgent.Traffic']['meta_info']
 
 
             class RpAddresses(object):
@@ -625,6 +820,9 @@ class AutoRp(object):
                 if self.summary is not None and self.summary._has_data():
                     return True
 
+                if self.traffic is not None and self.traffic._has_data():
+                    return True
+
                 return False
 
             @staticmethod
@@ -644,7 +842,7 @@ class AutoRp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.candidate_rps is not None and self.candidate_rps._has_data():
+            if self.candidate_rp is not None and self.candidate_rp._has_data():
                 return True
 
             if self.mapping_agent is not None and self.mapping_agent._has_data():
@@ -662,10 +860,10 @@ class AutoRp(object):
         """
         Active Process
         
-        .. attribute:: candidate_rps
+        .. attribute:: candidate_rp
         
-        	AutoRP Candidate RP Table
-        	**type**\:   :py:class:`CandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.CandidateRps>`
+        	AutoRP Candidate RP
+        	**type**\:   :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.CandidateRp>`
         
         .. attribute:: mapping_agent
         
@@ -681,20 +879,25 @@ class AutoRp(object):
 
         def __init__(self):
             self.parent = None
-            self.candidate_rps = AutoRp.Active.CandidateRps()
-            self.candidate_rps.parent = self
+            self.candidate_rp = AutoRp.Active.CandidateRp()
+            self.candidate_rp.parent = self
             self.mapping_agent = AutoRp.Active.MappingAgent()
             self.mapping_agent.parent = self
 
 
-        class CandidateRps(object):
+        class CandidateRp(object):
             """
-            AutoRP Candidate RP Table
+            AutoRP Candidate RP
             
-            .. attribute:: candidate_rp
+            .. attribute:: rps
             
-            	AutoRP Candidate RP Entry
-            	**type**\: list of    :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.CandidateRps.CandidateRp>`
+            	AutoRP Candidate RP Table
+            	**type**\:   :py:class:`Rps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.CandidateRp.Rps>`
+            
+            .. attribute:: traffic
+            
+            	AutoRP Candidate Traffic Counters
+            	**type**\:   :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.CandidateRp.Traffic>`
             
             
 
@@ -705,57 +908,29 @@ class AutoRp(object):
 
             def __init__(self):
                 self.parent = None
-                self.candidate_rp = YList()
-                self.candidate_rp.parent = self
-                self.candidate_rp.name = 'candidate_rp'
+                self.rps = AutoRp.Active.CandidateRp.Rps()
+                self.rps.parent = self
+                self.traffic = AutoRp.Active.CandidateRp.Traffic()
+                self.traffic.parent = self
 
 
-            class CandidateRp(object):
+            class Traffic(object):
                 """
-                AutoRP Candidate RP Entry
+                AutoRP Candidate Traffic Counters
                 
-                .. attribute:: access_list_name
+                .. attribute:: active_sent_packets
                 
-                	ACL Name
-                	**type**\:  str
-                
-                .. attribute:: announce_period
-                
-                	Announce Period
+                	Number of packets sent in active role
                 	**type**\:  int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
-                .. attribute:: candidate_rp_address
+                .. attribute:: standby_sent_packets
                 
-                	Candidate RP IP Address
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: interface_name
-                
-                	Interface Name
-                	**type**\:  str
-                
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                
-                .. attribute:: protocol_mode
-                
-                	Protocol Mode
-                	**type**\:   :py:class:`AutoRpProtocolModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_datatypes.AutoRpProtocolModeEnum>`
-                
-                .. attribute:: protocol_mode_xr
-                
-                	Protocol Mode
-                	**type**\:   :py:class:`AutorpProtocolModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolModeEnum>`
-                
-                .. attribute:: ttl
-                
-                	TTL
+                	Number of packets dropped in send path in standby role
                 	**type**\:  int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..4294967295
                 
                 
 
@@ -766,18 +941,13 @@ class AutoRp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.access_list_name = None
-                    self.announce_period = None
-                    self.candidate_rp_address = None
-                    self.interface_name = None
-                    self.protocol_mode = None
-                    self.protocol_mode_xr = None
-                    self.ttl = None
+                    self.active_sent_packets = None
+                    self.standby_sent_packets = None
 
                 @property
                 def _common_path(self):
 
-                    return '/Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/Cisco-IOS-XR-ipv4-autorp-oper:active/Cisco-IOS-XR-ipv4-autorp-oper:candidate-rps/Cisco-IOS-XR-ipv4-autorp-oper:candidate-rp'
+                    return '/Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/Cisco-IOS-XR-ipv4-autorp-oper:active/Cisco-IOS-XR-ipv4-autorp-oper:candidate-rp/Cisco-IOS-XR-ipv4-autorp-oper:traffic'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -786,25 +956,10 @@ class AutoRp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.access_list_name is not None:
+                    if self.active_sent_packets is not None:
                         return True
 
-                    if self.announce_period is not None:
-                        return True
-
-                    if self.candidate_rp_address is not None:
-                        return True
-
-                    if self.interface_name is not None:
-                        return True
-
-                    if self.protocol_mode is not None:
-                        return True
-
-                    if self.protocol_mode_xr is not None:
-                        return True
-
-                    if self.ttl is not None:
+                    if self.standby_sent_packets is not None:
                         return True
 
                     return False
@@ -812,12 +967,164 @@ class AutoRp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
-                    return meta._meta_table['AutoRp.Active.CandidateRps.CandidateRp']['meta_info']
+                    return meta._meta_table['AutoRp.Active.CandidateRp.Traffic']['meta_info']
+
+
+            class Rps(object):
+                """
+                AutoRP Candidate RP Table
+                
+                .. attribute:: rp
+                
+                	AutoRP Candidate RP Entry
+                	**type**\: list of    :py:class:`Rp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.CandidateRp.Rps.Rp>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-autorp-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.rp = YList()
+                    self.rp.parent = self
+                    self.rp.name = 'rp'
+
+
+                class Rp(object):
+                    """
+                    AutoRP Candidate RP Entry
+                    
+                    .. attribute:: access_list_name
+                    
+                    	ACL Name
+                    	**type**\:  str
+                    
+                    .. attribute:: announce_period
+                    
+                    	Announce Period
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: candidate_rp_address
+                    
+                    	Candidate RP IP Address
+                    	**type**\:  str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: interface_name
+                    
+                    	Interface Name
+                    	**type**\:  str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: protocol_mode
+                    
+                    	Protocol Mode
+                    	**type**\:   :py:class:`AutoRpProtocolModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_datatypes.AutoRpProtocolModeEnum>`
+                    
+                    .. attribute:: protocol_mode_xr
+                    
+                    	Protocol Mode
+                    	**type**\:   :py:class:`AutorpProtocolModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolModeEnum>`
+                    
+                    .. attribute:: ttl
+                    
+                    	TTL
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-autorp-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.access_list_name = None
+                        self.announce_period = None
+                        self.candidate_rp_address = None
+                        self.interface_name = None
+                        self.protocol_mode = None
+                        self.protocol_mode_xr = None
+                        self.ttl = None
+
+                    @property
+                    def _common_path(self):
+
+                        return '/Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/Cisco-IOS-XR-ipv4-autorp-oper:active/Cisco-IOS-XR-ipv4-autorp-oper:candidate-rp/Cisco-IOS-XR-ipv4-autorp-oper:rps/Cisco-IOS-XR-ipv4-autorp-oper:rp'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.access_list_name is not None:
+                            return True
+
+                        if self.announce_period is not None:
+                            return True
+
+                        if self.candidate_rp_address is not None:
+                            return True
+
+                        if self.interface_name is not None:
+                            return True
+
+                        if self.protocol_mode is not None:
+                            return True
+
+                        if self.protocol_mode_xr is not None:
+                            return True
+
+                        if self.ttl is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                        return meta._meta_table['AutoRp.Active.CandidateRp.Rps.Rp']['meta_info']
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/Cisco-IOS-XR-ipv4-autorp-oper:active/Cisco-IOS-XR-ipv4-autorp-oper:candidate-rp/Cisco-IOS-XR-ipv4-autorp-oper:rps'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.rp is not None:
+                        for child_ref in self.rp:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                    return meta._meta_table['AutoRp.Active.CandidateRp.Rps']['meta_info']
 
             @property
             def _common_path(self):
 
-                return '/Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/Cisco-IOS-XR-ipv4-autorp-oper:active/Cisco-IOS-XR-ipv4-autorp-oper:candidate-rps'
+                return '/Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/Cisco-IOS-XR-ipv4-autorp-oper:active/Cisco-IOS-XR-ipv4-autorp-oper:candidate-rp'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
@@ -826,17 +1133,18 @@ class AutoRp(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.candidate_rp is not None:
-                    for child_ref in self.candidate_rp:
-                        if child_ref._has_data():
-                            return True
+                if self.rps is not None and self.rps._has_data():
+                    return True
+
+                if self.traffic is not None and self.traffic._has_data():
+                    return True
 
                 return False
 
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
-                return meta._meta_table['AutoRp.Active.CandidateRps']['meta_info']
+                return meta._meta_table['AutoRp.Active.CandidateRp']['meta_info']
 
 
         class MappingAgent(object):
@@ -853,6 +1161,11 @@ class AutoRp(object):
             	AutoRP Mapping Agent Summary Information
             	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.Summary>`
             
+            .. attribute:: traffic
+            
+            	AutoRP Mapping Agent Traffic Counters
+            	**type**\:   :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.Traffic>`
+            
             
 
             """
@@ -866,6 +1179,86 @@ class AutoRp(object):
                 self.rp_addresses.parent = self
                 self.summary = AutoRp.Active.MappingAgent.Summary()
                 self.summary.parent = self
+                self.traffic = AutoRp.Active.MappingAgent.Traffic()
+                self.traffic.parent = self
+
+
+            class Traffic(object):
+                """
+                AutoRP Mapping Agent Traffic Counters
+                
+                .. attribute:: active_received_packets
+                
+                	Number of packets received in active role
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: active_sent_packets
+                
+                	Number of packets sent in active role
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: standby_received_packets
+                
+                	Number of packets dropped in receive path in standby role
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: standby_sent_packets
+                
+                	Number of packets dropped in send path in standby role
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'ipv4-autorp-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.active_received_packets = None
+                    self.active_sent_packets = None
+                    self.standby_received_packets = None
+                    self.standby_sent_packets = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/Cisco-IOS-XR-ipv4-autorp-oper:active/Cisco-IOS-XR-ipv4-autorp-oper:mapping-agent/Cisco-IOS-XR-ipv4-autorp-oper:traffic'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.active_received_packets is not None:
+                        return True
+
+                    if self.active_sent_packets is not None:
+                        return True
+
+                    if self.standby_received_packets is not None:
+                        return True
+
+                    if self.standby_sent_packets is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_autorp_oper as meta
+                    return meta._meta_table['AutoRp.Active.MappingAgent.Traffic']['meta_info']
 
 
             class RpAddresses(object):
@@ -1203,6 +1596,9 @@ class AutoRp(object):
                 if self.summary is not None and self.summary._has_data():
                     return True
 
+                if self.traffic is not None and self.traffic._has_data():
+                    return True
+
                 return False
 
             @staticmethod
@@ -1222,7 +1618,7 @@ class AutoRp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.candidate_rps is not None and self.candidate_rps._has_data():
+            if self.candidate_rp is not None and self.candidate_rp._has_data():
                 return True
 
             if self.mapping_agent is not None and self.mapping_agent._has_data():

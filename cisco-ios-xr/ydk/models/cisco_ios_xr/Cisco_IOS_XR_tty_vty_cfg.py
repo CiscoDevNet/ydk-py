@@ -39,7 +39,7 @@ class Vty(object):
     """
 
     _prefix = 'tty-vty-cfg'
-    _revision = '2015-01-07'
+    _revision = '2015-09-16'
 
     def __init__(self):
         self.vty_pools = Vty.VtyPools()
@@ -60,7 +60,7 @@ class Vty(object):
         """
 
         _prefix = 'tty-vty-cfg'
-        _revision = '2015-01-07'
+        _revision = '2015-09-16'
 
         def __init__(self):
             self.parent = None
@@ -113,7 +113,7 @@ class Vty(object):
             """
 
             _prefix = 'tty-vty-cfg'
-            _revision = '2015-01-07'
+            _revision = '2015-09-16'
 
             def __init__(self):
                 self.parent = None

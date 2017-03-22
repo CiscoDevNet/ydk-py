@@ -549,6 +549,13 @@ class Ipv6NodeDiscovery(object):
                             	Selected media encap
                             	**type**\:   :py:class:`Ipv6NdMediaEncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdMediaEncapEnum>`
                             
+                            .. attribute:: serg_flags
+                            
+                            	ND serg flags for this entry
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
                             
 
                             """
@@ -569,6 +576,7 @@ class Ipv6NodeDiscovery(object):
                                 self.origin_encapsulation = None
                                 self.reachability_state = None
                                 self.selected_encapsulation = None
+                                self.serg_flags = None
 
 
                             class LastReachedTime(object):
@@ -663,6 +671,9 @@ class Ipv6NodeDiscovery(object):
                                     return True
 
                                 if self.selected_encapsulation is not None:
+                                    return True
+
+                                if self.serg_flags is not None:
                                     return True
 
                                 return False
@@ -1695,6 +1706,11 @@ class Ipv6NodeDiscovery(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: send_unicast_ra
+                        
+                        	unicast RA send flag
+                        	**type**\:  bool
+                        
                         
 
                         """
@@ -1722,6 +1738,7 @@ class Ipv6NodeDiscovery(object):
                             self.nd_min_transmit_interval = None
                             self.nd_reachable_time = None
                             self.nd_retransmit_interval = None
+                            self.send_unicast_ra = None
 
                         @property
                         def _common_path(self):
@@ -1789,6 +1806,9 @@ class Ipv6NodeDiscovery(object):
                                 return True
 
                             if self.nd_retransmit_interval is not None:
+                                return True
+
+                            if self.send_unicast_ra is not None:
                                 return True
 
                             return False
@@ -2206,6 +2226,11 @@ class Ipv6NodeDiscovery(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: send_unicast_ra
+                    
+                    	unicast RA send flag
+                    	**type**\:  bool
+                    
                     
 
                     """
@@ -2234,6 +2259,7 @@ class Ipv6NodeDiscovery(object):
                         self.nd_min_transmit_interval = None
                         self.nd_reachable_time = None
                         self.nd_retransmit_interval = None
+                        self.send_unicast_ra = None
 
                     @property
                     def _common_path(self):
@@ -2306,6 +2332,9 @@ class Ipv6NodeDiscovery(object):
                             return True
 
                         if self.nd_retransmit_interval is not None:
+                            return True
+
+                        if self.send_unicast_ra is not None:
                             return True
 
                         return False

@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'EtherLinkStateEnum' : _MetaInfoEnum('EtherLinkStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper',
         {
@@ -1200,6 +1199,12 @@ _meta_table = {
                 ''',
                 'dig_opt_mon_alarm',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('lane-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Numerical identifier for this lane
+                ''',
+                'lane_id',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
             _MetaInfoClassMember('laser-bias-current', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Laser Bias Current (uAmps)
@@ -1486,6 +1491,12 @@ _meta_table = {
                 ''',
                 'remote_fault_alarm',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('rx-opd-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
+                [], [], 
+                '''                Rx OPD Alarm
+                ''',
+                'rx_opd_alarm',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
             _MetaInfoClassMember('sd-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
                 [], [], 
                 '''                SD BER
@@ -1550,6 +1561,12 @@ _meta_table = {
                 '''                Remote Fault
                 ''',
                 'remote_fault_alarm',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('rx-opd-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
+                [], [], 
+                '''                Rx OPD Alarm
+                ''',
+                'rx_opd_alarm',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
             _MetaInfoClassMember('sd-ber-alarm', REFERENCE_ENUM_CLASS, 'EthCtrlrAlarmStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmStateEnum', 
                 [], [], 
@@ -1659,6 +1676,52 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-drivers-media-eth-oper',
             'ber-monitoring',
+            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper'
+        ),
+    },
+    'EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings' : {
+        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings',
+            False, 
+            [
+            _MetaInfoClassMember('received-optical-power-degrade-threshold', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Rx-OPD alarm threshold value
+                ''',
+                'received_optical_power_degrade_threshold',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('received-optical-power-degrade-threshold-set', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Rx-OPD alarm threshold set?
+                ''',
+                'received_optical_power_degrade_threshold_set',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            ],
+            'Cisco-IOS-XR-drivers-media-eth-oper',
+            'settings',
+            _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper'
+        ),
+    },
+    'EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring' : {
+        'meta_info' : _MetaInfoClass('EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring',
+            False, 
+            [
+            _MetaInfoClassMember('settings', REFERENCE_CLASS, 'Settings' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings', 
+                [], [], 
+                '''                The OPD monitoring settings to be applied
+                ''',
+                'settings',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('supported', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Whether or not OPD monitoring is supported
+                ''',
+                'supported',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            ],
+            'Cisco-IOS-XR-drivers-media-eth-oper',
+            'opd-monitoring',
             _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper'
         ),
@@ -1773,6 +1836,12 @@ _meta_table = {
                 '''                Link state
                 ''',
                 'link_state',
+                'Cisco-IOS-XR-drivers-media-eth-oper', False),
+            _MetaInfoClassMember('opd-monitoring', REFERENCE_CLASS, 'OpdMonitoring' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring', 
+                [], [], 
+                '''                OPD monitoring details
+                ''',
+                'opd_monitoring',
                 'Cisco-IOS-XR-drivers-media-eth-oper', False),
             _MetaInfoClassMember('pfc-info', REFERENCE_CLASS, 'PfcInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo', 
                 [], [], 
@@ -2174,11 +2243,13 @@ _meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane']['m
 _meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.PhyInfo']['meta_info']
 _meta_table['EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.PhyInfo']['meta_info']
 _meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring']['meta_info']
+_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring']['meta_info']
 _meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info']['meta_info']
 _meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info']['meta_info']
 _meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info']['meta_info']
 _meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info']['meta_info']
 _meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info']['meta_info']
+_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info']['meta_info']
 _meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.Layer1Info']['meta_info']
 _meta_table['EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters']['meta_info']
 _meta_table['EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters']['meta_info'].parent =_meta_table['EthernetInterface.Interfaces.Interface.MacInfo']['meta_info']

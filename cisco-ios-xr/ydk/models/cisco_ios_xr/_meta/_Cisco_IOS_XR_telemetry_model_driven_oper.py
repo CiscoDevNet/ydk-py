@@ -8,12 +8,29 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
+    'MdtInternalPathStatusEnum' : _MetaInfoEnum('MdtInternalPathStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper',
+        {
+            'active':'active',
+            'internal-err':'internal_err',
+            'plugin-active':'plugin_active',
+            'plugin-not-initialized':'plugin_not_initialized',
+            'plugin-invalid-cadence':'plugin_invalid_cadence',
+            'plugin-err':'plugin_err',
+            'filter-err':'filter_err',
+        }, 'Cisco-IOS-XR-telemetry-model-driven-oper', _yang_ns._namespaces['Cisco-IOS-XR-telemetry-model-driven-oper']),
+    'MdtTransportEnumEnum' : _MetaInfoEnum('MdtTransportEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper',
+        {
+            'not-set':'not_set',
+            'grpc':'grpc',
+            'tcp':'tcp',
+            'udp':'udp',
+            'dialin':'dialin',
+        }, 'Cisco-IOS-XR-telemetry-model-driven-oper', _yang_ns._namespaces['Cisco-IOS-XR-telemetry-model-driven-oper']),
     'MdtEncodingEnumEnum' : _MetaInfoEnum('MdtEncodingEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper',
         {
             'not-set':'not_set',
@@ -25,13 +42,6 @@ _meta_table = {
         {
             'ipv4':'ipv4',
             'ipv6':'ipv6',
-        }, 'Cisco-IOS-XR-telemetry-model-driven-oper', _yang_ns._namespaces['Cisco-IOS-XR-telemetry-model-driven-oper']),
-    'MdtTransportEnumEnum' : _MetaInfoEnum('MdtTransportEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper',
-        {
-            'not-set':'not_set',
-            'grpc':'grpc',
-            'tcp':'tcp',
-            'dialin':'dialin',
         }, 'Cisco-IOS-XR-telemetry-model-driven-oper', _yang_ns._namespaces['Cisco-IOS-XR-telemetry-model-driven-oper']),
     'TelemetryModelDriven.Destinations.Destination.Destination_.Destination__.DestIpAddress' : {
         'meta_info' : _MetaInfoClass('TelemetryModelDriven.Destinations.Destination.Destination_.Destination__.DestIpAddress',
@@ -101,6 +111,18 @@ _meta_table = {
                 '''                State of streaming on this destination
                 ''',
                 'state',
+                'Cisco-IOS-XR-telemetry-model-driven-oper', False),
+            _MetaInfoClassMember('sub-id', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Sub Id
+                ''',
+                'sub_id',
+                'Cisco-IOS-XR-telemetry-model-driven-oper', False),
+            _MetaInfoClassMember('sub-id-str', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Sub Idstr
+                ''',
+                'sub_id_str',
                 'Cisco-IOS-XR-telemetry-model-driven-oper', False),
             _MetaInfoClassMember('tls', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -209,6 +231,12 @@ _meta_table = {
                 '''                Sysdb Path
                 ''',
                 'path',
+                'Cisco-IOS-XR-telemetry-model-driven-oper', False),
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'MdtInternalPathStatusEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'MdtInternalPathStatusEnum', 
+                [], [], 
+                '''                Status of collection path
+                ''',
+                'status',
                 'Cisco-IOS-XR-telemetry-model-driven-oper', False),
             _MetaInfoClassMember('total-collections', ATTRIBUTE, 'int' , None, None, 
                 [('0', '18446744073709551615')], [], 
@@ -692,6 +720,18 @@ _meta_table = {
                 ''',
                 'state',
                 'Cisco-IOS-XR-telemetry-model-driven-oper', False),
+            _MetaInfoClassMember('sub-id', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Sub Id
+                ''',
+                'sub_id',
+                'Cisco-IOS-XR-telemetry-model-driven-oper', False),
+            _MetaInfoClassMember('sub-id-str', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Sub Idstr
+                ''',
+                'sub_id_str',
+                'Cisco-IOS-XR-telemetry-model-driven-oper', False),
             _MetaInfoClassMember('tls', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                TLS connection to this destination
@@ -781,8 +821,8 @@ _meta_table = {
                 ''',
                 'sensor_profile',
                 'Cisco-IOS-XR-telemetry-model-driven-oper', False),
-            _MetaInfoClassMember('state', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
+            _MetaInfoClassMember('state', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
                 '''                Subscription state
                 ''',
                 'state',
@@ -863,6 +903,12 @@ _meta_table = {
                 '''                Sysdb Path
                 ''',
                 'path',
+                'Cisco-IOS-XR-telemetry-model-driven-oper', False),
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'MdtInternalPathStatusEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'MdtInternalPathStatusEnum', 
+                [], [], 
+                '''                Status of collection path
+                ''',
+                'status',
                 'Cisco-IOS-XR-telemetry-model-driven-oper', False),
             _MetaInfoClassMember('total-collections', ATTRIBUTE, 'int' , None, None, 
                 [('0', '18446744073709551615')], [], 

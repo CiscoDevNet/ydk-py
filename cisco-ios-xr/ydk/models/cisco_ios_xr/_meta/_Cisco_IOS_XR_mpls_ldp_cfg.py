@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'MplsLdpAdvertiseBgpaclEnum' : _MetaInfoEnum('MplsLdpAdvertiseBgpaclEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
         {
@@ -22,6 +21,11 @@ _meta_table = {
         {
             'for':'for_',
             'for-to':'for_to',
+        }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
+    'MldpPolicyModeEnum' : _MetaInfoEnum('MldpPolicyModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
+        {
+            'inbound':'inbound',
+            'outbound':'outbound',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
     'MplsLdpLabelAllocationEnum' : _MetaInfoEnum('MplsLdpLabelAllocationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
         {
@@ -2703,15 +2707,44 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
+    'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.RecursiveForwarding' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.RecursiveForwarding',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable recursive forwarding
+                ''',
+                'enable',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('policy', ATTRIBUTE, 'str' , None, None, 
+                [(1, 64)], [], 
+                '''                Recursive forwarding policy name
+                ''',
+                'policy',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-ldp-cfg',
+            'recursive-forwarding',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
+        ),
+    },
     'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec' : {
         'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec',
             False, 
             [
-            _MetaInfoClassMember('enable-mldp-recursive-fec', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable MPLS mLDP Recursive FEC
                 ''',
-                'enable_mldp_recursive_fec',
+                'enable',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('policy', ATTRIBUTE, 'str' , None, None, 
+                [(1, 64)], [], 
+                '''                Route policy name
+                ''',
+                'policy',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -2720,15 +2753,80 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
+    'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies.NeighborPolicy' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies.NeighborPolicy',
+            False, 
+            [
+            _MetaInfoClassMember('policy-mode', REFERENCE_ENUM_CLASS, 'MldpPolicyModeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MldpPolicyModeEnum', 
+                [], [], 
+                '''                Inbound/Outbound Policy
+                ''',
+                'policy_mode',
+                'Cisco-IOS-XR-mpls-ldp-cfg', True),
+            _MetaInfoClassMember('root-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Neighbor Address
+                ''',
+                'root_address',
+                'Cisco-IOS-XR-mpls-ldp-cfg', True, [
+                    _MetaInfoClassMember('root-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Neighbor Address
+                        ''',
+                        'root_address',
+                        'Cisco-IOS-XR-mpls-ldp-cfg', True),
+                    _MetaInfoClassMember('root-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Neighbor Address
+                        ''',
+                        'root_address',
+                        'Cisco-IOS-XR-mpls-ldp-cfg', True),
+                ]),
+            _MetaInfoClassMember('route-policy', ATTRIBUTE, 'str' , None, None, 
+                [(1, 64)], [], 
+                '''                Route policy name
+                ''',
+                'route_policy',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-ldp-cfg',
+            'neighbor-policy',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
+        ),
+    },
+    'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies',
+            False, 
+            [
+            _MetaInfoClassMember('neighbor-policy', REFERENCE_LIST, 'NeighborPolicy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies.NeighborPolicy', 
+                [], [], 
+                '''                Route Policy
+                ''',
+                'neighbor_policy',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-ldp-cfg',
+            'neighbor-policies',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
+        ),
+    },
     'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MoFrr' : {
         'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MoFrr',
             False, 
             [
-            _MetaInfoClassMember('enable-mo-frr', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable MPLS mLDP MoFRR
                 ''',
-                'enable_mo_frr',
+                'enable',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('policy', ATTRIBUTE, 'str' , None, None, 
+                [(1, 64)], [], 
+                '''                Route policy name
+                ''',
+                'policy',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -2764,6 +2862,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak',
             False, 
             [
+            _MetaInfoClassMember('policy', ATTRIBUTE, 'str' , None, None, 
+                [(1, 64)], [], 
+                '''                Route policy name
+                ''',
+                'policy',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('signaling', REFERENCE_CLASS, 'Signaling' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling', 
                 [], [], 
                 '''                Enable MPLS mLDP MBB signaling
@@ -2781,11 +2885,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.Csc',
             False, 
             [
-            _MetaInfoClassMember('enable-csc', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable MPLS mLDP CSC
                 ''',
-                'enable_csc',
+                'enable',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -2842,6 +2946,18 @@ _meta_table = {
                 ''',
                 'mo_frr',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('neighbor-policies', REFERENCE_CLASS, 'NeighborPolicies' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies', 
+                [], [], 
+                '''                MLDP neighbor policies
+                ''',
+                'neighbor_policies',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('recursive-forwarding', REFERENCE_CLASS, 'RecursiveForwarding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.RecursiveForwarding', 
+                [], [], 
+                '''                Enable recursive forwarding
+                ''',
+                'recursive_forwarding',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
             'af',
@@ -2871,7 +2987,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [(1, 32)], [], 
                 '''                VRF Name
                 ''',
                 'vrf_name',
@@ -2881,6 +2997,13 @@ _meta_table = {
                 '''                Address Family specific operational data
                 ''',
                 'afs',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable Multicast Label Distribution Protocol
+                (mLDP)
+                ''',
+                'enable',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -2906,15 +3029,44 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
+    'MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.RecursiveForwarding' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.RecursiveForwarding',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable recursive forwarding
+                ''',
+                'enable',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('policy', ATTRIBUTE, 'str' , None, None, 
+                [(1, 64)], [], 
+                '''                Recursive forwarding policy name
+                ''',
+                'policy',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-ldp-cfg',
+            'recursive-forwarding',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
+        ),
+    },
     'MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec' : {
         'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec',
             False, 
             [
-            _MetaInfoClassMember('enable-mldp-recursive-fec', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable MPLS mLDP Recursive FEC
                 ''',
-                'enable_mldp_recursive_fec',
+                'enable',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('policy', ATTRIBUTE, 'str' , None, None, 
+                [(1, 64)], [], 
+                '''                Route policy name
+                ''',
+                'policy',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -2923,15 +3075,80 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
+    'MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.NeighborPolicies.NeighborPolicy' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.NeighborPolicies.NeighborPolicy',
+            False, 
+            [
+            _MetaInfoClassMember('policy-mode', REFERENCE_ENUM_CLASS, 'MldpPolicyModeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MldpPolicyModeEnum', 
+                [], [], 
+                '''                Inbound/Outbound Policy
+                ''',
+                'policy_mode',
+                'Cisco-IOS-XR-mpls-ldp-cfg', True),
+            _MetaInfoClassMember('root-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Neighbor Address
+                ''',
+                'root_address',
+                'Cisco-IOS-XR-mpls-ldp-cfg', True, [
+                    _MetaInfoClassMember('root-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Neighbor Address
+                        ''',
+                        'root_address',
+                        'Cisco-IOS-XR-mpls-ldp-cfg', True),
+                    _MetaInfoClassMember('root-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Neighbor Address
+                        ''',
+                        'root_address',
+                        'Cisco-IOS-XR-mpls-ldp-cfg', True),
+                ]),
+            _MetaInfoClassMember('route-policy', ATTRIBUTE, 'str' , None, None, 
+                [(1, 64)], [], 
+                '''                Route policy name
+                ''',
+                'route_policy',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-ldp-cfg',
+            'neighbor-policy',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
+        ),
+    },
+    'MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.NeighborPolicies' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.NeighborPolicies',
+            False, 
+            [
+            _MetaInfoClassMember('neighbor-policy', REFERENCE_LIST, 'NeighborPolicy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.NeighborPolicies.NeighborPolicy', 
+                [], [], 
+                '''                Route Policy
+                ''',
+                'neighbor_policy',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-ldp-cfg',
+            'neighbor-policies',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
+        ),
+    },
     'MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MoFrr' : {
         'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MoFrr',
             False, 
             [
-            _MetaInfoClassMember('enable-mo-frr', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable MPLS mLDP MoFRR
                 ''',
-                'enable_mo_frr',
+                'enable',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('policy', ATTRIBUTE, 'str' , None, None, 
+                [(1, 64)], [], 
+                '''                Route policy name
+                ''',
+                'policy',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -2967,6 +3184,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak',
             False, 
             [
+            _MetaInfoClassMember('policy', ATTRIBUTE, 'str' , None, None, 
+                [(1, 64)], [], 
+                '''                Route policy name
+                ''',
+                'policy',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('signaling', REFERENCE_CLASS, 'Signaling' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling', 
                 [], [], 
                 '''                Enable MPLS mLDP MBB signaling
@@ -2984,11 +3207,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.Csc',
             False, 
             [
-            _MetaInfoClassMember('enable-csc', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable MPLS mLDP CSC
                 ''',
-                'enable_csc',
+                'enable',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
@@ -3045,6 +3268,18 @@ _meta_table = {
                 ''',
                 'mo_frr',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('neighbor-policies', REFERENCE_CLASS, 'NeighborPolicies' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.NeighborPolicies', 
+                [], [], 
+                '''                MLDP neighbor policies
+                ''',
+                'neighbor_policies',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('recursive-forwarding', REFERENCE_CLASS, 'RecursiveForwarding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.RecursiveForwarding', 
+                [], [], 
+                '''                Enable recursive forwarding
+                ''',
+                'recursive_forwarding',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-ldp-cfg',
             'af',
@@ -3092,7 +3327,7 @@ _meta_table = {
             [
             _MetaInfoClassMember('notifications', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                MPLS mLDP logging notificataions
+                '''                MPLS mLDP logging notifications
                 ''',
                 'notifications',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
@@ -3373,16 +3608,22 @@ _meta_table['MplsLdp.Global_.Igp.Sync.Delay']['meta_info'].parent =_meta_table['
 _meta_table['MplsLdp.Global_.Igp.Sync']['meta_info'].parent =_meta_table['MplsLdp.Global_.Igp']['meta_info']
 _meta_table['MplsLdp.Global_.Discovery.LinkHello']['meta_info'].parent =_meta_table['MplsLdp.Global_.Discovery']['meta_info']
 _meta_table['MplsLdp.Global_.Discovery.TargetedHello']['meta_info'].parent =_meta_table['MplsLdp.Global_.Discovery']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies.NeighborPolicy']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies']['meta_info']
 _meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.RecursiveForwarding']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af']['meta_info']
 _meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af']['meta_info']
 _meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MoFrr']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af']['meta_info']
 _meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af']['meta_info']
 _meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.Csc']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af']['meta_info']
 _meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs']['meta_info']
 _meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf']['meta_info']
 _meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.Vrfs']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.NeighborPolicies.NeighborPolicy']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.NeighborPolicies']['meta_info']
 _meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.RecursiveForwarding']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af']['meta_info']
 _meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.NeighborPolicies']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af']['meta_info']
 _meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MoFrr']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af']['meta_info']
 _meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af']['meta_info']
 _meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.Csc']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af']['meta_info']

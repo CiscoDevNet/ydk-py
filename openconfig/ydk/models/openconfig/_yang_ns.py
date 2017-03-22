@@ -1,3 +1,5 @@
+_global_cisco_xr_openconfig_bgp_types_nsp = 'http://cisco.com/ns/yang/cisco-xr-openconfig-bgp-types'
+_global_cisco_xr_openconfig_interfaces_types_nsp = 'http://cisco.com/ns/yang/cisco-xr-openconfig-interfaces-types'
 _global_openconfig_bgp_nsp = 'http://openconfig.net/yang/bgp'
 _global_openconfig_bgp_multiprotocol_nsp = 'http://openconfig.net/yang/bgp-multiprotocol'
 _global_openconfig_bgp_operational_nsp = 'http://openconfig.net/yang/bgp-operational'
@@ -8,6 +10,7 @@ _global_openconfig_if_aggregate_nsp = 'http://openconfig.net/yang/interface/aggr
 _global_openconfig_if_ethernet_nsp = 'http://openconfig.net/yang/interfaces/ethernet'
 _global_openconfig_if_ip_nsp = 'http://openconfig.net/yang/interfaces/ip'
 _global_openconfig_interfaces_nsp = 'http://openconfig.net/yang/interfaces'
+_global_openconfig_local_routing_nsp = 'http://openconfig.net/yang/local-routing'
 _global_openconfig_mpls_nsp = 'http://openconfig.net/yang/mpls'
 _global_openconfig_mpls_igp_nsp = 'http://openconfig.net/yang/mpls'
 _global_openconfig_mpls_ldp_nsp = 'http://openconfig.net/yang/ldp'
@@ -20,12 +23,17 @@ _global_openconfig_platform_nsp = 'http://openconfig.net/yang/platform'
 _global_openconfig_platform_transceiver_nsp = 'http://openconfig.net/yang/platform/transceiver'
 _global_openconfig_platform_types_nsp = 'http://openconfig.net/yang/platform-types'
 _global_openconfig_policy_types_nsp = 'http://openconfig.net/yang/policy-types'
+_global_openconfig_rib_bgp_nsp = 'http://openconfig.net/yang/rib/bgp'
+_global_openconfig_rib_bgp_types_nsp = 'http://openconfig.net/yang/rib/bgp-types'
 _global_openconfig_routing_policy_nsp = 'http://openconfig.net/yang/routing-policy'
 _global_openconfig_telemetry_nsp = 'http://openconfig.net/yang/telemetry'
+_global_openconfig_terminal_device_nsp = 'http://openconfig.net/yang/terminal-device'
 _global_openconfig_transport_types_nsp = 'http://openconfig.net/yang/transport-types'
 _global_openconfig_types_nsp = 'http://openconfig.net/yang/openconfig-types'
 _global_openconfig_vlan_nsp = 'http://openconfig.net/yang/vlan'
 _namespaces = { \
+    'cisco-xr-openconfig-bgp-types' : 'http://cisco.com/ns/yang/cisco-xr-openconfig-bgp-types', 
+    'cisco-xr-openconfig-interfaces-types' : 'http://cisco.com/ns/yang/cisco-xr-openconfig-interfaces-types', 
     'openconfig-bgp' : 'http://openconfig.net/yang/bgp', 
     'openconfig-bgp-multiprotocol' : 'http://openconfig.net/yang/bgp-multiprotocol', 
     'openconfig-bgp-operational' : 'http://openconfig.net/yang/bgp-operational', 
@@ -36,6 +44,7 @@ _namespaces = { \
     'openconfig-if-ethernet' : 'http://openconfig.net/yang/interfaces/ethernet', 
     'openconfig-if-ip' : 'http://openconfig.net/yang/interfaces/ip', 
     'openconfig-interfaces' : 'http://openconfig.net/yang/interfaces', 
+    'openconfig-local-routing' : 'http://openconfig.net/yang/local-routing', 
     'openconfig-mpls' : 'http://openconfig.net/yang/mpls', 
     'openconfig-mpls-igp' : 'http://openconfig.net/yang/mpls', 
     'openconfig-mpls-ldp' : 'http://openconfig.net/yang/ldp', 
@@ -48,30 +57,36 @@ _namespaces = { \
     'openconfig-platform-transceiver' : 'http://openconfig.net/yang/platform/transceiver', 
     'openconfig-platform-types' : 'http://openconfig.net/yang/platform-types', 
     'openconfig-policy-types' : 'http://openconfig.net/yang/policy-types', 
+    'openconfig-rib-bgp' : 'http://openconfig.net/yang/rib/bgp', 
+    'openconfig-rib-bgp-types' : 'http://openconfig.net/yang/rib/bgp-types', 
     'openconfig-routing-policy' : 'http://openconfig.net/yang/routing-policy', 
     'openconfig-telemetry' : 'http://openconfig.net/yang/telemetry', 
+    'openconfig-terminal-device' : 'http://openconfig.net/yang/terminal-device', 
     'openconfig-transport-types' : 'http://openconfig.net/yang/transport-types', 
     'openconfig-types' : 'http://openconfig.net/yang/openconfig-types', 
     'openconfig-vlan' : 'http://openconfig.net/yang/vlan', 
 }
 
 _identity_map = { \
+    ('cisco-xr-openconfig-bgp-types', 'AFI_SAFI_TYPE'):('ydk.models.openconfig.cisco_xr_openconfig_bgp_types', 'Afi_Safi_TypeIdentity'),
+    ('cisco-xr-openconfig-bgp-types', 'IPV4_UNICAST'):('ydk.models.openconfig.cisco_xr_openconfig_bgp_types', 'Ipv4_UnicastIdentity'),
+    ('cisco-xr-openconfig-bgp-types', 'IPV6_UNICAST'):('ydk.models.openconfig.cisco_xr_openconfig_bgp_types', 'Ipv6_UnicastIdentity'),
     ('openconfig-bgp-types', 'ADD-PATHS'):('ydk.models.openconfig.openconfig_bgp_types', 'AddPathsIdentity'),
     ('openconfig-bgp-types', 'afi-safi-type'):('ydk.models.openconfig.openconfig_bgp_types', 'AfiSafiTypeIdentity'),
     ('openconfig-bgp-types', 'ASN32'):('ydk.models.openconfig.openconfig_bgp_types', 'Asn32Identity'),
     ('openconfig-bgp-types', 'bgp-capability'):('ydk.models.openconfig.openconfig_bgp_types', 'BgpCapabilityIdentity'),
     ('openconfig-bgp-types', 'bgp-well-known-std-community'):('ydk.models.openconfig.openconfig_bgp_types', 'BgpWellKnownStdCommunityIdentity'),
     ('openconfig-bgp-types', 'GRACEFUL-RESTART'):('ydk.models.openconfig.openconfig_bgp_types', 'GracefulRestartIdentity'),
-    ('openconfig-bgp-types', 'IPV4-LABELLED-UNICAST'):('ydk.models.openconfig.openconfig_bgp_types', 'Ipv4LabelledUnicastIdentity'),
-    ('openconfig-bgp-types', 'IPV4-UNICAST'):('ydk.models.openconfig.openconfig_bgp_types', 'Ipv4UnicastIdentity'),
-    ('openconfig-bgp-types', 'IPV6-LABELLED-UNICAST'):('ydk.models.openconfig.openconfig_bgp_types', 'Ipv6LabelledUnicastIdentity'),
-    ('openconfig-bgp-types', 'IPV6-UNICAST'):('ydk.models.openconfig.openconfig_bgp_types', 'Ipv6UnicastIdentity'),
-    ('openconfig-bgp-types', 'L2VPN-EVPN'):('ydk.models.openconfig.openconfig_bgp_types', 'L2VpnEvpnIdentity'),
-    ('openconfig-bgp-types', 'L2VPN-VPLS'):('ydk.models.openconfig.openconfig_bgp_types', 'L2VpnVplsIdentity'),
-    ('openconfig-bgp-types', 'L3VPN-IPV4-MULTICAST'):('ydk.models.openconfig.openconfig_bgp_types', 'L3VpnIpv4MulticastIdentity'),
-    ('openconfig-bgp-types', 'L3VPN-IPV4-UNICAST'):('ydk.models.openconfig.openconfig_bgp_types', 'L3VpnIpv4UnicastIdentity'),
-    ('openconfig-bgp-types', 'L3VPN-IPV6-MULTICAST'):('ydk.models.openconfig.openconfig_bgp_types', 'L3VpnIpv6MulticastIdentity'),
-    ('openconfig-bgp-types', 'L3VPN-IPV6-UNICAST'):('ydk.models.openconfig.openconfig_bgp_types', 'L3VpnIpv6UnicastIdentity'),
+    ('openconfig-bgp-types', 'ipv4-labelled-unicast'):('ydk.models.openconfig.openconfig_bgp_types', 'Ipv4LabelledUnicastIdentity'),
+    ('openconfig-bgp-types', 'ipv4-unicast'):('ydk.models.openconfig.openconfig_bgp_types', 'Ipv4UnicastIdentity'),
+    ('openconfig-bgp-types', 'ipv6-labelled-unicast'):('ydk.models.openconfig.openconfig_bgp_types', 'Ipv6LabelledUnicastIdentity'),
+    ('openconfig-bgp-types', 'ipv6-unicast'):('ydk.models.openconfig.openconfig_bgp_types', 'Ipv6UnicastIdentity'),
+    ('openconfig-bgp-types', 'l2vpn-evpn'):('ydk.models.openconfig.openconfig_bgp_types', 'L2VpnEvpnIdentity'),
+    ('openconfig-bgp-types', 'l2vpn-vpls'):('ydk.models.openconfig.openconfig_bgp_types', 'L2VpnVplsIdentity'),
+    ('openconfig-bgp-types', 'l3vpn-ipv4-multicast'):('ydk.models.openconfig.openconfig_bgp_types', 'L3VpnIpv4MulticastIdentity'),
+    ('openconfig-bgp-types', 'l3vpn-ipv4-unicast'):('ydk.models.openconfig.openconfig_bgp_types', 'L3VpnIpv4UnicastIdentity'),
+    ('openconfig-bgp-types', 'l3vpn-ipv6-multicast'):('ydk.models.openconfig.openconfig_bgp_types', 'L3VpnIpv6MulticastIdentity'),
+    ('openconfig-bgp-types', 'l3vpn-ipv6-unicast'):('ydk.models.openconfig.openconfig_bgp_types', 'L3VpnIpv6UnicastIdentity'),
     ('openconfig-bgp-types', 'MPBGP'):('ydk.models.openconfig.openconfig_bgp_types', 'MpbgpIdentity'),
     ('openconfig-bgp-types', 'NO_ADVERTISE'):('ydk.models.openconfig.openconfig_bgp_types', 'No_AdvertiseIdentity'),
     ('openconfig-bgp-types', 'NO_EXPORT'):('ydk.models.openconfig.openconfig_bgp_types', 'No_ExportIdentity'),
@@ -88,6 +103,9 @@ _identity_map = { \
     ('openconfig-if-ethernet', 'SPEED_40Gb'):('ydk.models.openconfig.openconfig_if_ethernet', 'Speed_40GbIdentity'),
     ('openconfig-if-ethernet', 'SPEED_50Gb'):('ydk.models.openconfig.openconfig_if_ethernet', 'Speed_50GbIdentity'),
     ('openconfig-if-ethernet', 'SPEED_UNKNOWN'):('ydk.models.openconfig.openconfig_if_ethernet', 'Speed_UnknownIdentity'),
+    ('openconfig-local-routing', 'DROP'):('ydk.models.openconfig.openconfig_local_routing', 'DropIdentity'),
+    ('openconfig-local-routing', 'LOCAL_DEFINED_NEXT_HOP'):('ydk.models.openconfig.openconfig_local_routing', 'Local_Defined_Next_HopIdentity'),
+    ('openconfig-local-routing', 'LOCAL_LINK'):('ydk.models.openconfig.openconfig_local_routing', 'Local_LinkIdentity'),
     ('openconfig-mpls', 'explicitly-defined'):('ydk.models.openconfig.openconfig_mpls', 'ExplicitlyDefinedIdentity'),
     ('openconfig-mpls', 'externally-queried'):('ydk.models.openconfig.openconfig_mpls', 'ExternallyQueriedIdentity'),
     ('openconfig-mpls', 'locally-computed'):('ydk.models.openconfig.openconfig_mpls', 'LocallyComputedIdentity'),
@@ -141,6 +159,22 @@ _identity_map = { \
     ('openconfig-policy-types', 'OSPF3'):('ydk.models.openconfig.openconfig_policy_types', 'Ospf3Identity'),
     ('openconfig-policy-types', 'OSPF'):('ydk.models.openconfig.openconfig_policy_types', 'OspfIdentity'),
     ('openconfig-policy-types', 'STATIC'):('ydk.models.openconfig.openconfig_policy_types', 'StaticIdentity'),
+    ('openconfig-rib-bgp-types', 'AS_PATH_LONGER'):('ydk.models.openconfig.openconfig_rib_bgp_types', 'As_Path_LongerIdentity'),
+    ('openconfig-rib-bgp-types', 'BGP_NOT_SELECTED_BESTPATH'):('ydk.models.openconfig.openconfig_rib_bgp_types', 'Bgp_Not_Selected_BestpathIdentity'),
+    ('openconfig-rib-bgp-types', 'BGP_NOT_SELECTED_POLICY'):('ydk.models.openconfig.openconfig_rib_bgp_types', 'Bgp_Not_Selected_PolicyIdentity'),
+    ('openconfig-rib-bgp-types', 'HIGHER_PEER_ADDRESS'):('ydk.models.openconfig.openconfig_rib_bgp_types', 'Higher_Peer_AddressIdentity'),
+    ('openconfig-rib-bgp-types', 'HIGHER_ROUTER_ID'):('ydk.models.openconfig.openconfig_rib_bgp_types', 'Higher_Router_IdIdentity'),
+    ('openconfig-rib-bgp-types', 'INVALID_AS_LOOP'):('ydk.models.openconfig.openconfig_rib_bgp_types', 'Invalid_As_LoopIdentity'),
+    ('openconfig-rib-bgp-types', 'INVALID_CLUSTER_LOOP'):('ydk.models.openconfig.openconfig_rib_bgp_types', 'Invalid_Cluster_LoopIdentity'),
+    ('openconfig-rib-bgp-types', 'INVALID_CONFED'):('ydk.models.openconfig.openconfig_rib_bgp_types', 'Invalid_ConfedIdentity'),
+    ('openconfig-rib-bgp-types', 'INVALID_ORIGINATOR'):('ydk.models.openconfig.openconfig_rib_bgp_types', 'Invalid_OriginatorIdentity'),
+    ('openconfig-rib-bgp-types', 'INVALID_ROUTE_REASON'):('ydk.models.openconfig.openconfig_rib_bgp_types', 'Invalid_Route_ReasonIdentity'),
+    ('openconfig-rib-bgp-types', 'LOCAL_PREF_LOWER'):('ydk.models.openconfig.openconfig_rib_bgp_types', 'Local_Pref_LowerIdentity'),
+    ('openconfig-rib-bgp-types', 'MED_HIGHER'):('ydk.models.openconfig.openconfig_rib_bgp_types', 'Med_HigherIdentity'),
+    ('openconfig-rib-bgp-types', 'NEXTHOP_COST_HIGHER'):('ydk.models.openconfig.openconfig_rib_bgp_types', 'Nexthop_Cost_HigherIdentity'),
+    ('openconfig-rib-bgp-types', 'ORIGIN_TYPE_HIGHER'):('ydk.models.openconfig.openconfig_rib_bgp_types', 'Origin_Type_HigherIdentity'),
+    ('openconfig-rib-bgp-types', 'PREFER_EXTERNAL'):('ydk.models.openconfig.openconfig_rib_bgp_types', 'Prefer_ExternalIdentity'),
+    ('openconfig-rib-bgp-types', 'REJECTED_IMPORT_POLICY'):('ydk.models.openconfig.openconfig_rib_bgp_types', 'Rejected_Import_PolicyIdentity'),
     ('openconfig-transport-types', 'CFP2'):('ydk.models.openconfig.openconfig_transport_types', 'Cfp2Identity'),
     ('openconfig-transport-types', 'CFP2_ACO'):('ydk.models.openconfig.openconfig_transport_types', 'Cfp2_AcoIdentity'),
     ('openconfig-transport-types', 'CFP4'):('ydk.models.openconfig.openconfig_transport_types', 'Cfp4Identity'),
@@ -233,10 +267,13 @@ _identity_map = { \
 _namespace_package_map = { \
 ('http://openconfig.net/yang/bgp', 'bgp') : 'from ydk.models.openconfig.openconfig_bgp import Bgp', 
 ('http://openconfig.net/yang/interfaces', 'interfaces') : 'from ydk.models.openconfig.openconfig_interfaces import Interfaces', 
+('http://openconfig.net/yang/local-routing', 'local-routes') : 'from ydk.models.openconfig.openconfig_local_routing import LocalRoutes', 
 ('http://openconfig.net/yang/mpls', 'mpls') : 'from ydk.models.openconfig.openconfig_mpls import Mpls', 
 ('http://openconfig.net/yang/platform', 'components') : 'from ydk.models.openconfig.openconfig_platform import Components', 
+('http://openconfig.net/yang/rib/bgp', 'bgp-rib') : 'from ydk.models.openconfig.openconfig_rib_bgp import BgpRib', 
 ('http://openconfig.net/yang/routing-policy', 'routing-policy') : 'from ydk.models.openconfig.openconfig_routing_policy import RoutingPolicy', 
 ('http://openconfig.net/yang/telemetry', 'telemetry-system') : 'from ydk.models.openconfig.openconfig_telemetry import TelemetrySystem', 
+('http://openconfig.net/yang/terminal-device', 'terminal-device') : 'from ydk.models.openconfig.openconfig_terminal_device import TerminalDevice', 
 ('http://openconfig.net/yang/vlan', 'vlans') : 'from ydk.models.openconfig.openconfig_vlan import Vlans', 
 }
 

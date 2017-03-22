@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'CardResetReasonEnum' : _MetaInfoEnum('CardResetReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper',
         {
@@ -40,48 +39,6 @@ _meta_table = {
             'non-native-config-clear-reset':'non_native_config_clear_reset',
             'memory-protection-error-reset':'memory_protection_error_reset',
             'card-reset-reason-max':'card_reset_reason_max',
-        }, 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', _yang_ns._namespaces['Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper']),
-    'InvCardStateEnum' : _MetaInfoEnum('InvCardStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper',
-        {
-            'inv-card-not-present':'inv_card_not_present',
-            'inv-card-present':'inv_card_present',
-            'inv-card-reset':'inv_card_reset',
-            'inv-card-booting':'inv_card_booting',
-            'inv-card-mbi-booting':'inv_card_mbi_booting',
-            'inv-card-running-mbi':'inv_card_running_mbi',
-            'inv-card-running-ena':'inv_card_running_ena',
-            'inv-card-bring-down':'inv_card_bring_down',
-            'inv-card-ena-failure':'inv_card_ena_failure',
-            'inv-card-f-diag-run':'inv_card_f_diag_run',
-            'inv-card-f-diag-failure':'inv_card_f_diag_failure',
-            'inv-card-powered':'inv_card_powered',
-            'inv-card-unpowered':'inv_card_unpowered',
-            'inv-card-mdr':'inv_card_mdr',
-            'inv-card-mdr-running-mbi':'inv_card_mdr_running_mbi',
-            'inv-card-main-t-mode':'inv_card_main_t_mode',
-            'inv-card-admin-down':'inv_card_admin_down',
-            'inv-card-no-mon':'inv_card_no_mon',
-            'inv-card-unknown':'inv_card_unknown',
-            'inv-card-failed':'inv_card_failed',
-            'inv-card-ok':'inv_card_ok',
-            'inv-card-missing':'inv_card_missing',
-            'inv-card-field-diag-downloading':'inv_card_field_diag_downloading',
-            'inv-card-field-diag-unmonitor':'inv_card_field_diag_unmonitor',
-            'inv-card-fabric-field-diag-unmonitor':'inv_card_fabric_field_diag_unmonitor',
-            'inv-card-field-diag-rp-launching':'inv_card_field_diag_rp_launching',
-            'inv-card-field-diag-running':'inv_card_field_diag_running',
-            'inv-card-field-diag-pass':'inv_card_field_diag_pass',
-            'inv-card-field-diag-fail':'inv_card_field_diag_fail',
-            'inv-card-field-diag-timeout':'inv_card_field_diag_timeout',
-            'inv-card-disabled':'inv_card_disabled',
-            'inv-card-spa-booting':'inv_card_spa_booting',
-            'inv-card-not-allowed-online':'inv_card_not_allowed_online',
-            'inv-card-stopped':'inv_card_stopped',
-            'inv-card-incompatible-fw-ver':'inv_card_incompatible_fw_ver',
-            'inv-card-fpd-hold':'inv_card_fpd_hold',
-            'inv-card-node-prep':'inv_card_node_prep',
-            'inv-card-updating-fpd':'inv_card_updating_fpd',
-            'inv-card-num-states':'inv_card_num_states',
         }, 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', _yang_ns._namespaces['Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper']),
     'Inventory.Racks.Rack.PowerSupplyShelfs.PowerSupplyShelf.BasicAttributes.BasicInfo' : {
         'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.PowerSupplyShelfs.PowerSupplyShelf.BasicAttributes.BasicInfo',
@@ -125,7 +82,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -144,7 +101,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
@@ -174,7 +131,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -222,6 +179,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -368,8 +331,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -404,8 +367,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -459,7 +422,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -478,7 +441,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
@@ -508,7 +471,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -556,6 +519,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -686,8 +655,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -722,8 +691,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -777,7 +746,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -796,7 +765,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
@@ -826,7 +795,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -874,6 +843,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -1033,8 +1008,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -1069,8 +1044,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -1124,7 +1099,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -1143,7 +1118,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
@@ -1173,7 +1148,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -1221,6 +1196,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -1374,8 +1355,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -1410,8 +1391,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -1465,7 +1446,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -1484,7 +1465,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
@@ -1514,7 +1495,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -1562,6 +1543,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -1706,8 +1693,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -1742,8 +1729,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -1797,7 +1784,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -1816,7 +1803,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
@@ -1846,7 +1833,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -1894,6 +1881,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2053,8 +2046,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -2089,8 +2082,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -2144,7 +2137,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -2163,7 +2156,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
@@ -2193,7 +2186,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -2241,6 +2234,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2394,8 +2393,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -2430,8 +2429,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -2485,7 +2484,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -2504,7 +2503,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
@@ -2534,7 +2533,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -2582,6 +2581,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2742,8 +2747,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -2778,8 +2783,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -2833,7 +2838,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -2852,7 +2857,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
@@ -2882,7 +2887,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -2930,6 +2935,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3060,8 +3071,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -3096,8 +3107,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -3151,7 +3162,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -3170,7 +3181,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
@@ -3200,7 +3211,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -3248,6 +3259,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3407,8 +3424,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -3443,8 +3460,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -3498,7 +3515,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -3517,7 +3534,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
@@ -3547,7 +3564,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -3595,6 +3612,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3748,8 +3771,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -3784,8 +3807,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -3839,7 +3862,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -3858,7 +3881,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
@@ -3888,7 +3911,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -3936,6 +3959,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4117,8 +4146,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -4153,8 +4182,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -4208,7 +4237,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -4227,7 +4256,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
@@ -4257,7 +4286,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -4305,6 +4334,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4443,7 +4478,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -4462,7 +4497,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
@@ -4492,7 +4527,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -4540,6 +4575,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4757,7 +4798,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -4776,7 +4817,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
@@ -4806,7 +4847,7 @@ _meta_table = {
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -4854,6 +4895,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-asr9k-sc-invmgr-admin-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 

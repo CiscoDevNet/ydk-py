@@ -363,6 +363,69 @@ class AclPortOperatorEnum(Enum):
         return meta._meta_table['AclPortOperatorEnum']
 
 
+class AclPortOperatorEnum(Enum):
+    """
+    AclPortOperatorEnum
+
+    Acl port operator
+
+    .. data:: none = 0
+
+    	None
+
+    .. data:: eq = 1
+
+    	Equal
+
+    .. data:: gt = 2
+
+    	Greater than
+
+    .. data:: lt = 3
+
+    	Less than
+
+    .. data:: neq = 4
+
+    	Not Equal
+
+    .. data:: range = 5
+
+    	Range
+
+    .. data:: onebyte = 8
+
+    	One Byte
+
+    .. data:: twobytes = 9
+
+    	Two Bytes
+
+    """
+
+    none = 0
+
+    eq = 1
+
+    gt = 2
+
+    lt = 3
+
+    neq = 4
+
+    range = 5
+
+    onebyte = 8
+
+    twobytes = 9
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_oper as meta
+        return meta._meta_table['AclPortOperatorEnum']
+
+
 class AclTcpflagsOperatorEnum(Enum):
     """
     AclTcpflagsOperatorEnum
@@ -940,6 +1003,11 @@ class Ipv4AclAndPrefixList(object):
                 	Table of all the SequenceNumbers per access list
                 	**type**\:   :py:class:`AccessListSequences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences>`
                 
+                .. attribute:: object_group
+                
+                	Object Group in an Access list
+                	**type**\:   :py:class:`ObjectGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.ObjectGroup>`
+                
                 
 
                 """
@@ -952,6 +1020,8 @@ class Ipv4AclAndPrefixList(object):
                     self.access_list_name = None
                     self.access_list_sequences = Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences()
                     self.access_list_sequences.parent = self
+                    self.object_group = Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.ObjectGroup()
+                    self.object_group.parent = self
 
 
                 class AccessListSequences(object):
@@ -1078,6 +1148,25 @@ class Ipv4AclAndPrefixList(object):
                         	Is dynamic ACE
                         	**type**\:  bool
                         
+                        .. attribute:: fragment_offset1
+                        
+                        	Fragment offset 1
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: fragment_offset2
+                        
+                        	Fragment offset 2
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: fragment_offset_operator
+                        
+                        	Fragment offset operator
+                        	**type**\:   :py:class:`AclPortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
+                        
                         .. attribute:: fragments
                         
                         	Fragments
@@ -1166,6 +1255,27 @@ class Ipv4AclAndPrefixList(object):
                         .. attribute:: protocol
                         
                         	IPv4 protocol type
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: protocol2
+                        
+                        	IPv4 protocol 2
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: protocol_operator
+                        
+                        	IPv4 protocol operator
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: qos_group
+                        
+                        	Qos group number
                         	**type**\:  int
                         
                         	**range:** 0..65535
@@ -1287,6 +1397,11 @@ class Ipv4AclAndPrefixList(object):
                         	TTL operator
                         	**type**\:   :py:class:`AclPortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperatorEnum>`
                         
+                        .. attribute:: udf
+                        
+                        	UDF BAG
+                        	**type**\: list of    :py:class:`Udf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf>`
+                        
                         
 
                         """
@@ -1312,6 +1427,9 @@ class Ipv4AclAndPrefixList(object):
                             self.dscp_operator = None
                             self.dscp_present = None
                             self.dynamic = None
+                            self.fragment_offset1 = None
+                            self.fragment_offset2 = None
+                            self.fragment_offset_operator = None
                             self.fragments = None
                             self.grant = None
                             self.hits = None
@@ -1331,6 +1449,9 @@ class Ipv4AclAndPrefixList(object):
                             self.precedence = None
                             self.precedence_present = None
                             self.protocol = None
+                            self.protocol2 = None
+                            self.protocol_operator = None
+                            self.qos_group = None
                             self.remark = None
                             self.sequence = None
                             self.sequence_str = None
@@ -1350,6 +1471,9 @@ class Ipv4AclAndPrefixList(object):
                             self.ttl1 = None
                             self.ttl2 = None
                             self.ttl_operator = None
+                            self.udf = YList()
+                            self.udf.parent = self
+                            self.udf.name = 'udf'
 
 
                         class HwNextHopInfo(object):
@@ -1501,6 +1625,75 @@ class Ipv4AclAndPrefixList(object):
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_oper as meta
                                 return meta._meta_table['Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo']['meta_info']
 
+
+                        class Udf(object):
+                            """
+                            UDF BAG
+                            
+                            .. attribute:: udf_mask
+                            
+                            	UDF Mask
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: udf_name
+                            
+                            	UDF Name
+                            	**type**\:  str
+                            
+                            	**length:** 0..17
+                            
+                            .. attribute:: udf_value
+                            
+                            	UDF Value
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-acl-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.udf_mask = None
+                                self.udf_name = None
+                                self.udf_value = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-acl-oper:udf'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.udf_mask is not None:
+                                    return True
+
+                                if self.udf_name is not None:
+                                    return True
+
+                                if self.udf_value is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_oper as meta
+                                return meta._meta_table['Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf']['meta_info']
+
                         @property
                         def _common_path(self):
                             if self.parent is None:
@@ -1565,6 +1758,15 @@ class Ipv4AclAndPrefixList(object):
                             if self.dynamic is not None:
                                 return True
 
+                            if self.fragment_offset1 is not None:
+                                return True
+
+                            if self.fragment_offset2 is not None:
+                                return True
+
+                            if self.fragment_offset_operator is not None:
+                                return True
+
                             if self.fragments is not None:
                                 return True
 
@@ -1613,6 +1815,15 @@ class Ipv4AclAndPrefixList(object):
                                 return True
 
                             if self.protocol is not None:
+                                return True
+
+                            if self.protocol2 is not None:
+                                return True
+
+                            if self.protocol_operator is not None:
+                                return True
+
+                            if self.qos_group is not None:
                                 return True
 
                             if self.remark is not None:
@@ -1672,6 +1883,11 @@ class Ipv4AclAndPrefixList(object):
                             if self.ttl_operator is not None:
                                 return True
 
+                            if self.udf is not None:
+                                for child_ref in self.udf:
+                                    if child_ref._has_data():
+                                        return True
+
                             return False
 
                         @staticmethod
@@ -1705,6 +1921,113 @@ class Ipv4AclAndPrefixList(object):
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_oper as meta
                         return meta._meta_table['Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences']['meta_info']
 
+
+                class ObjectGroup(object):
+                    """
+                    Object Group in an Access list
+                    
+                    .. attribute:: obj_grp_info
+                    
+                    	Object\-group info
+                    	**type**\: list of    :py:class:`ObjGrpInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.ObjectGroup.ObjGrpInfo>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-acl-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.obj_grp_info = YList()
+                        self.obj_grp_info.parent = self
+                        self.obj_grp_info.name = 'obj_grp_info'
+
+
+                    class ObjGrpInfo(object):
+                        """
+                        Object\-group info
+                        
+                        .. attribute:: obj_grp_name
+                        
+                        	Object\-group name
+                        	**type**\:  str
+                        
+                        	**length:** 0..64
+                        
+                        .. attribute:: obj_grp_type
+                        
+                        	Object\-group Type
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-acl-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.obj_grp_name = None
+                            self.obj_grp_type = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-acl-oper:obj-grp-info'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.obj_grp_name is not None:
+                                return True
+
+                            if self.obj_grp_type is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_oper as meta
+                            return meta._meta_table['Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.ObjectGroup.ObjGrpInfo']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-acl-oper:object-group'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.obj_grp_info is not None:
+                            for child_ref in self.obj_grp_info:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_oper as meta
+                        return meta._meta_table['Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.ObjectGroup']['meta_info']
+
                 @property
                 def _common_path(self):
                     if self.access_list_name is None:
@@ -1723,6 +2046,9 @@ class Ipv4AclAndPrefixList(object):
                         return True
 
                     if self.access_list_sequences is not None and self.access_list_sequences._has_data():
+                        return True
+
+                    if self.object_group is not None and self.object_group._has_data():
                         return True
 
                     return False

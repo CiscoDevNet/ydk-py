@@ -8,12 +8,18 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
+    'IpArpBagFlagsEnum' : _MetaInfoEnum('IpArpBagFlagsEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper',
+        {
+            'flag-none':'flag_none',
+            'flag-dynamic':'flag_dynamic',
+            'flag-evpn-sync':'flag_evpn_sync',
+            'flag-max':'flag_max',
+        }, 'Cisco-IOS-XR-ipv4-arp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-oper']),
     'ArpResolutionHistoryStatusEnum' : _MetaInfoEnum('ArpResolutionHistoryStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper',
         {
             'status-none':'status_none',
@@ -86,6 +92,7 @@ _meta_table = {
             'state-purge-delayed':'state_purge_delayed',
             'state-dhcp':'state_dhcp',
             'state-vxlan':'state_vxlan',
+            'state-evpn-sync':'state_evpn_sync',
             'state-sat':'state_sat',
             'state-r-sync':'state_r_sync',
             'state-max':'state_max',
@@ -1016,6 +1023,12 @@ _meta_table = {
                 '''                Source encapsulation type
                 ''',
                 'encapsulation_type',
+                'Cisco-IOS-XR-ipv4-arp-oper', False),
+            _MetaInfoClassMember('flag', REFERENCE_ENUM_CLASS, 'IpArpBagFlagsEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper', 'IpArpBagFlagsEnum', 
+                [], [], 
+                '''                Flags of this entry
+                ''',
+                'flag',
                 'Cisco-IOS-XR-ipv4-arp-oper', False),
             _MetaInfoClassMember('hardware-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 

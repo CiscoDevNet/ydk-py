@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'Asr9KEfdModeEnum' : _MetaInfoEnum('Asr9KEfdModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg',
         {
@@ -306,6 +305,116 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg'
         ),
     },
+    'HardwareModuleEfd.NodeAll.IpPrecedence' : {
+        'meta_info' : _MetaInfoClass('HardwareModuleEfd.NodeAll.IpPrecedence',
+            False, 
+            [
+            _MetaInfoClassMember('operation', REFERENCE_ENUM_CLASS, 'Asr9KEfdOperationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg', 'Asr9KEfdOperationEnum', 
+                [], [], 
+                '''                IP operation
+                ''',
+                'operation',
+                'Cisco-IOS-XR-asr9k-prm-cfg', False),
+            _MetaInfoClassMember('precedence', ATTRIBUTE, 'int' , None, None, 
+                [('0', '7')], [], 
+                '''                IP TOS precedence threshold
+                ''',
+                'precedence',
+                'Cisco-IOS-XR-asr9k-prm-cfg', False),
+            ],
+            'Cisco-IOS-XR-asr9k-prm-cfg',
+            'ip-precedence',
+            _yang_ns._namespaces['Cisco-IOS-XR-asr9k-prm-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg'
+        ),
+    },
+    'HardwareModuleEfd.NodeAll.VlanCos' : {
+        'meta_info' : _MetaInfoClass('HardwareModuleEfd.NodeAll.VlanCos',
+            False, 
+            [
+            _MetaInfoClassMember('cos', ATTRIBUTE, 'int' , None, None, 
+                [('0', '7')], [], 
+                '''                VLAN COS threshold
+                ''',
+                'cos',
+                'Cisco-IOS-XR-asr9k-prm-cfg', False),
+            _MetaInfoClassMember('operation', REFERENCE_ENUM_CLASS, 'Asr9KEfdOperationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg', 'Asr9KEfdOperationEnum', 
+                [], [], 
+                '''                VLAN operation
+                ''',
+                'operation',
+                'Cisco-IOS-XR-asr9k-prm-cfg', False),
+            ],
+            'Cisco-IOS-XR-asr9k-prm-cfg',
+            'vlan-cos',
+            _yang_ns._namespaces['Cisco-IOS-XR-asr9k-prm-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg'
+        ),
+    },
+    'HardwareModuleEfd.NodeAll.MplsExp' : {
+        'meta_info' : _MetaInfoClass('HardwareModuleEfd.NodeAll.MplsExp',
+            False, 
+            [
+            _MetaInfoClassMember('exp', ATTRIBUTE, 'int' , None, None, 
+                [('0', '7')], [], 
+                '''                MPLS EXP threshold
+                ''',
+                'exp',
+                'Cisco-IOS-XR-asr9k-prm-cfg', False),
+            _MetaInfoClassMember('operation', REFERENCE_ENUM_CLASS, 'Asr9KEfdOperationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg', 'Asr9KEfdOperationEnum', 
+                [], [], 
+                '''                MPLS operation
+                ''',
+                'operation',
+                'Cisco-IOS-XR-asr9k-prm-cfg', False),
+            ],
+            'Cisco-IOS-XR-asr9k-prm-cfg',
+            'mpls-exp',
+            _yang_ns._namespaces['Cisco-IOS-XR-asr9k-prm-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg'
+        ),
+    },
+    'HardwareModuleEfd.NodeAll' : {
+        'meta_info' : _MetaInfoClass('HardwareModuleEfd.NodeAll',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable EFD for this node
+                ''',
+                'enable',
+                'Cisco-IOS-XR-asr9k-prm-cfg', False),
+            _MetaInfoClassMember('ip-precedence', REFERENCE_CLASS, 'IpPrecedence' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg', 'HardwareModuleEfd.NodeAll.IpPrecedence', 
+                [], [], 
+                '''                EFD IP parameters
+                ''',
+                'ip_precedence',
+                'Cisco-IOS-XR-asr9k-prm-cfg', False),
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'Asr9KEfdModeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg', 'Asr9KEfdModeEnum', 
+                [], [], 
+                '''                EFD mode parameter.
+                ''',
+                'mode',
+                'Cisco-IOS-XR-asr9k-prm-cfg', False),
+            _MetaInfoClassMember('mpls-exp', REFERENCE_CLASS, 'MplsExp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg', 'HardwareModuleEfd.NodeAll.MplsExp', 
+                [], [], 
+                '''                EFD MPLS parameters
+                ''',
+                'mpls_exp',
+                'Cisco-IOS-XR-asr9k-prm-cfg', False),
+            _MetaInfoClassMember('vlan-cos', REFERENCE_CLASS, 'VlanCos' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg', 'HardwareModuleEfd.NodeAll.VlanCos', 
+                [], [], 
+                '''                EFD VLAN parameters
+                ''',
+                'vlan_cos',
+                'Cisco-IOS-XR-asr9k-prm-cfg', False),
+            ],
+            'Cisco-IOS-XR-asr9k-prm-cfg',
+            'node-all',
+            _yang_ns._namespaces['Cisco-IOS-XR-asr9k-prm-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg'
+        ),
+    },
     'HardwareModuleEfd.Nodes.Node.IpPrecedence' : {
         'meta_info' : _MetaInfoClass('HardwareModuleEfd.Nodes.Node.IpPrecedence',
             False, 
@@ -443,6 +552,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('HardwareModuleEfd',
             False, 
             [
+            _MetaInfoClassMember('node-all', REFERENCE_CLASS, 'NodeAll' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg', 'HardwareModuleEfd.NodeAll', 
+                [], [], 
+                '''                All nodes
+                ''',
+                'node_all',
+                'Cisco-IOS-XR-asr9k-prm-cfg', False),
             _MetaInfoClassMember('nodes', REFERENCE_CLASS, 'Nodes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg', 'HardwareModuleEfd.Nodes', 
                 [], [], 
                 '''                EFD applicable nodes
@@ -467,8 +582,12 @@ _meta_table['HardwareModuleLoadBalance.Bundle.L2Service']['meta_info'].parent =_
 _meta_table['HardwareModuleLoadBalance.Bundle']['meta_info'].parent =_meta_table['HardwareModuleLoadBalance']['meta_info']
 _meta_table['HardwareModuleTcam.Nodes.Node']['meta_info'].parent =_meta_table['HardwareModuleTcam.Nodes']['meta_info']
 _meta_table['HardwareModuleTcam.Nodes']['meta_info'].parent =_meta_table['HardwareModuleTcam']['meta_info']
+_meta_table['HardwareModuleEfd.NodeAll.IpPrecedence']['meta_info'].parent =_meta_table['HardwareModuleEfd.NodeAll']['meta_info']
+_meta_table['HardwareModuleEfd.NodeAll.VlanCos']['meta_info'].parent =_meta_table['HardwareModuleEfd.NodeAll']['meta_info']
+_meta_table['HardwareModuleEfd.NodeAll.MplsExp']['meta_info'].parent =_meta_table['HardwareModuleEfd.NodeAll']['meta_info']
 _meta_table['HardwareModuleEfd.Nodes.Node.IpPrecedence']['meta_info'].parent =_meta_table['HardwareModuleEfd.Nodes.Node']['meta_info']
 _meta_table['HardwareModuleEfd.Nodes.Node.VlanCos']['meta_info'].parent =_meta_table['HardwareModuleEfd.Nodes.Node']['meta_info']
 _meta_table['HardwareModuleEfd.Nodes.Node.MplsExp']['meta_info'].parent =_meta_table['HardwareModuleEfd.Nodes.Node']['meta_info']
 _meta_table['HardwareModuleEfd.Nodes.Node']['meta_info'].parent =_meta_table['HardwareModuleEfd.Nodes']['meta_info']
+_meta_table['HardwareModuleEfd.NodeAll']['meta_info'].parent =_meta_table['HardwareModuleEfd']['meta_info']
 _meta_table['HardwareModuleEfd.Nodes']['meta_info'].parent =_meta_table['HardwareModuleEfd']['meta_info']

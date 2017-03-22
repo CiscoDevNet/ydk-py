@@ -162,6 +162,87 @@ class OpticsLoopbackEnum(Enum):
         return meta._meta_table['OpticsLoopbackEnum']
 
 
+class OpticsOtsAmpliControlModeEnum(Enum):
+    """
+    OpticsOtsAmpliControlModeEnum
+
+    Optics ots ampli control mode
+
+    .. data:: automatic = 1
+
+    	Automatic Amplifier Mode
+
+    .. data:: manual = 2
+
+    	Manual Amplifier Mode
+
+    """
+
+    automatic = 1
+
+    manual = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_cfg as meta
+        return meta._meta_table['OpticsOtsAmpliControlModeEnum']
+
+
+class OpticsOtsAmpliGainRangeEnum(Enum):
+    """
+    OpticsOtsAmpliGainRangeEnum
+
+    Optics ots ampli gain range
+
+    .. data:: normal = 1
+
+    	Normal Amplifier Gain Range
+
+    .. data:: extended = 2
+
+    	Extended Amplifier Gain Range
+
+    """
+
+    normal = 1
+
+    extended = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_cfg as meta
+        return meta._meta_table['OpticsOtsAmpliGainRangeEnum']
+
+
+class OpticsOtsSafetyControlModeEnum(Enum):
+    """
+    OpticsOtsSafetyControlModeEnum
+
+    Optics ots safety control mode
+
+    .. data:: auto = 1
+
+    	Automatic Safety Control Mode
+
+    .. data:: disabled = 2
+
+    	Disable Safety Control Mode
+
+    """
+
+    auto = 1
+
+    disabled = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_cfg as meta
+        return meta._meta_table['OpticsOtsSafetyControlModeEnum']
+
+
 class ThresholdEnum(Enum):
     """
     ThresholdEnum

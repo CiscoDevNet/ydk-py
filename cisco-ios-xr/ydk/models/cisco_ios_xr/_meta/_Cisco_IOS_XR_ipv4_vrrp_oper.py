@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'VrrpStateChangeReasonEnum' : _MetaInfoEnum('VrrpStateChangeReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper',
         {
@@ -664,8 +663,8 @@ _meta_table = {
                 ''',
                 'authentication_flag',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
-            _MetaInfoClassMember('authentication-string', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [('0', '255')], [], 
+            _MetaInfoClassMember('authentication-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
                 '''                Authentication data
                 ''',
                 'authentication_string',
@@ -991,7 +990,7 @@ _meta_table = {
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('time-vrouter-up', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
-                '''                Time vrouter is up in ticks (10ns units)
+                '''                Time vrouter is up in centiseconds
                 ''',
                 'time_vrouter_up',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
@@ -1526,8 +1525,8 @@ _meta_table = {
                 ''',
                 'authentication_flag',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
-            _MetaInfoClassMember('authentication-string', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [('0', '255')], [], 
+            _MetaInfoClassMember('authentication-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
                 '''                Authentication data
                 ''',
                 'authentication_string',
@@ -1853,7 +1852,7 @@ _meta_table = {
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),
             _MetaInfoClassMember('time-vrouter-up', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
-                '''                Time vrouter is up in ticks (10ns units)
+                '''                Time vrouter is up in centiseconds
                 ''',
                 'time_vrouter_up',
                 'Cisco-IOS-XR-ipv4-vrrp-oper', False),

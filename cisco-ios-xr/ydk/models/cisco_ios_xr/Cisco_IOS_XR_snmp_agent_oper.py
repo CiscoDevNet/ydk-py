@@ -5016,7 +5016,7 @@ class Snmp(object):
                 	Correlation Rule Name
                 	**type**\:  str
                 
-                	**length:** 0..32
+                	**length:** 1..32
                 
                 .. attribute:: apply_host
                 
@@ -5589,7 +5589,7 @@ class Snmp(object):
                 	Ruleset Name
                 	**type**\:  str
                 
-                	**length:** 0..32
+                	**length:** 1..32
                 
                 .. attribute:: rule_set_name_xr
                 

@@ -351,7 +351,7 @@ class Vrrp(object):
     """
 
     _prefix = 'ipv4-vrrp-oper'
-    _revision = '2015-11-09'
+    _revision = '2016-12-16'
 
     def __init__(self):
         self.ipv4 = Vrrp.Ipv4()
@@ -695,7 +695,7 @@ class Vrrp(object):
         """
 
         _prefix = 'ipv4-vrrp-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-12-16'
 
         def __init__(self):
             self.parent = None
@@ -928,7 +928,7 @@ class Vrrp(object):
         """
 
         _prefix = 'ipv4-vrrp-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-12-16'
 
         def __init__(self):
             self.parent = None
@@ -954,7 +954,7 @@ class Vrrp(object):
             """
 
             _prefix = 'ipv4-vrrp-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-12-16'
 
             def __init__(self):
                 self.parent = None
@@ -1035,7 +1035,7 @@ class Vrrp(object):
                 """
 
                 _prefix = 'ipv4-vrrp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-16'
 
                 def __init__(self):
                     self.parent = None
@@ -1140,7 +1140,7 @@ class Vrrp(object):
             """
 
             _prefix = 'ipv4-vrrp-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-12-16'
 
             def __init__(self):
                 self.parent = None
@@ -1222,9 +1222,7 @@ class Vrrp(object):
                 .. attribute:: authentication_string
                 
                 	Authentication data
-                	**type**\:  list of int
-                
-                	**range:** 0..255
+                	**type**\:  str
                 
                 .. attribute:: authentication_type
                 
@@ -1579,10 +1577,12 @@ class Vrrp(object):
                 
                 .. attribute:: time_vrouter_up
                 
-                	Time vrouter is up in ticks (10ns units)
+                	Time vrouter is up in centiseconds
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: centisecond
                 
                 .. attribute:: tracked_interface_count
                 
@@ -1662,7 +1662,7 @@ class Vrrp(object):
                 """
 
                 _prefix = 'ipv4-vrrp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-16'
 
                 def __init__(self):
                     self.parent = None
@@ -1676,9 +1676,7 @@ class Vrrp(object):
                     self.auth_type_mismatch_count = None
                     self.authentication_fail_count = None
                     self.authentication_flag = None
-                    self.authentication_string = YLeafList()
-                    self.authentication_string.parent = self
-                    self.authentication_string.name = 'authentication_string'
+                    self.authentication_string = None
                     self.authentication_type = None
                     self.bfd_cfg_remote_ip = None
                     self.bfd_configured_remote_ipv6_address = None
@@ -1785,7 +1783,7 @@ class Vrrp(object):
                     """
 
                     _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-16'
 
                     def __init__(self):
                         self.parent = None
@@ -1847,7 +1845,7 @@ class Vrrp(object):
                     """
 
                     _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-16'
 
                     def __init__(self):
                         self.parent = None
@@ -1898,7 +1896,7 @@ class Vrrp(object):
                     """
 
                     _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-16'
 
                     def __init__(self):
                         self.parent = None
@@ -1945,7 +1943,7 @@ class Vrrp(object):
                     """
 
                     _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-16'
 
                     def __init__(self):
                         self.parent = None
@@ -2005,7 +2003,7 @@ class Vrrp(object):
                     """
 
                     _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-16'
 
                     def __init__(self):
                         self.parent = None
@@ -2043,7 +2041,7 @@ class Vrrp(object):
                         """
 
                         _prefix = 'ipv4-vrrp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-12-16'
 
                         def __init__(self):
                             self.parent = None
@@ -2157,9 +2155,7 @@ class Vrrp(object):
                         return True
 
                     if self.authentication_string is not None:
-                        for child in self.authentication_string:
-                            if child is not None:
-                                return True
+                        return True
 
                     if self.authentication_type is not None:
                         return True
@@ -2412,7 +2408,7 @@ class Vrrp(object):
             """
 
             _prefix = 'ipv4-vrrp-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-12-16'
 
             def __init__(self):
                 self.parent = None
@@ -2472,7 +2468,7 @@ class Vrrp(object):
                 """
 
                 _prefix = 'ipv4-vrrp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-16'
 
                 def __init__(self):
                     self.parent = None
@@ -2599,7 +2595,7 @@ class Vrrp(object):
         """
 
         _prefix = 'ipv4-vrrp-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-12-16'
 
         def __init__(self):
             self.parent = None
@@ -2625,7 +2621,7 @@ class Vrrp(object):
             """
 
             _prefix = 'ipv4-vrrp-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-12-16'
 
             def __init__(self):
                 self.parent = None
@@ -2685,7 +2681,7 @@ class Vrrp(object):
                 """
 
                 _prefix = 'ipv4-vrrp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-16'
 
                 def __init__(self):
                     self.parent = None
@@ -2774,7 +2770,7 @@ class Vrrp(object):
             """
 
             _prefix = 'ipv4-vrrp-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-12-16'
 
             def __init__(self):
                 self.parent = None
@@ -2855,7 +2851,7 @@ class Vrrp(object):
                 """
 
                 _prefix = 'ipv4-vrrp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-16'
 
                 def __init__(self):
                     self.parent = None
@@ -2960,7 +2956,7 @@ class Vrrp(object):
             """
 
             _prefix = 'ipv4-vrrp-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-12-16'
 
             def __init__(self):
                 self.parent = None
@@ -3042,9 +3038,7 @@ class Vrrp(object):
                 .. attribute:: authentication_string
                 
                 	Authentication data
-                	**type**\:  list of int
-                
-                	**range:** 0..255
+                	**type**\:  str
                 
                 .. attribute:: authentication_type
                 
@@ -3399,10 +3393,12 @@ class Vrrp(object):
                 
                 .. attribute:: time_vrouter_up
                 
-                	Time vrouter is up in ticks (10ns units)
+                	Time vrouter is up in centiseconds
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: centisecond
                 
                 .. attribute:: tracked_interface_count
                 
@@ -3482,7 +3478,7 @@ class Vrrp(object):
                 """
 
                 _prefix = 'ipv4-vrrp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-16'
 
                 def __init__(self):
                     self.parent = None
@@ -3496,9 +3492,7 @@ class Vrrp(object):
                     self.auth_type_mismatch_count = None
                     self.authentication_fail_count = None
                     self.authentication_flag = None
-                    self.authentication_string = YLeafList()
-                    self.authentication_string.parent = self
-                    self.authentication_string.name = 'authentication_string'
+                    self.authentication_string = None
                     self.authentication_type = None
                     self.bfd_cfg_remote_ip = None
                     self.bfd_configured_remote_ipv6_address = None
@@ -3605,7 +3599,7 @@ class Vrrp(object):
                     """
 
                     _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-16'
 
                     def __init__(self):
                         self.parent = None
@@ -3667,7 +3661,7 @@ class Vrrp(object):
                     """
 
                     _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-16'
 
                     def __init__(self):
                         self.parent = None
@@ -3718,7 +3712,7 @@ class Vrrp(object):
                     """
 
                     _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-16'
 
                     def __init__(self):
                         self.parent = None
@@ -3765,7 +3759,7 @@ class Vrrp(object):
                     """
 
                     _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-16'
 
                     def __init__(self):
                         self.parent = None
@@ -3825,7 +3819,7 @@ class Vrrp(object):
                     """
 
                     _prefix = 'ipv4-vrrp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-16'
 
                     def __init__(self):
                         self.parent = None
@@ -3863,7 +3857,7 @@ class Vrrp(object):
                         """
 
                         _prefix = 'ipv4-vrrp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-12-16'
 
                         def __init__(self):
                             self.parent = None
@@ -3977,9 +3971,7 @@ class Vrrp(object):
                         return True
 
                     if self.authentication_string is not None:
-                        for child in self.authentication_string:
-                            if child is not None:
-                                return True
+                        return True
 
                     if self.authentication_type is not None:
                         return True
@@ -4260,7 +4252,7 @@ class Vrrp(object):
         """
 
         _prefix = 'ipv4-vrrp-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-12-16'
 
         def __init__(self):
             self.parent = None
@@ -4321,7 +4313,7 @@ class Vrrp(object):
             """
 
             _prefix = 'ipv4-vrrp-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-12-16'
 
             def __init__(self):
                 self.parent = None
@@ -4359,7 +4351,7 @@ class Vrrp(object):
                 """
 
                 _prefix = 'ipv4-vrrp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-16'
 
                 def __init__(self):
                     self.parent = None

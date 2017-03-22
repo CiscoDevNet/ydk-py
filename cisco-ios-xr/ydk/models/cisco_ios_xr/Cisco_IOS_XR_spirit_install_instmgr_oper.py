@@ -1042,10 +1042,45 @@ class SoftwareInstall(object):
         """
         Show prepared packages ready for activation
         
-        .. attribute:: log
+        .. attribute:: activate_message
         
-        	log
+        	ActivateMessage
         	**type**\:  str
+        
+        .. attribute:: no_prepare_done
+        
+        	NoPrepareDone
+        	**type**\:  str
+        
+        .. attribute:: package
+        
+        	package
+        	**type**\: list of    :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Prepare.Package>`
+        
+        .. attribute:: prepare_clean_message
+        
+        	PrepareCleanMessage
+        	**type**\:  str
+        
+        .. attribute:: prepared_boot_image
+        
+        	PreparedBootImage
+        	**type**\:  str
+        
+        .. attribute:: prepared_boot_partition
+        
+        	PreparedBootPartition
+        	**type**\:  str
+        
+        .. attribute:: restart_type
+        
+        	RestartType
+        	**type**\:  str
+        
+        .. attribute:: rpm
+        
+        	rpm
+        	**type**\: list of    :py:class:`Rpm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Prepare.Rpm>`
         
         
 
@@ -1056,7 +1091,104 @@ class SoftwareInstall(object):
 
         def __init__(self):
             self.parent = None
-            self.log = None
+            self.activate_message = None
+            self.no_prepare_done = None
+            self.package = YList()
+            self.package.parent = self
+            self.package.name = 'package'
+            self.prepare_clean_message = None
+            self.prepared_boot_image = None
+            self.prepared_boot_partition = None
+            self.restart_type = None
+            self.rpm = YList()
+            self.rpm.parent = self
+            self.rpm.name = 'rpm'
+
+
+        class Rpm(object):
+            """
+            rpm
+            
+            .. attribute:: package
+            
+            	package
+            	**type**\:  str
+            
+            
+
+            """
+
+            _prefix = 'spirit-install-instmgr-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.package = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:prepare/Cisco-IOS-XR-spirit-install-instmgr-oper:rpm'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.package is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.Prepare.Rpm']['meta_info']
+
+
+        class Package(object):
+            """
+            package
+            
+            .. attribute:: package
+            
+            	package
+            	**type**\:  str
+            
+            
+
+            """
+
+            _prefix = 'spirit-install-instmgr-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.package = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/Cisco-IOS-XR-spirit-install-instmgr-oper:prepare/Cisco-IOS-XR-spirit-install-instmgr-oper:package'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.package is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_spirit_install_instmgr_oper as meta
+                return meta._meta_table['SoftwareInstall.Prepare.Package']['meta_info']
 
         @property
         def _common_path(self):
@@ -1070,8 +1202,33 @@ class SoftwareInstall(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.log is not None:
+            if self.activate_message is not None:
                 return True
+
+            if self.no_prepare_done is not None:
+                return True
+
+            if self.package is not None:
+                for child_ref in self.package:
+                    if child_ref._has_data():
+                        return True
+
+            if self.prepare_clean_message is not None:
+                return True
+
+            if self.prepared_boot_image is not None:
+                return True
+
+            if self.prepared_boot_partition is not None:
+                return True
+
+            if self.restart_type is not None:
+                return True
+
+            if self.rpm is not None:
+                for child_ref in self.rpm:
+                    if child_ref._has_data():
+                        return True
 
             return False
 

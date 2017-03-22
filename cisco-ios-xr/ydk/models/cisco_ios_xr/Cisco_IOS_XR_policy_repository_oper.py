@@ -1554,6 +1554,16 @@ class RoutingPolicy(object):
         	Information about Community sets
         	**type**\:   :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community>`
         
+        .. attribute:: esi
+        
+        	Information about Esi sets
+        	**type**\:   :py:class:`Esi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Esi>`
+        
+        .. attribute:: etag
+        
+        	Information about Etag sets
+        	**type**\:   :py:class:`Etag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Etag>`
+        
         .. attribute:: extended_community_bandwidth
         
         	Information about Extended Community Bandwidth sets
@@ -1583,6 +1593,11 @@ class RoutingPolicy(object):
         
         	Information about Extended Community SOO sets
         	**type**\:   :py:class:`ExtendedCommunitySoo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo>`
+        
+        .. attribute:: mac
+        
+        	Information about Mac sets
+        	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Mac>`
         
         .. attribute:: ospf_area
         
@@ -1617,6 +1632,10 @@ class RoutingPolicy(object):
             self.as_path.parent = self
             self.community = RoutingPolicy.Sets.Community()
             self.community.parent = self
+            self.esi = RoutingPolicy.Sets.Esi()
+            self.esi.parent = self
+            self.etag = RoutingPolicy.Sets.Etag()
+            self.etag.parent = self
             self.extended_community_bandwidth = RoutingPolicy.Sets.ExtendedCommunityBandwidth()
             self.extended_community_bandwidth.parent = self
             self.extended_community_cost = RoutingPolicy.Sets.ExtendedCommunityCost()
@@ -1629,6 +1648,8 @@ class RoutingPolicy(object):
             self.extended_community_seg_nh.parent = self
             self.extended_community_soo = RoutingPolicy.Sets.ExtendedCommunitySoo()
             self.extended_community_soo.parent = self
+            self.mac = RoutingPolicy.Sets.Mac()
+            self.mac.parent = self
             self.ospf_area = RoutingPolicy.Sets.OspfArea()
             self.ospf_area.parent = self
             self.prefix = RoutingPolicy.Sets.Prefix()
@@ -1637,6 +1658,722 @@ class RoutingPolicy(object):
             self.rd.parent = self
             self.tag = RoutingPolicy.Sets.Tag()
             self.tag.parent = self
+
+
+        class Etag(object):
+            """
+            Information about Etag sets
+            
+            .. attribute:: active
+            
+            	All objects of a given type that are attached to a protocol
+            	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Etag.Active>`
+            
+            .. attribute:: inactive
+            
+            	All objects of a given type that are not attached to a protocol
+            	**type**\:   :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Etag.Inactive>`
+            
+            .. attribute:: sets
+            
+            	Information about individual sets
+            	**type**\:   :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Etag.Sets_>`
+            
+            .. attribute:: unused
+            
+            	All objects of a given type that are not referenced at all
+            	**type**\:   :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Etag.Unused>`
+            
+            
+
+            """
+
+            _prefix = 'policy-repository-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.active = RoutingPolicy.Sets.Etag.Active()
+                self.active.parent = self
+                self.inactive = RoutingPolicy.Sets.Etag.Inactive()
+                self.inactive.parent = self
+                self.sets = RoutingPolicy.Sets.Etag.Sets_()
+                self.sets.parent = self
+                self.unused = RoutingPolicy.Sets.Etag.Unused()
+                self.unused.parent = self
+
+
+            class Sets_(object):
+                """
+                Information about individual sets
+                
+                .. attribute:: set
+                
+                	Information about an individual set
+                	**type**\: list of    :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Etag.Sets_.Set>`
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.set = YList()
+                    self.set.parent = self
+                    self.set.name = 'set'
+
+
+                class Set(object):
+                    """
+                    Information about an individual set
+                    
+                    .. attribute:: set_name  <key>
+                    
+                    	Set name
+                    	**type**\:  str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    
+                    .. attribute:: attached
+                    
+                    	Information about where this policy or set is attached
+                    	**type**\:   :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Etag.Sets_.Set.Attached>`
+                    
+                    .. attribute:: used_by
+                    
+                    	Policies that use this object, directly or indirectly
+                    	**type**\:   :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'policy-repository-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.set_name = None
+                        self.attached = RoutingPolicy.Sets.Etag.Sets_.Set.Attached()
+                        self.attached.parent = self
+                        self.used_by = RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy()
+                        self.used_by.parent = self
+
+
+                    class UsedBy(object):
+                        """
+                        Policies that use this object, directly or
+                        indirectly
+                        
+                        .. attribute:: reference
+                        
+                        	Information about policies referring to this object
+                        	**type**\: list of    :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy.Reference>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'policy-repository-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.reference = YList()
+                            self.reference.parent = self
+                            self.reference.name = 'reference'
+
+
+                        class Reference(object):
+                            """
+                            Information about policies referring to this
+                            object
+                            
+                            .. attribute:: route_policy_name
+                            
+                            	Name of policy
+                            	**type**\:  str
+                            
+                            .. attribute:: status
+                            
+                            	Active, Inactive, or Unused
+                            	**type**\:   :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
+                            
+                            .. attribute:: used_directly
+                            
+                            	Whether the policy uses this object directly or indirectly
+                            	**type**\:  bool
+                            
+                            
+
+                            """
+
+                            _prefix = 'policy-repository-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.route_policy_name = None
+                                self.status = None
+                                self.used_directly = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-policy-repository-oper:reference'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.route_policy_name is not None:
+                                    return True
+
+                                if self.status is not None:
+                                    return True
+
+                                if self.used_directly is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-policy-repository-oper:used-by'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.reference is not None:
+                                for child_ref in self.reference:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy']['meta_info']
+
+
+                    class Attached(object):
+                        """
+                        Information about where this policy or set is
+                        attached
+                        
+                        .. attribute:: binding
+                        
+                        	bindings list
+                        	**type**\: list of    :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Etag.Sets_.Set.Attached.Binding>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'policy-repository-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.binding = YList()
+                            self.binding.parent = self
+                            self.binding.name = 'binding'
+
+
+                        class Binding(object):
+                            """
+                            bindings list
+                            
+                            .. attribute:: af_name
+                            
+                            	Address Family Identifier
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            
+                            .. attribute:: aggregate_network_address
+                            
+                            	Aggregate IP address or Network IP Address       in IPv4 or IPv6 Format
+                            	**type**\:  str
+                            
+                            .. attribute:: area_id
+                            
+                            	OSPF Area ID in Decimal Integer Format
+                            	**type**\:  str
+                            
+                            .. attribute:: attach_point
+                            
+                            	Name of attach point where policy is attached
+                            	**type**\:  str
+                            
+                            .. attribute:: attached_policy
+                            
+                            	The attached policy that (maybe indirectly) uses the object in question
+                            	**type**\:  str
+                            
+                            .. attribute:: direction
+                            
+                            	Direction In or Out
+                            	**type**\:   :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
+                            
+                            .. attribute:: group
+                            
+                            	Neighbor Group 
+                            	**type**\:   :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
+                            
+                            .. attribute:: group_name
+                            
+                            	Neighbor Group Name
+                            	**type**\:  str
+                            
+                            .. attribute:: instance
+                            
+                            	Instance
+                            	**type**\:  str
+                            
+                            .. attribute:: interface_name
+                            
+                            	Interface Name
+                            	**type**\:  str
+                            
+                            .. attribute:: neighbor_address
+                            
+                            	Neighbor IP Address
+                            	**type**\:  str
+                            
+                            .. attribute:: neighbor_af_name
+                            
+                            	Neighbor IP Address Family
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            
+                            .. attribute:: propogate_from
+                            
+                            	ISIS Propogate From Level
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: propogate_to
+                            
+                            	ISIS Propogate To Level
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: proto_instance
+                            
+                            	Protocol instance
+                            	**type**\:  str
+                            
+                            .. attribute:: protocol
+                            
+                            	Protocol to which policy attached
+                            	**type**\:  str
+                            
+                            .. attribute:: route_policy_name
+                            
+                            	Policy that uses object in question
+                            	**type**\:  str
+                            
+                            .. attribute:: saf_name
+                            
+                            	Subsequent Address Family Identifier
+                            	**type**\:   :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
+                            
+                            .. attribute:: source_protocol
+                            
+                            	Source Protocol to redistribute,                 Source Protocol can be one of the following values                               {all, connected, local, static, bgp, rip, isis, ospf,  ospfv3, eigrp, unknown }
+                            	**type**\:  str
+                            
+                            .. attribute:: vrf_name
+                            
+                            	VRF name
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'policy-repository-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.af_name = None
+                                self.aggregate_network_address = None
+                                self.area_id = None
+                                self.attach_point = None
+                                self.attached_policy = None
+                                self.direction = None
+                                self.group = None
+                                self.group_name = None
+                                self.instance = None
+                                self.interface_name = None
+                                self.neighbor_address = None
+                                self.neighbor_af_name = None
+                                self.propogate_from = None
+                                self.propogate_to = None
+                                self.proto_instance = None
+                                self.protocol = None
+                                self.route_policy_name = None
+                                self.saf_name = None
+                                self.source_protocol = None
+                                self.vrf_name = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-policy-repository-oper:binding'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.af_name is not None:
+                                    return True
+
+                                if self.aggregate_network_address is not None:
+                                    return True
+
+                                if self.area_id is not None:
+                                    return True
+
+                                if self.attach_point is not None:
+                                    return True
+
+                                if self.attached_policy is not None:
+                                    return True
+
+                                if self.direction is not None:
+                                    return True
+
+                                if self.group is not None:
+                                    return True
+
+                                if self.group_name is not None:
+                                    return True
+
+                                if self.instance is not None:
+                                    return True
+
+                                if self.interface_name is not None:
+                                    return True
+
+                                if self.neighbor_address is not None:
+                                    return True
+
+                                if self.neighbor_af_name is not None:
+                                    return True
+
+                                if self.propogate_from is not None:
+                                    return True
+
+                                if self.propogate_to is not None:
+                                    return True
+
+                                if self.proto_instance is not None:
+                                    return True
+
+                                if self.protocol is not None:
+                                    return True
+
+                                if self.route_policy_name is not None:
+                                    return True
+
+                                if self.saf_name is not None:
+                                    return True
+
+                                if self.source_protocol is not None:
+                                    return True
+
+                                if self.vrf_name is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.Etag.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-policy-repository-oper:attached'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.binding is not None:
+                                for child_ref in self.binding:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.Etag.Sets_.Set.Attached']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.set_name is None:
+                            raise YPYModelError('Key property set_name is None')
+
+                        return '/Cisco-IOS-XR-policy-repository-oper:routing-policy/Cisco-IOS-XR-policy-repository-oper:sets/Cisco-IOS-XR-policy-repository-oper:etag/Cisco-IOS-XR-policy-repository-oper:sets/Cisco-IOS-XR-policy-repository-oper:set[Cisco-IOS-XR-policy-repository-oper:set-name = ' + str(self.set_name) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.set_name is not None:
+                            return True
+
+                        if self.attached is not None and self.attached._has_data():
+                            return True
+
+                        if self.used_by is not None and self.used_by._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicy.Sets.Etag.Sets_.Set']['meta_info']
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-policy-repository-oper:routing-policy/Cisco-IOS-XR-policy-repository-oper:sets/Cisco-IOS-XR-policy-repository-oper:etag/Cisco-IOS-XR-policy-repository-oper:sets'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.set is not None:
+                        for child_ref in self.set:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Etag.Sets_']['meta_info']
+
+
+            class Unused(object):
+                """
+                All objects of a given type that are not
+                referenced at all
+                
+                .. attribute:: object
+                
+                	Policy objects
+                	**type**\:  list of str
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.object = YLeafList()
+                    self.object.parent = self
+                    self.object.name = 'object'
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-policy-repository-oper:routing-policy/Cisco-IOS-XR-policy-repository-oper:sets/Cisco-IOS-XR-policy-repository-oper:etag/Cisco-IOS-XR-policy-repository-oper:unused'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.object is not None:
+                        for child in self.object:
+                            if child is not None:
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Etag.Unused']['meta_info']
+
+
+            class Inactive(object):
+                """
+                All objects of a given type that are not
+                attached to a protocol
+                
+                .. attribute:: object
+                
+                	Policy objects
+                	**type**\:  list of str
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.object = YLeafList()
+                    self.object.parent = self
+                    self.object.name = 'object'
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-policy-repository-oper:routing-policy/Cisco-IOS-XR-policy-repository-oper:sets/Cisco-IOS-XR-policy-repository-oper:etag/Cisco-IOS-XR-policy-repository-oper:inactive'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.object is not None:
+                        for child in self.object:
+                            if child is not None:
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Etag.Inactive']['meta_info']
+
+
+            class Active(object):
+                """
+                All objects of a given type that are attached to
+                a protocol
+                
+                .. attribute:: object
+                
+                	Policy objects
+                	**type**\:  list of str
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.object = YLeafList()
+                    self.object.parent = self
+                    self.object.name = 'object'
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-policy-repository-oper:routing-policy/Cisco-IOS-XR-policy-repository-oper:sets/Cisco-IOS-XR-policy-repository-oper:etag/Cisco-IOS-XR-policy-repository-oper:active'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.object is not None:
+                        for child in self.object:
+                            if child is not None:
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Etag.Active']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-policy-repository-oper:routing-policy/Cisco-IOS-XR-policy-repository-oper:sets/Cisco-IOS-XR-policy-repository-oper:etag'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.active is not None and self.active._has_data():
+                    return True
+
+                if self.inactive is not None and self.inactive._has_data():
+                    return True
+
+                if self.sets is not None and self.sets._has_data():
+                    return True
+
+                if self.unused is not None and self.unused._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Sets.Etag']['meta_info']
 
 
         class OspfArea(object):
@@ -7368,6 +8105,722 @@ class RoutingPolicy(object):
                 return meta._meta_table['RoutingPolicy.Sets.AsPath']['meta_info']
 
 
+        class Esi(object):
+            """
+            Information about Esi sets
+            
+            .. attribute:: active
+            
+            	All objects of a given type that are attached to a protocol
+            	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Esi.Active>`
+            
+            .. attribute:: inactive
+            
+            	All objects of a given type that are not attached to a protocol
+            	**type**\:   :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Esi.Inactive>`
+            
+            .. attribute:: sets
+            
+            	Information about individual sets
+            	**type**\:   :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Esi.Sets_>`
+            
+            .. attribute:: unused
+            
+            	All objects of a given type that are not referenced at all
+            	**type**\:   :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Esi.Unused>`
+            
+            
+
+            """
+
+            _prefix = 'policy-repository-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.active = RoutingPolicy.Sets.Esi.Active()
+                self.active.parent = self
+                self.inactive = RoutingPolicy.Sets.Esi.Inactive()
+                self.inactive.parent = self
+                self.sets = RoutingPolicy.Sets.Esi.Sets_()
+                self.sets.parent = self
+                self.unused = RoutingPolicy.Sets.Esi.Unused()
+                self.unused.parent = self
+
+
+            class Sets_(object):
+                """
+                Information about individual sets
+                
+                .. attribute:: set
+                
+                	Information about an individual set
+                	**type**\: list of    :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Esi.Sets_.Set>`
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.set = YList()
+                    self.set.parent = self
+                    self.set.name = 'set'
+
+
+                class Set(object):
+                    """
+                    Information about an individual set
+                    
+                    .. attribute:: set_name  <key>
+                    
+                    	Set name
+                    	**type**\:  str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    
+                    .. attribute:: attached
+                    
+                    	Information about where this policy or set is attached
+                    	**type**\:   :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Esi.Sets_.Set.Attached>`
+                    
+                    .. attribute:: used_by
+                    
+                    	Policies that use this object, directly or indirectly
+                    	**type**\:   :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'policy-repository-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.set_name = None
+                        self.attached = RoutingPolicy.Sets.Esi.Sets_.Set.Attached()
+                        self.attached.parent = self
+                        self.used_by = RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy()
+                        self.used_by.parent = self
+
+
+                    class UsedBy(object):
+                        """
+                        Policies that use this object, directly or
+                        indirectly
+                        
+                        .. attribute:: reference
+                        
+                        	Information about policies referring to this object
+                        	**type**\: list of    :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy.Reference>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'policy-repository-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.reference = YList()
+                            self.reference.parent = self
+                            self.reference.name = 'reference'
+
+
+                        class Reference(object):
+                            """
+                            Information about policies referring to this
+                            object
+                            
+                            .. attribute:: route_policy_name
+                            
+                            	Name of policy
+                            	**type**\:  str
+                            
+                            .. attribute:: status
+                            
+                            	Active, Inactive, or Unused
+                            	**type**\:   :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
+                            
+                            .. attribute:: used_directly
+                            
+                            	Whether the policy uses this object directly or indirectly
+                            	**type**\:  bool
+                            
+                            
+
+                            """
+
+                            _prefix = 'policy-repository-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.route_policy_name = None
+                                self.status = None
+                                self.used_directly = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-policy-repository-oper:reference'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.route_policy_name is not None:
+                                    return True
+
+                                if self.status is not None:
+                                    return True
+
+                                if self.used_directly is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-policy-repository-oper:used-by'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.reference is not None:
+                                for child_ref in self.reference:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy']['meta_info']
+
+
+                    class Attached(object):
+                        """
+                        Information about where this policy or set is
+                        attached
+                        
+                        .. attribute:: binding
+                        
+                        	bindings list
+                        	**type**\: list of    :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Esi.Sets_.Set.Attached.Binding>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'policy-repository-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.binding = YList()
+                            self.binding.parent = self
+                            self.binding.name = 'binding'
+
+
+                        class Binding(object):
+                            """
+                            bindings list
+                            
+                            .. attribute:: af_name
+                            
+                            	Address Family Identifier
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            
+                            .. attribute:: aggregate_network_address
+                            
+                            	Aggregate IP address or Network IP Address       in IPv4 or IPv6 Format
+                            	**type**\:  str
+                            
+                            .. attribute:: area_id
+                            
+                            	OSPF Area ID in Decimal Integer Format
+                            	**type**\:  str
+                            
+                            .. attribute:: attach_point
+                            
+                            	Name of attach point where policy is attached
+                            	**type**\:  str
+                            
+                            .. attribute:: attached_policy
+                            
+                            	The attached policy that (maybe indirectly) uses the object in question
+                            	**type**\:  str
+                            
+                            .. attribute:: direction
+                            
+                            	Direction In or Out
+                            	**type**\:   :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
+                            
+                            .. attribute:: group
+                            
+                            	Neighbor Group 
+                            	**type**\:   :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
+                            
+                            .. attribute:: group_name
+                            
+                            	Neighbor Group Name
+                            	**type**\:  str
+                            
+                            .. attribute:: instance
+                            
+                            	Instance
+                            	**type**\:  str
+                            
+                            .. attribute:: interface_name
+                            
+                            	Interface Name
+                            	**type**\:  str
+                            
+                            .. attribute:: neighbor_address
+                            
+                            	Neighbor IP Address
+                            	**type**\:  str
+                            
+                            .. attribute:: neighbor_af_name
+                            
+                            	Neighbor IP Address Family
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            
+                            .. attribute:: propogate_from
+                            
+                            	ISIS Propogate From Level
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: propogate_to
+                            
+                            	ISIS Propogate To Level
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: proto_instance
+                            
+                            	Protocol instance
+                            	**type**\:  str
+                            
+                            .. attribute:: protocol
+                            
+                            	Protocol to which policy attached
+                            	**type**\:  str
+                            
+                            .. attribute:: route_policy_name
+                            
+                            	Policy that uses object in question
+                            	**type**\:  str
+                            
+                            .. attribute:: saf_name
+                            
+                            	Subsequent Address Family Identifier
+                            	**type**\:   :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
+                            
+                            .. attribute:: source_protocol
+                            
+                            	Source Protocol to redistribute,                 Source Protocol can be one of the following values                               {all, connected, local, static, bgp, rip, isis, ospf,  ospfv3, eigrp, unknown }
+                            	**type**\:  str
+                            
+                            .. attribute:: vrf_name
+                            
+                            	VRF name
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'policy-repository-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.af_name = None
+                                self.aggregate_network_address = None
+                                self.area_id = None
+                                self.attach_point = None
+                                self.attached_policy = None
+                                self.direction = None
+                                self.group = None
+                                self.group_name = None
+                                self.instance = None
+                                self.interface_name = None
+                                self.neighbor_address = None
+                                self.neighbor_af_name = None
+                                self.propogate_from = None
+                                self.propogate_to = None
+                                self.proto_instance = None
+                                self.protocol = None
+                                self.route_policy_name = None
+                                self.saf_name = None
+                                self.source_protocol = None
+                                self.vrf_name = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-policy-repository-oper:binding'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.af_name is not None:
+                                    return True
+
+                                if self.aggregate_network_address is not None:
+                                    return True
+
+                                if self.area_id is not None:
+                                    return True
+
+                                if self.attach_point is not None:
+                                    return True
+
+                                if self.attached_policy is not None:
+                                    return True
+
+                                if self.direction is not None:
+                                    return True
+
+                                if self.group is not None:
+                                    return True
+
+                                if self.group_name is not None:
+                                    return True
+
+                                if self.instance is not None:
+                                    return True
+
+                                if self.interface_name is not None:
+                                    return True
+
+                                if self.neighbor_address is not None:
+                                    return True
+
+                                if self.neighbor_af_name is not None:
+                                    return True
+
+                                if self.propogate_from is not None:
+                                    return True
+
+                                if self.propogate_to is not None:
+                                    return True
+
+                                if self.proto_instance is not None:
+                                    return True
+
+                                if self.protocol is not None:
+                                    return True
+
+                                if self.route_policy_name is not None:
+                                    return True
+
+                                if self.saf_name is not None:
+                                    return True
+
+                                if self.source_protocol is not None:
+                                    return True
+
+                                if self.vrf_name is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.Esi.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-policy-repository-oper:attached'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.binding is not None:
+                                for child_ref in self.binding:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.Esi.Sets_.Set.Attached']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.set_name is None:
+                            raise YPYModelError('Key property set_name is None')
+
+                        return '/Cisco-IOS-XR-policy-repository-oper:routing-policy/Cisco-IOS-XR-policy-repository-oper:sets/Cisco-IOS-XR-policy-repository-oper:esi/Cisco-IOS-XR-policy-repository-oper:sets/Cisco-IOS-XR-policy-repository-oper:set[Cisco-IOS-XR-policy-repository-oper:set-name = ' + str(self.set_name) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.set_name is not None:
+                            return True
+
+                        if self.attached is not None and self.attached._has_data():
+                            return True
+
+                        if self.used_by is not None and self.used_by._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicy.Sets.Esi.Sets_.Set']['meta_info']
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-policy-repository-oper:routing-policy/Cisco-IOS-XR-policy-repository-oper:sets/Cisco-IOS-XR-policy-repository-oper:esi/Cisco-IOS-XR-policy-repository-oper:sets'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.set is not None:
+                        for child_ref in self.set:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Esi.Sets_']['meta_info']
+
+
+            class Unused(object):
+                """
+                All objects of a given type that are not
+                referenced at all
+                
+                .. attribute:: object
+                
+                	Policy objects
+                	**type**\:  list of str
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.object = YLeafList()
+                    self.object.parent = self
+                    self.object.name = 'object'
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-policy-repository-oper:routing-policy/Cisco-IOS-XR-policy-repository-oper:sets/Cisco-IOS-XR-policy-repository-oper:esi/Cisco-IOS-XR-policy-repository-oper:unused'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.object is not None:
+                        for child in self.object:
+                            if child is not None:
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Esi.Unused']['meta_info']
+
+
+            class Inactive(object):
+                """
+                All objects of a given type that are not
+                attached to a protocol
+                
+                .. attribute:: object
+                
+                	Policy objects
+                	**type**\:  list of str
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.object = YLeafList()
+                    self.object.parent = self
+                    self.object.name = 'object'
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-policy-repository-oper:routing-policy/Cisco-IOS-XR-policy-repository-oper:sets/Cisco-IOS-XR-policy-repository-oper:esi/Cisco-IOS-XR-policy-repository-oper:inactive'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.object is not None:
+                        for child in self.object:
+                            if child is not None:
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Esi.Inactive']['meta_info']
+
+
+            class Active(object):
+                """
+                All objects of a given type that are attached to
+                a protocol
+                
+                .. attribute:: object
+                
+                	Policy objects
+                	**type**\:  list of str
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.object = YLeafList()
+                    self.object.parent = self
+                    self.object.name = 'object'
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-policy-repository-oper:routing-policy/Cisco-IOS-XR-policy-repository-oper:sets/Cisco-IOS-XR-policy-repository-oper:esi/Cisco-IOS-XR-policy-repository-oper:active'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.object is not None:
+                        for child in self.object:
+                            if child is not None:
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Esi.Active']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-policy-repository-oper:routing-policy/Cisco-IOS-XR-policy-repository-oper:sets/Cisco-IOS-XR-policy-repository-oper:esi'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.active is not None and self.active._has_data():
+                    return True
+
+                if self.inactive is not None and self.inactive._has_data():
+                    return True
+
+                if self.sets is not None and self.sets._has_data():
+                    return True
+
+                if self.unused is not None and self.unused._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Sets.Esi']['meta_info']
+
+
         class ExtendedCommunityBandwidth(object):
             """
             Information about Extended Community Bandwidth
@@ -9459,6 +10912,722 @@ class RoutingPolicy(object):
                 return meta._meta_table['RoutingPolicy.Sets.Rd']['meta_info']
 
 
+        class Mac(object):
+            """
+            Information about Mac sets
+            
+            .. attribute:: active
+            
+            	All objects of a given type that are attached to a protocol
+            	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Mac.Active>`
+            
+            .. attribute:: inactive
+            
+            	All objects of a given type that are not attached to a protocol
+            	**type**\:   :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Mac.Inactive>`
+            
+            .. attribute:: sets
+            
+            	Information about individual sets
+            	**type**\:   :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Mac.Sets_>`
+            
+            .. attribute:: unused
+            
+            	All objects of a given type that are not referenced at all
+            	**type**\:   :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Mac.Unused>`
+            
+            
+
+            """
+
+            _prefix = 'policy-repository-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.active = RoutingPolicy.Sets.Mac.Active()
+                self.active.parent = self
+                self.inactive = RoutingPolicy.Sets.Mac.Inactive()
+                self.inactive.parent = self
+                self.sets = RoutingPolicy.Sets.Mac.Sets_()
+                self.sets.parent = self
+                self.unused = RoutingPolicy.Sets.Mac.Unused()
+                self.unused.parent = self
+
+
+            class Sets_(object):
+                """
+                Information about individual sets
+                
+                .. attribute:: set
+                
+                	Information about an individual set
+                	**type**\: list of    :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Mac.Sets_.Set>`
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.set = YList()
+                    self.set.parent = self
+                    self.set.name = 'set'
+
+
+                class Set(object):
+                    """
+                    Information about an individual set
+                    
+                    .. attribute:: set_name  <key>
+                    
+                    	Set name
+                    	**type**\:  str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    
+                    .. attribute:: attached
+                    
+                    	Information about where this policy or set is attached
+                    	**type**\:   :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Mac.Sets_.Set.Attached>`
+                    
+                    .. attribute:: used_by
+                    
+                    	Policies that use this object, directly or indirectly
+                    	**type**\:   :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'policy-repository-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.set_name = None
+                        self.attached = RoutingPolicy.Sets.Mac.Sets_.Set.Attached()
+                        self.attached.parent = self
+                        self.used_by = RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy()
+                        self.used_by.parent = self
+
+
+                    class UsedBy(object):
+                        """
+                        Policies that use this object, directly or
+                        indirectly
+                        
+                        .. attribute:: reference
+                        
+                        	Information about policies referring to this object
+                        	**type**\: list of    :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy.Reference>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'policy-repository-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.reference = YList()
+                            self.reference.parent = self
+                            self.reference.name = 'reference'
+
+
+                        class Reference(object):
+                            """
+                            Information about policies referring to this
+                            object
+                            
+                            .. attribute:: route_policy_name
+                            
+                            	Name of policy
+                            	**type**\:  str
+                            
+                            .. attribute:: status
+                            
+                            	Active, Inactive, or Unused
+                            	**type**\:   :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
+                            
+                            .. attribute:: used_directly
+                            
+                            	Whether the policy uses this object directly or indirectly
+                            	**type**\:  bool
+                            
+                            
+
+                            """
+
+                            _prefix = 'policy-repository-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.route_policy_name = None
+                                self.status = None
+                                self.used_directly = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-policy-repository-oper:reference'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.route_policy_name is not None:
+                                    return True
+
+                                if self.status is not None:
+                                    return True
+
+                                if self.used_directly is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-policy-repository-oper:used-by'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.reference is not None:
+                                for child_ref in self.reference:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy']['meta_info']
+
+
+                    class Attached(object):
+                        """
+                        Information about where this policy or set is
+                        attached
+                        
+                        .. attribute:: binding
+                        
+                        	bindings list
+                        	**type**\: list of    :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Mac.Sets_.Set.Attached.Binding>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'policy-repository-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.binding = YList()
+                            self.binding.parent = self
+                            self.binding.name = 'binding'
+
+
+                        class Binding(object):
+                            """
+                            bindings list
+                            
+                            .. attribute:: af_name
+                            
+                            	Address Family Identifier
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            
+                            .. attribute:: aggregate_network_address
+                            
+                            	Aggregate IP address or Network IP Address       in IPv4 or IPv6 Format
+                            	**type**\:  str
+                            
+                            .. attribute:: area_id
+                            
+                            	OSPF Area ID in Decimal Integer Format
+                            	**type**\:  str
+                            
+                            .. attribute:: attach_point
+                            
+                            	Name of attach point where policy is attached
+                            	**type**\:  str
+                            
+                            .. attribute:: attached_policy
+                            
+                            	The attached policy that (maybe indirectly) uses the object in question
+                            	**type**\:  str
+                            
+                            .. attribute:: direction
+                            
+                            	Direction In or Out
+                            	**type**\:   :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
+                            
+                            .. attribute:: group
+                            
+                            	Neighbor Group 
+                            	**type**\:   :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
+                            
+                            .. attribute:: group_name
+                            
+                            	Neighbor Group Name
+                            	**type**\:  str
+                            
+                            .. attribute:: instance
+                            
+                            	Instance
+                            	**type**\:  str
+                            
+                            .. attribute:: interface_name
+                            
+                            	Interface Name
+                            	**type**\:  str
+                            
+                            .. attribute:: neighbor_address
+                            
+                            	Neighbor IP Address
+                            	**type**\:  str
+                            
+                            .. attribute:: neighbor_af_name
+                            
+                            	Neighbor IP Address Family
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            
+                            .. attribute:: propogate_from
+                            
+                            	ISIS Propogate From Level
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: propogate_to
+                            
+                            	ISIS Propogate To Level
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: proto_instance
+                            
+                            	Protocol instance
+                            	**type**\:  str
+                            
+                            .. attribute:: protocol
+                            
+                            	Protocol to which policy attached
+                            	**type**\:  str
+                            
+                            .. attribute:: route_policy_name
+                            
+                            	Policy that uses object in question
+                            	**type**\:  str
+                            
+                            .. attribute:: saf_name
+                            
+                            	Subsequent Address Family Identifier
+                            	**type**\:   :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
+                            
+                            .. attribute:: source_protocol
+                            
+                            	Source Protocol to redistribute,                 Source Protocol can be one of the following values                               {all, connected, local, static, bgp, rip, isis, ospf,  ospfv3, eigrp, unknown }
+                            	**type**\:  str
+                            
+                            .. attribute:: vrf_name
+                            
+                            	VRF name
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'policy-repository-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.af_name = None
+                                self.aggregate_network_address = None
+                                self.area_id = None
+                                self.attach_point = None
+                                self.attached_policy = None
+                                self.direction = None
+                                self.group = None
+                                self.group_name = None
+                                self.instance = None
+                                self.interface_name = None
+                                self.neighbor_address = None
+                                self.neighbor_af_name = None
+                                self.propogate_from = None
+                                self.propogate_to = None
+                                self.proto_instance = None
+                                self.protocol = None
+                                self.route_policy_name = None
+                                self.saf_name = None
+                                self.source_protocol = None
+                                self.vrf_name = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-policy-repository-oper:binding'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.af_name is not None:
+                                    return True
+
+                                if self.aggregate_network_address is not None:
+                                    return True
+
+                                if self.area_id is not None:
+                                    return True
+
+                                if self.attach_point is not None:
+                                    return True
+
+                                if self.attached_policy is not None:
+                                    return True
+
+                                if self.direction is not None:
+                                    return True
+
+                                if self.group is not None:
+                                    return True
+
+                                if self.group_name is not None:
+                                    return True
+
+                                if self.instance is not None:
+                                    return True
+
+                                if self.interface_name is not None:
+                                    return True
+
+                                if self.neighbor_address is not None:
+                                    return True
+
+                                if self.neighbor_af_name is not None:
+                                    return True
+
+                                if self.propogate_from is not None:
+                                    return True
+
+                                if self.propogate_to is not None:
+                                    return True
+
+                                if self.proto_instance is not None:
+                                    return True
+
+                                if self.protocol is not None:
+                                    return True
+
+                                if self.route_policy_name is not None:
+                                    return True
+
+                                if self.saf_name is not None:
+                                    return True
+
+                                if self.source_protocol is not None:
+                                    return True
+
+                                if self.vrf_name is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.Mac.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-policy-repository-oper:attached'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.binding is not None:
+                                for child_ref in self.binding:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.Mac.Sets_.Set.Attached']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.set_name is None:
+                            raise YPYModelError('Key property set_name is None')
+
+                        return '/Cisco-IOS-XR-policy-repository-oper:routing-policy/Cisco-IOS-XR-policy-repository-oper:sets/Cisco-IOS-XR-policy-repository-oper:mac/Cisco-IOS-XR-policy-repository-oper:sets/Cisco-IOS-XR-policy-repository-oper:set[Cisco-IOS-XR-policy-repository-oper:set-name = ' + str(self.set_name) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.set_name is not None:
+                            return True
+
+                        if self.attached is not None and self.attached._has_data():
+                            return True
+
+                        if self.used_by is not None and self.used_by._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicy.Sets.Mac.Sets_.Set']['meta_info']
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-policy-repository-oper:routing-policy/Cisco-IOS-XR-policy-repository-oper:sets/Cisco-IOS-XR-policy-repository-oper:mac/Cisco-IOS-XR-policy-repository-oper:sets'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.set is not None:
+                        for child_ref in self.set:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Mac.Sets_']['meta_info']
+
+
+            class Unused(object):
+                """
+                All objects of a given type that are not
+                referenced at all
+                
+                .. attribute:: object
+                
+                	Policy objects
+                	**type**\:  list of str
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.object = YLeafList()
+                    self.object.parent = self
+                    self.object.name = 'object'
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-policy-repository-oper:routing-policy/Cisco-IOS-XR-policy-repository-oper:sets/Cisco-IOS-XR-policy-repository-oper:mac/Cisco-IOS-XR-policy-repository-oper:unused'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.object is not None:
+                        for child in self.object:
+                            if child is not None:
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Mac.Unused']['meta_info']
+
+
+            class Inactive(object):
+                """
+                All objects of a given type that are not
+                attached to a protocol
+                
+                .. attribute:: object
+                
+                	Policy objects
+                	**type**\:  list of str
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.object = YLeafList()
+                    self.object.parent = self
+                    self.object.name = 'object'
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-policy-repository-oper:routing-policy/Cisco-IOS-XR-policy-repository-oper:sets/Cisco-IOS-XR-policy-repository-oper:mac/Cisco-IOS-XR-policy-repository-oper:inactive'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.object is not None:
+                        for child in self.object:
+                            if child is not None:
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Mac.Inactive']['meta_info']
+
+
+            class Active(object):
+                """
+                All objects of a given type that are attached to
+                a protocol
+                
+                .. attribute:: object
+                
+                	Policy objects
+                	**type**\:  list of str
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.object = YLeafList()
+                    self.object.parent = self
+                    self.object.name = 'object'
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-policy-repository-oper:routing-policy/Cisco-IOS-XR-policy-repository-oper:sets/Cisco-IOS-XR-policy-repository-oper:mac/Cisco-IOS-XR-policy-repository-oper:active'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.object is not None:
+                        for child in self.object:
+                            if child is not None:
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Mac.Active']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-policy-repository-oper:routing-policy/Cisco-IOS-XR-policy-repository-oper:sets/Cisco-IOS-XR-policy-repository-oper:mac'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.active is not None and self.active._has_data():
+                    return True
+
+                if self.inactive is not None and self.inactive._has_data():
+                    return True
+
+                if self.sets is not None and self.sets._has_data():
+                    return True
+
+                if self.unused is not None and self.unused._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Sets.Mac']['meta_info']
+
+
         class ExtendedCommunityCost(object):
             """
             Information about Extended Community Cost sets
@@ -10192,6 +12361,12 @@ class RoutingPolicy(object):
             if self.community is not None and self.community._has_data():
                 return True
 
+            if self.esi is not None and self.esi._has_data():
+                return True
+
+            if self.etag is not None and self.etag._has_data():
+                return True
+
             if self.extended_community_bandwidth is not None and self.extended_community_bandwidth._has_data():
                 return True
 
@@ -10208,6 +12383,9 @@ class RoutingPolicy(object):
                 return True
 
             if self.extended_community_soo is not None and self.extended_community_soo._has_data():
+                return True
+
+            if self.mac is not None and self.mac._has_data():
                 return True
 
             if self.ospf_area is not None and self.ospf_area._has_data():

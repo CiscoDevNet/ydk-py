@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'MgmtLsdClientEnum' : _MetaInfoEnum('MgmtLsdClientEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper',
         {
@@ -113,7 +112,7 @@ _meta_table = {
             'mgmt-lsd-app-type-static':'mgmt_lsd_app_type_static',
             'mgmt-lsd-app-type-ldp':'mgmt_lsd_app_type_ldp',
             'mgmt-lsd-app-type-te':'mgmt_lsd_app_type_te',
-            'mgmt-lsd-app-type-te-int':'mgmt_lsd_app_type_te_int',
+            'mgmt-lsd-app-type-app-controller':'mgmt_lsd_app_type_app_controller',
             'mgmt-lsd-app-type-bgp-ipv4':'mgmt_lsd_app_type_bgp_ipv4',
             'mgmt-lsd-app-type-bgp-vpn-ipv4':'mgmt_lsd_app_type_bgp_vpn_ipv4',
             'mgmt-lsd-app-type-l2vpn':'mgmt_lsd_app_type_l2vpn',
@@ -2232,6 +2231,12 @@ _meta_table = {
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
+            _MetaInfoClassMember('sr-local-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SR related Local label
+                ''',
+                'sr_local_label',
+                'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Table ID
@@ -3648,6 +3653,12 @@ _meta_table = {
                 '''                Prefix Length
                 ''',
                 'prefix_length',
+                'Cisco-IOS-XR-mpls-lsd-oper', False),
+            _MetaInfoClassMember('sr-local-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SR related Local label
+                ''',
+                'sr_local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -5256,6 +5267,12 @@ _meta_table = {
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
+            _MetaInfoClassMember('sr-local-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SR related Local label
+                ''',
+                'sr_local_label',
+                'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Table ID
@@ -6672,6 +6689,12 @@ _meta_table = {
                 '''                Prefix Length
                 ''',
                 'prefix_length',
+                'Cisco-IOS-XR-mpls-lsd-oper', False),
+            _MetaInfoClassMember('sr-local-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SR related Local label
+                ''',
+                'sr_local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -8298,6 +8321,12 @@ _meta_table = {
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
+            _MetaInfoClassMember('sr-local-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SR related Local label
+                ''',
+                'sr_local_label',
+                'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Table ID
@@ -9714,6 +9743,12 @@ _meta_table = {
                 '''                Prefix Length
                 ''',
                 'prefix_length',
+                'Cisco-IOS-XR-mpls-lsd-oper', False),
+            _MetaInfoClassMember('sr-local-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SR related Local label
+                ''',
+                'sr_local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -11322,6 +11357,12 @@ _meta_table = {
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
+            _MetaInfoClassMember('sr-local-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SR related Local label
+                ''',
+                'sr_local_label',
+                'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Table ID
@@ -12738,6 +12779,12 @@ _meta_table = {
                 '''                Prefix Length
                 ''',
                 'prefix_length',
+                'Cisco-IOS-XR-mpls-lsd-oper', False),
+            _MetaInfoClassMember('sr-local-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SR related Local label
+                ''',
+                'sr_local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -17403,6 +17450,12 @@ _meta_table = {
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
+            _MetaInfoClassMember('sr-local-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SR related Local label
+                ''',
+                'sr_local_label',
+                'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Table ID
@@ -18819,6 +18872,12 @@ _meta_table = {
                 '''                Prefix Length
                 ''',
                 'prefix_length',
+                'Cisco-IOS-XR-mpls-lsd-oper', False),
+            _MetaInfoClassMember('sr-local-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SR related Local label
+                ''',
+                'sr_local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -20427,6 +20486,12 @@ _meta_table = {
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
+            _MetaInfoClassMember('sr-local-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SR related Local label
+                ''',
+                'sr_local_label',
+                'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Table ID
@@ -21843,6 +21908,12 @@ _meta_table = {
                 '''                Prefix Length
                 ''',
                 'prefix_length',
+                'Cisco-IOS-XR-mpls-lsd-oper', False),
+            _MetaInfoClassMember('sr-local-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SR related Local label
+                ''',
+                'sr_local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -23469,6 +23540,12 @@ _meta_table = {
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
+            _MetaInfoClassMember('sr-local-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SR related Local label
+                ''',
+                'sr_local_label',
+                'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Table ID
@@ -24885,6 +24962,12 @@ _meta_table = {
                 '''                Prefix Length
                 ''',
                 'prefix_length',
+                'Cisco-IOS-XR-mpls-lsd-oper', False),
+            _MetaInfoClassMember('sr-local-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SR related Local label
+                ''',
+                'sr_local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -26493,6 +26576,12 @@ _meta_table = {
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
+            _MetaInfoClassMember('sr-local-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SR related Local label
+                ''',
+                'sr_local_label',
+                'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Table ID
@@ -27909,6 +27998,12 @@ _meta_table = {
                 '''                Prefix Length
                 ''',
                 'prefix_length',
+                'Cisco-IOS-XR-mpls-lsd-oper', False),
+            _MetaInfoClassMember('sr-local-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SR related Local label
+                ''',
+                'sr_local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 

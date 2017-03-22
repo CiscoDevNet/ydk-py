@@ -183,6 +183,11 @@ class SdrInventory(object):
                         
                         	**default value**\: 0
                         
+                        .. attribute:: card_state_string
+                        
+                        	Card State String
+                        	**type**\:  str
+                        
                         .. attribute:: card_type
                         
                         	CardType
@@ -192,6 +197,11 @@ class SdrInventory(object):
                         
                         	**default value**\: 0
                         
+                        .. attribute:: card_type_string
+                        
+                        	Card Type String
+                        	**type**\:  str
+                        
                         .. attribute:: config_state
                         
                         	ConfigState
@@ -200,6 +210,11 @@ class SdrInventory(object):
                         	**range:** \-2147483648..2147483647
                         
                         	**default value**\: 0
+                        
+                        .. attribute:: config_state_string
+                        
+                        	Config State String
+                        	**type**\:  str
                         
                         .. attribute:: ctype
                         
@@ -218,6 +233,11 @@ class SdrInventory(object):
                         	**range:** \-2147483648..2147483647
                         
                         	**default value**\: 0
+                        
+                        .. attribute:: node_name_string
+                        
+                        	Node Name String
+                        	**type**\:  str
                         
                         .. attribute:: pi_slot_number
                         
@@ -266,10 +286,14 @@ class SdrInventory(object):
                             self.parent = None
                             self.card_admin_state = None
                             self.card_state = None
+                            self.card_state_string = None
                             self.card_type = None
+                            self.card_type_string = None
                             self.config_state = None
+                            self.config_state_string = None
                             self.ctype = None
                             self.monitor = None
+                            self.node_name_string = None
                             self.pi_slot_number = None
                             self.power = None
                             self.shutdown = None
@@ -295,16 +319,28 @@ class SdrInventory(object):
                             if self.card_state is not None:
                                 return True
 
+                            if self.card_state_string is not None:
+                                return True
+
                             if self.card_type is not None:
                                 return True
 
+                            if self.card_type_string is not None:
+                                return True
+
                             if self.config_state is not None:
+                                return True
+
+                            if self.config_state_string is not None:
                                 return True
 
                             if self.ctype is not None:
                                 return True
 
                             if self.monitor is not None:
+                                return True
+
+                            if self.node_name_string is not None:
                                 return True
 
                             if self.pi_slot_number is not None:

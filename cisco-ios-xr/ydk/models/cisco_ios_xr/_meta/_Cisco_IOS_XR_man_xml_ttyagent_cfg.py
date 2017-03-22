@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'XrXml.Agent.Default.Session' : {
         'meta_info' : _MetaInfoClass('XrXml.Agent.Default.Session',
@@ -59,25 +58,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                VRF name
                 ''',
                 'vrf_name',
                 'Cisco-IOS-XR-man-xml-ttyagent-cfg', True),
             _MetaInfoClassMember('access-list', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Access list for XML agent
                 ''',
                 'access_list',
                 'Cisco-IOS-XR-man-xml-ttyagent-cfg', False),
             _MetaInfoClassMember('ipv4-access-list', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                IPv4 Transport Access list for VRF
                 ''',
                 'ipv4_access_list',
                 'Cisco-IOS-XR-man-xml-ttyagent-cfg', False),
             _MetaInfoClassMember('ipv6-access-list', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                IPv6 Transport Access list for VRF
                 ''',
                 'ipv6_access_list',
@@ -300,25 +299,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                VRF name
                 ''',
                 'vrf_name',
                 'Cisco-IOS-XR-man-xml-ttyagent-cfg', True),
             _MetaInfoClassMember('access-list', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Access list for XML agent
                 ''',
                 'access_list',
                 'Cisco-IOS-XR-man-xml-ttyagent-cfg', False),
             _MetaInfoClassMember('ipv4-access-list', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                IPv4 Transport Access list for VRF
                 ''',
                 'ipv4_access_list',
                 'Cisco-IOS-XR-man-xml-ttyagent-cfg', False),
             _MetaInfoClassMember('ipv6-access-list', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                IPv6 Transport Access list for VRF
                 ''',
                 'ipv6_access_list',

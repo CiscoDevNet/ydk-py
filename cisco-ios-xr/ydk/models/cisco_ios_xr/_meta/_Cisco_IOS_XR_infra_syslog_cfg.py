@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'LogSeverityEnum' : _MetaInfoEnum('LogSeverityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg',
         {
@@ -1841,10 +1840,50 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg'
         ),
     },
+    'Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString' : {
+        'meta_info' : _MetaInfoClass('Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString',
+            False, 
+            [
+            _MetaInfoClassMember('filter-string', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Filter String
+                ''',
+                'filter_string',
+                'Cisco-IOS-XR-infra-alarm-logger-cfg', True),
+            ],
+            'Cisco-IOS-XR-infra-alarm-logger-cfg',
+            'alarm-filter-string',
+            _yang_ns._namespaces['Cisco-IOS-XR-infra-alarm-logger-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg'
+        ),
+    },
+    'Syslog.AlarmLogger.AlarmFilterStrings' : {
+        'meta_info' : _MetaInfoClass('Syslog.AlarmLogger.AlarmFilterStrings',
+            False, 
+            [
+            _MetaInfoClassMember('alarm-filter-string', REFERENCE_LIST, 'AlarmFilterString' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString', 
+                [], [], 
+                '''                Match string to filter alarms
+                ''',
+                'alarm_filter_string',
+                'Cisco-IOS-XR-infra-alarm-logger-cfg', False),
+            ],
+            'Cisco-IOS-XR-infra-alarm-logger-cfg',
+            'alarm-filter-strings',
+            _yang_ns._namespaces['Cisco-IOS-XR-infra-alarm-logger-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg'
+        ),
+    },
     'Syslog.AlarmLogger' : {
         'meta_info' : _MetaInfoClass('Syslog.AlarmLogger',
             False, 
             [
+            _MetaInfoClassMember('alarm-filter-strings', REFERENCE_CLASS, 'AlarmFilterStrings' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg', 'Syslog.AlarmLogger.AlarmFilterStrings', 
+                [], [], 
+                '''                List of filter strings
+                ''',
+                'alarm_filter_strings',
+                'Cisco-IOS-XR-infra-alarm-logger-cfg', False),
             _MetaInfoClassMember('buffer-size', ATTRIBUTE, 'int' , None, None, 
                 [('1024', '1024000')], [], 
                 '''                Set size of the local event buffer
@@ -2394,7 +2433,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('context', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Context
                 ''',
                 'context',
@@ -2491,7 +2530,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Rule name
                 ''',
                 'name',
@@ -2555,7 +2594,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('rulename', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Rule name
                 ''',
                 'rulename',
@@ -2589,7 +2628,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('context', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Context
                 ''',
                 'context',
@@ -2686,7 +2725,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Ruleset name
                 ''',
                 'name',
@@ -2818,19 +2857,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('category', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Category
                 ''',
                 'category',
                 'Cisco-IOS-XR-infra-correlator-cfg', True),
             _MetaInfoClassMember('code', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Code
                 ''',
                 'code',
                 'Cisco-IOS-XR-infra-correlator-cfg', True),
             _MetaInfoClassMember('group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Group
                 ''',
                 'group',
@@ -2865,7 +2904,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Rule name
                 ''',
                 'name',
@@ -3100,6 +3139,8 @@ _meta_table['Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceVa
 _meta_table['Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs']['meta_info'].parent =_meta_table['Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue']['meta_info']
 _meta_table['Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue']['meta_info'].parent =_meta_table['Syslog.SourceInterfaceTable.SourceInterfaceValues']['meta_info']
 _meta_table['Syslog.SourceInterfaceTable.SourceInterfaceValues']['meta_info'].parent =_meta_table['Syslog.SourceInterfaceTable']['meta_info']
+_meta_table['Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString']['meta_info'].parent =_meta_table['Syslog.AlarmLogger.AlarmFilterStrings']['meta_info']
+_meta_table['Syslog.AlarmLogger.AlarmFilterStrings']['meta_info'].parent =_meta_table['Syslog.AlarmLogger']['meta_info']
 _meta_table['Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause']['meta_info'].parent =_meta_table['Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses']['meta_info']
 _meta_table['Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses']['meta_info'].parent =_meta_table['Syslog.Correlator.Rules.Rule.NonStateful']['meta_info']
 _meta_table['Syslog.Correlator.Rules.Rule.NonStateful.RootCause']['meta_info'].parent =_meta_table['Syslog.Correlator.Rules.Rule.NonStateful']['meta_info']

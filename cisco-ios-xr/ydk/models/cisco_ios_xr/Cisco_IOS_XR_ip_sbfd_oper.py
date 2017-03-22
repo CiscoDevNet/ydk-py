@@ -38,7 +38,7 @@ class BfdAfIdEnum(Enum):
 
     	IPv4 AFI
 
-    .. data:: bfd_af_id_ipv6 = 26
+    .. data:: bfd_af_id_ipv6 = 10
 
     	IPv6 AFI
 
@@ -48,7 +48,7 @@ class BfdAfIdEnum(Enum):
 
     bfd_af_id_ipv4 = 2
 
-    bfd_af_id_ipv6 = 26
+    bfd_af_id_ipv6 = 10
 
 
     @staticmethod

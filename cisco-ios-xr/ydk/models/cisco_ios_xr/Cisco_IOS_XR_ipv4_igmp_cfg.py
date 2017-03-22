@@ -40,11 +40,17 @@ class IgmpFilterEnum(Enum):
 
     	Exclude
 
+    .. data:: star_g = 2
+
+    	StarG
+
     """
 
     include = 0
 
     exclude = 1
+
+    star_g = 2
 
 
     @staticmethod
@@ -82,7 +88,7 @@ class Igmp(object):
     """
 
     _prefix = 'ipv4-igmp-cfg'
-    _revision = '2015-11-09'
+    _revision = '2016-10-10'
 
     def __init__(self):
         self._is_presence = True
@@ -105,7 +111,7 @@ class Igmp(object):
         """
 
         _prefix = 'ipv4-igmp-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-10-10'
 
         def __init__(self):
             self.parent = None
@@ -123,12 +129,7 @@ class Igmp(object):
             	Name for this vrf
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
-            .. attribute:: accounting
-            
-            	Configure IGMP accounting for logging join/leave records
-            	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Accounting>`
+            	**length:** 1..32
             
             .. attribute:: inheritable_defaults
             
@@ -169,23 +170,16 @@ class Igmp(object):
             	Configure IGMP Traffic variables
             	**type**\:   :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Traffic>`
             
-            .. attribute:: unicast_qos_adjust
-            
-            	Configure IGMP QoS shapers for subscriber interfaces
-            	**type**\:   :py:class:`UnicastQosAdjust <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.UnicastQosAdjust>`
-            
             
 
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-10-10'
 
             def __init__(self):
                 self.parent = None
                 self.vrf_name = None
-                self.accounting = Igmp.Vrfs.Vrf.Accounting()
-                self.accounting.parent = self
                 self.inheritable_defaults = Igmp.Vrfs.Vrf.InheritableDefaults()
                 self.inheritable_defaults.parent = self
                 self.interfaces = Igmp.Vrfs.Vrf.Interfaces()
@@ -198,8 +192,6 @@ class Igmp(object):
                 self.ssmdns_query_group = None
                 self.traffic = Igmp.Vrfs.Vrf.Traffic()
                 self.traffic.parent = self
-                self.unicast_qos_adjust = Igmp.Vrfs.Vrf.UnicastQosAdjust()
-                self.unicast_qos_adjust.parent = self
 
 
             class Traffic(object):
@@ -211,12 +203,14 @@ class Igmp(object):
                 	Configure the route\-policy profile
                 	**type**\:  str
                 
+                	**length:** 1..64
+                
                 
 
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
@@ -256,6 +250,8 @@ class Igmp(object):
                 	Access list specifying access group range
                 	**type**\:  str
                 
+                	**length:** 1..64
+                
                 .. attribute:: explicit_tracking
                 
                 	IGMPv3 explicit host tracking
@@ -267,6 +263,8 @@ class Igmp(object):
                 
                 	Configure maximum number of groups accepted per interface by this router
                 	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: query_interval
                 
@@ -320,14 +318,13 @@ class Igmp(object):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
                     self.access_group = None
                     self.explicit_tracking = None
-                    self.maximum_groups_per_interface_oor = Igmp.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor()
-                    self.maximum_groups_per_interface_oor.parent = self
+                    self.maximum_groups_per_interface_oor = None
                     self.query_interval = None
                     self.query_max_response_time = None
                     self.query_timeout = None
@@ -345,6 +342,8 @@ class Igmp(object):
                     	Access\-list to account for
                     	**type**\:  str
                     
+                    	**length:** 1..64
+                    
                     .. attribute:: maximum_groups
                     
                     	Maximum number of groups accepted per interface by this router
@@ -352,7 +351,7 @@ class Igmp(object):
                     
                     	**range:** 1..40000
                     
-                    	**default value**\: 25000
+                    	**mandatory**\: True
                     
                     .. attribute:: warning_threshold
                     
@@ -363,15 +362,23 @@ class Igmp(object):
                     
                     	**default value**\: 25000
                     
+                    .. attribute:: _is_presence
                     
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
 
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
+                        self._is_presence = True
                         self.access_list_name = None
                         self.maximum_groups = None
                         self.warning_threshold = None
@@ -390,6 +397,8 @@ class Igmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self._is_presence:
+                            return True
                         if self.access_list_name is not None:
                             return True
 
@@ -416,6 +425,8 @@ class Igmp(object):
                     	Access list specifying tracking group range
                     	**type**\:  str
                     
+                    	**length:** 1..64
+                    
                     .. attribute:: enable
                     
                     	Enabled or disabled, when value is TRUE or FALSE respectively
@@ -435,7 +446,7 @@ class Igmp(object):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
@@ -532,7 +543,7 @@ class Igmp(object):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
@@ -567,6 +578,8 @@ class Igmp(object):
                     	Access list specifying access group
                     	**type**\:  str
                     
+                    	**length:** 1..64
+                    
                     	**mandatory**\: True
                     
                     
@@ -574,7 +587,7 @@ class Igmp(object):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
@@ -655,7 +668,7 @@ class Igmp(object):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
@@ -686,140 +699,6 @@ class Igmp(object):
                     return meta._meta_table['Igmp.Vrfs.Vrf.Maximum']['meta_info']
 
 
-            class UnicastQosAdjust(object):
-                """
-                Configure IGMP QoS shapers for subscriber
-                interfaces
-                
-                .. attribute:: adjustment_delay
-                
-                	Configure the QoS delay before programming (in seconds)
-                	**type**\:  int
-                
-                	**range:** 0..10
-                
-                	**units**\: second
-                
-                	**default value**\: 1
-                
-                .. attribute:: download_interval
-                
-                	Configure the QoS download interval (in milliseconds)
-                	**type**\:  int
-                
-                	**range:** 10..500
-                
-                	**units**\: millisecond
-                
-                	**default value**\: 100
-                
-                .. attribute:: hold_off
-                
-                	Configure the QoS hold off time (in seconds)
-                	**type**\:  int
-                
-                	**range:** 5..1800
-                
-                	**units**\: second
-                
-                	**default value**\: 180
-                
-                
-
-                """
-
-                _prefix = 'ipv4-igmp-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.adjustment_delay = None
-                    self.download_interval = None
-                    self.hold_off = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:unicast-qos-adjust'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.adjustment_delay is not None:
-                        return True
-
-                    if self.download_interval is not None:
-                        return True
-
-                    if self.hold_off is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
-                    return meta._meta_table['Igmp.Vrfs.Vrf.UnicastQosAdjust']['meta_info']
-
-
-            class Accounting(object):
-                """
-                Configure IGMP accounting for logging join/leave
-                records
-                
-                .. attribute:: max_history
-                
-                	Configure IGMP accounting Maximum History setting
-                	**type**\:  int
-                
-                	**range:** 0..365
-                
-                	**units**\: day
-                
-                	**default value**\: 0
-                
-                
-
-                """
-
-                _prefix = 'ipv4-igmp-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.max_history = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:accounting'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.max_history is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
-                    return meta._meta_table['Igmp.Vrfs.Vrf.Accounting']['meta_info']
-
-
             class Interfaces(object):
                 """
                 Interface\-level configuration
@@ -834,7 +713,7 @@ class Igmp(object):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
@@ -859,6 +738,8 @@ class Igmp(object):
                     	Access list specifying access group range
                     	**type**\:  str
                     
+                    	**length:** 1..64
+                    
                     .. attribute:: explicit_tracking
                     
                     	IGMPv3 explicit host tracking
@@ -877,6 +758,8 @@ class Igmp(object):
                     
                     	Configure maximum number of groups accepted per interface by this router
                     	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: query_interval
                     
@@ -935,7 +818,7 @@ class Igmp(object):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
@@ -943,8 +826,7 @@ class Igmp(object):
                         self.access_group = None
                         self.explicit_tracking = None
                         self.join_groups = None
-                        self.maximum_groups_per_interface_oor = Igmp.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor()
-                        self.maximum_groups_per_interface_oor.parent = self
+                        self.maximum_groups_per_interface_oor = None
                         self.query_interval = None
                         self.query_max_response_time = None
                         self.query_timeout = None
@@ -980,7 +862,7 @@ class Igmp(object):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -1027,7 +909,7 @@ class Igmp(object):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-10-10'
 
                             def __init__(self):
                                 self.parent = None
@@ -1088,7 +970,7 @@ class Igmp(object):
                             ----
                             .. attribute:: source_address  <key>
                             
-                            	IP source address
+                            	Optional IP source address
                             	**type**\: one of the below types:
                             
                             	**type**\:  str
@@ -1115,7 +997,7 @@ class Igmp(object):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-10-10'
 
                             def __init__(self):
                                 self.parent = None
@@ -1230,7 +1112,7 @@ class Igmp(object):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -1278,7 +1160,7 @@ class Igmp(object):
                             ----
                             .. attribute:: group_count
                             
-                            	Number of groups to join if mask is present
+                            	Number of groups to join (do not set without GroupAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -1287,7 +1169,7 @@ class Igmp(object):
                             
                             .. attribute:: source_count
                             
-                            	Number of sources to join if mask is present 
+                            	Number of sources to join (do not set without SourceAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -1306,7 +1188,7 @@ class Igmp(object):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-10-10'
 
                             def __init__(self):
                                 self.parent = None
@@ -1392,7 +1274,7 @@ class Igmp(object):
                             ----
                             .. attribute:: group_count
                             
-                            	Number of groups to join if mask is present
+                            	Number of groups to join (do not set without GroupAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -1401,7 +1283,7 @@ class Igmp(object):
                             
                             .. attribute:: source_count
                             
-                            	Number of sources to join if mask is present 
+                            	Number of sources to join (do not set without SourceAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -1420,7 +1302,7 @@ class Igmp(object):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-10-10'
 
                             def __init__(self):
                                 self.parent = None
@@ -1529,7 +1411,7 @@ class Igmp(object):
                             ----
                             .. attribute:: group_count
                             
-                            	Number of groups to join if mask is present
+                            	Number of groups to join (do not set without GroupAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -1538,7 +1420,7 @@ class Igmp(object):
                             
                             .. attribute:: source_count
                             
-                            	Number of sources to join if mask is present 
+                            	Number of sources to join (do not set without SourceAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -1557,7 +1439,7 @@ class Igmp(object):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-10-10'
 
                             def __init__(self):
                                 self.parent = None
@@ -1655,7 +1537,7 @@ class Igmp(object):
                             ----
                             .. attribute:: group_count
                             
-                            	Number of groups to join if mask is present
+                            	Number of groups to join (do not set without GroupAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -1664,7 +1546,7 @@ class Igmp(object):
                             
                             .. attribute:: source_count
                             
-                            	Number of sources to join if mask is present 
+                            	Number of sources to join (do not set without SourceAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -1683,7 +1565,7 @@ class Igmp(object):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-10-10'
 
                             def __init__(self):
                                 self.parent = None
@@ -1792,7 +1674,7 @@ class Igmp(object):
                             ----
                             .. attribute:: group_count
                             
-                            	Number of groups to join if mask is present
+                            	Number of groups to join (do not set without GroupAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -1801,7 +1683,7 @@ class Igmp(object):
                             
                             .. attribute:: source_count
                             
-                            	Number of sources to join if mask is present 
+                            	Number of sources to join (do not set without SourceAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -1820,7 +1702,7 @@ class Igmp(object):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-10-10'
 
                             def __init__(self):
                                 self.parent = None
@@ -1952,7 +1834,7 @@ class Igmp(object):
                             ----
                             .. attribute:: group_count
                             
-                            	Number of groups to join if mask is present
+                            	Number of groups to join (do not set without GroupAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -1961,7 +1843,7 @@ class Igmp(object):
                             
                             .. attribute:: source_count
                             
-                            	Number of sources to join if mask is present 
+                            	Number of sources to join (do not set without SourceAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -1980,7 +1862,7 @@ class Igmp(object):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-10-10'
 
                             def __init__(self):
                                 self.parent = None
@@ -2104,6 +1986,8 @@ class Igmp(object):
                         	Access\-list to account for
                         	**type**\:  str
                         
+                        	**length:** 1..64
+                        
                         .. attribute:: maximum_groups
                         
                         	Maximum number of groups accepted per interface by this router
@@ -2111,7 +1995,7 @@ class Igmp(object):
                         
                         	**range:** 1..40000
                         
-                        	**default value**\: 25000
+                        	**mandatory**\: True
                         
                         .. attribute:: warning_threshold
                         
@@ -2122,15 +2006,23 @@ class Igmp(object):
                         
                         	**default value**\: 25000
                         
+                        .. attribute:: _is_presence
                         
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
 
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
+                            self._is_presence = True
                             self.access_list_name = None
                             self.maximum_groups = None
                             self.warning_threshold = None
@@ -2149,6 +2041,8 @@ class Igmp(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self._is_presence:
+                                return True
                             if self.access_list_name is not None:
                                 return True
 
@@ -2175,6 +2069,8 @@ class Igmp(object):
                         	Access list specifying tracking group range
                         	**type**\:  str
                         
+                        	**length:** 1..64
+                        
                         .. attribute:: enable
                         
                         	Enabled or disabled, when value is TRUE or FALSE respectively
@@ -2194,7 +2090,7 @@ class Igmp(object):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -2330,9 +2226,6 @@ class Igmp(object):
                 if self.vrf_name is not None:
                     return True
 
-                if self.accounting is not None and self.accounting._has_data():
-                    return True
-
                 if self.inheritable_defaults is not None and self.inheritable_defaults._has_data():
                     return True
 
@@ -2352,9 +2245,6 @@ class Igmp(object):
                     return True
 
                 if self.traffic is not None and self.traffic._has_data():
-                    return True
-
-                if self.unicast_qos_adjust is not None and self.unicast_qos_adjust._has_data():
                     return True
 
                 return False
@@ -2459,7 +2349,7 @@ class Igmp(object):
         """
 
         _prefix = 'ipv4-igmp-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-10-10'
 
         def __init__(self):
             self.parent = None
@@ -2504,7 +2394,7 @@ class Igmp(object):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-10-10'
 
             def __init__(self):
                 self.parent = None
@@ -2533,6 +2423,136 @@ class Igmp(object):
                 return meta._meta_table['Igmp.DefaultContext.Nsf']['meta_info']
 
 
+        class UnicastQosAdjust(object):
+            """
+            Configure IGMP QoS shapers for subscriber
+            interfaces
+            
+            .. attribute:: adjustment_delay
+            
+            	Configure the QoS delay before programming (in seconds)
+            	**type**\:  int
+            
+            	**range:** 0..10
+            
+            	**units**\: second
+            
+            	**default value**\: 1
+            
+            .. attribute:: download_interval
+            
+            	Configure the QoS download interval (in milliseconds)
+            	**type**\:  int
+            
+            	**range:** 10..500
+            
+            	**units**\: millisecond
+            
+            	**default value**\: 100
+            
+            .. attribute:: hold_off
+            
+            	Configure the QoS hold off time (in seconds)
+            	**type**\:  int
+            
+            	**range:** 5..1800
+            
+            	**units**\: second
+            
+            	**default value**\: 180
+            
+            
+
+            """
+
+            _prefix = 'ipv4-igmp-cfg'
+            _revision = '2016-10-10'
+
+            def __init__(self):
+                self.parent = None
+                self.adjustment_delay = None
+                self.download_interval = None
+                self.hold_off = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-ipv4-igmp-cfg:igmp/Cisco-IOS-XR-ipv4-igmp-cfg:default-context/Cisco-IOS-XR-ipv4-igmp-cfg:unicast-qos-adjust'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.adjustment_delay is not None:
+                    return True
+
+                if self.download_interval is not None:
+                    return True
+
+                if self.hold_off is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                return meta._meta_table['Igmp.DefaultContext.UnicastQosAdjust']['meta_info']
+
+
+        class Accounting(object):
+            """
+            Configure IGMP accounting for logging
+            join/leave records
+            
+            .. attribute:: max_history
+            
+            	Configure IGMP accounting Maximum History setting
+            	**type**\:  int
+            
+            	**range:** 0..365
+            
+            	**units**\: day
+            
+            	**default value**\: 0
+            
+            
+
+            """
+
+            _prefix = 'ipv4-igmp-cfg'
+            _revision = '2016-10-10'
+
+            def __init__(self):
+                self.parent = None
+                self.max_history = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-ipv4-igmp-cfg:igmp/Cisco-IOS-XR-ipv4-igmp-cfg:default-context/Cisco-IOS-XR-ipv4-igmp-cfg:accounting'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.max_history is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                return meta._meta_table['Igmp.DefaultContext.Accounting']['meta_info']
+
+
         class Traffic(object):
             """
             Configure IGMP Traffic variables
@@ -2542,12 +2562,14 @@ class Igmp(object):
             	Configure the route\-policy profile
             	**type**\:  str
             
+            	**length:** 1..64
+            
             
 
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-10-10'
 
             def __init__(self):
                 self.parent = None
@@ -2585,6 +2607,8 @@ class Igmp(object):
             	Access list specifying access group range
             	**type**\:  str
             
+            	**length:** 1..64
+            
             .. attribute:: explicit_tracking
             
             	IGMPv3 explicit host tracking
@@ -2596,6 +2620,8 @@ class Igmp(object):
             
             	Configure maximum number of groups accepted per interface by this router
             	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor>`
+            
+            	**presence node**\: True
             
             .. attribute:: query_interval
             
@@ -2649,14 +2675,13 @@ class Igmp(object):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-10-10'
 
             def __init__(self):
                 self.parent = None
                 self.access_group = None
                 self.explicit_tracking = None
-                self.maximum_groups_per_interface_oor = Igmp.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor()
-                self.maximum_groups_per_interface_oor.parent = self
+                self.maximum_groups_per_interface_oor = None
                 self.query_interval = None
                 self.query_max_response_time = None
                 self.query_timeout = None
@@ -2674,6 +2699,8 @@ class Igmp(object):
                 	Access\-list to account for
                 	**type**\:  str
                 
+                	**length:** 1..64
+                
                 .. attribute:: maximum_groups
                 
                 	Maximum number of groups accepted per interface by this router
@@ -2681,7 +2708,7 @@ class Igmp(object):
                 
                 	**range:** 1..40000
                 
-                	**default value**\: 25000
+                	**mandatory**\: True
                 
                 .. attribute:: warning_threshold
                 
@@ -2692,15 +2719,23 @@ class Igmp(object):
                 
                 	**default value**\: 25000
                 
+                .. attribute:: _is_presence
                 
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                
+
+                This class is a :ref:`presence class<presence-class>`
 
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
+                    self._is_presence = True
                     self.access_list_name = None
                     self.maximum_groups = None
                     self.warning_threshold = None
@@ -2717,6 +2752,8 @@ class Igmp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self._is_presence:
+                        return True
                     if self.access_list_name is not None:
                         return True
 
@@ -2743,6 +2780,8 @@ class Igmp(object):
                 	Access list specifying tracking group range
                 	**type**\:  str
                 
+                	**length:** 1..64
+                
                 .. attribute:: enable
                 
                 	Enabled or disabled, when value is TRUE or FALSE respectively
@@ -2762,7 +2801,7 @@ class Igmp(object):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
@@ -2855,7 +2894,7 @@ class Igmp(object):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-10-10'
 
             def __init__(self):
                 self.parent = None
@@ -2890,6 +2929,8 @@ class Igmp(object):
                 	Access list specifying access group
                 	**type**\:  str
                 
+                	**length:** 1..64
+                
                 	**mandatory**\: True
                 
                 
@@ -2897,7 +2938,7 @@ class Igmp(object):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
@@ -2974,7 +3015,7 @@ class Igmp(object):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-10-10'
 
             def __init__(self):
                 self.parent = None
@@ -3003,136 +3044,6 @@ class Igmp(object):
                 return meta._meta_table['Igmp.DefaultContext.Maximum']['meta_info']
 
 
-        class UnicastQosAdjust(object):
-            """
-            Configure IGMP QoS shapers for subscriber
-            interfaces
-            
-            .. attribute:: adjustment_delay
-            
-            	Configure the QoS delay before programming (in seconds)
-            	**type**\:  int
-            
-            	**range:** 0..10
-            
-            	**units**\: second
-            
-            	**default value**\: 1
-            
-            .. attribute:: download_interval
-            
-            	Configure the QoS download interval (in milliseconds)
-            	**type**\:  int
-            
-            	**range:** 10..500
-            
-            	**units**\: millisecond
-            
-            	**default value**\: 100
-            
-            .. attribute:: hold_off
-            
-            	Configure the QoS hold off time (in seconds)
-            	**type**\:  int
-            
-            	**range:** 5..1800
-            
-            	**units**\: second
-            
-            	**default value**\: 180
-            
-            
-
-            """
-
-            _prefix = 'ipv4-igmp-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.adjustment_delay = None
-                self.download_interval = None
-                self.hold_off = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ipv4-igmp-cfg:igmp/Cisco-IOS-XR-ipv4-igmp-cfg:default-context/Cisco-IOS-XR-ipv4-igmp-cfg:unicast-qos-adjust'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.adjustment_delay is not None:
-                    return True
-
-                if self.download_interval is not None:
-                    return True
-
-                if self.hold_off is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
-                return meta._meta_table['Igmp.DefaultContext.UnicastQosAdjust']['meta_info']
-
-
-        class Accounting(object):
-            """
-            Configure IGMP accounting for logging join/leave
-            records
-            
-            .. attribute:: max_history
-            
-            	Configure IGMP accounting Maximum History setting
-            	**type**\:  int
-            
-            	**range:** 0..365
-            
-            	**units**\: day
-            
-            	**default value**\: 0
-            
-            
-
-            """
-
-            _prefix = 'ipv4-igmp-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.max_history = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ipv4-igmp-cfg:igmp/Cisco-IOS-XR-ipv4-igmp-cfg:default-context/Cisco-IOS-XR-ipv4-igmp-cfg:accounting'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.max_history is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
-                return meta._meta_table['Igmp.DefaultContext.Accounting']['meta_info']
-
-
         class Interfaces(object):
             """
             Interface\-level configuration
@@ -3147,7 +3058,7 @@ class Igmp(object):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-10-10'
 
             def __init__(self):
                 self.parent = None
@@ -3172,6 +3083,8 @@ class Igmp(object):
                 	Access list specifying access group range
                 	**type**\:  str
                 
+                	**length:** 1..64
+                
                 .. attribute:: explicit_tracking
                 
                 	IGMPv3 explicit host tracking
@@ -3190,6 +3103,8 @@ class Igmp(object):
                 
                 	Configure maximum number of groups accepted per interface by this router
                 	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: query_interval
                 
@@ -3248,7 +3163,7 @@ class Igmp(object):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
@@ -3256,8 +3171,7 @@ class Igmp(object):
                     self.access_group = None
                     self.explicit_tracking = None
                     self.join_groups = None
-                    self.maximum_groups_per_interface_oor = Igmp.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor()
-                    self.maximum_groups_per_interface_oor.parent = self
+                    self.maximum_groups_per_interface_oor = None
                     self.query_interval = None
                     self.query_max_response_time = None
                     self.query_timeout = None
@@ -3293,7 +3207,7 @@ class Igmp(object):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
@@ -3340,7 +3254,7 @@ class Igmp(object):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -3401,7 +3315,7 @@ class Igmp(object):
                         ----
                         .. attribute:: source_address  <key>
                         
-                        	IP source address
+                        	Optional IP source address
                         	**type**\: one of the below types:
                         
                         	**type**\:  str
@@ -3428,7 +3342,7 @@ class Igmp(object):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -3543,7 +3457,7 @@ class Igmp(object):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
@@ -3591,7 +3505,7 @@ class Igmp(object):
                         ----
                         .. attribute:: group_count
                         
-                        	Number of groups to join if mask is present
+                        	Number of groups to join (do not set without GroupAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -3600,7 +3514,7 @@ class Igmp(object):
                         
                         .. attribute:: source_count
                         
-                        	Number of sources to join if mask is present 
+                        	Number of sources to join (do not set without SourceAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -3619,7 +3533,7 @@ class Igmp(object):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -3705,7 +3619,7 @@ class Igmp(object):
                         ----
                         .. attribute:: group_count
                         
-                        	Number of groups to join if mask is present
+                        	Number of groups to join (do not set without GroupAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -3714,7 +3628,7 @@ class Igmp(object):
                         
                         .. attribute:: source_count
                         
-                        	Number of sources to join if mask is present 
+                        	Number of sources to join (do not set without SourceAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -3733,7 +3647,7 @@ class Igmp(object):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -3842,7 +3756,7 @@ class Igmp(object):
                         ----
                         .. attribute:: group_count
                         
-                        	Number of groups to join if mask is present
+                        	Number of groups to join (do not set without GroupAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -3851,7 +3765,7 @@ class Igmp(object):
                         
                         .. attribute:: source_count
                         
-                        	Number of sources to join if mask is present 
+                        	Number of sources to join (do not set without SourceAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -3870,7 +3784,7 @@ class Igmp(object):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -3968,7 +3882,7 @@ class Igmp(object):
                         ----
                         .. attribute:: group_count
                         
-                        	Number of groups to join if mask is present
+                        	Number of groups to join (do not set without GroupAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -3977,7 +3891,7 @@ class Igmp(object):
                         
                         .. attribute:: source_count
                         
-                        	Number of sources to join if mask is present 
+                        	Number of sources to join (do not set without SourceAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -3996,7 +3910,7 @@ class Igmp(object):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -4105,7 +4019,7 @@ class Igmp(object):
                         ----
                         .. attribute:: group_count
                         
-                        	Number of groups to join if mask is present
+                        	Number of groups to join (do not set without GroupAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -4114,7 +4028,7 @@ class Igmp(object):
                         
                         .. attribute:: source_count
                         
-                        	Number of sources to join if mask is present 
+                        	Number of sources to join (do not set without SourceAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -4133,7 +4047,7 @@ class Igmp(object):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -4265,7 +4179,7 @@ class Igmp(object):
                         ----
                         .. attribute:: group_count
                         
-                        	Number of groups to join if mask is present
+                        	Number of groups to join (do not set without GroupAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -4274,7 +4188,7 @@ class Igmp(object):
                         
                         .. attribute:: source_count
                         
-                        	Number of sources to join if mask is present 
+                        	Number of sources to join (do not set without SourceAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -4293,7 +4207,7 @@ class Igmp(object):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -4417,6 +4331,8 @@ class Igmp(object):
                     	Access\-list to account for
                     	**type**\:  str
                     
+                    	**length:** 1..64
+                    
                     .. attribute:: maximum_groups
                     
                     	Maximum number of groups accepted per interface by this router
@@ -4424,7 +4340,7 @@ class Igmp(object):
                     
                     	**range:** 1..40000
                     
-                    	**default value**\: 25000
+                    	**mandatory**\: True
                     
                     .. attribute:: warning_threshold
                     
@@ -4435,15 +4351,23 @@ class Igmp(object):
                     
                     	**default value**\: 25000
                     
+                    .. attribute:: _is_presence
                     
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
 
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
+                        self._is_presence = True
                         self.access_list_name = None
                         self.maximum_groups = None
                         self.warning_threshold = None
@@ -4462,6 +4386,8 @@ class Igmp(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self._is_presence:
+                            return True
                         if self.access_list_name is not None:
                             return True
 
@@ -4488,6 +4414,8 @@ class Igmp(object):
                     	Access list specifying tracking group range
                     	**type**\:  str
                     
+                    	**length:** 1..64
+                    
                     .. attribute:: enable
                     
                     	Enabled or disabled, when value is TRUE or FALSE respectively
@@ -4507,7 +4435,7 @@ class Igmp(object):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
@@ -4738,6 +4666,8 @@ class Amt(object):
     	Access list for Gateway Filter
     	**type**\:  str
     
+    	**length:** 1..64
+    
     .. attribute:: maximum_gateway
     
     	Configure AMT maximum number of Gateways
@@ -4792,7 +4722,7 @@ class Amt(object):
     """
 
     _prefix = 'ipv4-igmp-cfg'
-    _revision = '2015-11-09'
+    _revision = '2016-10-10'
 
     def __init__(self):
         self.amtmtu = None
@@ -4841,7 +4771,7 @@ class Amt(object):
         """
 
         _prefix = 'ipv4-igmp-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-10-10'
 
         def __init__(self):
             self.parent = None
@@ -4909,7 +4839,7 @@ class Amt(object):
         """
 
         _prefix = 'ipv4-igmp-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-10-10'
 
         def __init__(self):
             self.parent = None
@@ -5028,7 +4958,7 @@ class Mld(object):
     """
 
     _prefix = 'ipv4-igmp-cfg'
-    _revision = '2015-11-09'
+    _revision = '2016-10-10'
 
     def __init__(self):
         self._is_presence = True
@@ -5051,7 +4981,7 @@ class Mld(object):
         """
 
         _prefix = 'ipv4-igmp-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-10-10'
 
         def __init__(self):
             self.parent = None
@@ -5069,12 +4999,7 @@ class Mld(object):
             	Name for this vrf
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
-            .. attribute:: accounting
-            
-            	Configure IGMP accounting for logging join/leave records
-            	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Accounting>`
+            	**length:** 1..32
             
             .. attribute:: inheritable_defaults
             
@@ -5115,23 +5040,16 @@ class Mld(object):
             	Configure IGMP Traffic variables
             	**type**\:   :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Traffic>`
             
-            .. attribute:: unicast_qos_adjust
-            
-            	Configure IGMP QoS shapers for subscriber interfaces
-            	**type**\:   :py:class:`UnicastQosAdjust <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.UnicastQosAdjust>`
-            
             
 
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-10-10'
 
             def __init__(self):
                 self.parent = None
                 self.vrf_name = None
-                self.accounting = Mld.Vrfs.Vrf.Accounting()
-                self.accounting.parent = self
                 self.inheritable_defaults = Mld.Vrfs.Vrf.InheritableDefaults()
                 self.inheritable_defaults.parent = self
                 self.interfaces = Mld.Vrfs.Vrf.Interfaces()
@@ -5144,8 +5062,6 @@ class Mld(object):
                 self.ssmdns_query_group = None
                 self.traffic = Mld.Vrfs.Vrf.Traffic()
                 self.traffic.parent = self
-                self.unicast_qos_adjust = Mld.Vrfs.Vrf.UnicastQosAdjust()
-                self.unicast_qos_adjust.parent = self
 
 
             class Traffic(object):
@@ -5157,12 +5073,14 @@ class Mld(object):
                 	Configure the route\-policy profile
                 	**type**\:  str
                 
+                	**length:** 1..64
+                
                 
 
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
@@ -5202,6 +5120,8 @@ class Mld(object):
                 	Access list specifying access group range
                 	**type**\:  str
                 
+                	**length:** 1..64
+                
                 .. attribute:: explicit_tracking
                 
                 	IGMPv3 explicit host tracking
@@ -5213,6 +5133,8 @@ class Mld(object):
                 
                 	Configure maximum number of groups accepted per interface by this router
                 	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: query_interval
                 
@@ -5266,14 +5188,13 @@ class Mld(object):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
                     self.access_group = None
                     self.explicit_tracking = None
-                    self.maximum_groups_per_interface_oor = Mld.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor()
-                    self.maximum_groups_per_interface_oor.parent = self
+                    self.maximum_groups_per_interface_oor = None
                     self.query_interval = None
                     self.query_max_response_time = None
                     self.query_timeout = None
@@ -5291,6 +5212,8 @@ class Mld(object):
                     	Access\-list to account for
                     	**type**\:  str
                     
+                    	**length:** 1..64
+                    
                     .. attribute:: maximum_groups
                     
                     	Maximum number of groups accepted per interface by this router
@@ -5298,7 +5221,7 @@ class Mld(object):
                     
                     	**range:** 1..40000
                     
-                    	**default value**\: 25000
+                    	**mandatory**\: True
                     
                     .. attribute:: warning_threshold
                     
@@ -5309,15 +5232,23 @@ class Mld(object):
                     
                     	**default value**\: 25000
                     
+                    .. attribute:: _is_presence
                     
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
 
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
+                        self._is_presence = True
                         self.access_list_name = None
                         self.maximum_groups = None
                         self.warning_threshold = None
@@ -5336,6 +5267,8 @@ class Mld(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self._is_presence:
+                            return True
                         if self.access_list_name is not None:
                             return True
 
@@ -5362,6 +5295,8 @@ class Mld(object):
                     	Access list specifying tracking group range
                     	**type**\:  str
                     
+                    	**length:** 1..64
+                    
                     .. attribute:: enable
                     
                     	Enabled or disabled, when value is TRUE or FALSE respectively
@@ -5381,7 +5316,7 @@ class Mld(object):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
@@ -5478,7 +5413,7 @@ class Mld(object):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
@@ -5513,6 +5448,8 @@ class Mld(object):
                     	Access list specifying access group
                     	**type**\:  str
                     
+                    	**length:** 1..64
+                    
                     	**mandatory**\: True
                     
                     
@@ -5520,7 +5457,7 @@ class Mld(object):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
@@ -5601,7 +5538,7 @@ class Mld(object):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
@@ -5632,140 +5569,6 @@ class Mld(object):
                     return meta._meta_table['Mld.Vrfs.Vrf.Maximum']['meta_info']
 
 
-            class UnicastQosAdjust(object):
-                """
-                Configure IGMP QoS shapers for subscriber
-                interfaces
-                
-                .. attribute:: adjustment_delay
-                
-                	Configure the QoS delay before programming (in seconds)
-                	**type**\:  int
-                
-                	**range:** 0..10
-                
-                	**units**\: second
-                
-                	**default value**\: 1
-                
-                .. attribute:: download_interval
-                
-                	Configure the QoS download interval (in milliseconds)
-                	**type**\:  int
-                
-                	**range:** 10..500
-                
-                	**units**\: millisecond
-                
-                	**default value**\: 100
-                
-                .. attribute:: hold_off
-                
-                	Configure the QoS hold off time (in seconds)
-                	**type**\:  int
-                
-                	**range:** 5..1800
-                
-                	**units**\: second
-                
-                	**default value**\: 180
-                
-                
-
-                """
-
-                _prefix = 'ipv4-igmp-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.adjustment_delay = None
-                    self.download_interval = None
-                    self.hold_off = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:unicast-qos-adjust'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.adjustment_delay is not None:
-                        return True
-
-                    if self.download_interval is not None:
-                        return True
-
-                    if self.hold_off is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
-                    return meta._meta_table['Mld.Vrfs.Vrf.UnicastQosAdjust']['meta_info']
-
-
-            class Accounting(object):
-                """
-                Configure IGMP accounting for logging join/leave
-                records
-                
-                .. attribute:: max_history
-                
-                	Configure IGMP accounting Maximum History setting
-                	**type**\:  int
-                
-                	**range:** 0..365
-                
-                	**units**\: day
-                
-                	**default value**\: 0
-                
-                
-
-                """
-
-                _prefix = 'ipv4-igmp-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.max_history = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:accounting'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.max_history is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
-                    return meta._meta_table['Mld.Vrfs.Vrf.Accounting']['meta_info']
-
-
             class Interfaces(object):
                 """
                 Interface\-level configuration
@@ -5780,7 +5583,7 @@ class Mld(object):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
@@ -5805,6 +5608,8 @@ class Mld(object):
                     	Access list specifying access group range
                     	**type**\:  str
                     
+                    	**length:** 1..64
+                    
                     .. attribute:: explicit_tracking
                     
                     	IGMPv3 explicit host tracking
@@ -5823,6 +5628,8 @@ class Mld(object):
                     
                     	Configure maximum number of groups accepted per interface by this router
                     	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: query_interval
                     
@@ -5881,7 +5688,7 @@ class Mld(object):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
@@ -5889,8 +5696,7 @@ class Mld(object):
                         self.access_group = None
                         self.explicit_tracking = None
                         self.join_groups = None
-                        self.maximum_groups_per_interface_oor = Mld.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor()
-                        self.maximum_groups_per_interface_oor.parent = self
+                        self.maximum_groups_per_interface_oor = None
                         self.query_interval = None
                         self.query_max_response_time = None
                         self.query_timeout = None
@@ -5926,7 +5732,7 @@ class Mld(object):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -5973,7 +5779,7 @@ class Mld(object):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-10-10'
 
                             def __init__(self):
                                 self.parent = None
@@ -6034,7 +5840,7 @@ class Mld(object):
                             ----
                             .. attribute:: source_address  <key>
                             
-                            	IP source address
+                            	Optional IP source address
                             	**type**\: one of the below types:
                             
                             	**type**\:  str
@@ -6061,7 +5867,7 @@ class Mld(object):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-10-10'
 
                             def __init__(self):
                                 self.parent = None
@@ -6176,7 +5982,7 @@ class Mld(object):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -6224,7 +6030,7 @@ class Mld(object):
                             ----
                             .. attribute:: group_count
                             
-                            	Number of groups to join if mask is present
+                            	Number of groups to join (do not set without GroupAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -6233,7 +6039,7 @@ class Mld(object):
                             
                             .. attribute:: source_count
                             
-                            	Number of sources to join if mask is present 
+                            	Number of sources to join (do not set without SourceAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -6252,7 +6058,7 @@ class Mld(object):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-10-10'
 
                             def __init__(self):
                                 self.parent = None
@@ -6338,7 +6144,7 @@ class Mld(object):
                             ----
                             .. attribute:: group_count
                             
-                            	Number of groups to join if mask is present
+                            	Number of groups to join (do not set without GroupAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -6347,7 +6153,7 @@ class Mld(object):
                             
                             .. attribute:: source_count
                             
-                            	Number of sources to join if mask is present 
+                            	Number of sources to join (do not set without SourceAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -6366,7 +6172,7 @@ class Mld(object):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-10-10'
 
                             def __init__(self):
                                 self.parent = None
@@ -6475,7 +6281,7 @@ class Mld(object):
                             ----
                             .. attribute:: group_count
                             
-                            	Number of groups to join if mask is present
+                            	Number of groups to join (do not set without GroupAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -6484,7 +6290,7 @@ class Mld(object):
                             
                             .. attribute:: source_count
                             
-                            	Number of sources to join if mask is present 
+                            	Number of sources to join (do not set without SourceAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -6503,7 +6309,7 @@ class Mld(object):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-10-10'
 
                             def __init__(self):
                                 self.parent = None
@@ -6601,7 +6407,7 @@ class Mld(object):
                             ----
                             .. attribute:: group_count
                             
-                            	Number of groups to join if mask is present
+                            	Number of groups to join (do not set without GroupAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -6610,7 +6416,7 @@ class Mld(object):
                             
                             .. attribute:: source_count
                             
-                            	Number of sources to join if mask is present 
+                            	Number of sources to join (do not set without SourceAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -6629,7 +6435,7 @@ class Mld(object):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-10-10'
 
                             def __init__(self):
                                 self.parent = None
@@ -6738,7 +6544,7 @@ class Mld(object):
                             ----
                             .. attribute:: group_count
                             
-                            	Number of groups to join if mask is present
+                            	Number of groups to join (do not set without GroupAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -6747,7 +6553,7 @@ class Mld(object):
                             
                             .. attribute:: source_count
                             
-                            	Number of sources to join if mask is present 
+                            	Number of sources to join (do not set without SourceAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -6766,7 +6572,7 @@ class Mld(object):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-10-10'
 
                             def __init__(self):
                                 self.parent = None
@@ -6898,7 +6704,7 @@ class Mld(object):
                             ----
                             .. attribute:: group_count
                             
-                            	Number of groups to join if mask is present
+                            	Number of groups to join (do not set without GroupAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -6907,7 +6713,7 @@ class Mld(object):
                             
                             .. attribute:: source_count
                             
-                            	Number of sources to join if mask is present 
+                            	Number of sources to join (do not set without SourceAddressMask)
                             	**type**\:  int
                             
                             	**range:** 1..512
@@ -6926,7 +6732,7 @@ class Mld(object):
                             """
 
                             _prefix = 'ipv4-igmp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-10-10'
 
                             def __init__(self):
                                 self.parent = None
@@ -7050,6 +6856,8 @@ class Mld(object):
                         	Access\-list to account for
                         	**type**\:  str
                         
+                        	**length:** 1..64
+                        
                         .. attribute:: maximum_groups
                         
                         	Maximum number of groups accepted per interface by this router
@@ -7057,7 +6865,7 @@ class Mld(object):
                         
                         	**range:** 1..40000
                         
-                        	**default value**\: 25000
+                        	**mandatory**\: True
                         
                         .. attribute:: warning_threshold
                         
@@ -7068,15 +6876,23 @@ class Mld(object):
                         
                         	**default value**\: 25000
                         
+                        .. attribute:: _is_presence
                         
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
 
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
+                            self._is_presence = True
                             self.access_list_name = None
                             self.maximum_groups = None
                             self.warning_threshold = None
@@ -7095,6 +6911,8 @@ class Mld(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self._is_presence:
+                                return True
                             if self.access_list_name is not None:
                                 return True
 
@@ -7121,6 +6939,8 @@ class Mld(object):
                         	Access list specifying tracking group range
                         	**type**\:  str
                         
+                        	**length:** 1..64
+                        
                         .. attribute:: enable
                         
                         	Enabled or disabled, when value is TRUE or FALSE respectively
@@ -7140,7 +6960,7 @@ class Mld(object):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -7276,9 +7096,6 @@ class Mld(object):
                 if self.vrf_name is not None:
                     return True
 
-                if self.accounting is not None and self.accounting._has_data():
-                    return True
-
                 if self.inheritable_defaults is not None and self.inheritable_defaults._has_data():
                     return True
 
@@ -7298,9 +7115,6 @@ class Mld(object):
                     return True
 
                 if self.traffic is not None and self.traffic._has_data():
-                    return True
-
-                if self.unicast_qos_adjust is not None and self.unicast_qos_adjust._has_data():
                     return True
 
                 return False
@@ -7405,7 +7219,7 @@ class Mld(object):
         """
 
         _prefix = 'ipv4-igmp-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-10-10'
 
         def __init__(self):
             self.parent = None
@@ -7450,7 +7264,7 @@ class Mld(object):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-10-10'
 
             def __init__(self):
                 self.parent = None
@@ -7479,6 +7293,136 @@ class Mld(object):
                 return meta._meta_table['Mld.DefaultContext.Nsf']['meta_info']
 
 
+        class UnicastQosAdjust(object):
+            """
+            Configure IGMP QoS shapers for subscriber
+            interfaces
+            
+            .. attribute:: adjustment_delay
+            
+            	Configure the QoS delay before programming (in seconds)
+            	**type**\:  int
+            
+            	**range:** 0..10
+            
+            	**units**\: second
+            
+            	**default value**\: 1
+            
+            .. attribute:: download_interval
+            
+            	Configure the QoS download interval (in milliseconds)
+            	**type**\:  int
+            
+            	**range:** 10..500
+            
+            	**units**\: millisecond
+            
+            	**default value**\: 100
+            
+            .. attribute:: hold_off
+            
+            	Configure the QoS hold off time (in seconds)
+            	**type**\:  int
+            
+            	**range:** 5..1800
+            
+            	**units**\: second
+            
+            	**default value**\: 180
+            
+            
+
+            """
+
+            _prefix = 'ipv4-igmp-cfg'
+            _revision = '2016-10-10'
+
+            def __init__(self):
+                self.parent = None
+                self.adjustment_delay = None
+                self.download_interval = None
+                self.hold_off = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-ipv4-igmp-cfg:mld/Cisco-IOS-XR-ipv4-igmp-cfg:default-context/Cisco-IOS-XR-ipv4-igmp-cfg:unicast-qos-adjust'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.adjustment_delay is not None:
+                    return True
+
+                if self.download_interval is not None:
+                    return True
+
+                if self.hold_off is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                return meta._meta_table['Mld.DefaultContext.UnicastQosAdjust']['meta_info']
+
+
+        class Accounting(object):
+            """
+            Configure IGMP accounting for logging
+            join/leave records
+            
+            .. attribute:: max_history
+            
+            	Configure IGMP accounting Maximum History setting
+            	**type**\:  int
+            
+            	**range:** 0..365
+            
+            	**units**\: day
+            
+            	**default value**\: 0
+            
+            
+
+            """
+
+            _prefix = 'ipv4-igmp-cfg'
+            _revision = '2016-10-10'
+
+            def __init__(self):
+                self.parent = None
+                self.max_history = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-ipv4-igmp-cfg:mld/Cisco-IOS-XR-ipv4-igmp-cfg:default-context/Cisco-IOS-XR-ipv4-igmp-cfg:accounting'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.max_history is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                return meta._meta_table['Mld.DefaultContext.Accounting']['meta_info']
+
+
         class Traffic(object):
             """
             Configure IGMP Traffic variables
@@ -7488,12 +7432,14 @@ class Mld(object):
             	Configure the route\-policy profile
             	**type**\:  str
             
+            	**length:** 1..64
+            
             
 
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-10-10'
 
             def __init__(self):
                 self.parent = None
@@ -7531,6 +7477,8 @@ class Mld(object):
             	Access list specifying access group range
             	**type**\:  str
             
+            	**length:** 1..64
+            
             .. attribute:: explicit_tracking
             
             	IGMPv3 explicit host tracking
@@ -7542,6 +7490,8 @@ class Mld(object):
             
             	Configure maximum number of groups accepted per interface by this router
             	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor>`
+            
+            	**presence node**\: True
             
             .. attribute:: query_interval
             
@@ -7595,14 +7545,13 @@ class Mld(object):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-10-10'
 
             def __init__(self):
                 self.parent = None
                 self.access_group = None
                 self.explicit_tracking = None
-                self.maximum_groups_per_interface_oor = Mld.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor()
-                self.maximum_groups_per_interface_oor.parent = self
+                self.maximum_groups_per_interface_oor = None
                 self.query_interval = None
                 self.query_max_response_time = None
                 self.query_timeout = None
@@ -7620,6 +7569,8 @@ class Mld(object):
                 	Access\-list to account for
                 	**type**\:  str
                 
+                	**length:** 1..64
+                
                 .. attribute:: maximum_groups
                 
                 	Maximum number of groups accepted per interface by this router
@@ -7627,7 +7578,7 @@ class Mld(object):
                 
                 	**range:** 1..40000
                 
-                	**default value**\: 25000
+                	**mandatory**\: True
                 
                 .. attribute:: warning_threshold
                 
@@ -7638,15 +7589,23 @@ class Mld(object):
                 
                 	**default value**\: 25000
                 
+                .. attribute:: _is_presence
                 
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                
+
+                This class is a :ref:`presence class<presence-class>`
 
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
+                    self._is_presence = True
                     self.access_list_name = None
                     self.maximum_groups = None
                     self.warning_threshold = None
@@ -7663,6 +7622,8 @@ class Mld(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self._is_presence:
+                        return True
                     if self.access_list_name is not None:
                         return True
 
@@ -7689,6 +7650,8 @@ class Mld(object):
                 	Access list specifying tracking group range
                 	**type**\:  str
                 
+                	**length:** 1..64
+                
                 .. attribute:: enable
                 
                 	Enabled or disabled, when value is TRUE or FALSE respectively
@@ -7708,7 +7671,7 @@ class Mld(object):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
@@ -7801,7 +7764,7 @@ class Mld(object):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-10-10'
 
             def __init__(self):
                 self.parent = None
@@ -7836,6 +7799,8 @@ class Mld(object):
                 	Access list specifying access group
                 	**type**\:  str
                 
+                	**length:** 1..64
+                
                 	**mandatory**\: True
                 
                 
@@ -7843,7 +7808,7 @@ class Mld(object):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
@@ -7920,7 +7885,7 @@ class Mld(object):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-10-10'
 
             def __init__(self):
                 self.parent = None
@@ -7949,136 +7914,6 @@ class Mld(object):
                 return meta._meta_table['Mld.DefaultContext.Maximum']['meta_info']
 
 
-        class UnicastQosAdjust(object):
-            """
-            Configure IGMP QoS shapers for subscriber
-            interfaces
-            
-            .. attribute:: adjustment_delay
-            
-            	Configure the QoS delay before programming (in seconds)
-            	**type**\:  int
-            
-            	**range:** 0..10
-            
-            	**units**\: second
-            
-            	**default value**\: 1
-            
-            .. attribute:: download_interval
-            
-            	Configure the QoS download interval (in milliseconds)
-            	**type**\:  int
-            
-            	**range:** 10..500
-            
-            	**units**\: millisecond
-            
-            	**default value**\: 100
-            
-            .. attribute:: hold_off
-            
-            	Configure the QoS hold off time (in seconds)
-            	**type**\:  int
-            
-            	**range:** 5..1800
-            
-            	**units**\: second
-            
-            	**default value**\: 180
-            
-            
-
-            """
-
-            _prefix = 'ipv4-igmp-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.adjustment_delay = None
-                self.download_interval = None
-                self.hold_off = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ipv4-igmp-cfg:mld/Cisco-IOS-XR-ipv4-igmp-cfg:default-context/Cisco-IOS-XR-ipv4-igmp-cfg:unicast-qos-adjust'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.adjustment_delay is not None:
-                    return True
-
-                if self.download_interval is not None:
-                    return True
-
-                if self.hold_off is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
-                return meta._meta_table['Mld.DefaultContext.UnicastQosAdjust']['meta_info']
-
-
-        class Accounting(object):
-            """
-            Configure IGMP accounting for logging join/leave
-            records
-            
-            .. attribute:: max_history
-            
-            	Configure IGMP accounting Maximum History setting
-            	**type**\:  int
-            
-            	**range:** 0..365
-            
-            	**units**\: day
-            
-            	**default value**\: 0
-            
-            
-
-            """
-
-            _prefix = 'ipv4-igmp-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.max_history = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ipv4-igmp-cfg:mld/Cisco-IOS-XR-ipv4-igmp-cfg:default-context/Cisco-IOS-XR-ipv4-igmp-cfg:accounting'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.max_history is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
-                return meta._meta_table['Mld.DefaultContext.Accounting']['meta_info']
-
-
         class Interfaces(object):
             """
             Interface\-level configuration
@@ -8093,7 +7928,7 @@ class Mld(object):
             """
 
             _prefix = 'ipv4-igmp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-10-10'
 
             def __init__(self):
                 self.parent = None
@@ -8118,6 +7953,8 @@ class Mld(object):
                 	Access list specifying access group range
                 	**type**\:  str
                 
+                	**length:** 1..64
+                
                 .. attribute:: explicit_tracking
                 
                 	IGMPv3 explicit host tracking
@@ -8136,6 +7973,8 @@ class Mld(object):
                 
                 	Configure maximum number of groups accepted per interface by this router
                 	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: query_interval
                 
@@ -8194,7 +8033,7 @@ class Mld(object):
                 """
 
                 _prefix = 'ipv4-igmp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-10'
 
                 def __init__(self):
                     self.parent = None
@@ -8202,8 +8041,7 @@ class Mld(object):
                     self.access_group = None
                     self.explicit_tracking = None
                     self.join_groups = None
-                    self.maximum_groups_per_interface_oor = Mld.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor()
-                    self.maximum_groups_per_interface_oor.parent = self
+                    self.maximum_groups_per_interface_oor = None
                     self.query_interval = None
                     self.query_max_response_time = None
                     self.query_timeout = None
@@ -8239,7 +8077,7 @@ class Mld(object):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
@@ -8286,7 +8124,7 @@ class Mld(object):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -8347,7 +8185,7 @@ class Mld(object):
                         ----
                         .. attribute:: source_address  <key>
                         
-                        	IP source address
+                        	Optional IP source address
                         	**type**\: one of the below types:
                         
                         	**type**\:  str
@@ -8374,7 +8212,7 @@ class Mld(object):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -8489,7 +8327,7 @@ class Mld(object):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
@@ -8537,7 +8375,7 @@ class Mld(object):
                         ----
                         .. attribute:: group_count
                         
-                        	Number of groups to join if mask is present
+                        	Number of groups to join (do not set without GroupAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -8546,7 +8384,7 @@ class Mld(object):
                         
                         .. attribute:: source_count
                         
-                        	Number of sources to join if mask is present 
+                        	Number of sources to join (do not set without SourceAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -8565,7 +8403,7 @@ class Mld(object):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -8651,7 +8489,7 @@ class Mld(object):
                         ----
                         .. attribute:: group_count
                         
-                        	Number of groups to join if mask is present
+                        	Number of groups to join (do not set without GroupAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -8660,7 +8498,7 @@ class Mld(object):
                         
                         .. attribute:: source_count
                         
-                        	Number of sources to join if mask is present 
+                        	Number of sources to join (do not set without SourceAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -8679,7 +8517,7 @@ class Mld(object):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -8788,7 +8626,7 @@ class Mld(object):
                         ----
                         .. attribute:: group_count
                         
-                        	Number of groups to join if mask is present
+                        	Number of groups to join (do not set without GroupAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -8797,7 +8635,7 @@ class Mld(object):
                         
                         .. attribute:: source_count
                         
-                        	Number of sources to join if mask is present 
+                        	Number of sources to join (do not set without SourceAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -8816,7 +8654,7 @@ class Mld(object):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -8914,7 +8752,7 @@ class Mld(object):
                         ----
                         .. attribute:: group_count
                         
-                        	Number of groups to join if mask is present
+                        	Number of groups to join (do not set without GroupAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -8923,7 +8761,7 @@ class Mld(object):
                         
                         .. attribute:: source_count
                         
-                        	Number of sources to join if mask is present 
+                        	Number of sources to join (do not set without SourceAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -8942,7 +8780,7 @@ class Mld(object):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -9051,7 +8889,7 @@ class Mld(object):
                         ----
                         .. attribute:: group_count
                         
-                        	Number of groups to join if mask is present
+                        	Number of groups to join (do not set without GroupAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -9060,7 +8898,7 @@ class Mld(object):
                         
                         .. attribute:: source_count
                         
-                        	Number of sources to join if mask is present 
+                        	Number of sources to join (do not set without SourceAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -9079,7 +8917,7 @@ class Mld(object):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -9211,7 +9049,7 @@ class Mld(object):
                         ----
                         .. attribute:: group_count
                         
-                        	Number of groups to join if mask is present
+                        	Number of groups to join (do not set without GroupAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -9220,7 +9058,7 @@ class Mld(object):
                         
                         .. attribute:: source_count
                         
-                        	Number of sources to join if mask is present 
+                        	Number of sources to join (do not set without SourceAddressMask)
                         	**type**\:  int
                         
                         	**range:** 1..512
@@ -9239,7 +9077,7 @@ class Mld(object):
                         """
 
                         _prefix = 'ipv4-igmp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-10'
 
                         def __init__(self):
                             self.parent = None
@@ -9363,6 +9201,8 @@ class Mld(object):
                     	Access\-list to account for
                     	**type**\:  str
                     
+                    	**length:** 1..64
+                    
                     .. attribute:: maximum_groups
                     
                     	Maximum number of groups accepted per interface by this router
@@ -9370,7 +9210,7 @@ class Mld(object):
                     
                     	**range:** 1..40000
                     
-                    	**default value**\: 25000
+                    	**mandatory**\: True
                     
                     .. attribute:: warning_threshold
                     
@@ -9381,15 +9221,23 @@ class Mld(object):
                     
                     	**default value**\: 25000
                     
+                    .. attribute:: _is_presence
                     
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
 
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None
+                        self._is_presence = True
                         self.access_list_name = None
                         self.maximum_groups = None
                         self.warning_threshold = None
@@ -9408,6 +9256,8 @@ class Mld(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self._is_presence:
+                            return True
                         if self.access_list_name is not None:
                             return True
 
@@ -9434,6 +9284,8 @@ class Mld(object):
                     	Access list specifying tracking group range
                     	**type**\:  str
                     
+                    	**length:** 1..64
+                    
                     .. attribute:: enable
                     
                     	Enabled or disabled, when value is TRUE or FALSE respectively
@@ -9453,7 +9305,7 @@ class Mld(object):
                     """
 
                     _prefix = 'ipv4-igmp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-10-10'
 
                     def __init__(self):
                         self.parent = None

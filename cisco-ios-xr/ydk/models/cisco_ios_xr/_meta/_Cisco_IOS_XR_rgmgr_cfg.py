@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'IccpModeEnum' : _MetaInfoEnum('IccpModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg',
         {
@@ -235,6 +234,44 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg'
         ),
     },
+    'RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp' : {
+        'meta_info' : _MetaInfoClass('RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp',
+            False, 
+            [
+            _MetaInfoClassMember('connect-timeout', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65534')], [], 
+                '''                Number of seconds to wait before assuming mLACP
+                peer is down.
+                ''',
+                'connect_timeout',
+                'Cisco-IOS-XR-bundlemgr-cfg', False),
+            _MetaInfoClassMember('node', ATTRIBUTE, 'int' , None, None, 
+                [('0', '7')], [], 
+                '''                Unique identifier for this system in the ICCP
+                Group.
+                ''',
+                'node',
+                'Cisco-IOS-XR-bundlemgr-cfg', False),
+            _MetaInfoClassMember('system-mac', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                Unique LACP identifier for this system.
+                ''',
+                'system_mac',
+                'Cisco-IOS-XR-bundlemgr-cfg', False),
+            _MetaInfoClassMember('system-priority', ATTRIBUTE, 'int' , None, None, 
+                [('1', '65535')], [], 
+                '''                Priority for this system. Lower value is higher
+                priority.
+                ''',
+                'system_priority',
+                'Cisco-IOS-XR-bundlemgr-cfg', False),
+            ],
+            'Cisco-IOS-XR-bundlemgr-cfg',
+            'mlacp',
+            _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg'
+        ),
+    },
     'RedundancyGroupManager.Iccp.IccpGroups.IccpGroup' : {
         'meta_info' : _MetaInfoClass('RedundancyGroupManager.Iccp.IccpGroups.IccpGroup',
             False, 
@@ -263,6 +300,13 @@ _meta_table = {
                 ''',
                 'members',
                 'Cisco-IOS-XR-rgmgr-cfg', False),
+            _MetaInfoClassMember('mlacp', REFERENCE_CLASS, 'Mlacp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg', 'RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp', 
+                [], [], 
+                '''                Multi-chassis Link Aggregation Control Protocol
+                commands
+                ''',
+                'mlacp',
+                'Cisco-IOS-XR-bundlemgr-cfg', False),
             _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'IccpModeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg', 'IccpModeEnum', 
                 [], [], 
                 '''                ICCP mode
@@ -356,6 +400,7 @@ _meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members.Member']['
 _meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones']['meta_info'].parent =_meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup']['meta_info']
 _meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members']['meta_info'].parent =_meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup']['meta_info']
 _meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite']['meta_info'].parent =_meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup']['meta_info']
+_meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp']['meta_info'].parent =_meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup']['meta_info']
 _meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup']['meta_info'].parent =_meta_table['RedundancyGroupManager.Iccp.IccpGroups']['meta_info']
 _meta_table['RedundancyGroupManager.Iccp.IccpGroups']['meta_info'].parent =_meta_table['RedundancyGroupManager.Iccp']['meta_info']
 _meta_table['RedundancyGroupManager.Aps']['meta_info'].parent =_meta_table['RedundancyGroupManager']['meta_info']

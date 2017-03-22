@@ -1476,7 +1476,14 @@ class EtherLinkOam(object):
             	Frame period event high threshold
             	**type**\:  int
             
-            	**range:** 0..4294967295
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: frame_period_threshold_high_multiplier
+            
+            	Frame period event threshold high multiplier
+            	**type**\:  int
+            
+            	**range:** 0..255
             
             .. attribute:: frame_period_threshold_high_overridden
             
@@ -1488,12 +1495,26 @@ class EtherLinkOam(object):
             	Frame period event low threshold
             	**type**\:  int
             
-            	**range:** 0..4294967295
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: frame_period_threshold_low_multiplier
+            
+            	Frame period event threshold low multiplier
+            	**type**\:  int
+            
+            	**range:** 0..255
             
             .. attribute:: frame_period_threshold_low_overridden
             
             	Is this configuration information an interface override?
             	**type**\:  bool
+            
+            .. attribute:: frame_period_threshold_units
+            
+            	Frame period event threshold units
+            	**type**\:  int
+            
+            	**range:** 0..255
             
             .. attribute:: frame_period_window
             
@@ -1502,17 +1523,31 @@ class EtherLinkOam(object):
             
             	**range:** 0..4294967295
             
+            .. attribute:: frame_period_window_multiplier
+            
+            	Frame period event window multiplier
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
             .. attribute:: frame_period_window_overridden
             
             	Is this configuration information an interface override?
             	**type**\:  bool
+            
+            .. attribute:: frame_period_window_units
+            
+            	Frame period event window units
+            	**type**\:  int
+            
+            	**range:** 0..255
             
             .. attribute:: frame_seconds_threshold_high
             
             	Frame seconds event high threshold
             	**type**\:  int
             
-            	**range:** 0..4294967295
+            	**range:** 0..18446744073709551615
             
             	**units**\: second
             
@@ -1526,7 +1561,7 @@ class EtherLinkOam(object):
             	Frame seconds event high threshold
             	**type**\:  int
             
-            	**range:** 0..4294967295
+            	**range:** 0..18446744073709551615
             
             	**units**\: second
             
@@ -1554,7 +1589,14 @@ class EtherLinkOam(object):
             	Frame event high threshold
             	**type**\:  int
             
-            	**range:** 0..4294967295
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: frame_threshold_high_multiplier
+            
+            	Frame event threshold high multiplier
+            	**type**\:  int
+            
+            	**range:** 0..255
             
             .. attribute:: frame_threshold_high_overridden
             
@@ -1566,7 +1608,14 @@ class EtherLinkOam(object):
             	Frame event low threshold
             	**type**\:  int
             
-            	**range:** 0..4294967295
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: frame_threshold_low_multiplier
+            
+            	Frame period event threshold low multiplier
+            	**type**\:  int
+            
+            	**range:** 0..255
             
             .. attribute:: frame_threshold_low_overridden
             
@@ -1717,10 +1766,17 @@ class EtherLinkOam(object):
             
             .. attribute:: symbol_period_threshold_high
             
-            	High symbol period event threshold
+            	Symbol period event high threshold
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
+            
+            .. attribute:: symbol_period_threshold_high_multiplier
+            
+            	Symbol period event threshold high multiplier
+            	**type**\:  int
+            
+            	**range:** 0..255
             
             .. attribute:: symbol_period_threshold_high_overridden
             
@@ -1729,15 +1785,29 @@ class EtherLinkOam(object):
             
             .. attribute:: symbol_period_threshold_low
             
-            	Low symbol period event threshold
+            	Symbol period event low threshold
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
+            
+            .. attribute:: symbol_period_threshold_low_multiplier
+            
+            	Symbol period event threshold low multiplier
+            	**type**\:  int
+            
+            	**range:** 0..255
             
             .. attribute:: symbol_period_threshold_low_overridden
             
             	Is this configuration information an interface override?
             	**type**\:  bool
+            
+            .. attribute:: symbol_period_threshold_units
+            
+            	Symbol period event threshold units
+            	**type**\:  int
+            
+            	**range:** 0..255
             
             .. attribute:: symbol_period_window
             
@@ -1746,10 +1816,24 @@ class EtherLinkOam(object):
             
             	**range:** 0..4294967295
             
+            .. attribute:: symbol_period_window_multiplier
+            
+            	Symbol period event window multiplier
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
             .. attribute:: symbol_period_window_overridden
             
             	Is this configuration information an interface override?
             	**type**\:  bool
+            
+            .. attribute:: symbol_period_window_units
+            
+            	Symbol period event window units
+            	**type**\:  int
+            
+            	**range:** 0..255
             
             .. attribute:: udlf_enabled
             
@@ -1794,11 +1878,16 @@ class EtherLinkOam(object):
                 self.fast_hello_interval_enabled = None
                 self.fast_hello_interval_enabled_overridden = None
                 self.frame_period_threshold_high = None
+                self.frame_period_threshold_high_multiplier = None
                 self.frame_period_threshold_high_overridden = None
                 self.frame_period_threshold_low = None
+                self.frame_period_threshold_low_multiplier = None
                 self.frame_period_threshold_low_overridden = None
+                self.frame_period_threshold_units = None
                 self.frame_period_window = None
+                self.frame_period_window_multiplier = None
                 self.frame_period_window_overridden = None
+                self.frame_period_window_units = None
                 self.frame_seconds_threshold_high = None
                 self.frame_seconds_threshold_high_overridden = None
                 self.frame_seconds_threshold_low = None
@@ -1806,8 +1895,10 @@ class EtherLinkOam(object):
                 self.frame_seconds_window = None
                 self.frame_seconds_window_overridden = None
                 self.frame_threshold_high = None
+                self.frame_threshold_high_multiplier = None
                 self.frame_threshold_high_overridden = None
                 self.frame_threshold_low = None
+                self.frame_threshold_low_multiplier = None
                 self.frame_threshold_low_overridden = None
                 self.frame_window = None
                 self.frame_window_overridden = None
@@ -1838,11 +1929,16 @@ class EtherLinkOam(object):
                 self.session_up_action = None
                 self.session_up_action_overridden = None
                 self.symbol_period_threshold_high = None
+                self.symbol_period_threshold_high_multiplier = None
                 self.symbol_period_threshold_high_overridden = None
                 self.symbol_period_threshold_low = None
+                self.symbol_period_threshold_low_multiplier = None
                 self.symbol_period_threshold_low_overridden = None
+                self.symbol_period_threshold_units = None
                 self.symbol_period_window = None
+                self.symbol_period_window_multiplier = None
                 self.symbol_period_window_overridden = None
+                self.symbol_period_window_units = None
                 self.udlf_enabled = None
                 self.udlf_enabled_overridden = None
                 self.wiring_conflict_action = None
@@ -1904,19 +2000,34 @@ class EtherLinkOam(object):
                 if self.frame_period_threshold_high is not None:
                     return True
 
+                if self.frame_period_threshold_high_multiplier is not None:
+                    return True
+
                 if self.frame_period_threshold_high_overridden is not None:
                     return True
 
                 if self.frame_period_threshold_low is not None:
                     return True
 
+                if self.frame_period_threshold_low_multiplier is not None:
+                    return True
+
                 if self.frame_period_threshold_low_overridden is not None:
+                    return True
+
+                if self.frame_period_threshold_units is not None:
                     return True
 
                 if self.frame_period_window is not None:
                     return True
 
+                if self.frame_period_window_multiplier is not None:
+                    return True
+
                 if self.frame_period_window_overridden is not None:
+                    return True
+
+                if self.frame_period_window_units is not None:
                     return True
 
                 if self.frame_seconds_threshold_high is not None:
@@ -1940,10 +2051,16 @@ class EtherLinkOam(object):
                 if self.frame_threshold_high is not None:
                     return True
 
+                if self.frame_threshold_high_multiplier is not None:
+                    return True
+
                 if self.frame_threshold_high_overridden is not None:
                     return True
 
                 if self.frame_threshold_low is not None:
+                    return True
+
+                if self.frame_threshold_low_multiplier is not None:
                     return True
 
                 if self.frame_threshold_low_overridden is not None:
@@ -2036,19 +2153,34 @@ class EtherLinkOam(object):
                 if self.symbol_period_threshold_high is not None:
                     return True
 
+                if self.symbol_period_threshold_high_multiplier is not None:
+                    return True
+
                 if self.symbol_period_threshold_high_overridden is not None:
                     return True
 
                 if self.symbol_period_threshold_low is not None:
                     return True
 
+                if self.symbol_period_threshold_low_multiplier is not None:
+                    return True
+
                 if self.symbol_period_threshold_low_overridden is not None:
+                    return True
+
+                if self.symbol_period_threshold_units is not None:
                     return True
 
                 if self.symbol_period_window is not None:
                     return True
 
+                if self.symbol_period_window_multiplier is not None:
+                    return True
+
                 if self.symbol_period_window_overridden is not None:
+                    return True
+
+                if self.symbol_period_window_units is not None:
                     return True
 
                 if self.udlf_enabled is not None:
@@ -2604,7 +2736,7 @@ class EtherLinkOam(object):
                     
                     .. attribute:: local_high_threshold_config_units
                     
-                    	The local high threshold in configuration units
+                    	The local high threshold in the units that are currently configured
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
@@ -2637,10 +2769,17 @@ class EtherLinkOam(object):
                     
                     .. attribute:: threshold_config_units
                     
-                    	The threshold in configuration units
+                    	The threshold in the units that are currently configured
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: threshold_units
+                    
+                    	The units in which the threshold size is configured
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
                     
                     .. attribute:: timestamp
                     
@@ -2663,7 +2802,7 @@ class EtherLinkOam(object):
                     
                     .. attribute:: value_config_units
                     
-                    	The breaching value in configuration units
+                    	The breaching value in the units that are currently configured
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
@@ -2677,10 +2816,17 @@ class EtherLinkOam(object):
                     
                     .. attribute:: window_config_units
                     
-                    	The window in configuration units
+                    	The window in the units that are currently configured
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: window_units
+                    
+                    	The units in which the window size is configured 
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
                     
                     
 
@@ -2703,12 +2849,14 @@ class EtherLinkOam(object):
                         self.running_total = None
                         self.threshold = None
                         self.threshold_config_units = None
+                        self.threshold_units = None
                         self.timestamp = None
                         self.type = None
                         self.value = None
                         self.value_config_units = None
                         self.window = None
                         self.window_config_units = None
+                        self.window_units = None
 
                     @property
                     def _common_path(self):
@@ -2762,6 +2910,9 @@ class EtherLinkOam(object):
                         if self.threshold_config_units is not None:
                             return True
 
+                        if self.threshold_units is not None:
+                            return True
+
                         if self.timestamp is not None:
                             return True
 
@@ -2778,6 +2929,9 @@ class EtherLinkOam(object):
                             return True
 
                         if self.window_config_units is not None:
+                            return True
+
+                        if self.window_units is not None:
                             return True
 
                         return False

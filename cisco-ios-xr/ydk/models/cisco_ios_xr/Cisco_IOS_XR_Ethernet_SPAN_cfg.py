@@ -200,7 +200,7 @@ class SpanMonitorSession(object):
             	Session Name
             	**type**\:  str
             
-            	**length:** 0..79
+            	**length:** 1..79
             
             .. attribute:: class_
             

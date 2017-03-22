@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'HardwareModule.Nodes.Node.Np.Cpu.Indexes.Index' : {
         'meta_info' : _MetaInfoClass('HardwareModule.Nodes.Node.Np.Cpu.Indexes.Index',
@@ -25,7 +24,7 @@ _meta_table = {
                 'index',
                 'Cisco-IOS-XR-prm-server-oper', True),
             _MetaInfoClassMember('accepted', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                Accepted
                 ''',
                 'accepted',
@@ -49,7 +48,7 @@ _meta_table = {
                 'cos_q_name',
                 'Cisco-IOS-XR-prm-server-oper', False),
             _MetaInfoClassMember('dropped', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                Dropped
                 ''',
                 'dropped',

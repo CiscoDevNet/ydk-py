@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'LptsPifibEnum' : _MetaInfoEnum('LptsPifibEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper',
         {
@@ -27,29 +26,6 @@ _meta_table = {
             'bfd-any':'bfd_any',
             'all':'all',
         }, 'Cisco-IOS-XR-lpts-pre-ifib-oper', _yang_ns._namespaces['Cisco-IOS-XR-lpts-pre-ifib-oper']),
-    'LptsPifib.Nodes.Node.TypeValues.TypeValue.Entry.Utime' : {
-        'meta_info' : _MetaInfoClass('LptsPifib.Nodes.Node.TypeValues.TypeValue.Entry.Utime',
-            False, 
-            [
-            _MetaInfoClassMember('tv-nsec', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Time Nanosec
-                ''',
-                'tv_nsec',
-                'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
-            _MetaInfoClassMember('tv-sec', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Time Sec
-                ''',
-                'tv_sec',
-                'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
-            ],
-            'Cisco-IOS-XR-lpts-pre-ifib-oper',
-            'utime',
-            _yang_ns._namespaces['Cisco-IOS-XR-lpts-pre-ifib-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper'
-        ),
-    },
     'LptsPifib.Nodes.Node.TypeValues.TypeValue.Entry' : {
         'meta_info' : _MetaInfoClass('LptsPifib.Nodes.Node.TypeValues.TypeValue.Entry',
             False, 
@@ -66,17 +42,35 @@ _meta_table = {
                 ''',
                 'accepts',
                 'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
-            _MetaInfoClassMember('deliver-list', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Deliver List
+            _MetaInfoClassMember('deliver-list-long', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Deliver List Long Format
                 ''',
-                'deliver_list',
+                'deliver_list_long',
                 'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
-            _MetaInfoClassMember('deliver-list-str', ATTRIBUTE, 'str' , None, None, 
-                [(0, 1024)], [], 
-                '''                Deliver List String
+            _MetaInfoClassMember('deliver-list-short', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Deliver List Short Format
                 ''',
-                'deliver_list_str',
+                'deliver_list_short',
+                'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
+            _MetaInfoClassMember('destination-addr', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Destination IP Address
+                ''',
+                'destination_addr',
+                'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
+            _MetaInfoClassMember('destination-type', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Destination Key Type
+                ''',
+                'destination_type',
+                'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
+            _MetaInfoClassMember('destination-value', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Destination Port/ICMP Type/IGMP Type
+                ''',
+                'destination_value',
                 'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
             _MetaInfoClassMember('drops', ATTRIBUTE, 'int' , None, None, 
                 [('0', '18446744073709551615')], [], 
@@ -84,8 +78,8 @@ _meta_table = {
                 ''',
                 'drops',
                 'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
-            _MetaInfoClassMember('flow-type', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
+            _MetaInfoClassMember('flow-type', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
                 '''                Flow type
                 ''',
                 'flow_type',
@@ -95,6 +89,12 @@ _meta_table = {
                 '''                Interface Handle
                 ''',
                 'intf_handle',
+                'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
+            _MetaInfoClassMember('intf-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Interface Name
+                ''',
+                'intf_name',
                 'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
             _MetaInfoClassMember('is-fgid', ATTRIBUTE, 'int' , None, None, 
                 [('0', '255')], [], 
@@ -126,17 +126,11 @@ _meta_table = {
                 ''',
                 'l4protocol',
                 'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
-            _MetaInfoClassMember('listener-tag', ATTRIBUTE, 'int' , None, None, 
-                [('0', '255')], [], 
+            _MetaInfoClassMember('listener-tag', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
                 '''                Listener Tag
                 ''',
                 'listener_tag',
-                'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
-            _MetaInfoClassMember('local-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Local IP Address
-                ''',
-                'local_addr',
                 'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
             _MetaInfoClassMember('local-flag', ATTRIBUTE, 'int' , None, None, 
                 [('0', '255')], [], 
@@ -144,23 +138,23 @@ _meta_table = {
                 ''',
                 'local_flag',
                 'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
-            _MetaInfoClassMember('local-prefix-len', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Local Prefix Length
-                ''',
-                'local_prefix_len',
-                'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
             _MetaInfoClassMember('min-ttl', ATTRIBUTE, 'int' , None, None, 
                 [('0', '255')], [], 
                 '''                Minimum TTL
                 ''',
                 'min_ttl',
                 'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
-            _MetaInfoClassMember('opcode', ATTRIBUTE, 'int' , None, None, 
-                [('0', '255')], [], 
+            _MetaInfoClassMember('opcode', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
                 '''                Opcode
                 ''',
                 'opcode',
+                'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
+            _MetaInfoClassMember('pifib-program-time', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Creation or Update Time
+                ''',
+                'pifib_program_time',
                 'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
             _MetaInfoClassMember('pifib-type', ATTRIBUTE, 'int' , None, None, 
                 [('0', '255')], [], 
@@ -168,23 +162,17 @@ _meta_table = {
                 ''',
                 'pifib_type',
                 'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
-            _MetaInfoClassMember('remote-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Remote IP Address
+            _MetaInfoClassMember('source-addr', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Source IP Address
                 ''',
-                'remote_addr',
+                'source_addr',
                 'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
-            _MetaInfoClassMember('remote-port', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                Remote port
+            _MetaInfoClassMember('source-port', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Source port
                 ''',
-                'remote_port',
-                'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
-            _MetaInfoClassMember('remote-prefix-len', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Remote Prefix Length
-                ''',
-                'remote_prefix_len',
+                'source_port',
                 'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
             _MetaInfoClassMember('stale', ATTRIBUTE, 'int' , None, None, 
                 [('0', '255')], [], 
@@ -192,35 +180,17 @@ _meta_table = {
                 ''',
                 'stale',
                 'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
-            _MetaInfoClassMember('u-len', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Union Key Length
-                ''',
-                'u_len',
-                'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
-            _MetaInfoClassMember('u-type', ATTRIBUTE, 'int' , None, None, 
-                [('0', '255')], [], 
-                '''                Union Key Type
-                ''',
-                'u_type',
-                'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
-            _MetaInfoClassMember('u-value', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Local Port/ICMP Type/IGMP Type
-                ''',
-                'u_value',
-                'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
-            _MetaInfoClassMember('utime', REFERENCE_CLASS, 'Utime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper', 'LptsPifib.Nodes.Node.TypeValues.TypeValue.Entry.Utime', 
-                [], [], 
-                '''                Creation or Update Time
-                ''',
-                'utime',
-                'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
             _MetaInfoClassMember('vid', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                VRF ID
                 ''',
                 'vid',
+                'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                VRF Name
+                ''',
+                'vrf_name',
                 'Cisco-IOS-XR-lpts-pre-ifib-oper', False),
             ],
             'Cisco-IOS-XR-lpts-pre-ifib-oper',
@@ -1087,7 +1057,6 @@ _meta_table = {
         ),
     },
 }
-_meta_table['LptsPifib.Nodes.Node.TypeValues.TypeValue.Entry.Utime']['meta_info'].parent =_meta_table['LptsPifib.Nodes.Node.TypeValues.TypeValue.Entry']['meta_info']
 _meta_table['LptsPifib.Nodes.Node.TypeValues.TypeValue.Entry']['meta_info'].parent =_meta_table['LptsPifib.Nodes.Node.TypeValues.TypeValue']['meta_info']
 _meta_table['LptsPifib.Nodes.Node.TypeValues.TypeValue']['meta_info'].parent =_meta_table['LptsPifib.Nodes.Node.TypeValues']['meta_info']
 _meta_table['LptsPifib.Nodes.Node.Hardware.UsageEntries.UsageEntry.UsageInfo']['meta_info'].parent =_meta_table['LptsPifib.Nodes.Node.Hardware.UsageEntries.UsageEntry']['meta_info']

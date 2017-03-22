@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address' : {
         'meta_info' : _MetaInfoClass('Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address',
@@ -52,6 +51,13 @@ _meta_table = {
                 '''                Address
                 ''',
                 'address',
+                'Cisco-IOS-XR-ip-iarm-v4-oper', False),
+            _MetaInfoClassMember('is-prefix-sid', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is prefix_sid valid - valid only for IPV6
+                addresses
+                ''',
+                'is_prefix_sid',
                 'Cisco-IOS-XR-ip-iarm-v4-oper', False),
             _MetaInfoClassMember('is-primary', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -201,6 +207,13 @@ _meta_table = {
                 '''                Address
                 ''',
                 'address',
+                'Cisco-IOS-XR-ip-iarm-v4-oper', False),
+            _MetaInfoClassMember('is-prefix-sid', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is prefix_sid valid - valid only for IPV6
+                addresses
+                ''',
+                'is_prefix_sid',
                 'Cisco-IOS-XR-ip-iarm-v4-oper', False),
             _MetaInfoClassMember('is-primary', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 

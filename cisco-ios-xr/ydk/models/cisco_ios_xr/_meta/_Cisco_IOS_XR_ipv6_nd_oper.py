@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'Ipv6NdShVrStateEnum' : _MetaInfoEnum('Ipv6NdShVrStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper',
         {
@@ -143,6 +142,12 @@ _meta_table = {
                 '''                Selected media encap
                 ''',
                 'selected_encapsulation',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('serg-flags', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                ND serg flags for this entry
+                ''',
+                'serg_flags',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-nd-oper',
@@ -624,6 +629,12 @@ _meta_table = {
                 ''',
                 'nd_retransmit_interval',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('send-unicast-ra', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                unicast RA send flag
+                ''',
+                'send_unicast_ra',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-nd-oper',
             'nd-parameters',
@@ -933,6 +944,12 @@ _meta_table = {
                 '''                ND retransmit interval in msec
                 ''',
                 'nd_retransmit_interval',
+                'Cisco-IOS-XR-ipv6-nd-oper', False),
+            _MetaInfoClassMember('send-unicast-ra', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                unicast RA send flag
+                ''',
+                'send_unicast_ra',
                 'Cisco-IOS-XR-ipv6-nd-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-nd-oper',

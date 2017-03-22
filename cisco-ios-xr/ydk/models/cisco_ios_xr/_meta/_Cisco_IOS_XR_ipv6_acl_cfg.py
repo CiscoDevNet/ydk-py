@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'NextHopTypeEnum' : _MetaInfoEnum('NextHopTypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg',
         {
@@ -150,7 +149,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 65)], [], 
+                [(1, 65)], [], 
                 '''                Name of a prefix list
                 ''',
                 'name',
@@ -454,7 +453,7 @@ _meta_table = {
                         'tcp_bits',
                         'Cisco-IOS-XR-ipv6-acl-cfg', False),
                     _MetaInfoClassMember('tcp-bits', ATTRIBUTE, 'int' , None, None, 
-                        [('0', '32')], [], 
+                        [('0', '63')], [], 
                         '''                        TCP bits to match. Leave unspecified if 
                         comparison of TCP bits is not required.
                         ''',
@@ -476,7 +475,7 @@ _meta_table = {
                         'tcp_bits_mask',
                         'Cisco-IOS-XR-ipv6-acl-cfg', False),
                     _MetaInfoClassMember('tcp-bits-mask', ATTRIBUTE, 'int' , None, None, 
-                        [('0', '32')], [], 
+                        [('0', '63')], [], 
                         '''                        TCP bits mask to use for flexible TCP matching.
                         Leave unspecified if it is not required.
                         ''',
@@ -892,6 +891,38 @@ _meta_table = {
                         'protocol',
                         'Cisco-IOS-XR-ipv6-acl-cfg', False),
                 ]),
+            _MetaInfoClassMember('protocol2', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Protocol2 to match.
+                ''',
+                'protocol2',
+                'Cisco-IOS-XR-ipv6-acl-cfg', False, [
+                    _MetaInfoClassMember('protocol2', REFERENCE_ENUM_CLASS, 'Ipv6AclProtocolNumberEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclProtocolNumberEnum', 
+                        [], [], 
+                        '''                        Protocol2 to match.
+                        ''',
+                        'protocol2',
+                        'Cisco-IOS-XR-ipv6-acl-cfg', False),
+                    _MetaInfoClassMember('protocol2', ATTRIBUTE, 'int' , None, None, 
+                        [('0', '255')], [], 
+                        '''                        Protocol2 to match.
+                        ''',
+                        'protocol2',
+                        'Cisco-IOS-XR-ipv6-acl-cfg', False),
+                ]),
+            _MetaInfoClassMember('protocol-operator', REFERENCE_ENUM_CLASS, 'Ipv6AclOperatorEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclOperatorEnumEnum', 
+                [], [], 
+                '''                Protocol operator. Leave unspecified if
+                no protocol comparison is to be done.
+                ''',
+                'protocol_operator',
+                'Cisco-IOS-XR-ipv6-acl-cfg', False),
+            _MetaInfoClassMember('qos-group', ATTRIBUTE, 'int' , None, None, 
+                [('0', '512')], [], 
+                '''                Set qos-group number
+                ''',
+                'qos_group',
+                'Cisco-IOS-XR-ipv6-acl-cfg', False),
             _MetaInfoClassMember('remark', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Comments or a description for the access list.
@@ -940,6 +971,12 @@ _meta_table = {
                 ''',
                 'time_to_live',
                 'Cisco-IOS-XR-ipv6-acl-cfg', False),
+            _MetaInfoClassMember('undetermined-transport', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable undetermined-transport.
+                ''',
+                'undetermined_transport',
+                'Cisco-IOS-XR-ipv6-acl-cfg', False),
             ],
             'Cisco-IOS-XR-ipv6-acl-cfg',
             'access-list-entry',
@@ -970,7 +1007,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 65)], [], 
+                [(1, 65)], [], 
                 '''                Name of the access list
                 ''',
                 'name',

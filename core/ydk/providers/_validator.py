@@ -25,6 +25,7 @@ from ydk.types import READ, DELETE, Decimal64, Empty, YList, YLeafList, YListIte
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_ENUM_CLASS, REFERENCE_LIST, \
             REFERENCE_LEAFLIST, REFERENCE_IDENTITY_CLASS, REFERENCE_BITS, REFERENCE_UNION
 
+from enum import Enum
 import logging
 import importlib
 from functools import reduce
@@ -110,6 +111,8 @@ def _dm_validate_value(meta, value, parent, optype, errors):
 
     elif meta.mtype == REFERENCE_ENUM_CLASS:
         enum_value = value
+        if isinstance(enum_value, Enum):
+            enum_value = enum_value.name
         module = importlib.import_module(meta.pmodule_name)
         enum_clazz = reduce(getattr, meta.clazz_name.split('.'), module)
         literal_map = enum_clazz._meta_info().literal_map

@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'MplsTeBackupBandwidthClassEnum' : _MetaInfoEnum('MplsTeBackupBandwidthClassEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
         {
@@ -32,6 +31,11 @@ _meta_table = {
             'dynamic':'dynamic',
             'pce':'pce',
             'explicit':'explicit',
+        }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
+    'OtnDestinationEnum' : _MetaInfoEnum('OtnDestinationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
+        {
+            'number-ed':'number_ed',
+            'un-number-ed':'un_number_ed',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
     'MplsTeSwitchingCapEnum' : _MetaInfoEnum('MplsTeSwitchingCapEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
         {
@@ -126,6 +130,12 @@ _meta_table = {
         {
             'hex-value':'hex_value',
             'bit-position':'bit_position',
+        }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
+    'OtnStaticUniEnum' : _MetaInfoEnum('OtnStaticUniEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
+        {
+            'unknown':'unknown',
+            'xc':'xc',
+            'termination':'termination',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
     'MplsTeOtnSncModeEnum' : _MetaInfoEnum('MplsTeOtnSncModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
         {
@@ -876,6 +886,23 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic',
+            False, 
+            [
+            _MetaInfoClassMember('segment-routing', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Exclude tunnel in IGP for SR prefixes
+                ''',
+                'segment_routing',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'exclude-traffic',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
     'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric' : {
         'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric',
             False, 
@@ -920,6 +947,12 @@ _meta_table = {
                 '''                Enable autoroute announce
                 ''',
                 'enable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('exclude-traffic', REFERENCE_CLASS, 'ExcludeTraffic' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic', 
+                [], [], 
+                '''                Exclude traffic on autorouted tunnel
+                ''',
+                'exclude_traffic',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('include-ipv6', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -1763,7 +1796,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('tunnel-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 59)], [], 
+                [(1, 59)], [], 
                 '''                Tunnel name
                 ''',
                 'tunnel_name',
@@ -1988,7 +2021,7 @@ _meta_table = {
                 'verbatim',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('xro-attribute-set-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                The name of the XRO attribute set to be
                 used for this path-option
                 ''',
@@ -2128,7 +2161,7 @@ _meta_table = {
                 'recording',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('signalled-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 254)], [], 
+                [(1, 254)], [], 
                 '''                The name of the tunnel to be included in
                 signalling messages
                 ''',
@@ -2412,7 +2445,7 @@ _meta_table = {
                 'mesh_group_id',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
             _MetaInfoClassMember('attribute-set', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                The name of auto-mesh attribute set to be
                 applied to this group
                 ''',
@@ -2428,7 +2461,7 @@ _meta_table = {
                 'create',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('destination-list', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                The name of prefix-list to be applied to
                 this destination-list
                 ''',
@@ -2898,7 +2931,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('srlg-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                SRLG membership name
                 ''',
                 'srlg_name',
@@ -3192,7 +3225,7 @@ _meta_table = {
                 'path_selection_cost_limit',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('path-selection-exclude-list', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Path selection exclude list name
                 configuration
                 ''',
@@ -3938,7 +3971,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('attribute-set-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Attribute Set Name
                 ''',
                 'attribute_set_name',
@@ -4792,7 +4825,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('attribute-set-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Attribute Set Name
                 ''',
                 'attribute_set_name',
@@ -5803,7 +5836,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('attribute-set-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Attribute Set Name
                 ''',
                 'attribute_set_name',
@@ -6621,7 +6654,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('attribute-set-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Attribute Set Name
                 ''',
                 'attribute_set_name',
@@ -6776,7 +6809,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('schedule-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 254)], [], 
+                [(1, 254)], [], 
                 '''                Enter 64 characters for revert schedule
                 name
                 ''',
@@ -6907,7 +6940,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('attribute-set-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Attribute Set Name
                 ''',
                 'attribute_set_name',
@@ -7772,7 +7805,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('attribute-set-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Attribute Set Name
                 ''',
                 'attribute_set_name',
@@ -8068,7 +8101,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('attribute-set-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Attribute Set Name
                 ''',
                 'attribute_set_name',
@@ -8350,7 +8383,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('keychain', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Keychain based authentication
                 ''',
                 'keychain',
@@ -8454,7 +8487,7 @@ _meta_table = {
                 'keepalive_tolerance',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('keychain', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Keychain based authentication
                 ''',
                 'keychain',
@@ -8515,7 +8548,7 @@ _meta_table = {
                 'segment_routing',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('speaker-entity-id', ATTRIBUTE, 'str' , None, None, 
-                [(0, 256)], [], 
+                [(1, 256)], [], 
                 '''                PCE speaker entity identifier
                 ''',
                 'speaker_entity_id',
@@ -8530,6 +8563,75 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
             'pce-attributes',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.LspOutOfResource.LspOorRedState' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.LspOutOfResource.LspOorRedState',
+            False, 
+            [
+            _MetaInfoClassMember('all-transit-lsp-threshold', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Threshold for all transit LSPs
+                ''',
+                'all_transit_lsp_threshold',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('unprotected-transit-lsp-threshold', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Threshold for unprotected transit LSPs
+                ''',
+                'unprotected_transit_lsp_threshold',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'lsp-oor-red-state',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.LspOutOfResource.LspOorYellowState' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.LspOutOfResource.LspOorYellowState',
+            False, 
+            [
+            _MetaInfoClassMember('all-transit-lsp-threshold', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Threshold for all transit LSPs
+                ''',
+                'all_transit_lsp_threshold',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('unprotected-transit-lsp-threshold', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Threshold for unprotected transit LSPs
+                ''',
+                'unprotected_transit_lsp_threshold',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'lsp-oor-yellow-state',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.LspOutOfResource' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.LspOutOfResource',
+            False, 
+            [
+            _MetaInfoClassMember('lsp-oor-red-state', REFERENCE_CLASS, 'LspOorRedState' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.LspOutOfResource.LspOorRedState', 
+                [], [], 
+                '''                Configuration for LSP OOR Red/Major State
+                ''',
+                'lsp_oor_red_state',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('lsp-oor-yellow-state', REFERENCE_CLASS, 'LspOorYellowState' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.LspOutOfResource.LspOorYellowState', 
+                [], [], 
+                '''                Configuration for LSP OOR Yellow/Minor State
+                ''',
+                'lsp_oor_yellow_state',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'lsp-out-of-resource',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
@@ -8821,7 +8923,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('affinity-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Affinity Name
                 ''',
                 'affinity_name',
@@ -9004,6 +9106,12 @@ _meta_table = {
                 outside the headend area
                 ''',
                 'loose_path_retry_period',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('lsp-out-of-resource', REFERENCE_CLASS, 'LspOutOfResource' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.LspOutOfResource', 
+                [], [], 
+                '''                Configure LSP OOR attributes in MPLS-TE
+                ''',
+                'lsp_out_of_resource',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('maximum-tunnels', ATTRIBUTE, 'int' , None, None, 
                 [('1', '65536')], [], 
@@ -9514,7 +9622,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('midpoint-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Name of mid-point
                 ''',
                 'midpoint_name',
@@ -9775,7 +9883,7 @@ _meta_table = {
                 'igp_type',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('process-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Process name
                 ''',
                 'process_name',
@@ -10005,7 +10113,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('tunnel-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 59)], [], 
+                [(1, 59)], [], 
                 '''                Tunnel name
                 ''',
                 'tunnel_name',
@@ -10057,7 +10165,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('attribute-set', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                The name of attribute set to be applied to
                 this auto backup lsp
                 ''',
@@ -10442,7 +10550,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('igp-instance-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 40)], [], 
+                [(1, 40)], [], 
                 '''                Name of IGP instance
                 ''',
                 'igp_instance_name',
@@ -10521,6 +10629,36 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
             'signalled-bandwidth',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination',
+            False, 
+            [
+            _MetaInfoClassMember('destination', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPV4 tunnel destination
+                ''',
+                'destination',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('destination-type', REFERENCE_ENUM_CLASS, 'OtnDestinationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'OtnDestinationEnum', 
+                [], [], 
+                '''                Destination type whether it is unicast or
+                unnumbered
+                ''',
+                'destination_type',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('interface-if-index', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Interface index of port
+                ''',
+                'interface_if_index',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'destination',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
@@ -10652,7 +10790,7 @@ _meta_table = {
                 'restore_by_preference_level',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('xro-attribute-set-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                The name of the XRO attribute set to be
                 used for this path-option
                 ''',
@@ -10700,11 +10838,25 @@ _meta_table = {
                 ''',
                 'egress_controller_if_index',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('egress-type', REFERENCE_ENUM_CLASS, 'OtnStaticUniEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'OtnStaticUniEnum', 
+                [], [], 
+                '''                Egress type whether it is xconnect or
+                terminated
+                ''',
+                'egress_type',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('ingress-controller-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
+                [(1, 255)], [], 
                 '''                Name of  ingress controller
                 ''',
                 'ingress_controller_name',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('ingress-type', REFERENCE_ENUM_CLASS, 'OtnStaticUniEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'OtnStaticUniEnum', 
+                [], [], 
+                '''                Ingress type whether it is xconnect or
+                terminated
+                ''',
+                'ingress_type',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
@@ -10730,8 +10882,8 @@ _meta_table = {
                 ''',
                 'current_lsp_shutdown',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('destination', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+            _MetaInfoClassMember('destination', REFERENCE_CLASS, 'Destination' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination', 
+                [], [], 
                 '''                The existence of this configuration indicates
                 the destination has been set for the tunnel
                 ''',
@@ -10757,7 +10909,7 @@ _meta_table = {
                 'path_options',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('path-protection-attribute-set-profile', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                The name of the path-protection profile to be
                 included in signalling messages
                 ''',
@@ -10813,7 +10965,7 @@ _meta_table = {
                 'signalled_bandwidth',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('signalled-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 254)], [], 
+                [(1, 254)], [], 
                 '''                The name of the tunnel to be included in
                 signalling messages
                 ''',
@@ -11062,6 +11214,7 @@ _meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.U
 _meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Overflow']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth']['meta_info']
 _meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.BandwidthLimits']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth']['meta_info']
 _meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AdjustmentThreshold']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce']['meta_info']
 _meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce']['meta_info']
 _meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.DestinationXr.Destination']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.DestinationXr']['meta_info']
 _meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Metric']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute']['meta_info']
@@ -11267,6 +11420,8 @@ _meta_table['MplsTe.GlobalAttributes.PceAttributes.PceStateful']['meta_info'].pa
 _meta_table['MplsTe.GlobalAttributes.PceAttributes.Timer']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.PceAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.PceAttributes.Peers']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.PceAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.PceAttributes.Logging']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.PceAttributes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.LspOutOfResource.LspOorRedState']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.LspOutOfResource']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.LspOutOfResource.LspOorYellowState']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.LspOutOfResource']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.FastReroute.Timers']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.FastReroute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.PathSelection.LooseMetrics.LooseMetric']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.PathSelection.LooseMetrics']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.PathSelection.LooseAffinities.LooseAffinity']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.PathSelection.LooseAffinities']['meta_info']
@@ -11284,6 +11439,7 @@ _meta_table['MplsTe.GlobalAttributes.Mib']['meta_info'].parent =_meta_table['Mpl
 _meta_table['MplsTe.GlobalAttributes.AttributeSet']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.BfdOverLsp']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.PceAttributes']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.LspOutOfResource']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.SoftPreemption']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.FastReroute']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.PathSelection']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
@@ -11339,6 +11495,7 @@ _meta_table['MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr']['me
 _meta_table['MplsTe.GmplsNni.TopologyInstances.TopologyInstance']['meta_info'].parent =_meta_table['MplsTe.GmplsNni.TopologyInstances']['meta_info']
 _meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions.PathOption']['meta_info'].parent =_meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions']['meta_info']
 _meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth']['meta_info'].parent =_meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead']['meta_info']
+_meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination']['meta_info'].parent =_meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead']['meta_info']
 _meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching']['meta_info'].parent =_meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead']['meta_info']
 _meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.Logging']['meta_info'].parent =_meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead']['meta_info']
 _meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions']['meta_info'].parent =_meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead']['meta_info']

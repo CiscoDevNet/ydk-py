@@ -63,6 +63,63 @@ class MdtEncodingEnumEnum(Enum):
         return meta._meta_table['MdtEncodingEnumEnum']
 
 
+class MdtInternalPathStatusEnum(Enum):
+    """
+    MdtInternalPathStatusEnum
+
+    Internal Subscription Path Status
+
+    .. data:: active = 0
+
+    	Active
+
+    .. data:: internal_err = 1
+
+    	Internal Error
+
+    .. data:: plugin_active = 2
+
+    	Plugin Active
+
+    .. data:: plugin_not_initialized = 3
+
+    	Plugin Not Initialized
+
+    .. data:: plugin_invalid_cadence = 4
+
+    	Plugin Unsupported Cadence
+
+    .. data:: plugin_err = 5
+
+    	Plugin Subscription Error
+
+    .. data:: filter_err = 6
+
+    	Filter Error
+
+    """
+
+    active = 0
+
+    internal_err = 1
+
+    plugin_active = 2
+
+    plugin_not_initialized = 3
+
+    plugin_invalid_cadence = 4
+
+    plugin_err = 5
+
+    filter_err = 6
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_oper as meta
+        return meta._meta_table['MdtInternalPathStatusEnum']
+
+
 class MdtIpEnum(Enum):
     """
     MdtIpEnum
@@ -108,6 +165,10 @@ class MdtTransportEnumEnum(Enum):
 
     	TCP
 
+    .. data:: udp = 3
+
+    	UDP
+
     .. data:: dialin = 6
 
     	DIALIN
@@ -119,6 +180,8 @@ class MdtTransportEnumEnum(Enum):
     grpc = 1
 
     tcp = 2
+
+    udp = 3
 
     dialin = 6
 
@@ -154,7 +217,7 @@ class TelemetryModelDriven(object):
     """
 
     _prefix = 'telemetry-model-driven-oper'
-    _revision = '2015-11-09'
+    _revision = '2016-07-14'
 
     def __init__(self):
         self.destinations = TelemetryModelDriven.Destinations()
@@ -179,7 +242,7 @@ class TelemetryModelDriven(object):
         """
 
         _prefix = 'telemetry-model-driven-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-07-14'
 
         def __init__(self):
             self.parent = None
@@ -221,7 +284,7 @@ class TelemetryModelDriven(object):
             """
 
             _prefix = 'telemetry-model-driven-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-07-14'
 
             def __init__(self):
                 self.parent = None
@@ -252,7 +315,7 @@ class TelemetryModelDriven(object):
                 """
 
                 _prefix = 'telemetry-model-driven-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-07-14'
 
                 def __init__(self):
                     self.parent = None
@@ -303,6 +366,18 @@ class TelemetryModelDriven(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: sub_id
+                    
+                    	Sub Id
+                    	**type**\:  list of int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: sub_id_str
+                    
+                    	Sub Idstr
+                    	**type**\:  str
+                    
                     .. attribute:: tls
                     
                     	TLS connection to this destination
@@ -341,7 +416,7 @@ class TelemetryModelDriven(object):
                     """
 
                     _prefix = 'telemetry-model-driven-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-07-14'
 
                     def __init__(self):
                         self.parent = None
@@ -352,6 +427,10 @@ class TelemetryModelDriven(object):
                         self.id = None
                         self.last_collection_time = None
                         self.state = None
+                        self.sub_id = YLeafList()
+                        self.sub_id.parent = self
+                        self.sub_id.name = 'sub_id'
+                        self.sub_id_str = None
                         self.tls = None
                         self.tls_host = None
                         self.total_num_of_bytes_sent = None
@@ -387,7 +466,7 @@ class TelemetryModelDriven(object):
                         """
 
                         _prefix = 'telemetry-model-driven-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-07-14'
 
                         def __init__(self):
                             self.parent = None
@@ -455,6 +534,14 @@ class TelemetryModelDriven(object):
                             return True
 
                         if self.state is not None:
+                            return True
+
+                        if self.sub_id is not None:
+                            for child in self.sub_id:
+                                if child is not None:
+                                    return True
+
+                        if self.sub_id_str is not None:
                             return True
 
                         if self.tls is not None:
@@ -603,7 +690,7 @@ class TelemetryModelDriven(object):
                     """
 
                     _prefix = 'telemetry-model-driven-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-07-14'
 
                     def __init__(self):
                         self.parent = None
@@ -657,7 +744,7 @@ class TelemetryModelDriven(object):
                         """
 
                         _prefix = 'telemetry-model-driven-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-07-14'
 
                         def __init__(self):
                             self.parent = None
@@ -740,6 +827,11 @@ class TelemetryModelDriven(object):
                         
                         	Sysdb Path
                         	**type**\:  str
+                        
+                        .. attribute:: status
+                        
+                        	Status of collection path
+                        	**type**\:   :py:class:`MdtInternalPathStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtInternalPathStatusEnum>`
                         
                         .. attribute:: total_collections
                         
@@ -890,7 +982,7 @@ class TelemetryModelDriven(object):
                         """
 
                         _prefix = 'telemetry-model-driven-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-07-14'
 
                         def __init__(self):
                             self.parent = None
@@ -900,6 +992,7 @@ class TelemetryModelDriven(object):
                             self.max_collection_time = None
                             self.min_collection_time = None
                             self.path = None
+                            self.status = None
                             self.total_collections = None
                             self.total_collections_missed = None
                             self.total_datalist_count = None
@@ -951,6 +1044,9 @@ class TelemetryModelDriven(object):
                                 return True
 
                             if self.path is not None:
+                                return True
+
+                            if self.status is not None:
                                 return True
 
                             if self.total_collections is not None:
@@ -1199,7 +1295,7 @@ class TelemetryModelDriven(object):
         """
 
         _prefix = 'telemetry-model-driven-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-07-14'
 
         def __init__(self):
             self.parent = None
@@ -1250,7 +1346,7 @@ class TelemetryModelDriven(object):
             """
 
             _prefix = 'telemetry-model-driven-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-07-14'
 
             def __init__(self):
                 self.parent = None
@@ -1286,14 +1382,16 @@ class TelemetryModelDriven(object):
                 .. attribute:: state
                 
                 	Subscription state
-                	**type**\:  bool
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
                 
                 
 
                 """
 
                 _prefix = 'telemetry-model-driven-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-07-14'
 
                 def __init__(self):
                     self.parent = None
@@ -1340,7 +1438,7 @@ class TelemetryModelDriven(object):
                     """
 
                     _prefix = 'telemetry-model-driven-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-07-14'
 
                     def __init__(self):
                         self.parent = None
@@ -1377,7 +1475,7 @@ class TelemetryModelDriven(object):
                         """
 
                         _prefix = 'telemetry-model-driven-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-07-14'
 
                         def __init__(self):
                             self.parent = None
@@ -1415,7 +1513,7 @@ class TelemetryModelDriven(object):
                             """
 
                             _prefix = 'telemetry-model-driven-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-07-14'
 
                             def __init__(self):
                                 self.parent = None
@@ -1545,7 +1643,7 @@ class TelemetryModelDriven(object):
                     """
 
                     _prefix = 'telemetry-model-driven-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-07-14'
 
                     def __init__(self):
                         self.parent = None
@@ -1596,6 +1694,18 @@ class TelemetryModelDriven(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: sub_id
+                        
+                        	Sub Id
+                        	**type**\:  list of int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: sub_id_str
+                        
+                        	Sub Idstr
+                        	**type**\:  str
+                        
                         .. attribute:: tls
                         
                         	TLS connection to this destination
@@ -1634,7 +1744,7 @@ class TelemetryModelDriven(object):
                         """
 
                         _prefix = 'telemetry-model-driven-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-07-14'
 
                         def __init__(self):
                             self.parent = None
@@ -1645,6 +1755,10 @@ class TelemetryModelDriven(object):
                             self.id = None
                             self.last_collection_time = None
                             self.state = None
+                            self.sub_id = YLeafList()
+                            self.sub_id.parent = self
+                            self.sub_id.name = 'sub_id'
+                            self.sub_id_str = None
                             self.tls = None
                             self.tls_host = None
                             self.total_num_of_bytes_sent = None
@@ -1680,7 +1794,7 @@ class TelemetryModelDriven(object):
                             """
 
                             _prefix = 'telemetry-model-driven-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-07-14'
 
                             def __init__(self):
                                 self.parent = None
@@ -1748,6 +1862,14 @@ class TelemetryModelDriven(object):
                                 return True
 
                             if self.state is not None:
+                                return True
+
+                            if self.sub_id is not None:
+                                for child in self.sub_id:
+                                    if child is not None:
+                                        return True
+
+                            if self.sub_id_str is not None:
                                 return True
 
                             if self.tls is not None:
@@ -1965,7 +2087,7 @@ class TelemetryModelDriven(object):
                 """
 
                 _prefix = 'telemetry-model-driven-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-07-14'
 
                 def __init__(self):
                     self.parent = None
@@ -2019,7 +2141,7 @@ class TelemetryModelDriven(object):
                     """
 
                     _prefix = 'telemetry-model-driven-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-07-14'
 
                     def __init__(self):
                         self.parent = None
@@ -2102,6 +2224,11 @@ class TelemetryModelDriven(object):
                     
                     	Sysdb Path
                     	**type**\:  str
+                    
+                    .. attribute:: status
+                    
+                    	Status of collection path
+                    	**type**\:   :py:class:`MdtInternalPathStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtInternalPathStatusEnum>`
                     
                     .. attribute:: total_collections
                     
@@ -2252,7 +2379,7 @@ class TelemetryModelDriven(object):
                     """
 
                     _prefix = 'telemetry-model-driven-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-07-14'
 
                     def __init__(self):
                         self.parent = None
@@ -2262,6 +2389,7 @@ class TelemetryModelDriven(object):
                         self.max_collection_time = None
                         self.min_collection_time = None
                         self.path = None
+                        self.status = None
                         self.total_collections = None
                         self.total_collections_missed = None
                         self.total_datalist_count = None
@@ -2313,6 +2441,9 @@ class TelemetryModelDriven(object):
                             return True
 
                         if self.path is not None:
+                            return True
+
+                        if self.status is not None:
                             return True
 
                         if self.total_collections is not None:
@@ -2535,7 +2666,7 @@ class TelemetryModelDriven(object):
         """
 
         _prefix = 'telemetry-model-driven-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-07-14'
 
         def __init__(self):
             self.parent = None
@@ -2577,7 +2708,7 @@ class TelemetryModelDriven(object):
             """
 
             _prefix = 'telemetry-model-driven-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-07-14'
 
             def __init__(self):
                 self.parent = None
@@ -2616,7 +2747,7 @@ class TelemetryModelDriven(object):
                 """
 
                 _prefix = 'telemetry-model-driven-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-07-14'
 
                 def __init__(self):
                     self.parent = None

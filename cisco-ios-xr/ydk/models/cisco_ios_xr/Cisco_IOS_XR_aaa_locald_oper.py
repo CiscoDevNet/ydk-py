@@ -49,6 +49,11 @@ class Aaa(object):
     	Current user specific details
     	**type**\:   :py:class:`CurrentuserDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.CurrentuserDetail>`
     
+    .. attribute:: diameter
+    
+    	Diameter operational data
+    	**type**\:   :py:class:`Diameter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter>`
+    
     .. attribute:: radius
     
     	RADIUS operational data
@@ -95,6 +100,8 @@ class Aaa(object):
         self.current_usergroup.parent = self
         self.currentuser_detail = Aaa.CurrentuserDetail()
         self.currentuser_detail.parent = self
+        self.diameter = Aaa.Diameter()
+        self.diameter.parent = self
         self.radius = Aaa.Radius()
         self.radius.parent = self
         self.tacacs = Aaa.Tacacs()
@@ -1708,6 +1715,4098 @@ class Aaa(object):
             return meta._meta_table['Aaa.CurrentUsergroup']['meta_info']
 
 
+    class Tacacs(object):
+        """
+        TACACS operational data
+        
+        .. attribute:: requests
+        
+        	TACACS Active Request List
+        	**type**\:   :py:class:`Requests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests>`
+        
+        .. attribute:: server_groups
+        
+        	TACACS sg Information
+        	**type**\:   :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups>`
+        
+        .. attribute:: servers
+        
+        	TACACS server Information
+        	**type**\:   :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers>`
+        
+        
+
+        """
+
+        _prefix = 'aaa-tacacs-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.requests = Aaa.Tacacs.Requests()
+            self.requests.parent = self
+            self.server_groups = Aaa.Tacacs.ServerGroups()
+            self.server_groups.parent = self
+            self.servers = Aaa.Tacacs.Servers()
+            self.servers.parent = self
+
+
+        class Requests(object):
+            """
+            TACACS Active Request List
+            
+            .. attribute:: request
+            
+            	request
+            	**type**\: list of    :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.request = YList()
+                self.request.parent = self
+                self.request.name = 'request'
+
+
+            class Request(object):
+                """
+                request
+                
+                .. attribute:: tacacs_requestbag
+                
+                	tacacs requestbag
+                	**type**\: list of    :py:class:`TacacsRequestbag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request.TacacsRequestbag>`
+                
+                
+
+                """
+
+                _prefix = 'aaa-tacacs-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.tacacs_requestbag = YList()
+                    self.tacacs_requestbag.parent = self
+                    self.tacacs_requestbag.name = 'tacacs_requestbag'
+
+
+                class TacacsRequestbag(object):
+                    """
+                    tacacs requestbag
+                    
+                    .. attribute:: bytes_in
+                    
+                    	bytes read from socket
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: bytes_out
+                    
+                    	bytes written
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: in_pak_size
+                    
+                    	size of the packet to be received
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: out_pak_size
+                    
+                    	size of the packet to be sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: pak_type
+                    
+                    	the type of packet
+                    	**type**\:  str
+                    
+                    .. attribute:: session_id
+                    
+                    	same as in pkt hdr
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: sock
+                    
+                    	socket number
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: time_remaining
+                    
+                    	time remaining for this request
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-tacacs-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.bytes_in = None
+                        self.bytes_out = None
+                        self.in_pak_size = None
+                        self.out_pak_size = None
+                        self.pak_type = None
+                        self.session_id = None
+                        self.sock = None
+                        self.time_remaining = None
+
+                    @property
+                    def _common_path(self):
+
+                        return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:requests/Cisco-IOS-XR-aaa-tacacs-oper:request/Cisco-IOS-XR-aaa-tacacs-oper:tacacs-requestbag'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.bytes_in is not None:
+                            return True
+
+                        if self.bytes_out is not None:
+                            return True
+
+                        if self.in_pak_size is not None:
+                            return True
+
+                        if self.out_pak_size is not None:
+                            return True
+
+                        if self.pak_type is not None:
+                            return True
+
+                        if self.session_id is not None:
+                            return True
+
+                        if self.sock is not None:
+                            return True
+
+                        if self.time_remaining is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                        return meta._meta_table['Aaa.Tacacs.Requests.Request.TacacsRequestbag']['meta_info']
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:requests/Cisco-IOS-XR-aaa-tacacs-oper:request'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.tacacs_requestbag is not None:
+                        for child_ref in self.tacacs_requestbag:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Tacacs.Requests.Request']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:requests'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.request is not None:
+                    for child_ref in self.request:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Tacacs.Requests']['meta_info']
+
+
+        class Servers(object):
+            """
+            TACACS server Information
+            
+            .. attribute:: server
+            
+            	server
+            	**type**\: list of    :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers.Server>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.server = YList()
+                self.server.parent = self
+                self.server.name = 'server'
+
+
+            class Server(object):
+                """
+                server
+                
+                .. attribute:: aborts
+                
+                	abort count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: addr
+                
+                	internet address of T+ server
+                	**type**\:  str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                .. attribute:: addr_buf
+                
+                	IP address buffer
+                	**type**\:  str
+                
+                	**length:** 0..46
+                
+                .. attribute:: bytes_in
+                
+                	# of bytes read
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: byte
+                
+                .. attribute:: bytes_out
+                
+                	# of bytes out
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: byte
+                
+                .. attribute:: closes
+                
+                	socket closes
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: conn_up
+                
+                	is the server connected ?
+                	**type**\:  bool
+                
+                .. attribute:: errors
+                
+                	error count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: family
+                
+                	IP address Family
+                	**type**\:  str
+                
+                	**length:** 0..5
+                
+                .. attribute:: is_private
+                
+                	is this a private server ?
+                	**type**\:  bool
+                
+                .. attribute:: opens
+                
+                	socket opens
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: paks_in
+                
+                	# of incoming packets read
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: paks_out
+                
+                	# of outgoing packets sent
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: port
+                
+                	per server port to use
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: replies_expected
+                
+                	# of replies expected to arrive
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: single_connect
+                
+                	is this a single connect server ?
+                	**type**\:  bool
+                
+                .. attribute:: timeout
+                
+                	per\-server timeout
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: up
+                
+                	is the server UP or down ?
+                	**type**\:  bool
+                
+                .. attribute:: vrf_name
+                
+                	VRF in which server is reachable
+                	**type**\:  str
+                
+                	**length:** 0..33
+                
+                
+
+                """
+
+                _prefix = 'aaa-tacacs-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.aborts = None
+                    self.addr = None
+                    self.addr_buf = None
+                    self.bytes_in = None
+                    self.bytes_out = None
+                    self.closes = None
+                    self.conn_up = None
+                    self.errors = None
+                    self.family = None
+                    self.is_private = None
+                    self.opens = None
+                    self.paks_in = None
+                    self.paks_out = None
+                    self.port = None
+                    self.replies_expected = None
+                    self.single_connect = None
+                    self.timeout = None
+                    self.up = None
+                    self.vrf_name = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:servers/Cisco-IOS-XR-aaa-tacacs-oper:server'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.aborts is not None:
+                        return True
+
+                    if self.addr is not None:
+                        return True
+
+                    if self.addr_buf is not None:
+                        return True
+
+                    if self.bytes_in is not None:
+                        return True
+
+                    if self.bytes_out is not None:
+                        return True
+
+                    if self.closes is not None:
+                        return True
+
+                    if self.conn_up is not None:
+                        return True
+
+                    if self.errors is not None:
+                        return True
+
+                    if self.family is not None:
+                        return True
+
+                    if self.is_private is not None:
+                        return True
+
+                    if self.opens is not None:
+                        return True
+
+                    if self.paks_in is not None:
+                        return True
+
+                    if self.paks_out is not None:
+                        return True
+
+                    if self.port is not None:
+                        return True
+
+                    if self.replies_expected is not None:
+                        return True
+
+                    if self.single_connect is not None:
+                        return True
+
+                    if self.timeout is not None:
+                        return True
+
+                    if self.up is not None:
+                        return True
+
+                    if self.vrf_name is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Tacacs.Servers.Server']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:servers'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.server is not None:
+                    for child_ref in self.server:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Tacacs.Servers']['meta_info']
+
+
+        class ServerGroups(object):
+            """
+            TACACS sg Information
+            
+            .. attribute:: server_group
+            
+            	server group
+            	**type**\: list of    :py:class:`ServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.server_group = YList()
+                self.server_group.parent = self
+                self.server_group.name = 'server_group'
+
+
+            class ServerGroup(object):
+                """
+                server group
+                
+                .. attribute:: group_name
+                
+                	name of the server group
+                	**type**\:  str
+                
+                .. attribute:: server
+                
+                	list of servers in this group
+                	**type**\: list of    :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup.Server>`
+                
+                .. attribute:: sg_map_num
+                
+                	server group mapped number
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: vrf_name
+                
+                	vrf of the group
+                	**type**\:  str
+                
+                	**length:** 0..33
+                
+                
+
+                """
+
+                _prefix = 'aaa-tacacs-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.group_name = None
+                    self.server = YList()
+                    self.server.parent = self
+                    self.server.name = 'server'
+                    self.sg_map_num = None
+                    self.vrf_name = None
+
+
+                class Server(object):
+                    """
+                    list of servers in this group
+                    
+                    .. attribute:: aborts
+                    
+                    	abort count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: addr
+                    
+                    	internet address of T+ server
+                    	**type**\:  str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: addr_buf
+                    
+                    	IP address buffer
+                    	**type**\:  str
+                    
+                    	**length:** 0..46
+                    
+                    .. attribute:: bytes_in
+                    
+                    	# of bytes read
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: bytes_out
+                    
+                    	# of bytes out
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: closes
+                    
+                    	socket closes
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: conn_up
+                    
+                    	is the server connected ?
+                    	**type**\:  bool
+                    
+                    .. attribute:: errors
+                    
+                    	error count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: family
+                    
+                    	IP address Family
+                    	**type**\:  str
+                    
+                    	**length:** 0..5
+                    
+                    .. attribute:: is_private
+                    
+                    	is this a private server ?
+                    	**type**\:  bool
+                    
+                    .. attribute:: opens
+                    
+                    	socket opens
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: paks_in
+                    
+                    	# of incoming packets read
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: paks_out
+                    
+                    	# of outgoing packets sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: port
+                    
+                    	per server port to use
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: replies_expected
+                    
+                    	# of replies expected to arrive
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: single_connect
+                    
+                    	is this a single connect server ?
+                    	**type**\:  bool
+                    
+                    .. attribute:: timeout
+                    
+                    	per\-server timeout
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: up
+                    
+                    	is the server UP or down ?
+                    	**type**\:  bool
+                    
+                    .. attribute:: vrf_name
+                    
+                    	VRF in which server is reachable
+                    	**type**\:  str
+                    
+                    	**length:** 0..33
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-tacacs-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.aborts = None
+                        self.addr = None
+                        self.addr_buf = None
+                        self.bytes_in = None
+                        self.bytes_out = None
+                        self.closes = None
+                        self.conn_up = None
+                        self.errors = None
+                        self.family = None
+                        self.is_private = None
+                        self.opens = None
+                        self.paks_in = None
+                        self.paks_out = None
+                        self.port = None
+                        self.replies_expected = None
+                        self.single_connect = None
+                        self.timeout = None
+                        self.up = None
+                        self.vrf_name = None
+
+                    @property
+                    def _common_path(self):
+
+                        return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:server-groups/Cisco-IOS-XR-aaa-tacacs-oper:server-group/Cisco-IOS-XR-aaa-tacacs-oper:server'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.aborts is not None:
+                            return True
+
+                        if self.addr is not None:
+                            return True
+
+                        if self.addr_buf is not None:
+                            return True
+
+                        if self.bytes_in is not None:
+                            return True
+
+                        if self.bytes_out is not None:
+                            return True
+
+                        if self.closes is not None:
+                            return True
+
+                        if self.conn_up is not None:
+                            return True
+
+                        if self.errors is not None:
+                            return True
+
+                        if self.family is not None:
+                            return True
+
+                        if self.is_private is not None:
+                            return True
+
+                        if self.opens is not None:
+                            return True
+
+                        if self.paks_in is not None:
+                            return True
+
+                        if self.paks_out is not None:
+                            return True
+
+                        if self.port is not None:
+                            return True
+
+                        if self.replies_expected is not None:
+                            return True
+
+                        if self.single_connect is not None:
+                            return True
+
+                        if self.timeout is not None:
+                            return True
+
+                        if self.up is not None:
+                            return True
+
+                        if self.vrf_name is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                        return meta._meta_table['Aaa.Tacacs.ServerGroups.ServerGroup.Server']['meta_info']
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:server-groups/Cisco-IOS-XR-aaa-tacacs-oper:server-group'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.group_name is not None:
+                        return True
+
+                    if self.server is not None:
+                        for child_ref in self.server:
+                            if child_ref._has_data():
+                                return True
+
+                    if self.sg_map_num is not None:
+                        return True
+
+                    if self.vrf_name is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Tacacs.ServerGroups.ServerGroup']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:server-groups'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.server_group is not None:
+                    for child_ref in self.server_group:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Tacacs.ServerGroups']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.requests is not None and self.requests._has_data():
+                return True
+
+            if self.server_groups is not None and self.server_groups._has_data():
+                return True
+
+            if self.servers is not None and self.servers._has_data():
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+            return meta._meta_table['Aaa.Tacacs']['meta_info']
+
+
+    class Diameter(object):
+        """
+        Diameter operational data
+        
+        .. attribute:: gx
+        
+        	Diameter global gx data
+        	**type**\:   :py:class:`Gx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Gx>`
+        
+        .. attribute:: gx_session_ids
+        
+        	Diameter Gx Session data list
+        	**type**\:   :py:class:`GxSessionIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GxSessionIds>`
+        
+        .. attribute:: gx_statistics
+        
+        	Diameter Gx Statistics data
+        	**type**\:   :py:class:`GxStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GxStatistics>`
+        
+        .. attribute:: gy
+        
+        	Diameter global gy data
+        	**type**\:   :py:class:`Gy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Gy>`
+        
+        .. attribute:: gy_session_ids
+        
+        	Diameter Gy Session data list
+        	**type**\:   :py:class:`GySessionIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GySessionIds>`
+        
+        .. attribute:: gy_statistics
+        
+        	Diameter Gy Statistics data
+        	**type**\:   :py:class:`GyStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GyStatistics>`
+        
+        .. attribute:: nas
+        
+        	Diameter NAS data
+        	**type**\:   :py:class:`Nas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Nas>`
+        
+        .. attribute:: nas_session
+        
+        	Diameter Nas Session data
+        	**type**\:   :py:class:`NasSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.NasSession>`
+        
+        .. attribute:: nas_summary
+        
+        	Diameter NAS summary
+        	**type**\:   :py:class:`NasSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.NasSummary>`
+        
+        .. attribute:: peers
+        
+        	Diameter peer global data
+        	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Peers>`
+        
+        
+
+        """
+
+        _prefix = 'aaa-diameter-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.gx = Aaa.Diameter.Gx()
+            self.gx.parent = self
+            self.gx_session_ids = Aaa.Diameter.GxSessionIds()
+            self.gx_session_ids.parent = self
+            self.gx_statistics = Aaa.Diameter.GxStatistics()
+            self.gx_statistics.parent = self
+            self.gy = Aaa.Diameter.Gy()
+            self.gy.parent = self
+            self.gy_session_ids = Aaa.Diameter.GySessionIds()
+            self.gy_session_ids.parent = self
+            self.gy_statistics = Aaa.Diameter.GyStatistics()
+            self.gy_statistics.parent = self
+            self.nas = Aaa.Diameter.Nas()
+            self.nas.parent = self
+            self.nas_session = Aaa.Diameter.NasSession()
+            self.nas_session.parent = self
+            self.nas_summary = Aaa.Diameter.NasSummary()
+            self.nas_summary.parent = self
+            self.peers = Aaa.Diameter.Peers()
+            self.peers.parent = self
+
+
+        class Gy(object):
+            """
+            Diameter global gy data
+            
+            .. attribute:: is_enabled
+            
+            	Gy state
+            	**type**\:  bool
+            
+            .. attribute:: retransmits
+            
+            	Gy retransmit count
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: tx_timer
+            
+            	Gy transaction timer in seconds
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: second
+            
+            
+
+            """
+
+            _prefix = 'aaa-diameter-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.is_enabled = None
+                self.retransmits = None
+                self.tx_timer = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/Cisco-IOS-XR-aaa-diameter-oper:gy'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.is_enabled is not None:
+                    return True
+
+                if self.retransmits is not None:
+                    return True
+
+                if self.tx_timer is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Diameter.Gy']['meta_info']
+
+
+        class GxStatistics(object):
+            """
+            Diameter Gx Statistics data
+            
+            .. attribute:: active_sessions
+            
+            	Total Active Sessions
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: asa_sent_error_messages
+            
+            	ASA Sent Messages Error
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: asa_sent_messsages
+            
+            	ASA Sent Messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: asr_received_error_messages
+            
+            	ASR Received Messages Error
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: asr_received_messages
+            
+            	ASR Received Messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cca_final_error_messages
+            
+            	CCA Final Messages Error
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cca_final_messages
+            
+            	CCA Final Messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cca_init_error_messages
+            
+            	CCA Initial Messages Error
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cca_init_messages
+            
+            	CCA Initial Messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cca_update_error_messages
+            
+            	CCA Update Messages Error
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cca_update_messages
+            
+            	CCA Update Messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_final_failed_messages
+            
+            	CCR Final Messages Failed
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_final_messages
+            
+            	CCR Final Messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_final_retry_messages
+            
+            	CCR Final Messages retry
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_final_timed_out_messages
+            
+            	CCR Final Messages Timed Out
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_init_failed_messages
+            
+            	CCR Initial Messages Failed
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_init_messages
+            
+            	CCR Initial Messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_init_retry_messages
+            
+            	CCR Initial Messages retry
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_init_timed_out_messages
+            
+            	CCR Initial Messages Timed Out
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_update_failed_messages
+            
+            	CCR Update Messages Failed
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_update_messages
+            
+            	CCR Update Messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_update_retry_messages
+            
+            	CCR Update Messages retry
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_update_timed_out_messages
+            
+            	CCR Update Messages Timed Out
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: close_sessions
+            
+            	Total Closed Sessions
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: open_sessions
+            
+            	Total Opened Sessions
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: raa_sent_error_messages
+            
+            	RAA Sent Messages Error
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: raa_sent_messages
+            
+            	RAA Sent Messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: rar_received_error_messages
+            
+            	RAR Received Messages Error
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: rar_received_messages
+            
+            	RAR Received Messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: restore_sessions
+            
+            	Restore Sessions
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: session_termination_messages
+            
+            	Session Termination from server
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: unknown_request_messages
+            
+            	Unknown Request Messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'aaa-diameter-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.active_sessions = None
+                self.asa_sent_error_messages = None
+                self.asa_sent_messsages = None
+                self.asr_received_error_messages = None
+                self.asr_received_messages = None
+                self.cca_final_error_messages = None
+                self.cca_final_messages = None
+                self.cca_init_error_messages = None
+                self.cca_init_messages = None
+                self.cca_update_error_messages = None
+                self.cca_update_messages = None
+                self.ccr_final_failed_messages = None
+                self.ccr_final_messages = None
+                self.ccr_final_retry_messages = None
+                self.ccr_final_timed_out_messages = None
+                self.ccr_init_failed_messages = None
+                self.ccr_init_messages = None
+                self.ccr_init_retry_messages = None
+                self.ccr_init_timed_out_messages = None
+                self.ccr_update_failed_messages = None
+                self.ccr_update_messages = None
+                self.ccr_update_retry_messages = None
+                self.ccr_update_timed_out_messages = None
+                self.close_sessions = None
+                self.open_sessions = None
+                self.raa_sent_error_messages = None
+                self.raa_sent_messages = None
+                self.rar_received_error_messages = None
+                self.rar_received_messages = None
+                self.restore_sessions = None
+                self.session_termination_messages = None
+                self.unknown_request_messages = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/Cisco-IOS-XR-aaa-diameter-oper:gx-statistics'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.active_sessions is not None:
+                    return True
+
+                if self.asa_sent_error_messages is not None:
+                    return True
+
+                if self.asa_sent_messsages is not None:
+                    return True
+
+                if self.asr_received_error_messages is not None:
+                    return True
+
+                if self.asr_received_messages is not None:
+                    return True
+
+                if self.cca_final_error_messages is not None:
+                    return True
+
+                if self.cca_final_messages is not None:
+                    return True
+
+                if self.cca_init_error_messages is not None:
+                    return True
+
+                if self.cca_init_messages is not None:
+                    return True
+
+                if self.cca_update_error_messages is not None:
+                    return True
+
+                if self.cca_update_messages is not None:
+                    return True
+
+                if self.ccr_final_failed_messages is not None:
+                    return True
+
+                if self.ccr_final_messages is not None:
+                    return True
+
+                if self.ccr_final_retry_messages is not None:
+                    return True
+
+                if self.ccr_final_timed_out_messages is not None:
+                    return True
+
+                if self.ccr_init_failed_messages is not None:
+                    return True
+
+                if self.ccr_init_messages is not None:
+                    return True
+
+                if self.ccr_init_retry_messages is not None:
+                    return True
+
+                if self.ccr_init_timed_out_messages is not None:
+                    return True
+
+                if self.ccr_update_failed_messages is not None:
+                    return True
+
+                if self.ccr_update_messages is not None:
+                    return True
+
+                if self.ccr_update_retry_messages is not None:
+                    return True
+
+                if self.ccr_update_timed_out_messages is not None:
+                    return True
+
+                if self.close_sessions is not None:
+                    return True
+
+                if self.open_sessions is not None:
+                    return True
+
+                if self.raa_sent_error_messages is not None:
+                    return True
+
+                if self.raa_sent_messages is not None:
+                    return True
+
+                if self.rar_received_error_messages is not None:
+                    return True
+
+                if self.rar_received_messages is not None:
+                    return True
+
+                if self.restore_sessions is not None:
+                    return True
+
+                if self.session_termination_messages is not None:
+                    return True
+
+                if self.unknown_request_messages is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Diameter.GxStatistics']['meta_info']
+
+
+        class Gx(object):
+            """
+            Diameter global gx data
+            
+            .. attribute:: is_enabled
+            
+            	Gx state
+            	**type**\:  bool
+            
+            .. attribute:: retransmits
+            
+            	Gx retransmit count
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: tx_timer
+            
+            	Gx transaction timer in seconds
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: second
+            
+            
+
+            """
+
+            _prefix = 'aaa-diameter-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.is_enabled = None
+                self.retransmits = None
+                self.tx_timer = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/Cisco-IOS-XR-aaa-diameter-oper:gx'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.is_enabled is not None:
+                    return True
+
+                if self.retransmits is not None:
+                    return True
+
+                if self.tx_timer is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Diameter.Gx']['meta_info']
+
+
+        class Peers(object):
+            """
+            Diameter peer global data
+            
+            .. attribute:: conn_retry_timer
+            
+            	Connection retry timer in seconds
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: second
+            
+            .. attribute:: origin_host
+            
+            	Origin Host
+            	**type**\:  str
+            
+            .. attribute:: origin_realm
+            
+            	Origin Realm
+            	**type**\:  str
+            
+            .. attribute:: peer
+            
+            	Peer List
+            	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Peers.Peer>`
+            
+            .. attribute:: source_interface
+            
+            	Source Interface
+            	**type**\:  str
+            
+            .. attribute:: tls_trustpoint
+            
+            	TLS Trustpoint
+            	**type**\:  str
+            
+            .. attribute:: trans_max
+            
+            	Maximum number of transactions
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: trans_total
+            
+            	Total number of transactions
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: transaction_timer
+            
+            	Transaction timer in seconds
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: second
+            
+            .. attribute:: watchdog_timer
+            
+            	Watch dog timer in seconds
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: second
+            
+            
+
+            """
+
+            _prefix = 'aaa-diameter-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.conn_retry_timer = None
+                self.origin_host = None
+                self.origin_realm = None
+                self.peer = YList()
+                self.peer.parent = self
+                self.peer.name = 'peer'
+                self.source_interface = None
+                self.tls_trustpoint = None
+                self.trans_max = None
+                self.trans_total = None
+                self.transaction_timer = None
+                self.watchdog_timer = None
+
+
+            class Peer(object):
+                """
+                Peer List
+                
+                .. attribute:: address
+                
+                	IPv4 or IPv6 address of DIAMETER peer
+                	**type**\:  str
+                
+                .. attribute:: conn_retry_timer
+                
+                	Connection retry timer in seconds
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: second
+                
+                .. attribute:: destination_host
+                
+                	Destination host name
+                	**type**\:  str
+                
+                .. attribute:: destination_realm
+                
+                	Destination realm
+                	**type**\:  str
+                
+                .. attribute:: firmware_revision
+                
+                	Firmware revision
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: in_aa_as
+                
+                	Incoming AAAs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: in_ac_as
+                
+                	Incoming ACAs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: in_ac_rs
+                
+                	Incoming ACRs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: in_as_as
+                
+                	Incoming ASAs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: in_as_rs
+                
+                	Incoming ASRs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: in_cc_as
+                
+                	Incoming CCAs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: in_cc_rs
+                
+                	Incoming CCRs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: in_ce_as
+                
+                	Incoming CEAs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: in_ce_rs
+                
+                	Incoming CERs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: in_dp_as
+                
+                	Incoming DPAs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: in_dp_rs
+                
+                	Incoming DPRs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: in_dw_as
+                
+                	Incoming DWAs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: in_dw_rs
+                
+                	Incoming DWRs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: in_ra_as
+                
+                	Incoming RAAs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: in_ra_rs
+                
+                	Incoming RARs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: in_st_as
+                
+                	Incoming STAs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: in_st_rs
+                
+                	Incoming STRs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: last_disconnect_cause
+                
+                	Last Disconnect Reason
+                	**type**\:   :py:class:`DisconnectCauseEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.DisconnectCauseEnum>`
+                
+                .. attribute:: malformed_requests
+                
+                	Malformed Requests
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_aa_rs
+                
+                	Outgoing AARs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_ac_as
+                
+                	Outgoing ACAs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_ac_rs
+                
+                	Outgoing ACRs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_as_as
+                
+                	Outgoing ASAs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_as_rs
+                
+                	Outgoing ASRs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_cc_as
+                
+                	Outgoing CCAs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_cc_rs
+                
+                	Outgoing CCRs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_ce_as
+                
+                	Outgoing CEAs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_ce_rs
+                
+                	Outgoing CERs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_dp_as
+                
+                	Outgoing DPAs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_dp_rs
+                
+                	Outgoing DPRs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_dw_as
+                
+                	Outgoing DWAs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_dw_rs
+                
+                	Outgoing DWRs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_ra_as
+                
+                	Outgoing RAAs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_ra_rs
+                
+                	Outgoing RARs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_st_as
+                
+                	Outgoing STAs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: out_st_rs
+                
+                	Outgoing STRs
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: peer_index
+                
+                	Peer Index
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: peer_name
+                
+                	Peer Name
+                	**type**\:  str
+                
+                .. attribute:: peer_type
+                
+                	Peer Type
+                	**type**\:   :py:class:`PeerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.PeerEnum>`
+                
+                .. attribute:: port
+                
+                	Port number on which the peeris running
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: port_connect
+                
+                	Local Connection port
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: protocol_type
+                
+                	Protocol Type
+                	**type**\:   :py:class:`ProtocolTypeValueEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.ProtocolTypeValueEnum>`
+                
+                .. attribute:: received_permanent_fails
+                
+                	Permanent Failures Received
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: received_proto_errors
+                
+                	Protocol Error Received
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: received_transient_fails
+                
+                	Transient failures Received
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: security_type
+                
+                	Security type used to transport
+                	**type**\:   :py:class:`SecurityTypeValueEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.SecurityTypeValueEnum>`
+                
+                .. attribute:: sent_permanent_fails
+                
+                	Permanent Failures Sent
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: sent_proto_errors
+                
+                	Protocol Error Sent
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: sent_transient_fails
+                
+                	Transient failures Sent
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: source_interface
+                
+                	Source Interface
+                	**type**\:  str
+                
+                .. attribute:: state
+                
+                	Peer Connection Status
+                	**type**\:   :py:class:`PeerStateValueEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.PeerStateValueEnum>`
+                
+                .. attribute:: state_duration
+                
+                	State Duration in seconds
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: second
+                
+                .. attribute:: transaction_timer
+                
+                	Transaction timer in seconds
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: second
+                
+                .. attribute:: transport_down
+                
+                	Transport Down
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: vrf_name
+                
+                	Vrf Name
+                	**type**\:  str
+                
+                .. attribute:: watchdog_timer
+                
+                	Watch dog timer in seconds
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: second
+                
+                .. attribute:: who_init_disconnect
+                
+                	Who Initiated Disconnect
+                	**type**\:   :py:class:`WhoInitiatedDisconnectEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.WhoInitiatedDisconnectEnum>`
+                
+                
+
+                """
+
+                _prefix = 'aaa-diameter-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.address = None
+                    self.conn_retry_timer = None
+                    self.destination_host = None
+                    self.destination_realm = None
+                    self.firmware_revision = None
+                    self.in_aa_as = None
+                    self.in_ac_as = None
+                    self.in_ac_rs = None
+                    self.in_as_as = None
+                    self.in_as_rs = None
+                    self.in_cc_as = None
+                    self.in_cc_rs = None
+                    self.in_ce_as = None
+                    self.in_ce_rs = None
+                    self.in_dp_as = None
+                    self.in_dp_rs = None
+                    self.in_dw_as = None
+                    self.in_dw_rs = None
+                    self.in_ra_as = None
+                    self.in_ra_rs = None
+                    self.in_st_as = None
+                    self.in_st_rs = None
+                    self.last_disconnect_cause = None
+                    self.malformed_requests = None
+                    self.out_aa_rs = None
+                    self.out_ac_as = None
+                    self.out_ac_rs = None
+                    self.out_as_as = None
+                    self.out_as_rs = None
+                    self.out_cc_as = None
+                    self.out_cc_rs = None
+                    self.out_ce_as = None
+                    self.out_ce_rs = None
+                    self.out_dp_as = None
+                    self.out_dp_rs = None
+                    self.out_dw_as = None
+                    self.out_dw_rs = None
+                    self.out_ra_as = None
+                    self.out_ra_rs = None
+                    self.out_st_as = None
+                    self.out_st_rs = None
+                    self.peer_index = None
+                    self.peer_name = None
+                    self.peer_type = None
+                    self.port = None
+                    self.port_connect = None
+                    self.protocol_type = None
+                    self.received_permanent_fails = None
+                    self.received_proto_errors = None
+                    self.received_transient_fails = None
+                    self.security_type = None
+                    self.sent_permanent_fails = None
+                    self.sent_proto_errors = None
+                    self.sent_transient_fails = None
+                    self.source_interface = None
+                    self.state = None
+                    self.state_duration = None
+                    self.transaction_timer = None
+                    self.transport_down = None
+                    self.vrf_name = None
+                    self.watchdog_timer = None
+                    self.who_init_disconnect = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/Cisco-IOS-XR-aaa-diameter-oper:peers/Cisco-IOS-XR-aaa-diameter-oper:peer'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.address is not None:
+                        return True
+
+                    if self.conn_retry_timer is not None:
+                        return True
+
+                    if self.destination_host is not None:
+                        return True
+
+                    if self.destination_realm is not None:
+                        return True
+
+                    if self.firmware_revision is not None:
+                        return True
+
+                    if self.in_aa_as is not None:
+                        return True
+
+                    if self.in_ac_as is not None:
+                        return True
+
+                    if self.in_ac_rs is not None:
+                        return True
+
+                    if self.in_as_as is not None:
+                        return True
+
+                    if self.in_as_rs is not None:
+                        return True
+
+                    if self.in_cc_as is not None:
+                        return True
+
+                    if self.in_cc_rs is not None:
+                        return True
+
+                    if self.in_ce_as is not None:
+                        return True
+
+                    if self.in_ce_rs is not None:
+                        return True
+
+                    if self.in_dp_as is not None:
+                        return True
+
+                    if self.in_dp_rs is not None:
+                        return True
+
+                    if self.in_dw_as is not None:
+                        return True
+
+                    if self.in_dw_rs is not None:
+                        return True
+
+                    if self.in_ra_as is not None:
+                        return True
+
+                    if self.in_ra_rs is not None:
+                        return True
+
+                    if self.in_st_as is not None:
+                        return True
+
+                    if self.in_st_rs is not None:
+                        return True
+
+                    if self.last_disconnect_cause is not None:
+                        return True
+
+                    if self.malformed_requests is not None:
+                        return True
+
+                    if self.out_aa_rs is not None:
+                        return True
+
+                    if self.out_ac_as is not None:
+                        return True
+
+                    if self.out_ac_rs is not None:
+                        return True
+
+                    if self.out_as_as is not None:
+                        return True
+
+                    if self.out_as_rs is not None:
+                        return True
+
+                    if self.out_cc_as is not None:
+                        return True
+
+                    if self.out_cc_rs is not None:
+                        return True
+
+                    if self.out_ce_as is not None:
+                        return True
+
+                    if self.out_ce_rs is not None:
+                        return True
+
+                    if self.out_dp_as is not None:
+                        return True
+
+                    if self.out_dp_rs is not None:
+                        return True
+
+                    if self.out_dw_as is not None:
+                        return True
+
+                    if self.out_dw_rs is not None:
+                        return True
+
+                    if self.out_ra_as is not None:
+                        return True
+
+                    if self.out_ra_rs is not None:
+                        return True
+
+                    if self.out_st_as is not None:
+                        return True
+
+                    if self.out_st_rs is not None:
+                        return True
+
+                    if self.peer_index is not None:
+                        return True
+
+                    if self.peer_name is not None:
+                        return True
+
+                    if self.peer_type is not None:
+                        return True
+
+                    if self.port is not None:
+                        return True
+
+                    if self.port_connect is not None:
+                        return True
+
+                    if self.protocol_type is not None:
+                        return True
+
+                    if self.received_permanent_fails is not None:
+                        return True
+
+                    if self.received_proto_errors is not None:
+                        return True
+
+                    if self.received_transient_fails is not None:
+                        return True
+
+                    if self.security_type is not None:
+                        return True
+
+                    if self.sent_permanent_fails is not None:
+                        return True
+
+                    if self.sent_proto_errors is not None:
+                        return True
+
+                    if self.sent_transient_fails is not None:
+                        return True
+
+                    if self.source_interface is not None:
+                        return True
+
+                    if self.state is not None:
+                        return True
+
+                    if self.state_duration is not None:
+                        return True
+
+                    if self.transaction_timer is not None:
+                        return True
+
+                    if self.transport_down is not None:
+                        return True
+
+                    if self.vrf_name is not None:
+                        return True
+
+                    if self.watchdog_timer is not None:
+                        return True
+
+                    if self.who_init_disconnect is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Diameter.Peers.Peer']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/Cisco-IOS-XR-aaa-diameter-oper:peers'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.conn_retry_timer is not None:
+                    return True
+
+                if self.origin_host is not None:
+                    return True
+
+                if self.origin_realm is not None:
+                    return True
+
+                if self.peer is not None:
+                    for child_ref in self.peer:
+                        if child_ref._has_data():
+                            return True
+
+                if self.source_interface is not None:
+                    return True
+
+                if self.tls_trustpoint is not None:
+                    return True
+
+                if self.trans_max is not None:
+                    return True
+
+                if self.trans_total is not None:
+                    return True
+
+                if self.transaction_timer is not None:
+                    return True
+
+                if self.watchdog_timer is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Diameter.Peers']['meta_info']
+
+
+        class Nas(object):
+            """
+            Diameter NAS data
+            
+            .. attribute:: aaanas_id
+            
+            	AAA NAS id
+            	**type**\:  str
+            
+            .. attribute:: list_of_nas
+            
+            	List of NAS Entries
+            	**type**\: list of    :py:class:`ListOfNas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Nas.ListOfNas>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-diameter-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.aaanas_id = None
+                self.list_of_nas = YList()
+                self.list_of_nas.parent = self
+                self.list_of_nas.name = 'list_of_nas'
+
+
+            class ListOfNas(object):
+                """
+                List of NAS Entries
+                
+                .. attribute:: aaa_session_id
+                
+                	AAA session id
+                	**type**\:  str
+                
+                .. attribute:: accounting_intrim_in_packets
+                
+                	Accounting intrim packet response in
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: accounting_intrim_out_packets
+                
+                	Accounting intrim requests packets out
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: accounting_status
+                
+                	Diameter ACR status start
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: accounting_status_stop
+                
+                	Diameter ACR status stop
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: authentication_status
+                
+                	Diameter AAR status
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: authorization_status
+                
+                	Diameter AAR status
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: diameter_session_id
+                
+                	Diameter session id
+                	**type**\:  str
+                
+                .. attribute:: disconnect_status
+                
+                	Diameter STR status
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: method_list
+                
+                	Method list used for authentication
+                	**type**\:  str
+                
+                .. attribute:: server_used_list
+                
+                	Server used for authentication
+                	**type**\:  str
+                
+                
+
+                """
+
+                _prefix = 'aaa-diameter-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.aaa_session_id = None
+                    self.accounting_intrim_in_packets = None
+                    self.accounting_intrim_out_packets = None
+                    self.accounting_status = None
+                    self.accounting_status_stop = None
+                    self.authentication_status = None
+                    self.authorization_status = None
+                    self.diameter_session_id = None
+                    self.disconnect_status = None
+                    self.method_list = None
+                    self.server_used_list = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/Cisco-IOS-XR-aaa-diameter-oper:nas/Cisco-IOS-XR-aaa-diameter-oper:list-of-nas'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.aaa_session_id is not None:
+                        return True
+
+                    if self.accounting_intrim_in_packets is not None:
+                        return True
+
+                    if self.accounting_intrim_out_packets is not None:
+                        return True
+
+                    if self.accounting_status is not None:
+                        return True
+
+                    if self.accounting_status_stop is not None:
+                        return True
+
+                    if self.authentication_status is not None:
+                        return True
+
+                    if self.authorization_status is not None:
+                        return True
+
+                    if self.diameter_session_id is not None:
+                        return True
+
+                    if self.disconnect_status is not None:
+                        return True
+
+                    if self.method_list is not None:
+                        return True
+
+                    if self.server_used_list is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Diameter.Nas.ListOfNas']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/Cisco-IOS-XR-aaa-diameter-oper:nas'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.aaanas_id is not None:
+                    return True
+
+                if self.list_of_nas is not None:
+                    for child_ref in self.list_of_nas:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Diameter.Nas']['meta_info']
+
+
+        class NasSummary(object):
+            """
+            Diameter NAS summary
+            
+            .. attribute:: accounting_interim_failed_packets
+            
+            	Accounting interim response with failure
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: accounting_interim_request_in_packets
+            
+            	Accounting Interim request from cleint
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: accounting_interim_request_out_packets
+            
+            	Accounting interim requests packets out
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: accounting_interim_response_out_packets
+            
+            	Accounting interim response frwd to client
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: accounting_interim_success_packets
+            
+            	Accounting interim response with success
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: accounting_intrim_response_in_packets
+            
+            	Accounting interim packet response in
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: accounting_request_out_packets
+            
+            	Accounting requests packets out
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: accounting_response_in_packets
+            
+            	Accounting packet response in
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: accounting_start_failed_packets
+            
+            	Accounting start response with failure
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: accounting_start_request_packets
+            
+            	Accounting start request from cleint
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: accounting_start_response_packets
+            
+            	Accounting start response forward to client
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: accounting_start_success_packets
+            
+            	Accounting start response with success
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: accounting_stop_failed_packets
+            
+            	Accounting stop response with failure
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: accounting_stop_request_in_packets
+            
+            	Acct stop request from cleint
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: accounting_stop_request_out_packets
+            
+            	Accounting stop requests packets out
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: accounting_stop_response_in_packets
+            
+            	Accounting stop packet response in
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: accounting_stop_response_out_packets
+            
+            	Acct stop response forward to client
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: accounting_stop_success_response_packets
+            
+            	Accounting stop response with success
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: authen_request_in_packets
+            
+            	Authentication request from client
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: authen_request_out_packets
+            
+            	Authentication request pkt out
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: authen_response_fail_packets
+            
+            	Authentication response with failure
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: authen_response_in_packets
+            
+            	Authentication response pkt in
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: authen_response_out_packets
+            
+            	Authentication response frwd to client
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: authen_success_packets
+            
+            	Authentication response with success
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: authorization_in_packets
+            
+            	Authorization response packet in
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: authorization_out_packets
+            
+            	Authorization request packet out
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: authorization_request_in_packets
+            
+            	Authourization request from cleint
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: authorization_response_fail_packets
+            
+            	Authentication response with failure
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: authorization_response_out_packets
+            
+            	Authourization response frwd to client
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: authorization_response_success_packets
+            
+            	Authentication response with success
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: coa_failed_packets
+            
+            	COA response with failure
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: coa_request_in_packets
+            
+            	COA/RAR Request packet in
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: coa_request_packets
+            
+            	COA request from client
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: coa_response_out_packets
+            
+            	COA/RAR Response packet out
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: coa_response_packets
+            
+            	COA response forward to client
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: coa_success_packets
+            
+            	COA response with success
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: disconnect_failed_response_packets
+            
+            	Disconnect response with failure
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: disconnect_request_in_packets
+            
+            	Disconnect request from cleint
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: disconnect_request_out_packets
+            
+            	Disconnect request pkt out
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: disconnect_response_in_packets
+            
+            	Disconnect response packets in
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: disconnect_response_out_packets
+            
+            	Disconnect response forward to client
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: disconnect_success_response_packets
+            
+            	Disconnect response with success
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: pod_failed_packets
+            
+            	POD response with failure
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: pod_in_packets
+            
+            	POD/RAR Request packets in
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: pod_out_packets
+            
+            	PAD/RAR Response packets out
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: pod_request_in_packets
+            
+            	POD request from cleint
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: pod_response_out_packets
+            
+            	POD response forward to client
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: pod_success_packets
+            
+            	POD response with success
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'aaa-diameter-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.accounting_interim_failed_packets = None
+                self.accounting_interim_request_in_packets = None
+                self.accounting_interim_request_out_packets = None
+                self.accounting_interim_response_out_packets = None
+                self.accounting_interim_success_packets = None
+                self.accounting_intrim_response_in_packets = None
+                self.accounting_request_out_packets = None
+                self.accounting_response_in_packets = None
+                self.accounting_start_failed_packets = None
+                self.accounting_start_request_packets = None
+                self.accounting_start_response_packets = None
+                self.accounting_start_success_packets = None
+                self.accounting_stop_failed_packets = None
+                self.accounting_stop_request_in_packets = None
+                self.accounting_stop_request_out_packets = None
+                self.accounting_stop_response_in_packets = None
+                self.accounting_stop_response_out_packets = None
+                self.accounting_stop_success_response_packets = None
+                self.authen_request_in_packets = None
+                self.authen_request_out_packets = None
+                self.authen_response_fail_packets = None
+                self.authen_response_in_packets = None
+                self.authen_response_out_packets = None
+                self.authen_success_packets = None
+                self.authorization_in_packets = None
+                self.authorization_out_packets = None
+                self.authorization_request_in_packets = None
+                self.authorization_response_fail_packets = None
+                self.authorization_response_out_packets = None
+                self.authorization_response_success_packets = None
+                self.coa_failed_packets = None
+                self.coa_request_in_packets = None
+                self.coa_request_packets = None
+                self.coa_response_out_packets = None
+                self.coa_response_packets = None
+                self.coa_success_packets = None
+                self.disconnect_failed_response_packets = None
+                self.disconnect_request_in_packets = None
+                self.disconnect_request_out_packets = None
+                self.disconnect_response_in_packets = None
+                self.disconnect_response_out_packets = None
+                self.disconnect_success_response_packets = None
+                self.pod_failed_packets = None
+                self.pod_in_packets = None
+                self.pod_out_packets = None
+                self.pod_request_in_packets = None
+                self.pod_response_out_packets = None
+                self.pod_success_packets = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/Cisco-IOS-XR-aaa-diameter-oper:nas-summary'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.accounting_interim_failed_packets is not None:
+                    return True
+
+                if self.accounting_interim_request_in_packets is not None:
+                    return True
+
+                if self.accounting_interim_request_out_packets is not None:
+                    return True
+
+                if self.accounting_interim_response_out_packets is not None:
+                    return True
+
+                if self.accounting_interim_success_packets is not None:
+                    return True
+
+                if self.accounting_intrim_response_in_packets is not None:
+                    return True
+
+                if self.accounting_request_out_packets is not None:
+                    return True
+
+                if self.accounting_response_in_packets is not None:
+                    return True
+
+                if self.accounting_start_failed_packets is not None:
+                    return True
+
+                if self.accounting_start_request_packets is not None:
+                    return True
+
+                if self.accounting_start_response_packets is not None:
+                    return True
+
+                if self.accounting_start_success_packets is not None:
+                    return True
+
+                if self.accounting_stop_failed_packets is not None:
+                    return True
+
+                if self.accounting_stop_request_in_packets is not None:
+                    return True
+
+                if self.accounting_stop_request_out_packets is not None:
+                    return True
+
+                if self.accounting_stop_response_in_packets is not None:
+                    return True
+
+                if self.accounting_stop_response_out_packets is not None:
+                    return True
+
+                if self.accounting_stop_success_response_packets is not None:
+                    return True
+
+                if self.authen_request_in_packets is not None:
+                    return True
+
+                if self.authen_request_out_packets is not None:
+                    return True
+
+                if self.authen_response_fail_packets is not None:
+                    return True
+
+                if self.authen_response_in_packets is not None:
+                    return True
+
+                if self.authen_response_out_packets is not None:
+                    return True
+
+                if self.authen_success_packets is not None:
+                    return True
+
+                if self.authorization_in_packets is not None:
+                    return True
+
+                if self.authorization_out_packets is not None:
+                    return True
+
+                if self.authorization_request_in_packets is not None:
+                    return True
+
+                if self.authorization_response_fail_packets is not None:
+                    return True
+
+                if self.authorization_response_out_packets is not None:
+                    return True
+
+                if self.authorization_response_success_packets is not None:
+                    return True
+
+                if self.coa_failed_packets is not None:
+                    return True
+
+                if self.coa_request_in_packets is not None:
+                    return True
+
+                if self.coa_request_packets is not None:
+                    return True
+
+                if self.coa_response_out_packets is not None:
+                    return True
+
+                if self.coa_response_packets is not None:
+                    return True
+
+                if self.coa_success_packets is not None:
+                    return True
+
+                if self.disconnect_failed_response_packets is not None:
+                    return True
+
+                if self.disconnect_request_in_packets is not None:
+                    return True
+
+                if self.disconnect_request_out_packets is not None:
+                    return True
+
+                if self.disconnect_response_in_packets is not None:
+                    return True
+
+                if self.disconnect_response_out_packets is not None:
+                    return True
+
+                if self.disconnect_success_response_packets is not None:
+                    return True
+
+                if self.pod_failed_packets is not None:
+                    return True
+
+                if self.pod_in_packets is not None:
+                    return True
+
+                if self.pod_out_packets is not None:
+                    return True
+
+                if self.pod_request_in_packets is not None:
+                    return True
+
+                if self.pod_response_out_packets is not None:
+                    return True
+
+                if self.pod_success_packets is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Diameter.NasSummary']['meta_info']
+
+
+        class GySessionIds(object):
+            """
+            Diameter Gy Session data list
+            
+            .. attribute:: gy_session_id
+            
+            	Diameter Gy Session data
+            	**type**\: list of    :py:class:`GySessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GySessionIds.GySessionId>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-diameter-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.gy_session_id = YList()
+                self.gy_session_id.parent = self
+                self.gy_session_id.name = 'gy_session_id'
+
+
+            class GySessionId(object):
+                """
+                Diameter Gy Session data
+                
+                .. attribute:: session_id  <key>
+                
+                	Session Id
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: aaa_session_id
+                
+                	AAA session id
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: diameter_session_id
+                
+                	Diameter session id
+                	**type**\:  str
+                
+                .. attribute:: parent_aaa_session_id
+                
+                	AAA Parent session id
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: request_number
+                
+                	Request Number
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: request_type
+                
+                	Request Type
+                	**type**\:  str
+                
+                .. attribute:: retry_count
+                
+                	Gy Retry count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: session_state
+                
+                	Session State
+                	**type**\:  str
+                
+                
+
+                """
+
+                _prefix = 'aaa-diameter-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.session_id = None
+                    self.aaa_session_id = None
+                    self.diameter_session_id = None
+                    self.parent_aaa_session_id = None
+                    self.request_number = None
+                    self.request_type = None
+                    self.retry_count = None
+                    self.session_state = None
+
+                @property
+                def _common_path(self):
+                    if self.session_id is None:
+                        raise YPYModelError('Key property session_id is None')
+
+                    return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/Cisco-IOS-XR-aaa-diameter-oper:gy-session-ids/Cisco-IOS-XR-aaa-diameter-oper:gy-session-id[Cisco-IOS-XR-aaa-diameter-oper:session-id = ' + str(self.session_id) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.session_id is not None:
+                        return True
+
+                    if self.aaa_session_id is not None:
+                        return True
+
+                    if self.diameter_session_id is not None:
+                        return True
+
+                    if self.parent_aaa_session_id is not None:
+                        return True
+
+                    if self.request_number is not None:
+                        return True
+
+                    if self.request_type is not None:
+                        return True
+
+                    if self.retry_count is not None:
+                        return True
+
+                    if self.session_state is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Diameter.GySessionIds.GySessionId']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/Cisco-IOS-XR-aaa-diameter-oper:gy-session-ids'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.gy_session_id is not None:
+                    for child_ref in self.gy_session_id:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Diameter.GySessionIds']['meta_info']
+
+
+        class GyStatistics(object):
+            """
+            Diameter Gy Statistics data
+            
+            .. attribute:: active_sessions
+            
+            	Total Active Sessions
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: asa_sent_error_messages
+            
+            	ASA Sent Messages Error
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: asa_sent_messages
+            
+            	ASA Sent Messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: asr_received_error_messages
+            
+            	ASR Received Messages Error
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: asr_received_messages
+            
+            	ASR Received Messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cca_final_error_messages
+            
+            	CCA Final Messages Error
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cca_final_messages
+            
+            	CCA Final Messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cca_init_error_messages
+            
+            	CCA Initial Messages Error
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cca_init_messages
+            
+            	CCA Initial Messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cca_update_error_messages
+            
+            	CCA Update Messages Error
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cca_update_messages
+            
+            	CCA Update Messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_final_failed_messages
+            
+            	CCR Final Messages Failed
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_final_messages
+            
+            	CCR Final Messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_final_retry_messages
+            
+            	CCR Final Messages retry
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_final_timed_out_messages
+            
+            	CCR Final Messages Timed Out
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_init_failed_messages
+            
+            	CCR Initial Messages Failed
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_init_messages
+            
+            	CCR Initial Messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_init_retry_messages
+            
+            	CCR Initial Messages retry
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_init_timed_out_messages
+            
+            	CCR Initial Messages Timed Out
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_update_failed_messages
+            
+            	CCR Update Messages Failed
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_update_messages
+            
+            	CCR Update Messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_update_retry_messages
+            
+            	CCR Update Messages retry
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ccr_update_timed_out_messages
+            
+            	CCR Update Messages Timed Out
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: close_sessions
+            
+            	Total Closed Sessions
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: open_sessions
+            
+            	Total Opened Sessions
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: raa_sent_error_messages
+            
+            	RAA Sent Messages Error
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: raa_sent_messages
+            
+            	RAA Sent Messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: rar_received_error_messages
+            
+            	RAR Received Messages Error
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: rar_received_messages
+            
+            	RAR Received Messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: restore_sessions
+            
+            	Restore Sessions
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: unknown_request_messages
+            
+            	Unknown Request Messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'aaa-diameter-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.active_sessions = None
+                self.asa_sent_error_messages = None
+                self.asa_sent_messages = None
+                self.asr_received_error_messages = None
+                self.asr_received_messages = None
+                self.cca_final_error_messages = None
+                self.cca_final_messages = None
+                self.cca_init_error_messages = None
+                self.cca_init_messages = None
+                self.cca_update_error_messages = None
+                self.cca_update_messages = None
+                self.ccr_final_failed_messages = None
+                self.ccr_final_messages = None
+                self.ccr_final_retry_messages = None
+                self.ccr_final_timed_out_messages = None
+                self.ccr_init_failed_messages = None
+                self.ccr_init_messages = None
+                self.ccr_init_retry_messages = None
+                self.ccr_init_timed_out_messages = None
+                self.ccr_update_failed_messages = None
+                self.ccr_update_messages = None
+                self.ccr_update_retry_messages = None
+                self.ccr_update_timed_out_messages = None
+                self.close_sessions = None
+                self.open_sessions = None
+                self.raa_sent_error_messages = None
+                self.raa_sent_messages = None
+                self.rar_received_error_messages = None
+                self.rar_received_messages = None
+                self.restore_sessions = None
+                self.unknown_request_messages = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/Cisco-IOS-XR-aaa-diameter-oper:gy-statistics'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.active_sessions is not None:
+                    return True
+
+                if self.asa_sent_error_messages is not None:
+                    return True
+
+                if self.asa_sent_messages is not None:
+                    return True
+
+                if self.asr_received_error_messages is not None:
+                    return True
+
+                if self.asr_received_messages is not None:
+                    return True
+
+                if self.cca_final_error_messages is not None:
+                    return True
+
+                if self.cca_final_messages is not None:
+                    return True
+
+                if self.cca_init_error_messages is not None:
+                    return True
+
+                if self.cca_init_messages is not None:
+                    return True
+
+                if self.cca_update_error_messages is not None:
+                    return True
+
+                if self.cca_update_messages is not None:
+                    return True
+
+                if self.ccr_final_failed_messages is not None:
+                    return True
+
+                if self.ccr_final_messages is not None:
+                    return True
+
+                if self.ccr_final_retry_messages is not None:
+                    return True
+
+                if self.ccr_final_timed_out_messages is not None:
+                    return True
+
+                if self.ccr_init_failed_messages is not None:
+                    return True
+
+                if self.ccr_init_messages is not None:
+                    return True
+
+                if self.ccr_init_retry_messages is not None:
+                    return True
+
+                if self.ccr_init_timed_out_messages is not None:
+                    return True
+
+                if self.ccr_update_failed_messages is not None:
+                    return True
+
+                if self.ccr_update_messages is not None:
+                    return True
+
+                if self.ccr_update_retry_messages is not None:
+                    return True
+
+                if self.ccr_update_timed_out_messages is not None:
+                    return True
+
+                if self.close_sessions is not None:
+                    return True
+
+                if self.open_sessions is not None:
+                    return True
+
+                if self.raa_sent_error_messages is not None:
+                    return True
+
+                if self.raa_sent_messages is not None:
+                    return True
+
+                if self.rar_received_error_messages is not None:
+                    return True
+
+                if self.rar_received_messages is not None:
+                    return True
+
+                if self.restore_sessions is not None:
+                    return True
+
+                if self.unknown_request_messages is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Diameter.GyStatistics']['meta_info']
+
+
+        class GxSessionIds(object):
+            """
+            Diameter Gx Session data list
+            
+            .. attribute:: gx_session_id
+            
+            	Diameter Gx Session data
+            	**type**\: list of    :py:class:`GxSessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GxSessionIds.GxSessionId>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-diameter-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.gx_session_id = YList()
+                self.gx_session_id.parent = self
+                self.gx_session_id.name = 'gx_session_id'
+
+
+            class GxSessionId(object):
+                """
+                Diameter Gx Session data
+                
+                .. attribute:: session_id  <key>
+                
+                	Session Id
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: aaa_session_id
+                
+                	AAA session id
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: diameter_session_id
+                
+                	Diameter session id
+                	**type**\:  str
+                
+                .. attribute:: request_number
+                
+                	Request Number
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: request_type
+                
+                	Request Type
+                	**type**\:  str
+                
+                .. attribute:: retry_count
+                
+                	Gx Retry count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: session_state
+                
+                	Session State
+                	**type**\:  str
+                
+                
+
+                """
+
+                _prefix = 'aaa-diameter-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.session_id = None
+                    self.aaa_session_id = None
+                    self.diameter_session_id = None
+                    self.request_number = None
+                    self.request_type = None
+                    self.retry_count = None
+                    self.session_state = None
+
+                @property
+                def _common_path(self):
+                    if self.session_id is None:
+                        raise YPYModelError('Key property session_id is None')
+
+                    return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/Cisco-IOS-XR-aaa-diameter-oper:gx-session-ids/Cisco-IOS-XR-aaa-diameter-oper:gx-session-id[Cisco-IOS-XR-aaa-diameter-oper:session-id = ' + str(self.session_id) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.session_id is not None:
+                        return True
+
+                    if self.aaa_session_id is not None:
+                        return True
+
+                    if self.diameter_session_id is not None:
+                        return True
+
+                    if self.request_number is not None:
+                        return True
+
+                    if self.request_type is not None:
+                        return True
+
+                    if self.retry_count is not None:
+                        return True
+
+                    if self.session_state is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Diameter.GxSessionIds.GxSessionId']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/Cisco-IOS-XR-aaa-diameter-oper:gx-session-ids'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.gx_session_id is not None:
+                    for child_ref in self.gx_session_id:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Diameter.GxSessionIds']['meta_info']
+
+
+        class NasSession(object):
+            """
+            Diameter Nas Session data
+            
+            .. attribute:: aaanas_id
+            
+            	AAA NAS id
+            	**type**\:  str
+            
+            .. attribute:: list_of_nas
+            
+            	List of NAS Entries
+            	**type**\: list of    :py:class:`ListOfNas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.NasSession.ListOfNas>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-diameter-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.aaanas_id = None
+                self.list_of_nas = YList()
+                self.list_of_nas.parent = self
+                self.list_of_nas.name = 'list_of_nas'
+
+
+            class ListOfNas(object):
+                """
+                List of NAS Entries
+                
+                .. attribute:: aaa_session_id
+                
+                	AAA session id
+                	**type**\:  str
+                
+                .. attribute:: accounting_intrim_in_packets
+                
+                	Accounting intrim packet response in
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: accounting_intrim_out_packets
+                
+                	Accounting intrim requests packets out
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: accounting_status
+                
+                	Diameter ACR status start
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: accounting_status_stop
+                
+                	Diameter ACR status stop
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: authentication_status
+                
+                	Diameter AAR status
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: authorization_status
+                
+                	Diameter AAR status
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: diameter_session_id
+                
+                	Diameter session id
+                	**type**\:  str
+                
+                .. attribute:: disconnect_status
+                
+                	Diameter STR status
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: method_list
+                
+                	Method list used for authentication
+                	**type**\:  str
+                
+                .. attribute:: server_used_list
+                
+                	Server used for authentication
+                	**type**\:  str
+                
+                
+
+                """
+
+                _prefix = 'aaa-diameter-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.aaa_session_id = None
+                    self.accounting_intrim_in_packets = None
+                    self.accounting_intrim_out_packets = None
+                    self.accounting_status = None
+                    self.accounting_status_stop = None
+                    self.authentication_status = None
+                    self.authorization_status = None
+                    self.diameter_session_id = None
+                    self.disconnect_status = None
+                    self.method_list = None
+                    self.server_used_list = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/Cisco-IOS-XR-aaa-diameter-oper:nas-session/Cisco-IOS-XR-aaa-diameter-oper:list-of-nas'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.aaa_session_id is not None:
+                        return True
+
+                    if self.accounting_intrim_in_packets is not None:
+                        return True
+
+                    if self.accounting_intrim_out_packets is not None:
+                        return True
+
+                    if self.accounting_status is not None:
+                        return True
+
+                    if self.accounting_status_stop is not None:
+                        return True
+
+                    if self.authentication_status is not None:
+                        return True
+
+                    if self.authorization_status is not None:
+                        return True
+
+                    if self.diameter_session_id is not None:
+                        return True
+
+                    if self.disconnect_status is not None:
+                        return True
+
+                    if self.method_list is not None:
+                        return True
+
+                    if self.server_used_list is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Diameter.NasSession.ListOfNas']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter/Cisco-IOS-XR-aaa-diameter-oper:nas-session'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.aaanas_id is not None:
+                    return True
+
+                if self.list_of_nas is not None:
+                    for child_ref in self.list_of_nas:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Diameter.NasSession']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-diameter-oper:diameter'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.gx is not None and self.gx._has_data():
+                return True
+
+            if self.gx_session_ids is not None and self.gx_session_ids._has_data():
+                return True
+
+            if self.gx_statistics is not None and self.gx_statistics._has_data():
+                return True
+
+            if self.gy is not None and self.gy._has_data():
+                return True
+
+            if self.gy_session_ids is not None and self.gy_session_ids._has_data():
+                return True
+
+            if self.gy_statistics is not None and self.gy_statistics._has_data():
+                return True
+
+            if self.nas is not None and self.nas._has_data():
+                return True
+
+            if self.nas_session is not None and self.nas_session._has_data():
+                return True
+
+            if self.nas_summary is not None and self.nas_summary._has_data():
+                return True
+
+            if self.peers is not None and self.peers._has_data():
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+            return meta._meta_table['Aaa.Diameter']['meta_info']
+
+
     class Radius(object):
         """
         RADIUS operational data
@@ -1716,6 +5815,11 @@ class Aaa(object):
         
         	RADIUS Client Information
         	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Global_>`
+        
+        .. attribute:: radius_source_interface
+        
+        	RADIUS source interfaces
+        	**type**\:   :py:class:`RadiusSourceInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.RadiusSourceInterface>`
         
         .. attribute:: servers
         
@@ -1733,6 +5837,8 @@ class Aaa(object):
             self.parent = None
             self.global_ = Aaa.Radius.Global_()
             self.global_.parent = self
+            self.radius_source_interface = Aaa.Radius.RadiusSourceInterface()
+            self.radius_source_interface.parent = self
             self.servers = Aaa.Radius.Servers()
             self.servers.parent = self
 
@@ -2794,6 +6900,129 @@ class Aaa(object):
                 return meta._meta_table['Aaa.Radius.Servers']['meta_info']
 
 
+        class RadiusSourceInterface(object):
+            """
+            RADIUS source interfaces
+            
+            .. attribute:: list_of_source_interface
+            
+            	List of source interfaces
+            	**type**\: list of    :py:class:`ListOfSourceInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-protocol-radius-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.list_of_source_interface = YList()
+                self.list_of_source_interface.parent = self
+                self.list_of_source_interface.name = 'list_of_source_interface'
+
+
+            class ListOfSourceInterface(object):
+                """
+                List of source interfaces
+                
+                .. attribute:: interface_name
+                
+                	Name of the source interface
+                	**type**\:  str
+                
+                .. attribute:: ipaddrv4
+                
+                	IP address buffer
+                	**type**\:  str
+                
+                	**length:** 0..16
+                
+                .. attribute:: ipaddrv6
+                
+                	IP address buffer
+                	**type**\:  str
+                
+                	**length:** 0..46
+                
+                .. attribute:: vrfid
+                
+                	VRF Id
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'aaa-protocol-radius-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.interface_name = None
+                    self.ipaddrv4 = None
+                    self.ipaddrv6 = None
+                    self.vrfid = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/Cisco-IOS-XR-aaa-protocol-radius-oper:radius-source-interface/Cisco-IOS-XR-aaa-protocol-radius-oper:list-of-source-interface'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.interface_name is not None:
+                        return True
+
+                    if self.ipaddrv4 is not None:
+                        return True
+
+                    if self.ipaddrv6 is not None:
+                        return True
+
+                    if self.vrfid is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/Cisco-IOS-XR-aaa-protocol-radius-oper:radius-source-interface'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.list_of_source_interface is not None:
+                    for child_ref in self.list_of_source_interface:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Radius.RadiusSourceInterface']['meta_info']
+
+
         class Global_(object):
             """
             RADIUS Client Information
@@ -2882,6 +7111,9 @@ class Aaa(object):
             if self.global_ is not None and self.global_._has_data():
                 return True
 
+            if self.radius_source_interface is not None and self.radius_source_interface._has_data():
+                return True
+
             if self.servers is not None and self.servers._has_data():
                 return True
 
@@ -2891,938 +7123,6 @@ class Aaa(object):
         def _meta_info():
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
             return meta._meta_table['Aaa.Radius']['meta_info']
-
-
-    class Tacacs(object):
-        """
-        TACACS operational data
-        
-        .. attribute:: requests
-        
-        	TACACS Active Request List
-        	**type**\:   :py:class:`Requests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests>`
-        
-        .. attribute:: server_groups
-        
-        	TACACS sg Information
-        	**type**\:   :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups>`
-        
-        .. attribute:: servers
-        
-        	TACACS server Information
-        	**type**\:   :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers>`
-        
-        
-
-        """
-
-        _prefix = 'aaa-tacacs-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.requests = Aaa.Tacacs.Requests()
-            self.requests.parent = self
-            self.server_groups = Aaa.Tacacs.ServerGroups()
-            self.server_groups.parent = self
-            self.servers = Aaa.Tacacs.Servers()
-            self.servers.parent = self
-
-
-        class Requests(object):
-            """
-            TACACS Active Request List
-            
-            .. attribute:: request
-            
-            	request
-            	**type**\: list of    :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-tacacs-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.request = YList()
-                self.request.parent = self
-                self.request.name = 'request'
-
-
-            class Request(object):
-                """
-                request
-                
-                .. attribute:: tacacs_requestbag
-                
-                	tacacs requestbag
-                	**type**\: list of    :py:class:`TacacsRequestbag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request.TacacsRequestbag>`
-                
-                
-
-                """
-
-                _prefix = 'aaa-tacacs-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.tacacs_requestbag = YList()
-                    self.tacacs_requestbag.parent = self
-                    self.tacacs_requestbag.name = 'tacacs_requestbag'
-
-
-                class TacacsRequestbag(object):
-                    """
-                    tacacs requestbag
-                    
-                    .. attribute:: bytes_in
-                    
-                    	bytes read from socket
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: bytes_out
-                    
-                    	bytes written
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: in_pak_size
-                    
-                    	size of the packet to be received
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: out_pak_size
-                    
-                    	size of the packet to be sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: pak_type
-                    
-                    	the type of packet
-                    	**type**\:  str
-                    
-                    .. attribute:: session_id
-                    
-                    	same as in pkt hdr
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: sock
-                    
-                    	socket number
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: time_remaining
-                    
-                    	time remaining for this request
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-tacacs-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.bytes_in = None
-                        self.bytes_out = None
-                        self.in_pak_size = None
-                        self.out_pak_size = None
-                        self.pak_type = None
-                        self.session_id = None
-                        self.sock = None
-                        self.time_remaining = None
-
-                    @property
-                    def _common_path(self):
-
-                        return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:requests/Cisco-IOS-XR-aaa-tacacs-oper:request/Cisco-IOS-XR-aaa-tacacs-oper:tacacs-requestbag'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.bytes_in is not None:
-                            return True
-
-                        if self.bytes_out is not None:
-                            return True
-
-                        if self.in_pak_size is not None:
-                            return True
-
-                        if self.out_pak_size is not None:
-                            return True
-
-                        if self.pak_type is not None:
-                            return True
-
-                        if self.session_id is not None:
-                            return True
-
-                        if self.sock is not None:
-                            return True
-
-                        if self.time_remaining is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
-                        return meta._meta_table['Aaa.Tacacs.Requests.Request.TacacsRequestbag']['meta_info']
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:requests/Cisco-IOS-XR-aaa-tacacs-oper:request'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.tacacs_requestbag is not None:
-                        for child_ref in self.tacacs_requestbag:
-                            if child_ref._has_data():
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
-                    return meta._meta_table['Aaa.Tacacs.Requests.Request']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:requests'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.request is not None:
-                    for child_ref in self.request:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
-                return meta._meta_table['Aaa.Tacacs.Requests']['meta_info']
-
-
-        class Servers(object):
-            """
-            TACACS server Information
-            
-            .. attribute:: server
-            
-            	server
-            	**type**\: list of    :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers.Server>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-tacacs-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.server = YList()
-                self.server.parent = self
-                self.server.name = 'server'
-
-
-            class Server(object):
-                """
-                server
-                
-                .. attribute:: aborts
-                
-                	abort count
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: addr
-                
-                	internet address of T+ server
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: addr_buf
-                
-                	IP address buffer
-                	**type**\:  str
-                
-                	**length:** 0..46
-                
-                .. attribute:: bytes_in
-                
-                	# of bytes read
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: byte
-                
-                .. attribute:: bytes_out
-                
-                	# of bytes out
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: byte
-                
-                .. attribute:: closes
-                
-                	socket closes
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: conn_up
-                
-                	is the server connected ?
-                	**type**\:  bool
-                
-                .. attribute:: errors
-                
-                	error count
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: family
-                
-                	IP address Family
-                	**type**\:  str
-                
-                	**length:** 0..5
-                
-                .. attribute:: is_private
-                
-                	is this a private server ?
-                	**type**\:  bool
-                
-                .. attribute:: opens
-                
-                	socket opens
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: paks_in
-                
-                	# of incoming packets read
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: paks_out
-                
-                	# of outgoing packets sent
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: port
-                
-                	per server port to use
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: replies_expected
-                
-                	# of replies expected to arrive
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: single_connect
-                
-                	is this a single connect server ?
-                	**type**\:  bool
-                
-                .. attribute:: timeout
-                
-                	per\-server timeout
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: up
-                
-                	is the server UP or down ?
-                	**type**\:  bool
-                
-                .. attribute:: vrf_name
-                
-                	VRF in which server is reachable
-                	**type**\:  str
-                
-                	**length:** 0..33
-                
-                
-
-                """
-
-                _prefix = 'aaa-tacacs-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.aborts = None
-                    self.addr = None
-                    self.addr_buf = None
-                    self.bytes_in = None
-                    self.bytes_out = None
-                    self.closes = None
-                    self.conn_up = None
-                    self.errors = None
-                    self.family = None
-                    self.is_private = None
-                    self.opens = None
-                    self.paks_in = None
-                    self.paks_out = None
-                    self.port = None
-                    self.replies_expected = None
-                    self.single_connect = None
-                    self.timeout = None
-                    self.up = None
-                    self.vrf_name = None
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:servers/Cisco-IOS-XR-aaa-tacacs-oper:server'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.aborts is not None:
-                        return True
-
-                    if self.addr is not None:
-                        return True
-
-                    if self.addr_buf is not None:
-                        return True
-
-                    if self.bytes_in is not None:
-                        return True
-
-                    if self.bytes_out is not None:
-                        return True
-
-                    if self.closes is not None:
-                        return True
-
-                    if self.conn_up is not None:
-                        return True
-
-                    if self.errors is not None:
-                        return True
-
-                    if self.family is not None:
-                        return True
-
-                    if self.is_private is not None:
-                        return True
-
-                    if self.opens is not None:
-                        return True
-
-                    if self.paks_in is not None:
-                        return True
-
-                    if self.paks_out is not None:
-                        return True
-
-                    if self.port is not None:
-                        return True
-
-                    if self.replies_expected is not None:
-                        return True
-
-                    if self.single_connect is not None:
-                        return True
-
-                    if self.timeout is not None:
-                        return True
-
-                    if self.up is not None:
-                        return True
-
-                    if self.vrf_name is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
-                    return meta._meta_table['Aaa.Tacacs.Servers.Server']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:servers'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.server is not None:
-                    for child_ref in self.server:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
-                return meta._meta_table['Aaa.Tacacs.Servers']['meta_info']
-
-
-        class ServerGroups(object):
-            """
-            TACACS sg Information
-            
-            .. attribute:: server_group
-            
-            	server group
-            	**type**\: list of    :py:class:`ServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-tacacs-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.server_group = YList()
-                self.server_group.parent = self
-                self.server_group.name = 'server_group'
-
-
-            class ServerGroup(object):
-                """
-                server group
-                
-                .. attribute:: group_name
-                
-                	name of the server group
-                	**type**\:  str
-                
-                .. attribute:: server
-                
-                	list of servers in this group
-                	**type**\: list of    :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup.Server>`
-                
-                .. attribute:: sg_map_num
-                
-                	server group mapped number
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: vrf_name
-                
-                	vrf of the group
-                	**type**\:  str
-                
-                	**length:** 0..33
-                
-                
-
-                """
-
-                _prefix = 'aaa-tacacs-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.group_name = None
-                    self.server = YList()
-                    self.server.parent = self
-                    self.server.name = 'server'
-                    self.sg_map_num = None
-                    self.vrf_name = None
-
-
-                class Server(object):
-                    """
-                    list of servers in this group
-                    
-                    .. attribute:: aborts
-                    
-                    	abort count
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: addr
-                    
-                    	internet address of T+ server
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: addr_buf
-                    
-                    	IP address buffer
-                    	**type**\:  str
-                    
-                    	**length:** 0..46
-                    
-                    .. attribute:: bytes_in
-                    
-                    	# of bytes read
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: bytes_out
-                    
-                    	# of bytes out
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: closes
-                    
-                    	socket closes
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: conn_up
-                    
-                    	is the server connected ?
-                    	**type**\:  bool
-                    
-                    .. attribute:: errors
-                    
-                    	error count
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: family
-                    
-                    	IP address Family
-                    	**type**\:  str
-                    
-                    	**length:** 0..5
-                    
-                    .. attribute:: is_private
-                    
-                    	is this a private server ?
-                    	**type**\:  bool
-                    
-                    .. attribute:: opens
-                    
-                    	socket opens
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: paks_in
-                    
-                    	# of incoming packets read
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: paks_out
-                    
-                    	# of outgoing packets sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: port
-                    
-                    	per server port to use
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: replies_expected
-                    
-                    	# of replies expected to arrive
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: single_connect
-                    
-                    	is this a single connect server ?
-                    	**type**\:  bool
-                    
-                    .. attribute:: timeout
-                    
-                    	per\-server timeout
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: up
-                    
-                    	is the server UP or down ?
-                    	**type**\:  bool
-                    
-                    .. attribute:: vrf_name
-                    
-                    	VRF in which server is reachable
-                    	**type**\:  str
-                    
-                    	**length:** 0..33
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-tacacs-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.aborts = None
-                        self.addr = None
-                        self.addr_buf = None
-                        self.bytes_in = None
-                        self.bytes_out = None
-                        self.closes = None
-                        self.conn_up = None
-                        self.errors = None
-                        self.family = None
-                        self.is_private = None
-                        self.opens = None
-                        self.paks_in = None
-                        self.paks_out = None
-                        self.port = None
-                        self.replies_expected = None
-                        self.single_connect = None
-                        self.timeout = None
-                        self.up = None
-                        self.vrf_name = None
-
-                    @property
-                    def _common_path(self):
-
-                        return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:server-groups/Cisco-IOS-XR-aaa-tacacs-oper:server-group/Cisco-IOS-XR-aaa-tacacs-oper:server'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.aborts is not None:
-                            return True
-
-                        if self.addr is not None:
-                            return True
-
-                        if self.addr_buf is not None:
-                            return True
-
-                        if self.bytes_in is not None:
-                            return True
-
-                        if self.bytes_out is not None:
-                            return True
-
-                        if self.closes is not None:
-                            return True
-
-                        if self.conn_up is not None:
-                            return True
-
-                        if self.errors is not None:
-                            return True
-
-                        if self.family is not None:
-                            return True
-
-                        if self.is_private is not None:
-                            return True
-
-                        if self.opens is not None:
-                            return True
-
-                        if self.paks_in is not None:
-                            return True
-
-                        if self.paks_out is not None:
-                            return True
-
-                        if self.port is not None:
-                            return True
-
-                        if self.replies_expected is not None:
-                            return True
-
-                        if self.single_connect is not None:
-                            return True
-
-                        if self.timeout is not None:
-                            return True
-
-                        if self.up is not None:
-                            return True
-
-                        if self.vrf_name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
-                        return meta._meta_table['Aaa.Tacacs.ServerGroups.ServerGroup.Server']['meta_info']
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:server-groups/Cisco-IOS-XR-aaa-tacacs-oper:server-group'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.group_name is not None:
-                        return True
-
-                    if self.server is not None:
-                        for child_ref in self.server:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.sg_map_num is not None:
-                        return True
-
-                    if self.vrf_name is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
-                    return meta._meta_table['Aaa.Tacacs.ServerGroups.ServerGroup']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:server-groups'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.server_group is not None:
-                    for child_ref in self.server_group:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
-                return meta._meta_table['Aaa.Tacacs.ServerGroups']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.requests is not None and self.requests._has_data():
-                return True
-
-            if self.server_groups is not None and self.server_groups._has_data():
-                return True
-
-            if self.servers is not None and self.servers._has_data():
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
-            return meta._meta_table['Aaa.Tacacs']['meta_info']
 
     @property
     def _common_path(self):
@@ -3846,6 +7146,9 @@ class Aaa(object):
             return True
 
         if self.currentuser_detail is not None and self.currentuser_detail._has_data():
+            return True
+
+        if self.diameter is not None and self.diameter._has_data():
             return True
 
         if self.radius is not None and self.radius._has_data():

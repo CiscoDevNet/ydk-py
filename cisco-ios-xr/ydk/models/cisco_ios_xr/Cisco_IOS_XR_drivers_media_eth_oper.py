@@ -4591,6 +4591,13 @@ class EthernetInterface(object):
                         	Digital Optical Monitoring alarms
                         	**type**\:   :py:class:`DigOptMonAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm>`
                         
+                        .. attribute:: lane_id
+                        
+                        	Numerical identifier for this lane
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: laser_bias_current
                         
                         	Laser Bias Current (uAmps)
@@ -4624,6 +4631,7 @@ class EthernetInterface(object):
                             self.center_wavelength = None
                             self.dig_opt_mon_alarm = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm()
                             self.dig_opt_mon_alarm.parent = self
+                            self.lane_id = None
                             self.laser_bias_current = None
                             self.received_laser_power = None
                             self.transmit_laser_power = None
@@ -4709,6 +4717,9 @@ class EthernetInterface(object):
                                 return True
 
                             if self.dig_opt_mon_alarm is not None and self.dig_opt_mon_alarm._has_data():
+                                return True
+
+                            if self.lane_id is not None:
                                 return True
 
                             if self.laser_bias_current is not None:
@@ -4963,6 +4974,11 @@ class EthernetInterface(object):
                 	Link state
                 	**type**\:   :py:class:`EtherLinkStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherLinkStateEnum>`
                 
+                .. attribute:: opd_monitoring
+                
+                	OPD monitoring details
+                	**type**\:   :py:class:`OpdMonitoring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring>`
+                
                 .. attribute:: pfc_info
                 
                 	Priority flow control information
@@ -5003,6 +5019,8 @@ class EthernetInterface(object):
                     self.laser_squelch_enabled = None
                     self.led_state = None
                     self.link_state = None
+                    self.opd_monitoring = EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring()
+                    self.opd_monitoring.parent = self
                     self.pfc_info = EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo()
                     self.pfc_info.parent = self
                     self.previous_alarms = EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms()
@@ -5149,6 +5167,11 @@ class EthernetInterface(object):
                     	Remote Fault
                     	**type**\:   :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
+                    .. attribute:: rx_opd_alarm
+                    
+                    	Rx OPD Alarm
+                    	**type**\:   :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    
                     .. attribute:: sd_ber_alarm
                     
                     	SD BER
@@ -5179,6 +5202,7 @@ class EthernetInterface(object):
                         self.pcs_loss_of_block_lock_alarm = None
                         self.received_loss_of_signal_alarm = None
                         self.remote_fault_alarm = None
+                        self.rx_opd_alarm = None
                         self.sd_ber_alarm = None
                         self.sf_ber_alarm = None
                         self.squelch_alarm = None
@@ -5213,6 +5237,9 @@ class EthernetInterface(object):
                             return True
 
                         if self.remote_fault_alarm is not None:
+                            return True
+
+                        if self.rx_opd_alarm is not None:
                             return True
 
                         if self.sd_ber_alarm is not None:
@@ -5266,6 +5293,11 @@ class EthernetInterface(object):
                     	Remote Fault
                     	**type**\:   :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
+                    .. attribute:: rx_opd_alarm
+                    
+                    	Rx OPD Alarm
+                    	**type**\:   :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    
                     .. attribute:: sd_ber_alarm
                     
                     	SD BER
@@ -5296,6 +5328,7 @@ class EthernetInterface(object):
                         self.pcs_loss_of_block_lock_alarm = None
                         self.received_loss_of_signal_alarm = None
                         self.remote_fault_alarm = None
+                        self.rx_opd_alarm = None
                         self.sd_ber_alarm = None
                         self.sf_ber_alarm = None
                         self.squelch_alarm = None
@@ -5330,6 +5363,9 @@ class EthernetInterface(object):
                             return True
 
                         if self.remote_fault_alarm is not None:
+                            return True
+
+                        if self.rx_opd_alarm is not None:
                             return True
 
                         if self.sd_ber_alarm is not None:
@@ -5555,6 +5591,121 @@ class EthernetInterface(object):
                         return meta._meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring']['meta_info']
 
 
+                class OpdMonitoring(object):
+                    """
+                    OPD monitoring details
+                    
+                    .. attribute:: settings
+                    
+                    	The OPD monitoring settings to be applied
+                    	**type**\:   :py:class:`Settings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings>`
+                    
+                    .. attribute:: supported
+                    
+                    	Whether or not OPD monitoring is supported
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    
+
+                    """
+
+                    _prefix = 'drivers-media-eth-oper'
+                    _revision = '2015-10-14'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.settings = EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings()
+                        self.settings.parent = self
+                        self.supported = None
+
+
+                    class Settings(object):
+                        """
+                        The OPD monitoring settings to be applied
+                        
+                        .. attribute:: received_optical_power_degrade_threshold
+                        
+                        	Rx\-OPD alarm threshold value
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: received_optical_power_degrade_threshold_set
+                        
+                        	Rx\-OPD alarm threshold set?
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        
+
+                        """
+
+                        _prefix = 'drivers-media-eth-oper'
+                        _revision = '2015-10-14'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.received_optical_power_degrade_threshold = None
+                            self.received_optical_power_degrade_threshold_set = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:settings'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.received_optical_power_degrade_threshold is not None:
+                                return True
+
+                            if self.received_optical_power_degrade_threshold_set is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                            return meta._meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:opd-monitoring'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.settings is not None and self.settings._has_data():
+                            return True
+
+                        if self.supported is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                        return meta._meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring']['meta_info']
+
+
                 class PfcInfo(object):
                     """
                     Priority flow control information
@@ -5688,6 +5839,9 @@ class EthernetInterface(object):
                         return True
 
                     if self.link_state is not None:
+                        return True
+
+                    if self.opd_monitoring is not None and self.opd_monitoring._has_data():
                         return True
 
                     if self.pfc_info is not None and self.pfc_info._has_data():

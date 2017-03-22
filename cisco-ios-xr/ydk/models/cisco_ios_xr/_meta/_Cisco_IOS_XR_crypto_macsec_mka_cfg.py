@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'MacsecMkaConfOffsetEnum' : _MetaInfoEnum('MacsecMkaConfOffsetEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg',
         {
@@ -41,8 +40,8 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Name of the Policy
+                [(1, 16)], [], 
+                '''                Name of the Policy of maximum length 16
                 ''',
                 'name',
                 'Cisco-IOS-XR-crypto-macsec-mka-cfg', True),
@@ -58,6 +57,19 @@ _meta_table = {
                 ''',
                 'conf_offset',
                 'Cisco-IOS-XR-crypto-macsec-mka-cfg', False),
+            _MetaInfoClassMember('delay-protection', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE enables data delay protection
+                ''',
+                'delay_protection',
+                'Cisco-IOS-XR-crypto-macsec-mka-cfg', False),
+            _MetaInfoClassMember('include-icv-indicator', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE enables Include ICV Indicator paramset in
+                MKPDU
+                ''',
+                'include_icv_indicator',
+                'Cisco-IOS-XR-crypto-macsec-mka-cfg', False),
             _MetaInfoClassMember('key-server-priority', ATTRIBUTE, 'int' , None, None, 
                 [('0', '255')], [], 
                 '''                Key-Server-Priority of Policy
@@ -70,6 +82,13 @@ _meta_table = {
                 clear
                 ''',
                 'policy_exception',
+                'Cisco-IOS-XR-crypto-macsec-mka-cfg', False),
+            _MetaInfoClassMember('sak-rekey-interval', ATTRIBUTE, 'int' , None, None, 
+                [('0', '43200')], [], 
+                '''                Interval after which key-server generates new
+                SAK for a Secured Session
+                ''',
+                'sak_rekey_interval',
                 'Cisco-IOS-XR-crypto-macsec-mka-cfg', False),
             _MetaInfoClassMember('security-policy', REFERENCE_ENUM_CLASS, 'MacsecMkaSecurityPolicyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg', 'MacsecMkaSecurityPolicyEnum', 
                 [], [], 

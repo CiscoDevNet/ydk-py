@@ -24,27 +24,6 @@ from ydk.errors import YPYError, YPYModelError
 
 
 
-class Ipv6NdHopLimitEnum(Enum):
-    """
-    Ipv6NdHopLimitEnum
-
-    Ipv6 nd hop limit
-
-    .. data:: unspecified = 0
-
-    	Zero hoplimit value
-
-    """
-
-    unspecified = 0
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_nd_subscriber_cfg as meta
-        return meta._meta_table['Ipv6NdHopLimitEnum']
-
-
 class Ipv6NdRouterPrefTemplateEnum(Enum):
     """
     Ipv6NdRouterPrefTemplateEnum

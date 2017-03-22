@@ -5,8 +5,8 @@ for Cisco IOS\-XR icpe\-infra package configuration.
 
 This module contains definitions
 for the following management objects\:
-  nv\-satellites\: Satellite Configuration table
-  nv\-satellite\-global\: nv satellite global
+  nv\-satellite\-global\: nV Satellite Global configuration
+  nv\-satellites\: nv satellites
 
 This YANG module augments the
   Cisco\-IOS\-XR\-ifmgr\-cfg,
@@ -31,9 +31,125 @@ from ydk.errors import YPYError, YPYModelError
 
 
 
+class NvSatelliteGlobal(object):
+    """
+    nV Satellite Global configuration
+    
+    .. attribute:: chassis_mac
+    
+    	Chassis MAC address
+    	**type**\:   :py:class:`ChassisMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatelliteGlobal.ChassisMac>`
+    
+    
+
+    """
+
+    _prefix = 'icpe-infra-cfg'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        self.chassis_mac = NvSatelliteGlobal.ChassisMac()
+        self.chassis_mac.parent = self
+
+
+    class ChassisMac(object):
+        """
+        Chassis MAC address
+        
+        .. attribute:: mac1
+        
+        	First two bytes of MAC address
+        	**type**\:  int
+        
+        	**range:** 0..2147483647
+        
+        	**units**\: byte
+        
+        .. attribute:: mac2
+        
+        	Second two bytes of MAC address
+        	**type**\:  int
+        
+        	**range:** 0..2147483647
+        
+        	**units**\: byte
+        
+        .. attribute:: mac3
+        
+        	Third two bytes of MAC address
+        	**type**\:  int
+        
+        	**range:** 0..2147483647
+        
+        	**units**\: byte
+        
+        
+
+        """
+
+        _prefix = 'icpe-infra-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.mac1 = None
+            self.mac2 = None
+            self.mac3 = None
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-global/Cisco-IOS-XR-icpe-infra-cfg:chassis-mac'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.mac1 is not None:
+                return True
+
+            if self.mac2 is not None:
+                return True
+
+            if self.mac3 is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_cfg as meta
+            return meta._meta_table['NvSatelliteGlobal.ChassisMac']['meta_info']
+
+    @property
+    def _common_path(self):
+
+        return '/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-global'
+
+    def is_config(self):
+        ''' Returns True if this instance represents config data else returns False '''
+        return True
+
+    def _has_data(self):
+        if not self.is_config():
+            return False
+        if self.chassis_mac is not None and self.chassis_mac._has_data():
+            return True
+
+        return False
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_cfg as meta
+        return meta._meta_table['NvSatelliteGlobal']['meta_info']
+
+
 class NvSatellites(object):
     """
-    Satellite Configuration table
+    nv satellites
     
     .. attribute:: nv_satellite
     
@@ -153,10 +269,8 @@ class NvSatellites(object):
         
         .. attribute:: upgrade_on_connect
         
-        	Satellite Upgrade on Connection
-        	**type**\:  int
-        
-        	**range:** 0..255
+        	Satellite auto\-upgrade capability
+        	**type**\:   :py:class:`UpgradeOnConnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.UpgradeOnConnect>`
         
         .. attribute:: vrf
         
@@ -189,8 +303,65 @@ class NvSatellites(object):
             self.serial_number = None
             self.timeout_warning = None
             self.type = None
-            self.upgrade_on_connect = None
+            self.upgrade_on_connect = NvSatellites.NvSatellite.UpgradeOnConnect()
+            self.upgrade_on_connect.parent = self
             self.vrf = None
+
+
+        class UpgradeOnConnect(object):
+            """
+            Satellite auto\-upgrade capability
+            
+            .. attribute:: connect_type
+            
+            	When to upgrade the satellite
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: reference
+            
+            	Reference name
+            	**type**\:  str
+            
+            
+
+            """
+
+            _prefix = 'icpe-infra-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.connect_type = None
+                self.reference = None
+
+            @property
+            def _common_path(self):
+                if self.parent is None:
+                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-cfg:upgrade-on-connect'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.connect_type is not None:
+                    return True
+
+                if self.reference is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_cfg as meta
+                return meta._meta_table['NvSatellites.NvSatellite.UpgradeOnConnect']['meta_info']
 
 
         class CandidateFabricPorts(object):
@@ -488,7 +659,7 @@ class NvSatellites(object):
             if self.type is not None:
                 return True
 
-            if self.upgrade_on_connect is not None:
+            if self.upgrade_on_connect is not None and self.upgrade_on_connect._has_data():
                 return True
 
             if self.vrf is not None:
@@ -524,121 +695,5 @@ class NvSatellites(object):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_cfg as meta
         return meta._meta_table['NvSatellites']['meta_info']
-
-
-class NvSatelliteGlobal(object):
-    """
-    nv satellite global
-    
-    .. attribute:: chassis_mac
-    
-    	Chassis MAC address
-    	**type**\:   :py:class:`ChassisMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatelliteGlobal.ChassisMac>`
-    
-    
-
-    """
-
-    _prefix = 'icpe-infra-cfg'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        self.chassis_mac = NvSatelliteGlobal.ChassisMac()
-        self.chassis_mac.parent = self
-
-
-    class ChassisMac(object):
-        """
-        Chassis MAC address
-        
-        .. attribute:: mac1
-        
-        	First two bytes of MAC address
-        	**type**\:  int
-        
-        	**range:** 0..2147483647
-        
-        	**units**\: byte
-        
-        .. attribute:: mac2
-        
-        	Second two bytes of MAC address
-        	**type**\:  int
-        
-        	**range:** 0..2147483647
-        
-        	**units**\: byte
-        
-        .. attribute:: mac3
-        
-        	Third two bytes of MAC address
-        	**type**\:  int
-        
-        	**range:** 0..2147483647
-        
-        	**units**\: byte
-        
-        
-
-        """
-
-        _prefix = 'icpe-infra-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.mac1 = None
-            self.mac2 = None
-            self.mac3 = None
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-global/Cisco-IOS-XR-icpe-infra-cfg:chassis-mac'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.mac1 is not None:
-                return True
-
-            if self.mac2 is not None:
-                return True
-
-            if self.mac3 is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_cfg as meta
-            return meta._meta_table['NvSatelliteGlobal.ChassisMac']['meta_info']
-
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-global'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
-        if not self.is_config():
-            return False
-        if self.chassis_mac is not None and self.chassis_mac._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_cfg as meta
-        return meta._meta_table['NvSatelliteGlobal']['meta_info']
 
 

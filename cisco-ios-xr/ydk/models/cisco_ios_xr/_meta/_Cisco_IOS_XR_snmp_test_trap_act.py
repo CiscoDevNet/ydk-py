@@ -12,7 +12,6 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'SnmpColdStartRpc' : {
         'meta_info' : _MetaInfoClass('SnmpColdStartRpc',
@@ -619,6 +618,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act'
         ),
     },
+    'RoutingBgpEstablishedRpc' : {
+        'meta_info' : _MetaInfoClass('RoutingBgpEstablishedRpc',
+            False, 
+            [
+            ],
+            'Cisco-IOS-XR-snmp-test-trap-act',
+            'routing-bgp-established',
+            _yang_ns._namespaces['Cisco-IOS-XR-snmp-test-trap-act'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act'
+        ),
+    },
     'RoutingBgpEstablishedRemotePeerRpc.Input' : {
         'meta_info' : _MetaInfoClass('RoutingBgpEstablishedRemotePeerRpc.Input',
             False, 
@@ -648,6 +658,17 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-snmp-test-trap-act',
             'routing-bgp-established-remote-peer',
+            _yang_ns._namespaces['Cisco-IOS-XR-snmp-test-trap-act'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act'
+        ),
+    },
+    'RoutingBgpStateChangeRpc' : {
+        'meta_info' : _MetaInfoClass('RoutingBgpStateChangeRpc',
+            False, 
+            [
+            ],
+            'Cisco-IOS-XR-snmp-test-trap-act',
+            'routing-bgp-state-change',
             _yang_ns._namespaces['Cisco-IOS-XR-snmp-test-trap-act'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act'
         ),
@@ -685,8 +706,19 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act'
         ),
     },
-    'RoutingOspfNeighborStateChangeRpc.Input' : {
-        'meta_info' : _MetaInfoClass('RoutingOspfNeighborStateChangeRpc.Input',
+    'RoutingOspfNeighborStateChangeRpc' : {
+        'meta_info' : _MetaInfoClass('RoutingOspfNeighborStateChangeRpc',
+            False, 
+            [
+            ],
+            'Cisco-IOS-XR-snmp-test-trap-act',
+            'routing-ospf-neighbor-state-change',
+            _yang_ns._namespaces['Cisco-IOS-XR-snmp-test-trap-act'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act'
+        ),
+    },
+    'RoutingOspfNeighborStateChangeAddressRpc.Input' : {
+        'meta_info' : _MetaInfoClass('RoutingOspfNeighborStateChangeAddressRpc.Input',
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
@@ -708,24 +740,35 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act'
         ),
     },
-    'RoutingOspfNeighborStateChangeRpc' : {
-        'meta_info' : _MetaInfoClass('RoutingOspfNeighborStateChangeRpc',
+    'RoutingOspfNeighborStateChangeAddressRpc' : {
+        'meta_info' : _MetaInfoClass('RoutingOspfNeighborStateChangeAddressRpc',
             False, 
             [
-            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act', 'RoutingOspfNeighborStateChangeRpc.Input', 
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act', 'RoutingOspfNeighborStateChangeAddressRpc.Input', 
                 [], [], 
                 '''                ''',
                 'input',
                 'Cisco-IOS-XR-snmp-test-trap-act', False),
             ],
             'Cisco-IOS-XR-snmp-test-trap-act',
-            'routing-ospf-neighbor-state-change',
+            'routing-ospf-neighbor-state-change-address',
             _yang_ns._namespaces['Cisco-IOS-XR-snmp-test-trap-act'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act'
         ),
     },
-    'RoutingMplsLdpSessionDownRpc.Input' : {
-        'meta_info' : _MetaInfoClass('RoutingMplsLdpSessionDownRpc.Input',
+    'RoutingMplsLdpSessionDownRpc' : {
+        'meta_info' : _MetaInfoClass('RoutingMplsLdpSessionDownRpc',
+            False, 
+            [
+            ],
+            'Cisco-IOS-XR-snmp-test-trap-act',
+            'routing-mpls-ldp-session-down',
+            _yang_ns._namespaces['Cisco-IOS-XR-snmp-test-trap-act'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act'
+        ),
+    },
+    'RoutingMplsLdpSessionDownEntityIdRpc.Input' : {
+        'meta_info' : _MetaInfoClass('RoutingMplsLdpSessionDownEntityIdRpc.Input',
             False, 
             [
             _MetaInfoClassMember('entity-id', ATTRIBUTE, 'str' , None, None, 
@@ -753,53 +796,18 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act'
         ),
     },
-    'RoutingMplsLdpSessionDownRpc' : {
-        'meta_info' : _MetaInfoClass('RoutingMplsLdpSessionDownRpc',
+    'RoutingMplsLdpSessionDownEntityIdRpc' : {
+        'meta_info' : _MetaInfoClass('RoutingMplsLdpSessionDownEntityIdRpc',
             False, 
             [
-            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act', 'RoutingMplsLdpSessionDownRpc.Input', 
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act', 'RoutingMplsLdpSessionDownEntityIdRpc.Input', 
                 [], [], 
                 '''                ''',
                 'input',
                 'Cisco-IOS-XR-snmp-test-trap-act', False),
             ],
             'Cisco-IOS-XR-snmp-test-trap-act',
-            'routing-mpls-ldp-session-down',
-            _yang_ns._namespaces['Cisco-IOS-XR-snmp-test-trap-act'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act'
-        ),
-    },
-    'RoutingMplsTunnelReRoutedRpc.Input' : {
-        'meta_info' : _MetaInfoClass('RoutingMplsTunnelReRoutedRpc.Input',
-            False, 
-            [
-            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                tunnel index for which to generate the trap
-                ''',
-                'index',
-                'Cisco-IOS-XR-snmp-test-trap-act', False),
-            _MetaInfoClassMember('instance', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                tunnel instance for which to generate the trap
-                ''',
-                'instance',
-                'Cisco-IOS-XR-snmp-test-trap-act', False),
-            _MetaInfoClassMember('source', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                source address for which to generate the trap
-                ''',
-                'source',
-                'Cisco-IOS-XR-snmp-test-trap-act', False),
-            _MetaInfoClassMember('destination', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                destination address for which to generate the trap
-                ''',
-                'destination',
-                'Cisco-IOS-XR-snmp-test-trap-act', False),
-            ],
-            'Cisco-IOS-XR-snmp-test-trap-act',
-            'input',
+            'routing-mpls-ldp-session-down-entity-id',
             _yang_ns._namespaces['Cisco-IOS-XR-snmp-test-trap-act'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act'
         ),
@@ -808,11 +816,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RoutingMplsTunnelReRoutedRpc',
             False, 
             [
-            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act', 'RoutingMplsTunnelReRoutedRpc.Input', 
-                [], [], 
-                '''                ''',
-                'input',
-                'Cisco-IOS-XR-snmp-test-trap-act', False),
             ],
             'Cisco-IOS-XR-snmp-test-trap-act',
             'routing-mpls-tunnel-re-routed',
@@ -820,8 +823,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act'
         ),
     },
-    'RoutingMplsTunnelReOptimizedRpc.Input' : {
-        'meta_info' : _MetaInfoClass('RoutingMplsTunnelReOptimizedRpc.Input',
+    'RoutingMplsTunnelReRoutedIndexRpc.Input' : {
+        'meta_info' : _MetaInfoClass('RoutingMplsTunnelReRoutedIndexRpc.Input',
             False, 
             [
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
@@ -855,15 +858,26 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act'
         ),
     },
-    'RoutingMplsTunnelReOptimizedRpc' : {
-        'meta_info' : _MetaInfoClass('RoutingMplsTunnelReOptimizedRpc',
+    'RoutingMplsTunnelReRoutedIndexRpc' : {
+        'meta_info' : _MetaInfoClass('RoutingMplsTunnelReRoutedIndexRpc',
             False, 
             [
-            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act', 'RoutingMplsTunnelReOptimizedRpc.Input', 
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act', 'RoutingMplsTunnelReRoutedIndexRpc.Input', 
                 [], [], 
                 '''                ''',
                 'input',
                 'Cisco-IOS-XR-snmp-test-trap-act', False),
+            ],
+            'Cisco-IOS-XR-snmp-test-trap-act',
+            'routing-mpls-tunnel-re-routed-index',
+            _yang_ns._namespaces['Cisco-IOS-XR-snmp-test-trap-act'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act'
+        ),
+    },
+    'RoutingMplsTunnelReOptimizedRpc' : {
+        'meta_info' : _MetaInfoClass('RoutingMplsTunnelReOptimizedRpc',
+            False, 
+            [
             ],
             'Cisco-IOS-XR-snmp-test-trap-act',
             'routing-mpls-tunnel-re-optimized',
@@ -871,8 +885,70 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act'
         ),
     },
-    'RoutingMplsTunnelDownRpc.Input' : {
-        'meta_info' : _MetaInfoClass('RoutingMplsTunnelDownRpc.Input',
+    'RoutingMplsTunnelReOptimizedIndexRpc.Input' : {
+        'meta_info' : _MetaInfoClass('RoutingMplsTunnelReOptimizedIndexRpc.Input',
+            False, 
+            [
+            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                tunnel index for which to generate the trap
+                ''',
+                'index',
+                'Cisco-IOS-XR-snmp-test-trap-act', False),
+            _MetaInfoClassMember('instance', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                tunnel instance for which to generate the trap
+                ''',
+                'instance',
+                'Cisco-IOS-XR-snmp-test-trap-act', False),
+            _MetaInfoClassMember('source', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                source address for which to generate the trap
+                ''',
+                'source',
+                'Cisco-IOS-XR-snmp-test-trap-act', False),
+            _MetaInfoClassMember('destination', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                destination address for which to generate the trap
+                ''',
+                'destination',
+                'Cisco-IOS-XR-snmp-test-trap-act', False),
+            ],
+            'Cisco-IOS-XR-snmp-test-trap-act',
+            'input',
+            _yang_ns._namespaces['Cisco-IOS-XR-snmp-test-trap-act'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act'
+        ),
+    },
+    'RoutingMplsTunnelReOptimizedIndexRpc' : {
+        'meta_info' : _MetaInfoClass('RoutingMplsTunnelReOptimizedIndexRpc',
+            False, 
+            [
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act', 'RoutingMplsTunnelReOptimizedIndexRpc.Input', 
+                [], [], 
+                '''                ''',
+                'input',
+                'Cisco-IOS-XR-snmp-test-trap-act', False),
+            ],
+            'Cisco-IOS-XR-snmp-test-trap-act',
+            'routing-mpls-tunnel-re-optimized-index',
+            _yang_ns._namespaces['Cisco-IOS-XR-snmp-test-trap-act'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act'
+        ),
+    },
+    'RoutingMplsTunnelDownRpc' : {
+        'meta_info' : _MetaInfoClass('RoutingMplsTunnelDownRpc',
+            False, 
+            [
+            ],
+            'Cisco-IOS-XR-snmp-test-trap-act',
+            'routing-mpls-tunnel-down',
+            _yang_ns._namespaces['Cisco-IOS-XR-snmp-test-trap-act'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act'
+        ),
+    },
+    'RoutingMplsTunnelDownIndexRpc.Input' : {
+        'meta_info' : _MetaInfoClass('RoutingMplsTunnelDownIndexRpc.Input',
             False, 
             [
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
@@ -906,18 +982,18 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act'
         ),
     },
-    'RoutingMplsTunnelDownRpc' : {
-        'meta_info' : _MetaInfoClass('RoutingMplsTunnelDownRpc',
+    'RoutingMplsTunnelDownIndexRpc' : {
+        'meta_info' : _MetaInfoClass('RoutingMplsTunnelDownIndexRpc',
             False, 
             [
-            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act', 'RoutingMplsTunnelDownRpc.Input', 
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act', 'RoutingMplsTunnelDownIndexRpc.Input', 
                 [], [], 
                 '''                ''',
                 'input',
                 'Cisco-IOS-XR-snmp-test-trap-act', False),
             ],
             'Cisco-IOS-XR-snmp-test-trap-act',
-            'routing-mpls-tunnel-down',
+            'routing-mpls-tunnel-down-index',
             _yang_ns._namespaces['Cisco-IOS-XR-snmp-test-trap-act'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act'
         ),
@@ -951,8 +1027,8 @@ _meta_table['PlatformHfrBundleStateRpc.Input']['meta_info'].parent =_meta_table[
 _meta_table['PlatformHfrPlaneStateRpc.Input']['meta_info'].parent =_meta_table['PlatformHfrPlaneStateRpc']['meta_info']
 _meta_table['RoutingBgpEstablishedRemotePeerRpc.Input']['meta_info'].parent =_meta_table['RoutingBgpEstablishedRemotePeerRpc']['meta_info']
 _meta_table['RoutingBgpStateChangeRemotePeerRpc.Input']['meta_info'].parent =_meta_table['RoutingBgpStateChangeRemotePeerRpc']['meta_info']
-_meta_table['RoutingOspfNeighborStateChangeRpc.Input']['meta_info'].parent =_meta_table['RoutingOspfNeighborStateChangeRpc']['meta_info']
-_meta_table['RoutingMplsLdpSessionDownRpc.Input']['meta_info'].parent =_meta_table['RoutingMplsLdpSessionDownRpc']['meta_info']
-_meta_table['RoutingMplsTunnelReRoutedRpc.Input']['meta_info'].parent =_meta_table['RoutingMplsTunnelReRoutedRpc']['meta_info']
-_meta_table['RoutingMplsTunnelReOptimizedRpc.Input']['meta_info'].parent =_meta_table['RoutingMplsTunnelReOptimizedRpc']['meta_info']
-_meta_table['RoutingMplsTunnelDownRpc.Input']['meta_info'].parent =_meta_table['RoutingMplsTunnelDownRpc']['meta_info']
+_meta_table['RoutingOspfNeighborStateChangeAddressRpc.Input']['meta_info'].parent =_meta_table['RoutingOspfNeighborStateChangeAddressRpc']['meta_info']
+_meta_table['RoutingMplsLdpSessionDownEntityIdRpc.Input']['meta_info'].parent =_meta_table['RoutingMplsLdpSessionDownEntityIdRpc']['meta_info']
+_meta_table['RoutingMplsTunnelReRoutedIndexRpc.Input']['meta_info'].parent =_meta_table['RoutingMplsTunnelReRoutedIndexRpc']['meta_info']
+_meta_table['RoutingMplsTunnelReOptimizedIndexRpc.Input']['meta_info'].parent =_meta_table['RoutingMplsTunnelReOptimizedIndexRpc']['meta_info']
+_meta_table['RoutingMplsTunnelDownIndexRpc.Input']['meta_info'].parent =_meta_table['RoutingMplsTunnelDownIndexRpc']['meta_info']

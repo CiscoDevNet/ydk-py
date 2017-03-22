@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'AclTcpflagsOperatorEnum' : _MetaInfoEnum('AclTcpflagsOperatorEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper',
         {
@@ -90,6 +89,17 @@ _meta_table = {
             'down':'down',
             'up':'up',
             'max':'max',
+        }, 'Cisco-IOS-XR-ipv4-acl-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-oper']),
+    'AclPortOperatorEnum' : _MetaInfoEnum('AclPortOperatorEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper',
+        {
+            'none':'none',
+            'eq':'eq',
+            'gt':'gt',
+            'lt':'lt',
+            'neq':'neq',
+            'range':'range',
+            'onebyte':'onebyte',
+            'twobytes':'twobytes',
         }, 'Cisco-IOS-XR-ipv4-acl-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-oper']),
     'AclLogEnum' : _MetaInfoEnum('AclLogEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper',
         {
@@ -314,6 +324,35 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper'
         ),
     },
+    'Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf' : {
+        'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf',
+            False, 
+            [
+            _MetaInfoClassMember('udf-mask', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                UDF Mask
+                ''',
+                'udf_mask',
+                'Cisco-IOS-XR-ipv4-acl-oper', False),
+            _MetaInfoClassMember('udf-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 17)], [], 
+                '''                UDF Name
+                ''',
+                'udf_name',
+                'Cisco-IOS-XR-ipv4-acl-oper', False),
+            _MetaInfoClassMember('udf-value', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                UDF Value
+                ''',
+                'udf_value',
+                'Cisco-IOS-XR-ipv4-acl-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv4-acl-oper',
+            'udf',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper'
+        ),
+    },
     'Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence' : {
         'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence',
             False, 
@@ -414,6 +453,24 @@ _meta_table = {
                 ''',
                 'dynamic',
                 'Cisco-IOS-XR-ipv4-acl-oper', False),
+            _MetaInfoClassMember('fragment-offset1', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Fragment offset 1
+                ''',
+                'fragment_offset1',
+                'Cisco-IOS-XR-ipv4-acl-oper', False),
+            _MetaInfoClassMember('fragment-offset2', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Fragment offset 2
+                ''',
+                'fragment_offset2',
+                'Cisco-IOS-XR-ipv4-acl-oper', False),
+            _MetaInfoClassMember('fragment-offset-operator', REFERENCE_ENUM_CLASS, 'AclPortOperatorEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper', 'AclPortOperatorEnum', 
+                [], [], 
+                '''                Fragment offset operator
+                ''',
+                'fragment_offset_operator',
+                'Cisco-IOS-XR-ipv4-acl-oper', False),
             _MetaInfoClassMember('fragments', ATTRIBUTE, 'int' , None, None, 
                 [('0', '255')], [], 
                 '''                Fragments
@@ -509,6 +566,24 @@ _meta_table = {
                 '''                IPv4 protocol type
                 ''',
                 'protocol',
+                'Cisco-IOS-XR-ipv4-acl-oper', False),
+            _MetaInfoClassMember('protocol2', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                IPv4 protocol 2
+                ''',
+                'protocol2',
+                'Cisco-IOS-XR-ipv4-acl-oper', False),
+            _MetaInfoClassMember('protocol-operator', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                IPv4 protocol operator
+                ''',
+                'protocol_operator',
+                'Cisco-IOS-XR-ipv4-acl-oper', False),
+            _MetaInfoClassMember('qos-group', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Qos group number
+                ''',
+                'qos_group',
                 'Cisco-IOS-XR-ipv4-acl-oper', False),
             _MetaInfoClassMember('remark', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -624,6 +699,12 @@ _meta_table = {
                 ''',
                 'ttl_operator',
                 'Cisco-IOS-XR-ipv4-acl-oper', False),
+            _MetaInfoClassMember('udf', REFERENCE_LIST, 'Udf' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper', 'Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf', 
+                [], [], 
+                '''                UDF BAG
+                ''',
+                'udf',
+                'Cisco-IOS-XR-ipv4-acl-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-acl-oper',
             'access-list-sequence',
@@ -648,6 +729,46 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper'
         ),
     },
+    'Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.ObjectGroup.ObjGrpInfo' : {
+        'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.ObjectGroup.ObjGrpInfo',
+            False, 
+            [
+            _MetaInfoClassMember('obj-grp-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                Object-group name
+                ''',
+                'obj_grp_name',
+                'Cisco-IOS-XR-ipv4-acl-oper', False),
+            _MetaInfoClassMember('obj-grp-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Object-group Type
+                ''',
+                'obj_grp_type',
+                'Cisco-IOS-XR-ipv4-acl-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv4-acl-oper',
+            'obj-grp-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper'
+        ),
+    },
+    'Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.ObjectGroup' : {
+        'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.ObjectGroup',
+            False, 
+            [
+            _MetaInfoClassMember('obj-grp-info', REFERENCE_LIST, 'ObjGrpInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper', 'Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.ObjectGroup.ObjGrpInfo', 
+                [], [], 
+                '''                Object-group info
+                ''',
+                'obj_grp_info',
+                'Cisco-IOS-XR-ipv4-acl-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv4-acl-oper',
+            'object-group',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper'
+        ),
+    },
     'Ipv4AclAndPrefixList.AccessListManager.Accesses.Access' : {
         'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.AccessListManager.Accesses.Access',
             False, 
@@ -664,6 +785,12 @@ _meta_table = {
                 list
                 ''',
                 'access_list_sequences',
+                'Cisco-IOS-XR-ipv4-acl-oper', False),
+            _MetaInfoClassMember('object-group', REFERENCE_CLASS, 'ObjectGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper', 'Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.ObjectGroup', 
+                [], [], 
+                '''                Object Group in an Access list
+                ''',
+                'object_group',
                 'Cisco-IOS-XR-ipv4-acl-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-acl-oper',
@@ -1223,8 +1350,11 @@ _meta_table['Ipv4AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSe
 _meta_table['Ipv4AclAndPrefixList.AccessListManager.Prefixes.Prefix']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.AccessListManager.Prefixes']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence']['meta_info']
+_meta_table['Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences']['meta_info']
+_meta_table['Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.ObjectGroup.ObjGrpInfo']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.ObjectGroup']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.AccessListManager.Accesses.Access']['meta_info']
+_meta_table['Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.ObjectGroup']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.AccessListManager.Accesses.Access']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.AccessListManager.Accesses.Access']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.AccessListManager.Accesses']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.AccessListManager.Usages.Usage']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.AccessListManager.Usages']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.AccessListManager.Prefixes']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.AccessListManager']['meta_info']

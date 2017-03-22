@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'LmaRatEnum' : _MetaInfoEnum('LmaRatEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg',
         {
@@ -55,7 +54,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('mag-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                MAG Identifier
                 ''',
                 'mag_name',
@@ -89,31 +88,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nai-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                MN Identifier
                 ''',
                 'nai_name',
                 'Cisco-IOS-XR-ip-mobileip-cfg', True),
             _MetaInfoClassMember('apn', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                Access point network for this MN
                 ''',
                 'apn',
                 'Cisco-IOS-XR-ip-mobileip-cfg', False),
             _MetaInfoClassMember('customer', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                Customer name for this MN
                 ''',
                 'customer',
                 'Cisco-IOS-XR-ip-mobileip-cfg', False),
             _MetaInfoClassMember('lma', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                LMA for this MN
                 ''',
                 'lma',
                 'Cisco-IOS-XR-ip-mobileip-cfg', False),
             _MetaInfoClassMember('network', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                Network name (Address pool) for this MN
                 ''',
                 'network',
@@ -153,7 +152,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                ASCII string
                 ''',
                 'key',
@@ -176,7 +175,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lma-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                LMA Identifier
                 ''',
                 'lma_name',
@@ -210,7 +209,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('domain-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                Domain Name
                 ''',
                 'domain_name',
@@ -605,7 +604,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                ASCII string
                 ''',
                 'key',
@@ -651,13 +650,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('domain-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                Domain name
                 ''',
                 'domain_name',
                 'Cisco-IOS-XR-ip-mobileip-cfg', True),
             _MetaInfoClassMember('mag-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                MAG identifier
                 ''',
                 'mag_name',
@@ -728,7 +727,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('acl', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                access list to apply for tunnel
                 ''',
                 'acl',
@@ -751,7 +750,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                ASCII string
                 ''',
                 'key',
@@ -803,7 +802,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                VRF Name
                 ''',
                 'vrf_name',
@@ -1056,7 +1055,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                ASCII string
                 ''',
                 'name',
@@ -1159,13 +1158,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('customer-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                Customer name
                 ''',
                 'customer_name',
                 'Cisco-IOS-XR-ip-mobileip-cfg', True),
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                VRF name
                 ''',
                 'vrf_name',
@@ -1600,7 +1599,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lma-network', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                Network name
                 ''',
                 'lma_network',
@@ -1640,13 +1639,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('domain-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                Domain name
                 ''',
                 'domain_name',
                 'Cisco-IOS-XR-ip-mobileip-cfg', True),
             _MetaInfoClassMember('lma-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                LMA name
                 ''',
                 'lma_name',
@@ -1676,7 +1675,7 @@ _meta_table = {
                 'binding_revocation_attributes',
                 'Cisco-IOS-XR-ip-mobileip-cfg', False),
             _MetaInfoClassMember('default-profile', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                Default MN profile for LMA
                 ''',
                 'default_profile',
@@ -1742,7 +1741,7 @@ _meta_table = {
                 'mags',
                 'Cisco-IOS-XR-ip-mobileip-cfg', False),
             _MetaInfoClassMember('mobile-map', ATTRIBUTE, 'str' , None, None, 
-                [(0, 125)], [], 
+                [(1, 125)], [], 
                 '''                Mobile Map for this LMA
                 ''',
                 'mobile_map',

@@ -328,11 +328,7 @@ class OpticsAmplifierSafetyControlModeEnum(Enum):
 
     	auto
 
-    .. data:: optics_amplifier_safety_mode_manual = 2
-
-    	manual
-
-    .. data:: optics_amplifier_safety_mode_disabled = 4
+    .. data:: optics_amplifier_safety_mode_disabled = 2
 
     	disabled
 
@@ -340,9 +336,7 @@ class OpticsAmplifierSafetyControlModeEnum(Enum):
 
     optics_amplifier_safety_mode_auto = 1
 
-    optics_amplifier_safety_mode_manual = 2
-
-    optics_amplifier_safety_mode_disabled = 4
+    optics_amplifier_safety_mode_disabled = 2
 
 
     @staticmethod
@@ -603,6 +597,10 @@ class OpticsLaserStateEnum(Enum):
 
     	Unknown
 
+    .. data:: apr = 3
+
+    	Apr
+
     """
 
     on = 0
@@ -610,6 +608,8 @@ class OpticsLaserStateEnum(Enum):
     off = 1
 
     unknown = 2
+
+    apr = 3
 
 
     @staticmethod
@@ -837,17 +837,57 @@ class OpticsPhyEnum(Enum):
 
     	Active Optics 1 Lane
 
-    .. data:: hundred_gig_edwdm_two = 39
+    .. data:: twenty_five_gig_short_reach_one_lane = 39
+
+    	Short reach 1 lane
+
+    .. data:: twenty_five_gig_long_reach_one_lane = 40
+
+    	Long reach 1 lane
+
+    .. data:: twenty_five_gig_extended_reach_one_lane = 41
+
+    	Extended reach 1 lane
+
+    .. data:: twenty_five_gig_copper_one_lane = 42
+
+    	Copper One Lane
+
+    .. data:: twenty_five_gig_active_optical_one_lane = 43
+
+    	Active Optical One Lane
+
+    .. data:: hundred_gig_edwdm_two = 44
 
     	100GE DWDM Optics
 
-    .. data:: fourty_gig_plr4_four_lanes = 40
+    .. data:: fourty_gig_plr4_four_lanes = 45
 
     	PLR4 Optics
 
-    .. data:: fourty_gig_esr4_four_lanes = 41
+    .. data:: fourty_gig_esr4_four_lanes = 46
 
     	ESR4 Optics
+
+    .. data:: smsr_four_lanes = 47
+
+    	SMSR Optics
+
+    .. data:: trunk_port_cfp2 = 48
+
+    	CFP2 DWDM Optics
+
+    .. data:: short_reach1_lane = 49
+
+    	Short reach 1 lane
+
+    .. data:: inmd_reach1lane = 50
+
+    	Inmd reach 1 lane
+
+    .. data:: long_reach1_lane = 51
+
+    	Long reach 1 lane
 
     """
 
@@ -929,11 +969,31 @@ class OpticsPhyEnum(Enum):
 
     four_x_ten_gig_eaoc_one_lanes = 38
 
-    hundred_gig_edwdm_two = 39
+    twenty_five_gig_short_reach_one_lane = 39
 
-    fourty_gig_plr4_four_lanes = 40
+    twenty_five_gig_long_reach_one_lane = 40
 
-    fourty_gig_esr4_four_lanes = 41
+    twenty_five_gig_extended_reach_one_lane = 41
+
+    twenty_five_gig_copper_one_lane = 42
+
+    twenty_five_gig_active_optical_one_lane = 43
+
+    hundred_gig_edwdm_two = 44
+
+    fourty_gig_plr4_four_lanes = 45
+
+    fourty_gig_esr4_four_lanes = 46
+
+    smsr_four_lanes = 47
+
+    trunk_port_cfp2 = 48
+
+    short_reach1_lane = 49
+
+    inmd_reach1lane = 50
+
+    long_reach1_lane = 51
 
 
     @staticmethod
@@ -960,6 +1020,18 @@ class OpticsPortEnum(Enum):
 
     	Osc
 
+    .. data:: com_check = 3
+
+    	Com Check
+
+    .. data:: work = 4
+
+    	Working
+
+    .. data:: prot = 5
+
+    	Protected
+
     """
 
     com = 0
@@ -968,11 +1040,44 @@ class OpticsPortEnum(Enum):
 
     osc = 2
 
+    com_check = 3
+
+    work = 4
+
+    prot = 5
+
 
     @staticmethod
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
         return meta._meta_table['OpticsPortEnum']
+
+
+class OpticsPortStatusEnum(Enum):
+    """
+    OpticsPortStatusEnum
+
+    Optics port status
+
+    .. data:: active = 0
+
+    	Active
+
+    .. data:: standby = 1
+
+    	Standby
+
+    """
+
+    active = 0
+
+    standby = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+        return meta._meta_table['OpticsPortStatusEnum']
 
 
 class OpticsTasEnum(Enum):
@@ -1220,10 +1325,10 @@ class OpticsOper(object):
             	Optics operational data
             	**type**\:   :py:class:`OpticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo>`
             
-            .. attribute:: optics_lane_table
+            .. attribute:: optics_lanes
             
             	All Optics Port operational data
-            	**type**\:   :py:class:`OpticsLaneTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable>`
+            	**type**\:   :py:class:`OpticsLanes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes>`
             
             
 
@@ -1241,8 +1346,8 @@ class OpticsOper(object):
                 self.optics_dwdm_carrrier_channel_map.parent = self
                 self.optics_info = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo()
                 self.optics_info.parent = self
-                self.optics_lane_table = OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable()
-                self.optics_lane_table.parent = self
+                self.optics_lanes = OpticsOper.OpticsPorts.OpticsPort.OpticsLanes()
+                self.optics_lanes.parent = self
 
 
             class OpticsDwdmCarrrierChannelMap(object):
@@ -1525,6 +1630,13 @@ class OpticsOper(object):
                 	TX Power Configuration is supported or not
                 	**type**\:  bool
                 
+                .. attribute:: channel_power_max_delta_config_val
+                
+                	channel power max delta config val
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
                 .. attribute:: controller_state
                 
                 	Optics controller state\: Up, Down or Administratively Down
@@ -1623,9 +1735,23 @@ class OpticsOper(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                .. attribute:: lbc_th_high_warning_default
+                
+                	LBC high Warning threshold default value in unit of 0.001mA
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
                 .. attribute:: lbc_th_low_default
                 
                 	LBC low threshold default value in units of 0 .001mA
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: lbc_th_low_warning_default
+                
+                	LBC low warning threshold default value in units of 0.001mA
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
@@ -1680,6 +1806,11 @@ class OpticsOper(object):
                 	osri config val
                 	**type**\:  bool
                 
+                .. attribute:: ots_alarm_info
+                
+                	Ots Alarm Information
+                	**type**\:   :py:class:`OtsAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo>`
+                
                 .. attribute:: phase_noise
                 
                 	Phase Noise dB
@@ -1712,6 +1843,11 @@ class OpticsOper(object):
                 	Polarization Mode Dispersion 0.1ps
                 	**type**\:  str
                 
+                .. attribute:: port_status
+                
+                	Showing port status
+                	**type**\:   :py:class:`OpticsPortStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsPortStatusEnum>`
+                
                 .. attribute:: port_type
                 
                 	Showing port type
@@ -1724,9 +1860,23 @@ class OpticsOper(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                .. attribute:: rx_high_warning_threshold
+                
+                	Rx High Warning threshold value in units of 0 .1dBm
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
                 .. attribute:: rx_low_threshold
                 
                 	Rx Low threshold value in units of 0.1dBm
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: rx_low_warning_threshold
+                
+                	Rx Low Warning threshold value in units of 0 .1dBm
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
@@ -1737,6 +1887,11 @@ class OpticsOper(object):
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                .. attribute:: rx_power_th_configurable
+                
+                	rx power th configurable
+                	**type**\:  bool
                 
                 .. attribute:: rx_voa_attenuation
                 
@@ -1769,9 +1924,30 @@ class OpticsOper(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                .. attribute:: temp_high_warning_threshold
+                
+                	Temp High warning threshold value in the units of 0.01 C
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
                 .. attribute:: temp_low_threshold
                 
                 	Temp Low threshold value in the units 0.01 C
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: temp_low_warning_threshold
+                
+                	Temp Low warning threshold value in the units 0 .01 C
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: temperature
+                
+                	Temperature value
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
@@ -1807,9 +1983,23 @@ class OpticsOper(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                .. attribute:: tx_high_warning_threshold
+                
+                	Tx High Warning threshold value in units of 0 .1dBm
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
                 .. attribute:: tx_low_threshold
                 
                 	Tx Low threshold value in units of 0.1dBm
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: tx_low_warning_threshold
+                
+                	Tx Low Warning threshold value in units of 0 .1dBm
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
@@ -1820,6 +2010,11 @@ class OpticsOper(object):
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                .. attribute:: tx_power_th_configurable
+                
+                	tx power th configurable
+                	**type**\:  bool
                 
                 .. attribute:: tx_voa_attenuation
                 
@@ -1842,9 +2037,30 @@ class OpticsOper(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                .. attribute:: volt_high_warning_threshold
+                
+                	Volt High warning threshold value
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
                 .. attribute:: volt_low_threshold
                 
                 	Volt Low threshold value
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: volt_low_warning_threshold
+                
+                	Volt Low warning threshold value
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: voltage
+                
+                	Voltage value
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
@@ -1876,6 +2092,7 @@ class OpticsOper(object):
                     self.cd_min = None
                     self.cfg_tx_power = None
                     self.cfg_tx_power_configurable = None
+                    self.channel_power_max_delta_config_val = None
                     self.controller_state = None
                     self.dgd_high_threshold = None
                     self.differential_group_delay = None
@@ -1898,7 +2115,9 @@ class OpticsOper(object):
                     self.laser_state = None
                     self.lbc_high_threshold = None
                     self.lbc_th_high_default = None
+                    self.lbc_th_high_warning_default = None
                     self.lbc_th_low_default = None
+                    self.lbc_th_low_warning_default = None
                     self.led_state = None
                     self.network_srlg_info = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo()
                     self.network_srlg_info.parent = self
@@ -1911,34 +2130,49 @@ class OpticsOper(object):
                     self.optics_type = None
                     self.osnr_low_threshold = None
                     self.osri_config_val = None
+                    self.ots_alarm_info = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo()
+                    self.ots_alarm_info.parent = self
                     self.phase_noise = None
                     self.phy_type = None
                     self.pm_enable = None
                     self.polarization_change_rate = None
                     self.polarization_dependent_loss = None
                     self.polarization_mode_dispersion = None
+                    self.port_status = None
                     self.port_type = None
                     self.rx_high_threshold = None
+                    self.rx_high_warning_threshold = None
                     self.rx_low_threshold = None
+                    self.rx_low_warning_threshold = None
                     self.rx_power = None
+                    self.rx_power_th_configurable = None
                     self.rx_voa_attenuation = None
                     self.rx_voa_attenuation_config_val = None
                     self.safety_control_mode_config_val = None
                     self.second_order_polarization_mode_dispersion = None
                     self.temp_high_threshold = None
+                    self.temp_high_warning_threshold = None
                     self.temp_low_threshold = None
+                    self.temp_low_warning_threshold = None
+                    self.temperature = None
                     self.total_rx_power = None
                     self.total_tx_power = None
                     self.transceiver_info = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo()
                     self.transceiver_info.parent = self
                     self.transport_admin_state = None
                     self.tx_high_threshold = None
+                    self.tx_high_warning_threshold = None
                     self.tx_low_threshold = None
+                    self.tx_low_warning_threshold = None
                     self.tx_power = None
+                    self.tx_power_th_configurable = None
                     self.tx_voa_attenuation = None
                     self.tx_voa_attenuation_config_val = None
                     self.volt_high_threshold = None
+                    self.volt_high_warning_threshold = None
                     self.volt_low_threshold = None
+                    self.volt_low_warning_threshold = None
+                    self.voltage = None
 
 
                 class NetworkSrlgInfo(object):
@@ -4934,6 +5168,768 @@ class OpticsOper(object):
                         return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo']['meta_info']
 
 
+                class OtsAlarmInfo(object):
+                    """
+                    Ots Alarm Information
+                    
+                    .. attribute:: amp_gain_deg_high
+                    
+                    	Ampli Gain Deg High
+                    	**type**\:   :py:class:`AmpGainDegHigh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh>`
+                    
+                    .. attribute:: amp_gain_deg_low
+                    
+                    	Ampli Gain Deg Low
+                    	**type**\:   :py:class:`AmpGainDegLow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow>`
+                    
+                    .. attribute:: auto_ampli_ctrl_config_mismatch
+                    
+                    	Auto Ampli Ctrl Config Mismatch
+                    	**type**\:   :py:class:`AutoAmpliCtrlConfigMismatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch>`
+                    
+                    .. attribute:: auto_ampli_ctrl_disabled
+                    
+                    	Auto Ampli Ctrl Disabled
+                    	**type**\:   :py:class:`AutoAmpliCtrlDisabled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled>`
+                    
+                    .. attribute:: auto_laser_shut
+                    
+                    	Auto Laser Shut
+                    	**type**\:   :py:class:`AutoLaserShut <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut>`
+                    
+                    .. attribute:: auto_power_red
+                    
+                    	Auto Power Red
+                    	**type**\:   :py:class:`AutoPowerRed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed>`
+                    
+                    .. attribute:: low_rx_power
+                    
+                    	Low Rx Power in uints of 0.1 dBm
+                    	**type**\:   :py:class:`LowRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower>`
+                    
+                    .. attribute:: low_tx_power
+                    
+                    	Low Tx Power in uints of 0.1 dBm
+                    	**type**\:   :py:class:`LowTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower>`
+                    
+                    .. attribute:: rx_loc
+                    
+                    	Rx LOC
+                    	**type**\:   :py:class:`RxLoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc>`
+                    
+                    .. attribute:: rx_los_p
+                    
+                    	Rx LOS\_P
+                    	**type**\:   :py:class:`RxLosP <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP>`
+                    
+                    .. attribute:: switch_to_protect
+                    
+                    	Switch To Protect
+                    	**type**\:   :py:class:`SwitchToProtect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'controller-optics-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.amp_gain_deg_high = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh()
+                        self.amp_gain_deg_high.parent = self
+                        self.amp_gain_deg_low = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow()
+                        self.amp_gain_deg_low.parent = self
+                        self.auto_ampli_ctrl_config_mismatch = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch()
+                        self.auto_ampli_ctrl_config_mismatch.parent = self
+                        self.auto_ampli_ctrl_disabled = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled()
+                        self.auto_ampli_ctrl_disabled.parent = self
+                        self.auto_laser_shut = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut()
+                        self.auto_laser_shut.parent = self
+                        self.auto_power_red = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed()
+                        self.auto_power_red.parent = self
+                        self.low_rx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower()
+                        self.low_rx_power.parent = self
+                        self.low_tx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower()
+                        self.low_tx_power.parent = self
+                        self.rx_loc = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc()
+                        self.rx_loc.parent = self
+                        self.rx_los_p = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP()
+                        self.rx_los_p.parent = self
+                        self.switch_to_protect = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect()
+                        self.switch_to_protect.parent = self
+
+
+                    class LowTxPower(object):
+                        """
+                        Low Tx Power in uints of 0.1 dBm
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.counter = None
+                            self.is_detected = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:low-tx-power'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.counter is not None:
+                                return True
+
+                            if self.is_detected is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower']['meta_info']
+
+
+                    class LowRxPower(object):
+                        """
+                        Low Rx Power in uints of 0.1 dBm
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.counter = None
+                            self.is_detected = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:low-rx-power'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.counter is not None:
+                                return True
+
+                            if self.is_detected is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower']['meta_info']
+
+
+                    class RxLosP(object):
+                        """
+                        Rx LOS\_P
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.counter = None
+                            self.is_detected = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:rx-los-p'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.counter is not None:
+                                return True
+
+                            if self.is_detected is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP']['meta_info']
+
+
+                    class RxLoc(object):
+                        """
+                        Rx LOC
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.counter = None
+                            self.is_detected = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:rx-loc'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.counter is not None:
+                                return True
+
+                            if self.is_detected is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc']['meta_info']
+
+
+                    class AmpGainDegLow(object):
+                        """
+                        Ampli Gain Deg Low
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.counter = None
+                            self.is_detected = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:amp-gain-deg-low'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.counter is not None:
+                                return True
+
+                            if self.is_detected is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow']['meta_info']
+
+
+                    class AmpGainDegHigh(object):
+                        """
+                        Ampli Gain Deg High
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.counter = None
+                            self.is_detected = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:amp-gain-deg-high'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.counter is not None:
+                                return True
+
+                            if self.is_detected is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh']['meta_info']
+
+
+                    class AutoLaserShut(object):
+                        """
+                        Auto Laser Shut
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.counter = None
+                            self.is_detected = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:auto-laser-shut'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.counter is not None:
+                                return True
+
+                            if self.is_detected is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut']['meta_info']
+
+
+                    class AutoPowerRed(object):
+                        """
+                        Auto Power Red
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.counter = None
+                            self.is_detected = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:auto-power-red'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.counter is not None:
+                                return True
+
+                            if self.is_detected is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed']['meta_info']
+
+
+                    class AutoAmpliCtrlDisabled(object):
+                        """
+                        Auto Ampli Ctrl Disabled
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.counter = None
+                            self.is_detected = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:auto-ampli-ctrl-disabled'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.counter is not None:
+                                return True
+
+                            if self.is_detected is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled']['meta_info']
+
+
+                    class AutoAmpliCtrlConfigMismatch(object):
+                        """
+                        Auto Ampli Ctrl Config Mismatch
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.counter = None
+                            self.is_detected = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:auto-ampli-ctrl-config-mismatch'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.counter is not None:
+                                return True
+
+                            if self.is_detected is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch']['meta_info']
+
+
+                    class SwitchToProtect(object):
+                        """
+                        Switch To Protect
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-optics-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.counter = None
+                            self.is_detected = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:switch-to-protect'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.counter is not None:
+                                return True
+
+                            if self.is_detected is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:ots-alarm-info'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.amp_gain_deg_high is not None and self.amp_gain_deg_high._has_data():
+                            return True
+
+                        if self.amp_gain_deg_low is not None and self.amp_gain_deg_low._has_data():
+                            return True
+
+                        if self.auto_ampli_ctrl_config_mismatch is not None and self.auto_ampli_ctrl_config_mismatch._has_data():
+                            return True
+
+                        if self.auto_ampli_ctrl_disabled is not None and self.auto_ampli_ctrl_disabled._has_data():
+                            return True
+
+                        if self.auto_laser_shut is not None and self.auto_laser_shut._has_data():
+                            return True
+
+                        if self.auto_power_red is not None and self.auto_power_red._has_data():
+                            return True
+
+                        if self.low_rx_power is not None and self.low_rx_power._has_data():
+                            return True
+
+                        if self.low_tx_power is not None and self.low_tx_power._has_data():
+                            return True
+
+                        if self.rx_loc is not None and self.rx_loc._has_data():
+                            return True
+
+                        if self.rx_los_p is not None and self.rx_los_p._has_data():
+                            return True
+
+                        if self.switch_to_protect is not None and self.switch_to_protect._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                        return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo']['meta_info']
+
+
                 class TransceiverInfo(object):
                     """
                     Transceiver Vendor Details
@@ -6105,7 +7101,7 @@ class OpticsOper(object):
                     
                     .. attribute:: laser_bias_current_percent
                     
-                    	Laser Bias Current in units of percentage
+                    	Laser Bias Current in units of 0.01 percentage
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -6649,6 +7645,9 @@ class OpticsOper(object):
                     if self.cfg_tx_power_configurable is not None:
                         return True
 
+                    if self.channel_power_max_delta_config_val is not None:
+                        return True
+
                     if self.controller_state is not None:
                         return True
 
@@ -6705,7 +7704,13 @@ class OpticsOper(object):
                     if self.lbc_th_high_default is not None:
                         return True
 
+                    if self.lbc_th_high_warning_default is not None:
+                        return True
+
                     if self.lbc_th_low_default is not None:
+                        return True
+
+                    if self.lbc_th_low_warning_default is not None:
                         return True
 
                     if self.led_state is not None:
@@ -6738,6 +7743,9 @@ class OpticsOper(object):
                     if self.osri_config_val is not None:
                         return True
 
+                    if self.ots_alarm_info is not None and self.ots_alarm_info._has_data():
+                        return True
+
                     if self.phase_noise is not None:
                         return True
 
@@ -6756,16 +7764,28 @@ class OpticsOper(object):
                     if self.polarization_mode_dispersion is not None:
                         return True
 
+                    if self.port_status is not None:
+                        return True
+
                     if self.port_type is not None:
                         return True
 
                     if self.rx_high_threshold is not None:
                         return True
 
+                    if self.rx_high_warning_threshold is not None:
+                        return True
+
                     if self.rx_low_threshold is not None:
                         return True
 
+                    if self.rx_low_warning_threshold is not None:
+                        return True
+
                     if self.rx_power is not None:
+                        return True
+
+                    if self.rx_power_th_configurable is not None:
                         return True
 
                     if self.rx_voa_attenuation is not None:
@@ -6783,7 +7803,16 @@ class OpticsOper(object):
                     if self.temp_high_threshold is not None:
                         return True
 
+                    if self.temp_high_warning_threshold is not None:
+                        return True
+
                     if self.temp_low_threshold is not None:
+                        return True
+
+                    if self.temp_low_warning_threshold is not None:
+                        return True
+
+                    if self.temperature is not None:
                         return True
 
                     if self.total_rx_power is not None:
@@ -6801,10 +7830,19 @@ class OpticsOper(object):
                     if self.tx_high_threshold is not None:
                         return True
 
+                    if self.tx_high_warning_threshold is not None:
+                        return True
+
                     if self.tx_low_threshold is not None:
                         return True
 
+                    if self.tx_low_warning_threshold is not None:
+                        return True
+
                     if self.tx_power is not None:
+                        return True
+
+                    if self.tx_power_th_configurable is not None:
                         return True
 
                     if self.tx_voa_attenuation is not None:
@@ -6816,7 +7854,16 @@ class OpticsOper(object):
                     if self.volt_high_threshold is not None:
                         return True
 
+                    if self.volt_high_warning_threshold is not None:
+                        return True
+
                     if self.volt_low_threshold is not None:
+                        return True
+
+                    if self.volt_low_warning_threshold is not None:
+                        return True
+
+                    if self.voltage is not None:
                         return True
 
                     return False
@@ -6827,14 +7874,14 @@ class OpticsOper(object):
                     return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo']['meta_info']
 
 
-            class OpticsLaneTable(object):
+            class OpticsLanes(object):
                 """
                 All Optics Port operational data
                 
                 .. attribute:: optics_lane
                 
                 	Lane Information
-                	**type**\:   :py:class:`OpticsLane <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane>`
+                	**type**\: list of    :py:class:`OpticsLane <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane>`
                 
                 
 
@@ -6845,18 +7892,84 @@ class OpticsOper(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.optics_lane = OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane()
+                    self.optics_lane = YList()
                     self.optics_lane.parent = self
+                    self.optics_lane.name = 'optics_lane'
 
 
                 class OpticsLane(object):
                     """
                     Lane Information
                     
-                    .. attribute:: lane_data
+                    .. attribute:: number  <key>
                     
-                    	Lane information
-                    	**type**\: list of    :py:class:`LaneData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData>`
+                    	Lane Index
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: lane_alarm_info
+                    
+                    	Lane Alarm Information
+                    	**type**\:   :py:class:`LaneAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo>`
+                    
+                    .. attribute:: lane_index
+                    
+                    	The index number of the lane
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: laser_bias_current_milli_amps
+                    
+                    	Laser Bias Current in units of 0.01mA
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: laser_bias_current_percent
+                    
+                    	Laser Bias Current in units of 0.01 percentage
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: percentage
+                    
+                    .. attribute:: output_frequency
+                    
+                    	Output frequency read from hw in the unit 0 .01THz
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: receive_power
+                    
+                    	Transponder receive power in the unit of 0.01dBm
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: receive_signal_power
+                    
+                    	Transponder receive signal power in the unit of 0.01dBm
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: transmit_power
+                    
+                    	Transmit power in the unit of 0.01dBm
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: transmit_signal_power
+                    
+                    	Transmit Signal power in the unit of 0.01dBm
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
                     
                     
 
@@ -6867,77 +7980,47 @@ class OpticsOper(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.lane_data = YList()
-                        self.lane_data.parent = self
-                        self.lane_data.name = 'lane_data'
+                        self.number = None
+                        self.lane_alarm_info = OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo()
+                        self.lane_alarm_info.parent = self
+                        self.lane_index = None
+                        self.laser_bias_current_milli_amps = None
+                        self.laser_bias_current_percent = None
+                        self.output_frequency = None
+                        self.receive_power = None
+                        self.receive_signal_power = None
+                        self.transmit_power = None
+                        self.transmit_signal_power = None
 
 
-                    class LaneData(object):
+                    class LaneAlarmInfo(object):
                         """
-                        Lane information
+                        Lane Alarm Information
                         
-                        .. attribute:: lane_alarm_info
+                        .. attribute:: high_lbc
                         
-                        	Lane Alarm Information
-                        	**type**\:   :py:class:`LaneAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo>`
+                        	High laser bias current
+                        	**type**\:   :py:class:`HighLbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc>`
                         
-                        .. attribute:: lane_index
+                        .. attribute:: high_rx_power
                         
-                        	The index number of the lane
-                        	**type**\:  int
+                        	High Rx Power
+                        	**type**\:   :py:class:`HighRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower>`
                         
-                        	**range:** 0..4294967295
+                        .. attribute:: high_tx_power
                         
-                        .. attribute:: laser_bias_current_milli_amps
+                        	High Tx Power
+                        	**type**\:   :py:class:`HighTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower>`
                         
-                        	Laser Bias Current in units of 0.01mA
-                        	**type**\:  int
+                        .. attribute:: low_rx_power
                         
-                        	**range:** 0..4294967295
+                        	Low Rx Power
+                        	**type**\:   :py:class:`LowRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower>`
                         
-                        .. attribute:: laser_bias_current_percent
+                        .. attribute:: low_tx_power
                         
-                        	Laser Bias Current in units of percentage
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: percentage
-                        
-                        .. attribute:: output_frequency
-                        
-                        	Output frequency read from hw in the unit 0 .01THz
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: receive_power
-                        
-                        	Transponder receive power in the unit of 0.01dBm
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: receive_signal_power
-                        
-                        	Transponder receive signal power in the unit of 0.01dBm
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: transmit_power
-                        
-                        	Transmit power in the unit of 0.01dBm
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: transmit_signal_power
-                        
-                        	Transmit Signal power in the unit of 0.01dBm
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
+                        	Low Tx Power
+                        	**type**\:   :py:class:`LowTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower>`
                         
                         
 
@@ -6948,46 +8031,33 @@ class OpticsOper(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.lane_alarm_info = OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo()
-                            self.lane_alarm_info.parent = self
-                            self.lane_index = None
-                            self.laser_bias_current_milli_amps = None
-                            self.laser_bias_current_percent = None
-                            self.output_frequency = None
-                            self.receive_power = None
-                            self.receive_signal_power = None
-                            self.transmit_power = None
-                            self.transmit_signal_power = None
+                            self.high_lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc()
+                            self.high_lbc.parent = self
+                            self.high_rx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower()
+                            self.high_rx_power.parent = self
+                            self.high_tx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower()
+                            self.high_tx_power.parent = self
+                            self.low_rx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower()
+                            self.low_rx_power.parent = self
+                            self.low_tx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower()
+                            self.low_tx_power.parent = self
 
 
-                        class LaneAlarmInfo(object):
+                        class HighRxPower(object):
                             """
-                            Lane Alarm Information
+                            High Rx Power
                             
-                            .. attribute:: high_lbc
+                            .. attribute:: counter
                             
-                            	High laser bias current
-                            	**type**\:   :py:class:`HighLbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.HighLbc>`
+                            	Alarm counter
+                            	**type**\:  int
                             
-                            .. attribute:: high_rx_power
+                            	**range:** 0..4294967295
                             
-                            	High Rx Power
-                            	**type**\:   :py:class:`HighRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.HighRxPower>`
+                            .. attribute:: is_detected
                             
-                            .. attribute:: high_tx_power
-                            
-                            	High Tx Power
-                            	**type**\:   :py:class:`HighTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.HighTxPower>`
-                            
-                            .. attribute:: low_rx_power
-                            
-                            	Low Rx Power
-                            	**type**\:   :py:class:`LowRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.LowRxPower>`
-                            
-                            .. attribute:: low_tx_power
-                            
-                            	Low Tx Power
-                            	**type**\:   :py:class:`LowTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.LowTxPower>`
+                            	Is defect detected?
+                            	**type**\:  bool
                             
                             
 
@@ -6998,303 +8068,15 @@ class OpticsOper(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.high_lbc = OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.HighLbc()
-                                self.high_lbc.parent = self
-                                self.high_rx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.HighRxPower()
-                                self.high_rx_power.parent = self
-                                self.high_tx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.HighTxPower()
-                                self.high_tx_power.parent = self
-                                self.low_rx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.LowRxPower()
-                                self.low_rx_power.parent = self
-                                self.low_tx_power = OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.LowTxPower()
-                                self.low_tx_power.parent = self
-
-
-                            class HighRxPower(object):
-                                """
-                                High Rx Power
-                                
-                                .. attribute:: counter
-                                
-                                	Alarm counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: is_detected
-                                
-                                	Is defect detected?
-                                	**type**\:  bool
-                                
-                                
-
-                                """
-
-                                _prefix = 'controller-optics-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.counter = None
-                                    self.is_detected = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:high-rx-power'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.counter is not None:
-                                        return True
-
-                                    if self.is_detected is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-                                    return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.HighRxPower']['meta_info']
-
-
-                            class LowRxPower(object):
-                                """
-                                Low Rx Power
-                                
-                                .. attribute:: counter
-                                
-                                	Alarm counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: is_detected
-                                
-                                	Is defect detected?
-                                	**type**\:  bool
-                                
-                                
-
-                                """
-
-                                _prefix = 'controller-optics-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.counter = None
-                                    self.is_detected = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:low-rx-power'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.counter is not None:
-                                        return True
-
-                                    if self.is_detected is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-                                    return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.LowRxPower']['meta_info']
-
-
-                            class HighTxPower(object):
-                                """
-                                High Tx Power
-                                
-                                .. attribute:: counter
-                                
-                                	Alarm counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: is_detected
-                                
-                                	Is defect detected?
-                                	**type**\:  bool
-                                
-                                
-
-                                """
-
-                                _prefix = 'controller-optics-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.counter = None
-                                    self.is_detected = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:high-tx-power'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.counter is not None:
-                                        return True
-
-                                    if self.is_detected is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-                                    return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.HighTxPower']['meta_info']
-
-
-                            class LowTxPower(object):
-                                """
-                                Low Tx Power
-                                
-                                .. attribute:: counter
-                                
-                                	Alarm counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: is_detected
-                                
-                                	Is defect detected?
-                                	**type**\:  bool
-                                
-                                
-
-                                """
-
-                                _prefix = 'controller-optics-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.counter = None
-                                    self.is_detected = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:low-tx-power'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.counter is not None:
-                                        return True
-
-                                    if self.is_detected is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-                                    return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.LowTxPower']['meta_info']
-
-
-                            class HighLbc(object):
-                                """
-                                High laser bias current
-                                
-                                .. attribute:: counter
-                                
-                                	Alarm counter
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: is_detected
-                                
-                                	Is defect detected?
-                                	**type**\:  bool
-                                
-                                
-
-                                """
-
-                                _prefix = 'controller-optics-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.counter = None
-                                    self.is_detected = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:high-lbc'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.counter is not None:
-                                        return True
-
-                                    if self.is_detected is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-                                    return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.HighLbc']['meta_info']
+                                self.counter = None
+                                self.is_detected = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:lane-alarm-info'
+                                return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:high-rx-power'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
@@ -7303,19 +8085,10 @@ class OpticsOper(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.high_lbc is not None and self.high_lbc._has_data():
+                                if self.counter is not None:
                                     return True
 
-                                if self.high_rx_power is not None and self.high_rx_power._has_data():
-                                    return True
-
-                                if self.high_tx_power is not None and self.high_tx_power._has_data():
-                                    return True
-
-                                if self.low_rx_power is not None and self.low_rx_power._has_data():
-                                    return True
-
-                                if self.low_tx_power is not None and self.low_tx_power._has_data():
+                                if self.is_detected is not None:
                                     return True
 
                                 return False
@@ -7323,14 +8096,238 @@ class OpticsOper(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-                                return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo']['meta_info']
+                                return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower']['meta_info']
+
+
+                        class LowRxPower(object):
+                            """
+                            Low Rx Power
+                            
+                            .. attribute:: counter
+                            
+                            	Alarm counter
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: is_detected
+                            
+                            	Is defect detected?
+                            	**type**\:  bool
+                            
+                            
+
+                            """
+
+                            _prefix = 'controller-optics-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.counter = None
+                                self.is_detected = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:low-rx-power'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.counter is not None:
+                                    return True
+
+                                if self.is_detected is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                                return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower']['meta_info']
+
+
+                        class HighTxPower(object):
+                            """
+                            High Tx Power
+                            
+                            .. attribute:: counter
+                            
+                            	Alarm counter
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: is_detected
+                            
+                            	Is defect detected?
+                            	**type**\:  bool
+                            
+                            
+
+                            """
+
+                            _prefix = 'controller-optics-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.counter = None
+                                self.is_detected = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:high-tx-power'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.counter is not None:
+                                    return True
+
+                                if self.is_detected is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                                return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower']['meta_info']
+
+
+                        class LowTxPower(object):
+                            """
+                            Low Tx Power
+                            
+                            .. attribute:: counter
+                            
+                            	Alarm counter
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: is_detected
+                            
+                            	Is defect detected?
+                            	**type**\:  bool
+                            
+                            
+
+                            """
+
+                            _prefix = 'controller-optics-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.counter = None
+                                self.is_detected = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:low-tx-power'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.counter is not None:
+                                    return True
+
+                                if self.is_detected is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                                return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower']['meta_info']
+
+
+                        class HighLbc(object):
+                            """
+                            High laser bias current
+                            
+                            .. attribute:: counter
+                            
+                            	Alarm counter
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: is_detected
+                            
+                            	Is defect detected?
+                            	**type**\:  bool
+                            
+                            
+
+                            """
+
+                            _prefix = 'controller-optics-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.counter = None
+                                self.is_detected = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:high-lbc'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.counter is not None:
+                                    return True
+
+                                if self.is_detected is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
+                                return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc']['meta_info']
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
                                 raise YPYModelError('parent is not set . Cannot derive path.')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:lane-data'
+                            return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:lane-alarm-info'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -7339,31 +8336,19 @@ class OpticsOper(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.lane_alarm_info is not None and self.lane_alarm_info._has_data():
+                            if self.high_lbc is not None and self.high_lbc._has_data():
                                 return True
 
-                            if self.lane_index is not None:
+                            if self.high_rx_power is not None and self.high_rx_power._has_data():
                                 return True
 
-                            if self.laser_bias_current_milli_amps is not None:
+                            if self.high_tx_power is not None and self.high_tx_power._has_data():
                                 return True
 
-                            if self.laser_bias_current_percent is not None:
+                            if self.low_rx_power is not None and self.low_rx_power._has_data():
                                 return True
 
-                            if self.output_frequency is not None:
-                                return True
-
-                            if self.receive_power is not None:
-                                return True
-
-                            if self.receive_signal_power is not None:
-                                return True
-
-                            if self.transmit_power is not None:
-                                return True
-
-                            if self.transmit_signal_power is not None:
+                            if self.low_tx_power is not None and self.low_tx_power._has_data():
                                 return True
 
                             return False
@@ -7371,14 +8356,16 @@ class OpticsOper(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData']['meta_info']
+                            return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo']['meta_info']
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
+                        if self.number is None:
+                            raise YPYModelError('Key property number is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:optics-lane'
+                        return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:optics-lane[Cisco-IOS-XR-controller-optics-oper:number = ' + str(self.number) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
@@ -7387,24 +8374,49 @@ class OpticsOper(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.lane_data is not None:
-                            for child_ref in self.lane_data:
-                                if child_ref._has_data():
-                                    return True
+                        if self.number is not None:
+                            return True
+
+                        if self.lane_alarm_info is not None and self.lane_alarm_info._has_data():
+                            return True
+
+                        if self.lane_index is not None:
+                            return True
+
+                        if self.laser_bias_current_milli_amps is not None:
+                            return True
+
+                        if self.laser_bias_current_percent is not None:
+                            return True
+
+                        if self.output_frequency is not None:
+                            return True
+
+                        if self.receive_power is not None:
+                            return True
+
+                        if self.receive_signal_power is not None:
+                            return True
+
+                        if self.transmit_power is not None:
+                            return True
+
+                        if self.transmit_signal_power is not None:
+                            return True
 
                         return False
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-                        return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane']['meta_info']
+                        return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane']['meta_info']
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
                         raise YPYModelError('parent is not set . Cannot derive path.')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:optics-lane-table'
+                    return self.parent._common_path +'/Cisco-IOS-XR-controller-optics-oper:optics-lanes'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -7413,15 +8425,17 @@ class OpticsOper(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.optics_lane is not None and self.optics_lane._has_data():
-                        return True
+                    if self.optics_lane is not None:
+                        for child_ref in self.optics_lane:
+                            if child_ref._has_data():
+                                return True
 
                     return False
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_oper as meta
-                    return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable']['meta_info']
+                    return meta._meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes']['meta_info']
 
 
             class OpticsDbInfo(object):
@@ -7624,7 +8638,7 @@ class OpticsOper(object):
                 if self.optics_info is not None and self.optics_info._has_data():
                     return True
 
-                if self.optics_lane_table is not None and self.optics_lane_table._has_data():
+                if self.optics_lanes is not None and self.optics_lanes._has_data():
                     return True
 
                 return False

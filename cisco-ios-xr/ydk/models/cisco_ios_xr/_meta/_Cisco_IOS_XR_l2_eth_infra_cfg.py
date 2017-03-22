@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'EgressFilteringEnum' : _MetaInfoEnum('EgressFilteringEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg',
         {
@@ -297,7 +296,7 @@ _meta_table = {
                 'short_ma_name_format',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('short-ma-name-icc', ATTRIBUTE, 'str' , None, None, 
-                [(0, 6)], [], 
+                [(1, 6)], [], 
                 '''                ITU Carrier Code (ICC), if format is
                 ICCBased
                 ''',
@@ -317,13 +316,13 @@ _meta_table = {
                 'short_ma_name_oui',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('short-ma-name-string', ATTRIBUTE, 'str' , None, None, 
-                [(0, 45)], [], 
+                [(1, 45)], [], 
                 '''                String Short MA Name, if format is String
                 ''',
                 'short_ma_name_string',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('short-ma-name-umc', ATTRIBUTE, 'str' , None, None, 
-                [(0, 12)], [], 
+                [(1, 12)], [], 
                 '''                Unique MEG ID Code (UMC), if format is
                 ICCBased
                 ''',
@@ -356,7 +355,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('service', ATTRIBUTE, 'str' , None, None, 
-                [(0, 79)], [], 
+                [(1, 79)], [], 
                 '''                Service (Maintenance Association)
                 ''',
                 'service',
@@ -514,7 +513,7 @@ _meta_table = {
                 'mdid_number',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('mdid-string', ATTRIBUTE, 'str' , None, None, 
-                [(0, 43)], [], 
+                [(1, 43)], [], 
                 '''                String MDID, if MDID format is String or
                 DNSLike
                 ''',
@@ -532,7 +531,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('domain', ATTRIBUTE, 'str' , None, None, 
-                [(0, 79)], [], 
+                [(1, 79)], [], 
                 '''                Maintenance Domain
                 ''',
                 'domain',
@@ -604,21 +603,189 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg'
         ),
     },
-    'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FramePeriod.Threshold' : {
-        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FramePeriod.Threshold',
+    'EthernetFeatures.EtherLinkOam.Profiles.Profile.Action' : {
+        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.Action',
             False, 
             [
+            _MetaInfoClassMember('capabilities-conflict', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnumEfdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEfdEnum', 
+                [], [], 
+                '''                Action to perform when a capabilities
+                conflict occurs
+                ''',
+                'capabilities_conflict',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('critical-event', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEnum', 
+                [], [], 
+                '''                Action to perform when a critical event
+                occurs
+                ''',
+                'critical_event',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('discovery-timeout', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnumEfdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEfdEnum', 
+                [], [], 
+                '''                Action to perform when discovery timeout
+                occurs
+                ''',
+                'discovery_timeout',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('dying-gasp', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEnum', 
+                [], [], 
+                '''                Action to perform when a dying gasp occurs
+                ''',
+                'dying_gasp',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('high-threshold', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEnum', 
+                [], [], 
+                '''                Action to perform when a high-threshold
+                event occurs
+                ''',
+                'high_threshold',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('link-fault', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnumEfdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEfdEnum', 
+                [], [], 
+                '''                Action to perform when a link fault message
+                is received
+                ''',
+                'link_fault',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('remote-loopback', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionPrimEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionPrimEnumEnum', 
+                [], [], 
+                '''                Action to perform when remote loopback is
+                entered or exited
+                ''',
+                'remote_loopback',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('session-down', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnumEfdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEfdEnum', 
+                [], [], 
+                '''                Action to perform when a session goes down
+                ''',
+                'session_down',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('session-up', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionPrimEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionPrimEnumEnum', 
+                [], [], 
+                '''                Action to perform when a session comes up
+                ''',
+                'session_up',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('wiring-conflict', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnumEfdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEfdEnum', 
+                [], [], 
+                '''                Action to perform when a wiring conflict
+                occurs
+                ''',
+                'wiring_conflict',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            ],
+            'Cisco-IOS-XR-ethernet-link-oam-cfg',
+            'action',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg'
+        ),
+    },
+    'EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote' : {
+        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote',
+            False, 
+            [
+            _MetaInfoClassMember('link-monitoring', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable or disable link monitoring
+                requirement
+                ''',
+                'link_monitoring',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('mib-retrieval', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable or disable MIB retrieval requirement
+                ''',
+                'mib_retrieval',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'EtherLinkOamRequireModeEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamRequireModeEnumEnum', 
+                [], [], 
+                '''                Possible required OAM modes
+                ''',
+                'mode',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('remote-loopback', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable or disable remote loopback
+                requirement
+                ''',
+                'remote_loopback',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            ],
+            'Cisco-IOS-XR-ethernet-link-oam-cfg',
+            'require-remote',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg'
+        ),
+    },
+    'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Window' : {
+        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Window',
+            False, 
+            [
+            _MetaInfoClassMember('multiplier', REFERENCE_ENUM_CLASS, 'EtherLinkOamThresholdWindowMultiplierEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamThresholdWindowMultiplierEnumEnum', 
+                [], [], 
+                '''                The multiplier to use for this window (only
+                valid if 'Units' is Symbols and treated as 1
+                if unspecified)
+                ''',
+                'multiplier',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('units', REFERENCE_ENUM_CLASS, 'EtherLinkOamWindowUnitsSymbolsEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamWindowUnitsSymbolsEnumEnum', 
+                [], [], 
+                '''                Units to use for this window
+                ''',
+                'units',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('window', ATTRIBUTE, 'int' , None, None, 
+                [('1', '4294967295')], [], 
+                '''                Size of the symbol-period window
+                ''',
+                'window',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            ],
+            'Cisco-IOS-XR-ethernet-link-oam-cfg',
+            'window',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg'
+        ),
+    },
+    'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold' : {
+        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold',
+            False, 
+            [
+            _MetaInfoClassMember('multiplier-high', REFERENCE_ENUM_CLASS, 'EtherLinkOamThresholdWindowMultiplierEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamThresholdWindowMultiplierEnumEnum', 
+                [], [], 
+                '''                The multiplier to use for the high threshold
+                (only valid if 'Units' is Symbols and treated
+                as 1 if unspecified)
+                ''',
+                'multiplier_high',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('multiplier-low', REFERENCE_ENUM_CLASS, 'EtherLinkOamThresholdWindowMultiplierEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamThresholdWindowMultiplierEnumEnum', 
+                [], [], 
+                '''                The multiplier to use for the low threshold
+                (only valid if 'Units' is Symbols and treated
+                as 1 if unspecified)
+                ''',
+                'multiplier_low',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
             _MetaInfoClassMember('threshold-high', ATTRIBUTE, 'int' , None, None, 
-                [('1', '1000000')], [], 
-                '''                The high threshold for frame-period events
+                [('1', '4294967295')], [], 
+                '''                The high threshold for symbol-period
                 ''',
                 'threshold_high',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
             _MetaInfoClassMember('threshold-low', ATTRIBUTE, 'int' , None, None, 
-                [('1', '1000000')], [], 
-                '''                The low threshold for frame-period events
+                [('1', '4294967295')], [], 
+                '''                The low threshold for symbol-period
                 ''',
                 'threshold_low',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('units', REFERENCE_ENUM_CLASS, 'EtherLinkOamThresholdUnitsSymbolsEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamThresholdUnitsSymbolsEnumEnum', 
+                [], [], 
+                '''                The units to use for these thresholds
+                ''',
+                'units',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
             ],
             'Cisco-IOS-XR-ethernet-link-oam-cfg',
@@ -627,19 +794,120 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg'
         ),
     },
-    'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FramePeriod' : {
-        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FramePeriod',
+    'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod' : {
+        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod',
             False, 
             [
-            _MetaInfoClassMember('threshold', REFERENCE_CLASS, 'Threshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg', 'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FramePeriod.Threshold', 
+            _MetaInfoClassMember('threshold', REFERENCE_CLASS, 'Threshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg', 'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold', 
+                [], [], 
+                '''                Threshold configuration for symbol-period
+                events
+                ''',
+                'threshold',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('window', REFERENCE_CLASS, 'Window' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg', 'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Window', 
+                [], [], 
+                '''                Window size configuration for symbol-period
+                events
+                ''',
+                'window',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            ],
+            'Cisco-IOS-XR-ethernet-link-oam-cfg',
+            'symbol-period',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg'
+        ),
+    },
+    'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Window' : {
+        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Window',
+            False, 
+            [
+            _MetaInfoClassMember('multiplier', REFERENCE_ENUM_CLASS, 'EtherLinkOamThresholdWindowMultiplierEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamThresholdWindowMultiplierEnumEnum', 
+                [], [], 
+                '''                The multiplier to use for this window (only
+                valid if 'Units' is Frames and treated as 1
+                if unspecified)
+                ''',
+                'multiplier',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('units', REFERENCE_ENUM_CLASS, 'EtherLinkOamWindowUnitsFramesEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamWindowUnitsFramesEnumEnum', 
+                [], [], 
+                '''                The units to use for this window
+                ''',
+                'units',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('window', ATTRIBUTE, 'int' , None, None, 
+                [('1', '4294967295')], [], 
+                '''                Size of the frame-period window
+                ''',
+                'window',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            ],
+            'Cisco-IOS-XR-ethernet-link-oam-cfg',
+            'window',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg'
+        ),
+    },
+    'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold' : {
+        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold',
+            False, 
+            [
+            _MetaInfoClassMember('multiplier-high', REFERENCE_ENUM_CLASS, 'EtherLinkOamThresholdWindowMultiplierEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamThresholdWindowMultiplierEnumEnum', 
+                [], [], 
+                '''                The multiplier to use for the high threshold
+                (only valid if 'Units' is Frames and treated
+                as 1 if unspecified)
+                ''',
+                'multiplier_high',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('multiplier-low', REFERENCE_ENUM_CLASS, 'EtherLinkOamThresholdWindowMultiplierEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamThresholdWindowMultiplierEnumEnum', 
+                [], [], 
+                '''                The multiplier to use for the low threshold
+                (only valid if 'Units' is Frames and treated
+                as 1 if unspecified)
+                ''',
+                'multiplier_low',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('threshold-high', ATTRIBUTE, 'int' , None, None, 
+                [('1', '4294967295')], [], 
+                '''                The high threshold for frame-period events
+                ''',
+                'threshold_high',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('threshold-low', ATTRIBUTE, 'int' , None, None, 
+                [('1', '4294967295')], [], 
+                '''                The low threshold for frame-period events
+                ''',
+                'threshold_low',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('units', REFERENCE_ENUM_CLASS, 'EtherLinkOamThresholdUnitsFramesEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamThresholdUnitsFramesEnumEnum', 
+                [], [], 
+                '''                The units to use for these thresholds
+                ''',
+                'units',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            ],
+            'Cisco-IOS-XR-ethernet-link-oam-cfg',
+            'threshold',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg'
+        ),
+    },
+    'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod' : {
+        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod',
+            False, 
+            [
+            _MetaInfoClassMember('threshold', REFERENCE_CLASS, 'Threshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg', 'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold', 
                 [], [], 
                 '''                Threshold configuration for frame-period
                 events
                 ''',
                 'threshold',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('window', ATTRIBUTE, 'int' , None, None, 
-                [('100', '60000')], [], 
+            _MetaInfoClassMember('window', REFERENCE_CLASS, 'Window' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg', 'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Window', 
+                [], [], 
                 '''                Window size configuration for frame-period
                 events
                 ''',
@@ -652,14 +920,13 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg'
         ),
     },
-    'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FrameSeconds.Threshold' : {
-        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FrameSeconds.Threshold',
+    'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold' : {
+        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold',
             False, 
             [
             _MetaInfoClassMember('threshold-high', ATTRIBUTE, 'int' , None, None, 
                 [('1', '900')], [], 
-                '''                The high threshold for frame-seconds
-                events
+                '''                The high threshold for frame-seconds events
                 ''',
                 'threshold_high',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
@@ -676,11 +943,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg'
         ),
     },
-    'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FrameSeconds' : {
-        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FrameSeconds',
+    'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds' : {
+        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds',
             False, 
             [
-            _MetaInfoClassMember('threshold', REFERENCE_CLASS, 'Threshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg', 'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FrameSeconds.Threshold', 
+            _MetaInfoClassMember('threshold', REFERENCE_CLASS, 'Threshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg', 'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold', 
                 [], [], 
                 '''                Threshold configuration for frame-seconds
                 events
@@ -701,18 +968,32 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg'
         ),
     },
-    'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame.Threshold' : {
-        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame.Threshold',
+    'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold' : {
+        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold',
             False, 
             [
+            _MetaInfoClassMember('multiplier-high', REFERENCE_ENUM_CLASS, 'EtherLinkOamThresholdWindowMultiplierEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamThresholdWindowMultiplierEnumEnum', 
+                [], [], 
+                '''                The multiplier to use for the high threshold
+                (treated as 1 if unspecified)
+                ''',
+                'multiplier_high',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
+            _MetaInfoClassMember('multiplier-low', REFERENCE_ENUM_CLASS, 'EtherLinkOamThresholdWindowMultiplierEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamThresholdWindowMultiplierEnumEnum', 
+                [], [], 
+                '''                The multiplier to use for the low threshold
+                (treated as 1 if unspecified)
+                ''',
+                'multiplier_low',
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
             _MetaInfoClassMember('threshold-high', ATTRIBUTE, 'int' , None, None, 
-                [('1', '12000000')], [], 
+                [('1', '4294967295')], [], 
                 '''                The high threshold for frame events
                 ''',
                 'threshold_high',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
             _MetaInfoClassMember('threshold-low', ATTRIBUTE, 'int' , None, None, 
-                [('1', '12000000')], [], 
+                [('1', '4294967295')], [], 
                 '''                The low threshold for frame events
                 ''',
                 'threshold_low',
@@ -724,11 +1005,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg'
         ),
     },
-    'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame' : {
-        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame',
+    'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame' : {
+        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame',
             False, 
             [
-            _MetaInfoClassMember('threshold', REFERENCE_CLASS, 'Threshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg', 'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame.Threshold', 
+            _MetaInfoClassMember('threshold', REFERENCE_CLASS, 'Threshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg', 'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold', 
                 [], [], 
                 '''                Threshold configuration for frame events
                 ''',
@@ -747,83 +1028,35 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg'
         ),
     },
-    'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.SymbolPeriod.Threshold' : {
-        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.SymbolPeriod.Threshold',
+    'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring' : {
+        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring',
             False, 
             [
-            _MetaInfoClassMember('threshold-high', ATTRIBUTE, 'int' , None, None, 
-                [('1', '60000000')], [], 
-                '''                The high threshold for symbol-period
-                ''',
-                'threshold_high',
-                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('threshold-low', ATTRIBUTE, 'int' , None, None, 
-                [('1', '60000000')], [], 
-                '''                The low threshold for symbol-period
-                ''',
-                'threshold_low',
-                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            ],
-            'Cisco-IOS-XR-ethernet-link-oam-cfg',
-            'threshold',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg'
-        ),
-    },
-    'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.SymbolPeriod' : {
-        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.SymbolPeriod',
-            False, 
-            [
-            _MetaInfoClassMember('threshold', REFERENCE_CLASS, 'Threshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg', 'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.SymbolPeriod.Threshold', 
-                [], [], 
-                '''                Threshold configuration for symbol-period
-                events
-                ''',
-                'threshold',
-                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('window', ATTRIBUTE, 'int' , None, None, 
-                [('1000', '60000')], [], 
-                '''                Window size configuration for symbol-period
-                events
-                ''',
-                'window',
-                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            ],
-            'Cisco-IOS-XR-ethernet-link-oam-cfg',
-            'symbol-period',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg'
-        ),
-    },
-    'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor' : {
-        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor',
-            False, 
-            [
-            _MetaInfoClassMember('frame', REFERENCE_CLASS, 'Frame' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg', 'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame', 
+            _MetaInfoClassMember('frame', REFERENCE_CLASS, 'Frame' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg', 'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame', 
                 [], [], 
                 '''                Frame event configuration
                 ''',
                 'frame',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('frame-period', REFERENCE_CLASS, 'FramePeriod' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg', 'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FramePeriod', 
+            _MetaInfoClassMember('frame-period', REFERENCE_CLASS, 'FramePeriod' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg', 'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod', 
                 [], [], 
                 '''                Frame-period event configuration
                 ''',
                 'frame_period',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('frame-seconds', REFERENCE_CLASS, 'FrameSeconds' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg', 'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FrameSeconds', 
+            _MetaInfoClassMember('frame-seconds', REFERENCE_CLASS, 'FrameSeconds' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg', 'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds', 
                 [], [], 
                 '''                Frame-seconds event configuration
                 ''',
                 'frame_seconds',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('monitoring', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('monitoring', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Disable monitoring
+                '''                Enable or disable monitoring
                 ''',
                 'monitoring',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('symbol-period', REFERENCE_CLASS, 'SymbolPeriod' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg', 'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.SymbolPeriod', 
+            _MetaInfoClassMember('symbol-period', REFERENCE_CLASS, 'SymbolPeriod' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg', 'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod', 
                 [], [], 
                 '''                Symbol-period event configuration
                 ''',
@@ -831,120 +1064,7 @@ _meta_table = {
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
             ],
             'Cisco-IOS-XR-ethernet-link-oam-cfg',
-            'link-monitor',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg'
-        ),
-    },
-    'EthernetFeatures.EtherLinkOam.Profiles.Profile.Action' : {
-        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.Action',
-            False, 
-            [
-            _MetaInfoClassMember('capabilities-conflict', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum5Enum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum5Enum', 
-                [], [], 
-                '''                Action to perform when a capabilities
-                conflict occurs
-                ''',
-                'capabilities_conflict',
-                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('critical-event', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum2Enum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum2Enum', 
-                [], [], 
-                '''                Action to perform when a critical event
-                occurs
-                ''',
-                'critical_event',
-                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('discovery-timeout', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum5Enum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum5Enum', 
-                [], [], 
-                '''                Action to perform when discovery timeout
-                occurs
-                ''',
-                'discovery_timeout',
-                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('dying-gasp', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum2Enum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum2Enum', 
-                [], [], 
-                '''                Action to perform when a dying gasp occurs
-                ''',
-                'dying_gasp',
-                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('high-threshold', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum1Enum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum1Enum', 
-                [], [], 
-                '''                Action to perform when a high-threshold
-                event occurs
-                ''',
-                'high_threshold',
-                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('link-fault', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum5Enum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum5Enum', 
-                [], [], 
-                '''                Action to perform when a link fault message
-                is received
-                ''',
-                'link_fault',
-                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('remote-loopback', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum4Enum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum4Enum', 
-                [], [], 
-                '''                Action to perform when remote loopback is
-                entered or exited
-                ''',
-                'remote_loopback',
-                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('session-down', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum5Enum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum5Enum', 
-                [], [], 
-                '''                Action to perform when a session goes down
-                ''',
-                'session_down',
-                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('session-up', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum4Enum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum4Enum', 
-                [], [], 
-                '''                Action to perform when a session comes up
-                ''',
-                'session_up',
-                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('wiring-conflict', REFERENCE_ENUM_CLASS, 'EtherLinkOamEventActionEnum6Enum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum6Enum', 
-                [], [], 
-                '''                Action to perform when a wiring conflict
-                occurs
-                ''',
-                'wiring_conflict',
-                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            ],
-            'Cisco-IOS-XR-ethernet-link-oam-cfg',
-            'action',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg'
-        ),
-    },
-    'EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote' : {
-        'meta_info' : _MetaInfoClass('EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote',
-            False, 
-            [
-            _MetaInfoClassMember('link-monitoring', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable link monitoring requirement
-                ''',
-                'link_monitoring',
-                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('mib-retrieval', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable MIB retrieval requirement
-                ''',
-                'mib_retrieval',
-                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'EtherLinkOamProfileRequireModeEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamProfileRequireModeEnumEnum', 
-                [], [], 
-                '''                Possible required OAM modes
-                ''',
-                'mode',
-                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('remote-loopback', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable remote loopback requirement
-                ''',
-                'remote_loopback',
-                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            ],
-            'Cisco-IOS-XR-ethernet-link-oam-cfg',
-            'require-remote',
+            'link-monitoring',
             _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg'
         ),
@@ -965,33 +1085,33 @@ _meta_table = {
                 ''',
                 'action',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('hello-interval', REFERENCE_ENUM_CLASS, 'EtherLinkOamProfileHelloIntervalEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamProfileHelloIntervalEnumEnum', 
+            _MetaInfoClassMember('hello-interval', REFERENCE_ENUM_CLASS, 'EtherLinkOamHelloIntervalEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamHelloIntervalEnumEnum', 
                 [], [], 
                 '''                Possible Ethernet Link OAM hello intervals
                 ''',
                 'hello_interval',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('link-monitor', REFERENCE_CLASS, 'LinkMonitor' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg', 'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor', 
+            _MetaInfoClassMember('link-monitoring', REFERENCE_CLASS, 'LinkMonitoring' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg', 'EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring', 
                 [], [], 
                 '''                Configure link monitor parameters
                 ''',
-                'link_monitor',
+                'link_monitoring',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('mib-retrieval', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('mib-retrieval', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Enable MIB retrieval support
+                '''                Enable or disable MIB retrieval support
                 ''',
                 'mib_retrieval',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'EtherLinkOamProfileModeEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamProfileModeEnumEnum', 
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'EtherLinkOamModeEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamModeEnumEnum', 
                 [], [], 
                 '''                Set the OAM mode to passive
                 ''',
                 'mode',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('remote-loopback', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('remote-loopback', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Enable remote loopback support
+                '''                Enable or disable remote loopback support
                 ''',
                 'remote_loopback',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
@@ -1008,10 +1128,10 @@ _meta_table = {
                 ''',
                 'timeout',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            _MetaInfoClassMember('udlf', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('udlf', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Enable uni-directional link-fault detection
-                support
+                '''                Enable or disable uni-directional link-fault
+                detection support
                 ''',
                 'udlf',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
@@ -1101,17 +1221,19 @@ _meta_table['EthernetFeatures.Cfm.Domains.Domain.DomainProperties']['meta_info']
 _meta_table['EthernetFeatures.Cfm.Domains.Domain']['meta_info'].parent =_meta_table['EthernetFeatures.Cfm.Domains']['meta_info']
 _meta_table['EthernetFeatures.Cfm.TracerouteCache']['meta_info'].parent =_meta_table['EthernetFeatures.Cfm']['meta_info']
 _meta_table['EthernetFeatures.Cfm.Domains']['meta_info'].parent =_meta_table['EthernetFeatures.Cfm']['meta_info']
-_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FramePeriod.Threshold']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FramePeriod']['meta_info']
-_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FrameSeconds.Threshold']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FrameSeconds']['meta_info']
-_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame.Threshold']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame']['meta_info']
-_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.SymbolPeriod.Threshold']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.SymbolPeriod']['meta_info']
-_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FramePeriod']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor']['meta_info']
-_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FrameSeconds']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor']['meta_info']
-_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor']['meta_info']
-_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.SymbolPeriod']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor']['meta_info']
-_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile']['meta_info']
+_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Window']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod']['meta_info']
+_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod']['meta_info']
+_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Window']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod']['meta_info']
+_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod']['meta_info']
+_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds']['meta_info']
+_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame']['meta_info']
+_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring']['meta_info']
+_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring']['meta_info']
+_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring']['meta_info']
+_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring']['meta_info']
 _meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.Action']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile']['meta_info']
 _meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile']['meta_info']
+_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile']['meta_info']
 _meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam.Profiles']['meta_info']
 _meta_table['EthernetFeatures.EtherLinkOam.Profiles']['meta_info'].parent =_meta_table['EthernetFeatures.EtherLinkOam']['meta_info']
 _meta_table['EthernetFeatures.EgressFiltering']['meta_info'].parent =_meta_table['EthernetFeatures']['meta_info']

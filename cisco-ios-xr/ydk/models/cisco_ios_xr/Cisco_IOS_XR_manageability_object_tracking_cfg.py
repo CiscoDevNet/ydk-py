@@ -60,7 +60,7 @@ class ObjectTrackings(object):
         	Track name
         	**type**\:  str
         
-        	**length:** 0..32
+        	**length:** 1..32
         
         .. attribute:: delay_down
         
@@ -479,7 +479,7 @@ class ObjectTrackings(object):
                     	Object name
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     .. attribute:: object_weight
                     
@@ -795,7 +795,7 @@ class ObjectTrackings(object):
                     	Object name
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     .. attribute:: object_weight
                     
@@ -923,7 +923,7 @@ class ObjectTrackings(object):
             	VRF tag \- use 'default' for the DEFAULT vrf
             	**type**\:  str
             
-            	**length:** 0..32
+            	**length:** 1..32
             
             
 
@@ -1094,7 +1094,7 @@ class ObjectTrackings(object):
                     	Object name
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     .. attribute:: object_sign
                     
@@ -1201,7 +1201,7 @@ class ObjectTrackings(object):
                     	Object name
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     .. attribute:: object_sign
                     

@@ -8,15 +8,22 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'KexNameEnum' : _MetaInfoEnum('KexNameEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper',
         {
-            'diffie-hellman':'diffie_hellman',
+            'diffie-hellman-group1':'diffie_hellman_group1',
+            'diffie-hellman-group14':'diffie_hellman_group14',
+            'diffie-hellman-group15':'diffie_hellman_group15',
+            'diffie-hellman-group16':'diffie_hellman_group16',
+            'diffie-hellman-group17':'diffie_hellman_group17',
+            'diffie-hellman-group18':'diffie_hellman_group18',
+            'ecdh-nistp256':'ecdh_nistp256',
+            'ecdh-nistp384':'ecdh_nistp384',
+            'ecdh-nistp521':'ecdh_nistp521',
             'password-authenticated':'password_authenticated',
         }, 'Cisco-IOS-XR-crypto-ssh-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper']),
     'HostkeyEnum' : _MetaInfoEnum('HostkeyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper',
@@ -58,6 +65,8 @@ _meta_table = {
         {
             'hmac-md5':'hmac_md5',
             'hmac-sha1':'hmac_sha1',
+            'hmac-sha2-256':'hmac_sha2_256',
+            'hmac-sha2-512':'hmac_sha2_512',
         }, 'Cisco-IOS-XR-crypto-ssh-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper']),
     'CipherEnum' : _MetaInfoEnum('CipherEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper',
         {
@@ -291,6 +300,133 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-crypto-ssh-oper',
             'ssh1',
+            _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper'
+        ),
+    },
+    'Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo' : {
+        'meta_info' : _MetaInfoClass('Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo',
+            False, 
+            [
+            _MetaInfoClassMember('session-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Session ID
+                ''',
+                'session_id',
+                'Cisco-IOS-XR-crypto-ssh-oper', False),
+            _MetaInfoClassMember('session-rekey-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Session Rekey Count
+                ''',
+                'session_rekey_count',
+                'Cisco-IOS-XR-crypto-ssh-oper', False),
+            _MetaInfoClassMember('time-to-rekey', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Time To Rekey
+                ''',
+                'time_to_rekey',
+                'Cisco-IOS-XR-crypto-ssh-oper', False),
+            _MetaInfoClassMember('volume-to-rekey', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Volume To Rekey
+                ''',
+                'volume_to_rekey',
+                'Cisco-IOS-XR-crypto-ssh-oper', False),
+            ],
+            'Cisco-IOS-XR-crypto-ssh-oper',
+            'session-rekey-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper'
+        ),
+    },
+    'Ssh.Session.Rekey.IncomingSessions' : {
+        'meta_info' : _MetaInfoClass('Ssh.Session.Rekey.IncomingSessions',
+            False, 
+            [
+            _MetaInfoClassMember('session-rekey-info', REFERENCE_LIST, 'SessionRekeyInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo', 
+                [], [], 
+                '''                session rekey info
+                ''',
+                'session_rekey_info',
+                'Cisco-IOS-XR-crypto-ssh-oper', False),
+            ],
+            'Cisco-IOS-XR-crypto-ssh-oper',
+            'incoming-sessions',
+            _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper'
+        ),
+    },
+    'Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo' : {
+        'meta_info' : _MetaInfoClass('Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo',
+            False, 
+            [
+            _MetaInfoClassMember('session-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Session ID
+                ''',
+                'session_id',
+                'Cisco-IOS-XR-crypto-ssh-oper', False),
+            _MetaInfoClassMember('session-rekey-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Session Rekey Count
+                ''',
+                'session_rekey_count',
+                'Cisco-IOS-XR-crypto-ssh-oper', False),
+            _MetaInfoClassMember('time-to-rekey', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Time To Rekey
+                ''',
+                'time_to_rekey',
+                'Cisco-IOS-XR-crypto-ssh-oper', False),
+            _MetaInfoClassMember('volume-to-rekey', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Volume To Rekey
+                ''',
+                'volume_to_rekey',
+                'Cisco-IOS-XR-crypto-ssh-oper', False),
+            ],
+            'Cisco-IOS-XR-crypto-ssh-oper',
+            'session-rekey-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper'
+        ),
+    },
+    'Ssh.Session.Rekey.OutgoingConnections' : {
+        'meta_info' : _MetaInfoClass('Ssh.Session.Rekey.OutgoingConnections',
+            False, 
+            [
+            _MetaInfoClassMember('session-rekey-info', REFERENCE_LIST, 'SessionRekeyInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo', 
+                [], [], 
+                '''                session rekey info
+                ''',
+                'session_rekey_info',
+                'Cisco-IOS-XR-crypto-ssh-oper', False),
+            ],
+            'Cisco-IOS-XR-crypto-ssh-oper',
+            'outgoing-connections',
+            _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper'
+        ),
+    },
+    'Ssh.Session.Rekey' : {
+        'meta_info' : _MetaInfoClass('Ssh.Session.Rekey',
+            False, 
+            [
+            _MetaInfoClassMember('incoming-sessions', REFERENCE_CLASS, 'IncomingSessions' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Ssh.Session.Rekey.IncomingSessions', 
+                [], [], 
+                '''                List of incoming sessions
+                ''',
+                'incoming_sessions',
+                'Cisco-IOS-XR-crypto-ssh-oper', False),
+            _MetaInfoClassMember('outgoing-connections', REFERENCE_CLASS, 'OutgoingConnections' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Ssh.Session.Rekey.OutgoingConnections', 
+                [], [], 
+                '''                List of outgoing connections
+                ''',
+                'outgoing_connections',
+                'Cisco-IOS-XR-crypto-ssh-oper', False),
+            ],
+            'Cisco-IOS-XR-crypto-ssh-oper',
+            'rekey',
             _yang_ns._namespaces['Cisco-IOS-XR-crypto-ssh-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper'
         ),
@@ -687,6 +823,12 @@ _meta_table = {
                 ''',
                 'detail',
                 'Cisco-IOS-XR-crypto-ssh-oper', False),
+            _MetaInfoClassMember('rekey', REFERENCE_CLASS, 'Rekey' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Ssh.Session.Rekey', 
+                [], [], 
+                '''                SSH session rekey information
+                ''',
+                'rekey',
+                'Cisco-IOS-XR-crypto-ssh-oper', False),
             ],
             'Cisco-IOS-XR-crypto-ssh-oper',
             'session',
@@ -719,6 +861,10 @@ _meta_table['Ssh1.Kex.Nodes.Node.OutgoingConnections']['meta_info'].parent =_met
 _meta_table['Ssh1.Kex.Nodes.Node']['meta_info'].parent =_meta_table['Ssh1.Kex.Nodes']['meta_info']
 _meta_table['Ssh1.Kex.Nodes']['meta_info'].parent =_meta_table['Ssh1.Kex']['meta_info']
 _meta_table['Ssh1.Kex']['meta_info'].parent =_meta_table['Ssh1']['meta_info']
+_meta_table['Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo']['meta_info'].parent =_meta_table['Ssh.Session.Rekey.IncomingSessions']['meta_info']
+_meta_table['Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo']['meta_info'].parent =_meta_table['Ssh.Session.Rekey.OutgoingConnections']['meta_info']
+_meta_table['Ssh.Session.Rekey.IncomingSessions']['meta_info'].parent =_meta_table['Ssh.Session.Rekey']['meta_info']
+_meta_table['Ssh.Session.Rekey.OutgoingConnections']['meta_info'].parent =_meta_table['Ssh.Session.Rekey']['meta_info']
 _meta_table['Ssh.Session.Brief.IncomingSessions.SessionBriefInfo']['meta_info'].parent =_meta_table['Ssh.Session.Brief.IncomingSessions']['meta_info']
 _meta_table['Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo']['meta_info'].parent =_meta_table['Ssh.Session.Brief.OutgoingSessions']['meta_info']
 _meta_table['Ssh.Session.Brief.IncomingSessions']['meta_info'].parent =_meta_table['Ssh.Session.Brief']['meta_info']
@@ -727,6 +873,7 @@ _meta_table['Ssh.Session.Detail.IncomingSessions.SessionDetailInfo']['meta_info'
 _meta_table['Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo']['meta_info'].parent =_meta_table['Ssh.Session.Detail.OutgoingConnections']['meta_info']
 _meta_table['Ssh.Session.Detail.IncomingSessions']['meta_info'].parent =_meta_table['Ssh.Session.Detail']['meta_info']
 _meta_table['Ssh.Session.Detail.OutgoingConnections']['meta_info'].parent =_meta_table['Ssh.Session.Detail']['meta_info']
+_meta_table['Ssh.Session.Rekey']['meta_info'].parent =_meta_table['Ssh.Session']['meta_info']
 _meta_table['Ssh.Session.Brief']['meta_info'].parent =_meta_table['Ssh.Session']['meta_info']
 _meta_table['Ssh.Session.Detail']['meta_info'].parent =_meta_table['Ssh.Session']['meta_info']
 _meta_table['Ssh.Session']['meta_info'].parent =_meta_table['Ssh']['meta_info']

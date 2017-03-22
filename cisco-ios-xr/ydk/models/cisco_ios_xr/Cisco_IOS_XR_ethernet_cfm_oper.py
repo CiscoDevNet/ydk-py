@@ -3576,7 +3576,7 @@ class Cfm(object):
                     	Maintenance Domain
                     	**type**\:  str
                     
-                    	**length:** 0..79
+                    	**length:** 1..79
                     
                     .. attribute:: mac_address  <key>
                     
@@ -3590,7 +3590,7 @@ class Cfm(object):
                     	Service (Maintenance Association)
                     	**type**\:  str
                     
-                    	**length:** 0..79
+                    	**length:** 1..79
                     
                     .. attribute:: domain_xr
                     
@@ -3892,7 +3892,7 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
-                	**length:** 0..79
+                	**length:** 1..79
                 
                 .. attribute:: interface  <key>
                 
@@ -3913,7 +3913,7 @@ class Cfm(object):
                 	Service (Maintenance Association)
                 	**type**\:  str
                 
-                	**length:** 0..79
+                	**length:** 1..79
                 
                 .. attribute:: transaction_id  <key>
                 
@@ -4420,7 +4420,7 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
-                	**length:** 0..79
+                	**length:** 1..79
                 
                 .. attribute:: interface  <key>
                 
@@ -4434,7 +4434,7 @@ class Cfm(object):
                 	Service (Maintenance Association)
                 	**type**\:  str
                 
-                	**length:** 0..79
+                	**length:** 1..79
                 
                 .. attribute:: mac_address
                 
@@ -4665,14 +4665,14 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
-                	**length:** 0..79
+                	**length:** 1..79
                 
                 .. attribute:: service  <key>
                 
                 	Service (Maintenance Association)
                 	**type**\:  str
                 
-                	**length:** 0..79
+                	**length:** 1..79
                 
                 .. attribute:: bridge_domain_id
                 
@@ -4914,7 +4914,7 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
-                	**length:** 0..79
+                	**length:** 1..79
                 
                 .. attribute:: interface  <key>
                 
@@ -4928,7 +4928,7 @@ class Cfm(object):
                 	Service (Maintenance Association)
                 	**type**\:  str
                 
-                	**length:** 0..79
+                	**length:** 1..79
                 
                 .. attribute:: ais_configured
                 
@@ -4960,6 +4960,11 @@ class Cfm(object):
                 	CCM Interval is less than minimum interval supported by hardware
                 	**type**\:  bool
                 
+                .. attribute:: fatal_offload_error
+                
+                	The platform returned a fatal error when passed the offload session
+                	**type**\:  bool
+                
                 .. attribute:: interface_bridge_domain
                 
                 	ID of the BD/XC that the MEP's EFP is in, if any
@@ -4968,6 +4973,11 @@ class Cfm(object):
                 .. attribute:: level_conflict
                 
                 	Another MEP facing in the same direction is at the same Maintenance Level
+                	**type**\:  bool
+                
+                .. attribute:: maid_format_not_supported
+                
+                	The configured MAID format is not supported for hardware offload
                 	**type**\:  bool
                 
                 .. attribute:: mep
@@ -5090,9 +5100,11 @@ class Cfm(object):
                     self.bundle_level0 = None
                     self.ccm_interval = None
                     self.ccm_interval_not_supported = None
+                    self.fatal_offload_error = None
                     self.interface_bridge_domain = Cfm.Global_.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain()
                     self.interface_bridge_domain.parent = self
                     self.level_conflict = None
+                    self.maid_format_not_supported = None
                     self.mep = Cfm.Global_.MepConfigurationErrors.MepConfigurationError.Mep()
                     self.mep.parent = self
                     self.no_domain = None
@@ -5655,10 +5667,16 @@ class Cfm(object):
                     if self.ccm_interval_not_supported is not None:
                         return True
 
+                    if self.fatal_offload_error is not None:
+                        return True
+
                     if self.interface_bridge_domain is not None and self.interface_bridge_domain._has_data():
                         return True
 
                     if self.level_conflict is not None:
+                        return True
+
+                    if self.maid_format_not_supported is not None:
                         return True
 
                     if self.mep is not None and self.mep._has_data():
@@ -5786,7 +5804,7 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
-                	**length:** 0..79
+                	**length:** 1..79
                 
                 .. attribute:: interface  <key>
                 
@@ -5807,7 +5825,7 @@ class Cfm(object):
                 	Service (Maintenance Association)
                 	**type**\:  str
                 
-                	**length:** 0..79
+                	**length:** 1..79
                 
                 .. attribute:: transaction_id  <key>
                 
@@ -9103,7 +9121,7 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
-                	**length:** 0..79
+                	**length:** 1..79
                 
                 .. attribute:: interface  <key>
                 
@@ -9124,7 +9142,7 @@ class Cfm(object):
                 	Service (Maintenance Association)
                 	**type**\:  str
                 
-                	**length:** 0..79
+                	**length:** 1..79
                 
                 .. attribute:: ais_statistics
                 
@@ -10349,7 +10367,7 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
-                	**length:** 0..79
+                	**length:** 1..79
                 
                 .. attribute:: interface  <key>
                 
@@ -10384,7 +10402,7 @@ class Cfm(object):
                 	Service (Maintenance Association)
                 	**type**\:  str
                 
-                	**length:** 0..79
+                	**length:** 1..79
                 
                 .. attribute:: domain_xr
                 

@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'EndPortEnum' : _MetaInfoEnum('EndPortEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg',
         {
@@ -132,8 +131,8 @@ _meta_table = {
             'talk':'talk',
             'ldp':'ldp',
         }, 'Cisco-IOS-XR-infra-objmgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-objmgr-cfg']),
-    'ObjectGroup.Port.Objects.Object.Operators.Operator' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Port.Objects.Object.Operators.Operator',
+    'ObjectGroup.Port.UdfObjects.UdfObject.Operators.Operator' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Port.UdfObjects.UdfObject.Operators.Operator',
             False, 
             [
             _MetaInfoClassMember('operator-type', REFERENCE_ENUM_CLASS, 'PortOperatorEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'PortOperatorEnum', 
@@ -168,11 +167,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Port.Objects.Object.Operators' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Port.Objects.Object.Operators',
+    'ObjectGroup.Port.UdfObjects.UdfObject.Operators' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Port.UdfObjects.UdfObject.Operators',
             False, 
             [
-            _MetaInfoClassMember('operator', REFERENCE_LIST, 'Operator' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Port.Objects.Object.Operators.Operator', 
+            _MetaInfoClassMember('operator', REFERENCE_LIST, 'Operator' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Port.UdfObjects.UdfObject.Operators.Operator', 
                 [], [], 
                 '''                op class
                 ''',
@@ -185,12 +184,12 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Port.Objects.Object.NestedGroups.NestedGroup' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Port.Objects.Object.NestedGroups.NestedGroup',
+    'ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups.NestedGroup' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups.NestedGroup',
             False, 
             [
             _MetaInfoClassMember('nested-group-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Name of a nested object group
                 ''',
                 'nested_group_name',
@@ -202,11 +201,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Port.Objects.Object.NestedGroups' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Port.Objects.Object.NestedGroups',
+    'ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups',
             False, 
             [
-            _MetaInfoClassMember('nested-group', REFERENCE_LIST, 'NestedGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Port.Objects.Object.NestedGroups.NestedGroup', 
+            _MetaInfoClassMember('nested-group', REFERENCE_LIST, 'NestedGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups.NestedGroup', 
                 [], [], 
                 '''                nested object group
                 ''',
@@ -219,8 +218,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Port.Objects.Object.PortRanges.PortRange' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Port.Objects.Object.PortRanges.PortRange',
+    'ObjectGroup.Port.UdfObjects.UdfObject.PortRanges.PortRange' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Port.UdfObjects.UdfObject.PortRanges.PortRange',
             False, 
             [
             _MetaInfoClassMember('end-port', REFERENCE_UNION, 'str' , None, None, 
@@ -268,11 +267,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Port.Objects.Object.PortRanges' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Port.Objects.Object.PortRanges',
+    'ObjectGroup.Port.UdfObjects.UdfObject.PortRanges' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Port.UdfObjects.UdfObject.PortRanges',
             False, 
             [
-            _MetaInfoClassMember('port-range', REFERENCE_LIST, 'PortRange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Port.Objects.Object.PortRanges.PortRange', 
+            _MetaInfoClassMember('port-range', REFERENCE_LIST, 'PortRange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Port.UdfObjects.UdfObject.PortRanges.PortRange', 
                 [], [], 
                 '''                Match only packets on a given port range
                 ''',
@@ -285,36 +284,36 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Port.Objects.Object' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Port.Objects.Object',
+    'ObjectGroup.Port.UdfObjects.UdfObject' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Port.UdfObjects.UdfObject',
             False, 
             [
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Port object group name - maximum 64
                 characters
                 ''',
                 'object_name',
                 'Cisco-IOS-XR-infra-objmgr-cfg', True),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [(0, 100)], [], 
+                [(1, 100)], [], 
                 '''                Up to 100 characters describing this object
                 ''',
                 'description',
                 'Cisco-IOS-XR-infra-objmgr-cfg', False),
-            _MetaInfoClassMember('nested-groups', REFERENCE_CLASS, 'NestedGroups' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Port.Objects.Object.NestedGroups', 
+            _MetaInfoClassMember('nested-groups', REFERENCE_CLASS, 'NestedGroups' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups', 
                 [], [], 
                 '''                Table of nested port object groups
                 ''',
                 'nested_groups',
                 'Cisco-IOS-XR-infra-objmgr-cfg', False),
-            _MetaInfoClassMember('operators', REFERENCE_CLASS, 'Operators' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Port.Objects.Object.Operators', 
+            _MetaInfoClassMember('operators', REFERENCE_CLASS, 'Operators' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Port.UdfObjects.UdfObject.Operators', 
                 [], [], 
                 '''                Table of port operators
                 ''',
                 'operators',
                 'Cisco-IOS-XR-infra-objmgr-cfg', False),
-            _MetaInfoClassMember('port-ranges', REFERENCE_CLASS, 'PortRanges' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Port.Objects.Object.PortRanges', 
+            _MetaInfoClassMember('port-ranges', REFERENCE_CLASS, 'PortRanges' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Port.UdfObjects.UdfObject.PortRanges', 
                 [], [], 
                 '''                Table of port range addresses
                 ''',
@@ -322,24 +321,24 @@ _meta_table = {
                 'Cisco-IOS-XR-infra-objmgr-cfg', False),
             ],
             'Cisco-IOS-XR-infra-objmgr-cfg',
-            'object',
+            'udf-object',
             _yang_ns._namespaces['Cisco-IOS-XR-infra-objmgr-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Port.Objects' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Port.Objects',
+    'ObjectGroup.Port.UdfObjects' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Port.UdfObjects',
             False, 
             [
-            _MetaInfoClassMember('object', REFERENCE_LIST, 'Object' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Port.Objects.Object', 
+            _MetaInfoClassMember('udf-object', REFERENCE_LIST, 'UdfObject' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Port.UdfObjects.UdfObject', 
                 [], [], 
                 '''                Port object group
                 ''',
-                'object',
+                'udf_object',
                 'Cisco-IOS-XR-infra-objmgr-cfg', False),
             ],
             'Cisco-IOS-XR-infra-objmgr-cfg',
-            'objects',
+            'udf-objects',
             _yang_ns._namespaces['Cisco-IOS-XR-infra-objmgr-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
@@ -348,11 +347,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('ObjectGroup.Port',
             False, 
             [
-            _MetaInfoClassMember('objects', REFERENCE_CLASS, 'Objects' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Port.Objects', 
+            _MetaInfoClassMember('udf-objects', REFERENCE_CLASS, 'UdfObjects' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Port.UdfObjects', 
                 [], [], 
                 '''                Table of port objects groups
                 ''',
-                'objects',
+                'udf_objects',
                 'Cisco-IOS-XR-infra-objmgr-cfg', False),
             ],
             'Cisco-IOS-XR-infra-objmgr-cfg',
@@ -361,12 +360,12 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups.NestedGroup' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups.NestedGroup',
+    'ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups.NestedGroup' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups.NestedGroup',
             False, 
             [
             _MetaInfoClassMember('nested-group-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Enter the name of a nested object group
                 ''',
                 'nested_group_name',
@@ -378,11 +377,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups',
+    'ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups',
             False, 
             [
-            _MetaInfoClassMember('nested-group', REFERENCE_LIST, 'NestedGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups.NestedGroup', 
+            _MetaInfoClassMember('nested-group', REFERENCE_LIST, 'NestedGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups.NestedGroup', 
                 [], [], 
                 '''                nested object group
                 ''',
@@ -395,8 +394,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges.AddressRange' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges.AddressRange',
+    'ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange',
             False, 
             [
             _MetaInfoClassMember('end-address', REFERENCE_UNION, 'str' , None, None, 
@@ -444,11 +443,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges',
+    'ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges',
             False, 
             [
-            _MetaInfoClassMember('address-range', REFERENCE_LIST, 'AddressRange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges.AddressRange', 
+            _MetaInfoClassMember('address-range', REFERENCE_LIST, 'AddressRange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange', 
                 [], [], 
                 '''                Range of host addresses
                 ''',
@@ -461,8 +460,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Network.Ipv6.Objects.Object.Addresses.Address' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6.Objects.Object.Addresses.Address',
+    'ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses.Address' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses.Address',
             False, 
             [
             _MetaInfoClassMember('prefix', REFERENCE_UNION, 'str' , None, None, 
@@ -497,11 +496,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Network.Ipv6.Objects.Object.Addresses' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6.Objects.Object.Addresses',
+    'ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses',
             False, 
             [
-            _MetaInfoClassMember('address', REFERENCE_LIST, 'Address' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv6.Objects.Object.Addresses.Address', 
+            _MetaInfoClassMember('address', REFERENCE_LIST, 'Address' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses.Address', 
                 [], [], 
                 '''                IPv6 address
                 ''',
@@ -514,8 +513,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Network.Ipv6.Objects.Object.Hosts.Host' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6.Objects.Object.Hosts.Host',
+    'ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts.Host' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts.Host',
             False, 
             [
             _MetaInfoClassMember('host-address', REFERENCE_UNION, 'str' , None, None, 
@@ -544,11 +543,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Network.Ipv6.Objects.Object.Hosts' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6.Objects.Object.Hosts',
+    'ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts',
             False, 
             [
-            _MetaInfoClassMember('host', REFERENCE_LIST, 'Host' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv6.Objects.Object.Hosts.Host', 
+            _MetaInfoClassMember('host', REFERENCE_LIST, 'Host' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts.Host', 
                 [], [], 
                 '''                A single host address
                 ''',
@@ -561,42 +560,42 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Network.Ipv6.Objects.Object' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6.Objects.Object',
+    'ObjectGroup.Network.Ipv6.UdfObjects.UdfObject' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6.UdfObjects.UdfObject',
             False, 
             [
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                IPv6 object group name - maximum 64
                 characters
                 ''',
                 'object_name',
                 'Cisco-IOS-XR-infra-objmgr-cfg', True),
-            _MetaInfoClassMember('address-ranges', REFERENCE_CLASS, 'AddressRanges' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges', 
+            _MetaInfoClassMember('address-ranges', REFERENCE_CLASS, 'AddressRanges' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges', 
                 [], [], 
                 '''                Table of ipv6 address ranges
                 ''',
                 'address_ranges',
                 'Cisco-IOS-XR-infra-objmgr-cfg', False),
-            _MetaInfoClassMember('addresses', REFERENCE_CLASS, 'Addresses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv6.Objects.Object.Addresses', 
+            _MetaInfoClassMember('addresses', REFERENCE_CLASS, 'Addresses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses', 
                 [], [], 
                 '''                Table of ipv6 addresses
                 ''',
                 'addresses',
                 'Cisco-IOS-XR-infra-objmgr-cfg', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [(0, 100)], [], 
+                [(1, 100)], [], 
                 '''                Up to 100 characters describing this object
                 ''',
                 'description',
                 'Cisco-IOS-XR-infra-objmgr-cfg', False),
-            _MetaInfoClassMember('hosts', REFERENCE_CLASS, 'Hosts' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv6.Objects.Object.Hosts', 
+            _MetaInfoClassMember('hosts', REFERENCE_CLASS, 'Hosts' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts', 
                 [], [], 
                 '''                Table of ipv6 host addresses
                 ''',
                 'hosts',
                 'Cisco-IOS-XR-infra-objmgr-cfg', False),
-            _MetaInfoClassMember('nested-groups', REFERENCE_CLASS, 'NestedGroups' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups', 
+            _MetaInfoClassMember('nested-groups', REFERENCE_CLASS, 'NestedGroups' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups', 
                 [], [], 
                 '''                Table of nested ipv6 object groups
                 ''',
@@ -604,24 +603,24 @@ _meta_table = {
                 'Cisco-IOS-XR-infra-objmgr-cfg', False),
             ],
             'Cisco-IOS-XR-infra-objmgr-cfg',
-            'object',
+            'udf-object',
             _yang_ns._namespaces['Cisco-IOS-XR-infra-objmgr-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Network.Ipv6.Objects' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6.Objects',
+    'ObjectGroup.Network.Ipv6.UdfObjects' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6.UdfObjects',
             False, 
             [
-            _MetaInfoClassMember('object', REFERENCE_LIST, 'Object' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv6.Objects.Object', 
+            _MetaInfoClassMember('udf-object', REFERENCE_LIST, 'UdfObject' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv6.UdfObjects.UdfObject', 
                 [], [], 
                 '''                IPv6 object group
                 ''',
-                'object',
+                'udf_object',
                 'Cisco-IOS-XR-infra-objmgr-cfg', False),
             ],
             'Cisco-IOS-XR-infra-objmgr-cfg',
-            'objects',
+            'udf-objects',
             _yang_ns._namespaces['Cisco-IOS-XR-infra-objmgr-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
@@ -630,11 +629,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6',
             False, 
             [
-            _MetaInfoClassMember('objects', REFERENCE_CLASS, 'Objects' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv6.Objects', 
+            _MetaInfoClassMember('udf-objects', REFERENCE_CLASS, 'UdfObjects' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv6.UdfObjects', 
                 [], [], 
                 '''                Table of ipv6 object groups
                 ''',
-                'objects',
+                'udf_objects',
                 'Cisco-IOS-XR-infra-objmgr-cfg', False),
             ],
             'Cisco-IOS-XR-infra-objmgr-cfg',
@@ -643,12 +642,12 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups.NestedGroup' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups.NestedGroup',
+    'ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups.NestedGroup' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups.NestedGroup',
             False, 
             [
             _MetaInfoClassMember('nested-group-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Nested object group
                 ''',
                 'nested_group_name',
@@ -660,11 +659,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups',
+    'ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups',
             False, 
             [
-            _MetaInfoClassMember('nested-group', REFERENCE_LIST, 'NestedGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups.NestedGroup', 
+            _MetaInfoClassMember('nested-group', REFERENCE_LIST, 'NestedGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups.NestedGroup', 
                 [], [], 
                 '''                Nested object group
                 ''',
@@ -677,8 +676,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges.AddressRange' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges.AddressRange',
+    'ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange',
             False, 
             [
             _MetaInfoClassMember('end-address', REFERENCE_UNION, 'str' , None, None, 
@@ -726,11 +725,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges',
+    'ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges',
             False, 
             [
-            _MetaInfoClassMember('address-range', REFERENCE_LIST, 'AddressRange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges.AddressRange', 
+            _MetaInfoClassMember('address-range', REFERENCE_LIST, 'AddressRange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange', 
                 [], [], 
                 '''                Range of host addresses
                 ''',
@@ -743,8 +742,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Network.Ipv4.Objects.Object.Addresses.Address' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4.Objects.Object.Addresses.Address',
+    'ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses.Address' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses.Address',
             False, 
             [
             _MetaInfoClassMember('prefix', REFERENCE_UNION, 'str' , None, None, 
@@ -779,11 +778,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Network.Ipv4.Objects.Object.Addresses' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4.Objects.Object.Addresses',
+    'ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses',
             False, 
             [
-            _MetaInfoClassMember('address', REFERENCE_LIST, 'Address' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv4.Objects.Object.Addresses.Address', 
+            _MetaInfoClassMember('address', REFERENCE_LIST, 'Address' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses.Address', 
                 [], [], 
                 '''                IPv4 address
                 ''',
@@ -796,8 +795,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Network.Ipv4.Objects.Object.Hosts.Host' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4.Objects.Object.Hosts.Host',
+    'ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts.Host' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts.Host',
             False, 
             [
             _MetaInfoClassMember('host-address', REFERENCE_UNION, 'str' , None, None, 
@@ -826,11 +825,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Network.Ipv4.Objects.Object.Hosts' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4.Objects.Object.Hosts',
+    'ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts',
             False, 
             [
-            _MetaInfoClassMember('host', REFERENCE_LIST, 'Host' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv4.Objects.Object.Hosts.Host', 
+            _MetaInfoClassMember('host', REFERENCE_LIST, 'Host' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts.Host', 
                 [], [], 
                 '''                A single host address
                 ''',
@@ -843,42 +842,42 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Network.Ipv4.Objects.Object' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4.Objects.Object',
+    'ObjectGroup.Network.Ipv4.UdfObjects.UdfObject' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4.UdfObjects.UdfObject',
             False, 
             [
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                IPv4 object group name - maximum 64
                 characters
                 ''',
                 'object_name',
                 'Cisco-IOS-XR-infra-objmgr-cfg', True),
-            _MetaInfoClassMember('address-ranges', REFERENCE_CLASS, 'AddressRanges' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges', 
+            _MetaInfoClassMember('address-ranges', REFERENCE_CLASS, 'AddressRanges' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges', 
                 [], [], 
                 '''                Table of ipv4 host address ranges
                 ''',
                 'address_ranges',
                 'Cisco-IOS-XR-infra-objmgr-cfg', False),
-            _MetaInfoClassMember('addresses', REFERENCE_CLASS, 'Addresses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv4.Objects.Object.Addresses', 
+            _MetaInfoClassMember('addresses', REFERENCE_CLASS, 'Addresses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses', 
                 [], [], 
                 '''                Table of addresses
                 ''',
                 'addresses',
                 'Cisco-IOS-XR-infra-objmgr-cfg', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [(0, 100)], [], 
+                [(1, 100)], [], 
                 '''                Up to 100 characters describing this object
                 ''',
                 'description',
                 'Cisco-IOS-XR-infra-objmgr-cfg', False),
-            _MetaInfoClassMember('hosts', REFERENCE_CLASS, 'Hosts' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv4.Objects.Object.Hosts', 
+            _MetaInfoClassMember('hosts', REFERENCE_CLASS, 'Hosts' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts', 
                 [], [], 
                 '''                Table of host addresses
                 ''',
                 'hosts',
                 'Cisco-IOS-XR-infra-objmgr-cfg', False),
-            _MetaInfoClassMember('nested-groups', REFERENCE_CLASS, 'NestedGroups' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups', 
+            _MetaInfoClassMember('nested-groups', REFERENCE_CLASS, 'NestedGroups' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups', 
                 [], [], 
                 '''                Table of nested ipv4 object groups
                 ''',
@@ -886,24 +885,24 @@ _meta_table = {
                 'Cisco-IOS-XR-infra-objmgr-cfg', False),
             ],
             'Cisco-IOS-XR-infra-objmgr-cfg',
-            'object',
+            'udf-object',
             _yang_ns._namespaces['Cisco-IOS-XR-infra-objmgr-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
     },
-    'ObjectGroup.Network.Ipv4.Objects' : {
-        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4.Objects',
+    'ObjectGroup.Network.Ipv4.UdfObjects' : {
+        'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4.UdfObjects',
             False, 
             [
-            _MetaInfoClassMember('object', REFERENCE_LIST, 'Object' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv4.Objects.Object', 
+            _MetaInfoClassMember('udf-object', REFERENCE_LIST, 'UdfObject' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv4.UdfObjects.UdfObject', 
                 [], [], 
                 '''                IPv4 object group
                 ''',
-                'object',
+                'udf_object',
                 'Cisco-IOS-XR-infra-objmgr-cfg', False),
             ],
             'Cisco-IOS-XR-infra-objmgr-cfg',
-            'objects',
+            'udf-objects',
             _yang_ns._namespaces['Cisco-IOS-XR-infra-objmgr-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg'
         ),
@@ -912,11 +911,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4',
             False, 
             [
-            _MetaInfoClassMember('objects', REFERENCE_CLASS, 'Objects' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv4.Objects', 
+            _MetaInfoClassMember('udf-objects', REFERENCE_CLASS, 'UdfObjects' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'ObjectGroup.Network.Ipv4.UdfObjects', 
                 [], [], 
                 '''                Table of ipv4 object groups
                 ''',
-                'objects',
+                'udf_objects',
                 'Cisco-IOS-XR-infra-objmgr-cfg', False),
             ],
             'Cisco-IOS-XR-infra-objmgr-cfg',
@@ -972,34 +971,34 @@ _meta_table = {
         ),
     },
 }
-_meta_table['ObjectGroup.Port.Objects.Object.Operators.Operator']['meta_info'].parent =_meta_table['ObjectGroup.Port.Objects.Object.Operators']['meta_info']
-_meta_table['ObjectGroup.Port.Objects.Object.NestedGroups.NestedGroup']['meta_info'].parent =_meta_table['ObjectGroup.Port.Objects.Object.NestedGroups']['meta_info']
-_meta_table['ObjectGroup.Port.Objects.Object.PortRanges.PortRange']['meta_info'].parent =_meta_table['ObjectGroup.Port.Objects.Object.PortRanges']['meta_info']
-_meta_table['ObjectGroup.Port.Objects.Object.Operators']['meta_info'].parent =_meta_table['ObjectGroup.Port.Objects.Object']['meta_info']
-_meta_table['ObjectGroup.Port.Objects.Object.NestedGroups']['meta_info'].parent =_meta_table['ObjectGroup.Port.Objects.Object']['meta_info']
-_meta_table['ObjectGroup.Port.Objects.Object.PortRanges']['meta_info'].parent =_meta_table['ObjectGroup.Port.Objects.Object']['meta_info']
-_meta_table['ObjectGroup.Port.Objects.Object']['meta_info'].parent =_meta_table['ObjectGroup.Port.Objects']['meta_info']
-_meta_table['ObjectGroup.Port.Objects']['meta_info'].parent =_meta_table['ObjectGroup.Port']['meta_info']
-_meta_table['ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups.NestedGroup']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups']['meta_info']
-_meta_table['ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges.AddressRange']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges']['meta_info']
-_meta_table['ObjectGroup.Network.Ipv6.Objects.Object.Addresses.Address']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv6.Objects.Object.Addresses']['meta_info']
-_meta_table['ObjectGroup.Network.Ipv6.Objects.Object.Hosts.Host']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv6.Objects.Object.Hosts']['meta_info']
-_meta_table['ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv6.Objects.Object']['meta_info']
-_meta_table['ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv6.Objects.Object']['meta_info']
-_meta_table['ObjectGroup.Network.Ipv6.Objects.Object.Addresses']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv6.Objects.Object']['meta_info']
-_meta_table['ObjectGroup.Network.Ipv6.Objects.Object.Hosts']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv6.Objects.Object']['meta_info']
-_meta_table['ObjectGroup.Network.Ipv6.Objects.Object']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv6.Objects']['meta_info']
-_meta_table['ObjectGroup.Network.Ipv6.Objects']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv6']['meta_info']
-_meta_table['ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups.NestedGroup']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups']['meta_info']
-_meta_table['ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges.AddressRange']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges']['meta_info']
-_meta_table['ObjectGroup.Network.Ipv4.Objects.Object.Addresses.Address']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv4.Objects.Object.Addresses']['meta_info']
-_meta_table['ObjectGroup.Network.Ipv4.Objects.Object.Hosts.Host']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv4.Objects.Object.Hosts']['meta_info']
-_meta_table['ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv4.Objects.Object']['meta_info']
-_meta_table['ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv4.Objects.Object']['meta_info']
-_meta_table['ObjectGroup.Network.Ipv4.Objects.Object.Addresses']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv4.Objects.Object']['meta_info']
-_meta_table['ObjectGroup.Network.Ipv4.Objects.Object.Hosts']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv4.Objects.Object']['meta_info']
-_meta_table['ObjectGroup.Network.Ipv4.Objects.Object']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv4.Objects']['meta_info']
-_meta_table['ObjectGroup.Network.Ipv4.Objects']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv4']['meta_info']
+_meta_table['ObjectGroup.Port.UdfObjects.UdfObject.Operators.Operator']['meta_info'].parent =_meta_table['ObjectGroup.Port.UdfObjects.UdfObject.Operators']['meta_info']
+_meta_table['ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups.NestedGroup']['meta_info'].parent =_meta_table['ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups']['meta_info']
+_meta_table['ObjectGroup.Port.UdfObjects.UdfObject.PortRanges.PortRange']['meta_info'].parent =_meta_table['ObjectGroup.Port.UdfObjects.UdfObject.PortRanges']['meta_info']
+_meta_table['ObjectGroup.Port.UdfObjects.UdfObject.Operators']['meta_info'].parent =_meta_table['ObjectGroup.Port.UdfObjects.UdfObject']['meta_info']
+_meta_table['ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups']['meta_info'].parent =_meta_table['ObjectGroup.Port.UdfObjects.UdfObject']['meta_info']
+_meta_table['ObjectGroup.Port.UdfObjects.UdfObject.PortRanges']['meta_info'].parent =_meta_table['ObjectGroup.Port.UdfObjects.UdfObject']['meta_info']
+_meta_table['ObjectGroup.Port.UdfObjects.UdfObject']['meta_info'].parent =_meta_table['ObjectGroup.Port.UdfObjects']['meta_info']
+_meta_table['ObjectGroup.Port.UdfObjects']['meta_info'].parent =_meta_table['ObjectGroup.Port']['meta_info']
+_meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups.NestedGroup']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups']['meta_info']
+_meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges']['meta_info']
+_meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses.Address']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses']['meta_info']
+_meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts.Host']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts']['meta_info']
+_meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject']['meta_info']
+_meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject']['meta_info']
+_meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject']['meta_info']
+_meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject']['meta_info']
+_meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv6.UdfObjects']['meta_info']
+_meta_table['ObjectGroup.Network.Ipv6.UdfObjects']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv6']['meta_info']
+_meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups.NestedGroup']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups']['meta_info']
+_meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges']['meta_info']
+_meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses.Address']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses']['meta_info']
+_meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts.Host']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts']['meta_info']
+_meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject']['meta_info']
+_meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject']['meta_info']
+_meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject']['meta_info']
+_meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject']['meta_info']
+_meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv4.UdfObjects']['meta_info']
+_meta_table['ObjectGroup.Network.Ipv4.UdfObjects']['meta_info'].parent =_meta_table['ObjectGroup.Network.Ipv4']['meta_info']
 _meta_table['ObjectGroup.Network.Ipv6']['meta_info'].parent =_meta_table['ObjectGroup.Network']['meta_info']
 _meta_table['ObjectGroup.Network.Ipv4']['meta_info'].parent =_meta_table['ObjectGroup.Network']['meta_info']
 _meta_table['ObjectGroup.Port']['meta_info'].parent =_meta_table['ObjectGroup']['meta_info']

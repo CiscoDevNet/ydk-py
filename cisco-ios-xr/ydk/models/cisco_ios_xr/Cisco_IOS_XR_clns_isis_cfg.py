@@ -1001,6 +1001,10 @@ class IsisMicroLoopAvoidanceEnum(Enum):
 
     	prefixes
 
+    .. data:: micro_loop_avoidance_segement_routing = 3
+
+    	Provide segment-routing mirco loop avoidance
+
     """
 
     not_set = 0
@@ -1008,6 +1012,8 @@ class IsisMicroLoopAvoidanceEnum(Enum):
     micro_loop_avoidance_all = 1
 
     micro_loop_avoidance_protected = 2
+
+    micro_loop_avoidance_segement_routing = 3
 
 
     @staticmethod
@@ -1567,7 +1573,14 @@ class Isis(object):
             	Instance identifier
             	**type**\:  str
             
-            	**length:** 0..40
+            	**length:** 1..40
+            
+            .. attribute:: adjacency_stagger
+            
+            	Stagger ISIS adjacency bring up
+            	**type**\:   :py:class:`AdjacencyStagger <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.AdjacencyStagger>`
+            
+            	**presence node**\: True
             
             .. attribute:: afs
             
@@ -1726,6 +1739,7 @@ class Isis(object):
             def __init__(self):
                 self.parent = None
                 self.instance_name = None
+                self.adjacency_stagger = None
                 self.afs = Isis.Instances.Instance.Afs()
                 self.afs.parent = self
                 self.distribute = None
@@ -2287,6 +2301,78 @@ class Isis(object):
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
                     return meta._meta_table['Isis.Instances.Instance.MaxLinkMetrics']['meta_info']
+
+
+            class AdjacencyStagger(object):
+                """
+                Stagger ISIS adjacency bring up
+                
+                .. attribute:: initial_nbr
+                
+                	Adjacency Stagger\: Initial number of neighbors to bring up per area
+                	**type**\:  int
+                
+                	**range:** 2..65000
+                
+                	**default value**\: 2
+                
+                .. attribute:: max_nbr
+                
+                	Adjacency Stagger\: Subsequent simultaneous number of neighbors to bring up
+                	**type**\:  int
+                
+                	**range:** 2..65000
+                
+                	**default value**\: 64
+                
+                .. attribute:: _is_presence
+                
+                	Is present if this instance represents presence container else not
+                	**type**\: bool
+                
+                
+
+                This class is a :ref:`presence class<presence-class>`
+
+                """
+
+                _prefix = 'clns-isis-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self._is_presence = True
+                    self.initial_nbr = None
+                    self.max_nbr = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:adjacency-stagger'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self._is_presence:
+                        return True
+                    if self.initial_nbr is not None:
+                        return True
+
+                    if self.max_nbr is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                    return meta._meta_table['Isis.Instances.Instance.AdjacencyStagger']['meta_info']
 
 
             class Afs(object):
@@ -6099,7 +6185,7 @@ class Isis(object):
                         	Topology Name
                         	**type**\:  str
                         
-                        	**length:** 0..32
+                        	**length:** 1..32
                         
                         .. attribute:: adjacency_check
                         
@@ -10019,7 +10105,7 @@ class Isis(object):
                 	Seconds
                 	**type**\:  int
                 
-                	**range:** 5..20
+                	**range:** 1..20
                 
                 	**units**\: second
                 
@@ -10424,7 +10510,7 @@ class Isis(object):
                     	Link Group Name
                     	**type**\:  str
                     
-                    	**length:** 0..40
+                    	**length:** 1..40
                     
                     .. attribute:: enable
                     
@@ -11268,6 +11354,11 @@ class Isis(object):
                     	IS\-IS will attempt to form point\-to\-point over LAN adjacencies over this interface
                     	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
+                    .. attribute:: prefix_attribute_n_flag_clears
+                    
+                    	Prefix attribute N flag clear configuration
+                    	**type**\:   :py:class:`PrefixAttributeNFlagClears <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears>`
+                    
                     .. attribute:: priorities
                     
                     	DIS\-election priority configuration
@@ -11321,6 +11412,8 @@ class Isis(object):
                         self.lsp_retransmit_throttle_intervals.parent = self
                         self.mesh_group = None
                         self.point_to_point = None
+                        self.prefix_attribute_n_flag_clears = Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears()
+                        self.prefix_attribute_n_flag_clears.parent = self
                         self.priorities = Isis.Instances.Instance.Interfaces.Interface.Priorities()
                         self.priorities.parent = self
                         self.running = None
@@ -12334,6 +12427,103 @@ class Isis(object):
                             return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds']['meta_info']
 
 
+                    class PrefixAttributeNFlagClears(object):
+                        """
+                        Prefix attribute N flag clear configuration
+                        
+                        .. attribute:: prefix_attribute_n_flag_clear
+                        
+                        	Clear the N flag in prefix attribute flags sub\-TLV
+                        	**type**\: list of    :py:class:`PrefixAttributeNFlagClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears.PrefixAttributeNFlagClear>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'clns-isis-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.prefix_attribute_n_flag_clear = YList()
+                            self.prefix_attribute_n_flag_clear.parent = self
+                            self.prefix_attribute_n_flag_clear.name = 'prefix_attribute_n_flag_clear'
+
+
+                        class PrefixAttributeNFlagClear(object):
+                            """
+                            Clear the N flag in prefix attribute flags
+                            sub\-TLV
+                            
+                            .. attribute:: level  <key>
+                            
+                            	Level to which configuration applies
+                            	**type**\:   :py:class:`IsisInternalLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'clns-isis-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.level = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.level is None:
+                                    raise YPYModelError('Key property level is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:prefix-attribute-n-flag-clear[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.level is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears.PrefixAttributeNFlagClear']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:prefix-attribute-n-flag-clears'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.prefix_attribute_n_flag_clear is not None:
+                                for child_ref in self.prefix_attribute_n_flag_clear:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears']['meta_info']
+
+
                     class HelloIntervals(object):
                         """
                         Hello\-interval configuration
@@ -12566,6 +12756,13 @@ class Isis(object):
                                 
                                 	**presence node**\: True
                                 
+                                .. attribute:: prefix_sspfsid
+                                
+                                	Assign prefix SSPF SID to an interface, ISISPHPFlag will be rejected if set to disable, ISISEXPLICITNULLFlag will override the value of ISISPHPFlag
+                                	**type**\:   :py:class:`PrefixSspfsid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSspfsid>`
+                                
+                                	**presence node**\: True
+                                
                                 .. attribute:: running
                                 
                                 	The presence of this object allows an address\-family to be run over the interface in question.This must be the first object created under the InterfaceAddressFamily container, and the last one deleted
@@ -12598,6 +12795,7 @@ class Isis(object):
                                     self.mpls_ldp = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.MplsLdp()
                                     self.mpls_ldp.parent = self
                                     self.prefix_sid = None
+                                    self.prefix_sspfsid = None
                                     self.running = None
                                     self.weights = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights()
                                     self.weights.parent = self
@@ -13759,6 +13957,112 @@ class Isis(object):
                                         return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.MplsLdp']['meta_info']
 
 
+                                class PrefixSspfsid(object):
+                                    """
+                                    Assign prefix SSPF SID to an interface,
+                                    ISISPHPFlag will be rejected if set to
+                                    disable, ISISEXPLICITNULLFlag will
+                                    override the value of ISISPHPFlag
+                                    
+                                    .. attribute:: explicit_null
+                                    
+                                    	Enable/Disable Explicit\-NULL flag
+                                    	**type**\:   :py:class:`IsisexplicitNullFlagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisexplicitNullFlagEnum>`
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: nflag_clear
+                                    
+                                    	Clear N\-flag for the prefix\-SID
+                                    	**type**\:   :py:class:`NflagClearEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.NflagClearEnum>`
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: php
+                                    
+                                    	Enable/Disable Penultimate Hop Popping
+                                    	**type**\:   :py:class:`IsisphpFlagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisphpFlagEnum>`
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: type
+                                    
+                                    	SID type for the interface
+                                    	**type**\:   :py:class:`IsissidEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsissidEnum>`
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: value
+                                    
+                                    	SID value for the interface
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..1048575
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
+                                    
+
+                                    This class is a :ref:`presence class<presence-class>`
+
+                                    """
+
+                                    _prefix = 'clns-isis-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self._is_presence = True
+                                        self.explicit_null = None
+                                        self.nflag_clear = None
+                                        self.php = None
+                                        self.type = None
+                                        self.value = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:prefix-sspfsid'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self._is_presence:
+                                            return True
+                                        if self.explicit_null is not None:
+                                            return True
+
+                                        if self.nflag_clear is not None:
+                                            return True
+
+                                        if self.php is not None:
+                                            return True
+
+                                        if self.type is not None:
+                                            return True
+
+                                        if self.value is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSspfsid']['meta_info']
+
+
                                 class AutoMetrics(object):
                                     """
                                     AutoMetric configuration
@@ -14004,7 +14308,7 @@ class Isis(object):
                                     	Link Group
                                     	**type**\:  str
                                     
-                                    	**length:** 0..40
+                                    	**length:** 1..40
                                     
                                     	**mandatory**\: True
                                     
@@ -14356,6 +14660,9 @@ class Isis(object):
                                     if self.prefix_sid is not None and self.prefix_sid._has_data():
                                         return True
 
+                                    if self.prefix_sspfsid is not None and self.prefix_sspfsid._has_data():
+                                        return True
+
                                     if self.running is not None:
                                         return True
 
@@ -14379,7 +14686,7 @@ class Isis(object):
                                 	Topology Name
                                 	**type**\:  str
                                 
-                                	**length:** 0..32
+                                	**length:** 1..32
                                 
                                 .. attribute:: admin_tags
                                 
@@ -14425,6 +14732,13 @@ class Isis(object):
                                 
                                 	**presence node**\: True
                                 
+                                .. attribute:: prefix_sspfsid
+                                
+                                	Assign prefix SSPF SID to an interface, ISISPHPFlag will be rejected if set to disable, ISISEXPLICITNULLFlag will override the value of ISISPHPFlag
+                                	**type**\:   :py:class:`PrefixSspfsid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSspfsid>`
+                                
+                                	**presence node**\: True
+                                
                                 .. attribute:: running
                                 
                                 	The presence of this object allows an address\-family to be run over the interface in question.This must be the first object created under the InterfaceAddressFamily container, and the last one deleted
@@ -14458,6 +14772,7 @@ class Isis(object):
                                     self.mpls_ldp = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.MplsLdp()
                                     self.mpls_ldp.parent = self
                                     self.prefix_sid = None
+                                    self.prefix_sspfsid = None
                                     self.running = None
                                     self.weights = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights()
                                     self.weights.parent = self
@@ -15619,6 +15934,112 @@ class Isis(object):
                                         return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.MplsLdp']['meta_info']
 
 
+                                class PrefixSspfsid(object):
+                                    """
+                                    Assign prefix SSPF SID to an interface,
+                                    ISISPHPFlag will be rejected if set to
+                                    disable, ISISEXPLICITNULLFlag will
+                                    override the value of ISISPHPFlag
+                                    
+                                    .. attribute:: explicit_null
+                                    
+                                    	Enable/Disable Explicit\-NULL flag
+                                    	**type**\:   :py:class:`IsisexplicitNullFlagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisexplicitNullFlagEnum>`
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: nflag_clear
+                                    
+                                    	Clear N\-flag for the prefix\-SID
+                                    	**type**\:   :py:class:`NflagClearEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.NflagClearEnum>`
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: php
+                                    
+                                    	Enable/Disable Penultimate Hop Popping
+                                    	**type**\:   :py:class:`IsisphpFlagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisphpFlagEnum>`
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: type
+                                    
+                                    	SID type for the interface
+                                    	**type**\:   :py:class:`IsissidEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsissidEnum>`
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: value
+                                    
+                                    	SID value for the interface
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..1048575
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
+                                    
+
+                                    This class is a :ref:`presence class<presence-class>`
+
+                                    """
+
+                                    _prefix = 'clns-isis-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self._is_presence = True
+                                        self.explicit_null = None
+                                        self.nflag_clear = None
+                                        self.php = None
+                                        self.type = None
+                                        self.value = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:prefix-sspfsid'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self._is_presence:
+                                            return True
+                                        if self.explicit_null is not None:
+                                            return True
+
+                                        if self.nflag_clear is not None:
+                                            return True
+
+                                        if self.php is not None:
+                                            return True
+
+                                        if self.type is not None:
+                                            return True
+
+                                        if self.value is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSspfsid']['meta_info']
+
+
                                 class AutoMetrics(object):
                                     """
                                     AutoMetric configuration
@@ -15864,7 +16285,7 @@ class Isis(object):
                                     	Link Group
                                     	**type**\:  str
                                     
-                                    	**length:** 0..40
+                                    	**length:** 1..40
                                     
                                     	**mandatory**\: True
                                     
@@ -16219,6 +16640,9 @@ class Isis(object):
                                         return True
 
                                     if self.prefix_sid is not None and self.prefix_sid._has_data():
+                                        return True
+
+                                    if self.prefix_sspfsid is not None and self.prefix_sspfsid._has_data():
                                         return True
 
                                     if self.running is not None:
@@ -16591,6 +17015,9 @@ class Isis(object):
                         if self.point_to_point is not None:
                             return True
 
+                        if self.prefix_attribute_n_flag_clears is not None and self.prefix_attribute_n_flag_clears._has_data():
+                            return True
+
                         if self.priorities is not None and self.priorities._has_data():
                             return True
 
@@ -16648,6 +17075,9 @@ class Isis(object):
                 if not self.is_config():
                     return False
                 if self.instance_name is not None:
+                    return True
+
+                if self.adjacency_stagger is not None and self.adjacency_stagger._has_data():
                     return True
 
                 if self.afs is not None and self.afs._has_data():

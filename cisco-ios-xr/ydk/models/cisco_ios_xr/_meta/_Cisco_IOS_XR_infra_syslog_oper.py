@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'SystemMessageSeverityEnum' : _MetaInfoEnum('SystemMessageSeverityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper',
         {
@@ -460,6 +459,29 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper'
         ),
     },
+    'Syslog.LoggingStatistics.TlsRemoteLoggingStat' : {
+        'meta_info' : _MetaInfoClass('Syslog.LoggingStatistics.TlsRemoteLoggingStat',
+            False, 
+            [
+            _MetaInfoClassMember('message-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Message count
+                ''',
+                'message_count',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
+            _MetaInfoClassMember('remote-host-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                TLS Remote hostname
+                ''',
+                'remote_host_name',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
+            ],
+            'Cisco-IOS-XR-infra-syslog-oper',
+            'tls-remote-logging-stat',
+            _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper'
+        ),
+    },
     'Syslog.LoggingStatistics.FileLoggingStat' : {
         'meta_info' : _MetaInfoClass('Syslog.LoggingStatistics.FileLoggingStat',
             False, 
@@ -523,6 +545,12 @@ _meta_table = {
                 ''',
                 'remote_logging_stat',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
+            _MetaInfoClassMember('tls-remote-logging-stat', REFERENCE_LIST, 'TlsRemoteLoggingStat' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper', 'Syslog.LoggingStatistics.TlsRemoteLoggingStat', 
+                [], [], 
+                '''                TLS Remote logging statistics
+                ''',
+                'tls_remote_logging_stat',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('trap-logging-stats', REFERENCE_CLASS, 'TrapLoggingStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper', 'Syslog.LoggingStatistics.TrapLoggingStats', 
                 [], [], 
                 '''                Trap logging statistics
@@ -582,6 +610,7 @@ _meta_table['Syslog.LoggingStatistics.MonitorLoggingStats']['meta_info'].parent 
 _meta_table['Syslog.LoggingStatistics.TrapLoggingStats']['meta_info'].parent =_meta_table['Syslog.LoggingStatistics']['meta_info']
 _meta_table['Syslog.LoggingStatistics.BufferLoggingStats']['meta_info'].parent =_meta_table['Syslog.LoggingStatistics']['meta_info']
 _meta_table['Syslog.LoggingStatistics.RemoteLoggingStat']['meta_info'].parent =_meta_table['Syslog.LoggingStatistics']['meta_info']
+_meta_table['Syslog.LoggingStatistics.TlsRemoteLoggingStat']['meta_info'].parent =_meta_table['Syslog.LoggingStatistics']['meta_info']
 _meta_table['Syslog.LoggingStatistics.FileLoggingStat']['meta_info'].parent =_meta_table['Syslog.LoggingStatistics']['meta_info']
 _meta_table['Syslog.LoggingFiles']['meta_info'].parent =_meta_table['Syslog']['meta_info']
 _meta_table['Syslog.AnRemoteServers']['meta_info'].parent =_meta_table['Syslog']['meta_info']

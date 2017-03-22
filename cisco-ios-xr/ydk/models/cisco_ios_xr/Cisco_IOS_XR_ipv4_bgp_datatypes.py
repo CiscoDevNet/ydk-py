@@ -118,7 +118,15 @@ class BgpAddressFamilyEnum(Enum):
 
     	L2VPN MSPW
 
-    .. data:: all_address_family = 23
+    .. data:: ipv4sr_policy = 23
+
+    	IPv4 SRPolicy
+
+    .. data:: ipv6sr_policy = 24
+
+    	IPv6 SRPolicy
+
+    .. data:: all_address_family = 25
 
     	All Address Families
 
@@ -170,13 +178,44 @@ class BgpAddressFamilyEnum(Enum):
 
     l2vpnmspw = 22
 
-    all_address_family = 23
+    ipv4sr_policy = 23
+
+    ipv6sr_policy = 24
+
+    all_address_family = 25
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_datatypes as meta
         return meta._meta_table['BgpAddressFamilyEnum']
+
+
+class BgpAdvertiseLocalLabeledRouteCfgEnum(Enum):
+    """
+    BgpAdvertiseLocalLabeledRouteCfgEnum
+
+    Bgp advertise local labeled route cfg
+
+    .. data:: enable = 1
+
+    	Enable
+
+    .. data:: disable = 2
+
+    	Disable
+
+    """
+
+    enable = 1
+
+    disable = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_datatypes as meta
+        return meta._meta_table['BgpAdvertiseLocalLabeledRouteCfgEnum']
 
 
 class BgpNbrCapAdditionalPathsCfgEnum(Enum):
@@ -484,6 +523,10 @@ class BgpSubsequentAddressFamilyEnum(Enum):
 
     	LS
 
+    .. data:: sr_policy = 73
+
+    	SRPolicy
+
     .. data:: vpn = 128
 
     	VPN
@@ -531,6 +574,8 @@ class BgpSubsequentAddressFamilyEnum(Enum):
     evpn = 70
 
     ls = 71
+
+    sr_policy = 73
 
     vpn = 128
 

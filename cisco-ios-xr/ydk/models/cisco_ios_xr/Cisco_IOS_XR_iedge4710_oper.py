@@ -1120,10 +1120,20 @@ class Subscriber(object):
                         	Accounting statistics
                         	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting>`
                         
+                        .. attribute:: accounting_stats_all
+                        
+                        	Display all subscriber management statistics
+                        	**type**\:   :py:class:`AccountingStatsAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll>`
+                        
                         .. attribute:: aggregate_accounting
                         
                         	Aggregate accounting statistics
                         	**type**\:   :py:class:`AggregateAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting>`
+                        
+                        .. attribute:: aggregate_accounting_stats_all
+                        
+                        	Display all subscriber management total statistics
+                        	**type**\:   :py:class:`AggregateAccountingStatsAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll>`
                         
                         .. attribute:: aggregate_authentication
                         
@@ -1176,8 +1186,12 @@ class Subscriber(object):
                             self.parent = None
                             self.accounting = Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting()
                             self.accounting.parent = self
+                            self.accounting_stats_all = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll()
+                            self.accounting_stats_all.parent = self
                             self.aggregate_accounting = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting()
                             self.aggregate_accounting.parent = self
+                            self.aggregate_accounting_stats_all = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll()
+                            self.aggregate_accounting_stats_all.parent = self
                             self.aggregate_authentication = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication()
                             self.aggregate_authentication.parent = self
                             self.aggregate_authorization = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization()
@@ -2287,6 +2301,1962 @@ class Subscriber(object):
                                 return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication']['meta_info']
 
 
+                        class AccountingStatsAll(object):
+                            """
+                            Display all subscriber management
+                            statistics
+                            
+                            .. attribute:: accounting_statistics
+                            
+                            	List of stats for accounting
+                            	**type**\:   :py:class:`AccountingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics>`
+                            
+                            .. attribute:: authentication_statistics
+                            
+                            	List of stats for authentication
+                            	**type**\:   :py:class:`AuthenticationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics>`
+                            
+                            .. attribute:: authorization_statistics
+                            
+                            	List of stats for authorization
+                            	**type**\:   :py:class:`AuthorizationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics>`
+                            
+                            .. attribute:: change_of_authorization_statistics
+                            
+                            	List of stats for COA
+                            	**type**\:   :py:class:`ChangeOfAuthorizationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics>`
+                            
+                            .. attribute:: mobility_statistics
+                            
+                            	List of stats for Mobility
+                            	**type**\:   :py:class:`MobilityStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'iedge4710-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.accounting_statistics = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics()
+                                self.accounting_statistics.parent = self
+                                self.authentication_statistics = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics()
+                                self.authentication_statistics.parent = self
+                                self.authorization_statistics = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics()
+                                self.authorization_statistics.parent = self
+                                self.change_of_authorization_statistics = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics()
+                                self.change_of_authorization_statistics.parent = self
+                                self.mobility_statistics = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics()
+                                self.mobility_statistics.parent = self
+
+
+                            class AccountingStatistics(object):
+                                """
+                                List of stats for accounting
+                                
+                                .. attribute:: active_sessions
+                                
+                                	Active sessions
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: interim
+                                
+                                	Interim statistics
+                                	**type**\:   :py:class:`Interim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim>`
+                                
+                                .. attribute:: interim_inflight
+                                
+                                	Interim inflight details
+                                	**type**\:   :py:class:`InterimInflight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight>`
+                                
+                                .. attribute:: pass_through
+                                
+                                	Pass\-through statistics
+                                	**type**\:   :py:class:`PassThrough <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough>`
+                                
+                                .. attribute:: policy_plane_errored_requests
+                                
+                                	Policy plane errored requests
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: policy_plane_unknown_requests
+                                
+                                	Policy plane unknown requests
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: start
+                                
+                                	Start statistics
+                                	**type**\:   :py:class:`Start <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start>`
+                                
+                                .. attribute:: started_sessions
+                                
+                                	Started sessions
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: stop
+                                
+                                	Stop statistics
+                                	**type**\:   :py:class:`Stop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop>`
+                                
+                                .. attribute:: stopped_sessions
+                                
+                                	Stopped sessions
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: update
+                                
+                                	Update statistics
+                                	**type**\:   :py:class:`Update <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.active_sessions = None
+                                    self.interim = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim()
+                                    self.interim.parent = self
+                                    self.interim_inflight = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight()
+                                    self.interim_inflight.parent = self
+                                    self.pass_through = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough()
+                                    self.pass_through.parent = self
+                                    self.policy_plane_errored_requests = None
+                                    self.policy_plane_unknown_requests = None
+                                    self.start = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start()
+                                    self.start.parent = self
+                                    self.started_sessions = None
+                                    self.stop = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop()
+                                    self.stop.parent = self
+                                    self.stopped_sessions = None
+                                    self.update = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update()
+                                    self.update.parent = self
+
+
+                                class Start(object):
+                                    """
+                                    Start statistics
+                                    
+                                    .. attribute:: aaa_errored_requests
+                                    
+                                    	AAA errored requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_failed_responses
+                                    
+                                    	AAA failed responses
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_sent_requests
+                                    
+                                    	AAA requests sent
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_succeeded_responses
+                                    
+                                    	AAA succeeded responses
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: errored_requests
+                                    
+                                    	Errored requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.aaa_errored_requests = None
+                                        self.aaa_failed_responses = None
+                                        self.aaa_sent_requests = None
+                                        self.aaa_succeeded_responses = None
+                                        self.errored_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:start'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.aaa_errored_requests is not None:
+                                            return True
+
+                                        if self.aaa_failed_responses is not None:
+                                            return True
+
+                                        if self.aaa_sent_requests is not None:
+                                            return True
+
+                                        if self.aaa_succeeded_responses is not None:
+                                            return True
+
+                                        if self.errored_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start']['meta_info']
+
+
+                                class Stop(object):
+                                    """
+                                    Stop statistics
+                                    
+                                    .. attribute:: aaa_errored_requests
+                                    
+                                    	AAA errored requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_failed_responses
+                                    
+                                    	AAA failed responses
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_sent_requests
+                                    
+                                    	AAA requests sent
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_succeeded_responses
+                                    
+                                    	AAA succeeded responses
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: errored_requests
+                                    
+                                    	Errored requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.aaa_errored_requests = None
+                                        self.aaa_failed_responses = None
+                                        self.aaa_sent_requests = None
+                                        self.aaa_succeeded_responses = None
+                                        self.errored_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:stop'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.aaa_errored_requests is not None:
+                                            return True
+
+                                        if self.aaa_failed_responses is not None:
+                                            return True
+
+                                        if self.aaa_sent_requests is not None:
+                                            return True
+
+                                        if self.aaa_succeeded_responses is not None:
+                                            return True
+
+                                        if self.errored_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop']['meta_info']
+
+
+                                class Interim(object):
+                                    """
+                                    Interim statistics
+                                    
+                                    .. attribute:: aaa_errored_requests
+                                    
+                                    	AAA errored requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_failed_responses
+                                    
+                                    	AAA failed responses
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_sent_requests
+                                    
+                                    	AAA requests sent
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_succeeded_responses
+                                    
+                                    	AAA succeeded responses
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: errored_requests
+                                    
+                                    	Errored requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.aaa_errored_requests = None
+                                        self.aaa_failed_responses = None
+                                        self.aaa_sent_requests = None
+                                        self.aaa_succeeded_responses = None
+                                        self.errored_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:interim'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.aaa_errored_requests is not None:
+                                            return True
+
+                                        if self.aaa_failed_responses is not None:
+                                            return True
+
+                                        if self.aaa_sent_requests is not None:
+                                            return True
+
+                                        if self.aaa_succeeded_responses is not None:
+                                            return True
+
+                                        if self.errored_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim']['meta_info']
+
+
+                                class PassThrough(object):
+                                    """
+                                    Pass\-through statistics
+                                    
+                                    .. attribute:: aaa_errored_requests
+                                    
+                                    	AAA errored requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_failed_responses
+                                    
+                                    	AAA failed responses
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_sent_requests
+                                    
+                                    	AAA requests sent
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_succeeded_responses
+                                    
+                                    	AAA succeeded responses
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: errored_requests
+                                    
+                                    	Errored requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.aaa_errored_requests = None
+                                        self.aaa_failed_responses = None
+                                        self.aaa_sent_requests = None
+                                        self.aaa_succeeded_responses = None
+                                        self.errored_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:pass-through'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.aaa_errored_requests is not None:
+                                            return True
+
+                                        if self.aaa_failed_responses is not None:
+                                            return True
+
+                                        if self.aaa_sent_requests is not None:
+                                            return True
+
+                                        if self.aaa_succeeded_responses is not None:
+                                            return True
+
+                                        if self.errored_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough']['meta_info']
+
+
+                                class Update(object):
+                                    """
+                                    Update statistics
+                                    
+                                    .. attribute:: aaa_errored_requests
+                                    
+                                    	AAA errored requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_failed_responses
+                                    
+                                    	AAA failed responses
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_sent_requests
+                                    
+                                    	AAA requests sent
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_succeeded_responses
+                                    
+                                    	AAA succeeded responses
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: errored_requests
+                                    
+                                    	Errored requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.aaa_errored_requests = None
+                                        self.aaa_failed_responses = None
+                                        self.aaa_sent_requests = None
+                                        self.aaa_succeeded_responses = None
+                                        self.errored_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:update'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.aaa_errored_requests is not None:
+                                            return True
+
+                                        if self.aaa_failed_responses is not None:
+                                            return True
+
+                                        if self.aaa_sent_requests is not None:
+                                            return True
+
+                                        if self.aaa_succeeded_responses is not None:
+                                            return True
+
+                                        if self.errored_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update']['meta_info']
+
+
+                                class InterimInflight(object):
+                                    """
+                                    Interim inflight details
+                                    
+                                    .. attribute:: accepted_requests
+                                    
+                                    	Accepted requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: denied_requests
+                                    
+                                    	Denied requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: low_water_mark_quota_of_requests
+                                    
+                                    	Low water mark quota of requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: quota_exhausts
+                                    
+                                    	Quota exhausts
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: remaining_quota_of_requests
+                                    
+                                    	Remaining quota of requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: total_quota_of_requests
+                                    
+                                    	Total quota of requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.accepted_requests = None
+                                        self.denied_requests = None
+                                        self.low_water_mark_quota_of_requests = None
+                                        self.quota_exhausts = None
+                                        self.remaining_quota_of_requests = None
+                                        self.total_quota_of_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:interim-inflight'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.accepted_requests is not None:
+                                            return True
+
+                                        if self.denied_requests is not None:
+                                            return True
+
+                                        if self.low_water_mark_quota_of_requests is not None:
+                                            return True
+
+                                        if self.quota_exhausts is not None:
+                                            return True
+
+                                        if self.remaining_quota_of_requests is not None:
+                                            return True
+
+                                        if self.total_quota_of_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:accounting-statistics'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.active_sessions is not None:
+                                        return True
+
+                                    if self.interim is not None and self.interim._has_data():
+                                        return True
+
+                                    if self.interim_inflight is not None and self.interim_inflight._has_data():
+                                        return True
+
+                                    if self.pass_through is not None and self.pass_through._has_data():
+                                        return True
+
+                                    if self.policy_plane_errored_requests is not None:
+                                        return True
+
+                                    if self.policy_plane_unknown_requests is not None:
+                                        return True
+
+                                    if self.start is not None and self.start._has_data():
+                                        return True
+
+                                    if self.started_sessions is not None:
+                                        return True
+
+                                    if self.stop is not None and self.stop._has_data():
+                                        return True
+
+                                    if self.stopped_sessions is not None:
+                                        return True
+
+                                    if self.update is not None and self.update._has_data():
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics']['meta_info']
+
+
+                            class AuthenticationStatistics(object):
+                                """
+                                List of stats for authentication
+                                
+                                .. attribute:: accepted_requests
+                                
+                                	Request accepted by Radius server
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: errored_requests
+                                
+                                	Unexpected errors
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: incomplete_requests
+                                
+                                	Incomplete requests \- missing attributes
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: rejected_requests
+                                
+                                	Requests rejected by radius server
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: sent_requests
+                                
+                                	Requests sent to radius server
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: successful_requests
+                                
+                                	Requests which are successful
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: terminated_requests
+                                
+                                	Requests terminated by disconnect
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: unreachable_requests
+                                
+                                	Radius server not available
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.accepted_requests = None
+                                    self.errored_requests = None
+                                    self.incomplete_requests = None
+                                    self.rejected_requests = None
+                                    self.sent_requests = None
+                                    self.successful_requests = None
+                                    self.terminated_requests = None
+                                    self.unreachable_requests = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:authentication-statistics'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.accepted_requests is not None:
+                                        return True
+
+                                    if self.errored_requests is not None:
+                                        return True
+
+                                    if self.incomplete_requests is not None:
+                                        return True
+
+                                    if self.rejected_requests is not None:
+                                        return True
+
+                                    if self.sent_requests is not None:
+                                        return True
+
+                                    if self.successful_requests is not None:
+                                        return True
+
+                                    if self.terminated_requests is not None:
+                                        return True
+
+                                    if self.unreachable_requests is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics']['meta_info']
+
+
+                            class AuthorizationStatistics(object):
+                                """
+                                List of stats for authorization
+                                
+                                .. attribute:: accepted_requests
+                                
+                                	Request accepted by Radius server
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: errored_requests
+                                
+                                	Unexpected errors
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: incomplete_requests
+                                
+                                	Incomplete requests \- missing attributes
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: rejected_requests
+                                
+                                	Requests rejected by radius server
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: sent_requests
+                                
+                                	Requests sent to radius server
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: successful_requests
+                                
+                                	Requests which are successful
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: terminated_requests
+                                
+                                	Requests terminated by disconnect
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: unreachable_requests
+                                
+                                	Radius server not available
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.accepted_requests = None
+                                    self.errored_requests = None
+                                    self.incomplete_requests = None
+                                    self.rejected_requests = None
+                                    self.sent_requests = None
+                                    self.successful_requests = None
+                                    self.terminated_requests = None
+                                    self.unreachable_requests = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:authorization-statistics'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.accepted_requests is not None:
+                                        return True
+
+                                    if self.errored_requests is not None:
+                                        return True
+
+                                    if self.incomplete_requests is not None:
+                                        return True
+
+                                    if self.rejected_requests is not None:
+                                        return True
+
+                                    if self.sent_requests is not None:
+                                        return True
+
+                                    if self.successful_requests is not None:
+                                        return True
+
+                                    if self.terminated_requests is not None:
+                                        return True
+
+                                    if self.unreachable_requests is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics']['meta_info']
+
+
+                            class ChangeOfAuthorizationStatistics(object):
+                                """
+                                List of stats for COA
+                                
+                                .. attribute:: account_logoff
+                                
+                                	Account logoff request statistics
+                                	**type**\:   :py:class:`AccountLogoff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff>`
+                                
+                                .. attribute:: account_logon
+                                
+                                	Account logon request statistics
+                                	**type**\:   :py:class:`AccountLogon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon>`
+                                
+                                .. attribute:: account_update
+                                
+                                	Account update request statistics
+                                	**type**\:   :py:class:`AccountUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate>`
+                                
+                                .. attribute:: attr_list_retrieve_failure_resps
+                                
+                                	Responses to attribute list failure errors
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: internal_err_resps
+                                
+                                	Responses to internal error
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: no_cmd_resps
+                                
+                                	Responses empty (no command) COA request
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: no_session_found_resps
+                                
+                                	Responses to COA with unknown session identifier
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: no_session_peer_resps
+                                
+                                	Responses to session peer not found error
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: resp_send_failure
+                                
+                                	Response send failures
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: service_multi
+                                
+                                	MA\-CoA Service request statistics
+                                	**type**\:   :py:class:`ServiceMulti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti>`
+                                
+                                .. attribute:: service_profile_push_failure_resps
+                                
+                                	Responses to service profile push failures
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: session_disconnect
+                                
+                                	Session disconnect request statistics
+                                	**type**\:   :py:class:`SessionDisconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect>`
+                                
+                                .. attribute:: single_service_logoff
+                                
+                                	Single Service logoff request statistics
+                                	**type**\:   :py:class:`SingleServiceLogoff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff>`
+                                
+                                .. attribute:: single_service_logon
+                                
+                                	Service logon request statistics
+                                	**type**\:   :py:class:`SingleServiceLogon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon>`
+                                
+                                .. attribute:: single_service_modify
+                                
+                                	Single Service Modify request statistics
+                                	**type**\:   :py:class:`SingleServiceModify <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify>`
+                                
+                                .. attribute:: unknown_account_cmd_resps
+                                
+                                	Responses to unknown account command
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: unknown_cmd_resps
+                                
+                                	Responses to unknown command
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: unknown_service_cmd_resps
+                                
+                                	Responses to unknown service command
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.account_logoff = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff()
+                                    self.account_logoff.parent = self
+                                    self.account_logon = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon()
+                                    self.account_logon.parent = self
+                                    self.account_update = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate()
+                                    self.account_update.parent = self
+                                    self.attr_list_retrieve_failure_resps = None
+                                    self.internal_err_resps = None
+                                    self.no_cmd_resps = None
+                                    self.no_session_found_resps = None
+                                    self.no_session_peer_resps = None
+                                    self.resp_send_failure = None
+                                    self.service_multi = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti()
+                                    self.service_multi.parent = self
+                                    self.service_profile_push_failure_resps = None
+                                    self.session_disconnect = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect()
+                                    self.session_disconnect.parent = self
+                                    self.single_service_logoff = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff()
+                                    self.single_service_logoff.parent = self
+                                    self.single_service_logon = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon()
+                                    self.single_service_logon.parent = self
+                                    self.single_service_modify = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify()
+                                    self.single_service_modify.parent = self
+                                    self.unknown_account_cmd_resps = None
+                                    self.unknown_cmd_resps = None
+                                    self.unknown_service_cmd_resps = None
+
+
+                                class AccountLogon(object):
+                                    """
+                                    Account logon request statistics
+                                    
+                                    .. attribute:: acknowledged_requests
+                                    
+                                    	Acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: non_acknowledged_requests
+                                    
+                                    	Non acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:account-logon'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.acknowledged_requests is not None:
+                                            return True
+
+                                        if self.non_acknowledged_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon']['meta_info']
+
+
+                                class AccountLogoff(object):
+                                    """
+                                    Account logoff request statistics
+                                    
+                                    .. attribute:: acknowledged_requests
+                                    
+                                    	Acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: non_acknowledged_requests
+                                    
+                                    	Non acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:account-logoff'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.acknowledged_requests is not None:
+                                            return True
+
+                                        if self.non_acknowledged_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff']['meta_info']
+
+
+                                class AccountUpdate(object):
+                                    """
+                                    Account update request statistics
+                                    
+                                    .. attribute:: acknowledged_requests
+                                    
+                                    	Acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: non_acknowledged_requests
+                                    
+                                    	Non acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:account-update'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.acknowledged_requests is not None:
+                                            return True
+
+                                        if self.non_acknowledged_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate']['meta_info']
+
+
+                                class SessionDisconnect(object):
+                                    """
+                                    Session disconnect request statistics
+                                    
+                                    .. attribute:: acknowledged_requests
+                                    
+                                    	Acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: non_acknowledged_requests
+                                    
+                                    	Non acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:session-disconnect'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.acknowledged_requests is not None:
+                                            return True
+
+                                        if self.non_acknowledged_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect']['meta_info']
+
+
+                                class SingleServiceLogon(object):
+                                    """
+                                    Service logon request statistics
+                                    
+                                    .. attribute:: acknowledged_requests
+                                    
+                                    	Acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: non_acknowledged_requests
+                                    
+                                    	Non acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:single-service-logon'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.acknowledged_requests is not None:
+                                            return True
+
+                                        if self.non_acknowledged_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon']['meta_info']
+
+
+                                class SingleServiceLogoff(object):
+                                    """
+                                    Single Service logoff request statistics
+                                    
+                                    .. attribute:: acknowledged_requests
+                                    
+                                    	Acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: non_acknowledged_requests
+                                    
+                                    	Non acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:single-service-logoff'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.acknowledged_requests is not None:
+                                            return True
+
+                                        if self.non_acknowledged_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff']['meta_info']
+
+
+                                class SingleServiceModify(object):
+                                    """
+                                    Single Service Modify request statistics
+                                    
+                                    .. attribute:: acknowledged_requests
+                                    
+                                    	Acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: non_acknowledged_requests
+                                    
+                                    	Non acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:single-service-modify'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.acknowledged_requests is not None:
+                                            return True
+
+                                        if self.non_acknowledged_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify']['meta_info']
+
+
+                                class ServiceMulti(object):
+                                    """
+                                    MA\-CoA Service request statistics
+                                    
+                                    .. attribute:: acknowledged_requests
+                                    
+                                    	Acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: non_acknowledged_requests
+                                    
+                                    	Non acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:service-multi'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.acknowledged_requests is not None:
+                                            return True
+
+                                        if self.non_acknowledged_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:change-of-authorization-statistics'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.account_logoff is not None and self.account_logoff._has_data():
+                                        return True
+
+                                    if self.account_logon is not None and self.account_logon._has_data():
+                                        return True
+
+                                    if self.account_update is not None and self.account_update._has_data():
+                                        return True
+
+                                    if self.attr_list_retrieve_failure_resps is not None:
+                                        return True
+
+                                    if self.internal_err_resps is not None:
+                                        return True
+
+                                    if self.no_cmd_resps is not None:
+                                        return True
+
+                                    if self.no_session_found_resps is not None:
+                                        return True
+
+                                    if self.no_session_peer_resps is not None:
+                                        return True
+
+                                    if self.resp_send_failure is not None:
+                                        return True
+
+                                    if self.service_multi is not None and self.service_multi._has_data():
+                                        return True
+
+                                    if self.service_profile_push_failure_resps is not None:
+                                        return True
+
+                                    if self.session_disconnect is not None and self.session_disconnect._has_data():
+                                        return True
+
+                                    if self.single_service_logoff is not None and self.single_service_logoff._has_data():
+                                        return True
+
+                                    if self.single_service_logon is not None and self.single_service_logon._has_data():
+                                        return True
+
+                                    if self.single_service_modify is not None and self.single_service_modify._has_data():
+                                        return True
+
+                                    if self.unknown_account_cmd_resps is not None:
+                                        return True
+
+                                    if self.unknown_cmd_resps is not None:
+                                        return True
+
+                                    if self.unknown_service_cmd_resps is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics']['meta_info']
+
+
+                            class MobilityStatistics(object):
+                                """
+                                List of stats for Mobility
+                                
+                                .. attribute:: receive_response_failures
+                                
+                                	Response receive failures
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: receive_response_successes
+                                
+                                	Response receive success
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: send_request_failures
+                                
+                                	Request send failures
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: send_request_successes
+                                
+                                	Request send success
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.receive_response_failures = None
+                                    self.receive_response_successes = None
+                                    self.send_request_failures = None
+                                    self.send_request_successes = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:mobility-statistics'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.receive_response_failures is not None:
+                                        return True
+
+                                    if self.receive_response_successes is not None:
+                                        return True
+
+                                    if self.send_request_failures is not None:
+                                        return True
+
+                                    if self.send_request_successes is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:accounting-stats-all'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.accounting_statistics is not None and self.accounting_statistics._has_data():
+                                    return True
+
+                                if self.authentication_statistics is not None and self.authentication_statistics._has_data():
+                                    return True
+
+                                if self.authorization_statistics is not None and self.authorization_statistics._has_data():
+                                    return True
+
+                                if self.change_of_authorization_statistics is not None and self.change_of_authorization_statistics._has_data():
+                                    return True
+
+                                if self.mobility_statistics is not None and self.mobility_statistics._has_data():
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll']['meta_info']
+
+
                         class ChangeOfAuthorization(object):
                             """
                             Change of authorization (COA) statistics
@@ -3311,6 +5281,1962 @@ class Subscriber(object):
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
                                 return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization']['meta_info']
+
+
+                        class AggregateAccountingStatsAll(object):
+                            """
+                            Display all subscriber management total
+                            statistics
+                            
+                            .. attribute:: accounting_statistics
+                            
+                            	List of stats for accounting
+                            	**type**\:   :py:class:`AccountingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics>`
+                            
+                            .. attribute:: authentication_statistics
+                            
+                            	List of stats for authentication
+                            	**type**\:   :py:class:`AuthenticationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics>`
+                            
+                            .. attribute:: authorization_statistics
+                            
+                            	List of stats for authorization
+                            	**type**\:   :py:class:`AuthorizationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics>`
+                            
+                            .. attribute:: change_of_authorization_statistics
+                            
+                            	List of stats for COA
+                            	**type**\:   :py:class:`ChangeOfAuthorizationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics>`
+                            
+                            .. attribute:: mobility_statistics
+                            
+                            	List of stats for Mobility
+                            	**type**\:   :py:class:`MobilityStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'iedge4710-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.accounting_statistics = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics()
+                                self.accounting_statistics.parent = self
+                                self.authentication_statistics = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics()
+                                self.authentication_statistics.parent = self
+                                self.authorization_statistics = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics()
+                                self.authorization_statistics.parent = self
+                                self.change_of_authorization_statistics = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics()
+                                self.change_of_authorization_statistics.parent = self
+                                self.mobility_statistics = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics()
+                                self.mobility_statistics.parent = self
+
+
+                            class AccountingStatistics(object):
+                                """
+                                List of stats for accounting
+                                
+                                .. attribute:: active_sessions
+                                
+                                	Active sessions
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: interim
+                                
+                                	Interim statistics
+                                	**type**\:   :py:class:`Interim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim>`
+                                
+                                .. attribute:: interim_inflight
+                                
+                                	Interim inflight details
+                                	**type**\:   :py:class:`InterimInflight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight>`
+                                
+                                .. attribute:: pass_through
+                                
+                                	Pass\-through statistics
+                                	**type**\:   :py:class:`PassThrough <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough>`
+                                
+                                .. attribute:: policy_plane_errored_requests
+                                
+                                	Policy plane errored requests
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: policy_plane_unknown_requests
+                                
+                                	Policy plane unknown requests
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: start
+                                
+                                	Start statistics
+                                	**type**\:   :py:class:`Start <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start>`
+                                
+                                .. attribute:: started_sessions
+                                
+                                	Started sessions
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: stop
+                                
+                                	Stop statistics
+                                	**type**\:   :py:class:`Stop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop>`
+                                
+                                .. attribute:: stopped_sessions
+                                
+                                	Stopped sessions
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: update
+                                
+                                	Update statistics
+                                	**type**\:   :py:class:`Update <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.active_sessions = None
+                                    self.interim = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim()
+                                    self.interim.parent = self
+                                    self.interim_inflight = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight()
+                                    self.interim_inflight.parent = self
+                                    self.pass_through = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough()
+                                    self.pass_through.parent = self
+                                    self.policy_plane_errored_requests = None
+                                    self.policy_plane_unknown_requests = None
+                                    self.start = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start()
+                                    self.start.parent = self
+                                    self.started_sessions = None
+                                    self.stop = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop()
+                                    self.stop.parent = self
+                                    self.stopped_sessions = None
+                                    self.update = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update()
+                                    self.update.parent = self
+
+
+                                class Start(object):
+                                    """
+                                    Start statistics
+                                    
+                                    .. attribute:: aaa_errored_requests
+                                    
+                                    	AAA errored requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_failed_responses
+                                    
+                                    	AAA failed responses
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_sent_requests
+                                    
+                                    	AAA requests sent
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_succeeded_responses
+                                    
+                                    	AAA succeeded responses
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: errored_requests
+                                    
+                                    	Errored requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.aaa_errored_requests = None
+                                        self.aaa_failed_responses = None
+                                        self.aaa_sent_requests = None
+                                        self.aaa_succeeded_responses = None
+                                        self.errored_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:start'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.aaa_errored_requests is not None:
+                                            return True
+
+                                        if self.aaa_failed_responses is not None:
+                                            return True
+
+                                        if self.aaa_sent_requests is not None:
+                                            return True
+
+                                        if self.aaa_succeeded_responses is not None:
+                                            return True
+
+                                        if self.errored_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start']['meta_info']
+
+
+                                class Stop(object):
+                                    """
+                                    Stop statistics
+                                    
+                                    .. attribute:: aaa_errored_requests
+                                    
+                                    	AAA errored requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_failed_responses
+                                    
+                                    	AAA failed responses
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_sent_requests
+                                    
+                                    	AAA requests sent
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_succeeded_responses
+                                    
+                                    	AAA succeeded responses
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: errored_requests
+                                    
+                                    	Errored requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.aaa_errored_requests = None
+                                        self.aaa_failed_responses = None
+                                        self.aaa_sent_requests = None
+                                        self.aaa_succeeded_responses = None
+                                        self.errored_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:stop'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.aaa_errored_requests is not None:
+                                            return True
+
+                                        if self.aaa_failed_responses is not None:
+                                            return True
+
+                                        if self.aaa_sent_requests is not None:
+                                            return True
+
+                                        if self.aaa_succeeded_responses is not None:
+                                            return True
+
+                                        if self.errored_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop']['meta_info']
+
+
+                                class Interim(object):
+                                    """
+                                    Interim statistics
+                                    
+                                    .. attribute:: aaa_errored_requests
+                                    
+                                    	AAA errored requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_failed_responses
+                                    
+                                    	AAA failed responses
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_sent_requests
+                                    
+                                    	AAA requests sent
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_succeeded_responses
+                                    
+                                    	AAA succeeded responses
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: errored_requests
+                                    
+                                    	Errored requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.aaa_errored_requests = None
+                                        self.aaa_failed_responses = None
+                                        self.aaa_sent_requests = None
+                                        self.aaa_succeeded_responses = None
+                                        self.errored_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:interim'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.aaa_errored_requests is not None:
+                                            return True
+
+                                        if self.aaa_failed_responses is not None:
+                                            return True
+
+                                        if self.aaa_sent_requests is not None:
+                                            return True
+
+                                        if self.aaa_succeeded_responses is not None:
+                                            return True
+
+                                        if self.errored_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim']['meta_info']
+
+
+                                class PassThrough(object):
+                                    """
+                                    Pass\-through statistics
+                                    
+                                    .. attribute:: aaa_errored_requests
+                                    
+                                    	AAA errored requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_failed_responses
+                                    
+                                    	AAA failed responses
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_sent_requests
+                                    
+                                    	AAA requests sent
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_succeeded_responses
+                                    
+                                    	AAA succeeded responses
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: errored_requests
+                                    
+                                    	Errored requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.aaa_errored_requests = None
+                                        self.aaa_failed_responses = None
+                                        self.aaa_sent_requests = None
+                                        self.aaa_succeeded_responses = None
+                                        self.errored_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:pass-through'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.aaa_errored_requests is not None:
+                                            return True
+
+                                        if self.aaa_failed_responses is not None:
+                                            return True
+
+                                        if self.aaa_sent_requests is not None:
+                                            return True
+
+                                        if self.aaa_succeeded_responses is not None:
+                                            return True
+
+                                        if self.errored_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough']['meta_info']
+
+
+                                class Update(object):
+                                    """
+                                    Update statistics
+                                    
+                                    .. attribute:: aaa_errored_requests
+                                    
+                                    	AAA errored requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_failed_responses
+                                    
+                                    	AAA failed responses
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_sent_requests
+                                    
+                                    	AAA requests sent
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: aaa_succeeded_responses
+                                    
+                                    	AAA succeeded responses
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: errored_requests
+                                    
+                                    	Errored requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.aaa_errored_requests = None
+                                        self.aaa_failed_responses = None
+                                        self.aaa_sent_requests = None
+                                        self.aaa_succeeded_responses = None
+                                        self.errored_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:update'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.aaa_errored_requests is not None:
+                                            return True
+
+                                        if self.aaa_failed_responses is not None:
+                                            return True
+
+                                        if self.aaa_sent_requests is not None:
+                                            return True
+
+                                        if self.aaa_succeeded_responses is not None:
+                                            return True
+
+                                        if self.errored_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update']['meta_info']
+
+
+                                class InterimInflight(object):
+                                    """
+                                    Interim inflight details
+                                    
+                                    .. attribute:: accepted_requests
+                                    
+                                    	Accepted requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: denied_requests
+                                    
+                                    	Denied requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: low_water_mark_quota_of_requests
+                                    
+                                    	Low water mark quota of requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: quota_exhausts
+                                    
+                                    	Quota exhausts
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: remaining_quota_of_requests
+                                    
+                                    	Remaining quota of requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: total_quota_of_requests
+                                    
+                                    	Total quota of requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.accepted_requests = None
+                                        self.denied_requests = None
+                                        self.low_water_mark_quota_of_requests = None
+                                        self.quota_exhausts = None
+                                        self.remaining_quota_of_requests = None
+                                        self.total_quota_of_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:interim-inflight'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.accepted_requests is not None:
+                                            return True
+
+                                        if self.denied_requests is not None:
+                                            return True
+
+                                        if self.low_water_mark_quota_of_requests is not None:
+                                            return True
+
+                                        if self.quota_exhausts is not None:
+                                            return True
+
+                                        if self.remaining_quota_of_requests is not None:
+                                            return True
+
+                                        if self.total_quota_of_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:accounting-statistics'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.active_sessions is not None:
+                                        return True
+
+                                    if self.interim is not None and self.interim._has_data():
+                                        return True
+
+                                    if self.interim_inflight is not None and self.interim_inflight._has_data():
+                                        return True
+
+                                    if self.pass_through is not None and self.pass_through._has_data():
+                                        return True
+
+                                    if self.policy_plane_errored_requests is not None:
+                                        return True
+
+                                    if self.policy_plane_unknown_requests is not None:
+                                        return True
+
+                                    if self.start is not None and self.start._has_data():
+                                        return True
+
+                                    if self.started_sessions is not None:
+                                        return True
+
+                                    if self.stop is not None and self.stop._has_data():
+                                        return True
+
+                                    if self.stopped_sessions is not None:
+                                        return True
+
+                                    if self.update is not None and self.update._has_data():
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics']['meta_info']
+
+
+                            class AuthenticationStatistics(object):
+                                """
+                                List of stats for authentication
+                                
+                                .. attribute:: accepted_requests
+                                
+                                	Request accepted by Radius server
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: errored_requests
+                                
+                                	Unexpected errors
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: incomplete_requests
+                                
+                                	Incomplete requests \- missing attributes
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: rejected_requests
+                                
+                                	Requests rejected by radius server
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: sent_requests
+                                
+                                	Requests sent to radius server
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: successful_requests
+                                
+                                	Requests which are successful
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: terminated_requests
+                                
+                                	Requests terminated by disconnect
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: unreachable_requests
+                                
+                                	Radius server not available
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.accepted_requests = None
+                                    self.errored_requests = None
+                                    self.incomplete_requests = None
+                                    self.rejected_requests = None
+                                    self.sent_requests = None
+                                    self.successful_requests = None
+                                    self.terminated_requests = None
+                                    self.unreachable_requests = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:authentication-statistics'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.accepted_requests is not None:
+                                        return True
+
+                                    if self.errored_requests is not None:
+                                        return True
+
+                                    if self.incomplete_requests is not None:
+                                        return True
+
+                                    if self.rejected_requests is not None:
+                                        return True
+
+                                    if self.sent_requests is not None:
+                                        return True
+
+                                    if self.successful_requests is not None:
+                                        return True
+
+                                    if self.terminated_requests is not None:
+                                        return True
+
+                                    if self.unreachable_requests is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics']['meta_info']
+
+
+                            class AuthorizationStatistics(object):
+                                """
+                                List of stats for authorization
+                                
+                                .. attribute:: accepted_requests
+                                
+                                	Request accepted by Radius server
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: errored_requests
+                                
+                                	Unexpected errors
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: incomplete_requests
+                                
+                                	Incomplete requests \- missing attributes
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: rejected_requests
+                                
+                                	Requests rejected by radius server
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: sent_requests
+                                
+                                	Requests sent to radius server
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: successful_requests
+                                
+                                	Requests which are successful
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: terminated_requests
+                                
+                                	Requests terminated by disconnect
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: unreachable_requests
+                                
+                                	Radius server not available
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.accepted_requests = None
+                                    self.errored_requests = None
+                                    self.incomplete_requests = None
+                                    self.rejected_requests = None
+                                    self.sent_requests = None
+                                    self.successful_requests = None
+                                    self.terminated_requests = None
+                                    self.unreachable_requests = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:authorization-statistics'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.accepted_requests is not None:
+                                        return True
+
+                                    if self.errored_requests is not None:
+                                        return True
+
+                                    if self.incomplete_requests is not None:
+                                        return True
+
+                                    if self.rejected_requests is not None:
+                                        return True
+
+                                    if self.sent_requests is not None:
+                                        return True
+
+                                    if self.successful_requests is not None:
+                                        return True
+
+                                    if self.terminated_requests is not None:
+                                        return True
+
+                                    if self.unreachable_requests is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics']['meta_info']
+
+
+                            class ChangeOfAuthorizationStatistics(object):
+                                """
+                                List of stats for COA
+                                
+                                .. attribute:: account_logoff
+                                
+                                	Account logoff request statistics
+                                	**type**\:   :py:class:`AccountLogoff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff>`
+                                
+                                .. attribute:: account_logon
+                                
+                                	Account logon request statistics
+                                	**type**\:   :py:class:`AccountLogon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon>`
+                                
+                                .. attribute:: account_update
+                                
+                                	Account update request statistics
+                                	**type**\:   :py:class:`AccountUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate>`
+                                
+                                .. attribute:: attr_list_retrieve_failure_resps
+                                
+                                	Responses to attribute list failure errors
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: internal_err_resps
+                                
+                                	Responses to internal error
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: no_cmd_resps
+                                
+                                	Responses empty (no command) COA request
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: no_session_found_resps
+                                
+                                	Responses to COA with unknown session identifier
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: no_session_peer_resps
+                                
+                                	Responses to session peer not found error
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: resp_send_failure
+                                
+                                	Response send failures
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: service_multi
+                                
+                                	MA\-CoA Service request statistics
+                                	**type**\:   :py:class:`ServiceMulti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti>`
+                                
+                                .. attribute:: service_profile_push_failure_resps
+                                
+                                	Responses to service profile push failures
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: session_disconnect
+                                
+                                	Session disconnect request statistics
+                                	**type**\:   :py:class:`SessionDisconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect>`
+                                
+                                .. attribute:: single_service_logoff
+                                
+                                	Single Service logoff request statistics
+                                	**type**\:   :py:class:`SingleServiceLogoff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff>`
+                                
+                                .. attribute:: single_service_logon
+                                
+                                	Service logon request statistics
+                                	**type**\:   :py:class:`SingleServiceLogon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon>`
+                                
+                                .. attribute:: single_service_modify
+                                
+                                	Single Service Modify request statistics
+                                	**type**\:   :py:class:`SingleServiceModify <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify>`
+                                
+                                .. attribute:: unknown_account_cmd_resps
+                                
+                                	Responses to unknown account command
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: unknown_cmd_resps
+                                
+                                	Responses to unknown command
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: unknown_service_cmd_resps
+                                
+                                	Responses to unknown service command
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.account_logoff = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff()
+                                    self.account_logoff.parent = self
+                                    self.account_logon = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon()
+                                    self.account_logon.parent = self
+                                    self.account_update = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate()
+                                    self.account_update.parent = self
+                                    self.attr_list_retrieve_failure_resps = None
+                                    self.internal_err_resps = None
+                                    self.no_cmd_resps = None
+                                    self.no_session_found_resps = None
+                                    self.no_session_peer_resps = None
+                                    self.resp_send_failure = None
+                                    self.service_multi = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti()
+                                    self.service_multi.parent = self
+                                    self.service_profile_push_failure_resps = None
+                                    self.session_disconnect = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect()
+                                    self.session_disconnect.parent = self
+                                    self.single_service_logoff = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff()
+                                    self.single_service_logoff.parent = self
+                                    self.single_service_logon = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon()
+                                    self.single_service_logon.parent = self
+                                    self.single_service_modify = Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify()
+                                    self.single_service_modify.parent = self
+                                    self.unknown_account_cmd_resps = None
+                                    self.unknown_cmd_resps = None
+                                    self.unknown_service_cmd_resps = None
+
+
+                                class AccountLogon(object):
+                                    """
+                                    Account logon request statistics
+                                    
+                                    .. attribute:: acknowledged_requests
+                                    
+                                    	Acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: non_acknowledged_requests
+                                    
+                                    	Non acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:account-logon'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.acknowledged_requests is not None:
+                                            return True
+
+                                        if self.non_acknowledged_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon']['meta_info']
+
+
+                                class AccountLogoff(object):
+                                    """
+                                    Account logoff request statistics
+                                    
+                                    .. attribute:: acknowledged_requests
+                                    
+                                    	Acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: non_acknowledged_requests
+                                    
+                                    	Non acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:account-logoff'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.acknowledged_requests is not None:
+                                            return True
+
+                                        if self.non_acknowledged_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff']['meta_info']
+
+
+                                class AccountUpdate(object):
+                                    """
+                                    Account update request statistics
+                                    
+                                    .. attribute:: acknowledged_requests
+                                    
+                                    	Acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: non_acknowledged_requests
+                                    
+                                    	Non acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:account-update'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.acknowledged_requests is not None:
+                                            return True
+
+                                        if self.non_acknowledged_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate']['meta_info']
+
+
+                                class SessionDisconnect(object):
+                                    """
+                                    Session disconnect request statistics
+                                    
+                                    .. attribute:: acknowledged_requests
+                                    
+                                    	Acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: non_acknowledged_requests
+                                    
+                                    	Non acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:session-disconnect'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.acknowledged_requests is not None:
+                                            return True
+
+                                        if self.non_acknowledged_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect']['meta_info']
+
+
+                                class SingleServiceLogon(object):
+                                    """
+                                    Service logon request statistics
+                                    
+                                    .. attribute:: acknowledged_requests
+                                    
+                                    	Acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: non_acknowledged_requests
+                                    
+                                    	Non acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:single-service-logon'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.acknowledged_requests is not None:
+                                            return True
+
+                                        if self.non_acknowledged_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon']['meta_info']
+
+
+                                class SingleServiceLogoff(object):
+                                    """
+                                    Single Service logoff request statistics
+                                    
+                                    .. attribute:: acknowledged_requests
+                                    
+                                    	Acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: non_acknowledged_requests
+                                    
+                                    	Non acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:single-service-logoff'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.acknowledged_requests is not None:
+                                            return True
+
+                                        if self.non_acknowledged_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff']['meta_info']
+
+
+                                class SingleServiceModify(object):
+                                    """
+                                    Single Service Modify request statistics
+                                    
+                                    .. attribute:: acknowledged_requests
+                                    
+                                    	Acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: non_acknowledged_requests
+                                    
+                                    	Non acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:single-service-modify'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.acknowledged_requests is not None:
+                                            return True
+
+                                        if self.non_acknowledged_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify']['meta_info']
+
+
+                                class ServiceMulti(object):
+                                    """
+                                    MA\-CoA Service request statistics
+                                    
+                                    .. attribute:: acknowledged_requests
+                                    
+                                    	Acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: non_acknowledged_requests
+                                    
+                                    	Non acknowledged requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: received_requests
+                                    
+                                    	Received requests
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'iedge4710-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.acknowledged_requests = None
+                                        self.non_acknowledged_requests = None
+                                        self.received_requests = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:service-multi'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.acknowledged_requests is not None:
+                                            return True
+
+                                        if self.non_acknowledged_requests is not None:
+                                            return True
+
+                                        if self.received_requests is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                        return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:change-of-authorization-statistics'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.account_logoff is not None and self.account_logoff._has_data():
+                                        return True
+
+                                    if self.account_logon is not None and self.account_logon._has_data():
+                                        return True
+
+                                    if self.account_update is not None and self.account_update._has_data():
+                                        return True
+
+                                    if self.attr_list_retrieve_failure_resps is not None:
+                                        return True
+
+                                    if self.internal_err_resps is not None:
+                                        return True
+
+                                    if self.no_cmd_resps is not None:
+                                        return True
+
+                                    if self.no_session_found_resps is not None:
+                                        return True
+
+                                    if self.no_session_peer_resps is not None:
+                                        return True
+
+                                    if self.resp_send_failure is not None:
+                                        return True
+
+                                    if self.service_multi is not None and self.service_multi._has_data():
+                                        return True
+
+                                    if self.service_profile_push_failure_resps is not None:
+                                        return True
+
+                                    if self.session_disconnect is not None and self.session_disconnect._has_data():
+                                        return True
+
+                                    if self.single_service_logoff is not None and self.single_service_logoff._has_data():
+                                        return True
+
+                                    if self.single_service_logon is not None and self.single_service_logon._has_data():
+                                        return True
+
+                                    if self.single_service_modify is not None and self.single_service_modify._has_data():
+                                        return True
+
+                                    if self.unknown_account_cmd_resps is not None:
+                                        return True
+
+                                    if self.unknown_cmd_resps is not None:
+                                        return True
+
+                                    if self.unknown_service_cmd_resps is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics']['meta_info']
+
+
+                            class MobilityStatistics(object):
+                                """
+                                List of stats for Mobility
+                                
+                                .. attribute:: receive_response_failures
+                                
+                                	Response receive failures
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: receive_response_successes
+                                
+                                	Response receive success
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: send_request_failures
+                                
+                                	Request send failures
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: send_request_successes
+                                
+                                	Request send success
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'iedge4710-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.receive_response_failures = None
+                                    self.receive_response_successes = None
+                                    self.send_request_failures = None
+                                    self.send_request_successes = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:mobility-statistics'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.receive_response_failures is not None:
+                                        return True
+
+                                    if self.receive_response_successes is not None:
+                                        return True
+
+                                    if self.send_request_failures is not None:
+                                        return True
+
+                                    if self.send_request_successes is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                    return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-oper:aggregate-accounting-stats-all'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.accounting_statistics is not None and self.accounting_statistics._has_data():
+                                    return True
+
+                                if self.authentication_statistics is not None and self.authentication_statistics._has_data():
+                                    return True
+
+                                if self.authorization_statistics is not None and self.authorization_statistics._has_data():
+                                    return True
+
+                                if self.change_of_authorization_statistics is not None and self.change_of_authorization_statistics._has_data():
+                                    return True
+
+                                if self.mobility_statistics is not None and self.mobility_statistics._has_data():
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
+                                return meta._meta_table['Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll']['meta_info']
 
 
                         class Accounting(object):
@@ -4951,7 +8877,13 @@ class Subscriber(object):
                             if self.accounting is not None and self.accounting._has_data():
                                 return True
 
+                            if self.accounting_stats_all is not None and self.accounting_stats_all._has_data():
+                                return True
+
                             if self.aggregate_accounting is not None and self.aggregate_accounting._has_data():
+                                return True
+
+                            if self.aggregate_accounting_stats_all is not None and self.aggregate_accounting_stats_all._has_data():
                                 return True
 
                             if self.aggregate_authentication is not None and self.aggregate_authentication._has_data():

@@ -73,16 +73,10 @@ _deviation_table = {
     'Interfaces.Interface.RoutedVlan.Ipv6.State.mtu' : {
         'deviation_typ' : 'not_supported',
     },
-    'Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address' : {
-        'deviation_typ' : 'not_supported',
-    },
     'Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Config.enabled' : {
         'deviation_typ' : 'not_supported',
     },
     'Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.State.enabled' : {
-        'deviation_typ' : 'not_supported',
-    },
-    'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.State.virtual_address' : {
         'deviation_typ' : 'not_supported',
     },
     'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.Config.create_global_addresses' : {
@@ -107,9 +101,6 @@ _deviation_table = {
         'deviation_typ' : 'not_supported',
     },
     'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.State.temporary_valid_lifetime' : {
-        'deviation_typ' : 'not_supported',
-    },
-    'Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor.State.is_router' : {
         'deviation_typ' : 'not_supported',
     },
 }

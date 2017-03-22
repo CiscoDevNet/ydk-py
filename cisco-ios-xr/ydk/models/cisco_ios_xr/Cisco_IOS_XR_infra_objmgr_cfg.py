@@ -761,10 +761,10 @@ class ObjectGroup(object):
         """
         Port object group
         
-        .. attribute:: objects
+        .. attribute:: udf_objects
         
         	Table of port objects groups
-        	**type**\:   :py:class:`Objects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects>`
+        	**type**\:   :py:class:`UdfObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects>`
         
         
 
@@ -775,18 +775,18 @@ class ObjectGroup(object):
 
         def __init__(self):
             self.parent = None
-            self.objects = ObjectGroup.Port.Objects()
-            self.objects.parent = self
+            self.udf_objects = ObjectGroup.Port.UdfObjects()
+            self.udf_objects.parent = self
 
 
-        class Objects(object):
+        class UdfObjects(object):
             """
             Table of port objects groups
             
-            .. attribute:: object
+            .. attribute:: udf_object
             
             	Port object group
-            	**type**\: list of    :py:class:`Object <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object>`
+            	**type**\: list of    :py:class:`UdfObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject>`
             
             
 
@@ -797,12 +797,12 @@ class ObjectGroup(object):
 
             def __init__(self):
                 self.parent = None
-                self.object = YList()
-                self.object.parent = self
-                self.object.name = 'object'
+                self.udf_object = YList()
+                self.udf_object.parent = self
+                self.udf_object.name = 'udf_object'
 
 
-            class Object(object):
+            class UdfObject(object):
                 """
                 Port object group
                 
@@ -811,29 +811,29 @@ class ObjectGroup(object):
                 	Port object group name \- maximum 64 characters
                 	**type**\:  str
                 
-                	**length:** 0..64
+                	**length:** 1..64
                 
                 .. attribute:: description
                 
                 	Up to 100 characters describing this object
                 	**type**\:  str
                 
-                	**length:** 0..100
+                	**length:** 1..100
                 
                 .. attribute:: nested_groups
                 
                 	Table of nested port object groups
-                	**type**\:   :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.NestedGroups>`
+                	**type**\:   :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups>`
                 
                 .. attribute:: operators
                 
                 	Table of port operators
-                	**type**\:   :py:class:`Operators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.Operators>`
+                	**type**\:   :py:class:`Operators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.Operators>`
                 
                 .. attribute:: port_ranges
                 
                 	Table of port range addresses
-                	**type**\:   :py:class:`PortRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.PortRanges>`
+                	**type**\:   :py:class:`PortRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.PortRanges>`
                 
                 
 
@@ -846,11 +846,11 @@ class ObjectGroup(object):
                     self.parent = None
                     self.object_name = None
                     self.description = None
-                    self.nested_groups = ObjectGroup.Port.Objects.Object.NestedGroups()
+                    self.nested_groups = ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups()
                     self.nested_groups.parent = self
-                    self.operators = ObjectGroup.Port.Objects.Object.Operators()
+                    self.operators = ObjectGroup.Port.UdfObjects.UdfObject.Operators()
                     self.operators.parent = self
-                    self.port_ranges = ObjectGroup.Port.Objects.Object.PortRanges()
+                    self.port_ranges = ObjectGroup.Port.UdfObjects.UdfObject.PortRanges()
                     self.port_ranges.parent = self
 
 
@@ -861,7 +861,7 @@ class ObjectGroup(object):
                     .. attribute:: operator
                     
                     	op class
-                    	**type**\: list of    :py:class:`Operator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.Operators.Operator>`
+                    	**type**\: list of    :py:class:`Operator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.Operators.Operator>`
                     
                     
 
@@ -942,7 +942,7 @@ class ObjectGroup(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                            return meta._meta_table['ObjectGroup.Port.Objects.Object.Operators.Operator']['meta_info']
+                            return meta._meta_table['ObjectGroup.Port.UdfObjects.UdfObject.Operators.Operator']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -968,7 +968,7 @@ class ObjectGroup(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                        return meta._meta_table['ObjectGroup.Port.Objects.Object.Operators']['meta_info']
+                        return meta._meta_table['ObjectGroup.Port.UdfObjects.UdfObject.Operators']['meta_info']
 
 
                 class NestedGroups(object):
@@ -978,7 +978,7 @@ class ObjectGroup(object):
                     .. attribute:: nested_group
                     
                     	nested object group
-                    	**type**\: list of    :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.NestedGroups.NestedGroup>`
+                    	**type**\: list of    :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups.NestedGroup>`
                     
                     
 
@@ -1003,7 +1003,7 @@ class ObjectGroup(object):
                         	Name of a nested object group
                         	**type**\:  str
                         
-                        	**length:** 0..64
+                        	**length:** 1..64
                         
                         
 
@@ -1040,7 +1040,7 @@ class ObjectGroup(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                            return meta._meta_table['ObjectGroup.Port.Objects.Object.NestedGroups.NestedGroup']['meta_info']
+                            return meta._meta_table['ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups.NestedGroup']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -1066,7 +1066,7 @@ class ObjectGroup(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                        return meta._meta_table['ObjectGroup.Port.Objects.Object.NestedGroups']['meta_info']
+                        return meta._meta_table['ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups']['meta_info']
 
 
                 class PortRanges(object):
@@ -1076,7 +1076,7 @@ class ObjectGroup(object):
                     .. attribute:: port_range
                     
                     	Match only packets on a given port range
-                    	**type**\: list of    :py:class:`PortRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.Objects.Object.PortRanges.PortRange>`
+                    	**type**\: list of    :py:class:`PortRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.PortRanges.PortRange>`
                     
                     
 
@@ -1167,7 +1167,7 @@ class ObjectGroup(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                            return meta._meta_table['ObjectGroup.Port.Objects.Object.PortRanges.PortRange']['meta_info']
+                            return meta._meta_table['ObjectGroup.Port.UdfObjects.UdfObject.PortRanges.PortRange']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -1193,14 +1193,14 @@ class ObjectGroup(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                        return meta._meta_table['ObjectGroup.Port.Objects.Object.PortRanges']['meta_info']
+                        return meta._meta_table['ObjectGroup.Port.UdfObjects.UdfObject.PortRanges']['meta_info']
 
                 @property
                 def _common_path(self):
                     if self.object_name is None:
                         raise YPYModelError('Key property object_name is None')
 
-                    return '/Cisco-IOS-XR-infra-objmgr-cfg:object-group/Cisco-IOS-XR-infra-objmgr-cfg:port/Cisco-IOS-XR-infra-objmgr-cfg:objects/Cisco-IOS-XR-infra-objmgr-cfg:object[Cisco-IOS-XR-infra-objmgr-cfg:object-name = ' + str(self.object_name) + ']'
+                    return '/Cisco-IOS-XR-infra-objmgr-cfg:object-group/Cisco-IOS-XR-infra-objmgr-cfg:port/Cisco-IOS-XR-infra-objmgr-cfg:udf-objects/Cisco-IOS-XR-infra-objmgr-cfg:udf-object[Cisco-IOS-XR-infra-objmgr-cfg:object-name = ' + str(self.object_name) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -1229,12 +1229,12 @@ class ObjectGroup(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                    return meta._meta_table['ObjectGroup.Port.Objects.Object']['meta_info']
+                    return meta._meta_table['ObjectGroup.Port.UdfObjects.UdfObject']['meta_info']
 
             @property
             def _common_path(self):
 
-                return '/Cisco-IOS-XR-infra-objmgr-cfg:object-group/Cisco-IOS-XR-infra-objmgr-cfg:port/Cisco-IOS-XR-infra-objmgr-cfg:objects'
+                return '/Cisco-IOS-XR-infra-objmgr-cfg:object-group/Cisco-IOS-XR-infra-objmgr-cfg:port/Cisco-IOS-XR-infra-objmgr-cfg:udf-objects'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
@@ -1243,8 +1243,8 @@ class ObjectGroup(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.object is not None:
-                    for child_ref in self.object:
+                if self.udf_object is not None:
+                    for child_ref in self.udf_object:
                         if child_ref._has_data():
                             return True
 
@@ -1253,7 +1253,7 @@ class ObjectGroup(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                return meta._meta_table['ObjectGroup.Port.Objects']['meta_info']
+                return meta._meta_table['ObjectGroup.Port.UdfObjects']['meta_info']
 
         @property
         def _common_path(self):
@@ -1267,7 +1267,7 @@ class ObjectGroup(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self.objects is not None and self.objects._has_data():
+            if self.udf_objects is not None and self.udf_objects._has_data():
                 return True
 
             return False
@@ -1311,10 +1311,10 @@ class ObjectGroup(object):
             """
             IPv6 object group
             
-            .. attribute:: objects
+            .. attribute:: udf_objects
             
             	Table of ipv6 object groups
-            	**type**\:   :py:class:`Objects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects>`
+            	**type**\:   :py:class:`UdfObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects>`
             
             
 
@@ -1325,18 +1325,18 @@ class ObjectGroup(object):
 
             def __init__(self):
                 self.parent = None
-                self.objects = ObjectGroup.Network.Ipv6.Objects()
-                self.objects.parent = self
+                self.udf_objects = ObjectGroup.Network.Ipv6.UdfObjects()
+                self.udf_objects.parent = self
 
 
-            class Objects(object):
+            class UdfObjects(object):
                 """
                 Table of ipv6 object groups
                 
-                .. attribute:: object
+                .. attribute:: udf_object
                 
                 	IPv6 object group
-                	**type**\: list of    :py:class:`Object <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object>`
+                	**type**\: list of    :py:class:`UdfObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject>`
                 
                 
 
@@ -1347,12 +1347,12 @@ class ObjectGroup(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.object = YList()
-                    self.object.parent = self
-                    self.object.name = 'object'
+                    self.udf_object = YList()
+                    self.udf_object.parent = self
+                    self.udf_object.name = 'udf_object'
 
 
-                class Object(object):
+                class UdfObject(object):
                     """
                     IPv6 object group
                     
@@ -1361,34 +1361,34 @@ class ObjectGroup(object):
                     	IPv6 object group name \- maximum 64 characters
                     	**type**\:  str
                     
-                    	**length:** 0..64
+                    	**length:** 1..64
                     
                     .. attribute:: address_ranges
                     
                     	Table of ipv6 address ranges
-                    	**type**\:   :py:class:`AddressRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges>`
+                    	**type**\:   :py:class:`AddressRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges>`
                     
                     .. attribute:: addresses
                     
                     	Table of ipv6 addresses
-                    	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.Addresses>`
+                    	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses>`
                     
                     .. attribute:: description
                     
                     	Up to 100 characters describing this object
                     	**type**\:  str
                     
-                    	**length:** 0..100
+                    	**length:** 1..100
                     
                     .. attribute:: hosts
                     
                     	Table of ipv6 host addresses
-                    	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.Hosts>`
+                    	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts>`
                     
                     .. attribute:: nested_groups
                     
                     	Table of nested ipv6 object groups
-                    	**type**\:   :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups>`
+                    	**type**\:   :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups>`
                     
                     
 
@@ -1400,14 +1400,14 @@ class ObjectGroup(object):
                     def __init__(self):
                         self.parent = None
                         self.object_name = None
-                        self.address_ranges = ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges()
+                        self.address_ranges = ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges()
                         self.address_ranges.parent = self
-                        self.addresses = ObjectGroup.Network.Ipv6.Objects.Object.Addresses()
+                        self.addresses = ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses()
                         self.addresses.parent = self
                         self.description = None
-                        self.hosts = ObjectGroup.Network.Ipv6.Objects.Object.Hosts()
+                        self.hosts = ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts()
                         self.hosts.parent = self
-                        self.nested_groups = ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups()
+                        self.nested_groups = ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups()
                         self.nested_groups.parent = self
 
 
@@ -1418,7 +1418,7 @@ class ObjectGroup(object):
                         .. attribute:: nested_group
                         
                         	nested object group
-                        	**type**\: list of    :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups.NestedGroup>`
+                        	**type**\: list of    :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups.NestedGroup>`
                         
                         
 
@@ -1443,7 +1443,7 @@ class ObjectGroup(object):
                             	Enter the name of a nested object group
                             	**type**\:  str
                             
-                            	**length:** 0..64
+                            	**length:** 1..64
                             
                             
 
@@ -1480,7 +1480,7 @@ class ObjectGroup(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                                return meta._meta_table['ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups.NestedGroup']['meta_info']
+                                return meta._meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups.NestedGroup']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -1506,7 +1506,7 @@ class ObjectGroup(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                            return meta._meta_table['ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups']['meta_info']
+                            return meta._meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups']['meta_info']
 
 
                     class AddressRanges(object):
@@ -1516,7 +1516,7 @@ class ObjectGroup(object):
                         .. attribute:: address_range
                         
                         	Range of host addresses
-                        	**type**\: list of    :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges.AddressRange>`
+                        	**type**\: list of    :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange>`
                         
                         
 
@@ -1611,7 +1611,7 @@ class ObjectGroup(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                                return meta._meta_table['ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges.AddressRange']['meta_info']
+                                return meta._meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -1637,7 +1637,7 @@ class ObjectGroup(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                            return meta._meta_table['ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges']['meta_info']
+                            return meta._meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges']['meta_info']
 
 
                     class Addresses(object):
@@ -1647,7 +1647,7 @@ class ObjectGroup(object):
                         .. attribute:: address
                         
                         	IPv6 address
-                        	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.Addresses.Address>`
+                        	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses.Address>`
                         
                         
 
@@ -1732,7 +1732,7 @@ class ObjectGroup(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                                return meta._meta_table['ObjectGroup.Network.Ipv6.Objects.Object.Addresses.Address']['meta_info']
+                                return meta._meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses.Address']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -1758,7 +1758,7 @@ class ObjectGroup(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                            return meta._meta_table['ObjectGroup.Network.Ipv6.Objects.Object.Addresses']['meta_info']
+                            return meta._meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses']['meta_info']
 
 
                     class Hosts(object):
@@ -1768,7 +1768,7 @@ class ObjectGroup(object):
                         .. attribute:: host
                         
                         	A single host address
-                        	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.Objects.Object.Hosts.Host>`
+                        	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts.Host>`
                         
                         
 
@@ -1840,7 +1840,7 @@ class ObjectGroup(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                                return meta._meta_table['ObjectGroup.Network.Ipv6.Objects.Object.Hosts.Host']['meta_info']
+                                return meta._meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts.Host']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -1866,14 +1866,14 @@ class ObjectGroup(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                            return meta._meta_table['ObjectGroup.Network.Ipv6.Objects.Object.Hosts']['meta_info']
+                            return meta._meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts']['meta_info']
 
                     @property
                     def _common_path(self):
                         if self.object_name is None:
                             raise YPYModelError('Key property object_name is None')
 
-                        return '/Cisco-IOS-XR-infra-objmgr-cfg:object-group/Cisco-IOS-XR-infra-objmgr-cfg:network/Cisco-IOS-XR-infra-objmgr-cfg:ipv6/Cisco-IOS-XR-infra-objmgr-cfg:objects/Cisco-IOS-XR-infra-objmgr-cfg:object[Cisco-IOS-XR-infra-objmgr-cfg:object-name = ' + str(self.object_name) + ']'
+                        return '/Cisco-IOS-XR-infra-objmgr-cfg:object-group/Cisco-IOS-XR-infra-objmgr-cfg:network/Cisco-IOS-XR-infra-objmgr-cfg:ipv6/Cisco-IOS-XR-infra-objmgr-cfg:udf-objects/Cisco-IOS-XR-infra-objmgr-cfg:udf-object[Cisco-IOS-XR-infra-objmgr-cfg:object-name = ' + str(self.object_name) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
@@ -1905,12 +1905,12 @@ class ObjectGroup(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                        return meta._meta_table['ObjectGroup.Network.Ipv6.Objects.Object']['meta_info']
+                        return meta._meta_table['ObjectGroup.Network.Ipv6.UdfObjects.UdfObject']['meta_info']
 
                 @property
                 def _common_path(self):
 
-                    return '/Cisco-IOS-XR-infra-objmgr-cfg:object-group/Cisco-IOS-XR-infra-objmgr-cfg:network/Cisco-IOS-XR-infra-objmgr-cfg:ipv6/Cisco-IOS-XR-infra-objmgr-cfg:objects'
+                    return '/Cisco-IOS-XR-infra-objmgr-cfg:object-group/Cisco-IOS-XR-infra-objmgr-cfg:network/Cisco-IOS-XR-infra-objmgr-cfg:ipv6/Cisco-IOS-XR-infra-objmgr-cfg:udf-objects'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -1919,8 +1919,8 @@ class ObjectGroup(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.object is not None:
-                        for child_ref in self.object:
+                    if self.udf_object is not None:
+                        for child_ref in self.udf_object:
                             if child_ref._has_data():
                                 return True
 
@@ -1929,7 +1929,7 @@ class ObjectGroup(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                    return meta._meta_table['ObjectGroup.Network.Ipv6.Objects']['meta_info']
+                    return meta._meta_table['ObjectGroup.Network.Ipv6.UdfObjects']['meta_info']
 
             @property
             def _common_path(self):
@@ -1943,7 +1943,7 @@ class ObjectGroup(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.objects is not None and self.objects._has_data():
+                if self.udf_objects is not None and self.udf_objects._has_data():
                     return True
 
                 return False
@@ -1958,10 +1958,10 @@ class ObjectGroup(object):
             """
             IPv4 object group
             
-            .. attribute:: objects
+            .. attribute:: udf_objects
             
             	Table of ipv4 object groups
-            	**type**\:   :py:class:`Objects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects>`
+            	**type**\:   :py:class:`UdfObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects>`
             
             
 
@@ -1972,18 +1972,18 @@ class ObjectGroup(object):
 
             def __init__(self):
                 self.parent = None
-                self.objects = ObjectGroup.Network.Ipv4.Objects()
-                self.objects.parent = self
+                self.udf_objects = ObjectGroup.Network.Ipv4.UdfObjects()
+                self.udf_objects.parent = self
 
 
-            class Objects(object):
+            class UdfObjects(object):
                 """
                 Table of ipv4 object groups
                 
-                .. attribute:: object
+                .. attribute:: udf_object
                 
                 	IPv4 object group
-                	**type**\: list of    :py:class:`Object <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object>`
+                	**type**\: list of    :py:class:`UdfObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject>`
                 
                 
 
@@ -1994,12 +1994,12 @@ class ObjectGroup(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.object = YList()
-                    self.object.parent = self
-                    self.object.name = 'object'
+                    self.udf_object = YList()
+                    self.udf_object.parent = self
+                    self.udf_object.name = 'udf_object'
 
 
-                class Object(object):
+                class UdfObject(object):
                     """
                     IPv4 object group
                     
@@ -2008,34 +2008,34 @@ class ObjectGroup(object):
                     	IPv4 object group name \- maximum 64 characters
                     	**type**\:  str
                     
-                    	**length:** 0..64
+                    	**length:** 1..64
                     
                     .. attribute:: address_ranges
                     
                     	Table of ipv4 host address ranges
-                    	**type**\:   :py:class:`AddressRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges>`
+                    	**type**\:   :py:class:`AddressRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges>`
                     
                     .. attribute:: addresses
                     
                     	Table of addresses
-                    	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.Addresses>`
+                    	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses>`
                     
                     .. attribute:: description
                     
                     	Up to 100 characters describing this object
                     	**type**\:  str
                     
-                    	**length:** 0..100
+                    	**length:** 1..100
                     
                     .. attribute:: hosts
                     
                     	Table of host addresses
-                    	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.Hosts>`
+                    	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts>`
                     
                     .. attribute:: nested_groups
                     
                     	Table of nested ipv4 object groups
-                    	**type**\:   :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups>`
+                    	**type**\:   :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups>`
                     
                     
 
@@ -2047,14 +2047,14 @@ class ObjectGroup(object):
                     def __init__(self):
                         self.parent = None
                         self.object_name = None
-                        self.address_ranges = ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges()
+                        self.address_ranges = ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges()
                         self.address_ranges.parent = self
-                        self.addresses = ObjectGroup.Network.Ipv4.Objects.Object.Addresses()
+                        self.addresses = ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses()
                         self.addresses.parent = self
                         self.description = None
-                        self.hosts = ObjectGroup.Network.Ipv4.Objects.Object.Hosts()
+                        self.hosts = ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts()
                         self.hosts.parent = self
-                        self.nested_groups = ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups()
+                        self.nested_groups = ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups()
                         self.nested_groups.parent = self
 
 
@@ -2065,7 +2065,7 @@ class ObjectGroup(object):
                         .. attribute:: nested_group
                         
                         	Nested object group
-                        	**type**\: list of    :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups.NestedGroup>`
+                        	**type**\: list of    :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups.NestedGroup>`
                         
                         
 
@@ -2090,7 +2090,7 @@ class ObjectGroup(object):
                             	Nested object group
                             	**type**\:  str
                             
-                            	**length:** 0..64
+                            	**length:** 1..64
                             
                             
 
@@ -2127,7 +2127,7 @@ class ObjectGroup(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                                return meta._meta_table['ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups.NestedGroup']['meta_info']
+                                return meta._meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups.NestedGroup']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -2153,7 +2153,7 @@ class ObjectGroup(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                            return meta._meta_table['ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups']['meta_info']
+                            return meta._meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups']['meta_info']
 
 
                     class AddressRanges(object):
@@ -2163,7 +2163,7 @@ class ObjectGroup(object):
                         .. attribute:: address_range
                         
                         	Range of host addresses
-                        	**type**\: list of    :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges.AddressRange>`
+                        	**type**\: list of    :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange>`
                         
                         
 
@@ -2258,7 +2258,7 @@ class ObjectGroup(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                                return meta._meta_table['ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges.AddressRange']['meta_info']
+                                return meta._meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -2284,7 +2284,7 @@ class ObjectGroup(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                            return meta._meta_table['ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges']['meta_info']
+                            return meta._meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges']['meta_info']
 
 
                     class Addresses(object):
@@ -2294,7 +2294,7 @@ class ObjectGroup(object):
                         .. attribute:: address
                         
                         	IPv4 address
-                        	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.Addresses.Address>`
+                        	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses.Address>`
                         
                         
 
@@ -2379,7 +2379,7 @@ class ObjectGroup(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                                return meta._meta_table['ObjectGroup.Network.Ipv4.Objects.Object.Addresses.Address']['meta_info']
+                                return meta._meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses.Address']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -2405,7 +2405,7 @@ class ObjectGroup(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                            return meta._meta_table['ObjectGroup.Network.Ipv4.Objects.Object.Addresses']['meta_info']
+                            return meta._meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses']['meta_info']
 
 
                     class Hosts(object):
@@ -2415,7 +2415,7 @@ class ObjectGroup(object):
                         .. attribute:: host
                         
                         	A single host address
-                        	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.Objects.Object.Hosts.Host>`
+                        	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts.Host>`
                         
                         
 
@@ -2487,7 +2487,7 @@ class ObjectGroup(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                                return meta._meta_table['ObjectGroup.Network.Ipv4.Objects.Object.Hosts.Host']['meta_info']
+                                return meta._meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts.Host']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -2513,14 +2513,14 @@ class ObjectGroup(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                            return meta._meta_table['ObjectGroup.Network.Ipv4.Objects.Object.Hosts']['meta_info']
+                            return meta._meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts']['meta_info']
 
                     @property
                     def _common_path(self):
                         if self.object_name is None:
                             raise YPYModelError('Key property object_name is None')
 
-                        return '/Cisco-IOS-XR-infra-objmgr-cfg:object-group/Cisco-IOS-XR-infra-objmgr-cfg:network/Cisco-IOS-XR-infra-objmgr-cfg:ipv4/Cisco-IOS-XR-infra-objmgr-cfg:objects/Cisco-IOS-XR-infra-objmgr-cfg:object[Cisco-IOS-XR-infra-objmgr-cfg:object-name = ' + str(self.object_name) + ']'
+                        return '/Cisco-IOS-XR-infra-objmgr-cfg:object-group/Cisco-IOS-XR-infra-objmgr-cfg:network/Cisco-IOS-XR-infra-objmgr-cfg:ipv4/Cisco-IOS-XR-infra-objmgr-cfg:udf-objects/Cisco-IOS-XR-infra-objmgr-cfg:udf-object[Cisco-IOS-XR-infra-objmgr-cfg:object-name = ' + str(self.object_name) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
@@ -2552,12 +2552,12 @@ class ObjectGroup(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                        return meta._meta_table['ObjectGroup.Network.Ipv4.Objects.Object']['meta_info']
+                        return meta._meta_table['ObjectGroup.Network.Ipv4.UdfObjects.UdfObject']['meta_info']
 
                 @property
                 def _common_path(self):
 
-                    return '/Cisco-IOS-XR-infra-objmgr-cfg:object-group/Cisco-IOS-XR-infra-objmgr-cfg:network/Cisco-IOS-XR-infra-objmgr-cfg:ipv4/Cisco-IOS-XR-infra-objmgr-cfg:objects'
+                    return '/Cisco-IOS-XR-infra-objmgr-cfg:object-group/Cisco-IOS-XR-infra-objmgr-cfg:network/Cisco-IOS-XR-infra-objmgr-cfg:ipv4/Cisco-IOS-XR-infra-objmgr-cfg:udf-objects'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -2566,8 +2566,8 @@ class ObjectGroup(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.object is not None:
-                        for child_ref in self.object:
+                    if self.udf_object is not None:
+                        for child_ref in self.udf_object:
                             if child_ref._has_data():
                                 return True
 
@@ -2576,7 +2576,7 @@ class ObjectGroup(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_objmgr_cfg as meta
-                    return meta._meta_table['ObjectGroup.Network.Ipv4.Objects']['meta_info']
+                    return meta._meta_table['ObjectGroup.Network.Ipv4.UdfObjects']['meta_info']
 
             @property
             def _common_path(self):
@@ -2590,7 +2590,7 @@ class ObjectGroup(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.objects is not None and self.objects._has_data():
+                if self.udf_objects is not None and self.udf_objects._has_data():
                     return True
 
                 return False

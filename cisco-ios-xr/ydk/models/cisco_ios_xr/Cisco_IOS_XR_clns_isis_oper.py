@@ -1814,49 +1814,55 @@ class IsisSpfClassEnum(Enum):
 
     Types of route calculation
 
-    .. data:: isis_spf_frr_per_link = 0
+    .. data:: isis_spf_frr_sr_u_loop = 0
+
+    	Remote microloop avoidance SPF
+
+    .. data:: isis_spf_frr_per_link = 1
 
     	FRR per-link SPF
 
-    .. data:: isis_spf_partial = 1
+    .. data:: isis_spf_partial = 2
 
     	PRC
 
-    .. data:: isis_spf_frr_per_prefix = 2
+    .. data:: isis_spf_frr_per_prefix = 3
 
     	FRR per-prefix SPF
 
-    .. data:: isis_spf_ucmp_calc = 3
+    .. data:: isis_spf_ucmp_calc = 4
 
     	UCMP SPF
 
-    .. data:: isis_spf_next_hop = 4
+    .. data:: isis_spf_next_hop = 5
 
     	Next Hop
 
-    .. data:: isis_spf_incremental = 5
+    .. data:: isis_spf_incremental = 6
 
     	Incremental SPF
 
-    .. data:: isis_spf_full = 6
+    .. data:: isis_spf_full = 7
 
     	Full SPF
 
     """
 
-    isis_spf_frr_per_link = 0
+    isis_spf_frr_sr_u_loop = 0
 
-    isis_spf_partial = 1
+    isis_spf_frr_per_link = 1
 
-    isis_spf_frr_per_prefix = 2
+    isis_spf_partial = 2
 
-    isis_spf_ucmp_calc = 3
+    isis_spf_frr_per_prefix = 3
 
-    isis_spf_next_hop = 4
+    isis_spf_ucmp_calc = 4
 
-    isis_spf_incremental = 5
+    isis_spf_next_hop = 5
 
-    isis_spf_full = 6
+    isis_spf_incremental = 6
+
+    isis_spf_full = 7
 
 
     @staticmethod
@@ -2193,6 +2199,94 @@ class IsisTilfaComputationEnum(Enum):
         return meta._meta_table['IsisTilfaComputationEnum']
 
 
+class IsisUloopAvoidanceEnum(Enum):
+    """
+    IsisUloopAvoidanceEnum
+
+    Isis uloop avoidance
+
+    .. data:: isis_u_loop_avoidance_type_none = 0
+
+    	No MicroLoop avoidance
+
+    .. data:: isis_u_loop_avoidance_type_all = 1
+
+    	Apply MicroLoop avoidance for all prefixes
+
+    .. data:: isis_u_loop_avoidance_type_protected = 2
+
+    	Apply MicroLoop avoidance only for protected
+
+    	prefixes
+
+    .. data:: isis_u_loop_avoidance_type_sr = 3
+
+    	Segment Routing MicroLoop avoidance for All
+
+    	single-link changes
+
+    """
+
+    isis_u_loop_avoidance_type_none = 0
+
+    isis_u_loop_avoidance_type_all = 1
+
+    isis_u_loop_avoidance_type_protected = 2
+
+    isis_u_loop_avoidance_type_sr = 3
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+        return meta._meta_table['IsisUloopAvoidanceEnum']
+
+
+class IsisUloopEventEnum(Enum):
+    """
+    IsisUloopEventEnum
+
+    Isis uloop event
+
+    .. data:: isis_u_loop_event_none = 0
+
+    	isis u loop event none
+
+    .. data:: isis_u_loop_event_link_down = 1
+
+    	isis u loop event link down
+
+    .. data:: isis_u_loop_event_link_up = 2
+
+    	isis u loop event link up
+
+    .. data:: isis_u_loop_event_ol_bit_set = 3
+
+    	isis u loop event ol bit set
+
+    .. data:: isis_u_loop_event_ol_bit_unset = 4
+
+    	isis u loop event ol bit unset
+
+    """
+
+    isis_u_loop_event_none = 0
+
+    isis_u_loop_event_link_down = 1
+
+    isis_u_loop_event_link_up = 2
+
+    isis_u_loop_event_ol_bit_set = 3
+
+    isis_u_loop_event_ol_bit_unset = 4
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+        return meta._meta_table['IsisUloopEventEnum']
+
+
 class IsisUpEnum(Enum):
     """
     IsisUpEnum
@@ -2394,7 +2488,7 @@ class Isis(object):
             	Instance identifier
             	**type**\:  str
             
-            	**length:** 0..40
+            	**length:** 1..40
             
             .. attribute:: checkpoint_adjacencies
             
@@ -2876,6 +2970,11 @@ class Isis(object):
                                 	Adjacency SID Backup Info
                                 	**type**\:   :py:class:`AdjacencySidBackup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv4.AdjacencySid.AdjacencySidBackup>`
                                 
+                                .. attribute:: adjacency_sid_backup_te
+                                
+                                	Adjacency SID Backup Info TE
+                                	**type**\:   :py:class:`AdjacencySidBackupTe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv4.AdjacencySid.AdjacencySidBackupTe>`
+                                
                                 .. attribute:: adjacency_sid_value
                                 
                                 	Adjacency SID value
@@ -2894,6 +2993,8 @@ class Isis(object):
                                     self.parent = None
                                     self.adjacency_sid_backup = Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv4.AdjacencySid.AdjacencySidBackup()
                                     self.adjacency_sid_backup.parent = self
+                                    self.adjacency_sid_backup_te = Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv4.AdjacencySid.AdjacencySidBackupTe()
+                                    self.adjacency_sid_backup_te.parent = self
                                     self.adjacency_sid_value = None
 
 
@@ -2991,6 +3092,101 @@ class Isis(object):
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                         return meta._meta_table['Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv4.AdjacencySid.AdjacencySidBackup']['meta_info']
 
+
+                                class AdjacencySidBackupTe(object):
+                                    """
+                                    Adjacency SID Backup Info TE
+                                    
+                                    .. attribute:: backup_interface
+                                    
+                                    	Backup path interface
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                    
+                                    .. attribute:: backup_label_stack
+                                    
+                                    	Backup path label stack
+                                    	**type**\:  list of int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: backup_label_stack_size
+                                    
+                                    	Number of labels in the backup path label stack
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: backup_nexthop
+                                    
+                                    	Backup path nexthop address
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: backup_node_address
+                                    
+                                    	Neighbor address used as adjacency backup target
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'clns-isis-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.backup_interface = None
+                                        self.backup_label_stack = YLeafList()
+                                        self.backup_label_stack.parent = self
+                                        self.backup_label_stack.name = 'backup_label_stack'
+                                        self.backup_label_stack_size = None
+                                        self.backup_nexthop = None
+                                        self.backup_node_address = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:adjacency-sid-backup-te'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.backup_interface is not None:
+                                            return True
+
+                                        if self.backup_label_stack is not None:
+                                            for child in self.backup_label_stack:
+                                                if child is not None:
+                                                    return True
+
+                                        if self.backup_label_stack_size is not None:
+                                            return True
+
+                                        if self.backup_nexthop is not None:
+                                            return True
+
+                                        if self.backup_node_address is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv4.AdjacencySid.AdjacencySidBackupTe']['meta_info']
+
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
@@ -3006,6 +3202,9 @@ class Isis(object):
                                     if not self.is_config():
                                         return False
                                     if self.adjacency_sid_backup is not None and self.adjacency_sid_backup._has_data():
+                                        return True
+
+                                    if self.adjacency_sid_backup_te is not None and self.adjacency_sid_backup_te._has_data():
                                         return True
 
                                     if self.adjacency_sid_value is not None:
@@ -3028,6 +3227,11 @@ class Isis(object):
                                 	Adjacency SID Backup Info
                                 	**type**\:   :py:class:`AdjacencySidBackup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv4.NonFrrAdjacencySid.AdjacencySidBackup>`
                                 
+                                .. attribute:: adjacency_sid_backup_te
+                                
+                                	Adjacency SID Backup Info TE
+                                	**type**\:   :py:class:`AdjacencySidBackupTe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv4.NonFrrAdjacencySid.AdjacencySidBackupTe>`
+                                
                                 .. attribute:: adjacency_sid_value
                                 
                                 	Adjacency SID value
@@ -3046,6 +3250,8 @@ class Isis(object):
                                     self.parent = None
                                     self.adjacency_sid_backup = Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv4.NonFrrAdjacencySid.AdjacencySidBackup()
                                     self.adjacency_sid_backup.parent = self
+                                    self.adjacency_sid_backup_te = Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv4.NonFrrAdjacencySid.AdjacencySidBackupTe()
+                                    self.adjacency_sid_backup_te.parent = self
                                     self.adjacency_sid_value = None
 
 
@@ -3143,6 +3349,101 @@ class Isis(object):
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                         return meta._meta_table['Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv4.NonFrrAdjacencySid.AdjacencySidBackup']['meta_info']
 
+
+                                class AdjacencySidBackupTe(object):
+                                    """
+                                    Adjacency SID Backup Info TE
+                                    
+                                    .. attribute:: backup_interface
+                                    
+                                    	Backup path interface
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                    
+                                    .. attribute:: backup_label_stack
+                                    
+                                    	Backup path label stack
+                                    	**type**\:  list of int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: backup_label_stack_size
+                                    
+                                    	Number of labels in the backup path label stack
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: backup_nexthop
+                                    
+                                    	Backup path nexthop address
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: backup_node_address
+                                    
+                                    	Neighbor address used as adjacency backup target
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'clns-isis-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.backup_interface = None
+                                        self.backup_label_stack = YLeafList()
+                                        self.backup_label_stack.parent = self
+                                        self.backup_label_stack.name = 'backup_label_stack'
+                                        self.backup_label_stack_size = None
+                                        self.backup_nexthop = None
+                                        self.backup_node_address = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:adjacency-sid-backup-te'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.backup_interface is not None:
+                                            return True
+
+                                        if self.backup_label_stack is not None:
+                                            for child in self.backup_label_stack:
+                                                if child is not None:
+                                                    return True
+
+                                        if self.backup_label_stack_size is not None:
+                                            return True
+
+                                        if self.backup_nexthop is not None:
+                                            return True
+
+                                        if self.backup_node_address is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv4.NonFrrAdjacencySid.AdjacencySidBackupTe']['meta_info']
+
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
@@ -3158,6 +3459,9 @@ class Isis(object):
                                     if not self.is_config():
                                         return False
                                     if self.adjacency_sid_backup is not None and self.adjacency_sid_backup._has_data():
+                                        return True
+
+                                    if self.adjacency_sid_backup_te is not None and self.adjacency_sid_backup_te._has_data():
                                         return True
 
                                     if self.adjacency_sid_value is not None:
@@ -3292,6 +3596,11 @@ class Isis(object):
                                 	Adjacency SID Backup Info
                                 	**type**\:   :py:class:`AdjacencySidBackup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv6.AdjacencySid.AdjacencySidBackup>`
                                 
+                                .. attribute:: adjacency_sid_backup_te
+                                
+                                	Adjacency SID Backup Info TE
+                                	**type**\:   :py:class:`AdjacencySidBackupTe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv6.AdjacencySid.AdjacencySidBackupTe>`
+                                
                                 .. attribute:: adjacency_sid_value
                                 
                                 	Adjacency SID value
@@ -3310,6 +3619,8 @@ class Isis(object):
                                     self.parent = None
                                     self.adjacency_sid_backup = Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv6.AdjacencySid.AdjacencySidBackup()
                                     self.adjacency_sid_backup.parent = self
+                                    self.adjacency_sid_backup_te = Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv6.AdjacencySid.AdjacencySidBackupTe()
+                                    self.adjacency_sid_backup_te.parent = self
                                     self.adjacency_sid_value = None
 
 
@@ -3407,6 +3718,101 @@ class Isis(object):
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                         return meta._meta_table['Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv6.AdjacencySid.AdjacencySidBackup']['meta_info']
 
+
+                                class AdjacencySidBackupTe(object):
+                                    """
+                                    Adjacency SID Backup Info TE
+                                    
+                                    .. attribute:: backup_interface
+                                    
+                                    	Backup path interface
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                    
+                                    .. attribute:: backup_label_stack
+                                    
+                                    	Backup path label stack
+                                    	**type**\:  list of int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: backup_label_stack_size
+                                    
+                                    	Number of labels in the backup path label stack
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: backup_nexthop
+                                    
+                                    	Backup path nexthop address
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: backup_node_address
+                                    
+                                    	Neighbor address used as adjacency backup target
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'clns-isis-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.backup_interface = None
+                                        self.backup_label_stack = YLeafList()
+                                        self.backup_label_stack.parent = self
+                                        self.backup_label_stack.name = 'backup_label_stack'
+                                        self.backup_label_stack_size = None
+                                        self.backup_nexthop = None
+                                        self.backup_node_address = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:adjacency-sid-backup-te'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.backup_interface is not None:
+                                            return True
+
+                                        if self.backup_label_stack is not None:
+                                            for child in self.backup_label_stack:
+                                                if child is not None:
+                                                    return True
+
+                                        if self.backup_label_stack_size is not None:
+                                            return True
+
+                                        if self.backup_nexthop is not None:
+                                            return True
+
+                                        if self.backup_node_address is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv6.AdjacencySid.AdjacencySidBackupTe']['meta_info']
+
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
@@ -3422,6 +3828,9 @@ class Isis(object):
                                     if not self.is_config():
                                         return False
                                     if self.adjacency_sid_backup is not None and self.adjacency_sid_backup._has_data():
+                                        return True
+
+                                    if self.adjacency_sid_backup_te is not None and self.adjacency_sid_backup_te._has_data():
                                         return True
 
                                     if self.adjacency_sid_value is not None:
@@ -3444,6 +3853,11 @@ class Isis(object):
                                 	Adjacency SID Backup Info
                                 	**type**\:   :py:class:`AdjacencySidBackup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv6.NonFrrAdjacencySid.AdjacencySidBackup>`
                                 
+                                .. attribute:: adjacency_sid_backup_te
+                                
+                                	Adjacency SID Backup Info TE
+                                	**type**\:   :py:class:`AdjacencySidBackupTe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv6.NonFrrAdjacencySid.AdjacencySidBackupTe>`
+                                
                                 .. attribute:: adjacency_sid_value
                                 
                                 	Adjacency SID value
@@ -3462,6 +3876,8 @@ class Isis(object):
                                     self.parent = None
                                     self.adjacency_sid_backup = Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv6.NonFrrAdjacencySid.AdjacencySidBackup()
                                     self.adjacency_sid_backup.parent = self
+                                    self.adjacency_sid_backup_te = Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv6.NonFrrAdjacencySid.AdjacencySidBackupTe()
+                                    self.adjacency_sid_backup_te.parent = self
                                     self.adjacency_sid_value = None
 
 
@@ -3559,6 +3975,101 @@ class Isis(object):
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                         return meta._meta_table['Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv6.NonFrrAdjacencySid.AdjacencySidBackup']['meta_info']
 
+
+                                class AdjacencySidBackupTe(object):
+                                    """
+                                    Adjacency SID Backup Info TE
+                                    
+                                    .. attribute:: backup_interface
+                                    
+                                    	Backup path interface
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                    
+                                    .. attribute:: backup_label_stack
+                                    
+                                    	Backup path label stack
+                                    	**type**\:  list of int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: backup_label_stack_size
+                                    
+                                    	Number of labels in the backup path label stack
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..255
+                                    
+                                    .. attribute:: backup_nexthop
+                                    
+                                    	Backup path nexthop address
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: backup_node_address
+                                    
+                                    	Neighbor address used as adjacency backup target
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'clns-isis-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.backup_interface = None
+                                        self.backup_label_stack = YLeafList()
+                                        self.backup_label_stack.parent = self
+                                        self.backup_label_stack.name = 'backup_label_stack'
+                                        self.backup_label_stack_size = None
+                                        self.backup_nexthop = None
+                                        self.backup_node_address = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:adjacency-sid-backup-te'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.backup_interface is not None:
+                                            return True
+
+                                        if self.backup_label_stack is not None:
+                                            for child in self.backup_label_stack:
+                                                if child is not None:
+                                                    return True
+
+                                        if self.backup_label_stack_size is not None:
+                                            return True
+
+                                        if self.backup_nexthop is not None:
+                                            return True
+
+                                        if self.backup_node_address is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                        return meta._meta_table['Isis.Instances.Instance.Neighbors.Neighbor.NeighborPerAddressFamilyData.Ipv6.NonFrrAdjacencySid.AdjacencySidBackupTe']['meta_info']
+
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
@@ -3574,6 +4085,9 @@ class Isis(object):
                                     if not self.is_config():
                                         return False
                                     if self.adjacency_sid_backup is not None and self.adjacency_sid_backup._has_data():
+                                        return True
+
+                                    if self.adjacency_sid_backup_te is not None and self.adjacency_sid_backup_te._has_data():
                                         return True
 
                                     if self.adjacency_sid_value is not None:
@@ -4104,6 +4618,13 @@ class Isis(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: pdu_queue_length
+                    
+                    	Update PDU queue length
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: snp_dropped_count
                     
                     	SNPs dropped
@@ -4161,6 +4682,7 @@ class Isis(object):
                         self.lsp_dropped_count = None
                         self.maximum_iih_queue_length = None
                         self.maximum_pdu_queue_length = None
+                        self.pdu_queue_length = None
                         self.snp_dropped_count = None
                         self.zero_holdtime_lsp_count = None
 
@@ -4750,6 +5272,9 @@ class Isis(object):
                             return True
 
                         if self.maximum_pdu_queue_length is not None:
+                            return True
+
+                        if self.pdu_queue_length is not None:
                             return True
 
                         if self.snp_dropped_count is not None:
@@ -6413,6 +6938,44 @@ class Isis(object):
                             """
                             A single IS\-IS adjacency
                             
+                            .. attribute:: adj_ipv4bfd_retry_count
+                            
+                            	IPv4 BFD retry counter
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: adj_ipv4bfd_retry_exp
+                            
+                            	Time to expiration of IPv4 BFD retry timer (s)
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: adj_ipv4bfd_retry_running
+                            
+                            	Is IPv4 BFD retry timer running
+                            	**type**\:  bool
+                            
+                            .. attribute:: adj_ipv6bfd_retry_count
+                            
+                            	IPv6 BFD retry counter
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: adj_ipv6bfd_retry_exp
+                            
+                            	Time to expiration of IPv6 BFD retry timer (s)
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: adj_ipv6bfd_retry_running
+                            
+                            	Is IPv6 BFD retry timer running
+                            	**type**\:  bool
+                            
                             .. attribute:: adjacency_area_address
                             
                             	Area addresses active over this adjacency
@@ -6563,6 +7126,12 @@ class Isis(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.adj_ipv4bfd_retry_count = None
+                                self.adj_ipv4bfd_retry_exp = None
+                                self.adj_ipv4bfd_retry_running = None
+                                self.adj_ipv6bfd_retry_count = None
+                                self.adj_ipv6bfd_retry_exp = None
+                                self.adj_ipv6bfd_retry_running = None
                                 self.adjacency_area_address = YLeafList()
                                 self.adjacency_area_address.parent = self
                                 self.adjacency_area_address.name = 'adjacency_area_address'
@@ -6841,6 +7410,11 @@ class Isis(object):
                                         	Adjacency SID Backup Info
                                         	**type**\:   :py:class:`AdjacencySidBackup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv4.AdjacencySid.AdjacencySidBackup>`
                                         
+                                        .. attribute:: adjacency_sid_backup_te
+                                        
+                                        	Adjacency SID Backup Info TE
+                                        	**type**\:   :py:class:`AdjacencySidBackupTe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv4.AdjacencySid.AdjacencySidBackupTe>`
+                                        
                                         .. attribute:: adjacency_sid_value
                                         
                                         	Adjacency SID value
@@ -6859,6 +7433,8 @@ class Isis(object):
                                             self.parent = None
                                             self.adjacency_sid_backup = Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv4.AdjacencySid.AdjacencySidBackup()
                                             self.adjacency_sid_backup.parent = self
+                                            self.adjacency_sid_backup_te = Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv4.AdjacencySid.AdjacencySidBackupTe()
+                                            self.adjacency_sid_backup_te.parent = self
                                             self.adjacency_sid_value = None
 
 
@@ -6956,6 +7532,101 @@ class Isis(object):
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                 return meta._meta_table['Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv4.AdjacencySid.AdjacencySidBackup']['meta_info']
 
+
+                                        class AdjacencySidBackupTe(object):
+                                            """
+                                            Adjacency SID Backup Info TE
+                                            
+                                            .. attribute:: backup_interface
+                                            
+                                            	Backup path interface
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            
+                                            .. attribute:: backup_label_stack
+                                            
+                                            	Backup path label stack
+                                            	**type**\:  list of int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: backup_label_stack_size
+                                            
+                                            	Number of labels in the backup path label stack
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..255
+                                            
+                                            .. attribute:: backup_nexthop
+                                            
+                                            	Backup path nexthop address
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                            
+                                            .. attribute:: backup_node_address
+                                            
+                                            	Neighbor address used as adjacency backup target
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'clns-isis-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.backup_interface = None
+                                                self.backup_label_stack = YLeafList()
+                                                self.backup_label_stack.parent = self
+                                                self.backup_label_stack.name = 'backup_label_stack'
+                                                self.backup_label_stack_size = None
+                                                self.backup_nexthop = None
+                                                self.backup_node_address = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:adjacency-sid-backup-te'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.backup_interface is not None:
+                                                    return True
+
+                                                if self.backup_label_stack is not None:
+                                                    for child in self.backup_label_stack:
+                                                        if child is not None:
+                                                            return True
+
+                                                if self.backup_label_stack_size is not None:
+                                                    return True
+
+                                                if self.backup_nexthop is not None:
+                                                    return True
+
+                                                if self.backup_node_address is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv4.AdjacencySid.AdjacencySidBackupTe']['meta_info']
+
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
@@ -6971,6 +7642,9 @@ class Isis(object):
                                             if not self.is_config():
                                                 return False
                                             if self.adjacency_sid_backup is not None and self.adjacency_sid_backup._has_data():
+                                                return True
+
+                                            if self.adjacency_sid_backup_te is not None and self.adjacency_sid_backup_te._has_data():
                                                 return True
 
                                             if self.adjacency_sid_value is not None:
@@ -6993,6 +7667,11 @@ class Isis(object):
                                         	Adjacency SID Backup Info
                                         	**type**\:   :py:class:`AdjacencySidBackup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv4.NonFrrAdjacencySid.AdjacencySidBackup>`
                                         
+                                        .. attribute:: adjacency_sid_backup_te
+                                        
+                                        	Adjacency SID Backup Info TE
+                                        	**type**\:   :py:class:`AdjacencySidBackupTe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv4.NonFrrAdjacencySid.AdjacencySidBackupTe>`
+                                        
                                         .. attribute:: adjacency_sid_value
                                         
                                         	Adjacency SID value
@@ -7011,6 +7690,8 @@ class Isis(object):
                                             self.parent = None
                                             self.adjacency_sid_backup = Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv4.NonFrrAdjacencySid.AdjacencySidBackup()
                                             self.adjacency_sid_backup.parent = self
+                                            self.adjacency_sid_backup_te = Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv4.NonFrrAdjacencySid.AdjacencySidBackupTe()
+                                            self.adjacency_sid_backup_te.parent = self
                                             self.adjacency_sid_value = None
 
 
@@ -7108,6 +7789,101 @@ class Isis(object):
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                 return meta._meta_table['Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv4.NonFrrAdjacencySid.AdjacencySidBackup']['meta_info']
 
+
+                                        class AdjacencySidBackupTe(object):
+                                            """
+                                            Adjacency SID Backup Info TE
+                                            
+                                            .. attribute:: backup_interface
+                                            
+                                            	Backup path interface
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            
+                                            .. attribute:: backup_label_stack
+                                            
+                                            	Backup path label stack
+                                            	**type**\:  list of int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: backup_label_stack_size
+                                            
+                                            	Number of labels in the backup path label stack
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..255
+                                            
+                                            .. attribute:: backup_nexthop
+                                            
+                                            	Backup path nexthop address
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                            
+                                            .. attribute:: backup_node_address
+                                            
+                                            	Neighbor address used as adjacency backup target
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'clns-isis-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.backup_interface = None
+                                                self.backup_label_stack = YLeafList()
+                                                self.backup_label_stack.parent = self
+                                                self.backup_label_stack.name = 'backup_label_stack'
+                                                self.backup_label_stack_size = None
+                                                self.backup_nexthop = None
+                                                self.backup_node_address = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:adjacency-sid-backup-te'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.backup_interface is not None:
+                                                    return True
+
+                                                if self.backup_label_stack is not None:
+                                                    for child in self.backup_label_stack:
+                                                        if child is not None:
+                                                            return True
+
+                                                if self.backup_label_stack_size is not None:
+                                                    return True
+
+                                                if self.backup_nexthop is not None:
+                                                    return True
+
+                                                if self.backup_node_address is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv4.NonFrrAdjacencySid.AdjacencySidBackupTe']['meta_info']
+
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
@@ -7123,6 +7899,9 @@ class Isis(object):
                                             if not self.is_config():
                                                 return False
                                             if self.adjacency_sid_backup is not None and self.adjacency_sid_backup._has_data():
+                                                return True
+
+                                            if self.adjacency_sid_backup_te is not None and self.adjacency_sid_backup_te._has_data():
                                                 return True
 
                                             if self.adjacency_sid_value is not None:
@@ -7257,6 +8036,11 @@ class Isis(object):
                                         	Adjacency SID Backup Info
                                         	**type**\:   :py:class:`AdjacencySidBackup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv6.AdjacencySid.AdjacencySidBackup>`
                                         
+                                        .. attribute:: adjacency_sid_backup_te
+                                        
+                                        	Adjacency SID Backup Info TE
+                                        	**type**\:   :py:class:`AdjacencySidBackupTe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv6.AdjacencySid.AdjacencySidBackupTe>`
+                                        
                                         .. attribute:: adjacency_sid_value
                                         
                                         	Adjacency SID value
@@ -7275,6 +8059,8 @@ class Isis(object):
                                             self.parent = None
                                             self.adjacency_sid_backup = Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv6.AdjacencySid.AdjacencySidBackup()
                                             self.adjacency_sid_backup.parent = self
+                                            self.adjacency_sid_backup_te = Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv6.AdjacencySid.AdjacencySidBackupTe()
+                                            self.adjacency_sid_backup_te.parent = self
                                             self.adjacency_sid_value = None
 
 
@@ -7372,6 +8158,101 @@ class Isis(object):
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                 return meta._meta_table['Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv6.AdjacencySid.AdjacencySidBackup']['meta_info']
 
+
+                                        class AdjacencySidBackupTe(object):
+                                            """
+                                            Adjacency SID Backup Info TE
+                                            
+                                            .. attribute:: backup_interface
+                                            
+                                            	Backup path interface
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            
+                                            .. attribute:: backup_label_stack
+                                            
+                                            	Backup path label stack
+                                            	**type**\:  list of int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: backup_label_stack_size
+                                            
+                                            	Number of labels in the backup path label stack
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..255
+                                            
+                                            .. attribute:: backup_nexthop
+                                            
+                                            	Backup path nexthop address
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                            
+                                            .. attribute:: backup_node_address
+                                            
+                                            	Neighbor address used as adjacency backup target
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'clns-isis-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.backup_interface = None
+                                                self.backup_label_stack = YLeafList()
+                                                self.backup_label_stack.parent = self
+                                                self.backup_label_stack.name = 'backup_label_stack'
+                                                self.backup_label_stack_size = None
+                                                self.backup_nexthop = None
+                                                self.backup_node_address = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:adjacency-sid-backup-te'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.backup_interface is not None:
+                                                    return True
+
+                                                if self.backup_label_stack is not None:
+                                                    for child in self.backup_label_stack:
+                                                        if child is not None:
+                                                            return True
+
+                                                if self.backup_label_stack_size is not None:
+                                                    return True
+
+                                                if self.backup_nexthop is not None:
+                                                    return True
+
+                                                if self.backup_node_address is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv6.AdjacencySid.AdjacencySidBackupTe']['meta_info']
+
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
@@ -7387,6 +8268,9 @@ class Isis(object):
                                             if not self.is_config():
                                                 return False
                                             if self.adjacency_sid_backup is not None and self.adjacency_sid_backup._has_data():
+                                                return True
+
+                                            if self.adjacency_sid_backup_te is not None and self.adjacency_sid_backup_te._has_data():
                                                 return True
 
                                             if self.adjacency_sid_value is not None:
@@ -7409,6 +8293,11 @@ class Isis(object):
                                         	Adjacency SID Backup Info
                                         	**type**\:   :py:class:`AdjacencySidBackup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv6.NonFrrAdjacencySid.AdjacencySidBackup>`
                                         
+                                        .. attribute:: adjacency_sid_backup_te
+                                        
+                                        	Adjacency SID Backup Info TE
+                                        	**type**\:   :py:class:`AdjacencySidBackupTe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv6.NonFrrAdjacencySid.AdjacencySidBackupTe>`
+                                        
                                         .. attribute:: adjacency_sid_value
                                         
                                         	Adjacency SID value
@@ -7427,6 +8316,8 @@ class Isis(object):
                                             self.parent = None
                                             self.adjacency_sid_backup = Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv6.NonFrrAdjacencySid.AdjacencySidBackup()
                                             self.adjacency_sid_backup.parent = self
+                                            self.adjacency_sid_backup_te = Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv6.NonFrrAdjacencySid.AdjacencySidBackupTe()
+                                            self.adjacency_sid_backup_te.parent = self
                                             self.adjacency_sid_value = None
 
 
@@ -7524,6 +8415,101 @@ class Isis(object):
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                 return meta._meta_table['Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv6.NonFrrAdjacencySid.AdjacencySidBackup']['meta_info']
 
+
+                                        class AdjacencySidBackupTe(object):
+                                            """
+                                            Adjacency SID Backup Info TE
+                                            
+                                            .. attribute:: backup_interface
+                                            
+                                            	Backup path interface
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            
+                                            .. attribute:: backup_label_stack
+                                            
+                                            	Backup path label stack
+                                            	**type**\:  list of int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: backup_label_stack_size
+                                            
+                                            	Number of labels in the backup path label stack
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..255
+                                            
+                                            .. attribute:: backup_nexthop
+                                            
+                                            	Backup path nexthop address
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                            
+                                            .. attribute:: backup_node_address
+                                            
+                                            	Neighbor address used as adjacency backup target
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'clns-isis-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.backup_interface = None
+                                                self.backup_label_stack = YLeafList()
+                                                self.backup_label_stack.parent = self
+                                                self.backup_label_stack.name = 'backup_label_stack'
+                                                self.backup_label_stack_size = None
+                                                self.backup_nexthop = None
+                                                self.backup_node_address = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:adjacency-sid-backup-te'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.backup_interface is not None:
+                                                    return True
+
+                                                if self.backup_label_stack is not None:
+                                                    for child in self.backup_label_stack:
+                                                        if child is not None:
+                                                            return True
+
+                                                if self.backup_label_stack_size is not None:
+                                                    return True
+
+                                                if self.backup_nexthop is not None:
+                                                    return True
+
+                                                if self.backup_node_address is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Levels.Level.Adjacencies.Adjacency.AdjacencyPerAddressFamilyData.Ipv6.NonFrrAdjacencySid.AdjacencySidBackupTe']['meta_info']
+
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
@@ -7539,6 +8525,9 @@ class Isis(object):
                                             if not self.is_config():
                                                 return False
                                             if self.adjacency_sid_backup is not None and self.adjacency_sid_backup._has_data():
+                                                return True
+
+                                            if self.adjacency_sid_backup_te is not None and self.adjacency_sid_backup_te._has_data():
                                                 return True
 
                                             if self.adjacency_sid_value is not None:
@@ -7640,6 +8629,24 @@ class Isis(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.adj_ipv4bfd_retry_count is not None:
+                                    return True
+
+                                if self.adj_ipv4bfd_retry_exp is not None:
+                                    return True
+
+                                if self.adj_ipv4bfd_retry_running is not None:
+                                    return True
+
+                                if self.adj_ipv6bfd_retry_count is not None:
+                                    return True
+
+                                if self.adj_ipv6bfd_retry_exp is not None:
+                                    return True
+
+                                if self.adj_ipv6bfd_retry_running is not None:
+                                    return True
+
                                 if self.adjacency_area_address is not None:
                                     for child in self.adjacency_area_address:
                                         if child is not None:
@@ -9259,7 +10266,7 @@ class Isis(object):
                     	Topology Name
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     
 
@@ -11069,6 +12076,16 @@ class Isis(object):
                                         
                                         	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}\\.[a\-fA\-F0\-9]{2}\\\-[a\-fA\-F0\-9]{2}
                                         
+                                        .. attribute:: is_sr_uloop_calculation
+                                        
+                                        	Is this SR micro loop calculation?
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: is_sr_uloop_link_down
+                                        
+                                        	Is this SR micro loop calculation for link down?
+                                        	**type**\:  bool
+                                        
                                         .. attribute:: trigger
                                         
                                         	Triggers applying to this log entry
@@ -11110,6 +12127,8 @@ class Isis(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.first_trigger_lsp_id = None
+                                            self.is_sr_uloop_calculation = None
+                                            self.is_sr_uloop_link_down = None
                                             self.trigger = YLeafList()
                                             self.trigger.parent = self
                                             self.trigger.name = 'trigger'
@@ -11316,6 +12335,12 @@ class Isis(object):
                                             if not self.is_config():
                                                 return False
                                             if self.first_trigger_lsp_id is not None:
+                                                return True
+
+                                            if self.is_sr_uloop_calculation is not None:
+                                                return True
+
+                                            if self.is_sr_uloop_link_down is not None:
                                                 return True
 
                                             if self.trigger is not None:
@@ -14286,6 +15311,16 @@ class Isis(object):
                                     	Indicates whether MPLS TE segment routing is enabled
                                     	**type**\:  bool
                                     
+                                    .. attribute:: te_segment_routing_exclude
+                                    
+                                    	Indicates whether Segment routing labeled traffic exclusion is enabled
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: te_segment_routing_strict_spf
+                                    
+                                    	Indicates whether MPLS TE segment routing strict SPF is enabled
+                                    	**type**\:  bool
+                                    
                                     .. attribute:: te_system_id
                                     
                                     	Destination system ID
@@ -14337,6 +15372,8 @@ class Isis(object):
                                         self.te_mode_type = None
                                         self.te_next_hop_ip_address = None
                                         self.te_segment_routing_enabled = None
+                                        self.te_segment_routing_exclude = None
+                                        self.te_segment_routing_strict_spf = None
                                         self.te_system_id = None
                                         self.teigp_metric = None
                                         self.teipv4aa_enabled = None
@@ -14380,6 +15417,12 @@ class Isis(object):
                                             return True
 
                                         if self.te_segment_routing_enabled is not None:
+                                            return True
+
+                                        if self.te_segment_routing_exclude is not None:
+                                            return True
+
+                                        if self.te_segment_routing_strict_spf is not None:
                                             return True
 
                                         if self.te_system_id is not None:
@@ -14661,6 +15704,16 @@ class Isis(object):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                .. attribute:: tunnel_interface
+                                                
+                                                	Explicit path tunnel interface
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: uloop_explicit
+                                                
+                                                	Uloop Explicit List
+                                                	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.Paths.UloopExplicit>`
+                                                
                                                 .. attribute:: weight
                                                 
                                                 	Weight configured on the interface
@@ -14685,6 +15738,10 @@ class Isis(object):
                                                     self.neighbor_snpa = None
                                                     self.segment_routing_sid_value = None
                                                     self.tag = None
+                                                    self.tunnel_interface = None
+                                                    self.uloop_explicit = YList()
+                                                    self.uloop_explicit.parent = self
+                                                    self.uloop_explicit.name = 'uloop_explicit'
                                                     self.weight = None
 
 
@@ -14742,6 +15799,11 @@ class Isis(object):
                                                     .. attribute:: is_srlg_disjoint
                                                     
                                                     	Is the backup path SRLG disjoint with primary?
+                                                    	**type**\:  bool
+                                                    
+                                                    .. attribute:: is_strict_spflfa
+                                                    
+                                                    	Is the backup path TI\-LFA strict SPF?
                                                     	**type**\:  bool
                                                     
                                                     .. attribute:: is_tunnel_requested
@@ -14864,6 +15926,7 @@ class Isis(object):
                                                         self.is_primary_path = None
                                                         self.is_remote_lfa = None
                                                         self.is_srlg_disjoint = None
+                                                        self.is_strict_spflfa = None
                                                         self.is_tunnel_requested = None
                                                         self.neighbor_address = None
                                                         self.neighbor_id = None
@@ -14920,6 +15983,13 @@ class Isis(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        .. attribute:: repair_strict_spf_label
+                                                        
+                                                        	Repair Strict SPF Label
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** 0..4294967295
+                                                        
                                                         
 
                                                         """
@@ -14934,6 +16004,7 @@ class Isis(object):
                                                             self.repair_ipv4_addr = None
                                                             self.repair_ipv6_addr = None
                                                             self.repair_label = None
+                                                            self.repair_strict_spf_label = None
 
                                                         @property
                                                         def _common_path(self):
@@ -14962,6 +16033,9 @@ class Isis(object):
                                                                 return True
 
                                                             if self.repair_label is not None:
+                                                                return True
+
+                                                            if self.repair_strict_spf_label is not None:
                                                                 return True
 
                                                             return False
@@ -15015,6 +16089,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.is_srlg_disjoint is not None:
+                                                            return True
+
+                                                        if self.is_strict_spflfa is not None:
                                                             return True
 
                                                         if self.is_tunnel_requested is not None:
@@ -15071,6 +16148,106 @@ class Isis(object):
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                         return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.Paths.FrrBackup']['meta_info']
 
+
+                                                class UloopExplicit(object):
+                                                    """
+                                                    Uloop Explicit List
+                                                    
+                                                    .. attribute:: repair_element_node_id
+                                                    
+                                                    	RepairElementNodeID
+                                                    	**type**\:  str
+                                                    
+                                                    .. attribute:: repair_element_type
+                                                    
+                                                    	Repair Element Type
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_ipv4_addr
+                                                    
+                                                    	RepairIPv4Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_ipv6_addr
+                                                    
+                                                    	RepairIPv6Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_label
+                                                    
+                                                    	Repair Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'clns-isis-oper'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.repair_element_node_id = None
+                                                        self.repair_element_type = None
+                                                        self.repair_ipv4_addr = None
+                                                        self.repair_ipv6_addr = None
+                                                        self.repair_label = None
+                                                        self.repair_strict_spf_label = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return False
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.repair_element_node_id is not None:
+                                                            return True
+
+                                                        if self.repair_element_type is not None:
+                                                            return True
+
+                                                        if self.repair_ipv4_addr is not None:
+                                                            return True
+
+                                                        if self.repair_ipv6_addr is not None:
+                                                            return True
+
+                                                        if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                        return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.Paths.UloopExplicit']['meta_info']
+
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
@@ -15105,6 +16282,14 @@ class Isis(object):
 
                                                     if self.tag is not None:
                                                         return True
+
+                                                    if self.tunnel_interface is not None:
+                                                        return True
+
+                                                    if self.uloop_explicit is not None:
+                                                        for child_ref in self.uloop_explicit:
+                                                            if child_ref._has_data():
+                                                                return True
 
                                                     if self.weight is not None:
                                                         return True
@@ -15166,6 +16351,16 @@ class Isis(object):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                .. attribute:: tunnel_interface
+                                                
+                                                	Explicit path tunnel interface
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: uloop_explicit
+                                                
+                                                	Uloop Explicit List
+                                                	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath.UloopExplicit>`
+                                                
                                                 .. attribute:: weight
                                                 
                                                 	Weight configured on the interface
@@ -15190,6 +16385,10 @@ class Isis(object):
                                                     self.neighbor_snpa = None
                                                     self.segment_routing_sid_value = None
                                                     self.tag = None
+                                                    self.tunnel_interface = None
+                                                    self.uloop_explicit = YList()
+                                                    self.uloop_explicit.parent = self
+                                                    self.uloop_explicit.name = 'uloop_explicit'
                                                     self.weight = None
 
 
@@ -15247,6 +16446,11 @@ class Isis(object):
                                                     .. attribute:: is_srlg_disjoint
                                                     
                                                     	Is the backup path SRLG disjoint with primary?
+                                                    	**type**\:  bool
+                                                    
+                                                    .. attribute:: is_strict_spflfa
+                                                    
+                                                    	Is the backup path TI\-LFA strict SPF?
                                                     	**type**\:  bool
                                                     
                                                     .. attribute:: is_tunnel_requested
@@ -15369,6 +16573,7 @@ class Isis(object):
                                                         self.is_primary_path = None
                                                         self.is_remote_lfa = None
                                                         self.is_srlg_disjoint = None
+                                                        self.is_strict_spflfa = None
                                                         self.is_tunnel_requested = None
                                                         self.neighbor_address = None
                                                         self.neighbor_id = None
@@ -15425,6 +16630,13 @@ class Isis(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        .. attribute:: repair_strict_spf_label
+                                                        
+                                                        	Repair Strict SPF Label
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** 0..4294967295
+                                                        
                                                         
 
                                                         """
@@ -15439,6 +16651,7 @@ class Isis(object):
                                                             self.repair_ipv4_addr = None
                                                             self.repair_ipv6_addr = None
                                                             self.repair_label = None
+                                                            self.repair_strict_spf_label = None
 
                                                         @property
                                                         def _common_path(self):
@@ -15467,6 +16680,9 @@ class Isis(object):
                                                                 return True
 
                                                             if self.repair_label is not None:
+                                                                return True
+
+                                                            if self.repair_strict_spf_label is not None:
                                                                 return True
 
                                                             return False
@@ -15520,6 +16736,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.is_srlg_disjoint is not None:
+                                                            return True
+
+                                                        if self.is_strict_spflfa is not None:
                                                             return True
 
                                                         if self.is_tunnel_requested is not None:
@@ -15576,6 +16795,106 @@ class Isis(object):
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                         return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath.FrrBackup']['meta_info']
 
+
+                                                class UloopExplicit(object):
+                                                    """
+                                                    Uloop Explicit List
+                                                    
+                                                    .. attribute:: repair_element_node_id
+                                                    
+                                                    	RepairElementNodeID
+                                                    	**type**\:  str
+                                                    
+                                                    .. attribute:: repair_element_type
+                                                    
+                                                    	Repair Element Type
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_ipv4_addr
+                                                    
+                                                    	RepairIPv4Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_ipv6_addr
+                                                    
+                                                    	RepairIPv6Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_label
+                                                    
+                                                    	Repair Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'clns-isis-oper'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.repair_element_node_id = None
+                                                        self.repair_element_type = None
+                                                        self.repair_ipv4_addr = None
+                                                        self.repair_ipv6_addr = None
+                                                        self.repair_label = None
+                                                        self.repair_strict_spf_label = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return False
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.repair_element_node_id is not None:
+                                                            return True
+
+                                                        if self.repair_element_type is not None:
+                                                            return True
+
+                                                        if self.repair_ipv4_addr is not None:
+                                                            return True
+
+                                                        if self.repair_ipv6_addr is not None:
+                                                            return True
+
+                                                        if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                        return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath.UloopExplicit']['meta_info']
+
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
@@ -15610,6 +16929,14 @@ class Isis(object):
 
                                                     if self.tag is not None:
                                                         return True
+
+                                                    if self.tunnel_interface is not None:
+                                                        return True
+
+                                                    if self.uloop_explicit is not None:
+                                                        for child_ref in self.uloop_explicit:
+                                                            if child_ref._has_data():
+                                                                return True
 
                                                     if self.weight is not None:
                                                         return True
@@ -16385,6 +17712,16 @@ class Isis(object):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                .. attribute:: tunnel_interface
+                                                
+                                                	Explicit path tunnel interface
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: uloop_explicit
+                                                
+                                                	Uloop Explicit List
+                                                	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.Paths.UloopExplicit>`
+                                                
                                                 .. attribute:: weight
                                                 
                                                 	Weight configured on the interface
@@ -16409,6 +17746,10 @@ class Isis(object):
                                                     self.neighbor_snpa = None
                                                     self.segment_routing_sid_value = None
                                                     self.tag = None
+                                                    self.tunnel_interface = None
+                                                    self.uloop_explicit = YList()
+                                                    self.uloop_explicit.parent = self
+                                                    self.uloop_explicit.name = 'uloop_explicit'
                                                     self.weight = None
 
 
@@ -16466,6 +17807,11 @@ class Isis(object):
                                                     .. attribute:: is_srlg_disjoint
                                                     
                                                     	Is the backup path SRLG disjoint with primary?
+                                                    	**type**\:  bool
+                                                    
+                                                    .. attribute:: is_strict_spflfa
+                                                    
+                                                    	Is the backup path TI\-LFA strict SPF?
                                                     	**type**\:  bool
                                                     
                                                     .. attribute:: is_tunnel_requested
@@ -16588,6 +17934,7 @@ class Isis(object):
                                                         self.is_primary_path = None
                                                         self.is_remote_lfa = None
                                                         self.is_srlg_disjoint = None
+                                                        self.is_strict_spflfa = None
                                                         self.is_tunnel_requested = None
                                                         self.neighbor_address = None
                                                         self.neighbor_id = None
@@ -16644,6 +17991,13 @@ class Isis(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        .. attribute:: repair_strict_spf_label
+                                                        
+                                                        	Repair Strict SPF Label
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** 0..4294967295
+                                                        
                                                         
 
                                                         """
@@ -16658,6 +18012,7 @@ class Isis(object):
                                                             self.repair_ipv4_addr = None
                                                             self.repair_ipv6_addr = None
                                                             self.repair_label = None
+                                                            self.repair_strict_spf_label = None
 
                                                         @property
                                                         def _common_path(self):
@@ -16686,6 +18041,9 @@ class Isis(object):
                                                                 return True
 
                                                             if self.repair_label is not None:
+                                                                return True
+
+                                                            if self.repair_strict_spf_label is not None:
                                                                 return True
 
                                                             return False
@@ -16739,6 +18097,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.is_srlg_disjoint is not None:
+                                                            return True
+
+                                                        if self.is_strict_spflfa is not None:
                                                             return True
 
                                                         if self.is_tunnel_requested is not None:
@@ -16795,6 +18156,106 @@ class Isis(object):
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                         return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.Paths.FrrBackup']['meta_info']
 
+
+                                                class UloopExplicit(object):
+                                                    """
+                                                    Uloop Explicit List
+                                                    
+                                                    .. attribute:: repair_element_node_id
+                                                    
+                                                    	RepairElementNodeID
+                                                    	**type**\:  str
+                                                    
+                                                    .. attribute:: repair_element_type
+                                                    
+                                                    	Repair Element Type
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_ipv4_addr
+                                                    
+                                                    	RepairIPv4Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_ipv6_addr
+                                                    
+                                                    	RepairIPv6Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_label
+                                                    
+                                                    	Repair Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'clns-isis-oper'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.repair_element_node_id = None
+                                                        self.repair_element_type = None
+                                                        self.repair_ipv4_addr = None
+                                                        self.repair_ipv6_addr = None
+                                                        self.repair_label = None
+                                                        self.repair_strict_spf_label = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return False
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.repair_element_node_id is not None:
+                                                            return True
+
+                                                        if self.repair_element_type is not None:
+                                                            return True
+
+                                                        if self.repair_ipv4_addr is not None:
+                                                            return True
+
+                                                        if self.repair_ipv6_addr is not None:
+                                                            return True
+
+                                                        if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                        return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.Paths.UloopExplicit']['meta_info']
+
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
@@ -16829,6 +18290,14 @@ class Isis(object):
 
                                                     if self.tag is not None:
                                                         return True
+
+                                                    if self.tunnel_interface is not None:
+                                                        return True
+
+                                                    if self.uloop_explicit is not None:
+                                                        for child_ref in self.uloop_explicit:
+                                                            if child_ref._has_data():
+                                                                return True
 
                                                     if self.weight is not None:
                                                         return True
@@ -16890,6 +18359,16 @@ class Isis(object):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                .. attribute:: tunnel_interface
+                                                
+                                                	Explicit path tunnel interface
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: uloop_explicit
+                                                
+                                                	Uloop Explicit List
+                                                	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath.UloopExplicit>`
+                                                
                                                 .. attribute:: weight
                                                 
                                                 	Weight configured on the interface
@@ -16914,6 +18393,10 @@ class Isis(object):
                                                     self.neighbor_snpa = None
                                                     self.segment_routing_sid_value = None
                                                     self.tag = None
+                                                    self.tunnel_interface = None
+                                                    self.uloop_explicit = YList()
+                                                    self.uloop_explicit.parent = self
+                                                    self.uloop_explicit.name = 'uloop_explicit'
                                                     self.weight = None
 
 
@@ -16971,6 +18454,11 @@ class Isis(object):
                                                     .. attribute:: is_srlg_disjoint
                                                     
                                                     	Is the backup path SRLG disjoint with primary?
+                                                    	**type**\:  bool
+                                                    
+                                                    .. attribute:: is_strict_spflfa
+                                                    
+                                                    	Is the backup path TI\-LFA strict SPF?
                                                     	**type**\:  bool
                                                     
                                                     .. attribute:: is_tunnel_requested
@@ -17093,6 +18581,7 @@ class Isis(object):
                                                         self.is_primary_path = None
                                                         self.is_remote_lfa = None
                                                         self.is_srlg_disjoint = None
+                                                        self.is_strict_spflfa = None
                                                         self.is_tunnel_requested = None
                                                         self.neighbor_address = None
                                                         self.neighbor_id = None
@@ -17149,6 +18638,13 @@ class Isis(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        .. attribute:: repair_strict_spf_label
+                                                        
+                                                        	Repair Strict SPF Label
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** 0..4294967295
+                                                        
                                                         
 
                                                         """
@@ -17163,6 +18659,7 @@ class Isis(object):
                                                             self.repair_ipv4_addr = None
                                                             self.repair_ipv6_addr = None
                                                             self.repair_label = None
+                                                            self.repair_strict_spf_label = None
 
                                                         @property
                                                         def _common_path(self):
@@ -17191,6 +18688,9 @@ class Isis(object):
                                                                 return True
 
                                                             if self.repair_label is not None:
+                                                                return True
+
+                                                            if self.repair_strict_spf_label is not None:
                                                                 return True
 
                                                             return False
@@ -17244,6 +18744,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.is_srlg_disjoint is not None:
+                                                            return True
+
+                                                        if self.is_strict_spflfa is not None:
                                                             return True
 
                                                         if self.is_tunnel_requested is not None:
@@ -17300,6 +18803,106 @@ class Isis(object):
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                         return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath.FrrBackup']['meta_info']
 
+
+                                                class UloopExplicit(object):
+                                                    """
+                                                    Uloop Explicit List
+                                                    
+                                                    .. attribute:: repair_element_node_id
+                                                    
+                                                    	RepairElementNodeID
+                                                    	**type**\:  str
+                                                    
+                                                    .. attribute:: repair_element_type
+                                                    
+                                                    	Repair Element Type
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_ipv4_addr
+                                                    
+                                                    	RepairIPv4Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_ipv6_addr
+                                                    
+                                                    	RepairIPv6Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_label
+                                                    
+                                                    	Repair Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'clns-isis-oper'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.repair_element_node_id = None
+                                                        self.repair_element_type = None
+                                                        self.repair_ipv4_addr = None
+                                                        self.repair_ipv6_addr = None
+                                                        self.repair_label = None
+                                                        self.repair_strict_spf_label = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return False
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.repair_element_node_id is not None:
+                                                            return True
+
+                                                        if self.repair_element_type is not None:
+                                                            return True
+
+                                                        if self.repair_ipv4_addr is not None:
+                                                            return True
+
+                                                        if self.repair_ipv6_addr is not None:
+                                                            return True
+
+                                                        if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                        return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath.UloopExplicit']['meta_info']
+
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
@@ -17334,6 +18937,14 @@ class Isis(object):
 
                                                     if self.tag is not None:
                                                         return True
+
+                                                    if self.tunnel_interface is not None:
+                                                        return True
+
+                                                    if self.uloop_explicit is not None:
+                                                        for child_ref in self.uloop_explicit:
+                                                            if child_ref._has_data():
+                                                                return True
 
                                                     if self.weight is not None:
                                                         return True
@@ -18282,6 +19893,11 @@ class Isis(object):
                                         
                                         	**range:** 0..65535
                                         
+                                        .. attribute:: explicit_path
+                                        
+                                        	SR microloop avoidance paths
+                                        	**type**\: list of    :py:class:`ExplicitPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.ExplicitPath>`
+                                        
                                         .. attribute:: is_external_metric
                                         
                                         	Is the metric an external metric?
@@ -18346,6 +19962,9 @@ class Isis(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.administrative_distance = None
+                                            self.explicit_path = YList()
+                                            self.explicit_path.parent = self
+                                            self.explicit_path.name = 'explicit_path'
                                             self.is_external_metric = None
                                             self.metric = None
                                             self.multicast_metric = None
@@ -18419,6 +20038,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.Paths.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -18443,6 +20072,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -18500,6 +20133,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -18622,6 +20260,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -18678,6 +20317,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -18692,6 +20338,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -18720,6 +20367,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -18773,6 +20423,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -18829,6 +20482,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.Paths.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.Paths.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -18863,6 +20616,14 @@ class Isis(object):
 
                                                 if self.tag is not None:
                                                     return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
 
                                                 if self.weight is not None:
                                                     return True
@@ -19015,6 +20776,11 @@ class Isis(object):
                                                 	Is the backup path SRLG disjoint with primary?
                                                 	**type**\:  bool
                                                 
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
+                                                	**type**\:  bool
+                                                
                                                 .. attribute:: is_tunnel_requested
                                                 
                                                 	Is SR TE tunnel requested
@@ -19135,6 +20901,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -19191,6 +20958,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -19205,6 +20979,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -19233,6 +21008,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -19286,6 +21064,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -19440,6 +21221,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.MulticastPath.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -19464,6 +21255,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -19521,6 +21316,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -19643,6 +21443,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -19699,6 +21500,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -19713,6 +21521,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -19741,6 +21550,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -19794,6 +21606,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -19850,6 +21665,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.MulticastPath.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -19884,6 +21799,14 @@ class Isis(object):
 
                                                 if self.tag is not None:
                                                     return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
 
                                                 if self.weight is not None:
                                                     return True
@@ -19945,6 +21868,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.SrtePath.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -19969,6 +21902,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -20026,6 +21963,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -20148,6 +22090,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -20204,6 +22147,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -20218,6 +22168,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -20246,6 +22197,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -20299,6 +22253,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -20355,6 +22312,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.SrtePath.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -20390,6 +22447,14 @@ class Isis(object):
                                                 if self.tag is not None:
                                                     return True
 
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
+
                                                 if self.weight is not None:
                                                     return True
 
@@ -20399,6 +22464,653 @@ class Isis(object):
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                 return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.SrtePath']['meta_info']
+
+
+                                        class ExplicitPath(object):
+                                            """
+                                            SR microloop avoidance paths
+                                            
+                                            .. attribute:: egress_interface
+                                            
+                                            	Interface to send the packet out of
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: frr_backup
+                                            
+                                            	FRR backup for this path
+                                            	**type**\:   :py:class:`FrrBackup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.ExplicitPath.FrrBackup>`
+                                            
+                                            .. attribute:: neighbor_address
+                                            
+                                            	Next hop neighbor's forwarding address
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                            
+                                            .. attribute:: neighbor_id
+                                            
+                                            	Next hop neighbor ID
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                            
+                                            .. attribute:: neighbor_snpa
+                                            
+                                            	Next hop neighbor's SNPA
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                            
+                                            .. attribute:: segment_routing_sid_value
+                                            
+                                            	Segment routing sid value received from first hop
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: tag
+                                            
+                                            	Tag associated with the path
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.ExplicitPath.UloopExplicit>`
+                                            
+                                            .. attribute:: weight
+                                            
+                                            	Weight configured on the interface
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'clns-isis-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.egress_interface = None
+                                                self.frr_backup = Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.ExplicitPath.FrrBackup()
+                                                self.frr_backup.parent = self
+                                                self.neighbor_address = None
+                                                self.neighbor_id = None
+                                                self.neighbor_snpa = None
+                                                self.segment_routing_sid_value = None
+                                                self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
+                                                self.weight = None
+
+
+                                            class FrrBackup(object):
+                                                """
+                                                FRR backup for this path
+                                                
+                                                .. attribute:: backup_repair
+                                                
+                                                	BAckup Repair List
+                                                	**type**\: list of    :py:class:`BackupRepair <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.ExplicitPath.FrrBackup.BackupRepair>`
+                                                
+                                                .. attribute:: backup_repair_list_size
+                                                
+                                                	Backup Repair List Size
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: egress_interface
+                                                
+                                                	Interface to send the packet out of
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: is_downstream
+                                                
+                                                	Is the backup path via downstream node?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_epcfrr_lfa
+                                                
+                                                	Is the backup path via a TI\-LFA?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_lc_disjoint
+                                                
+                                                	Is the backup path line card disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_node_protecting
+                                                
+                                                	Is the backup path node protecting?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_primary_path
+                                                
+                                                	Is the backup path an ECMP to the network?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_remote_lfa
+                                                
+                                                	Is the backup path via a Remote LFA?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_srlg_disjoint
+                                                
+                                                	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_tunnel_requested
+                                                
+                                                	Is SR TE tunnel requested
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: neighbor_address
+                                                
+                                                	Next hop neighbor's forwarding address
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: neighbor_id
+                                                
+                                                	Next hop neighbor ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: neighbor_snpa
+                                                
+                                                	Next hop neighbor's SNPA
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: num_sid
+                                                
+                                                	Number of SIDs in TI\-LFA/rLFA
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: remote_lfa_router_id
+                                                
+                                                	Remote LFA Router ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: remote_lfa_router_pid
+                                                
+                                                	Remote LFA Router ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: remote_lfa_system_id
+                                                
+                                                	Remote LFA PQ Node's ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: remote_lfa_system_pid
+                                                
+                                                	Remote LFA PQ Node's ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: segment_routing_sid_value
+                                                
+                                                	Segment routing sid value received from first hop
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: segment_routing_sid_value_entry
+                                                
+                                                	Segment routing sid values for TI\-LFA/rLFA
+                                                	**type**\:  list of int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: tilfa_computation
+                                                
+                                                	Ti LFA computation which provided backup path
+                                                	**type**\:   :py:class:`IsisTilfaComputationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.IsisTilfaComputationEnum>`
+                                                
+                                                .. attribute:: total_backup_distance
+                                                
+                                                	Distance to the network via this backup path
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: tunnel_egress_interface
+                                                
+                                                	Tunnel interface to send the packet out of
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: weight
+                                                
+                                                	Weight configured on the interface
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.backup_repair = YList()
+                                                    self.backup_repair.parent = self
+                                                    self.backup_repair.name = 'backup_repair'
+                                                    self.backup_repair_list_size = None
+                                                    self.egress_interface = None
+                                                    self.is_downstream = None
+                                                    self.is_epcfrr_lfa = None
+                                                    self.is_lc_disjoint = None
+                                                    self.is_node_protecting = None
+                                                    self.is_primary_path = None
+                                                    self.is_remote_lfa = None
+                                                    self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
+                                                    self.is_tunnel_requested = None
+                                                    self.neighbor_address = None
+                                                    self.neighbor_id = None
+                                                    self.neighbor_snpa = None
+                                                    self.num_sid = None
+                                                    self.remote_lfa_router_id = None
+                                                    self.remote_lfa_router_pid = None
+                                                    self.remote_lfa_system_id = None
+                                                    self.remote_lfa_system_pid = None
+                                                    self.segment_routing_sid_value = None
+                                                    self.segment_routing_sid_value_entry = YLeafList()
+                                                    self.segment_routing_sid_value_entry.parent = self
+                                                    self.segment_routing_sid_value_entry.name = 'segment_routing_sid_value_entry'
+                                                    self.tilfa_computation = None
+                                                    self.total_backup_distance = None
+                                                    self.tunnel_egress_interface = None
+                                                    self.weight = None
+
+
+                                                class BackupRepair(object):
+                                                    """
+                                                    BAckup Repair List
+                                                    
+                                                    .. attribute:: repair_element_node_id
+                                                    
+                                                    	RepairElementNodeID
+                                                    	**type**\:  str
+                                                    
+                                                    .. attribute:: repair_element_type
+                                                    
+                                                    	Repair Element Type
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_ipv4_addr
+                                                    
+                                                    	RepairIPv4Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_ipv6_addr
+                                                    
+                                                    	RepairIPv6Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_label
+                                                    
+                                                    	Repair Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'clns-isis-oper'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.repair_element_node_id = None
+                                                        self.repair_element_type = None
+                                                        self.repair_ipv4_addr = None
+                                                        self.repair_ipv6_addr = None
+                                                        self.repair_label = None
+                                                        self.repair_strict_spf_label = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:backup-repair'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return False
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.repair_element_node_id is not None:
+                                                            return True
+
+                                                        if self.repair_element_type is not None:
+                                                            return True
+
+                                                        if self.repair_ipv4_addr is not None:
+                                                            return True
+
+                                                        if self.repair_ipv6_addr is not None:
+                                                            return True
+
+                                                        if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                        return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.ExplicitPath.FrrBackup.BackupRepair']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:frr-backup'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.backup_repair is not None:
+                                                        for child_ref in self.backup_repair:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    if self.backup_repair_list_size is not None:
+                                                        return True
+
+                                                    if self.egress_interface is not None:
+                                                        return True
+
+                                                    if self.is_downstream is not None:
+                                                        return True
+
+                                                    if self.is_epcfrr_lfa is not None:
+                                                        return True
+
+                                                    if self.is_lc_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_node_protecting is not None:
+                                                        return True
+
+                                                    if self.is_primary_path is not None:
+                                                        return True
+
+                                                    if self.is_remote_lfa is not None:
+                                                        return True
+
+                                                    if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
+                                                        return True
+
+                                                    if self.is_tunnel_requested is not None:
+                                                        return True
+
+                                                    if self.neighbor_address is not None:
+                                                        return True
+
+                                                    if self.neighbor_id is not None:
+                                                        return True
+
+                                                    if self.neighbor_snpa is not None:
+                                                        return True
+
+                                                    if self.num_sid is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_router_id is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_router_pid is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_system_id is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_system_pid is not None:
+                                                        return True
+
+                                                    if self.segment_routing_sid_value is not None:
+                                                        return True
+
+                                                    if self.segment_routing_sid_value_entry is not None:
+                                                        for child in self.segment_routing_sid_value_entry:
+                                                            if child is not None:
+                                                                return True
+
+                                                    if self.tilfa_computation is not None:
+                                                        return True
+
+                                                    if self.total_backup_distance is not None:
+                                                        return True
+
+                                                    if self.tunnel_egress_interface is not None:
+                                                        return True
+
+                                                    if self.weight is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.ExplicitPath.FrrBackup']['meta_info']
+
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.ExplicitPath.UloopExplicit']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:explicit-path'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.egress_interface is not None:
+                                                    return True
+
+                                                if self.frr_backup is not None and self.frr_backup._has_data():
+                                                    return True
+
+                                                if self.neighbor_address is not None:
+                                                    return True
+
+                                                if self.neighbor_id is not None:
+                                                    return True
+
+                                                if self.neighbor_snpa is not None:
+                                                    return True
+
+                                                if self.segment_routing_sid_value is not None:
+                                                    return True
+
+                                                if self.tag is not None:
+                                                    return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                if self.weight is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.ExplicitPath']['meta_info']
 
 
                                         class Source(object):
@@ -20837,6 +23549,11 @@ class Isis(object):
                                             if self.administrative_distance is not None:
                                                 return True
 
+                                            if self.explicit_path is not None:
+                                                for child_ref in self.explicit_path:
+                                                    if child_ref._has_data():
+                                                        return True
+
                                             if self.is_external_metric is not None:
                                                 return True
 
@@ -20897,6 +23614,11 @@ class Isis(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..65535
+                                        
+                                        .. attribute:: explicit_path
+                                        
+                                        	SR microloop avoidance paths
+                                        	**type**\: list of    :py:class:`ExplicitPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.ExplicitPath>`
                                         
                                         .. attribute:: is_external_metric
                                         
@@ -20962,6 +23684,9 @@ class Isis(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.administrative_distance = None
+                                            self.explicit_path = YList()
+                                            self.explicit_path.parent = self
+                                            self.explicit_path.name = 'explicit_path'
                                             self.is_external_metric = None
                                             self.metric = None
                                             self.multicast_metric = None
@@ -21035,6 +23760,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.Paths.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -21059,6 +23794,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -21116,6 +23855,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -21238,6 +23982,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -21294,6 +24039,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -21308,6 +24060,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -21336,6 +24089,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -21389,6 +24145,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -21445,6 +24204,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.Paths.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.Paths.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -21479,6 +24338,14 @@ class Isis(object):
 
                                                 if self.tag is not None:
                                                     return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
 
                                                 if self.weight is not None:
                                                     return True
@@ -21631,6 +24498,11 @@ class Isis(object):
                                                 	Is the backup path SRLG disjoint with primary?
                                                 	**type**\:  bool
                                                 
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
+                                                	**type**\:  bool
+                                                
                                                 .. attribute:: is_tunnel_requested
                                                 
                                                 	Is SR TE tunnel requested
@@ -21751,6 +24623,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -21807,6 +24680,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -21821,6 +24701,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -21849,6 +24730,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -21902,6 +24786,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -22056,6 +24943,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.MulticastPath.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -22080,6 +24977,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -22137,6 +25038,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -22259,6 +25165,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -22315,6 +25222,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -22329,6 +25243,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -22357,6 +25272,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -22410,6 +25328,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -22466,6 +25387,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.MulticastPath.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -22500,6 +25521,14 @@ class Isis(object):
 
                                                 if self.tag is not None:
                                                     return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
 
                                                 if self.weight is not None:
                                                     return True
@@ -22561,6 +25590,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.SrtePath.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -22585,6 +25624,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -22642,6 +25685,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -22764,6 +25812,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -22820,6 +25869,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -22834,6 +25890,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -22862,6 +25919,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -22915,6 +25975,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -22971,6 +26034,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.SrtePath.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -23006,6 +26169,14 @@ class Isis(object):
                                                 if self.tag is not None:
                                                     return True
 
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
+
                                                 if self.weight is not None:
                                                     return True
 
@@ -23015,6 +26186,653 @@ class Isis(object):
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                 return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.SrtePath']['meta_info']
+
+
+                                        class ExplicitPath(object):
+                                            """
+                                            SR microloop avoidance paths
+                                            
+                                            .. attribute:: egress_interface
+                                            
+                                            	Interface to send the packet out of
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: frr_backup
+                                            
+                                            	FRR backup for this path
+                                            	**type**\:   :py:class:`FrrBackup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.ExplicitPath.FrrBackup>`
+                                            
+                                            .. attribute:: neighbor_address
+                                            
+                                            	Next hop neighbor's forwarding address
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                            
+                                            .. attribute:: neighbor_id
+                                            
+                                            	Next hop neighbor ID
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                            
+                                            .. attribute:: neighbor_snpa
+                                            
+                                            	Next hop neighbor's SNPA
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                            
+                                            .. attribute:: segment_routing_sid_value
+                                            
+                                            	Segment routing sid value received from first hop
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: tag
+                                            
+                                            	Tag associated with the path
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.ExplicitPath.UloopExplicit>`
+                                            
+                                            .. attribute:: weight
+                                            
+                                            	Weight configured on the interface
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'clns-isis-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.egress_interface = None
+                                                self.frr_backup = Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.ExplicitPath.FrrBackup()
+                                                self.frr_backup.parent = self
+                                                self.neighbor_address = None
+                                                self.neighbor_id = None
+                                                self.neighbor_snpa = None
+                                                self.segment_routing_sid_value = None
+                                                self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
+                                                self.weight = None
+
+
+                                            class FrrBackup(object):
+                                                """
+                                                FRR backup for this path
+                                                
+                                                .. attribute:: backup_repair
+                                                
+                                                	BAckup Repair List
+                                                	**type**\: list of    :py:class:`BackupRepair <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.ExplicitPath.FrrBackup.BackupRepair>`
+                                                
+                                                .. attribute:: backup_repair_list_size
+                                                
+                                                	Backup Repair List Size
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: egress_interface
+                                                
+                                                	Interface to send the packet out of
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: is_downstream
+                                                
+                                                	Is the backup path via downstream node?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_epcfrr_lfa
+                                                
+                                                	Is the backup path via a TI\-LFA?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_lc_disjoint
+                                                
+                                                	Is the backup path line card disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_node_protecting
+                                                
+                                                	Is the backup path node protecting?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_primary_path
+                                                
+                                                	Is the backup path an ECMP to the network?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_remote_lfa
+                                                
+                                                	Is the backup path via a Remote LFA?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_srlg_disjoint
+                                                
+                                                	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_tunnel_requested
+                                                
+                                                	Is SR TE tunnel requested
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: neighbor_address
+                                                
+                                                	Next hop neighbor's forwarding address
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: neighbor_id
+                                                
+                                                	Next hop neighbor ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: neighbor_snpa
+                                                
+                                                	Next hop neighbor's SNPA
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: num_sid
+                                                
+                                                	Number of SIDs in TI\-LFA/rLFA
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: remote_lfa_router_id
+                                                
+                                                	Remote LFA Router ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: remote_lfa_router_pid
+                                                
+                                                	Remote LFA Router ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: remote_lfa_system_id
+                                                
+                                                	Remote LFA PQ Node's ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: remote_lfa_system_pid
+                                                
+                                                	Remote LFA PQ Node's ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: segment_routing_sid_value
+                                                
+                                                	Segment routing sid value received from first hop
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: segment_routing_sid_value_entry
+                                                
+                                                	Segment routing sid values for TI\-LFA/rLFA
+                                                	**type**\:  list of int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: tilfa_computation
+                                                
+                                                	Ti LFA computation which provided backup path
+                                                	**type**\:   :py:class:`IsisTilfaComputationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.IsisTilfaComputationEnum>`
+                                                
+                                                .. attribute:: total_backup_distance
+                                                
+                                                	Distance to the network via this backup path
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: tunnel_egress_interface
+                                                
+                                                	Tunnel interface to send the packet out of
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: weight
+                                                
+                                                	Weight configured on the interface
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.backup_repair = YList()
+                                                    self.backup_repair.parent = self
+                                                    self.backup_repair.name = 'backup_repair'
+                                                    self.backup_repair_list_size = None
+                                                    self.egress_interface = None
+                                                    self.is_downstream = None
+                                                    self.is_epcfrr_lfa = None
+                                                    self.is_lc_disjoint = None
+                                                    self.is_node_protecting = None
+                                                    self.is_primary_path = None
+                                                    self.is_remote_lfa = None
+                                                    self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
+                                                    self.is_tunnel_requested = None
+                                                    self.neighbor_address = None
+                                                    self.neighbor_id = None
+                                                    self.neighbor_snpa = None
+                                                    self.num_sid = None
+                                                    self.remote_lfa_router_id = None
+                                                    self.remote_lfa_router_pid = None
+                                                    self.remote_lfa_system_id = None
+                                                    self.remote_lfa_system_pid = None
+                                                    self.segment_routing_sid_value = None
+                                                    self.segment_routing_sid_value_entry = YLeafList()
+                                                    self.segment_routing_sid_value_entry.parent = self
+                                                    self.segment_routing_sid_value_entry.name = 'segment_routing_sid_value_entry'
+                                                    self.tilfa_computation = None
+                                                    self.total_backup_distance = None
+                                                    self.tunnel_egress_interface = None
+                                                    self.weight = None
+
+
+                                                class BackupRepair(object):
+                                                    """
+                                                    BAckup Repair List
+                                                    
+                                                    .. attribute:: repair_element_node_id
+                                                    
+                                                    	RepairElementNodeID
+                                                    	**type**\:  str
+                                                    
+                                                    .. attribute:: repair_element_type
+                                                    
+                                                    	Repair Element Type
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_ipv4_addr
+                                                    
+                                                    	RepairIPv4Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_ipv6_addr
+                                                    
+                                                    	RepairIPv6Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_label
+                                                    
+                                                    	Repair Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'clns-isis-oper'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.repair_element_node_id = None
+                                                        self.repair_element_type = None
+                                                        self.repair_ipv4_addr = None
+                                                        self.repair_ipv6_addr = None
+                                                        self.repair_label = None
+                                                        self.repair_strict_spf_label = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:backup-repair'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return False
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.repair_element_node_id is not None:
+                                                            return True
+
+                                                        if self.repair_element_type is not None:
+                                                            return True
+
+                                                        if self.repair_ipv4_addr is not None:
+                                                            return True
+
+                                                        if self.repair_ipv6_addr is not None:
+                                                            return True
+
+                                                        if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                        return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.ExplicitPath.FrrBackup.BackupRepair']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:frr-backup'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.backup_repair is not None:
+                                                        for child_ref in self.backup_repair:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    if self.backup_repair_list_size is not None:
+                                                        return True
+
+                                                    if self.egress_interface is not None:
+                                                        return True
+
+                                                    if self.is_downstream is not None:
+                                                        return True
+
+                                                    if self.is_epcfrr_lfa is not None:
+                                                        return True
+
+                                                    if self.is_lc_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_node_protecting is not None:
+                                                        return True
+
+                                                    if self.is_primary_path is not None:
+                                                        return True
+
+                                                    if self.is_remote_lfa is not None:
+                                                        return True
+
+                                                    if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
+                                                        return True
+
+                                                    if self.is_tunnel_requested is not None:
+                                                        return True
+
+                                                    if self.neighbor_address is not None:
+                                                        return True
+
+                                                    if self.neighbor_id is not None:
+                                                        return True
+
+                                                    if self.neighbor_snpa is not None:
+                                                        return True
+
+                                                    if self.num_sid is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_router_id is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_router_pid is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_system_id is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_system_pid is not None:
+                                                        return True
+
+                                                    if self.segment_routing_sid_value is not None:
+                                                        return True
+
+                                                    if self.segment_routing_sid_value_entry is not None:
+                                                        for child in self.segment_routing_sid_value_entry:
+                                                            if child is not None:
+                                                                return True
+
+                                                    if self.tilfa_computation is not None:
+                                                        return True
+
+                                                    if self.total_backup_distance is not None:
+                                                        return True
+
+                                                    if self.tunnel_egress_interface is not None:
+                                                        return True
+
+                                                    if self.weight is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.ExplicitPath.FrrBackup']['meta_info']
+
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.ExplicitPath.UloopExplicit']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:explicit-path'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.egress_interface is not None:
+                                                    return True
+
+                                                if self.frr_backup is not None and self.frr_backup._has_data():
+                                                    return True
+
+                                                if self.neighbor_address is not None:
+                                                    return True
+
+                                                if self.neighbor_id is not None:
+                                                    return True
+
+                                                if self.neighbor_snpa is not None:
+                                                    return True
+
+                                                if self.segment_routing_sid_value is not None:
+                                                    return True
+
+                                                if self.tag is not None:
+                                                    return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                if self.weight is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.ExplicitPath']['meta_info']
 
 
                                         class Source(object):
@@ -23452,6 +27270,11 @@ class Isis(object):
                                                 return False
                                             if self.administrative_distance is not None:
                                                 return True
+
+                                            if self.explicit_path is not None:
+                                                for child_ref in self.explicit_path:
+                                                    if child_ref._has_data():
+                                                        return True
 
                                             if self.is_external_metric is not None:
                                                 return True
@@ -24528,6 +28351,11 @@ class Isis(object):
                                         
                                         	**range:** 0..65535
                                         
+                                        .. attribute:: explicit_path
+                                        
+                                        	SR microloop avoidance paths
+                                        	**type**\: list of    :py:class:`ExplicitPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.ExplicitPath>`
+                                        
                                         .. attribute:: is_external_metric
                                         
                                         	Is the metric an external metric?
@@ -24592,6 +28420,9 @@ class Isis(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.administrative_distance = None
+                                            self.explicit_path = YList()
+                                            self.explicit_path.parent = self
+                                            self.explicit_path.name = 'explicit_path'
                                             self.is_external_metric = None
                                             self.metric = None
                                             self.multicast_metric = None
@@ -24665,6 +28496,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.Paths.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -24689,6 +28530,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -24746,6 +28591,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -24868,6 +28718,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -24924,6 +28775,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -24938,6 +28796,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -24966,6 +28825,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -25019,6 +28881,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -25075,6 +28940,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.Paths.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.Paths.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -25109,6 +29074,14 @@ class Isis(object):
 
                                                 if self.tag is not None:
                                                     return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
 
                                                 if self.weight is not None:
                                                     return True
@@ -25261,6 +29234,11 @@ class Isis(object):
                                                 	Is the backup path SRLG disjoint with primary?
                                                 	**type**\:  bool
                                                 
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
+                                                	**type**\:  bool
+                                                
                                                 .. attribute:: is_tunnel_requested
                                                 
                                                 	Is SR TE tunnel requested
@@ -25381,6 +29359,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -25437,6 +29416,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -25451,6 +29437,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -25479,6 +29466,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -25532,6 +29522,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -25686,6 +29679,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -25710,6 +29713,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -25767,6 +29774,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -25889,6 +29901,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -25945,6 +29958,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -25959,6 +29979,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -25987,6 +30008,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -26040,6 +30064,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -26096,6 +30123,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -26130,6 +30257,14 @@ class Isis(object):
 
                                                 if self.tag is not None:
                                                     return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
 
                                                 if self.weight is not None:
                                                     return True
@@ -26191,6 +30326,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -26215,6 +30360,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -26272,6 +30421,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -26394,6 +30548,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -26450,6 +30605,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -26464,6 +30626,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -26492,6 +30655,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -26545,6 +30711,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -26601,6 +30770,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -26636,6 +30905,14 @@ class Isis(object):
                                                 if self.tag is not None:
                                                     return True
 
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
+
                                                 if self.weight is not None:
                                                     return True
 
@@ -26645,6 +30922,653 @@ class Isis(object):
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                 return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath']['meta_info']
+
+
+                                        class ExplicitPath(object):
+                                            """
+                                            SR microloop avoidance paths
+                                            
+                                            .. attribute:: egress_interface
+                                            
+                                            	Interface to send the packet out of
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: frr_backup
+                                            
+                                            	FRR backup for this path
+                                            	**type**\:   :py:class:`FrrBackup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.ExplicitPath.FrrBackup>`
+                                            
+                                            .. attribute:: neighbor_address
+                                            
+                                            	Next hop neighbor's forwarding address
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                            
+                                            .. attribute:: neighbor_id
+                                            
+                                            	Next hop neighbor ID
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                            
+                                            .. attribute:: neighbor_snpa
+                                            
+                                            	Next hop neighbor's SNPA
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                            
+                                            .. attribute:: segment_routing_sid_value
+                                            
+                                            	Segment routing sid value received from first hop
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: tag
+                                            
+                                            	Tag associated with the path
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.ExplicitPath.UloopExplicit>`
+                                            
+                                            .. attribute:: weight
+                                            
+                                            	Weight configured on the interface
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'clns-isis-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.egress_interface = None
+                                                self.frr_backup = Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.ExplicitPath.FrrBackup()
+                                                self.frr_backup.parent = self
+                                                self.neighbor_address = None
+                                                self.neighbor_id = None
+                                                self.neighbor_snpa = None
+                                                self.segment_routing_sid_value = None
+                                                self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
+                                                self.weight = None
+
+
+                                            class FrrBackup(object):
+                                                """
+                                                FRR backup for this path
+                                                
+                                                .. attribute:: backup_repair
+                                                
+                                                	BAckup Repair List
+                                                	**type**\: list of    :py:class:`BackupRepair <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.ExplicitPath.FrrBackup.BackupRepair>`
+                                                
+                                                .. attribute:: backup_repair_list_size
+                                                
+                                                	Backup Repair List Size
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: egress_interface
+                                                
+                                                	Interface to send the packet out of
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: is_downstream
+                                                
+                                                	Is the backup path via downstream node?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_epcfrr_lfa
+                                                
+                                                	Is the backup path via a TI\-LFA?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_lc_disjoint
+                                                
+                                                	Is the backup path line card disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_node_protecting
+                                                
+                                                	Is the backup path node protecting?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_primary_path
+                                                
+                                                	Is the backup path an ECMP to the network?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_remote_lfa
+                                                
+                                                	Is the backup path via a Remote LFA?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_srlg_disjoint
+                                                
+                                                	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_tunnel_requested
+                                                
+                                                	Is SR TE tunnel requested
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: neighbor_address
+                                                
+                                                	Next hop neighbor's forwarding address
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: neighbor_id
+                                                
+                                                	Next hop neighbor ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: neighbor_snpa
+                                                
+                                                	Next hop neighbor's SNPA
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: num_sid
+                                                
+                                                	Number of SIDs in TI\-LFA/rLFA
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: remote_lfa_router_id
+                                                
+                                                	Remote LFA Router ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: remote_lfa_router_pid
+                                                
+                                                	Remote LFA Router ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: remote_lfa_system_id
+                                                
+                                                	Remote LFA PQ Node's ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: remote_lfa_system_pid
+                                                
+                                                	Remote LFA PQ Node's ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: segment_routing_sid_value
+                                                
+                                                	Segment routing sid value received from first hop
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: segment_routing_sid_value_entry
+                                                
+                                                	Segment routing sid values for TI\-LFA/rLFA
+                                                	**type**\:  list of int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: tilfa_computation
+                                                
+                                                	Ti LFA computation which provided backup path
+                                                	**type**\:   :py:class:`IsisTilfaComputationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.IsisTilfaComputationEnum>`
+                                                
+                                                .. attribute:: total_backup_distance
+                                                
+                                                	Distance to the network via this backup path
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: tunnel_egress_interface
+                                                
+                                                	Tunnel interface to send the packet out of
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: weight
+                                                
+                                                	Weight configured on the interface
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.backup_repair = YList()
+                                                    self.backup_repair.parent = self
+                                                    self.backup_repair.name = 'backup_repair'
+                                                    self.backup_repair_list_size = None
+                                                    self.egress_interface = None
+                                                    self.is_downstream = None
+                                                    self.is_epcfrr_lfa = None
+                                                    self.is_lc_disjoint = None
+                                                    self.is_node_protecting = None
+                                                    self.is_primary_path = None
+                                                    self.is_remote_lfa = None
+                                                    self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
+                                                    self.is_tunnel_requested = None
+                                                    self.neighbor_address = None
+                                                    self.neighbor_id = None
+                                                    self.neighbor_snpa = None
+                                                    self.num_sid = None
+                                                    self.remote_lfa_router_id = None
+                                                    self.remote_lfa_router_pid = None
+                                                    self.remote_lfa_system_id = None
+                                                    self.remote_lfa_system_pid = None
+                                                    self.segment_routing_sid_value = None
+                                                    self.segment_routing_sid_value_entry = YLeafList()
+                                                    self.segment_routing_sid_value_entry.parent = self
+                                                    self.segment_routing_sid_value_entry.name = 'segment_routing_sid_value_entry'
+                                                    self.tilfa_computation = None
+                                                    self.total_backup_distance = None
+                                                    self.tunnel_egress_interface = None
+                                                    self.weight = None
+
+
+                                                class BackupRepair(object):
+                                                    """
+                                                    BAckup Repair List
+                                                    
+                                                    .. attribute:: repair_element_node_id
+                                                    
+                                                    	RepairElementNodeID
+                                                    	**type**\:  str
+                                                    
+                                                    .. attribute:: repair_element_type
+                                                    
+                                                    	Repair Element Type
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_ipv4_addr
+                                                    
+                                                    	RepairIPv4Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_ipv6_addr
+                                                    
+                                                    	RepairIPv6Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_label
+                                                    
+                                                    	Repair Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'clns-isis-oper'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.repair_element_node_id = None
+                                                        self.repair_element_type = None
+                                                        self.repair_ipv4_addr = None
+                                                        self.repair_ipv6_addr = None
+                                                        self.repair_label = None
+                                                        self.repair_strict_spf_label = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:backup-repair'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return False
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.repair_element_node_id is not None:
+                                                            return True
+
+                                                        if self.repair_element_type is not None:
+                                                            return True
+
+                                                        if self.repair_ipv4_addr is not None:
+                                                            return True
+
+                                                        if self.repair_ipv6_addr is not None:
+                                                            return True
+
+                                                        if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                        return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.ExplicitPath.FrrBackup.BackupRepair']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:frr-backup'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.backup_repair is not None:
+                                                        for child_ref in self.backup_repair:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    if self.backup_repair_list_size is not None:
+                                                        return True
+
+                                                    if self.egress_interface is not None:
+                                                        return True
+
+                                                    if self.is_downstream is not None:
+                                                        return True
+
+                                                    if self.is_epcfrr_lfa is not None:
+                                                        return True
+
+                                                    if self.is_lc_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_node_protecting is not None:
+                                                        return True
+
+                                                    if self.is_primary_path is not None:
+                                                        return True
+
+                                                    if self.is_remote_lfa is not None:
+                                                        return True
+
+                                                    if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
+                                                        return True
+
+                                                    if self.is_tunnel_requested is not None:
+                                                        return True
+
+                                                    if self.neighbor_address is not None:
+                                                        return True
+
+                                                    if self.neighbor_id is not None:
+                                                        return True
+
+                                                    if self.neighbor_snpa is not None:
+                                                        return True
+
+                                                    if self.num_sid is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_router_id is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_router_pid is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_system_id is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_system_pid is not None:
+                                                        return True
+
+                                                    if self.segment_routing_sid_value is not None:
+                                                        return True
+
+                                                    if self.segment_routing_sid_value_entry is not None:
+                                                        for child in self.segment_routing_sid_value_entry:
+                                                            if child is not None:
+                                                                return True
+
+                                                    if self.tilfa_computation is not None:
+                                                        return True
+
+                                                    if self.total_backup_distance is not None:
+                                                        return True
+
+                                                    if self.tunnel_egress_interface is not None:
+                                                        return True
+
+                                                    if self.weight is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.ExplicitPath.FrrBackup']['meta_info']
+
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.ExplicitPath.UloopExplicit']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:explicit-path'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.egress_interface is not None:
+                                                    return True
+
+                                                if self.frr_backup is not None and self.frr_backup._has_data():
+                                                    return True
+
+                                                if self.neighbor_address is not None:
+                                                    return True
+
+                                                if self.neighbor_id is not None:
+                                                    return True
+
+                                                if self.neighbor_snpa is not None:
+                                                    return True
+
+                                                if self.segment_routing_sid_value is not None:
+                                                    return True
+
+                                                if self.tag is not None:
+                                                    return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                if self.weight is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.ExplicitPath']['meta_info']
 
 
                                         class Source(object):
@@ -27083,6 +32007,11 @@ class Isis(object):
                                             if self.administrative_distance is not None:
                                                 return True
 
+                                            if self.explicit_path is not None:
+                                                for child_ref in self.explicit_path:
+                                                    if child_ref._has_data():
+                                                        return True
+
                                             if self.is_external_metric is not None:
                                                 return True
 
@@ -27143,6 +32072,11 @@ class Isis(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..65535
+                                        
+                                        .. attribute:: explicit_path
+                                        
+                                        	SR microloop avoidance paths
+                                        	**type**\: list of    :py:class:`ExplicitPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.ExplicitPath>`
                                         
                                         .. attribute:: is_external_metric
                                         
@@ -27208,6 +32142,9 @@ class Isis(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.administrative_distance = None
+                                            self.explicit_path = YList()
+                                            self.explicit_path.parent = self
+                                            self.explicit_path.name = 'explicit_path'
                                             self.is_external_metric = None
                                             self.metric = None
                                             self.multicast_metric = None
@@ -27281,6 +32218,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.Paths.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -27305,6 +32252,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -27362,6 +32313,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -27484,6 +32440,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -27540,6 +32497,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -27554,6 +32518,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -27582,6 +32547,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -27635,6 +32603,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -27691,6 +32662,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.Paths.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.Paths.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -27725,6 +32796,14 @@ class Isis(object):
 
                                                 if self.tag is not None:
                                                     return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
 
                                                 if self.weight is not None:
                                                     return True
@@ -27877,6 +32956,11 @@ class Isis(object):
                                                 	Is the backup path SRLG disjoint with primary?
                                                 	**type**\:  bool
                                                 
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
+                                                	**type**\:  bool
+                                                
                                                 .. attribute:: is_tunnel_requested
                                                 
                                                 	Is SR TE tunnel requested
@@ -27997,6 +33081,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -28053,6 +33138,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -28067,6 +33159,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -28095,6 +33188,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -28148,6 +33244,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -28302,6 +33401,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -28326,6 +33435,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -28383,6 +33496,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -28505,6 +33623,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -28561,6 +33680,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -28575,6 +33701,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -28603,6 +33730,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -28656,6 +33786,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -28712,6 +33845,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -28746,6 +33979,14 @@ class Isis(object):
 
                                                 if self.tag is not None:
                                                     return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
 
                                                 if self.weight is not None:
                                                     return True
@@ -28807,6 +34048,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -28831,6 +34082,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -28888,6 +34143,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -29010,6 +34270,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -29066,6 +34327,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -29080,6 +34348,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -29108,6 +34377,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -29161,6 +34433,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -29217,6 +34492,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -29252,6 +34627,14 @@ class Isis(object):
                                                 if self.tag is not None:
                                                     return True
 
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
+
                                                 if self.weight is not None:
                                                     return True
 
@@ -29261,6 +34644,653 @@ class Isis(object):
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                 return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath']['meta_info']
+
+
+                                        class ExplicitPath(object):
+                                            """
+                                            SR microloop avoidance paths
+                                            
+                                            .. attribute:: egress_interface
+                                            
+                                            	Interface to send the packet out of
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: frr_backup
+                                            
+                                            	FRR backup for this path
+                                            	**type**\:   :py:class:`FrrBackup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.ExplicitPath.FrrBackup>`
+                                            
+                                            .. attribute:: neighbor_address
+                                            
+                                            	Next hop neighbor's forwarding address
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                            
+                                            .. attribute:: neighbor_id
+                                            
+                                            	Next hop neighbor ID
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                            
+                                            .. attribute:: neighbor_snpa
+                                            
+                                            	Next hop neighbor's SNPA
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                            
+                                            .. attribute:: segment_routing_sid_value
+                                            
+                                            	Segment routing sid value received from first hop
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: tag
+                                            
+                                            	Tag associated with the path
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.ExplicitPath.UloopExplicit>`
+                                            
+                                            .. attribute:: weight
+                                            
+                                            	Weight configured on the interface
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'clns-isis-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.egress_interface = None
+                                                self.frr_backup = Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.ExplicitPath.FrrBackup()
+                                                self.frr_backup.parent = self
+                                                self.neighbor_address = None
+                                                self.neighbor_id = None
+                                                self.neighbor_snpa = None
+                                                self.segment_routing_sid_value = None
+                                                self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
+                                                self.weight = None
+
+
+                                            class FrrBackup(object):
+                                                """
+                                                FRR backup for this path
+                                                
+                                                .. attribute:: backup_repair
+                                                
+                                                	BAckup Repair List
+                                                	**type**\: list of    :py:class:`BackupRepair <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.ExplicitPath.FrrBackup.BackupRepair>`
+                                                
+                                                .. attribute:: backup_repair_list_size
+                                                
+                                                	Backup Repair List Size
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: egress_interface
+                                                
+                                                	Interface to send the packet out of
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: is_downstream
+                                                
+                                                	Is the backup path via downstream node?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_epcfrr_lfa
+                                                
+                                                	Is the backup path via a TI\-LFA?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_lc_disjoint
+                                                
+                                                	Is the backup path line card disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_node_protecting
+                                                
+                                                	Is the backup path node protecting?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_primary_path
+                                                
+                                                	Is the backup path an ECMP to the network?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_remote_lfa
+                                                
+                                                	Is the backup path via a Remote LFA?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_srlg_disjoint
+                                                
+                                                	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_tunnel_requested
+                                                
+                                                	Is SR TE tunnel requested
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: neighbor_address
+                                                
+                                                	Next hop neighbor's forwarding address
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: neighbor_id
+                                                
+                                                	Next hop neighbor ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: neighbor_snpa
+                                                
+                                                	Next hop neighbor's SNPA
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: num_sid
+                                                
+                                                	Number of SIDs in TI\-LFA/rLFA
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: remote_lfa_router_id
+                                                
+                                                	Remote LFA Router ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: remote_lfa_router_pid
+                                                
+                                                	Remote LFA Router ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: remote_lfa_system_id
+                                                
+                                                	Remote LFA PQ Node's ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: remote_lfa_system_pid
+                                                
+                                                	Remote LFA PQ Node's ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: segment_routing_sid_value
+                                                
+                                                	Segment routing sid value received from first hop
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: segment_routing_sid_value_entry
+                                                
+                                                	Segment routing sid values for TI\-LFA/rLFA
+                                                	**type**\:  list of int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: tilfa_computation
+                                                
+                                                	Ti LFA computation which provided backup path
+                                                	**type**\:   :py:class:`IsisTilfaComputationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.IsisTilfaComputationEnum>`
+                                                
+                                                .. attribute:: total_backup_distance
+                                                
+                                                	Distance to the network via this backup path
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: tunnel_egress_interface
+                                                
+                                                	Tunnel interface to send the packet out of
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: weight
+                                                
+                                                	Weight configured on the interface
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.backup_repair = YList()
+                                                    self.backup_repair.parent = self
+                                                    self.backup_repair.name = 'backup_repair'
+                                                    self.backup_repair_list_size = None
+                                                    self.egress_interface = None
+                                                    self.is_downstream = None
+                                                    self.is_epcfrr_lfa = None
+                                                    self.is_lc_disjoint = None
+                                                    self.is_node_protecting = None
+                                                    self.is_primary_path = None
+                                                    self.is_remote_lfa = None
+                                                    self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
+                                                    self.is_tunnel_requested = None
+                                                    self.neighbor_address = None
+                                                    self.neighbor_id = None
+                                                    self.neighbor_snpa = None
+                                                    self.num_sid = None
+                                                    self.remote_lfa_router_id = None
+                                                    self.remote_lfa_router_pid = None
+                                                    self.remote_lfa_system_id = None
+                                                    self.remote_lfa_system_pid = None
+                                                    self.segment_routing_sid_value = None
+                                                    self.segment_routing_sid_value_entry = YLeafList()
+                                                    self.segment_routing_sid_value_entry.parent = self
+                                                    self.segment_routing_sid_value_entry.name = 'segment_routing_sid_value_entry'
+                                                    self.tilfa_computation = None
+                                                    self.total_backup_distance = None
+                                                    self.tunnel_egress_interface = None
+                                                    self.weight = None
+
+
+                                                class BackupRepair(object):
+                                                    """
+                                                    BAckup Repair List
+                                                    
+                                                    .. attribute:: repair_element_node_id
+                                                    
+                                                    	RepairElementNodeID
+                                                    	**type**\:  str
+                                                    
+                                                    .. attribute:: repair_element_type
+                                                    
+                                                    	Repair Element Type
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_ipv4_addr
+                                                    
+                                                    	RepairIPv4Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_ipv6_addr
+                                                    
+                                                    	RepairIPv6Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_label
+                                                    
+                                                    	Repair Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'clns-isis-oper'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.repair_element_node_id = None
+                                                        self.repair_element_type = None
+                                                        self.repair_ipv4_addr = None
+                                                        self.repair_ipv6_addr = None
+                                                        self.repair_label = None
+                                                        self.repair_strict_spf_label = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:backup-repair'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return False
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.repair_element_node_id is not None:
+                                                            return True
+
+                                                        if self.repair_element_type is not None:
+                                                            return True
+
+                                                        if self.repair_ipv4_addr is not None:
+                                                            return True
+
+                                                        if self.repair_ipv6_addr is not None:
+                                                            return True
+
+                                                        if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                        return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.ExplicitPath.FrrBackup.BackupRepair']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:frr-backup'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.backup_repair is not None:
+                                                        for child_ref in self.backup_repair:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    if self.backup_repair_list_size is not None:
+                                                        return True
+
+                                                    if self.egress_interface is not None:
+                                                        return True
+
+                                                    if self.is_downstream is not None:
+                                                        return True
+
+                                                    if self.is_epcfrr_lfa is not None:
+                                                        return True
+
+                                                    if self.is_lc_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_node_protecting is not None:
+                                                        return True
+
+                                                    if self.is_primary_path is not None:
+                                                        return True
+
+                                                    if self.is_remote_lfa is not None:
+                                                        return True
+
+                                                    if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
+                                                        return True
+
+                                                    if self.is_tunnel_requested is not None:
+                                                        return True
+
+                                                    if self.neighbor_address is not None:
+                                                        return True
+
+                                                    if self.neighbor_id is not None:
+                                                        return True
+
+                                                    if self.neighbor_snpa is not None:
+                                                        return True
+
+                                                    if self.num_sid is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_router_id is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_router_pid is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_system_id is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_system_pid is not None:
+                                                        return True
+
+                                                    if self.segment_routing_sid_value is not None:
+                                                        return True
+
+                                                    if self.segment_routing_sid_value_entry is not None:
+                                                        for child in self.segment_routing_sid_value_entry:
+                                                            if child is not None:
+                                                                return True
+
+                                                    if self.tilfa_computation is not None:
+                                                        return True
+
+                                                    if self.total_backup_distance is not None:
+                                                        return True
+
+                                                    if self.tunnel_egress_interface is not None:
+                                                        return True
+
+                                                    if self.weight is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.ExplicitPath.FrrBackup']['meta_info']
+
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.ExplicitPath.UloopExplicit']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:explicit-path'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.egress_interface is not None:
+                                                    return True
+
+                                                if self.frr_backup is not None and self.frr_backup._has_data():
+                                                    return True
+
+                                                if self.neighbor_address is not None:
+                                                    return True
+
+                                                if self.neighbor_id is not None:
+                                                    return True
+
+                                                if self.neighbor_snpa is not None:
+                                                    return True
+
+                                                if self.segment_routing_sid_value is not None:
+                                                    return True
+
+                                                if self.tag is not None:
+                                                    return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                if self.weight is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.ExplicitPath']['meta_info']
 
 
                                         class Source(object):
@@ -29698,6 +35728,11 @@ class Isis(object):
                                                 return False
                                             if self.administrative_distance is not None:
                                                 return True
+
+                                            if self.explicit_path is not None:
+                                                for child_ref in self.explicit_path:
+                                                    if child_ref._has_data():
+                                                        return True
 
                                             if self.is_external_metric is not None:
                                                 return True
@@ -30774,6 +36809,11 @@ class Isis(object):
                                         
                                         	**range:** 0..65535
                                         
+                                        .. attribute:: explicit_path
+                                        
+                                        	SR microloop avoidance paths
+                                        	**type**\: list of    :py:class:`ExplicitPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.ExplicitPath>`
+                                        
                                         .. attribute:: is_external_metric
                                         
                                         	Is the metric an external metric?
@@ -30838,6 +36878,9 @@ class Isis(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.administrative_distance = None
+                                            self.explicit_path = YList()
+                                            self.explicit_path.parent = self
+                                            self.explicit_path.name = 'explicit_path'
                                             self.is_external_metric = None
                                             self.metric = None
                                             self.multicast_metric = None
@@ -30911,6 +36954,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.Paths.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -30935,6 +36988,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -30992,6 +37049,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -31114,6 +37176,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -31170,6 +37233,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -31184,6 +37254,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -31212,6 +37283,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -31265,6 +37339,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -31321,6 +37398,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.Paths.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.Paths.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -31355,6 +37532,14 @@ class Isis(object):
 
                                                 if self.tag is not None:
                                                     return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
 
                                                 if self.weight is not None:
                                                     return True
@@ -31507,6 +37692,11 @@ class Isis(object):
                                                 	Is the backup path SRLG disjoint with primary?
                                                 	**type**\:  bool
                                                 
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
+                                                	**type**\:  bool
+                                                
                                                 .. attribute:: is_tunnel_requested
                                                 
                                                 	Is SR TE tunnel requested
@@ -31627,6 +37817,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -31683,6 +37874,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -31697,6 +37895,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -31725,6 +37924,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -31778,6 +37980,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -31932,6 +38137,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -31956,6 +38171,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -32013,6 +38232,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -32135,6 +38359,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -32191,6 +38416,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -32205,6 +38437,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -32233,6 +38466,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -32286,6 +38522,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -32342,6 +38581,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -32376,6 +38715,14 @@ class Isis(object):
 
                                                 if self.tag is not None:
                                                     return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
 
                                                 if self.weight is not None:
                                                     return True
@@ -32437,6 +38784,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -32461,6 +38818,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -32518,6 +38879,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -32640,6 +39006,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -32696,6 +39063,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -32710,6 +39084,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -32738,6 +39113,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -32791,6 +39169,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -32847,6 +39228,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -32882,6 +39363,14 @@ class Isis(object):
                                                 if self.tag is not None:
                                                     return True
 
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
+
                                                 if self.weight is not None:
                                                     return True
 
@@ -32891,6 +39380,653 @@ class Isis(object):
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                 return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath']['meta_info']
+
+
+                                        class ExplicitPath(object):
+                                            """
+                                            SR microloop avoidance paths
+                                            
+                                            .. attribute:: egress_interface
+                                            
+                                            	Interface to send the packet out of
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: frr_backup
+                                            
+                                            	FRR backup for this path
+                                            	**type**\:   :py:class:`FrrBackup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.ExplicitPath.FrrBackup>`
+                                            
+                                            .. attribute:: neighbor_address
+                                            
+                                            	Next hop neighbor's forwarding address
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                            
+                                            .. attribute:: neighbor_id
+                                            
+                                            	Next hop neighbor ID
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                            
+                                            .. attribute:: neighbor_snpa
+                                            
+                                            	Next hop neighbor's SNPA
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                            
+                                            .. attribute:: segment_routing_sid_value
+                                            
+                                            	Segment routing sid value received from first hop
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: tag
+                                            
+                                            	Tag associated with the path
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.ExplicitPath.UloopExplicit>`
+                                            
+                                            .. attribute:: weight
+                                            
+                                            	Weight configured on the interface
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'clns-isis-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.egress_interface = None
+                                                self.frr_backup = Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.ExplicitPath.FrrBackup()
+                                                self.frr_backup.parent = self
+                                                self.neighbor_address = None
+                                                self.neighbor_id = None
+                                                self.neighbor_snpa = None
+                                                self.segment_routing_sid_value = None
+                                                self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
+                                                self.weight = None
+
+
+                                            class FrrBackup(object):
+                                                """
+                                                FRR backup for this path
+                                                
+                                                .. attribute:: backup_repair
+                                                
+                                                	Backup Repair List
+                                                	**type**\: list of    :py:class:`BackupRepair <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.ExplicitPath.FrrBackup.BackupRepair>`
+                                                
+                                                .. attribute:: backup_repair_list_size
+                                                
+                                                	Backup Repair List Size
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: egress_interface
+                                                
+                                                	Interface to send the packet out of
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: is_downstream
+                                                
+                                                	Is the backup path via downstream node?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_epcfrr_lfa
+                                                
+                                                	Is the backup path via a TI\-LFA?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_lc_disjoint
+                                                
+                                                	Is the backup path line card disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_node_protecting
+                                                
+                                                	Is the backup path node protecting?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_primary_path
+                                                
+                                                	Is the backup path an ECMP to the network?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_remote_lfa
+                                                
+                                                	Is the backup path via a Remote LFA?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_srlg_disjoint
+                                                
+                                                	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_tunnel_requested
+                                                
+                                                	Is SR TE tunnel requested
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: neighbor_address
+                                                
+                                                	Next hop neighbor's forwarding address
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: neighbor_id
+                                                
+                                                	Next hop neighbor ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: neighbor_snpa
+                                                
+                                                	Next hop neighbor's SNPA
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: num_sid
+                                                
+                                                	Number of SIDs in TI\-LFA/rLFA
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: remote_lfa_router_id
+                                                
+                                                	Remote LFA Router ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: remote_lfa_router_pid
+                                                
+                                                	Remote LFA Router ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: remote_lfa_system_id
+                                                
+                                                	Remote LFA PQ Node's ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: remote_lfa_system_pid
+                                                
+                                                	Remote LFA PQ Node's ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: segment_routing_sid_value
+                                                
+                                                	Segment routing sid value received from first hop
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: segment_routing_sid_value_entry
+                                                
+                                                	Segment routing sid values for TI\-LFA/rLFA
+                                                	**type**\:  list of int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: tilfa_computation
+                                                
+                                                	Ti LFA computation which provided backup path
+                                                	**type**\:   :py:class:`IsisTilfaComputationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.IsisTilfaComputationEnum>`
+                                                
+                                                .. attribute:: total_backup_distance
+                                                
+                                                	Distance to the network via this backup path
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: tunnel_egress_interface
+                                                
+                                                	Tunnel Interface to send the packet out of
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: weight
+                                                
+                                                	Weight configured on the interface
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.backup_repair = YList()
+                                                    self.backup_repair.parent = self
+                                                    self.backup_repair.name = 'backup_repair'
+                                                    self.backup_repair_list_size = None
+                                                    self.egress_interface = None
+                                                    self.is_downstream = None
+                                                    self.is_epcfrr_lfa = None
+                                                    self.is_lc_disjoint = None
+                                                    self.is_node_protecting = None
+                                                    self.is_primary_path = None
+                                                    self.is_remote_lfa = None
+                                                    self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
+                                                    self.is_tunnel_requested = None
+                                                    self.neighbor_address = None
+                                                    self.neighbor_id = None
+                                                    self.neighbor_snpa = None
+                                                    self.num_sid = None
+                                                    self.remote_lfa_router_id = None
+                                                    self.remote_lfa_router_pid = None
+                                                    self.remote_lfa_system_id = None
+                                                    self.remote_lfa_system_pid = None
+                                                    self.segment_routing_sid_value = None
+                                                    self.segment_routing_sid_value_entry = YLeafList()
+                                                    self.segment_routing_sid_value_entry.parent = self
+                                                    self.segment_routing_sid_value_entry.name = 'segment_routing_sid_value_entry'
+                                                    self.tilfa_computation = None
+                                                    self.total_backup_distance = None
+                                                    self.tunnel_egress_interface = None
+                                                    self.weight = None
+
+
+                                                class BackupRepair(object):
+                                                    """
+                                                    Backup Repair List
+                                                    
+                                                    .. attribute:: repair_element_node_id
+                                                    
+                                                    	RepairElementNodeID
+                                                    	**type**\:  str
+                                                    
+                                                    .. attribute:: repair_element_type
+                                                    
+                                                    	Repair Element Type
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_ipv4_addr
+                                                    
+                                                    	RepairIPv4Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_ipv6_addr
+                                                    
+                                                    	RepairIPv6Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_label
+                                                    
+                                                    	Repair Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'clns-isis-oper'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.repair_element_node_id = None
+                                                        self.repair_element_type = None
+                                                        self.repair_ipv4_addr = None
+                                                        self.repair_ipv6_addr = None
+                                                        self.repair_label = None
+                                                        self.repair_strict_spf_label = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:backup-repair'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return False
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.repair_element_node_id is not None:
+                                                            return True
+
+                                                        if self.repair_element_type is not None:
+                                                            return True
+
+                                                        if self.repair_ipv4_addr is not None:
+                                                            return True
+
+                                                        if self.repair_ipv6_addr is not None:
+                                                            return True
+
+                                                        if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                        return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.ExplicitPath.FrrBackup.BackupRepair']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:frr-backup'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.backup_repair is not None:
+                                                        for child_ref in self.backup_repair:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    if self.backup_repair_list_size is not None:
+                                                        return True
+
+                                                    if self.egress_interface is not None:
+                                                        return True
+
+                                                    if self.is_downstream is not None:
+                                                        return True
+
+                                                    if self.is_epcfrr_lfa is not None:
+                                                        return True
+
+                                                    if self.is_lc_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_node_protecting is not None:
+                                                        return True
+
+                                                    if self.is_primary_path is not None:
+                                                        return True
+
+                                                    if self.is_remote_lfa is not None:
+                                                        return True
+
+                                                    if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
+                                                        return True
+
+                                                    if self.is_tunnel_requested is not None:
+                                                        return True
+
+                                                    if self.neighbor_address is not None:
+                                                        return True
+
+                                                    if self.neighbor_id is not None:
+                                                        return True
+
+                                                    if self.neighbor_snpa is not None:
+                                                        return True
+
+                                                    if self.num_sid is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_router_id is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_router_pid is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_system_id is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_system_pid is not None:
+                                                        return True
+
+                                                    if self.segment_routing_sid_value is not None:
+                                                        return True
+
+                                                    if self.segment_routing_sid_value_entry is not None:
+                                                        for child in self.segment_routing_sid_value_entry:
+                                                            if child is not None:
+                                                                return True
+
+                                                    if self.tilfa_computation is not None:
+                                                        return True
+
+                                                    if self.total_backup_distance is not None:
+                                                        return True
+
+                                                    if self.tunnel_egress_interface is not None:
+                                                        return True
+
+                                                    if self.weight is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.ExplicitPath.FrrBackup']['meta_info']
+
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.ExplicitPath.UloopExplicit']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:explicit-path'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.egress_interface is not None:
+                                                    return True
+
+                                                if self.frr_backup is not None and self.frr_backup._has_data():
+                                                    return True
+
+                                                if self.neighbor_address is not None:
+                                                    return True
+
+                                                if self.neighbor_id is not None:
+                                                    return True
+
+                                                if self.neighbor_snpa is not None:
+                                                    return True
+
+                                                if self.segment_routing_sid_value is not None:
+                                                    return True
+
+                                                if self.tag is not None:
+                                                    return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                if self.weight is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.ExplicitPath']['meta_info']
 
 
                                         class Source(object):
@@ -33329,6 +40465,11 @@ class Isis(object):
                                             if self.administrative_distance is not None:
                                                 return True
 
+                                            if self.explicit_path is not None:
+                                                for child_ref in self.explicit_path:
+                                                    if child_ref._has_data():
+                                                        return True
+
                                             if self.is_external_metric is not None:
                                                 return True
 
@@ -33389,6 +40530,11 @@ class Isis(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..65535
+                                        
+                                        .. attribute:: explicit_path
+                                        
+                                        	SR microloop avoidance paths
+                                        	**type**\: list of    :py:class:`ExplicitPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.ExplicitPath>`
                                         
                                         .. attribute:: is_external_metric
                                         
@@ -33454,6 +40600,9 @@ class Isis(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.administrative_distance = None
+                                            self.explicit_path = YList()
+                                            self.explicit_path.parent = self
+                                            self.explicit_path.name = 'explicit_path'
                                             self.is_external_metric = None
                                             self.metric = None
                                             self.multicast_metric = None
@@ -33527,6 +40676,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.Paths.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -33551,6 +40710,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -33608,6 +40771,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -33730,6 +40898,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -33786,6 +40955,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -33800,6 +40976,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -33828,6 +41005,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -33881,6 +41061,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -33937,6 +41120,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.Paths.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.Paths.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -33971,6 +41254,14 @@ class Isis(object):
 
                                                 if self.tag is not None:
                                                     return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
 
                                                 if self.weight is not None:
                                                     return True
@@ -34123,6 +41414,11 @@ class Isis(object):
                                                 	Is the backup path SRLG disjoint with primary?
                                                 	**type**\:  bool
                                                 
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
+                                                	**type**\:  bool
+                                                
                                                 .. attribute:: is_tunnel_requested
                                                 
                                                 	Is SR TE tunnel requested
@@ -34243,6 +41539,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -34299,6 +41596,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -34313,6 +41617,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -34341,6 +41646,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -34394,6 +41702,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -34548,6 +41859,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -34572,6 +41893,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -34629,6 +41954,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -34751,6 +42081,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -34807,6 +42138,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -34821,6 +42159,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -34849,6 +42188,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -34902,6 +42244,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -34958,6 +42303,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -34992,6 +42437,14 @@ class Isis(object):
 
                                                 if self.tag is not None:
                                                     return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
 
                                                 if self.weight is not None:
                                                     return True
@@ -35053,6 +42506,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -35077,6 +42540,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -35134,6 +42601,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -35256,6 +42728,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -35312,6 +42785,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -35326,6 +42806,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -35354,6 +42835,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -35407,6 +42891,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -35463,6 +42950,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -35498,6 +43085,14 @@ class Isis(object):
                                                 if self.tag is not None:
                                                     return True
 
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
+
                                                 if self.weight is not None:
                                                     return True
 
@@ -35507,6 +43102,653 @@ class Isis(object):
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                 return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath']['meta_info']
+
+
+                                        class ExplicitPath(object):
+                                            """
+                                            SR microloop avoidance paths
+                                            
+                                            .. attribute:: egress_interface
+                                            
+                                            	Interface to send the packet out of
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: frr_backup
+                                            
+                                            	FRR backup for this path
+                                            	**type**\:   :py:class:`FrrBackup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.ExplicitPath.FrrBackup>`
+                                            
+                                            .. attribute:: neighbor_address
+                                            
+                                            	Next hop neighbor's forwarding address
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                            
+                                            .. attribute:: neighbor_id
+                                            
+                                            	Next hop neighbor ID
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                            
+                                            .. attribute:: neighbor_snpa
+                                            
+                                            	Next hop neighbor's SNPA
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                            
+                                            .. attribute:: segment_routing_sid_value
+                                            
+                                            	Segment routing sid value received from first hop
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: tag
+                                            
+                                            	Tag associated with the path
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.ExplicitPath.UloopExplicit>`
+                                            
+                                            .. attribute:: weight
+                                            
+                                            	Weight configured on the interface
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'clns-isis-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.egress_interface = None
+                                                self.frr_backup = Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.ExplicitPath.FrrBackup()
+                                                self.frr_backup.parent = self
+                                                self.neighbor_address = None
+                                                self.neighbor_id = None
+                                                self.neighbor_snpa = None
+                                                self.segment_routing_sid_value = None
+                                                self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
+                                                self.weight = None
+
+
+                                            class FrrBackup(object):
+                                                """
+                                                FRR backup for this path
+                                                
+                                                .. attribute:: backup_repair
+                                                
+                                                	Backup Repair List
+                                                	**type**\: list of    :py:class:`BackupRepair <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.ExplicitPath.FrrBackup.BackupRepair>`
+                                                
+                                                .. attribute:: backup_repair_list_size
+                                                
+                                                	Backup Repair List Size
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: egress_interface
+                                                
+                                                	Interface to send the packet out of
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: is_downstream
+                                                
+                                                	Is the backup path via downstream node?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_epcfrr_lfa
+                                                
+                                                	Is the backup path via a TI\-LFA?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_lc_disjoint
+                                                
+                                                	Is the backup path line card disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_node_protecting
+                                                
+                                                	Is the backup path node protecting?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_primary_path
+                                                
+                                                	Is the backup path an ECMP to the network?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_remote_lfa
+                                                
+                                                	Is the backup path via a Remote LFA?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_srlg_disjoint
+                                                
+                                                	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_tunnel_requested
+                                                
+                                                	Is SR TE tunnel requested
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: neighbor_address
+                                                
+                                                	Next hop neighbor's forwarding address
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: neighbor_id
+                                                
+                                                	Next hop neighbor ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: neighbor_snpa
+                                                
+                                                	Next hop neighbor's SNPA
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: num_sid
+                                                
+                                                	Number of SIDs in TI\-LFA/rLFA
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: remote_lfa_router_id
+                                                
+                                                	Remote LFA Router ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: remote_lfa_router_pid
+                                                
+                                                	Remote LFA Router ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: remote_lfa_system_id
+                                                
+                                                	Remote LFA PQ Node's ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: remote_lfa_system_pid
+                                                
+                                                	Remote LFA PQ Node's ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: segment_routing_sid_value
+                                                
+                                                	Segment routing sid value received from first hop
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: segment_routing_sid_value_entry
+                                                
+                                                	Segment routing sid values for TI\-LFA/rLFA
+                                                	**type**\:  list of int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: tilfa_computation
+                                                
+                                                	Ti LFA computation which provided backup path
+                                                	**type**\:   :py:class:`IsisTilfaComputationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.IsisTilfaComputationEnum>`
+                                                
+                                                .. attribute:: total_backup_distance
+                                                
+                                                	Distance to the network via this backup path
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: tunnel_egress_interface
+                                                
+                                                	Tunnel Interface to send the packet out of
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: weight
+                                                
+                                                	Weight configured on the interface
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.backup_repair = YList()
+                                                    self.backup_repair.parent = self
+                                                    self.backup_repair.name = 'backup_repair'
+                                                    self.backup_repair_list_size = None
+                                                    self.egress_interface = None
+                                                    self.is_downstream = None
+                                                    self.is_epcfrr_lfa = None
+                                                    self.is_lc_disjoint = None
+                                                    self.is_node_protecting = None
+                                                    self.is_primary_path = None
+                                                    self.is_remote_lfa = None
+                                                    self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
+                                                    self.is_tunnel_requested = None
+                                                    self.neighbor_address = None
+                                                    self.neighbor_id = None
+                                                    self.neighbor_snpa = None
+                                                    self.num_sid = None
+                                                    self.remote_lfa_router_id = None
+                                                    self.remote_lfa_router_pid = None
+                                                    self.remote_lfa_system_id = None
+                                                    self.remote_lfa_system_pid = None
+                                                    self.segment_routing_sid_value = None
+                                                    self.segment_routing_sid_value_entry = YLeafList()
+                                                    self.segment_routing_sid_value_entry.parent = self
+                                                    self.segment_routing_sid_value_entry.name = 'segment_routing_sid_value_entry'
+                                                    self.tilfa_computation = None
+                                                    self.total_backup_distance = None
+                                                    self.tunnel_egress_interface = None
+                                                    self.weight = None
+
+
+                                                class BackupRepair(object):
+                                                    """
+                                                    Backup Repair List
+                                                    
+                                                    .. attribute:: repair_element_node_id
+                                                    
+                                                    	RepairElementNodeID
+                                                    	**type**\:  str
+                                                    
+                                                    .. attribute:: repair_element_type
+                                                    
+                                                    	Repair Element Type
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_ipv4_addr
+                                                    
+                                                    	RepairIPv4Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_ipv6_addr
+                                                    
+                                                    	RepairIPv6Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_label
+                                                    
+                                                    	Repair Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'clns-isis-oper'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.repair_element_node_id = None
+                                                        self.repair_element_type = None
+                                                        self.repair_ipv4_addr = None
+                                                        self.repair_ipv6_addr = None
+                                                        self.repair_label = None
+                                                        self.repair_strict_spf_label = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:backup-repair'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return False
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.repair_element_node_id is not None:
+                                                            return True
+
+                                                        if self.repair_element_type is not None:
+                                                            return True
+
+                                                        if self.repair_ipv4_addr is not None:
+                                                            return True
+
+                                                        if self.repair_ipv6_addr is not None:
+                                                            return True
+
+                                                        if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                        return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.ExplicitPath.FrrBackup.BackupRepair']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:frr-backup'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.backup_repair is not None:
+                                                        for child_ref in self.backup_repair:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    if self.backup_repair_list_size is not None:
+                                                        return True
+
+                                                    if self.egress_interface is not None:
+                                                        return True
+
+                                                    if self.is_downstream is not None:
+                                                        return True
+
+                                                    if self.is_epcfrr_lfa is not None:
+                                                        return True
+
+                                                    if self.is_lc_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_node_protecting is not None:
+                                                        return True
+
+                                                    if self.is_primary_path is not None:
+                                                        return True
+
+                                                    if self.is_remote_lfa is not None:
+                                                        return True
+
+                                                    if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
+                                                        return True
+
+                                                    if self.is_tunnel_requested is not None:
+                                                        return True
+
+                                                    if self.neighbor_address is not None:
+                                                        return True
+
+                                                    if self.neighbor_id is not None:
+                                                        return True
+
+                                                    if self.neighbor_snpa is not None:
+                                                        return True
+
+                                                    if self.num_sid is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_router_id is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_router_pid is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_system_id is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_system_pid is not None:
+                                                        return True
+
+                                                    if self.segment_routing_sid_value is not None:
+                                                        return True
+
+                                                    if self.segment_routing_sid_value_entry is not None:
+                                                        for child in self.segment_routing_sid_value_entry:
+                                                            if child is not None:
+                                                                return True
+
+                                                    if self.tilfa_computation is not None:
+                                                        return True
+
+                                                    if self.total_backup_distance is not None:
+                                                        return True
+
+                                                    if self.tunnel_egress_interface is not None:
+                                                        return True
+
+                                                    if self.weight is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.ExplicitPath.FrrBackup']['meta_info']
+
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.ExplicitPath.UloopExplicit']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:explicit-path'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.egress_interface is not None:
+                                                    return True
+
+                                                if self.frr_backup is not None and self.frr_backup._has_data():
+                                                    return True
+
+                                                if self.neighbor_address is not None:
+                                                    return True
+
+                                                if self.neighbor_id is not None:
+                                                    return True
+
+                                                if self.neighbor_snpa is not None:
+                                                    return True
+
+                                                if self.segment_routing_sid_value is not None:
+                                                    return True
+
+                                                if self.tag is not None:
+                                                    return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                if self.weight is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.ExplicitPath']['meta_info']
 
 
                                         class Source(object):
@@ -35944,6 +44186,11 @@ class Isis(object):
                                                 return False
                                             if self.administrative_distance is not None:
                                                 return True
+
+                                            if self.explicit_path is not None:
+                                                for child_ref in self.explicit_path:
+                                                    if child_ref._has_data():
+                                                        return True
 
                                             if self.is_external_metric is not None:
                                                 return True
@@ -37020,6 +45267,11 @@ class Isis(object):
                                         
                                         	**range:** 0..65535
                                         
+                                        .. attribute:: explicit_path
+                                        
+                                        	SR microloop avoidance paths
+                                        	**type**\: list of    :py:class:`ExplicitPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.ExplicitPath>`
+                                        
                                         .. attribute:: is_external_metric
                                         
                                         	Is the metric an external metric?
@@ -37084,6 +45336,9 @@ class Isis(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.administrative_distance = None
+                                            self.explicit_path = YList()
+                                            self.explicit_path.parent = self
+                                            self.explicit_path.name = 'explicit_path'
                                             self.is_external_metric = None
                                             self.metric = None
                                             self.multicast_metric = None
@@ -37157,6 +45412,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.Paths.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -37181,6 +45446,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -37238,6 +45507,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -37360,6 +45634,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -37416,6 +45691,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -37430,6 +45712,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -37458,6 +45741,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -37511,6 +45797,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -37567,6 +45856,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.Paths.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.Paths.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -37601,6 +45990,14 @@ class Isis(object):
 
                                                 if self.tag is not None:
                                                     return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
 
                                                 if self.weight is not None:
                                                     return True
@@ -37753,6 +46150,11 @@ class Isis(object):
                                                 	Is the backup path SRLG disjoint with primary?
                                                 	**type**\:  bool
                                                 
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
+                                                	**type**\:  bool
+                                                
                                                 .. attribute:: is_tunnel_requested
                                                 
                                                 	Is SR TE tunnel requested
@@ -37873,6 +46275,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -37929,6 +46332,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -37943,6 +46353,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -37971,6 +46382,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -38024,6 +46438,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -38178,6 +46595,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.MulticastPath.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -38202,6 +46629,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -38259,6 +46690,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -38381,6 +46817,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -38437,6 +46874,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -38451,6 +46895,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -38479,6 +46924,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -38532,6 +46980,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -38588,6 +47039,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.MulticastPath.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -38622,6 +47173,14 @@ class Isis(object):
 
                                                 if self.tag is not None:
                                                     return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
 
                                                 if self.weight is not None:
                                                     return True
@@ -38683,6 +47242,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.SrtePath.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -38707,6 +47276,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -38764,6 +47337,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -38886,6 +47464,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -38942,6 +47521,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -38956,6 +47542,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -38984,6 +47571,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -39037,6 +47627,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -39093,6 +47686,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.SrtePath.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -39128,6 +47821,14 @@ class Isis(object):
                                                 if self.tag is not None:
                                                     return True
 
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
+
                                                 if self.weight is not None:
                                                     return True
 
@@ -39137,6 +47838,653 @@ class Isis(object):
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                 return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.SrtePath']['meta_info']
+
+
+                                        class ExplicitPath(object):
+                                            """
+                                            SR microloop avoidance paths
+                                            
+                                            .. attribute:: egress_interface
+                                            
+                                            	Interface to send the packet out of
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: frr_backup
+                                            
+                                            	FRR backup for this path
+                                            	**type**\:   :py:class:`FrrBackup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.ExplicitPath.FrrBackup>`
+                                            
+                                            .. attribute:: neighbor_address
+                                            
+                                            	Next hop neighbor's forwarding address
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                            
+                                            .. attribute:: neighbor_id
+                                            
+                                            	Next hop neighbor ID
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                            
+                                            .. attribute:: neighbor_snpa
+                                            
+                                            	Next hop neighbor's SNPA
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                            
+                                            .. attribute:: segment_routing_sid_value
+                                            
+                                            	Segment routing sid value received from first hop
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: tag
+                                            
+                                            	Tag associated with the path
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.ExplicitPath.UloopExplicit>`
+                                            
+                                            .. attribute:: weight
+                                            
+                                            	Weight configured on the interface
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'clns-isis-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.egress_interface = None
+                                                self.frr_backup = Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.ExplicitPath.FrrBackup()
+                                                self.frr_backup.parent = self
+                                                self.neighbor_address = None
+                                                self.neighbor_id = None
+                                                self.neighbor_snpa = None
+                                                self.segment_routing_sid_value = None
+                                                self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
+                                                self.weight = None
+
+
+                                            class FrrBackup(object):
+                                                """
+                                                FRR backup for this path
+                                                
+                                                .. attribute:: backup_repair
+                                                
+                                                	Backup Repair List
+                                                	**type**\: list of    :py:class:`BackupRepair <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.ExplicitPath.FrrBackup.BackupRepair>`
+                                                
+                                                .. attribute:: backup_repair_list_size
+                                                
+                                                	Backup Repair List Size
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: egress_interface
+                                                
+                                                	Interface to send the packet out of
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: is_downstream
+                                                
+                                                	Is the backup path via downstream node?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_epcfrr_lfa
+                                                
+                                                	Is the backup path via a TI\-LFA?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_lc_disjoint
+                                                
+                                                	Is the backup path line card disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_node_protecting
+                                                
+                                                	Is the backup path node protecting?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_primary_path
+                                                
+                                                	Is the backup path an ECMP to the network?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_remote_lfa
+                                                
+                                                	Is the backup path via a Remote LFA?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_srlg_disjoint
+                                                
+                                                	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_tunnel_requested
+                                                
+                                                	Is SR TE tunnel requested
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: neighbor_address
+                                                
+                                                	Next hop neighbor's forwarding address
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: neighbor_id
+                                                
+                                                	Next hop neighbor ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: neighbor_snpa
+                                                
+                                                	Next hop neighbor's SNPA
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: num_sid
+                                                
+                                                	Number of SIDs in TI\-LFA/rLFA
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: remote_lfa_router_id
+                                                
+                                                	Remote LFA Router ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: remote_lfa_router_pid
+                                                
+                                                	Remote LFA Router ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: remote_lfa_system_id
+                                                
+                                                	Remote LFA PQ Node's ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: remote_lfa_system_pid
+                                                
+                                                	Remote LFA PQ Node's ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: segment_routing_sid_value
+                                                
+                                                	Segment routing sid value received from first hop
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: segment_routing_sid_value_entry
+                                                
+                                                	Segment routing sid values for TI\-LFA/rLFA
+                                                	**type**\:  list of int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: tilfa_computation
+                                                
+                                                	Ti LFA computation which provided backup path
+                                                	**type**\:   :py:class:`IsisTilfaComputationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.IsisTilfaComputationEnum>`
+                                                
+                                                .. attribute:: total_backup_distance
+                                                
+                                                	Distance to the network via this backup path
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: tunnel_egress_interface
+                                                
+                                                	Tunnel Interface to send the packet out of
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: weight
+                                                
+                                                	Weight configured on the interface
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.backup_repair = YList()
+                                                    self.backup_repair.parent = self
+                                                    self.backup_repair.name = 'backup_repair'
+                                                    self.backup_repair_list_size = None
+                                                    self.egress_interface = None
+                                                    self.is_downstream = None
+                                                    self.is_epcfrr_lfa = None
+                                                    self.is_lc_disjoint = None
+                                                    self.is_node_protecting = None
+                                                    self.is_primary_path = None
+                                                    self.is_remote_lfa = None
+                                                    self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
+                                                    self.is_tunnel_requested = None
+                                                    self.neighbor_address = None
+                                                    self.neighbor_id = None
+                                                    self.neighbor_snpa = None
+                                                    self.num_sid = None
+                                                    self.remote_lfa_router_id = None
+                                                    self.remote_lfa_router_pid = None
+                                                    self.remote_lfa_system_id = None
+                                                    self.remote_lfa_system_pid = None
+                                                    self.segment_routing_sid_value = None
+                                                    self.segment_routing_sid_value_entry = YLeafList()
+                                                    self.segment_routing_sid_value_entry.parent = self
+                                                    self.segment_routing_sid_value_entry.name = 'segment_routing_sid_value_entry'
+                                                    self.tilfa_computation = None
+                                                    self.total_backup_distance = None
+                                                    self.tunnel_egress_interface = None
+                                                    self.weight = None
+
+
+                                                class BackupRepair(object):
+                                                    """
+                                                    Backup Repair List
+                                                    
+                                                    .. attribute:: repair_element_node_id
+                                                    
+                                                    	RepairElementNodeID
+                                                    	**type**\:  str
+                                                    
+                                                    .. attribute:: repair_element_type
+                                                    
+                                                    	Repair Element Type
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_ipv4_addr
+                                                    
+                                                    	RepairIPv4Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_ipv6_addr
+                                                    
+                                                    	RepairIPv6Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_label
+                                                    
+                                                    	Repair Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'clns-isis-oper'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.repair_element_node_id = None
+                                                        self.repair_element_type = None
+                                                        self.repair_ipv4_addr = None
+                                                        self.repair_ipv6_addr = None
+                                                        self.repair_label = None
+                                                        self.repair_strict_spf_label = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:backup-repair'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return False
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.repair_element_node_id is not None:
+                                                            return True
+
+                                                        if self.repair_element_type is not None:
+                                                            return True
+
+                                                        if self.repair_ipv4_addr is not None:
+                                                            return True
+
+                                                        if self.repair_ipv6_addr is not None:
+                                                            return True
+
+                                                        if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                        return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.ExplicitPath.FrrBackup.BackupRepair']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:frr-backup'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.backup_repair is not None:
+                                                        for child_ref in self.backup_repair:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    if self.backup_repair_list_size is not None:
+                                                        return True
+
+                                                    if self.egress_interface is not None:
+                                                        return True
+
+                                                    if self.is_downstream is not None:
+                                                        return True
+
+                                                    if self.is_epcfrr_lfa is not None:
+                                                        return True
+
+                                                    if self.is_lc_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_node_protecting is not None:
+                                                        return True
+
+                                                    if self.is_primary_path is not None:
+                                                        return True
+
+                                                    if self.is_remote_lfa is not None:
+                                                        return True
+
+                                                    if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
+                                                        return True
+
+                                                    if self.is_tunnel_requested is not None:
+                                                        return True
+
+                                                    if self.neighbor_address is not None:
+                                                        return True
+
+                                                    if self.neighbor_id is not None:
+                                                        return True
+
+                                                    if self.neighbor_snpa is not None:
+                                                        return True
+
+                                                    if self.num_sid is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_router_id is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_router_pid is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_system_id is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_system_pid is not None:
+                                                        return True
+
+                                                    if self.segment_routing_sid_value is not None:
+                                                        return True
+
+                                                    if self.segment_routing_sid_value_entry is not None:
+                                                        for child in self.segment_routing_sid_value_entry:
+                                                            if child is not None:
+                                                                return True
+
+                                                    if self.tilfa_computation is not None:
+                                                        return True
+
+                                                    if self.total_backup_distance is not None:
+                                                        return True
+
+                                                    if self.tunnel_egress_interface is not None:
+                                                        return True
+
+                                                    if self.weight is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.ExplicitPath.FrrBackup']['meta_info']
+
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.ExplicitPath.UloopExplicit']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:explicit-path'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.egress_interface is not None:
+                                                    return True
+
+                                                if self.frr_backup is not None and self.frr_backup._has_data():
+                                                    return True
+
+                                                if self.neighbor_address is not None:
+                                                    return True
+
+                                                if self.neighbor_id is not None:
+                                                    return True
+
+                                                if self.neighbor_snpa is not None:
+                                                    return True
+
+                                                if self.segment_routing_sid_value is not None:
+                                                    return True
+
+                                                if self.tag is not None:
+                                                    return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                if self.weight is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.ExplicitPath']['meta_info']
 
 
                                         class Source(object):
@@ -39575,6 +48923,11 @@ class Isis(object):
                                             if self.administrative_distance is not None:
                                                 return True
 
+                                            if self.explicit_path is not None:
+                                                for child_ref in self.explicit_path:
+                                                    if child_ref._has_data():
+                                                        return True
+
                                             if self.is_external_metric is not None:
                                                 return True
 
@@ -39635,6 +48988,11 @@ class Isis(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..65535
+                                        
+                                        .. attribute:: explicit_path
+                                        
+                                        	SR microloop avoidance paths
+                                        	**type**\: list of    :py:class:`ExplicitPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.ExplicitPath>`
                                         
                                         .. attribute:: is_external_metric
                                         
@@ -39700,6 +49058,9 @@ class Isis(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.administrative_distance = None
+                                            self.explicit_path = YList()
+                                            self.explicit_path.parent = self
+                                            self.explicit_path.name = 'explicit_path'
                                             self.is_external_metric = None
                                             self.metric = None
                                             self.multicast_metric = None
@@ -39773,6 +49134,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.Paths.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -39797,6 +49168,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -39854,6 +49229,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -39976,6 +49356,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -40032,6 +49413,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -40046,6 +49434,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -40074,6 +49463,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -40127,6 +49519,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -40183,6 +49578,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.Paths.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.Paths.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -40217,6 +49712,14 @@ class Isis(object):
 
                                                 if self.tag is not None:
                                                     return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
 
                                                 if self.weight is not None:
                                                     return True
@@ -40369,6 +49872,11 @@ class Isis(object):
                                                 	Is the backup path SRLG disjoint with primary?
                                                 	**type**\:  bool
                                                 
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
+                                                	**type**\:  bool
+                                                
                                                 .. attribute:: is_tunnel_requested
                                                 
                                                 	Is SR TE tunnel requested
@@ -40489,6 +49997,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -40545,6 +50054,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -40559,6 +50075,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -40587,6 +50104,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -40640,6 +50160,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -40794,6 +50317,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.MulticastPath.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -40818,6 +50351,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -40875,6 +50412,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -40997,6 +50539,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -41053,6 +50596,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -41067,6 +50617,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -41095,6 +50646,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -41148,6 +50702,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -41204,6 +50761,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.MulticastPath.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -41238,6 +50895,14 @@ class Isis(object):
 
                                                 if self.tag is not None:
                                                     return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
 
                                                 if self.weight is not None:
                                                     return True
@@ -41299,6 +50964,16 @@ class Isis(object):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.SrtePath.UloopExplicit>`
+                                            
                                             .. attribute:: weight
                                             
                                             	Weight configured on the interface
@@ -41323,6 +50998,10 @@ class Isis(object):
                                                 self.neighbor_snpa = None
                                                 self.segment_routing_sid_value = None
                                                 self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
                                                 self.weight = None
 
 
@@ -41380,6 +51059,11 @@ class Isis(object):
                                                 .. attribute:: is_srlg_disjoint
                                                 
                                                 	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: is_tunnel_requested
@@ -41502,6 +51186,7 @@ class Isis(object):
                                                     self.is_primary_path = None
                                                     self.is_remote_lfa = None
                                                     self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
                                                     self.is_tunnel_requested = None
                                                     self.neighbor_address = None
                                                     self.neighbor_id = None
@@ -41558,6 +51243,13 @@ class Isis(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
                                                     
 
                                                     """
@@ -41572,6 +51264,7 @@ class Isis(object):
                                                         self.repair_ipv4_addr = None
                                                         self.repair_ipv6_addr = None
                                                         self.repair_label = None
+                                                        self.repair_strict_spf_label = None
 
                                                     @property
                                                     def _common_path(self):
@@ -41600,6 +51293,9 @@ class Isis(object):
                                                             return True
 
                                                         if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
                                                             return True
 
                                                         return False
@@ -41653,6 +51349,9 @@ class Isis(object):
                                                         return True
 
                                                     if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
                                                         return True
 
                                                     if self.is_tunnel_requested is not None:
@@ -41709,6 +51408,106 @@ class Isis(object):
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                     return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup']['meta_info']
 
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.SrtePath.UloopExplicit']['meta_info']
+
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
@@ -41744,6 +51543,14 @@ class Isis(object):
                                                 if self.tag is not None:
                                                     return True
 
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
+
                                                 if self.weight is not None:
                                                     return True
 
@@ -41753,6 +51560,653 @@ class Isis(object):
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                                                 return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.SrtePath']['meta_info']
+
+
+                                        class ExplicitPath(object):
+                                            """
+                                            SR microloop avoidance paths
+                                            
+                                            .. attribute:: egress_interface
+                                            
+                                            	Interface to send the packet out of
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: frr_backup
+                                            
+                                            	FRR backup for this path
+                                            	**type**\:   :py:class:`FrrBackup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.ExplicitPath.FrrBackup>`
+                                            
+                                            .. attribute:: neighbor_address
+                                            
+                                            	Next hop neighbor's forwarding address
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                            
+                                            .. attribute:: neighbor_id
+                                            
+                                            	Next hop neighbor ID
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                            
+                                            .. attribute:: neighbor_snpa
+                                            
+                                            	Next hop neighbor's SNPA
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                            
+                                            .. attribute:: segment_routing_sid_value
+                                            
+                                            	Segment routing sid value received from first hop
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: tag
+                                            
+                                            	Tag associated with the path
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: tunnel_interface
+                                            
+                                            	Explicit path tunnel interface
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: uloop_explicit
+                                            
+                                            	Uloop Explicit List
+                                            	**type**\: list of    :py:class:`UloopExplicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.ExplicitPath.UloopExplicit>`
+                                            
+                                            .. attribute:: weight
+                                            
+                                            	Weight configured on the interface
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'clns-isis-oper'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.egress_interface = None
+                                                self.frr_backup = Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.ExplicitPath.FrrBackup()
+                                                self.frr_backup.parent = self
+                                                self.neighbor_address = None
+                                                self.neighbor_id = None
+                                                self.neighbor_snpa = None
+                                                self.segment_routing_sid_value = None
+                                                self.tag = None
+                                                self.tunnel_interface = None
+                                                self.uloop_explicit = YList()
+                                                self.uloop_explicit.parent = self
+                                                self.uloop_explicit.name = 'uloop_explicit'
+                                                self.weight = None
+
+
+                                            class FrrBackup(object):
+                                                """
+                                                FRR backup for this path
+                                                
+                                                .. attribute:: backup_repair
+                                                
+                                                	Backup Repair List
+                                                	**type**\: list of    :py:class:`BackupRepair <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.ExplicitPath.FrrBackup.BackupRepair>`
+                                                
+                                                .. attribute:: backup_repair_list_size
+                                                
+                                                	Backup Repair List Size
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: egress_interface
+                                                
+                                                	Interface to send the packet out of
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: is_downstream
+                                                
+                                                	Is the backup path via downstream node?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_epcfrr_lfa
+                                                
+                                                	Is the backup path via a TI\-LFA?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_lc_disjoint
+                                                
+                                                	Is the backup path line card disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_node_protecting
+                                                
+                                                	Is the backup path node protecting?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_primary_path
+                                                
+                                                	Is the backup path an ECMP to the network?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_remote_lfa
+                                                
+                                                	Is the backup path via a Remote LFA?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_srlg_disjoint
+                                                
+                                                	Is the backup path SRLG disjoint with primary?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_strict_spflfa
+                                                
+                                                	Is the backup path TI\-LFA strict SPF?
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: is_tunnel_requested
+                                                
+                                                	Is SR TE tunnel requested
+                                                	**type**\:  bool
+                                                
+                                                .. attribute:: neighbor_address
+                                                
+                                                	Next hop neighbor's forwarding address
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: neighbor_id
+                                                
+                                                	Next hop neighbor ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: neighbor_snpa
+                                                
+                                                	Next hop neighbor's SNPA
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: num_sid
+                                                
+                                                	Number of SIDs in TI\-LFA/rLFA
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: remote_lfa_router_id
+                                                
+                                                	Remote LFA Router ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: remote_lfa_router_pid
+                                                
+                                                	Remote LFA Router ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: remote_lfa_system_id
+                                                
+                                                	Remote LFA PQ Node's ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: remote_lfa_system_pid
+                                                
+                                                	Remote LFA PQ Node's ID
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                                                
+                                                .. attribute:: segment_routing_sid_value
+                                                
+                                                	Segment routing sid value received from first hop
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: segment_routing_sid_value_entry
+                                                
+                                                	Segment routing sid values for TI\-LFA/rLFA
+                                                	**type**\:  list of int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: tilfa_computation
+                                                
+                                                	Ti LFA computation which provided backup path
+                                                	**type**\:   :py:class:`IsisTilfaComputationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.IsisTilfaComputationEnum>`
+                                                
+                                                .. attribute:: total_backup_distance
+                                                
+                                                	Distance to the network via this backup path
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: tunnel_egress_interface
+                                                
+                                                	Tunnel Interface to send the packet out of
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: weight
+                                                
+                                                	Weight configured on the interface
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.backup_repair = YList()
+                                                    self.backup_repair.parent = self
+                                                    self.backup_repair.name = 'backup_repair'
+                                                    self.backup_repair_list_size = None
+                                                    self.egress_interface = None
+                                                    self.is_downstream = None
+                                                    self.is_epcfrr_lfa = None
+                                                    self.is_lc_disjoint = None
+                                                    self.is_node_protecting = None
+                                                    self.is_primary_path = None
+                                                    self.is_remote_lfa = None
+                                                    self.is_srlg_disjoint = None
+                                                    self.is_strict_spflfa = None
+                                                    self.is_tunnel_requested = None
+                                                    self.neighbor_address = None
+                                                    self.neighbor_id = None
+                                                    self.neighbor_snpa = None
+                                                    self.num_sid = None
+                                                    self.remote_lfa_router_id = None
+                                                    self.remote_lfa_router_pid = None
+                                                    self.remote_lfa_system_id = None
+                                                    self.remote_lfa_system_pid = None
+                                                    self.segment_routing_sid_value = None
+                                                    self.segment_routing_sid_value_entry = YLeafList()
+                                                    self.segment_routing_sid_value_entry.parent = self
+                                                    self.segment_routing_sid_value_entry.name = 'segment_routing_sid_value_entry'
+                                                    self.tilfa_computation = None
+                                                    self.total_backup_distance = None
+                                                    self.tunnel_egress_interface = None
+                                                    self.weight = None
+
+
+                                                class BackupRepair(object):
+                                                    """
+                                                    Backup Repair List
+                                                    
+                                                    .. attribute:: repair_element_node_id
+                                                    
+                                                    	RepairElementNodeID
+                                                    	**type**\:  str
+                                                    
+                                                    .. attribute:: repair_element_type
+                                                    
+                                                    	Repair Element Type
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_ipv4_addr
+                                                    
+                                                    	RepairIPv4Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_ipv6_addr
+                                                    
+                                                    	RepairIPv6Addr
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    .. attribute:: repair_label
+                                                    
+                                                    	Repair Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    .. attribute:: repair_strict_spf_label
+                                                    
+                                                    	Repair Strict SPF Label
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..4294967295
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'clns-isis-oper'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.repair_element_node_id = None
+                                                        self.repair_element_type = None
+                                                        self.repair_ipv4_addr = None
+                                                        self.repair_ipv6_addr = None
+                                                        self.repair_label = None
+                                                        self.repair_strict_spf_label = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:backup-repair'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return False
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.repair_element_node_id is not None:
+                                                            return True
+
+                                                        if self.repair_element_type is not None:
+                                                            return True
+
+                                                        if self.repair_ipv4_addr is not None:
+                                                            return True
+
+                                                        if self.repair_ipv6_addr is not None:
+                                                            return True
+
+                                                        if self.repair_label is not None:
+                                                            return True
+
+                                                        if self.repair_strict_spf_label is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                        return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.ExplicitPath.FrrBackup.BackupRepair']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:frr-backup'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.backup_repair is not None:
+                                                        for child_ref in self.backup_repair:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    if self.backup_repair_list_size is not None:
+                                                        return True
+
+                                                    if self.egress_interface is not None:
+                                                        return True
+
+                                                    if self.is_downstream is not None:
+                                                        return True
+
+                                                    if self.is_epcfrr_lfa is not None:
+                                                        return True
+
+                                                    if self.is_lc_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_node_protecting is not None:
+                                                        return True
+
+                                                    if self.is_primary_path is not None:
+                                                        return True
+
+                                                    if self.is_remote_lfa is not None:
+                                                        return True
+
+                                                    if self.is_srlg_disjoint is not None:
+                                                        return True
+
+                                                    if self.is_strict_spflfa is not None:
+                                                        return True
+
+                                                    if self.is_tunnel_requested is not None:
+                                                        return True
+
+                                                    if self.neighbor_address is not None:
+                                                        return True
+
+                                                    if self.neighbor_id is not None:
+                                                        return True
+
+                                                    if self.neighbor_snpa is not None:
+                                                        return True
+
+                                                    if self.num_sid is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_router_id is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_router_pid is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_system_id is not None:
+                                                        return True
+
+                                                    if self.remote_lfa_system_pid is not None:
+                                                        return True
+
+                                                    if self.segment_routing_sid_value is not None:
+                                                        return True
+
+                                                    if self.segment_routing_sid_value_entry is not None:
+                                                        for child in self.segment_routing_sid_value_entry:
+                                                            if child is not None:
+                                                                return True
+
+                                                    if self.tilfa_computation is not None:
+                                                        return True
+
+                                                    if self.total_backup_distance is not None:
+                                                        return True
+
+                                                    if self.tunnel_egress_interface is not None:
+                                                        return True
+
+                                                    if self.weight is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.ExplicitPath.FrrBackup']['meta_info']
+
+
+                                            class UloopExplicit(object):
+                                                """
+                                                Uloop Explicit List
+                                                
+                                                .. attribute:: repair_element_node_id
+                                                
+                                                	RepairElementNodeID
+                                                	**type**\:  str
+                                                
+                                                .. attribute:: repair_element_type
+                                                
+                                                	Repair Element Type
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_ipv4_addr
+                                                
+                                                	RepairIPv4Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_ipv6_addr
+                                                
+                                                	RepairIPv6Addr
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: repair_label
+                                                
+                                                	Repair Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                .. attribute:: repair_strict_spf_label
+                                                
+                                                	Repair Strict SPF Label
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'clns-isis-oper'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.repair_element_node_id = None
+                                                    self.repair_element_type = None
+                                                    self.repair_ipv4_addr = None
+                                                    self.repair_ipv6_addr = None
+                                                    self.repair_label = None
+                                                    self.repair_strict_spf_label = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:uloop-explicit'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.repair_element_node_id is not None:
+                                                        return True
+
+                                                    if self.repair_element_type is not None:
+                                                        return True
+
+                                                    if self.repair_ipv4_addr is not None:
+                                                        return True
+
+                                                    if self.repair_ipv6_addr is not None:
+                                                        return True
+
+                                                    if self.repair_label is not None:
+                                                        return True
+
+                                                    if self.repair_strict_spf_label is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                    return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.ExplicitPath.UloopExplicit']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:explicit-path'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.egress_interface is not None:
+                                                    return True
+
+                                                if self.frr_backup is not None and self.frr_backup._has_data():
+                                                    return True
+
+                                                if self.neighbor_address is not None:
+                                                    return True
+
+                                                if self.neighbor_id is not None:
+                                                    return True
+
+                                                if self.neighbor_snpa is not None:
+                                                    return True
+
+                                                if self.segment_routing_sid_value is not None:
+                                                    return True
+
+                                                if self.tag is not None:
+                                                    return True
+
+                                                if self.tunnel_interface is not None:
+                                                    return True
+
+                                                if self.uloop_explicit is not None:
+                                                    for child_ref in self.uloop_explicit:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                if self.weight is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.ExplicitPath']['meta_info']
 
 
                                         class Source(object):
@@ -42190,6 +52644,11 @@ class Isis(object):
                                                 return False
                                             if self.administrative_distance is not None:
                                                 return True
+
+                                            if self.explicit_path is not None:
+                                                for child_ref in self.explicit_path:
+                                                    if child_ref._has_data():
+                                                        return True
 
                                             if self.is_external_metric is not None:
                                                 return True
@@ -43203,11 +53662,6 @@ class Isis(object):
                     	gen
                     	**type**\:   :py:class:`Gen <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.NsrStatus.IsisNsrInfra.Gen>`
                     
-                    .. attribute:: ism
-                    
-                    	ism
-                    	**type**\:   :py:class:`Ism <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.Isis.Instances.Instance.NsrStatus.IsisNsrInfra.Ism>`
-                    
                     .. attribute:: ncd
                     
                     	ncd
@@ -43241,8 +53695,6 @@ class Isis(object):
                         self.ds.parent = self
                         self.gen = Isis.Instances.Instance.NsrStatus.IsisNsrInfra.Gen()
                         self.gen.parent = self
-                        self.ism = Isis.Instances.Instance.NsrStatus.IsisNsrInfra.Ism()
-                        self.ism.parent = self
                         self.ncd = YList()
                         self.ncd.parent = self
                         self.ncd.name = 'ncd'
@@ -43522,161 +53974,6 @@ class Isis(object):
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
                             return meta._meta_table['Isis.Instances.Instance.NsrStatus.IsisNsrInfra.Pm']['meta_info']
-
-
-                    class Ism(object):
-                        """
-                        ism
-                        
-                        .. attribute:: conn
-                        
-                        	conn
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: conn_cb
-                        
-                        	conn cb
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: conn_status
-                        
-                        	conn status
-                        	**type**\:  bool
-                        
-                        .. attribute:: disconn
-                        
-                        	disconn
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: disconn_cb
-                        
-                        	disconn cb
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: evt_rsp_cb
-                        
-                        	evt rsp cb
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: ha_opt
-                        
-                        	ha opt
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: ha_opt_cb
-                        
-                        	ha opt cb
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: reg_rsp_cb
-                        
-                        	reg rsp cb
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: send_ready
-                        
-                        	send ready
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: wait_ready
-                        
-                        	wait ready
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        
-
-                        """
-
-                        _prefix = 'clns-isis-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.conn = None
-                            self.conn_cb = None
-                            self.conn_status = None
-                            self.disconn = None
-                            self.disconn_cb = None
-                            self.evt_rsp_cb = None
-                            self.ha_opt = None
-                            self.ha_opt_cb = None
-                            self.reg_rsp_cb = None
-                            self.send_ready = None
-                            self.wait_ready = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-oper:ism'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.conn is not None:
-                                return True
-
-                            if self.conn_cb is not None:
-                                return True
-
-                            if self.conn_status is not None:
-                                return True
-
-                            if self.disconn is not None:
-                                return True
-
-                            if self.disconn_cb is not None:
-                                return True
-
-                            if self.evt_rsp_cb is not None:
-                                return True
-
-                            if self.ha_opt is not None:
-                                return True
-
-                            if self.ha_opt_cb is not None:
-                                return True
-
-                            if self.reg_rsp_cb is not None:
-                                return True
-
-                            if self.send_ready is not None:
-                                return True
-
-                            if self.wait_ready is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_oper as meta
-                            return meta._meta_table['Isis.Instances.Instance.NsrStatus.IsisNsrInfra.Ism']['meta_info']
 
 
                     class Ds(object):
@@ -45200,9 +55497,6 @@ class Isis(object):
                             return True
 
                         if self.gen is not None and self.gen._has_data():
-                            return True
-
-                        if self.ism is not None and self.ism._has_data():
                             return True
 
                         if self.ncd is not None:
@@ -47402,12 +57696,26 @@ class Isis(object):
                                         
                                         	**range:** 0..4294967295
                                         
-                                        .. attribute:: max_label_supported
+                                        .. attribute:: max_bkp_label_supported
                                         
-                                        	MPLS maximum number of labels supported
+                                        	MPLS maximum number of backup labels supported
                                         	**type**\:  int
                                         
-                                        	**range:** 0..65535
+                                        	**range:** 0..255
+                                        
+                                        .. attribute:: max_label_supported
+                                        
+                                        	MPLS maximum number of pri labels supported
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..255
+                                        
+                                        .. attribute:: max_srte_label_supported
+                                        
+                                        	MPLS maximum number of srte labels supported
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..255
                                         
                                         
 
@@ -47438,7 +57746,9 @@ class Isis(object):
                                             self.level2ldp_sync_enabled = None
                                             self.level2pp_configured = None
                                             self.level2pp_metric = None
+                                            self.max_bkp_label_supported = None
                                             self.max_label_supported = None
+                                            self.max_srte_label_supported = None
 
 
                                         class AdjacencyFormStatus(object):
@@ -47710,7 +58020,13 @@ class Isis(object):
                                             if self.level2pp_metric is not None:
                                                 return True
 
+                                            if self.max_bkp_label_supported is not None:
+                                                return True
+
                                             if self.max_label_supported is not None:
+                                                return True
+
+                                            if self.max_srte_label_supported is not None:
                                                 return True
 
                                             return False
@@ -51601,6 +61917,39 @@ class Isis(object):
                 
                 	**pattern:** [a\-fA\-F0\-9]{2}(\\.[a\-fA\-F0\-9]{4}){0,6}
                 
+                .. attribute:: adj_form_count
+                
+                	Adj Forming count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: adj_full_count
+                
+                	Adj Full count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: adj_stagger_enabled
+                
+                	Adjacency Stagger Enabled
+                	**type**\:  bool
+                
+                .. attribute:: adj_stagger_init
+                
+                	Adjacency Stagger Initiall Number of Forming Neighbors Allowed
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: adj_stagger_max
+                
+                	Adjacency Stagger Max Number of Forming Neighbors Allowed
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
                 .. attribute:: configured_nsf_flavor
                 
                 	Configured NSF type
@@ -51671,6 +62020,11 @@ class Isis(object):
                     self.active_area_address = YLeafList()
                     self.active_area_address.parent = self
                     self.active_area_address.name = 'active_area_address'
+                    self.adj_form_count = None
+                    self.adj_full_count = None
+                    self.adj_stagger_enabled = None
+                    self.adj_stagger_init = None
+                    self.adj_stagger_max = None
                     self.configured_nsf_flavor = None
                     self.instance_id = None
                     self.last_restart_nsf_flavor = None
@@ -52019,6 +62373,13 @@ class Isis(object):
                         	Accept metric style
                         	**type**\:   :py:class:`IsisMetricStyleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.IsisMetricStyleEnum>`
                         
+                        .. attribute:: duration
+                        
+                        	SR microloop avoidance duration
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: generated_metric_style
                         
                         	Generate metric style
@@ -52041,10 +62402,46 @@ class Isis(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: rib_update_delay
+                        
+                        	Microloop RIB update delay
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: sr_uloop_event
+                        
+                        	SR microloop avoidance event
+                        	**type**\:   :py:class:`IsisUloopEventEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.IsisUloopEventEnum>`
+                        
+                        .. attribute:: sr_uloop_far_node_id
+                        
+                        	SR microloop far node
+                        	**type**\:  str
+                        
+                        	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}\\.[a\-fA\-F0\-9]{2}
+                        
+                        .. attribute:: sr_uloop_is_active
+                        
+                        	Explicit paths installed in the RIB
+                        	**type**\:  bool
+                        
+                        .. attribute:: sr_uloop_near_node_id
+                        
+                        	SR microloop near node
+                        	**type**\:  str
+                        
+                        	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}\\.[a\-fA\-F0\-9]{2}
+                        
                         .. attribute:: te_enabled
                         
                         	Indicates whether MPLS TE is enabled
                         	**type**\:  bool
+                        
+                        .. attribute:: uloop_avoidance_type
+                        
+                        	Microloop avoidance type
+                        	**type**\:   :py:class:`IsisUloopAvoidanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper.IsisUloopAvoidanceEnum>`
                         
                         .. attribute:: uses_default_link_topo_flag
                         
@@ -52061,11 +62458,18 @@ class Isis(object):
                         def __init__(self):
                             self.parent = None
                             self.accepted_metric_style = None
+                            self.duration = None
                             self.generated_metric_style = None
                             self.ispf_state = None
                             self.level = None
                             self.metric = None
+                            self.rib_update_delay = None
+                            self.sr_uloop_event = None
+                            self.sr_uloop_far_node_id = None
+                            self.sr_uloop_is_active = None
+                            self.sr_uloop_near_node_id = None
                             self.te_enabled = None
+                            self.uloop_avoidance_type = None
                             self.uses_default_link_topo_flag = None
 
                         @property
@@ -52085,6 +62489,9 @@ class Isis(object):
                             if self.accepted_metric_style is not None:
                                 return True
 
+                            if self.duration is not None:
+                                return True
+
                             if self.generated_metric_style is not None:
                                 return True
 
@@ -52097,7 +62504,25 @@ class Isis(object):
                             if self.metric is not None:
                                 return True
 
+                            if self.rib_update_delay is not None:
+                                return True
+
+                            if self.sr_uloop_event is not None:
+                                return True
+
+                            if self.sr_uloop_far_node_id is not None:
+                                return True
+
+                            if self.sr_uloop_is_active is not None:
+                                return True
+
+                            if self.sr_uloop_near_node_id is not None:
+                                return True
+
                             if self.te_enabled is not None:
+                                return True
+
+                            if self.uloop_avoidance_type is not None:
                                 return True
 
                             if self.uses_default_link_topo_flag is not None:
@@ -52169,6 +62594,21 @@ class Isis(object):
                         for child in self.active_area_address:
                             if child is not None:
                                 return True
+
+                    if self.adj_form_count is not None:
+                        return True
+
+                    if self.adj_full_count is not None:
+                        return True
+
+                    if self.adj_stagger_enabled is not None:
+                        return True
+
+                    if self.adj_stagger_init is not None:
+                        return True
+
+                    if self.adj_stagger_max is not None:
+                        return True
 
                     if self.configured_nsf_flavor is not None:
                         return True

@@ -42,7 +42,7 @@ class EnvironmentalMonitoring(object):
     """
 
     _prefix = 'asr9k-sc-envmon-admin-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-01-19'
 
     def __init__(self):
         self.racks = EnvironmentalMonitoring.Racks()
@@ -63,7 +63,7 @@ class EnvironmentalMonitoring(object):
         """
 
         _prefix = 'asr9k-sc-envmon-admin-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-01-19'
 
         def __init__(self):
             self.parent = None
@@ -93,7 +93,7 @@ class EnvironmentalMonitoring(object):
             """
 
             _prefix = 'asr9k-sc-envmon-admin-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-01-19'
 
             def __init__(self):
                 self.parent = None
@@ -116,7 +116,7 @@ class EnvironmentalMonitoring(object):
                 """
 
                 _prefix = 'asr9k-sc-envmon-admin-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-01-19'
 
                 def __init__(self):
                     self.parent = None
@@ -146,7 +146,7 @@ class EnvironmentalMonitoring(object):
                     """
 
                     _prefix = 'asr9k-sc-envmon-admin-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-01-19'
 
                     def __init__(self):
                         self.parent = None
@@ -169,7 +169,7 @@ class EnvironmentalMonitoring(object):
                         """
 
                         _prefix = 'asr9k-sc-envmon-admin-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-01-19'
 
                         def __init__(self):
                             self.parent = None
@@ -204,7 +204,7 @@ class EnvironmentalMonitoring(object):
                             """
 
                             _prefix = 'asr9k-sc-envmon-admin-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-19'
 
                             def __init__(self):
                                 self.parent = None
@@ -229,7 +229,7 @@ class EnvironmentalMonitoring(object):
                                 """
 
                                 _prefix = 'asr9k-sc-envmon-admin-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-19'
 
                                 def __init__(self):
                                     self.parent = None
@@ -259,7 +259,7 @@ class EnvironmentalMonitoring(object):
                                     """
 
                                     _prefix = 'asr9k-sc-envmon-admin-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-19'
 
                                     def __init__(self):
                                         self.parent = None
@@ -282,7 +282,7 @@ class EnvironmentalMonitoring(object):
                                         """
 
                                         _prefix = 'asr9k-sc-envmon-admin-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-01-19'
 
                                         def __init__(self):
                                             self.parent = None
@@ -324,7 +324,7 @@ class EnvironmentalMonitoring(object):
                                             """
 
                                             _prefix = 'asr9k-sc-envmon-admin-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-01-19'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -350,7 +350,7 @@ class EnvironmentalMonitoring(object):
                                                 """
 
                                                 _prefix = 'asr9k-sc-envmon-admin-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-19'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -392,7 +392,7 @@ class EnvironmentalMonitoring(object):
                                                     """
 
                                                     _prefix = 'asr9k-sc-envmon-admin-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-19'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -444,7 +444,7 @@ class EnvironmentalMonitoring(object):
                                                         """
 
                                                         _prefix = 'asr9k-sc-envmon-admin-oper'
-                                                        _revision = '2015-11-09'
+                                                        _revision = '2017-01-19'
 
                                                         def __init__(self):
                                                             self.parent = None
@@ -646,7 +646,7 @@ class EnvironmentalMonitoring(object):
                                                 """
 
                                                 _prefix = 'asr9k-sc-envmon-admin-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-19'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -851,7 +851,7 @@ class EnvironmentalMonitoring(object):
                                 """
 
                                 _prefix = 'asr9k-sc-envmon-admin-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-19'
 
                                 def __init__(self):
                                     self.parent = None
@@ -938,7 +938,7 @@ class EnvironmentalMonitoring(object):
                                     """
 
                                     _prefix = 'asr9k-sc-envmon-admin-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-19'
 
                                     def __init__(self):
                                         self.parent = None

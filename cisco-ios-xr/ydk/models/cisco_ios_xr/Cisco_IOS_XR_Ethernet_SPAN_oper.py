@@ -430,7 +430,7 @@ class SpanMonitorSession(object):
                 	Session Name
                 	**type**\:  str
                 
-                	**length:** 0..79
+                	**length:** 1..79
                 
                 .. attribute:: octets_not_mirrored
                 
@@ -597,7 +597,7 @@ class SpanMonitorSession(object):
                 	Session Name
                 	**type**\:  str
                 
-                	**length:** 0..79
+                	**length:** 1..79
                 
                 .. attribute:: destination_data
                 
@@ -1428,7 +1428,7 @@ class SpanMonitorSession(object):
                     	Session Name
                     	**type**\:  str
                     
-                    	**length:** 0..79
+                    	**length:** 1..79
                     
                     .. attribute:: dest_pw_type_not_supported
                     
@@ -1488,6 +1488,11 @@ class SpanMonitorSession(object):
                     
                     	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
+                    .. attribute:: source_interface_is_a_destination
+                    
+                    	This source interface is a destination for another monitor\-session
+                    	**type**\:  bool
+                    
                     .. attribute:: source_interface_state
                     
                     	Source interface state
@@ -1525,6 +1530,7 @@ class SpanMonitorSession(object):
                         self.pfi_error = None
                         self.session_is_configured = None
                         self.source_interface = None
+                        self.source_interface_is_a_destination = None
                         self.source_interface_state = None
                         self.traffic_direction = None
                         self.traffic_parameters = SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters()
@@ -1877,6 +1883,9 @@ class SpanMonitorSession(object):
                             return True
 
                         if self.source_interface is not None:
+                            return True
+
+                        if self.source_interface_is_a_destination is not None:
                             return True
 
                         if self.source_interface_state is not None:

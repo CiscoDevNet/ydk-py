@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'AccountingModeEnum' : _MetaInfoEnum('AccountingModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg',
         {
@@ -108,7 +107,7 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-mfwd-cfg', True),
             _MetaInfoClassMember('boundary', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Boundary for administratively scoped multicast
                 addresses
                 ''',
@@ -215,12 +214,6 @@ _meta_table = {
                 '''                Enable IP multicast routing and forwarding
                 ''',
                 'multicast_forwarding',
-                'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
-            _MetaInfoClassMember('nsf', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Configure IP Multicast NSF state
-                ''',
-                'nsf',
                 'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
             _MetaInfoClassMember('rate-per-route', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -330,7 +323,7 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-mfwd-cfg', True),
             _MetaInfoClassMember('boundary', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Boundary for administratively scoped multicast
                 addresses
                 ''',
@@ -438,12 +431,6 @@ _meta_table = {
                 ''',
                 'multicast_forwarding',
                 'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
-            _MetaInfoClassMember('nsf', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Configure IP Multicast NSF state
-                ''',
-                'nsf',
-                'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
             _MetaInfoClassMember('out-of-memory-handling', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable out-of-memory handling
@@ -475,13 +462,13 @@ _meta_table = {
             [
             _MetaInfoClassMember('ipv4', REFERENCE_CLASS, 'Ipv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg', 'Mfwd.DefaultContext.Ipv4', 
                 [], [], 
-                '''                VRF table for IPV4 commands
+                '''                IPV4 commands in the default context
                 ''',
                 'ipv4',
                 'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
             _MetaInfoClassMember('ipv6', REFERENCE_CLASS, 'Ipv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg', 'Mfwd.DefaultContext.Ipv6', 
                 [], [], 
-                '''                VRF table for IPV6 commands
+                '''                IPV6 commands in the default context
                 ''',
                 'ipv6',
                 'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
@@ -581,7 +568,7 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-mfwd-cfg', True),
             _MetaInfoClassMember('boundary', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Boundary for administratively scoped multicast
                 addresses
                 ''',
@@ -641,18 +628,6 @@ _meta_table = {
                 ''',
                 'enable_on_all_interfaces',
                 'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
-            _MetaInfoClassMember('forwarding-latency', ATTRIBUTE, 'int' , None, None, 
-                [('5', '500')], [], 
-                '''                Knob to delay traffic being forwarded on a route
-                ''',
-                'forwarding_latency',
-                'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
-            _MetaInfoClassMember('interface-inheritance-disable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Disable interface inheritance configuration
-                ''',
-                'interface_inheritance_disable',
-                'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
             _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg', 'Mfwd.Vrfs.Vrf.Ipv6.Interfaces', 
                 [], [], 
                 '''                Interface-level Configuration
@@ -665,35 +640,11 @@ _meta_table = {
                 ''',
                 'log_traps',
                 'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
-            _MetaInfoClassMember('maximum-checking-disable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Disable state limit maximum checking
-                ''',
-                'maximum_checking_disable',
-                'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
-            _MetaInfoClassMember('mofrr-lockout-timer-config', ATTRIBUTE, 'int' , None, None, 
-                [('1', '3600')], [], 
-                '''                Mofrr Lockout timer value
-                ''',
-                'mofrr_lockout_timer_config',
-                'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
-            _MetaInfoClassMember('mofrr-loss-detection-timer-config', ATTRIBUTE, 'int' , None, None, 
-                [('1', '3600')], [], 
-                '''                Mofrr Loss Detection timer value
-                ''',
-                'mofrr_loss_detection_timer_config',
-                'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
             _MetaInfoClassMember('multicast-forwarding', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable IP multicast routing and forwarding
                 ''',
                 'multicast_forwarding',
-                'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
-            _MetaInfoClassMember('nsf', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Configure IP Multicast NSF state
-                ''',
-                'nsf',
                 'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
             _MetaInfoClassMember('rate-per-route', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -803,7 +754,7 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-mfwd-cfg', True),
             _MetaInfoClassMember('boundary', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Boundary for administratively scoped multicast
                 addresses
                 ''',
@@ -863,18 +814,6 @@ _meta_table = {
                 ''',
                 'enable_on_all_interfaces',
                 'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
-            _MetaInfoClassMember('forwarding-latency', ATTRIBUTE, 'int' , None, None, 
-                [('5', '500')], [], 
-                '''                Knob to delay traffic being forwarded on a route
-                ''',
-                'forwarding_latency',
-                'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
-            _MetaInfoClassMember('interface-inheritance-disable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Disable interface inheritance configuration
-                ''',
-                'interface_inheritance_disable',
-                'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
             _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg', 'Mfwd.Vrfs.Vrf.Ipv4.Interfaces', 
                 [], [], 
                 '''                Interface-level Configuration
@@ -887,41 +826,11 @@ _meta_table = {
                 ''',
                 'log_traps',
                 'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
-            _MetaInfoClassMember('maximum-checking-disable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Disable state limit maximum checking
-                ''',
-                'maximum_checking_disable',
-                'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
-            _MetaInfoClassMember('mofrr-lockout-timer-config', ATTRIBUTE, 'int' , None, None, 
-                [('1', '3600')], [], 
-                '''                Mofrr Lockout timer value
-                ''',
-                'mofrr_lockout_timer_config',
-                'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
-            _MetaInfoClassMember('mofrr-loss-detection-timer-config', ATTRIBUTE, 'int' , None, None, 
-                [('1', '3600')], [], 
-                '''                Mofrr Loss Detection timer value
-                ''',
-                'mofrr_loss_detection_timer_config',
-                'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
             _MetaInfoClassMember('multicast-forwarding', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable IP multicast routing and forwarding
                 ''',
                 'multicast_forwarding',
-                'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
-            _MetaInfoClassMember('nsf', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Configure IP Multicast NSF state
-                ''',
-                'nsf',
-                'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
-            _MetaInfoClassMember('out-of-memory-handling', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable out-of-memory handling
-                ''',
-                'out_of_memory_handling',
                 'Cisco-IOS-XR-ipv4-mfwd-cfg', False),
             _MetaInfoClassMember('rate-per-route', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -947,7 +856,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [(1, 32)], [], 
                 '''                VRF Name
                 ''',
                 'vrf_name',

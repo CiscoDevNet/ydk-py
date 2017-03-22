@@ -175,6 +175,21 @@ class RoutingPolicy(object):
         """
         All configured sets
         
+        .. attribute:: append_esi_sets
+        
+        	Information about Esi sets
+        	**type**\:   :py:class:`AppendEsiSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendEsiSets>`
+        
+        .. attribute:: append_etag_sets
+        
+        	Information about Etag sets
+        	**type**\:   :py:class:`AppendEtagSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendEtagSets>`
+        
+        .. attribute:: append_mac_sets
+        
+        	Information about Mac sets
+        	**type**\:   :py:class:`AppendMacSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendMacSets>`
+        
         .. attribute:: as_path_sets
         
         	Information about AS Path sets
@@ -184,6 +199,16 @@ class RoutingPolicy(object):
         
         	Information about Community sets
         	**type**\:   :py:class:`CommunitySets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.CommunitySets>`
+        
+        .. attribute:: esi_sets
+        
+        	Information about Esi sets
+        	**type**\:   :py:class:`EsiSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.EsiSets>`
+        
+        .. attribute:: etag_sets
+        
+        	Information about Etag sets
+        	**type**\:   :py:class:`EtagSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.EtagSets>`
         
         .. attribute:: extended_community_bandwidth_sets
         
@@ -215,6 +240,11 @@ class RoutingPolicy(object):
         	Information about SOO sets
         	**type**\:   :py:class:`ExtendedCommunitySooSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.ExtendedCommunitySooSets>`
         
+        .. attribute:: mac_sets
+        
+        	Information about Mac sets
+        	**type**\:   :py:class:`MacSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.MacSets>`
+        
         .. attribute:: ospf_area_sets
         
         	Information about OSPF Area sets
@@ -230,10 +260,40 @@ class RoutingPolicy(object):
         	Information about Prefix sets
         	**type**\:   :py:class:`PrefixSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrefixSets>`
         
+        .. attribute:: prepend_esi_sets
+        
+        	Information about Esi sets
+        	**type**\:   :py:class:`PrependEsiSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependEsiSets>`
+        
+        .. attribute:: prepend_etag_sets
+        
+        	Information about Etag sets
+        	**type**\:   :py:class:`PrependEtagSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependEtagSets>`
+        
+        .. attribute:: prepend_mac_sets
+        
+        	Information about Mac sets
+        	**type**\:   :py:class:`PrependMacSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependMacSets>`
+        
         .. attribute:: rd_sets
         
         	Information about RD sets
         	**type**\:   :py:class:`RdSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RdSets>`
+        
+        .. attribute:: remove_esi_sets
+        
+        	Information about Esi sets
+        	**type**\:   :py:class:`RemoveEsiSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveEsiSets>`
+        
+        .. attribute:: remove_etag_sets
+        
+        	Information about Etag sets
+        	**type**\:   :py:class:`RemoveEtagSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveEtagSets>`
+        
+        .. attribute:: remove_mac_sets
+        
+        	Information about Mac sets
+        	**type**\:   :py:class:`RemoveMacSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveMacSets>`
         
         .. attribute:: tag_sets
         
@@ -249,10 +309,20 @@ class RoutingPolicy(object):
 
         def __init__(self):
             self.parent = None
+            self.append_esi_sets = RoutingPolicy.Sets.AppendEsiSets()
+            self.append_esi_sets.parent = self
+            self.append_etag_sets = RoutingPolicy.Sets.AppendEtagSets()
+            self.append_etag_sets.parent = self
+            self.append_mac_sets = RoutingPolicy.Sets.AppendMacSets()
+            self.append_mac_sets.parent = self
             self.as_path_sets = RoutingPolicy.Sets.AsPathSets()
             self.as_path_sets.parent = self
             self.community_sets = RoutingPolicy.Sets.CommunitySets()
             self.community_sets.parent = self
+            self.esi_sets = RoutingPolicy.Sets.EsiSets()
+            self.esi_sets.parent = self
+            self.etag_sets = RoutingPolicy.Sets.EtagSets()
+            self.etag_sets.parent = self
             self.extended_community_bandwidth_sets = RoutingPolicy.Sets.ExtendedCommunityBandwidthSets()
             self.extended_community_bandwidth_sets.parent = self
             self.extended_community_cost_sets = RoutingPolicy.Sets.ExtendedCommunityCostSets()
@@ -265,16 +335,135 @@ class RoutingPolicy(object):
             self.extended_community_seg_nh_sets.parent = self
             self.extended_community_soo_sets = RoutingPolicy.Sets.ExtendedCommunitySooSets()
             self.extended_community_soo_sets.parent = self
+            self.mac_sets = RoutingPolicy.Sets.MacSets()
+            self.mac_sets.parent = self
             self.ospf_area_sets = RoutingPolicy.Sets.OspfAreaSets()
             self.ospf_area_sets.parent = self
             self.policy_global_set_table = RoutingPolicy.Sets.PolicyGlobalSetTable()
             self.policy_global_set_table.parent = self
             self.prefix_sets = RoutingPolicy.Sets.PrefixSets()
             self.prefix_sets.parent = self
+            self.prepend_esi_sets = RoutingPolicy.Sets.PrependEsiSets()
+            self.prepend_esi_sets.parent = self
+            self.prepend_etag_sets = RoutingPolicy.Sets.PrependEtagSets()
+            self.prepend_etag_sets.parent = self
+            self.prepend_mac_sets = RoutingPolicy.Sets.PrependMacSets()
+            self.prepend_mac_sets.parent = self
             self.rd_sets = RoutingPolicy.Sets.RdSets()
             self.rd_sets.parent = self
+            self.remove_esi_sets = RoutingPolicy.Sets.RemoveEsiSets()
+            self.remove_esi_sets.parent = self
+            self.remove_etag_sets = RoutingPolicy.Sets.RemoveEtagSets()
+            self.remove_etag_sets.parent = self
+            self.remove_mac_sets = RoutingPolicy.Sets.RemoveMacSets()
+            self.remove_mac_sets.parent = self
             self.tag_sets = RoutingPolicy.Sets.TagSets()
             self.tag_sets.parent = self
+
+
+        class PrependEtagSets(object):
+            """
+            Information about Etag sets
+            
+            .. attribute:: prepend_etag_set
+            
+            	Prepend the entries to the existing set
+            	**type**\: list of    :py:class:`PrependEtagSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependEtagSets.PrependEtagSet>`
+            
+            
+
+            """
+
+            _prefix = 'policy-repository-cfg'
+            _revision = '2015-08-27'
+
+            def __init__(self):
+                self.parent = None
+                self.prepend_etag_set = YList()
+                self.prepend_etag_set.parent = self
+                self.prepend_etag_set.name = 'prepend_etag_set'
+
+
+            class PrependEtagSet(object):
+                """
+                Prepend the entries to the existing set
+                
+                .. attribute:: set_name  <key>
+                
+                	Set name
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: etag_set_as_text
+                
+                	Etag Set
+                	**type**\:  str
+                
+                	**mandatory**\: True
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-cfg'
+                _revision = '2015-08-27'
+
+                def __init__(self):
+                    self.parent = None
+                    self.set_name = None
+                    self.etag_set_as_text = None
+
+                @property
+                def _common_path(self):
+                    if self.set_name is None:
+                        raise YPYModelError('Key property set_name is None')
+
+                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:prepend-etag-sets/Cisco-IOS-XR-policy-repository-cfg:prepend-etag-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.set_name is not None:
+                        return True
+
+                    if self.etag_set_as_text is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                    return meta._meta_table['RoutingPolicy.Sets.PrependEtagSets.PrependEtagSet']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:prepend-etag-sets'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.prepend_etag_set is not None:
+                    for child_ref in self.prepend_etag_set:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                return meta._meta_table['RoutingPolicy.Sets.PrependEtagSets']['meta_info']
 
 
         class PrefixSets(object):
@@ -382,6 +571,321 @@ class RoutingPolicy(object):
                 return meta._meta_table['RoutingPolicy.Sets.PrefixSets']['meta_info']
 
 
+        class AppendEtagSets(object):
+            """
+            Information about Etag sets
+            
+            .. attribute:: append_etag_set
+            
+            	Append the entries to the existing set
+            	**type**\: list of    :py:class:`AppendEtagSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendEtagSets.AppendEtagSet>`
+            
+            
+
+            """
+
+            _prefix = 'policy-repository-cfg'
+            _revision = '2015-08-27'
+
+            def __init__(self):
+                self.parent = None
+                self.append_etag_set = YList()
+                self.append_etag_set.parent = self
+                self.append_etag_set.name = 'append_etag_set'
+
+
+            class AppendEtagSet(object):
+                """
+                Append the entries to the existing set
+                
+                .. attribute:: set_name  <key>
+                
+                	Set name
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: etag_set_as_text
+                
+                	Etag Set
+                	**type**\:  str
+                
+                	**mandatory**\: True
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-cfg'
+                _revision = '2015-08-27'
+
+                def __init__(self):
+                    self.parent = None
+                    self.set_name = None
+                    self.etag_set_as_text = None
+
+                @property
+                def _common_path(self):
+                    if self.set_name is None:
+                        raise YPYModelError('Key property set_name is None')
+
+                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:append-etag-sets/Cisco-IOS-XR-policy-repository-cfg:append-etag-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.set_name is not None:
+                        return True
+
+                    if self.etag_set_as_text is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                    return meta._meta_table['RoutingPolicy.Sets.AppendEtagSets.AppendEtagSet']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:append-etag-sets'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.append_etag_set is not None:
+                    for child_ref in self.append_etag_set:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                return meta._meta_table['RoutingPolicy.Sets.AppendEtagSets']['meta_info']
+
+
+        class RemoveEtagSets(object):
+            """
+            Information about Etag sets
+            
+            .. attribute:: remove_etag_set
+            
+            	Remove the entries from the existing set
+            	**type**\: list of    :py:class:`RemoveEtagSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveEtagSets.RemoveEtagSet>`
+            
+            
+
+            """
+
+            _prefix = 'policy-repository-cfg'
+            _revision = '2015-08-27'
+
+            def __init__(self):
+                self.parent = None
+                self.remove_etag_set = YList()
+                self.remove_etag_set.parent = self
+                self.remove_etag_set.name = 'remove_etag_set'
+
+
+            class RemoveEtagSet(object):
+                """
+                Remove the entries from the existing set
+                
+                .. attribute:: set_name  <key>
+                
+                	Set name
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: etag_set_as_text
+                
+                	Etag Set
+                	**type**\:  str
+                
+                	**mandatory**\: True
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-cfg'
+                _revision = '2015-08-27'
+
+                def __init__(self):
+                    self.parent = None
+                    self.set_name = None
+                    self.etag_set_as_text = None
+
+                @property
+                def _common_path(self):
+                    if self.set_name is None:
+                        raise YPYModelError('Key property set_name is None')
+
+                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:remove-etag-sets/Cisco-IOS-XR-policy-repository-cfg:remove-etag-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.set_name is not None:
+                        return True
+
+                    if self.etag_set_as_text is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                    return meta._meta_table['RoutingPolicy.Sets.RemoveEtagSets.RemoveEtagSet']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:remove-etag-sets'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.remove_etag_set is not None:
+                    for child_ref in self.remove_etag_set:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                return meta._meta_table['RoutingPolicy.Sets.RemoveEtagSets']['meta_info']
+
+
+        class MacSets(object):
+            """
+            Information about Mac sets
+            
+            .. attribute:: mac_set
+            
+            	Information about an individual set
+            	**type**\: list of    :py:class:`MacSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.MacSets.MacSet>`
+            
+            
+
+            """
+
+            _prefix = 'policy-repository-cfg'
+            _revision = '2015-08-27'
+
+            def __init__(self):
+                self.parent = None
+                self.mac_set = YList()
+                self.mac_set.parent = self
+                self.mac_set.name = 'mac_set'
+
+
+            class MacSet(object):
+                """
+                Information about an individual set
+                
+                .. attribute:: set_name  <key>
+                
+                	Set name
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: mac_set_as_text
+                
+                	Mac Set
+                	**type**\:  str
+                
+                	**mandatory**\: True
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-cfg'
+                _revision = '2015-08-27'
+
+                def __init__(self):
+                    self.parent = None
+                    self.set_name = None
+                    self.mac_set_as_text = None
+
+                @property
+                def _common_path(self):
+                    if self.set_name is None:
+                        raise YPYModelError('Key property set_name is None')
+
+                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:mac-sets/Cisco-IOS-XR-policy-repository-cfg:mac-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.set_name is not None:
+                        return True
+
+                    if self.mac_set_as_text is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                    return meta._meta_table['RoutingPolicy.Sets.MacSets.MacSet']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:mac-sets'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.mac_set is not None:
+                    for child_ref in self.mac_set:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                return meta._meta_table['RoutingPolicy.Sets.MacSets']['meta_info']
+
+
         class ExtendedCommunityOpaqueSets(object):
             """
             Information about Opaque sets
@@ -485,6 +989,111 @@ class RoutingPolicy(object):
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
                 return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaqueSets']['meta_info']
+
+
+        class PrependMacSets(object):
+            """
+            Information about Mac sets
+            
+            .. attribute:: prepend_mac_set
+            
+            	Prepend the entries to the existing set
+            	**type**\: list of    :py:class:`PrependMacSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependMacSets.PrependMacSet>`
+            
+            
+
+            """
+
+            _prefix = 'policy-repository-cfg'
+            _revision = '2015-08-27'
+
+            def __init__(self):
+                self.parent = None
+                self.prepend_mac_set = YList()
+                self.prepend_mac_set.parent = self
+                self.prepend_mac_set.name = 'prepend_mac_set'
+
+
+            class PrependMacSet(object):
+                """
+                Prepend the entries to the existing set
+                
+                .. attribute:: set_name  <key>
+                
+                	Set name
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: mac_set_as_text
+                
+                	Mac Set
+                	**type**\:  str
+                
+                	**mandatory**\: True
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-cfg'
+                _revision = '2015-08-27'
+
+                def __init__(self):
+                    self.parent = None
+                    self.set_name = None
+                    self.mac_set_as_text = None
+
+                @property
+                def _common_path(self):
+                    if self.set_name is None:
+                        raise YPYModelError('Key property set_name is None')
+
+                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:prepend-mac-sets/Cisco-IOS-XR-policy-repository-cfg:prepend-mac-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.set_name is not None:
+                        return True
+
+                    if self.mac_set_as_text is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                    return meta._meta_table['RoutingPolicy.Sets.PrependMacSets.PrependMacSet']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:prepend-mac-sets'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.prepend_mac_set is not None:
+                    for child_ref in self.prepend_mac_set:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                return meta._meta_table['RoutingPolicy.Sets.PrependMacSets']['meta_info']
 
 
         class OspfAreaSets(object):
@@ -607,6 +1216,111 @@ class RoutingPolicy(object):
                 return meta._meta_table['RoutingPolicy.Sets.OspfAreaSets']['meta_info']
 
 
+        class AppendMacSets(object):
+            """
+            Information about Mac sets
+            
+            .. attribute:: append_mac_set
+            
+            	Append the entries to the existing set
+            	**type**\: list of    :py:class:`AppendMacSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendMacSets.AppendMacSet>`
+            
+            
+
+            """
+
+            _prefix = 'policy-repository-cfg'
+            _revision = '2015-08-27'
+
+            def __init__(self):
+                self.parent = None
+                self.append_mac_set = YList()
+                self.append_mac_set.parent = self
+                self.append_mac_set.name = 'append_mac_set'
+
+
+            class AppendMacSet(object):
+                """
+                Append the entries to the existing set
+                
+                .. attribute:: set_name  <key>
+                
+                	Set name
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: mac_set_as_text
+                
+                	Mac Set
+                	**type**\:  str
+                
+                	**mandatory**\: True
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-cfg'
+                _revision = '2015-08-27'
+
+                def __init__(self):
+                    self.parent = None
+                    self.set_name = None
+                    self.mac_set_as_text = None
+
+                @property
+                def _common_path(self):
+                    if self.set_name is None:
+                        raise YPYModelError('Key property set_name is None')
+
+                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:append-mac-sets/Cisco-IOS-XR-policy-repository-cfg:append-mac-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.set_name is not None:
+                        return True
+
+                    if self.mac_set_as_text is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                    return meta._meta_table['RoutingPolicy.Sets.AppendMacSets.AppendMacSet']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:append-mac-sets'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.append_mac_set is not None:
+                    for child_ref in self.append_mac_set:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                return meta._meta_table['RoutingPolicy.Sets.AppendMacSets']['meta_info']
+
+
         class ExtendedCommunityCostSets(object):
             """
             Information about Cost sets
@@ -712,6 +1426,111 @@ class RoutingPolicy(object):
                 return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCostSets']['meta_info']
 
 
+        class RemoveMacSets(object):
+            """
+            Information about Mac sets
+            
+            .. attribute:: remove_mac_set
+            
+            	Remove the entries from the existing set
+            	**type**\: list of    :py:class:`RemoveMacSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveMacSets.RemoveMacSet>`
+            
+            
+
+            """
+
+            _prefix = 'policy-repository-cfg'
+            _revision = '2015-08-27'
+
+            def __init__(self):
+                self.parent = None
+                self.remove_mac_set = YList()
+                self.remove_mac_set.parent = self
+                self.remove_mac_set.name = 'remove_mac_set'
+
+
+            class RemoveMacSet(object):
+                """
+                Remove the entries from the existing set
+                
+                .. attribute:: set_name  <key>
+                
+                	Set name
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: mac_set_as_text
+                
+                	Mac Set
+                	**type**\:  str
+                
+                	**mandatory**\: True
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-cfg'
+                _revision = '2015-08-27'
+
+                def __init__(self):
+                    self.parent = None
+                    self.set_name = None
+                    self.mac_set_as_text = None
+
+                @property
+                def _common_path(self):
+                    if self.set_name is None:
+                        raise YPYModelError('Key property set_name is None')
+
+                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:remove-mac-sets/Cisco-IOS-XR-policy-repository-cfg:remove-mac-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.set_name is not None:
+                        return True
+
+                    if self.mac_set_as_text is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                    return meta._meta_table['RoutingPolicy.Sets.RemoveMacSets.RemoveMacSet']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:remove-mac-sets'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.remove_mac_set is not None:
+                    for child_ref in self.remove_mac_set:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                return meta._meta_table['RoutingPolicy.Sets.RemoveMacSets']['meta_info']
+
+
         class ExtendedCommunitySooSets(object):
             """
             Information about SOO sets
@@ -815,6 +1634,426 @@ class RoutingPolicy(object):
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
                 return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySooSets']['meta_info']
+
+
+        class EsiSets(object):
+            """
+            Information about Esi sets
+            
+            .. attribute:: esi_set
+            
+            	Information about an individual set
+            	**type**\: list of    :py:class:`EsiSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.EsiSets.EsiSet>`
+            
+            
+
+            """
+
+            _prefix = 'policy-repository-cfg'
+            _revision = '2015-08-27'
+
+            def __init__(self):
+                self.parent = None
+                self.esi_set = YList()
+                self.esi_set.parent = self
+                self.esi_set.name = 'esi_set'
+
+
+            class EsiSet(object):
+                """
+                Information about an individual set
+                
+                .. attribute:: set_name  <key>
+                
+                	Set name
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: esi_set_as_text
+                
+                	Esi Set
+                	**type**\:  str
+                
+                	**mandatory**\: True
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-cfg'
+                _revision = '2015-08-27'
+
+                def __init__(self):
+                    self.parent = None
+                    self.set_name = None
+                    self.esi_set_as_text = None
+
+                @property
+                def _common_path(self):
+                    if self.set_name is None:
+                        raise YPYModelError('Key property set_name is None')
+
+                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:esi-sets/Cisco-IOS-XR-policy-repository-cfg:esi-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.set_name is not None:
+                        return True
+
+                    if self.esi_set_as_text is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                    return meta._meta_table['RoutingPolicy.Sets.EsiSets.EsiSet']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:esi-sets'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.esi_set is not None:
+                    for child_ref in self.esi_set:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                return meta._meta_table['RoutingPolicy.Sets.EsiSets']['meta_info']
+
+
+        class PrependEsiSets(object):
+            """
+            Information about Esi sets
+            
+            .. attribute:: prepend_esi_set
+            
+            	Prepend the entries to the existing set
+            	**type**\: list of    :py:class:`PrependEsiSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.PrependEsiSets.PrependEsiSet>`
+            
+            
+
+            """
+
+            _prefix = 'policy-repository-cfg'
+            _revision = '2015-08-27'
+
+            def __init__(self):
+                self.parent = None
+                self.prepend_esi_set = YList()
+                self.prepend_esi_set.parent = self
+                self.prepend_esi_set.name = 'prepend_esi_set'
+
+
+            class PrependEsiSet(object):
+                """
+                Prepend the entries to the existing set
+                
+                .. attribute:: set_name  <key>
+                
+                	Set name
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: esi_set_as_text
+                
+                	Esi Set
+                	**type**\:  str
+                
+                	**mandatory**\: True
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-cfg'
+                _revision = '2015-08-27'
+
+                def __init__(self):
+                    self.parent = None
+                    self.set_name = None
+                    self.esi_set_as_text = None
+
+                @property
+                def _common_path(self):
+                    if self.set_name is None:
+                        raise YPYModelError('Key property set_name is None')
+
+                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:prepend-esi-sets/Cisco-IOS-XR-policy-repository-cfg:prepend-esi-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.set_name is not None:
+                        return True
+
+                    if self.esi_set_as_text is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                    return meta._meta_table['RoutingPolicy.Sets.PrependEsiSets.PrependEsiSet']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:prepend-esi-sets'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.prepend_esi_set is not None:
+                    for child_ref in self.prepend_esi_set:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                return meta._meta_table['RoutingPolicy.Sets.PrependEsiSets']['meta_info']
+
+
+        class AppendEsiSets(object):
+            """
+            Information about Esi sets
+            
+            .. attribute:: append_esi_set
+            
+            	Append the entries to the existing set
+            	**type**\: list of    :py:class:`AppendEsiSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.AppendEsiSets.AppendEsiSet>`
+            
+            
+
+            """
+
+            _prefix = 'policy-repository-cfg'
+            _revision = '2015-08-27'
+
+            def __init__(self):
+                self.parent = None
+                self.append_esi_set = YList()
+                self.append_esi_set.parent = self
+                self.append_esi_set.name = 'append_esi_set'
+
+
+            class AppendEsiSet(object):
+                """
+                Append the entries to the existing set
+                
+                .. attribute:: set_name  <key>
+                
+                	Set name
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: esi_set_as_text
+                
+                	Esi Set
+                	**type**\:  str
+                
+                	**mandatory**\: True
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-cfg'
+                _revision = '2015-08-27'
+
+                def __init__(self):
+                    self.parent = None
+                    self.set_name = None
+                    self.esi_set_as_text = None
+
+                @property
+                def _common_path(self):
+                    if self.set_name is None:
+                        raise YPYModelError('Key property set_name is None')
+
+                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:append-esi-sets/Cisco-IOS-XR-policy-repository-cfg:append-esi-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.set_name is not None:
+                        return True
+
+                    if self.esi_set_as_text is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                    return meta._meta_table['RoutingPolicy.Sets.AppendEsiSets.AppendEsiSet']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:append-esi-sets'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.append_esi_set is not None:
+                    for child_ref in self.append_esi_set:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                return meta._meta_table['RoutingPolicy.Sets.AppendEsiSets']['meta_info']
+
+
+        class RemoveEsiSets(object):
+            """
+            Information about Esi sets
+            
+            .. attribute:: remove_esi_set
+            
+            	Remove the entries from the existing set
+            	**type**\: list of    :py:class:`RemoveEsiSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.RemoveEsiSets.RemoveEsiSet>`
+            
+            
+
+            """
+
+            _prefix = 'policy-repository-cfg'
+            _revision = '2015-08-27'
+
+            def __init__(self):
+                self.parent = None
+                self.remove_esi_set = YList()
+                self.remove_esi_set.parent = self
+                self.remove_esi_set.name = 'remove_esi_set'
+
+
+            class RemoveEsiSet(object):
+                """
+                Remove the entries from the existing set
+                
+                .. attribute:: set_name  <key>
+                
+                	Set name
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: esi_set_as_text
+                
+                	Esi Set
+                	**type**\:  str
+                
+                	**mandatory**\: True
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-cfg'
+                _revision = '2015-08-27'
+
+                def __init__(self):
+                    self.parent = None
+                    self.set_name = None
+                    self.esi_set_as_text = None
+
+                @property
+                def _common_path(self):
+                    if self.set_name is None:
+                        raise YPYModelError('Key property set_name is None')
+
+                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:remove-esi-sets/Cisco-IOS-XR-policy-repository-cfg:remove-esi-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.set_name is not None:
+                        return True
+
+                    if self.esi_set_as_text is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                    return meta._meta_table['RoutingPolicy.Sets.RemoveEsiSets.RemoveEsiSet']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:remove-esi-sets'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.remove_esi_set is not None:
+                    for child_ref in self.remove_esi_set:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                return meta._meta_table['RoutingPolicy.Sets.RemoveEsiSets']['meta_info']
 
 
         class ExtendedCommunitySegNhSets(object):
@@ -1490,6 +2729,111 @@ class RoutingPolicy(object):
                 return meta._meta_table['RoutingPolicy.Sets.TagSets']['meta_info']
 
 
+        class EtagSets(object):
+            """
+            Information about Etag sets
+            
+            .. attribute:: etag_set
+            
+            	Information about an individual set
+            	**type**\: list of    :py:class:`EtagSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg.RoutingPolicy.Sets.EtagSets.EtagSet>`
+            
+            
+
+            """
+
+            _prefix = 'policy-repository-cfg'
+            _revision = '2015-08-27'
+
+            def __init__(self):
+                self.parent = None
+                self.etag_set = YList()
+                self.etag_set.parent = self
+                self.etag_set.name = 'etag_set'
+
+
+            class EtagSet(object):
+                """
+                Information about an individual set
+                
+                .. attribute:: set_name  <key>
+                
+                	Set name
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: etag_set_as_text
+                
+                	Etag Set
+                	**type**\:  str
+                
+                	**mandatory**\: True
+                
+                
+
+                """
+
+                _prefix = 'policy-repository-cfg'
+                _revision = '2015-08-27'
+
+                def __init__(self):
+                    self.parent = None
+                    self.set_name = None
+                    self.etag_set_as_text = None
+
+                @property
+                def _common_path(self):
+                    if self.set_name is None:
+                        raise YPYModelError('Key property set_name is None')
+
+                    return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:etag-sets/Cisco-IOS-XR-policy-repository-cfg:etag-set[Cisco-IOS-XR-policy-repository-cfg:set-name = ' + str(self.set_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.set_name is not None:
+                        return True
+
+                    if self.etag_set_as_text is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                    return meta._meta_table['RoutingPolicy.Sets.EtagSets.EtagSet']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-policy-repository-cfg:routing-policy/Cisco-IOS-XR-policy-repository-cfg:sets/Cisco-IOS-XR-policy-repository-cfg:etag-sets'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.etag_set is not None:
+                    for child_ref in self.etag_set:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_cfg as meta
+                return meta._meta_table['RoutingPolicy.Sets.EtagSets']['meta_info']
+
+
         class ExtendedCommunityRtSets(object):
             """
             Information about RT sets
@@ -1606,10 +2950,25 @@ class RoutingPolicy(object):
         def _has_data(self):
             if not self.is_config():
                 return False
+            if self.append_esi_sets is not None and self.append_esi_sets._has_data():
+                return True
+
+            if self.append_etag_sets is not None and self.append_etag_sets._has_data():
+                return True
+
+            if self.append_mac_sets is not None and self.append_mac_sets._has_data():
+                return True
+
             if self.as_path_sets is not None and self.as_path_sets._has_data():
                 return True
 
             if self.community_sets is not None and self.community_sets._has_data():
+                return True
+
+            if self.esi_sets is not None and self.esi_sets._has_data():
+                return True
+
+            if self.etag_sets is not None and self.etag_sets._has_data():
                 return True
 
             if self.extended_community_bandwidth_sets is not None and self.extended_community_bandwidth_sets._has_data():
@@ -1630,6 +2989,9 @@ class RoutingPolicy(object):
             if self.extended_community_soo_sets is not None and self.extended_community_soo_sets._has_data():
                 return True
 
+            if self.mac_sets is not None and self.mac_sets._has_data():
+                return True
+
             if self.ospf_area_sets is not None and self.ospf_area_sets._has_data():
                 return True
 
@@ -1639,7 +3001,25 @@ class RoutingPolicy(object):
             if self.prefix_sets is not None and self.prefix_sets._has_data():
                 return True
 
+            if self.prepend_esi_sets is not None and self.prepend_esi_sets._has_data():
+                return True
+
+            if self.prepend_etag_sets is not None and self.prepend_etag_sets._has_data():
+                return True
+
+            if self.prepend_mac_sets is not None and self.prepend_mac_sets._has_data():
+                return True
+
             if self.rd_sets is not None and self.rd_sets._has_data():
+                return True
+
+            if self.remove_esi_sets is not None and self.remove_esi_sets._has_data():
+                return True
+
+            if self.remove_etag_sets is not None and self.remove_etag_sets._has_data():
+                return True
+
+            if self.remove_mac_sets is not None and self.remove_mac_sets._has_data():
                 return True
 
             if self.tag_sets is not None and self.tag_sets._has_data():

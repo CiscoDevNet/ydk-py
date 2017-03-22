@@ -822,6 +822,11 @@ class HardwareModuleEfd(object):
     """
     hardware module efd
     
+    .. attribute:: node_all
+    
+    	All nodes
+    	**type**\:   :py:class:`NodeAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.NodeAll>`
+    
     .. attribute:: nodes
     
     	EFD applicable nodes
@@ -835,8 +840,299 @@ class HardwareModuleEfd(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        self.node_all = HardwareModuleEfd.NodeAll()
+        self.node_all.parent = self
         self.nodes = HardwareModuleEfd.Nodes()
         self.nodes.parent = self
+
+
+    class NodeAll(object):
+        """
+        All nodes
+        
+        .. attribute:: enable
+        
+        	Enable EFD for this node
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        .. attribute:: ip_precedence
+        
+        	EFD IP parameters
+        	**type**\:   :py:class:`IpPrecedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.NodeAll.IpPrecedence>`
+        
+        	**presence node**\: True
+        
+        .. attribute:: mode
+        
+        	EFD mode parameter
+        	**type**\:   :py:class:`Asr9KEfdModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9KEfdModeEnum>`
+        
+        .. attribute:: mpls_exp
+        
+        	EFD MPLS parameters
+        	**type**\:   :py:class:`MplsExp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.NodeAll.MplsExp>`
+        
+        	**presence node**\: True
+        
+        .. attribute:: vlan_cos
+        
+        	EFD VLAN parameters
+        	**type**\:   :py:class:`VlanCos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.NodeAll.VlanCos>`
+        
+        	**presence node**\: True
+        
+        
+
+        """
+
+        _prefix = 'asr9k-prm-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.enable = None
+            self.ip_precedence = None
+            self.mode = None
+            self.mpls_exp = None
+            self.vlan_cos = None
+
+
+        class IpPrecedence(object):
+            """
+            EFD IP parameters
+            
+            .. attribute:: operation
+            
+            	IP operation
+            	**type**\:   :py:class:`Asr9KEfdOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9KEfdOperationEnum>`
+            
+            	**default value**\: greater-than-or-equal
+            
+            .. attribute:: precedence
+            
+            	IP TOS precedence threshold
+            	**type**\:  int
+            
+            	**range:** 0..7
+            
+            	**mandatory**\: True
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
+            
+            
+
+            This class is a :ref:`presence class<presence-class>`
+
+            """
+
+            _prefix = 'asr9k-prm-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self._is_presence = True
+                self.operation = None
+                self.precedence = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-efd/Cisco-IOS-XR-asr9k-prm-cfg:node-all/Cisco-IOS-XR-asr9k-prm-cfg:ip-precedence'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self._is_presence:
+                    return True
+                if self.operation is not None:
+                    return True
+
+                if self.precedence is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                return meta._meta_table['HardwareModuleEfd.NodeAll.IpPrecedence']['meta_info']
+
+
+        class VlanCos(object):
+            """
+            EFD VLAN parameters
+            
+            .. attribute:: cos
+            
+            	VLAN COS threshold
+            	**type**\:  int
+            
+            	**range:** 0..7
+            
+            	**mandatory**\: True
+            
+            .. attribute:: operation
+            
+            	VLAN operation
+            	**type**\:   :py:class:`Asr9KEfdOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9KEfdOperationEnum>`
+            
+            	**default value**\: greater-than-or-equal
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
+            
+            
+
+            This class is a :ref:`presence class<presence-class>`
+
+            """
+
+            _prefix = 'asr9k-prm-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self._is_presence = True
+                self.cos = None
+                self.operation = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-efd/Cisco-IOS-XR-asr9k-prm-cfg:node-all/Cisco-IOS-XR-asr9k-prm-cfg:vlan-cos'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self._is_presence:
+                    return True
+                if self.cos is not None:
+                    return True
+
+                if self.operation is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                return meta._meta_table['HardwareModuleEfd.NodeAll.VlanCos']['meta_info']
+
+
+        class MplsExp(object):
+            """
+            EFD MPLS parameters
+            
+            .. attribute:: exp
+            
+            	MPLS EXP threshold
+            	**type**\:  int
+            
+            	**range:** 0..7
+            
+            	**mandatory**\: True
+            
+            .. attribute:: operation
+            
+            	MPLS operation
+            	**type**\:   :py:class:`Asr9KEfdOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9KEfdOperationEnum>`
+            
+            	**default value**\: greater-than-or-equal
+            
+            .. attribute:: _is_presence
+            
+            	Is present if this instance represents presence container else not
+            	**type**\: bool
+            
+            
+
+            This class is a :ref:`presence class<presence-class>`
+
+            """
+
+            _prefix = 'asr9k-prm-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self._is_presence = True
+                self.exp = None
+                self.operation = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-efd/Cisco-IOS-XR-asr9k-prm-cfg:node-all/Cisco-IOS-XR-asr9k-prm-cfg:mpls-exp'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self._is_presence:
+                    return True
+                if self.exp is not None:
+                    return True
+
+                if self.operation is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+                return meta._meta_table['HardwareModuleEfd.NodeAll.MplsExp']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-efd/Cisco-IOS-XR-asr9k-prm-cfg:node-all'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.enable is not None:
+                return True
+
+            if self.ip_precedence is not None and self.ip_precedence._has_data():
+                return True
+
+            if self.mode is not None:
+                return True
+
+            if self.mpls_exp is not None and self.mpls_exp._has_data():
+                return True
+
+            if self.vlan_cos is not None and self.vlan_cos._has_data():
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_prm_cfg as meta
+            return meta._meta_table['HardwareModuleEfd.NodeAll']['meta_info']
 
 
     class Nodes(object):
@@ -1205,6 +1501,9 @@ class HardwareModuleEfd(object):
     def _has_data(self):
         if not self.is_config():
             return False
+        if self.node_all is not None and self.node_all._has_data():
+            return True
+
         if self.nodes is not None and self.nodes._has_data():
             return True
 

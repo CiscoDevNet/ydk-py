@@ -8,7 +8,6 @@ for the following management objects\:
   fib\-statistics\: cef interface drops operational data
   fib\: fib
   mpls\-forwarding\: mpls forwarding
-  fib\-mpls\: fib mpls
 
 Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
@@ -25,33 +24,6 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYModelError
 
-
-
-class EosEnum(Enum):
-    """
-    EosEnum
-
-    Eos
-
-    .. data:: eos0 = 0
-
-    	EOS Disable
-
-    .. data:: eos1 = 1
-
-    	EOS Enable
-
-    """
-
-    eos0 = 0
-
-    eos1 = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-        return meta._meta_table['EosEnum']
 
 
 class FibAdjacencyShowEnum(Enum):
@@ -525,6 +497,105 @@ class FibShIpencapHdrEnum(Enum):
         return meta._meta_table['FibShIpencapHdrEnum']
 
 
+class FibShTblFibExtBagEnum(Enum):
+    """
+    FibShTblFibExtBagEnum
+
+    Fib sh tbl fib ext bag
+
+    .. data:: leaf_extension = 1
+
+    	Leaf Extension
+
+    """
+
+    leaf_extension = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+        return meta._meta_table['FibShTblFibExtBagEnum']
+
+
+class FibUpdatePathLfaProtectionEnum(Enum):
+    """
+    FibUpdatePathLfaProtectionEnum
+
+    LFA protection type
+
+    .. data:: not_lfa_protected = 0
+
+    	Not LFA-protected
+
+    .. data:: local_lfa_protected = 1
+
+    	Local-LFA protected
+
+    .. data:: remote_lfa_protected = 2
+
+    	Remote-LFA protected
+
+    .. data:: ti_lfa_protected = 3
+
+    	TI-LFA protected
+
+    """
+
+    not_lfa_protected = 0
+
+    local_lfa_protected = 1
+
+    remote_lfa_protected = 2
+
+    ti_lfa_protected = 3
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+        return meta._meta_table['FibUpdatePathLfaProtectionEnum']
+
+
+class FibafiProtoEnum(Enum):
+    """
+    FibafiProtoEnum
+
+    Fibafi proto
+
+    .. data:: ipv4 = 0
+
+    	ipv4 protocol
+
+    .. data:: ipv4_mpls = 1
+
+    	ipv4 mpls protocol
+
+    .. data:: ipv6 = 2
+
+    	ipv6 protocol
+
+    .. data:: ipv6_mpls = 3
+
+    	ipv6 mpls protocol
+
+    """
+
+    ipv4 = 0
+
+    ipv4_mpls = 1
+
+    ipv6 = 2
+
+    ipv6_mpls = 3
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+        return meta._meta_table['FibafiProtoEnum']
+
+
 class FibidbOperEnum(Enum):
     """
     FibidbOperEnum
@@ -804,7 +875,7 @@ class FibStatistics(object):
     """
 
     _prefix = 'fib-common-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-01-20'
 
     def __init__(self):
         self.nodes = FibStatistics.Nodes()
@@ -825,7 +896,7 @@ class FibStatistics(object):
         """
 
         _prefix = 'fib-common-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-01-20'
 
         def __init__(self):
             self.parent = None
@@ -855,7 +926,7 @@ class FibStatistics(object):
             """
 
             _prefix = 'fib-common-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-01-20'
 
             def __init__(self):
                 self.parent = None
@@ -1034,7 +1105,7 @@ class FibStatistics(object):
                 """
 
                 _prefix = 'fib-common-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-01-20'
 
                 def __init__(self):
                     self.parent = None
@@ -1240,7 +1311,7 @@ class Fib(object):
     """
 
     _prefix = 'fib-common-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-01-20'
 
     def __init__(self):
         self.nodes = Fib.Nodes()
@@ -1261,7 +1332,7 @@ class Fib(object):
         """
 
         _prefix = 'fib-common-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-01-20'
 
         def __init__(self):
             self.parent = None
@@ -1281,6 +1352,11 @@ class Fib(object):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            .. attribute:: global_
+            
+            	FIB Global info
+            	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Global_>`
+            
             .. attribute:: protocols
             
             	Protocol table
@@ -1291,13 +1367,1207 @@ class Fib(object):
             """
 
             _prefix = 'fib-common-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-01-20'
 
             def __init__(self):
                 self.parent = None
                 self.node_name = None
+                self.global_ = Fib.Nodes.Node.Global_()
+                self.global_.parent = self
                 self.protocols = Fib.Nodes.Node.Protocols()
                 self.protocols.parent = self
+
+
+            class Global_(object):
+                """
+                FIB Global info
+                
+                .. attribute:: object_history
+                
+                	Object History
+                	**type**\:   :py:class:`ObjectHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Global_.ObjectHistory>`
+                
+                .. attribute:: summary
+                
+                	Global Summary
+                	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Global_.Summary>`
+                
+                
+
+                """
+
+                _prefix = 'fib-common-oper'
+                _revision = '2017-01-20'
+
+                def __init__(self):
+                    self.parent = None
+                    self.object_history = Fib.Nodes.Node.Global_.ObjectHistory()
+                    self.object_history.parent = self
+                    self.summary = Fib.Nodes.Node.Global_.Summary()
+                    self.summary.parent = self
+
+
+                class Summary(object):
+                    """
+                    Global Summary
+                    
+                    .. attribute:: protos
+                    
+                    	Proto Table
+                    	**type**\:   :py:class:`Protos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Global_.Summary.Protos>`
+                    
+                    .. attribute:: total
+                    
+                    	Display total counters and common info
+                    	**type**\:   :py:class:`Total <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Global_.Summary.Total>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'fib-common-oper'
+                    _revision = '2017-01-20'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.protos = Fib.Nodes.Node.Global_.Summary.Protos()
+                        self.protos.parent = self
+                        self.total = Fib.Nodes.Node.Global_.Summary.Total()
+                        self.total.parent = self
+
+
+                    class Total(object):
+                        """
+                        Display total counters and common info
+                        
+                        .. attribute:: common_info
+                        
+                        	Common info
+                        	**type**\:   :py:class:`CommonInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Global_.Summary.Total.CommonInfo>`
+                        
+                        .. attribute:: total_counters
+                        
+                        	Aggregate counters of all protocols
+                        	**type**\:   :py:class:`TotalCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Global_.Summary.Total.TotalCounters>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'fib-common-oper'
+                        _revision = '2017-01-20'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.common_info = Fib.Nodes.Node.Global_.Summary.Total.CommonInfo()
+                            self.common_info.parent = self
+                            self.total_counters = Fib.Nodes.Node.Global_.Summary.Total.TotalCounters()
+                            self.total_counters.parent = self
+
+
+                        class CommonInfo(object):
+                            """
+                            Common info
+                            
+                            .. attribute:: count
+                            
+                            	Placeholder for common info counts
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'fib-common-oper'
+                            _revision = '2017-01-20'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.count = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:common-info'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.count is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                return meta._meta_table['Fib.Nodes.Node.Global_.Summary.Total.CommonInfo']['meta_info']
+
+
+                        class TotalCounters(object):
+                            """
+                            Aggregate counters of all protocols
+                            
+                            .. attribute:: array_number_of_object
+                            
+                            	total number of objects
+                            	**type**\: list of    :py:class:`ArrayNumberOfObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Global_.Summary.Total.TotalCounters.ArrayNumberOfObject>`
+                            
+                            .. attribute:: array_number_of_retry
+                            
+                            	number of objects in retry db
+                            	**type**\: list of    :py:class:`ArrayNumberOfRetry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Global_.Summary.Total.TotalCounters.ArrayNumberOfRetry>`
+                            
+                            .. attribute:: num_retry_ojbects
+                            
+                            	number of elements in retry db
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: num_retry_timeouts
+                            
+                            	number of retry timeouts
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            
+
+                            """
+
+                            _prefix = 'fib-common-oper'
+                            _revision = '2017-01-20'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.array_number_of_object = YList()
+                                self.array_number_of_object.parent = self
+                                self.array_number_of_object.name = 'array_number_of_object'
+                                self.array_number_of_retry = YList()
+                                self.array_number_of_retry.parent = self
+                                self.array_number_of_retry.name = 'array_number_of_retry'
+                                self.num_retry_ojbects = None
+                                self.num_retry_timeouts = None
+
+
+                            class ArrayNumberOfRetry(object):
+                                """
+                                number of objects in retry db
+                                
+                                .. attribute:: num_retries
+                                
+                                	number of elements for this obj type in retry db
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: retry_object_type
+                                
+                                	retry object
+                                	**type**\:  str
+                                
+                                	**length:** 0..30
+                                
+                                
+
+                                """
+
+                                _prefix = 'fib-common-oper'
+                                _revision = '2017-01-20'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.num_retries = None
+                                    self.retry_object_type = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:array-number-of-retry'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.num_retries is not None:
+                                        return True
+
+                                    if self.retry_object_type is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                    return meta._meta_table['Fib.Nodes.Node.Global_.Summary.Total.TotalCounters.ArrayNumberOfRetry']['meta_info']
+
+
+                            class ArrayNumberOfObject(object):
+                                """
+                                total number of objects
+                                
+                                .. attribute:: num_objects
+                                
+                                	number of elements for this obj type
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: object_type
+                                
+                                	object
+                                	**type**\:  str
+                                
+                                	**length:** 0..30
+                                
+                                
+
+                                """
+
+                                _prefix = 'fib-common-oper'
+                                _revision = '2017-01-20'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.num_objects = None
+                                    self.object_type = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:array-number-of-object'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.num_objects is not None:
+                                        return True
+
+                                    if self.object_type is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                    return meta._meta_table['Fib.Nodes.Node.Global_.Summary.Total.TotalCounters.ArrayNumberOfObject']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:total-counters'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.array_number_of_object is not None:
+                                    for child_ref in self.array_number_of_object:
+                                        if child_ref._has_data():
+                                            return True
+
+                                if self.array_number_of_retry is not None:
+                                    for child_ref in self.array_number_of_retry:
+                                        if child_ref._has_data():
+                                            return True
+
+                                if self.num_retry_ojbects is not None:
+                                    return True
+
+                                if self.num_retry_timeouts is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                return meta._meta_table['Fib.Nodes.Node.Global_.Summary.Total.TotalCounters']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:total'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.common_info is not None and self.common_info._has_data():
+                                return True
+
+                            if self.total_counters is not None and self.total_counters._has_data():
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                            return meta._meta_table['Fib.Nodes.Node.Global_.Summary.Total']['meta_info']
+
+
+                    class Protos(object):
+                        """
+                        Proto Table
+                        
+                        .. attribute:: proto
+                        
+                        	Proto Table entry
+                        	**type**\: list of    :py:class:`Proto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Global_.Summary.Protos.Proto>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'fib-common-oper'
+                        _revision = '2017-01-20'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.proto = YList()
+                            self.proto.parent = self
+                            self.proto.name = 'proto'
+
+
+                        class Proto(object):
+                            """
+                            Proto Table entry
+                            
+                            .. attribute:: protocol_name  <key>
+                            
+                            	Protocol Name
+                            	**type**\:   :py:class:`FibafiProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibafiProtoEnum>`
+                            
+                            .. attribute:: common_info
+                            
+                            	Common Info
+                            	**type**\:   :py:class:`CommonInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Global_.Summary.Protos.Proto.CommonInfo>`
+                            
+                            .. attribute:: summary
+                            
+                            	Global summary
+                            	**type**\:   :py:class:`Summary_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'fib-common-oper'
+                            _revision = '2017-01-20'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.protocol_name = None
+                                self.common_info = Fib.Nodes.Node.Global_.Summary.Protos.Proto.CommonInfo()
+                                self.common_info.parent = self
+                                self.summary = Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_()
+                                self.summary.parent = self
+
+
+                            class CommonInfo(object):
+                                """
+                                Common Info
+                                
+                                .. attribute:: count
+                                
+                                	Placeholder for common info counts
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'fib-common-oper'
+                                _revision = '2017-01-20'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.count = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:common-info'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.count is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                    return meta._meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto.CommonInfo']['meta_info']
+
+
+                            class Summary_(object):
+                                """
+                                Global summary
+                                
+                                .. attribute:: base_object
+                                
+                                	Base object
+                                	**type**\:   :py:class:`BaseObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.BaseObject>`
+                                
+                                .. attribute:: health
+                                
+                                	Global summary health
+                                	**type**\:   :py:class:`Health <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.Health>`
+                                
+                                .. attribute:: summary_counts
+                                
+                                	Global Summary counts
+                                	**type**\:   :py:class:`SummaryCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.SummaryCounts>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'fib-common-oper'
+                                _revision = '2017-01-20'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.base_object = Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.BaseObject()
+                                    self.base_object.parent = self
+                                    self.health = Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.Health()
+                                    self.health.parent = self
+                                    self.summary_counts = Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.SummaryCounts()
+                                    self.summary_counts.parent = self
+
+
+                                class BaseObject(object):
+                                    """
+                                    Base object
+                                    
+                                    .. attribute:: protocol
+                                    
+                                    	protocol
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'fib-common-oper'
+                                    _revision = '2017-01-20'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.protocol = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:base-object'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.protocol is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                        return meta._meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.BaseObject']['meta_info']
+
+
+                                class SummaryCounts(object):
+                                    """
+                                    Global Summary counts
+                                    
+                                    .. attribute:: array_number_of_object
+                                    
+                                    	total number of objects
+                                    	**type**\: list of    :py:class:`ArrayNumberOfObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.SummaryCounts.ArrayNumberOfObject>`
+                                    
+                                    .. attribute:: array_number_of_retry
+                                    
+                                    	number of objects in retry db
+                                    	**type**\: list of    :py:class:`ArrayNumberOfRetry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.SummaryCounts.ArrayNumberOfRetry>`
+                                    
+                                    .. attribute:: num_retry_ojbects
+                                    
+                                    	number of elements in retry db
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: num_retry_timeouts
+                                    
+                                    	number of retry timeouts
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'fib-common-oper'
+                                    _revision = '2017-01-20'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.array_number_of_object = YList()
+                                        self.array_number_of_object.parent = self
+                                        self.array_number_of_object.name = 'array_number_of_object'
+                                        self.array_number_of_retry = YList()
+                                        self.array_number_of_retry.parent = self
+                                        self.array_number_of_retry.name = 'array_number_of_retry'
+                                        self.num_retry_ojbects = None
+                                        self.num_retry_timeouts = None
+
+
+                                    class ArrayNumberOfRetry(object):
+                                        """
+                                        number of objects in retry db
+                                        
+                                        .. attribute:: num_retries
+                                        
+                                        	number of elements for this obj type in retry db
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: retry_object_type
+                                        
+                                        	retry object
+                                        	**type**\:  str
+                                        
+                                        	**length:** 0..30
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'fib-common-oper'
+                                        _revision = '2017-01-20'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.num_retries = None
+                                            self.retry_object_type = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:array-number-of-retry'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.num_retries is not None:
+                                                return True
+
+                                            if self.retry_object_type is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                            return meta._meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.SummaryCounts.ArrayNumberOfRetry']['meta_info']
+
+
+                                    class ArrayNumberOfObject(object):
+                                        """
+                                        total number of objects
+                                        
+                                        .. attribute:: num_objects
+                                        
+                                        	number of elements for this obj type
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: object_type
+                                        
+                                        	object
+                                        	**type**\:  str
+                                        
+                                        	**length:** 0..30
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'fib-common-oper'
+                                        _revision = '2017-01-20'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.num_objects = None
+                                            self.object_type = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:array-number-of-object'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.num_objects is not None:
+                                                return True
+
+                                            if self.object_type is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                            return meta._meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.SummaryCounts.ArrayNumberOfObject']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:summary-counts'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.array_number_of_object is not None:
+                                            for child_ref in self.array_number_of_object:
+                                                if child_ref._has_data():
+                                                    return True
+
+                                        if self.array_number_of_retry is not None:
+                                            for child_ref in self.array_number_of_retry:
+                                                if child_ref._has_data():
+                                                    return True
+
+                                        if self.num_retry_ojbects is not None:
+                                            return True
+
+                                        if self.num_retry_timeouts is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                        return meta._meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.SummaryCounts']['meta_info']
+
+
+                                class Health(object):
+                                    """
+                                    Global summary health
+                                    
+                                    .. attribute:: is_retry_db_empty
+                                    
+                                    	Is the retry db empty?
+                                    	**type**\:  bool
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'fib-common-oper'
+                                    _revision = '2017-01-20'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.is_retry_db_empty = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:health'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.is_retry_db_empty is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                        return meta._meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.Health']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:summary'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.base_object is not None and self.base_object._has_data():
+                                        return True
+
+                                    if self.health is not None and self.health._has_data():
+                                        return True
+
+                                    if self.summary_counts is not None and self.summary_counts._has_data():
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                    return meta._meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.protocol_name is None:
+                                    raise YPYModelError('Key property protocol_name is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:proto[Cisco-IOS-XR-fib-common-oper:protocol-name = ' + str(self.protocol_name) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.protocol_name is not None:
+                                    return True
+
+                                if self.common_info is not None and self.common_info._has_data():
+                                    return True
+
+                                if self.summary is not None and self.summary._has_data():
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                return meta._meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:protos'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.proto is not None:
+                                for child_ref in self.proto:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                            return meta._meta_table['Fib.Nodes.Node.Global_.Summary.Protos']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:summary'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.protos is not None and self.protos._has_data():
+                            return True
+
+                        if self.total is not None and self.total._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                        return meta._meta_table['Fib.Nodes.Node.Global_.Summary']['meta_info']
+
+
+                class ObjectHistory(object):
+                    """
+                    Object History
+                    
+                    .. attribute:: obj_history_protos
+                    
+                    	Proto Table
+                    	**type**\:   :py:class:`ObjHistoryProtos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'fib-common-oper'
+                    _revision = '2017-01-20'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.obj_history_protos = Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos()
+                        self.obj_history_protos.parent = self
+
+
+                    class ObjHistoryProtos(object):
+                        """
+                        Proto Table
+                        
+                        .. attribute:: obj_history_proto
+                        
+                        	Protocol Table entry
+                        	**type**\: list of    :py:class:`ObjHistoryProto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos.ObjHistoryProto>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'fib-common-oper'
+                        _revision = '2017-01-20'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.obj_history_proto = YList()
+                            self.obj_history_proto.parent = self
+                            self.obj_history_proto.name = 'obj_history_proto'
+
+
+                        class ObjHistoryProto(object):
+                            """
+                            Protocol Table entry
+                            
+                            .. attribute:: protocol_name  <key>
+                            
+                            	Protocol Name
+                            	**type**\:   :py:class:`FibafiProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibafiProtoEnum>`
+                            
+                            .. attribute:: base_object
+                            
+                            	Base object
+                            	**type**\:   :py:class:`BaseObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos.ObjHistoryProto.BaseObject>`
+                            
+                            .. attribute:: object_history
+                            
+                            	Obj History
+                            	**type**\:   :py:class:`ObjectHistory_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos.ObjHistoryProto.ObjectHistory_>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'fib-common-oper'
+                            _revision = '2017-01-20'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.protocol_name = None
+                                self.base_object = Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos.ObjHistoryProto.BaseObject()
+                                self.base_object.parent = self
+                                self.object_history = Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos.ObjHistoryProto.ObjectHistory_()
+                                self.object_history.parent = self
+
+
+                            class BaseObject(object):
+                                """
+                                Base object
+                                
+                                .. attribute:: protocol
+                                
+                                	protocol
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'fib-common-oper'
+                                _revision = '2017-01-20'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.protocol = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:base-object'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.protocol is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                    return meta._meta_table['Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos.ObjHistoryProto.BaseObject']['meta_info']
+
+
+                            class ObjectHistory_(object):
+                                """
+                                Obj History
+                                
+                                .. attribute:: count
+                                
+                                	Placeholder for obj history counts
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'fib-common-oper'
+                                _revision = '2017-01-20'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.count = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:object-history'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.count is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                    return meta._meta_table['Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos.ObjHistoryProto.ObjectHistory_']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.protocol_name is None:
+                                    raise YPYModelError('Key property protocol_name is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:obj-history-proto[Cisco-IOS-XR-fib-common-oper:protocol-name = ' + str(self.protocol_name) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.protocol_name is not None:
+                                    return True
+
+                                if self.base_object is not None and self.base_object._has_data():
+                                    return True
+
+                                if self.object_history is not None and self.object_history._has_data():
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                return meta._meta_table['Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos.ObjHistoryProto']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:obj-history-protos'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.obj_history_proto is not None:
+                                for child_ref in self.obj_history_proto:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                            return meta._meta_table['Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:object-history'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.obj_history_protos is not None and self.obj_history_protos._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                        return meta._meta_table['Fib.Nodes.Node.Global_.ObjectHistory']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:global'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.object_history is not None and self.object_history._has_data():
+                        return True
+
+                    if self.summary is not None and self.summary._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                    return meta._meta_table['Fib.Nodes.Node.Global_']['meta_info']
 
 
             class Protocols(object):
@@ -1314,7 +2584,7 @@ class Fib(object):
                 """
 
                 _prefix = 'fib-common-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-01-20'
 
                 def __init__(self):
                     self.parent = None
@@ -1342,6 +2612,11 @@ class Fib(object):
                     	Summary for all external clients
                     	**type**\:   :py:class:`ExternalSummaryAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll>`
                     
+                    .. attribute:: fib_summaries
+                    
+                    	Summary for FIB tables
+                    	**type**\:   :py:class:`FibSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.FibSummaries>`
+                    
                     .. attribute:: frr_log
                     
                     	Table of Fast Reroute activation logs
@@ -1362,10 +2637,15 @@ class Fib(object):
                     	CEF misc hidden data
                     	**type**\:   :py:class:`Misc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc>`
                     
-                    .. attribute:: summaries
+                    .. attribute:: nh_ids
                     
-                    	Summary for FIB tables
-                    	**type**\:   :py:class:`Summaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Summaries>`
+                    	NHIdTable is accessed by two keys; {NHIdValue} and/or {NHInterface,NHAddress
+                    	**type**\:   :py:class:`NhIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.NhIds>`
+                    
+                    .. attribute:: resource
+                    
+                    	Resource information
+                    	**type**\:   :py:class:`Resource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Resource>`
                     
                     .. attribute:: vrfs
                     
@@ -1377,7 +2657,7 @@ class Fib(object):
                     """
 
                     _prefix = 'fib-common-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-01-20'
 
                     def __init__(self):
                         self.parent = None
@@ -1386,6 +2666,8 @@ class Fib(object):
                         self.external_client_summaries.parent = self
                         self.external_summary_all = Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll()
                         self.external_summary_all.parent = self
+                        self.fib_summaries = Fib.Nodes.Node.Protocols.Protocol.FibSummaries()
+                        self.fib_summaries.parent = self
                         self.frr_log = Fib.Nodes.Node.Protocols.Protocol.FrrLog()
                         self.frr_log.parent = self
                         self.issu_state = Fib.Nodes.Node.Protocols.Protocol.IssuState()
@@ -1394,8 +2676,10 @@ class Fib(object):
                         self.local_label.parent = self
                         self.misc = Fib.Nodes.Node.Protocols.Protocol.Misc()
                         self.misc.parent = self
-                        self.summaries = Fib.Nodes.Node.Protocols.Protocol.Summaries()
-                        self.summaries.parent = self
+                        self.nh_ids = Fib.Nodes.Node.Protocols.Protocol.NhIds()
+                        self.nh_ids.parent = self
+                        self.resource = Fib.Nodes.Node.Protocols.Protocol.Resource()
+                        self.resource.parent = self
                         self.vrfs = Fib.Nodes.Node.Protocols.Protocol.Vrfs()
                         self.vrfs.parent = self
 
@@ -1481,7 +2765,7 @@ class Fib(object):
                         """
 
                         _prefix = 'fib-common-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-01-20'
 
                         def __init__(self):
                             self.parent = None
@@ -1598,7 +2882,7 @@ class Fib(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
@@ -1740,30 +3024,918 @@ class Fib(object):
                             return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.IssuState']['meta_info']
 
 
-                    class Summaries(object):
+                    class Resource(object):
                         """
-                        Summary for FIB tables
+                        Resource information
                         
-                        .. attribute:: summary
+                        .. attribute:: resource_detail_info
                         
-                        	Summary for the requested fib table
-                        	**type**\: list of    :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary>`
+                        	Detailed info
+                        	**type**\:   :py:class:`ResourceDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceDetailInfo>`
+                        
+                        .. attribute:: resource_hardware_egress_info
+                        
+                        	Detailed info with egress hardware info
+                        	**type**\:   :py:class:`ResourceHardwareEgressInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareEgressInfo>`
+                        
+                        .. attribute:: resource_hardware_ingress_info
+                        
+                        	Detailed info with ingress hardware info
+                        	**type**\:   :py:class:`ResourceHardwareIngressInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareIngressInfo>`
+                        
+                        .. attribute:: resource_summary_info
+                        
+                        	Summary info
+                        	**type**\:   :py:class:`ResourceSummaryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceSummaryInfo>`
                         
                         
 
                         """
 
                         _prefix = 'fib-common-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-01-20'
 
                         def __init__(self):
                             self.parent = None
-                            self.summary = YList()
-                            self.summary.parent = self
-                            self.summary.name = 'summary'
+                            self.resource_detail_info = Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceDetailInfo()
+                            self.resource_detail_info.parent = self
+                            self.resource_hardware_egress_info = Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareEgressInfo()
+                            self.resource_hardware_egress_info.parent = self
+                            self.resource_hardware_ingress_info = Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareIngressInfo()
+                            self.resource_hardware_ingress_info.parent = self
+                            self.resource_summary_info = Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceSummaryInfo()
+                            self.resource_summary_info.parent = self
 
 
-                        class Summary(object):
+                        class ResourceDetailInfo(object):
+                            """
+                            Detailed info
+                            
+                            .. attribute:: sr_curr_mode
+                            
+                            	Current overall oor mode
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: sr_hw_oor_count
+                            
+                            	sr hw oor count
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: sr_hwrsrc_info
+                            
+                            	Opaque hardware rsrc state info
+                            	**type**\:  str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            .. attribute:: sr_hwrsrc_mode
+                            
+                            	Hardware resource mode
+                            	**type**\:  list of int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: sr_in_oor_ts
+                            
+                            	sr in oor ts
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: sr_out_oor_ts
+                            
+                            	sr out oor ts
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: sr_shm_state
+                            
+                            	Current status of shared memories
+                            	**type**\: list of    :py:class:`SrShmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceDetailInfo.SrShmState>`
+                            
+                            .. attribute:: sr_shmwin_oor_count
+                            
+                            	sr shmwin oor count
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            
+
+                            """
+
+                            _prefix = 'fib-common-oper'
+                            _revision = '2017-01-20'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.sr_curr_mode = None
+                                self.sr_hw_oor_count = None
+                                self.sr_hwrsrc_info = None
+                                self.sr_hwrsrc_mode = YLeafList()
+                                self.sr_hwrsrc_mode.parent = self
+                                self.sr_hwrsrc_mode.name = 'sr_hwrsrc_mode'
+                                self.sr_in_oor_ts = None
+                                self.sr_out_oor_ts = None
+                                self.sr_shm_state = YList()
+                                self.sr_shm_state.parent = self
+                                self.sr_shm_state.name = 'sr_shm_state'
+                                self.sr_shmwin_oor_count = None
+
+
+                            class SrShmState(object):
+                                """
+                                Current status of shared memories
+                                
+                                .. attribute:: srs_avg_avail
+                                
+                                	Average number of bytes available
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                .. attribute:: srs_curr_mode
+                                
+                                	OOR mode for this shared memory window
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: srs_max_avail
+                                
+                                	Maximum bytes available
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                
+
+                                """
+
+                                _prefix = 'fib-common-oper'
+                                _revision = '2017-01-20'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.srs_avg_avail = None
+                                    self.srs_curr_mode = None
+                                    self.srs_max_avail = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:sr-shm-state'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.srs_avg_avail is not None:
+                                        return True
+
+                                    if self.srs_curr_mode is not None:
+                                        return True
+
+                                    if self.srs_max_avail is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                    return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceDetailInfo.SrShmState']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:resource-detail-info'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.sr_curr_mode is not None:
+                                    return True
+
+                                if self.sr_hw_oor_count is not None:
+                                    return True
+
+                                if self.sr_hwrsrc_info is not None:
+                                    return True
+
+                                if self.sr_hwrsrc_mode is not None:
+                                    for child in self.sr_hwrsrc_mode:
+                                        if child is not None:
+                                            return True
+
+                                if self.sr_in_oor_ts is not None:
+                                    return True
+
+                                if self.sr_out_oor_ts is not None:
+                                    return True
+
+                                if self.sr_shm_state is not None:
+                                    for child_ref in self.sr_shm_state:
+                                        if child_ref._has_data():
+                                            return True
+
+                                if self.sr_shmwin_oor_count is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceDetailInfo']['meta_info']
+
+
+                        class ResourceHardwareIngressInfo(object):
+                            """
+                            Detailed info with ingress hardware info
+                            
+                            .. attribute:: sr_curr_mode
+                            
+                            	Current overall oor mode
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: sr_hw_oor_count
+                            
+                            	sr hw oor count
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: sr_hwrsrc_info
+                            
+                            	Opaque hardware rsrc state info
+                            	**type**\:  str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            .. attribute:: sr_hwrsrc_mode
+                            
+                            	Hardware resource mode
+                            	**type**\:  list of int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: sr_in_oor_ts
+                            
+                            	sr in oor ts
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: sr_out_oor_ts
+                            
+                            	sr out oor ts
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: sr_shm_state
+                            
+                            	Current status of shared memories
+                            	**type**\: list of    :py:class:`SrShmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareIngressInfo.SrShmState>`
+                            
+                            .. attribute:: sr_shmwin_oor_count
+                            
+                            	sr shmwin oor count
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            
+
+                            """
+
+                            _prefix = 'fib-common-oper'
+                            _revision = '2017-01-20'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.sr_curr_mode = None
+                                self.sr_hw_oor_count = None
+                                self.sr_hwrsrc_info = None
+                                self.sr_hwrsrc_mode = YLeafList()
+                                self.sr_hwrsrc_mode.parent = self
+                                self.sr_hwrsrc_mode.name = 'sr_hwrsrc_mode'
+                                self.sr_in_oor_ts = None
+                                self.sr_out_oor_ts = None
+                                self.sr_shm_state = YList()
+                                self.sr_shm_state.parent = self
+                                self.sr_shm_state.name = 'sr_shm_state'
+                                self.sr_shmwin_oor_count = None
+
+
+                            class SrShmState(object):
+                                """
+                                Current status of shared memories
+                                
+                                .. attribute:: srs_avg_avail
+                                
+                                	Average number of bytes available
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                .. attribute:: srs_curr_mode
+                                
+                                	OOR mode for this shared memory window
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: srs_max_avail
+                                
+                                	Maximum bytes available
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                
+
+                                """
+
+                                _prefix = 'fib-common-oper'
+                                _revision = '2017-01-20'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.srs_avg_avail = None
+                                    self.srs_curr_mode = None
+                                    self.srs_max_avail = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:sr-shm-state'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.srs_avg_avail is not None:
+                                        return True
+
+                                    if self.srs_curr_mode is not None:
+                                        return True
+
+                                    if self.srs_max_avail is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                    return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareIngressInfo.SrShmState']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:resource-hardware-ingress-info'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.sr_curr_mode is not None:
+                                    return True
+
+                                if self.sr_hw_oor_count is not None:
+                                    return True
+
+                                if self.sr_hwrsrc_info is not None:
+                                    return True
+
+                                if self.sr_hwrsrc_mode is not None:
+                                    for child in self.sr_hwrsrc_mode:
+                                        if child is not None:
+                                            return True
+
+                                if self.sr_in_oor_ts is not None:
+                                    return True
+
+                                if self.sr_out_oor_ts is not None:
+                                    return True
+
+                                if self.sr_shm_state is not None:
+                                    for child_ref in self.sr_shm_state:
+                                        if child_ref._has_data():
+                                            return True
+
+                                if self.sr_shmwin_oor_count is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareIngressInfo']['meta_info']
+
+
+                        class ResourceHardwareEgressInfo(object):
+                            """
+                            Detailed info with egress hardware info
+                            
+                            .. attribute:: sr_curr_mode
+                            
+                            	Current overall oor mode
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: sr_hw_oor_count
+                            
+                            	sr hw oor count
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: sr_hwrsrc_info
+                            
+                            	Opaque hardware rsrc state info
+                            	**type**\:  str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            .. attribute:: sr_hwrsrc_mode
+                            
+                            	Hardware resource mode
+                            	**type**\:  list of int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: sr_in_oor_ts
+                            
+                            	sr in oor ts
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: sr_out_oor_ts
+                            
+                            	sr out oor ts
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: sr_shm_state
+                            
+                            	Current status of shared memories
+                            	**type**\: list of    :py:class:`SrShmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareEgressInfo.SrShmState>`
+                            
+                            .. attribute:: sr_shmwin_oor_count
+                            
+                            	sr shmwin oor count
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            
+
+                            """
+
+                            _prefix = 'fib-common-oper'
+                            _revision = '2017-01-20'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.sr_curr_mode = None
+                                self.sr_hw_oor_count = None
+                                self.sr_hwrsrc_info = None
+                                self.sr_hwrsrc_mode = YLeafList()
+                                self.sr_hwrsrc_mode.parent = self
+                                self.sr_hwrsrc_mode.name = 'sr_hwrsrc_mode'
+                                self.sr_in_oor_ts = None
+                                self.sr_out_oor_ts = None
+                                self.sr_shm_state = YList()
+                                self.sr_shm_state.parent = self
+                                self.sr_shm_state.name = 'sr_shm_state'
+                                self.sr_shmwin_oor_count = None
+
+
+                            class SrShmState(object):
+                                """
+                                Current status of shared memories
+                                
+                                .. attribute:: srs_avg_avail
+                                
+                                	Average number of bytes available
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                .. attribute:: srs_curr_mode
+                                
+                                	OOR mode for this shared memory window
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: srs_max_avail
+                                
+                                	Maximum bytes available
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                
+
+                                """
+
+                                _prefix = 'fib-common-oper'
+                                _revision = '2017-01-20'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.srs_avg_avail = None
+                                    self.srs_curr_mode = None
+                                    self.srs_max_avail = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:sr-shm-state'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.srs_avg_avail is not None:
+                                        return True
+
+                                    if self.srs_curr_mode is not None:
+                                        return True
+
+                                    if self.srs_max_avail is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                    return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareEgressInfo.SrShmState']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:resource-hardware-egress-info'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.sr_curr_mode is not None:
+                                    return True
+
+                                if self.sr_hw_oor_count is not None:
+                                    return True
+
+                                if self.sr_hwrsrc_info is not None:
+                                    return True
+
+                                if self.sr_hwrsrc_mode is not None:
+                                    for child in self.sr_hwrsrc_mode:
+                                        if child is not None:
+                                            return True
+
+                                if self.sr_in_oor_ts is not None:
+                                    return True
+
+                                if self.sr_out_oor_ts is not None:
+                                    return True
+
+                                if self.sr_shm_state is not None:
+                                    for child_ref in self.sr_shm_state:
+                                        if child_ref._has_data():
+                                            return True
+
+                                if self.sr_shmwin_oor_count is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareEgressInfo']['meta_info']
+
+
+                        class ResourceSummaryInfo(object):
+                            """
+                            Summary info
+                            
+                            .. attribute:: sr_curr_mode
+                            
+                            	Current overall oor mode
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: sr_hw_oor_count
+                            
+                            	sr hw oor count
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: sr_hwrsrc_info
+                            
+                            	Opaque hardware rsrc state info
+                            	**type**\:  str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            .. attribute:: sr_hwrsrc_mode
+                            
+                            	Hardware resource mode
+                            	**type**\:  list of int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: sr_in_oor_ts
+                            
+                            	sr in oor ts
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: sr_out_oor_ts
+                            
+                            	sr out oor ts
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: sr_shm_state
+                            
+                            	Current status of shared memories
+                            	**type**\: list of    :py:class:`SrShmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceSummaryInfo.SrShmState>`
+                            
+                            .. attribute:: sr_shmwin_oor_count
+                            
+                            	sr shmwin oor count
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            
+
+                            """
+
+                            _prefix = 'fib-common-oper'
+                            _revision = '2017-01-20'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.sr_curr_mode = None
+                                self.sr_hw_oor_count = None
+                                self.sr_hwrsrc_info = None
+                                self.sr_hwrsrc_mode = YLeafList()
+                                self.sr_hwrsrc_mode.parent = self
+                                self.sr_hwrsrc_mode.name = 'sr_hwrsrc_mode'
+                                self.sr_in_oor_ts = None
+                                self.sr_out_oor_ts = None
+                                self.sr_shm_state = YList()
+                                self.sr_shm_state.parent = self
+                                self.sr_shm_state.name = 'sr_shm_state'
+                                self.sr_shmwin_oor_count = None
+
+
+                            class SrShmState(object):
+                                """
+                                Current status of shared memories
+                                
+                                .. attribute:: srs_avg_avail
+                                
+                                	Average number of bytes available
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                .. attribute:: srs_curr_mode
+                                
+                                	OOR mode for this shared memory window
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: srs_max_avail
+                                
+                                	Maximum bytes available
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                
+
+                                """
+
+                                _prefix = 'fib-common-oper'
+                                _revision = '2017-01-20'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.srs_avg_avail = None
+                                    self.srs_curr_mode = None
+                                    self.srs_max_avail = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:sr-shm-state'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.srs_avg_avail is not None:
+                                        return True
+
+                                    if self.srs_curr_mode is not None:
+                                        return True
+
+                                    if self.srs_max_avail is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                    return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceSummaryInfo.SrShmState']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:resource-summary-info'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.sr_curr_mode is not None:
+                                    return True
+
+                                if self.sr_hw_oor_count is not None:
+                                    return True
+
+                                if self.sr_hwrsrc_info is not None:
+                                    return True
+
+                                if self.sr_hwrsrc_mode is not None:
+                                    for child in self.sr_hwrsrc_mode:
+                                        if child is not None:
+                                            return True
+
+                                if self.sr_in_oor_ts is not None:
+                                    return True
+
+                                if self.sr_out_oor_ts is not None:
+                                    return True
+
+                                if self.sr_shm_state is not None:
+                                    for child_ref in self.sr_shm_state:
+                                        if child_ref._has_data():
+                                            return True
+
+                                if self.sr_shmwin_oor_count is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceSummaryInfo']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:resource'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.resource_detail_info is not None and self.resource_detail_info._has_data():
+                                return True
+
+                            if self.resource_hardware_egress_info is not None and self.resource_hardware_egress_info._has_data():
+                                return True
+
+                            if self.resource_hardware_ingress_info is not None and self.resource_hardware_ingress_info._has_data():
+                                return True
+
+                            if self.resource_summary_info is not None and self.resource_summary_info._has_data():
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                            return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource']['meta_info']
+
+
+                    class FibSummaries(object):
+                        """
+                        Summary for FIB tables
+                        
+                        .. attribute:: fib_summary
+                        
+                        	Summary for the requested fib table
+                        	**type**\: list of    :py:class:`FibSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'fib-common-oper'
+                        _revision = '2017-01-20'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.fib_summary = YList()
+                            self.fib_summary.parent = self
+                            self.fib_summary.name = 'fib_summary'
+
+
+                        class FibSummary(object):
                             """
                             Summary for the requested fib table
                             
@@ -1791,7 +3963,7 @@ class Fib(object):
                             .. attribute:: cross_shared_load_sharing_element
                             
                             	Cross\-table shared load sharing element
-                            	**type**\:   :py:class:`CrossSharedLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.CrossSharedLoadSharingElement>`
+                            	**type**\:   :py:class:`CrossSharedLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.CrossSharedLoadSharingElement>`
                             
                             .. attribute:: delete_cache_num_entries
                             
@@ -1803,7 +3975,7 @@ class Fib(object):
                             .. attribute:: exclusive_load_sharing_element
                             
                             	Exclusive load sharing element
-                            	**type**\:   :py:class:`ExclusiveLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.ExclusiveLoadSharingElement>`
+                            	**type**\:   :py:class:`ExclusiveLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.ExclusiveLoadSharingElement>`
                             
                             .. attribute:: existing_leaves_revisions
                             
@@ -1857,7 +4029,7 @@ class Fib(object):
                             .. attribute:: label_shared_load_sharing_element
                             
                             	Label\-shared load sharing element
-                            	**type**\:   :py:class:`LabelSharedLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.LabelSharedLoadSharingElement>`
+                            	**type**\:   :py:class:`LabelSharedLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.LabelSharedLoadSharingElement>`
                             
                             .. attribute:: ldi_backwalks
                             
@@ -1957,11 +4129,6 @@ class Fib(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: protocol_name
-                            
-                            	Protocol Name 
-                            	**type**\:   :py:class:`FibProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibProtocolEnum>`
-                            
                             .. attribute:: reresolve_entries
                             
                             	Number of reresolved entries
@@ -1988,7 +4155,7 @@ class Fib(object):
                             .. attribute:: shared_load_sharing_element
                             
                             	Shared load sharing element
-                            	**type**\:   :py:class:`SharedLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.SharedLoadSharingElement>`
+                            	**type**\:   :py:class:`SharedLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.SharedLoadSharingElement>`
                             
                             .. attribute:: slow_process_timer
                             
@@ -2088,17 +4255,17 @@ class Fib(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
                                 self.cef_route_drops = None
                                 self.cef_version_mismatch_route_drops = None
                                 self.cefl_bl_recycled_routes = None
-                                self.cross_shared_load_sharing_element = Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.CrossSharedLoadSharingElement()
+                                self.cross_shared_load_sharing_element = Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.CrossSharedLoadSharingElement()
                                 self.cross_shared_load_sharing_element.parent = self
                                 self.delete_cache_num_entries = None
-                                self.exclusive_load_sharing_element = Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.ExclusiveLoadSharingElement()
+                                self.exclusive_load_sharing_element = Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.ExclusiveLoadSharingElement()
                                 self.exclusive_load_sharing_element.parent = self
                                 self.existing_leaves_revisions = None
                                 self.extended_prefixes = None
@@ -2107,7 +4274,7 @@ class Fib(object):
                                 self.forwarding_elements = None
                                 self.imposition_prefixes = None
                                 self.incomplete_next_hops = None
-                                self.label_shared_load_sharing_element = Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.LabelSharedLoadSharingElement()
+                                self.label_shared_load_sharing_element = Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.LabelSharedLoadSharingElement()
                                 self.label_shared_load_sharing_element.parent = self
                                 self.ldi_backwalks = None
                                 self.leaves_used_bytes = None
@@ -2123,11 +4290,10 @@ class Fib(object):
                                 self.old_unresolve_entries = None
                                 self.prefix = None
                                 self.prefix_in_place_modifications = None
-                                self.protocol_name = None
                                 self.reresolve_entries = None
                                 self.resolution_timer = None
                                 self.routes = None
-                                self.shared_load_sharing_element = Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.SharedLoadSharingElement()
+                                self.shared_load_sharing_element = Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.SharedLoadSharingElement()
                                 self.shared_load_sharing_element.parent = self
                                 self.slow_process_timer = None
                                 self.ss_drop_pl_count = None
@@ -2218,7 +4384,7 @@ class Fib(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
@@ -2278,7 +4444,7 @@ class Fib(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.ExclusiveLoadSharingElement']['meta_info']
+                                    return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.ExclusiveLoadSharingElement']['meta_info']
 
 
                             class SharedLoadSharingElement(object):
@@ -2355,7 +4521,7 @@ class Fib(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
@@ -2415,7 +4581,7 @@ class Fib(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.SharedLoadSharingElement']['meta_info']
+                                    return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.SharedLoadSharingElement']['meta_info']
 
 
                             class CrossSharedLoadSharingElement(object):
@@ -2492,7 +4658,7 @@ class Fib(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
@@ -2552,7 +4718,7 @@ class Fib(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.CrossSharedLoadSharingElement']['meta_info']
+                                    return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.CrossSharedLoadSharingElement']['meta_info']
 
 
                             class LabelSharedLoadSharingElement(object):
@@ -2629,7 +4795,7 @@ class Fib(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
@@ -2689,14 +4855,14 @@ class Fib(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.LabelSharedLoadSharingElement']['meta_info']
+                                    return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.LabelSharedLoadSharingElement']['meta_info']
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:summary'
+                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:fib-summary'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
@@ -2789,9 +4955,6 @@ class Fib(object):
                                 if self.prefix_in_place_modifications is not None:
                                     return True
 
-                                if self.protocol_name is not None:
-                                    return True
-
                                 if self.reresolve_entries is not None:
                                     return True
 
@@ -2848,14 +5011,14 @@ class Fib(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary']['meta_info']
+                                return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary']['meta_info']
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
                                 raise YPYModelError('parent is not set . Cannot derive path.')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:summaries'
+                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:fib-summaries'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -2864,8 +5027,8 @@ class Fib(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.summary is not None:
-                                for child_ref in self.summary:
+                            if self.fib_summary is not None:
+                                for child_ref in self.fib_summary:
                                     if child_ref._has_data():
                                         return True
 
@@ -2874,7 +5037,7 @@ class Fib(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                            return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries']['meta_info']
+                            return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.FibSummaries']['meta_info']
 
 
                     class ExternalSummaryAll(object):
@@ -2898,7 +5061,7 @@ class Fib(object):
                         """
 
                         _prefix = 'fib-common-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-01-20'
 
                         def __init__(self):
                             self.parent = None
@@ -2937,7 +5100,7 @@ class Fib(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
@@ -3021,7 +5184,7 @@ class Fib(object):
                         """
 
                         _prefix = 'fib-common-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-01-20'
 
                         def __init__(self):
                             self.parent = None
@@ -3043,7 +5206,7 @@ class Fib(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
@@ -3073,7 +5236,7 @@ class Fib(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
@@ -3096,7 +5259,7 @@ class Fib(object):
                                     """
 
                                     _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-20'
 
                                     def __init__(self):
                                         self.parent = None
@@ -3159,7 +5322,7 @@ class Fib(object):
                                         """
 
                                         _prefix = 'fib-common-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-01-20'
 
                                         def __init__(self):
                                             self.parent = None
@@ -3196,7 +5359,7 @@ class Fib(object):
                                             """
 
                                             _prefix = 'fib-common-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-01-20'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -3394,7 +5557,7 @@ class Fib(object):
                         """
 
                         _prefix = 'fib-common-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-01-20'
 
                         def __init__(self):
                             self.parent = None
@@ -3439,7 +5602,7 @@ class Fib(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
@@ -3468,7 +5631,7 @@ class Fib(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
@@ -3505,6 +5668,11 @@ class Fib(object):
                                     
                                     	exact\-route result
                                     	**type**\:  bool
+                                    
+                                    .. attribute:: extension_object
+                                    
+                                    	Leaf Extension Object List
+                                    	**type**\: list of    :py:class:`ExtensionObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.ExtensionObject>`
                                     
                                     .. attribute:: external_switch_triggered
                                     
@@ -3690,6 +5858,16 @@ class Fib(object):
                                     	Route destined for Line Card that support External Reach only
                                     	**type**\:  bool
                                     
+                                    .. attribute:: route_is_sr_flag
+                                    
+                                    	Route is a MPLS Segment\-Routing prefix
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: srv6_information
+                                    
+                                    	Information about IPv6 SR prefix
+                                    	**type**\:   :py:class:`Srv6Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.Srv6Information>`
+                                    
                                     .. attribute:: time_of_last_update_in_msec
                                     
                                     	The time of last update in msec
@@ -3721,7 +5899,7 @@ class Fib(object):
                                     """
 
                                     _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-20'
 
                                     def __init__(self):
                                         self.parent = None
@@ -3731,6 +5909,9 @@ class Fib(object):
                                         self.detail_fib_entry_information.parent = self
                                         self.dummy_real_zero_route = None
                                         self.exact_route_result = None
+                                        self.extension_object = YList()
+                                        self.extension_object.parent = self
+                                        self.extension_object.name = 'extension_object'
                                         self.external_switch_triggered = None
                                         self.fib_entry_path = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath()
                                         self.fib_entry_path.parent = self
@@ -3760,6 +5941,9 @@ class Fib(object):
                                         self.ref_counter_of_ldi_lw_ldi = None
                                         self.route_attribute_flag = None
                                         self.route_for_external_reach_linecard_flag = None
+                                        self.route_is_sr_flag = None
+                                        self.srv6_information = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.Srv6Information()
+                                        self.srv6_information.parent = self
                                         self.time_of_last_update_in_msec = None
                                         self.type_of_ldi_lw_ldi = None
                                         self.version_of_route = None
@@ -4045,7 +6229,7 @@ class Fib(object):
                                         """
 
                                         _prefix = 'fib-common-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-01-20'
 
                                         def __init__(self):
                                             self.parent = None
@@ -4179,7 +6363,7 @@ class Fib(object):
                                             """
 
                                             _prefix = 'fib-common-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-01-20'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -4347,7 +6531,7 @@ class Fib(object):
                                                 """
 
                                                 _prefix = 'fib-common-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-20'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -4405,7 +6589,7 @@ class Fib(object):
                                                     """
 
                                                     _prefix = 'fib-common-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-20'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -4450,7 +6634,7 @@ class Fib(object):
                                                     """
 
                                                     _prefix = 'fib-common-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-20'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -4495,7 +6679,7 @@ class Fib(object):
                                                     """
 
                                                     _prefix = 'fib-common-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-20'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -4540,7 +6724,7 @@ class Fib(object):
                                                     """
 
                                                     _prefix = 'fib-common-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-20'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -4884,7 +7068,7 @@ class Fib(object):
                                         """
 
                                         _prefix = 'fib-common-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-01-20'
 
                                         def __init__(self):
                                             self.parent = None
@@ -4925,6 +7109,11 @@ class Fib(object):
                                             	**type**\:  str
                                             
                                             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            
+                                            .. attribute:: brief_lfa_protection_type
+                                            
+                                            	LFA protection type
+                                            	**type**\:   :py:class:`FibUpdatePathLfaProtectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibUpdatePathLfaProtectionEnum>`
                                             
                                             .. attribute:: brief_next_hop_prefix
                                             
@@ -4993,7 +7182,7 @@ class Fib(object):
                                             	Path flags
                                             	**type**\:  int
                                             
-                                            	**range:** 0..65535
+                                            	**range:** 0..4294967295
                                             
                                             .. attribute:: path_index
                                             
@@ -5043,7 +7232,7 @@ class Fib(object):
                                             """
 
                                             _prefix = 'fib-common-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-01-20'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -5052,6 +7241,7 @@ class Fib(object):
                                                 self.backup_path = None
                                                 self.best_external_path = None
                                                 self.brief_interface_handle = None
+                                                self.brief_lfa_protection_type = None
                                                 self.brief_next_hop_prefix = None
                                                 self.brief_pnode_address = None
                                                 self.brief_qnode_address = None
@@ -5252,7 +7442,7 @@ class Fib(object):
                                                 """
 
                                                 _prefix = 'fib-common-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-20'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -5362,7 +7552,7 @@ class Fib(object):
                                                     """
 
                                                     _prefix = 'fib-common-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-20'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -5408,7 +7598,7 @@ class Fib(object):
                                                         """
 
                                                         _prefix = 'fib-common-oper'
-                                                        _revision = '2015-11-09'
+                                                        _revision = '2017-01-20'
 
                                                         def __init__(self):
                                                             self.parent = None
@@ -5654,7 +7844,7 @@ class Fib(object):
                                                 """
 
                                                 _prefix = 'fib-common-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-20'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -5706,7 +7896,7 @@ class Fib(object):
                                                     """
 
                                                     _prefix = 'fib-common-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-20'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -5825,6 +8015,9 @@ class Fib(object):
                                                 if self.brief_interface_handle is not None:
                                                     return True
 
+                                                if self.brief_lfa_protection_type is not None:
+                                                    return True
+
                                                 if self.brief_next_hop_prefix is not None:
                                                     return True
 
@@ -5912,6 +8105,248 @@ class Fib(object):
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
                                             return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath']['meta_info']
 
+
+                                    class Srv6Information(object):
+                                        """
+                                        Information about IPv6 SR prefix
+                                        
+                                        .. attribute:: route_is_sripv6_flag
+                                        
+                                        	Route is an IPv6 Segment\-Routing prefix
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: sripv6_stats_valid_flag
+                                        
+                                        	Statistics are valid for this prefix
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: srv6_pfx_resolved_via_policy_label
+                                        
+                                        	Route is a SRv6 prefix resolved via Policy label
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: srv6_statistics
+                                        
+                                        	Statistics for a IPv6 SR prefix
+                                        	**type**\:   :py:class:`Srv6Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.Srv6Information.Srv6Statistics>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'fib-common-oper'
+                                        _revision = '2017-01-20'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.route_is_sripv6_flag = None
+                                            self.sripv6_stats_valid_flag = None
+                                            self.srv6_pfx_resolved_via_policy_label = None
+                                            self.srv6_statistics = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.Srv6Information.Srv6Statistics()
+                                            self.srv6_statistics.parent = self
+
+
+                                        class Srv6Statistics(object):
+                                            """
+                                            Statistics for a IPv6 SR prefix
+                                            
+                                            .. attribute:: srv6_packets_dropped
+                                            
+                                            	SRv6 Packets dropped for a prefix
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..18446744073709551615
+                                            
+                                            .. attribute:: srv6_packets_forwarded
+                                            
+                                            	SRv6 packets forwarded for a prefix
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..18446744073709551615
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'fib-common-oper'
+                                            _revision = '2017-01-20'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.srv6_packets_dropped = None
+                                                self.srv6_packets_forwarded = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:srv6-statistics'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.srv6_packets_dropped is not None:
+                                                    return True
+
+                                                if self.srv6_packets_forwarded is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                                return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.Srv6Information.Srv6Statistics']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:srv6-information'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.route_is_sripv6_flag is not None:
+                                                return True
+
+                                            if self.sripv6_stats_valid_flag is not None:
+                                                return True
+
+                                            if self.srv6_pfx_resolved_via_policy_label is not None:
+                                                return True
+
+                                            if self.srv6_statistics is not None and self.srv6_statistics._has_data():
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                            return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.Srv6Information']['meta_info']
+
+
+                                    class ExtensionObject(object):
+                                        """
+                                        Leaf Extension Object List
+                                        
+                                        .. attribute:: sfecd_le
+                                        
+                                        	sfecd le
+                                        	**type**\:   :py:class:`SfecdLe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.ExtensionObject.SfecdLe>`
+                                        
+                                        .. attribute:: type
+                                        
+                                        	type
+                                        	**type**\:   :py:class:`FibShTblFibExtBagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibShTblFibExtBagEnum>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'fib-common-oper'
+                                        _revision = '2017-01-20'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.sfecd_le = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.ExtensionObject.SfecdLe()
+                                            self.sfecd_le.parent = self
+                                            self.type = None
+
+
+                                        class SfecdLe(object):
+                                            """
+                                            sfecd le
+                                            
+                                            .. attribute:: context_label
+                                            
+                                            	Context Label
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: context_label_flag
+                                            
+                                            	Context Label Exist
+                                            	**type**\:  bool
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'fib-common-oper'
+                                            _revision = '2017-01-20'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.context_label = None
+                                                self.context_label_flag = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:sfecd-le'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.context_label is not None:
+                                                    return True
+
+                                                if self.context_label_flag is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                                return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.ExtensionObject.SfecdLe']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:extension-object'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.sfecd_le is not None and self.sfecd_le._has_data():
+                                                return True
+
+                                            if self.type is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                            return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.ExtensionObject']['meta_info']
+
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
@@ -5940,6 +8375,11 @@ class Fib(object):
 
                                         if self.exact_route_result is not None:
                                             return True
+
+                                        if self.extension_object is not None:
+                                            for child_ref in self.extension_object:
+                                                if child_ref._has_data():
+                                                    return True
 
                                         if self.external_switch_triggered is not None:
                                             return True
@@ -6023,6 +8463,12 @@ class Fib(object):
                                             return True
 
                                         if self.route_for_external_reach_linecard_flag is not None:
+                                            return True
+
+                                        if self.route_is_sr_flag is not None:
+                                            return True
+
+                                        if self.srv6_information is not None and self.srv6_information._has_data():
                                             return True
 
                                         if self.time_of_last_update_in_msec is not None:
@@ -6377,7 +8823,7 @@ class Fib(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
@@ -6504,7 +8950,7 @@ class Fib(object):
                                     """
 
                                     _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-20'
 
                                     def __init__(self):
                                         self.parent = None
@@ -6641,7 +9087,7 @@ class Fib(object):
                                     """
 
                                     _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-20'
 
                                     def __init__(self):
                                         self.parent = None
@@ -6778,7 +9224,7 @@ class Fib(object):
                                     """
 
                                     _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-20'
 
                                     def __init__(self):
                                         self.parent = None
@@ -6915,7 +9361,7 @@ class Fib(object):
                                     """
 
                                     _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-20'
 
                                     def __init__(self):
                                         self.parent = None
@@ -7142,7 +9588,7 @@ class Fib(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
@@ -7170,7 +9616,7 @@ class Fib(object):
                                     """
 
                                     _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-20'
 
                                     def __init__(self):
                                         self.parent = None
@@ -7193,7 +9639,7 @@ class Fib(object):
                                         """
 
                                         _prefix = 'fib-common-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-01-20'
 
                                         def __init__(self):
                                             self.parent = None
@@ -7411,7 +9857,7 @@ class Fib(object):
                                             """
 
                                             _prefix = 'fib-common-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-01-20'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -7534,7 +9980,7 @@ class Fib(object):
                                                 """
 
                                                 _prefix = 'fib-common-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-20'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -7636,7 +10082,7 @@ class Fib(object):
                                                 """
 
                                                 _prefix = 'fib-common-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-20'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -7665,7 +10111,7 @@ class Fib(object):
                                                     """
 
                                                     _prefix = 'fib-common-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-20'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -7718,7 +10164,7 @@ class Fib(object):
                                                         """
 
                                                         _prefix = 'fib-common-oper'
-                                                        _revision = '2015-11-09'
+                                                        _revision = '2017-01-20'
 
                                                         def __init__(self):
                                                             self.parent = None
@@ -7821,7 +10267,7 @@ class Fib(object):
                                                     """
 
                                                     _prefix = 'fib-common-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-20'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -7874,7 +10320,7 @@ class Fib(object):
                                                         """
 
                                                         _prefix = 'fib-common-oper'
-                                                        _revision = '2015-11-09'
+                                                        _revision = '2017-01-20'
 
                                                         def __init__(self):
                                                             self.parent = None
@@ -8199,7 +10645,7 @@ class Fib(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
@@ -8236,6 +10682,11 @@ class Fib(object):
                                     
                                     	exact\-route result
                                     	**type**\:  bool
+                                    
+                                    .. attribute:: extension_object
+                                    
+                                    	Leaf Extension Object List
+                                    	**type**\: list of    :py:class:`ExtensionObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.ExtensionObject>`
                                     
                                     .. attribute:: external_switch_triggered
                                     
@@ -8421,6 +10872,16 @@ class Fib(object):
                                     	Route destined for Line Card that support External Reach only
                                     	**type**\:  bool
                                     
+                                    .. attribute:: route_is_sr_flag
+                                    
+                                    	Route is a MPLS Segment\-Routing prefix
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: srv6_information
+                                    
+                                    	Information about IPv6 SR prefix
+                                    	**type**\:   :py:class:`Srv6Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.Srv6Information>`
+                                    
                                     .. attribute:: time_of_last_update_in_msec
                                     
                                     	The time of last update in msec
@@ -8452,7 +10913,7 @@ class Fib(object):
                                     """
 
                                     _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-20'
 
                                     def __init__(self):
                                         self.parent = None
@@ -8462,6 +10923,9 @@ class Fib(object):
                                         self.detail_fib_entry_information.parent = self
                                         self.dummy_real_zero_route = None
                                         self.exact_route_result = None
+                                        self.extension_object = YList()
+                                        self.extension_object.parent = self
+                                        self.extension_object.name = 'extension_object'
                                         self.external_switch_triggered = None
                                         self.fib_entry_path = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath()
                                         self.fib_entry_path.parent = self
@@ -8491,6 +10955,9 @@ class Fib(object):
                                         self.ref_counter_of_ldi_lw_ldi = None
                                         self.route_attribute_flag = None
                                         self.route_for_external_reach_linecard_flag = None
+                                        self.route_is_sr_flag = None
+                                        self.srv6_information = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.Srv6Information()
+                                        self.srv6_information.parent = self
                                         self.time_of_last_update_in_msec = None
                                         self.type_of_ldi_lw_ldi = None
                                         self.version_of_route = None
@@ -8776,7 +11243,7 @@ class Fib(object):
                                         """
 
                                         _prefix = 'fib-common-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-01-20'
 
                                         def __init__(self):
                                             self.parent = None
@@ -8910,7 +11377,7 @@ class Fib(object):
                                             """
 
                                             _prefix = 'fib-common-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-01-20'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -9078,7 +11545,7 @@ class Fib(object):
                                                 """
 
                                                 _prefix = 'fib-common-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-20'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -9136,7 +11603,7 @@ class Fib(object):
                                                     """
 
                                                     _prefix = 'fib-common-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-20'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -9181,7 +11648,7 @@ class Fib(object):
                                                     """
 
                                                     _prefix = 'fib-common-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-20'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -9226,7 +11693,7 @@ class Fib(object):
                                                     """
 
                                                     _prefix = 'fib-common-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-20'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -9271,7 +11738,7 @@ class Fib(object):
                                                     """
 
                                                     _prefix = 'fib-common-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-20'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -9615,7 +12082,7 @@ class Fib(object):
                                         """
 
                                         _prefix = 'fib-common-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-01-20'
 
                                         def __init__(self):
                                             self.parent = None
@@ -9656,6 +12123,11 @@ class Fib(object):
                                             	**type**\:  str
                                             
                                             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            
+                                            .. attribute:: brief_lfa_protection_type
+                                            
+                                            	LFA protection type
+                                            	**type**\:   :py:class:`FibUpdatePathLfaProtectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibUpdatePathLfaProtectionEnum>`
                                             
                                             .. attribute:: brief_next_hop_prefix
                                             
@@ -9724,7 +12196,7 @@ class Fib(object):
                                             	Path flags
                                             	**type**\:  int
                                             
-                                            	**range:** 0..65535
+                                            	**range:** 0..4294967295
                                             
                                             .. attribute:: path_index
                                             
@@ -9774,7 +12246,7 @@ class Fib(object):
                                             """
 
                                             _prefix = 'fib-common-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-01-20'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -9783,6 +12255,7 @@ class Fib(object):
                                                 self.backup_path = None
                                                 self.best_external_path = None
                                                 self.brief_interface_handle = None
+                                                self.brief_lfa_protection_type = None
                                                 self.brief_next_hop_prefix = None
                                                 self.brief_pnode_address = None
                                                 self.brief_qnode_address = None
@@ -9983,7 +12456,7 @@ class Fib(object):
                                                 """
 
                                                 _prefix = 'fib-common-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-20'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -10093,7 +12566,7 @@ class Fib(object):
                                                     """
 
                                                     _prefix = 'fib-common-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-20'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -10139,7 +12612,7 @@ class Fib(object):
                                                         """
 
                                                         _prefix = 'fib-common-oper'
-                                                        _revision = '2015-11-09'
+                                                        _revision = '2017-01-20'
 
                                                         def __init__(self):
                                                             self.parent = None
@@ -10385,7 +12858,7 @@ class Fib(object):
                                                 """
 
                                                 _prefix = 'fib-common-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-20'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -10437,7 +12910,7 @@ class Fib(object):
                                                     """
 
                                                     _prefix = 'fib-common-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-20'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -10556,6 +13029,9 @@ class Fib(object):
                                                 if self.brief_interface_handle is not None:
                                                     return True
 
+                                                if self.brief_lfa_protection_type is not None:
+                                                    return True
+
                                                 if self.brief_next_hop_prefix is not None:
                                                     return True
 
@@ -10643,6 +13119,248 @@ class Fib(object):
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
                                             return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath']['meta_info']
 
+
+                                    class Srv6Information(object):
+                                        """
+                                        Information about IPv6 SR prefix
+                                        
+                                        .. attribute:: route_is_sripv6_flag
+                                        
+                                        	Route is an IPv6 Segment\-Routing prefix
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: sripv6_stats_valid_flag
+                                        
+                                        	Statistics are valid for this prefix
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: srv6_pfx_resolved_via_policy_label
+                                        
+                                        	Route is a SRv6 prefix resolved via Policy label
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: srv6_statistics
+                                        
+                                        	Statistics for a IPv6 SR prefix
+                                        	**type**\:   :py:class:`Srv6Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.Srv6Information.Srv6Statistics>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'fib-common-oper'
+                                        _revision = '2017-01-20'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.route_is_sripv6_flag = None
+                                            self.sripv6_stats_valid_flag = None
+                                            self.srv6_pfx_resolved_via_policy_label = None
+                                            self.srv6_statistics = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.Srv6Information.Srv6Statistics()
+                                            self.srv6_statistics.parent = self
+
+
+                                        class Srv6Statistics(object):
+                                            """
+                                            Statistics for a IPv6 SR prefix
+                                            
+                                            .. attribute:: srv6_packets_dropped
+                                            
+                                            	SRv6 Packets dropped for a prefix
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..18446744073709551615
+                                            
+                                            .. attribute:: srv6_packets_forwarded
+                                            
+                                            	SRv6 packets forwarded for a prefix
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..18446744073709551615
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'fib-common-oper'
+                                            _revision = '2017-01-20'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.srv6_packets_dropped = None
+                                                self.srv6_packets_forwarded = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:srv6-statistics'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.srv6_packets_dropped is not None:
+                                                    return True
+
+                                                if self.srv6_packets_forwarded is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                                return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.Srv6Information.Srv6Statistics']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:srv6-information'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.route_is_sripv6_flag is not None:
+                                                return True
+
+                                            if self.sripv6_stats_valid_flag is not None:
+                                                return True
+
+                                            if self.srv6_pfx_resolved_via_policy_label is not None:
+                                                return True
+
+                                            if self.srv6_statistics is not None and self.srv6_statistics._has_data():
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                            return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.Srv6Information']['meta_info']
+
+
+                                    class ExtensionObject(object):
+                                        """
+                                        Leaf Extension Object List
+                                        
+                                        .. attribute:: sfecd_le
+                                        
+                                        	sfecd le
+                                        	**type**\:   :py:class:`SfecdLe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.ExtensionObject.SfecdLe>`
+                                        
+                                        .. attribute:: type
+                                        
+                                        	type
+                                        	**type**\:   :py:class:`FibShTblFibExtBagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibShTblFibExtBagEnum>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'fib-common-oper'
+                                        _revision = '2017-01-20'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.sfecd_le = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.ExtensionObject.SfecdLe()
+                                            self.sfecd_le.parent = self
+                                            self.type = None
+
+
+                                        class SfecdLe(object):
+                                            """
+                                            sfecd le
+                                            
+                                            .. attribute:: context_label
+                                            
+                                            	Context Label
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: context_label_flag
+                                            
+                                            	Context Label Exist
+                                            	**type**\:  bool
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'fib-common-oper'
+                                            _revision = '2017-01-20'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.context_label = None
+                                                self.context_label_flag = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:sfecd-le'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.context_label is not None:
+                                                    return True
+
+                                                if self.context_label_flag is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                                return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.ExtensionObject.SfecdLe']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:extension-object'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.sfecd_le is not None and self.sfecd_le._has_data():
+                                                return True
+
+                                            if self.type is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                            return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.ExtensionObject']['meta_info']
+
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
@@ -10671,6 +13389,11 @@ class Fib(object):
 
                                         if self.exact_route_result is not None:
                                             return True
+
+                                        if self.extension_object is not None:
+                                            for child_ref in self.extension_object:
+                                                if child_ref._has_data():
+                                                    return True
 
                                         if self.external_switch_triggered is not None:
                                             return True
@@ -10754,6 +13477,12 @@ class Fib(object):
                                             return True
 
                                         if self.route_for_external_reach_linecard_flag is not None:
+                                            return True
+
+                                        if self.route_is_sr_flag is not None:
+                                            return True
+
+                                        if self.srv6_information is not None and self.srv6_information._has_data():
                                             return True
 
                                         if self.time_of_last_update_in_msec is not None:
@@ -10866,6 +13595,211 @@ class Fib(object):
                             return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs']['meta_info']
 
 
+                    class NhIds(object):
+                        """
+                        NHIdTable is accessed by two keys;
+                        {NHIdValue} and/or {NHInterface,NHAddress
+                        
+                        .. attribute:: nh_id
+                        
+                        	NextHopeId table entry
+                        	**type**\: list of    :py:class:`NhId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.NhIds.NhId>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'fib-common-oper'
+                        _revision = '2017-01-20'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.nh_id = YList()
+                            self.nh_id.parent = self
+                            self.nh_id.name = 'nh_id'
+
+
+                        class NhId(object):
+                            """
+                            NextHopeId table entry
+                            
+                            .. attribute:: nh_address
+                            
+                            	Next\-hop address in string format (e.g., 1 .2.3.4)
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: nh_address_xr
+                            
+                            	Next\-hop address
+                            	**type**\:  str
+                            
+                            .. attribute:: nh_id
+                            
+                            	NHID value
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: nh_id_value
+                            
+                            	NexthopId Value
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: nh_interf_handle
+                            
+                            	Next\-hop interface
+                            	**type**\:  str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: nh_interface_name
+                            
+                            	Interface Name
+                            	**type**\:  str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: nh_link_type
+                            
+                            	Payload linktype
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: nh_protocol
+                            
+                            	Next\-hop address protocol, IPv4/IPv6
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: nh_table_id
+                            
+                            	Table\-ID entry notified for
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: time_of_last_update_in_msec
+                            
+                            	The time of last update in msec
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: version
+                            
+                            	RIB version
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            
+
+                            """
+
+                            _prefix = 'fib-common-oper'
+                            _revision = '2017-01-20'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.nh_address = None
+                                self.nh_address_xr = None
+                                self.nh_id = None
+                                self.nh_id_value = None
+                                self.nh_interf_handle = None
+                                self.nh_interface_name = None
+                                self.nh_link_type = None
+                                self.nh_protocol = None
+                                self.nh_table_id = None
+                                self.time_of_last_update_in_msec = None
+                                self.version = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:nh-id'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.nh_address is not None:
+                                    return True
+
+                                if self.nh_address_xr is not None:
+                                    return True
+
+                                if self.nh_id is not None:
+                                    return True
+
+                                if self.nh_id_value is not None:
+                                    return True
+
+                                if self.nh_interf_handle is not None:
+                                    return True
+
+                                if self.nh_interface_name is not None:
+                                    return True
+
+                                if self.nh_link_type is not None:
+                                    return True
+
+                                if self.nh_protocol is not None:
+                                    return True
+
+                                if self.nh_table_id is not None:
+                                    return True
+
+                                if self.time_of_last_update_in_msec is not None:
+                                    return True
+
+                                if self.version is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.NhIds.NhId']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:nh-ids'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.nh_id is not None:
+                                for child_ref in self.nh_id:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                            return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.NhIds']['meta_info']
+
+
                     class ExternalClientSummaries(object):
                         """
                         External Client Summary Table
@@ -10880,7 +13814,7 @@ class Fib(object):
                         """
 
                         _prefix = 'fib-common-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-01-20'
 
                         def __init__(self):
                             self.parent = None
@@ -10964,7 +13898,7 @@ class Fib(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
@@ -11011,7 +13945,7 @@ class Fib(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
@@ -11360,7 +14294,7 @@ class Fib(object):
                         """
 
                         _prefix = 'fib-common-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-01-20'
 
                         def __init__(self):
                             self.parent = None
@@ -11507,7 +14441,7 @@ class Fib(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
@@ -11624,7 +14558,7 @@ class Fib(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
@@ -11923,7 +14857,7 @@ class Fib(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
@@ -11977,7 +14911,7 @@ class Fib(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
@@ -12022,7 +14956,7 @@ class Fib(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
@@ -12067,7 +15001,7 @@ class Fib(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
@@ -12112,7 +15046,7 @@ class Fib(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
@@ -12612,7 +15546,7 @@ class Fib(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
@@ -12712,7 +15646,7 @@ class Fib(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
@@ -12752,7 +15686,7 @@ class Fib(object):
                                     """
 
                                     _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-20'
 
                                     def __init__(self):
                                         self.parent = None
@@ -12821,7 +15755,7 @@ class Fib(object):
                                         """
 
                                         _prefix = 'fib-common-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-01-20'
 
                                         def __init__(self):
                                             self.parent = None
@@ -12978,7 +15912,7 @@ class Fib(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
@@ -13041,7 +15975,7 @@ class Fib(object):
                                     """
 
                                     _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-20'
 
                                     def __init__(self):
                                         self.parent = None
@@ -13324,7 +16258,7 @@ class Fib(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
@@ -13403,7 +16337,7 @@ class Fib(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
@@ -13564,7 +16498,7 @@ class Fib(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
@@ -13812,7 +16746,7 @@ class Fib(object):
                         """
 
                         _prefix = 'fib-common-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-01-20'
 
                         def __init__(self):
                             self.parent = None
@@ -13834,7 +16768,7 @@ class Fib(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
@@ -13930,7 +16864,7 @@ class Fib(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
@@ -13973,7 +16907,7 @@ class Fib(object):
                                     """
 
                                     _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-20'
 
                                     def __init__(self):
                                         self.parent = None
@@ -14007,7 +16941,7 @@ class Fib(object):
                                         """
 
                                         _prefix = 'fib-common-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-01-20'
 
                                         def __init__(self):
                                             self.parent = None
@@ -14065,7 +16999,7 @@ class Fib(object):
                                         """
 
                                         _prefix = 'fib-common-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-01-20'
 
                                         def __init__(self):
                                             self.parent = None
@@ -14261,6 +17195,9 @@ class Fib(object):
                         if self.external_summary_all is not None and self.external_summary_all._has_data():
                             return True
 
+                        if self.fib_summaries is not None and self.fib_summaries._has_data():
+                            return True
+
                         if self.frr_log is not None and self.frr_log._has_data():
                             return True
 
@@ -14273,7 +17210,10 @@ class Fib(object):
                         if self.misc is not None and self.misc._has_data():
                             return True
 
-                        if self.summaries is not None and self.summaries._has_data():
+                        if self.nh_ids is not None and self.nh_ids._has_data():
+                            return True
+
+                        if self.resource is not None and self.resource._has_data():
                             return True
 
                         if self.vrfs is not None and self.vrfs._has_data():
@@ -14327,6 +17267,9 @@ class Fib(object):
                 if not self.is_config():
                     return False
                 if self.node_name is not None:
+                    return True
+
+                if self.global_ is not None and self.global_._has_data():
                     return True
 
                 if self.protocols is not None and self.protocols._has_data():
@@ -14400,7 +17343,7 @@ class MplsForwarding(object):
     """
 
     _prefix = 'fib-common-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-01-20'
 
     def __init__(self):
         self.nodes = MplsForwarding.Nodes()
@@ -14421,7 +17364,7 @@ class MplsForwarding(object):
         """
 
         _prefix = 'fib-common-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-01-20'
 
         def __init__(self):
             self.parent = None
@@ -14443,33 +17386,54 @@ class MplsForwarding(object):
             
             .. attribute:: forwarding_summary
             
-            	FIB MPLS forwarding summary
+            	MPLS forwarding summary
             	**type**\:   :py:class:`ForwardingSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.ForwardingSummary>`
+            
+            .. attribute:: frr_database
+            
+            	MPLS forwarding FRR Database
+            	**type**\:   :py:class:`FrrDatabase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase>`
+            
+            .. attribute:: frr_logs
+            
+            	FRR Log Table
+            	**type**\:   :py:class:`FrrLogs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrLogs>`
             
             .. attribute:: label_fib
             
             	Labels For FIB
             	**type**\:   :py:class:`LabelFib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib>`
             
+            .. attribute:: tunnel
+            
+            	TE Tunnel information
+            	**type**\:   :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.Tunnel>`
+            
             
 
             """
 
             _prefix = 'fib-common-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-01-20'
 
             def __init__(self):
                 self.parent = None
                 self.node_name = None
                 self.forwarding_summary = MplsForwarding.Nodes.Node.ForwardingSummary()
                 self.forwarding_summary.parent = self
+                self.frr_database = MplsForwarding.Nodes.Node.FrrDatabase()
+                self.frr_database.parent = self
+                self.frr_logs = MplsForwarding.Nodes.Node.FrrLogs()
+                self.frr_logs.parent = self
                 self.label_fib = MplsForwarding.Nodes.Node.LabelFib()
                 self.label_fib.parent = self
+                self.tunnel = MplsForwarding.Nodes.Node.Tunnel()
+                self.tunnel.parent = self
 
 
             class ForwardingSummary(object):
                 """
-                FIB MPLS forwarding summary
+                MPLS forwarding summary
                 
                 .. attribute:: deleted_stale_entries
                 
@@ -14679,7 +17643,7 @@ class MplsForwarding(object):
                 """
 
                 _prefix = 'fib-common-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-01-20'
 
                 def __init__(self):
                     self.parent = None
@@ -14822,6 +17786,256 @@ class MplsForwarding(object):
                     return meta._meta_table['MplsForwarding.Nodes.Node.ForwardingSummary']['meta_info']
 
 
+            class FrrLogs(object):
+                """
+                FRR Log Table
+                
+                .. attribute:: frr_log
+                
+                	FRR Log information
+                	**type**\: list of    :py:class:`FrrLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrLogs.FrrLog>`
+                
+                
+
+                """
+
+                _prefix = 'fib-common-oper'
+                _revision = '2017-01-20'
+
+                def __init__(self):
+                    self.parent = None
+                    self.frr_log = YList()
+                    self.frr_log.parent = self
+                    self.frr_log.name = 'frr_log'
+
+
+                class FrrLog(object):
+                    """
+                    FRR Log information
+                    
+                    .. attribute:: event_id  <key>
+                    
+                    	Event ID
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: fast_bundle_member_down_interface
+                    
+                    	Fast Bundle Member Down Interface
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: frr_event_node_id
+                    
+                    	Node on which the FRR event happened
+                    	**type**\:  str
+                    
+                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                    
+                    .. attribute:: main_processing
+                    
+                    	Main Processing for FRR
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: next_hop
+                    
+                    	Next Hop
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: number_of_rewrites_affected
+                    
+                    	Number of rewrites affected
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: protected_frr_interface_name
+                    
+                    	Interface
+                    	**type**\:  str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: start_time
+                    
+                    	Time of FRR event processing start, Seconds in UTC, and Nano Seconds
+                    	**type**\:   :py:class:`StartTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrLogs.FrrLog.StartTime>`
+                    
+                    .. attribute:: switching_time_nsecs
+                    
+                    	Time to switch rewrites [nsecs]
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: nanosecond
+                    
+                    
+
+                    """
+
+                    _prefix = 'fib-common-oper'
+                    _revision = '2017-01-20'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.event_id = None
+                        self.fast_bundle_member_down_interface = None
+                        self.frr_event_node_id = None
+                        self.main_processing = None
+                        self.next_hop = None
+                        self.number_of_rewrites_affected = None
+                        self.protected_frr_interface_name = None
+                        self.start_time = MplsForwarding.Nodes.Node.FrrLogs.FrrLog.StartTime()
+                        self.start_time.parent = self
+                        self.switching_time_nsecs = None
+
+
+                    class StartTime(object):
+                        """
+                        Time of FRR event processing start, Seconds in
+                        UTC, and Nano Seconds
+                        
+                        .. attribute:: nanoseconds
+                        
+                        	Nanoseconds part of time value
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        	**units**\: nanosecond
+                        
+                        .. attribute:: seconds
+                        
+                        	Seconds part of time valueiin UTC
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        	**units**\: second
+                        
+                        
+
+                        """
+
+                        _prefix = 'fib-common-oper'
+                        _revision = '2017-01-20'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.nanoseconds = None
+                            self.seconds = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:start-time'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.nanoseconds is not None:
+                                return True
+
+                            if self.seconds is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                            return meta._meta_table['MplsForwarding.Nodes.Node.FrrLogs.FrrLog.StartTime']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        if self.event_id is None:
+                            raise YPYModelError('Key property event_id is None')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:frr-log[Cisco-IOS-XR-fib-common-oper:event-id = ' + str(self.event_id) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.event_id is not None:
+                            return True
+
+                        if self.fast_bundle_member_down_interface is not None:
+                            return True
+
+                        if self.frr_event_node_id is not None:
+                            return True
+
+                        if self.main_processing is not None:
+                            return True
+
+                        if self.next_hop is not None:
+                            return True
+
+                        if self.number_of_rewrites_affected is not None:
+                            return True
+
+                        if self.protected_frr_interface_name is not None:
+                            return True
+
+                        if self.start_time is not None and self.start_time._has_data():
+                            return True
+
+                        if self.switching_time_nsecs is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                        return meta._meta_table['MplsForwarding.Nodes.Node.FrrLogs.FrrLog']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:frr-logs'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.frr_log is not None:
+                        for child_ref in self.frr_log:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                    return meta._meta_table['MplsForwarding.Nodes.Node.FrrLogs']['meta_info']
+
+
             class LabelFib(object):
                 """
                 Labels For FIB
@@ -14846,7 +18060,7 @@ class MplsForwarding(object):
                 """
 
                 _prefix = 'fib-common-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-01-20'
 
                 def __init__(self):
                     self.parent = None
@@ -14864,7 +18078,7 @@ class MplsForwarding(object):
                     
                     .. attribute:: forwarding_detail
                     
-                    	FIB MPLS forwarding details
+                    	MPLS forwarding details
                     	**type**\: list of    :py:class:`ForwardingDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail>`
                     
                     
@@ -14872,7 +18086,7 @@ class MplsForwarding(object):
                     """
 
                     _prefix = 'fib-common-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-01-20'
 
                     def __init__(self):
                         self.parent = None
@@ -14883,7 +18097,7 @@ class MplsForwarding(object):
 
                     class ForwardingDetail(object):
                         """
-                        FIB MPLS forwarding details
+                        MPLS forwarding details
                         
                         .. attribute:: afi_table_id
                         
@@ -14921,7 +18135,7 @@ class MplsForwarding(object):
                         	Local label value
                         	**type**\:  int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 16..1048575
                         
                         .. attribute:: ldi_flags
                         
@@ -15048,7 +18262,7 @@ class MplsForwarding(object):
                         """
 
                         _prefix = 'fib-common-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-01-20'
 
                         def __init__(self):
                             self.parent = None
@@ -15098,7 +18312,7 @@ class MplsForwarding(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
@@ -15236,7 +18450,7 @@ class MplsForwarding(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
@@ -15454,7 +18668,7 @@ class MplsForwarding(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
@@ -15558,7 +18772,7 @@ class MplsForwarding(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
@@ -15837,7 +19051,7 @@ class MplsForwarding(object):
                     
                     .. attribute:: information
                     
-                    	FIB MPLS forwarding information
+                    	MPLS forwarding information
                     	**type**\: list of    :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.Informations.Information>`
                     
                     
@@ -15845,7 +19059,7 @@ class MplsForwarding(object):
                     """
 
                     _prefix = 'fib-common-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-01-20'
 
                     def __init__(self):
                         self.parent = None
@@ -15856,7 +19070,7 @@ class MplsForwarding(object):
 
                     class Information(object):
                         """
-                        FIB MPLS forwarding information
+                        MPLS forwarding information
                         
                         .. attribute:: afi_table_id
                         
@@ -15894,7 +19108,7 @@ class MplsForwarding(object):
                         	Local label value
                         	**type**\:  int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 16..1048575
                         
                         .. attribute:: ldi_flags
                         
@@ -16021,7 +19235,7 @@ class MplsForwarding(object):
                         """
 
                         _prefix = 'fib-common-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-01-20'
 
                         def __init__(self):
                             self.parent = None
@@ -16071,7 +19285,7 @@ class MplsForwarding(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
@@ -16209,7 +19423,7 @@ class MplsForwarding(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
@@ -16427,7 +19641,7 @@ class MplsForwarding(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
@@ -16531,7 +19745,7 @@ class MplsForwarding(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
@@ -16823,7 +20037,7 @@ class MplsForwarding(object):
                     """
 
                     _prefix = 'fib-common-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-01-20'
 
                     def __init__(self):
                         self.parent = None
@@ -16847,7 +20061,7 @@ class MplsForwarding(object):
                         """
 
                         _prefix = 'fib-common-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-01-20'
 
                         def __init__(self):
                             self.parent = None
@@ -16913,7 +20127,7 @@ class MplsForwarding(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
@@ -17023,7 +20237,7 @@ class MplsForwarding(object):
                         """
 
                         _prefix = 'fib-common-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-01-20'
 
                         def __init__(self):
                             self.parent = None
@@ -17114,4330 +20328,44 @@ class MplsForwarding(object):
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
                     return meta._meta_table['MplsForwarding.Nodes.Node.LabelFib']['meta_info']
 
-            @property
-            def _common_path(self):
-                if self.node_name is None:
-                    raise YPYModelError('Key property node_name is None')
-
-                return '/Cisco-IOS-XR-fib-common-oper:mpls-forwarding/Cisco-IOS-XR-fib-common-oper:nodes/Cisco-IOS-XR-fib-common-oper:node[Cisco-IOS-XR-fib-common-oper:node-name = ' + str(self.node_name) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.node_name is not None:
-                    return True
-
-                if self.forwarding_summary is not None and self.forwarding_summary._has_data():
-                    return True
-
-                if self.label_fib is not None and self.label_fib._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                return meta._meta_table['MplsForwarding.Nodes.Node']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-fib-common-oper:mpls-forwarding/Cisco-IOS-XR-fib-common-oper:nodes'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.node is not None:
-                for child_ref in self.node:
-                    if child_ref._has_data():
-                        return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-            return meta._meta_table['MplsForwarding.Nodes']['meta_info']
-
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-fib-common-oper:mpls-forwarding'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
-
-    def _has_data(self):
-        if not self.is_config():
-            return False
-        if self.nodes is not None and self.nodes._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-        return meta._meta_table['MplsForwarding']['meta_info']
-
-
-class FibMpls(object):
-    """
-    fib mpls
-    
-    .. attribute:: nodes
-    
-    	Table of Nodes
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes>`
-    
-    
-
-    """
-
-    _prefix = 'fib-common-oper'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        self.nodes = FibMpls.Nodes()
-        self.nodes.parent = self
-
-
-    class Nodes(object):
-        """
-        Table of Nodes
-        
-        .. attribute:: node
-        
-        	Operational data for a specific Node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node>`
-        
-        
-
-        """
-
-        _prefix = 'fib-common-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.node = YList()
-            self.node.parent = self
-            self.node.name = 'node'
-
-
-        class Node(object):
-            """
-            Operational data for a specific Node
-            
-            .. attribute:: node_name  <key>
-            
-            	Node name
-            	**type**\:  str
-            
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
-            .. attribute:: forwarding_summary
-            
-            	FIB MPLS forwarding summary
-            	**type**\:   :py:class:`ForwardingSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.ForwardingSummary>`
-            
-            .. attribute:: frr_database
-            
-            	FIB MPLS FRR Database
-            	**type**\:   :py:class:`FrrDatabase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase>`
-            
-            .. attribute:: frr_logs
-            
-            	FRR Log Table
-            	**type**\:   :py:class:`FrrLogs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrLogs>`
-            
-            .. attribute:: label_fib
-            
-            	Labels For FIB
-            	**type**\:   :py:class:`LabelFib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib>`
-            
-            .. attribute:: tunnel
-            
-            	Tunnels Operations
-            	**type**\:   :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel>`
-            
-            
-
-            """
-
-            _prefix = 'fib-common-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.node_name = None
-                self.forwarding_summary = FibMpls.Nodes.Node.ForwardingSummary()
-                self.forwarding_summary.parent = self
-                self.frr_database = FibMpls.Nodes.Node.FrrDatabase()
-                self.frr_database.parent = self
-                self.frr_logs = FibMpls.Nodes.Node.FrrLogs()
-                self.frr_logs.parent = self
-                self.label_fib = FibMpls.Nodes.Node.LabelFib()
-                self.label_fib.parent = self
-                self.tunnel = FibMpls.Nodes.Node.Tunnel()
-                self.tunnel.parent = self
-
-
-            class LabelFib(object):
-                """
-                Labels For FIB
-                
-                .. attribute:: forwarding_details
-                
-                	MPLS Forwarding Detail table
-                	**type**\:   :py:class:`ForwardingDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails>`
-                
-                .. attribute:: forwardings
-                
-                	Forwarding filtering details
-                	**type**\:   :py:class:`Forwardings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings>`
-                
-                
-
-                """
-
-                _prefix = 'fib-common-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.forwarding_details = FibMpls.Nodes.Node.LabelFib.ForwardingDetails()
-                    self.forwarding_details.parent = self
-                    self.forwardings = FibMpls.Nodes.Node.LabelFib.Forwardings()
-                    self.forwardings.parent = self
-
-
-                class Forwardings(object):
-                    """
-                    Forwarding filtering details
-                    
-                    .. attribute:: forwarding
-                    
-                    	FIB MPLS forwarding information
-                    	**type**\: list of    :py:class:`Forwarding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'fib-common-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.forwarding = YList()
-                        self.forwarding.parent = self
-                        self.forwarding.name = 'forwarding'
-
-
-                    class Forwarding(object):
-                        """
-                        FIB MPLS forwarding information
-                        
-                        .. attribute:: afi_table_id
-                        
-                        	The AFI table ID
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: eos
-                        
-                        	End of stack flag
-                        	**type**\:   :py:class:`EosEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.EosEnum>`
-                        
-                        .. attribute:: eos_bit
-                        
-                        	EOS bit
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: hardware_information
-                        
-                        	Hardware info
-                        	**type**\:  str
-                        
-                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                        
-                        .. attribute:: label_information
-                        
-                        	Label\-info in FIB leaf
-                        	**type**\:   :py:class:`LabelInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation>`
-                        
-                        .. attribute:: ldi_flags
-                        
-                        	The LDI flags
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: ldi_information
-                        
-                        	LDI\-info in FIB leaf
-                        	**type**\:   :py:class:`LdiInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LdiInformation>`
-                        
-                        .. attribute:: ldi_pointer
-                        
-                        	The pointer to the LDI
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: ldi_reference_count
-                        
-                        	Number of references to the LDI
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: ldi_time_of_last_update_in_msec
-                        
-                        	The time of last update for LDI in msec
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: ldi_type
-                        
-                        	The LDI type
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: leaf_flags
-                        
-                        	The leaf flags
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: leaf_local_label
-                        
-                        	Local label
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: leaf_ptr
-                        
-                        	The Leaf pointer
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: leaf_reference_count
-                        
-                        	Number of references to the leaf
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: leaf_time_in_milli_seconds
-                        
-                        	The time of last update in msec
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: local_label
-                        
-                        	Local label value
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: lspa_flags
-                        
-                        	The LSPA flags
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: lspa_time_of_last_update_in_msec
-                        
-                        	The time of last update for LSPA in msec
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: lw_ldi_pointer
-                        
-                        	The pointer to the LW\-LDI
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: lw_ldi_reference_count
-                        
-                        	The LW\-LDI refcounter
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: lw_ldi_type
-                        
-                        	The LW\-LDI type
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: lw_shared_ldi_pointer
-                        
-                        	The pointer to the shared LDI in LW\-LDI
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: lwldi_time_of_last_update_in_msec
-                        
-                        	The time of last update for LW\-LDI in msec
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: multicast_information
-                        
-                        	The multicast info
-                        	**type**\:   :py:class:`MulticastInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.MulticastInformation>`
-                        
-                        .. attribute:: multicast_label
-                        
-                        	The unicast or multicast label
-                        	**type**\:  bool
-                        
-                        .. attribute:: path_list_flags
-                        
-                        	The pathlist flags
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: path_list_ldi_mask
-                        
-                        	The pathlist ldi mask
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: path_list_pointer
-                        
-                        	The pointer to the pathlist
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: path_list_reference_count
-                        
-                        	Number of references to the pathlist
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: pl_time_of_last_update_in_msec
-                        
-                        	The time of last update for PL in msec
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: pl_time_stamp_type
-                        
-                        	The type of time\-stamp on PL
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: pwhe_interface_list_id
-                        
-                        	Interface list associated with PW\-HE VC imposition label
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: pwhe_interface_list_ptr
-                        
-                        	Interface list ptr
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: rpf
-                        
-                        	RPF info
-                        	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'fib-common-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.afi_table_id = None
-                            self.eos = None
-                            self.eos_bit = None
-                            self.hardware_information = None
-                            self.label_information = FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation()
-                            self.label_information.parent = self
-                            self.ldi_flags = None
-                            self.ldi_information = FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LdiInformation()
-                            self.ldi_information.parent = self
-                            self.ldi_pointer = None
-                            self.ldi_reference_count = None
-                            self.ldi_time_of_last_update_in_msec = None
-                            self.ldi_type = None
-                            self.leaf_flags = None
-                            self.leaf_local_label = None
-                            self.leaf_ptr = None
-                            self.leaf_reference_count = None
-                            self.leaf_time_in_milli_seconds = None
-                            self.local_label = None
-                            self.lspa_flags = None
-                            self.lspa_time_of_last_update_in_msec = None
-                            self.lw_ldi_pointer = None
-                            self.lw_ldi_reference_count = None
-                            self.lw_ldi_type = None
-                            self.lw_shared_ldi_pointer = None
-                            self.lwldi_time_of_last_update_in_msec = None
-                            self.multicast_information = FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.MulticastInformation()
-                            self.multicast_information.parent = self
-                            self.multicast_label = None
-                            self.path_list_flags = None
-                            self.path_list_ldi_mask = None
-                            self.path_list_pointer = None
-                            self.path_list_reference_count = None
-                            self.pl_time_of_last_update_in_msec = None
-                            self.pl_time_stamp_type = None
-                            self.pwhe_interface_list_id = None
-                            self.pwhe_interface_list_ptr = None
-                            self.rpf = FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf()
-                            self.rpf.parent = self
-
-
-                        class LabelInformation(object):
-                            """
-                            Label\-info in FIB leaf
-                            
-                            .. attribute:: fib_mpls_adj_info
-                            
-                            	fib mpls adj info
-                            	**type**\: list of    :py:class:`FibMplsAdjInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.fib_mpls_adj_info = YList()
-                                self.fib_mpls_adj_info.parent = self
-                                self.fib_mpls_adj_info.name = 'fib_mpls_adj_info'
-
-
-                            class FibMplsAdjInfo(object):
-                                """
-                                fib mpls adj info
-                                
-                                .. attribute:: app_id
-                                
-                                	App ID
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: backup_path_index
-                                
-                                	backup path index
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: frr_nh_ptr
-                                
-                                	FRR next\-hop object pointer
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: is_frr_active
-                                
-                                	Is FRR active?
-                                	**type**\:  bool
-                                
-                                .. attribute:: is_pure_backup
-                                
-                                	Is pure backup path?
-                                	**type**\:  bool
-                                
-                                .. attribute:: is_srte
-                                
-                                	Is SRTE?
-                                	**type**\:  bool
-                                
-                                .. attribute:: label_bridge_domain_id
-                                
-                                	Bridge domain\-ID
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: label_information_detail
-                                
-                                	Detail label info
-                                	**type**\:   :py:class:`LabelInformationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo.LabelInformationDetail>`
-                                
-                                .. attribute:: label_information_encap_id
-                                
-                                	Encap ID
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: label_information_next_hop_protocol
-                                
-                                	The address family (v4/v6) 
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: label_information_next_hop_string
-                                
-                                	Next hop address in string format
-                                	**type**\:  str
-                                
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                
-                                .. attribute:: label_information_next_hop_table_id
-                                
-                                	NHinfo Table ID
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: label_information_next_hop_type
-                                
-                                	NHinfo Type
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: label_information_path_index
-                                
-                                	LabelInformationPathIndex
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: label_information_route_version
-                                
-                                	The version of the route
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: label_information_time_in_milli_seconds
-                                
-                                	The time of last update in msec
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: label_information_type
-                                
-                                	Label\-Info type
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: label_pw_xid
-                                
-                                	The XID of PW
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: label_shg_id
-                                
-                                	The SHG\-ID of PW
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: label_xid
-                                
-                                	The XID of Xconnect
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: li_pointer
-                                
-                                	The pointer to the LI object
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: li_reference_count
-                                
-                                	The LI object refcounter
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: local_label
-                                
-                                	Local label
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: mpi_info
-                                
-                                	The MPI info
-                                	**type**\:   :py:class:`MpiInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo.MpiInfo>`
-                                
-                                .. attribute:: mpls_adjacency_flags
-                                
-                                	MPLS Adjacency flags
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: nhid
-                                
-                                	Path's NH Id
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: outgoing_interface
-                                
-                                	Outgoing interface
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: outgoing_label
-                                
-                                	Outgoing label
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: outgoing_physical_interface
-                                
-                                	Outgoing Physical Interface
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: path_flags
-                                
-                                	PL path flags
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: path_index
-                                
-                                	path index
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: pq_flags
-                                
-                                	PQ flags
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: pq_label
-                                
-                                	PQ label
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: pwhe_interface
-                                
-                                	PW\-HE interface
-                                	**type**\:  str
-                                
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                
-                                .. attribute:: pwhecw_enabled
-                                
-                                	PW\-HE CW setting
-                                	**type**\:  bool
-                                
-                                .. attribute:: pwhev_ctype
-                                
-                                	PW\-HE VC type
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: sli_from_ldi
-                                
-                                	Path learnt the LDI/used for Forwarding?
-                                	**type**\:  bool
-                                
-                                .. attribute:: tunnel_id_present
-                                
-                                	Tunnel id present?
-                                	**type**\:  bool
-                                
-                                .. attribute:: tunnel_interface_name
-                                
-                                	Tunnel Interface
-                                	**type**\:  str
-                                
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                
-                                .. attribute:: weight
-                                
-                                	Weight or load metric
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.app_id = None
-                                    self.backup_path_index = None
-                                    self.frr_nh_ptr = None
-                                    self.is_frr_active = None
-                                    self.is_pure_backup = None
-                                    self.is_srte = None
-                                    self.label_bridge_domain_id = None
-                                    self.label_information_detail = FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo.LabelInformationDetail()
-                                    self.label_information_detail.parent = self
-                                    self.label_information_encap_id = None
-                                    self.label_information_next_hop_protocol = None
-                                    self.label_information_next_hop_string = None
-                                    self.label_information_next_hop_table_id = None
-                                    self.label_information_next_hop_type = None
-                                    self.label_information_path_index = None
-                                    self.label_information_route_version = None
-                                    self.label_information_time_in_milli_seconds = None
-                                    self.label_information_type = None
-                                    self.label_pw_xid = None
-                                    self.label_shg_id = None
-                                    self.label_xid = None
-                                    self.li_pointer = None
-                                    self.li_reference_count = None
-                                    self.local_label = None
-                                    self.mpi_info = FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo.MpiInfo()
-                                    self.mpi_info.parent = self
-                                    self.mpls_adjacency_flags = None
-                                    self.nhid = None
-                                    self.outgoing_interface = None
-                                    self.outgoing_label = None
-                                    self.outgoing_physical_interface = None
-                                    self.path_flags = None
-                                    self.path_index = None
-                                    self.pq_flags = None
-                                    self.pq_label = None
-                                    self.pwhe_interface = None
-                                    self.pwhecw_enabled = None
-                                    self.pwhev_ctype = None
-                                    self.sli_from_ldi = None
-                                    self.tunnel_id_present = None
-                                    self.tunnel_interface_name = None
-                                    self.weight = None
-
-
-                                class LabelInformationDetail(object):
-                                    """
-                                    Detail label info
-                                    
-                                    .. attribute:: l3_mtu
-                                    
-                                    	L3 MTU
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: label_stack
-                                    
-                                    	Label stack
-                                    	**type**\:  list of int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: mac_size
-                                    
-                                    	Length of L2 encapsulation
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: next_hop_interface_name
-                                    
-                                    	Next hop interface name
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                    
-                                    .. attribute:: next_hop_protocol
-                                    
-                                    	The address family (V4/V6) 
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: next_hop_string
-                                    
-                                    	Next hop address in string format
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                    
-                                    .. attribute:: nh_id
-                                    
-                                    	Nexthop Id
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: route_download_priority
-                                    
-                                    	Priority at which the label was downloaded
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: route_download_version
-                                    
-                                    	Version of the route\-download for the label
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: status
-                                    
-                                    	Status
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    .. attribute:: total_encapsulation_size
-                                    
-                                    	Total encapsulation size\: L2 + MPLS
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: transmit_number_of_bytes_switched
-                                    
-                                    	Number of Bytes switched
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
-                                    
-                                    .. attribute:: transmit_number_of_packets_switched
-                                    
-                                    	Number of packets switched
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: transmit_number_of_tm_bytes_switched
-                                    
-                                    	Number of Traffic\-Matrix Bytes switched
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
-                                    
-                                    .. attribute:: transmit_number_of_tm_packets_switched
-                                    
-                                    	Number of Traffic\-Matrix packets switched
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: version_priority_valid
-                                    
-                                    	Indicates if the version/priority fields are valid
-                                    	**type**\:  bool
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.l3_mtu = None
-                                        self.label_stack = YLeafList()
-                                        self.label_stack.parent = self
-                                        self.label_stack.name = 'label_stack'
-                                        self.mac_size = None
-                                        self.next_hop_interface_name = None
-                                        self.next_hop_protocol = None
-                                        self.next_hop_string = None
-                                        self.nh_id = None
-                                        self.route_download_priority = None
-                                        self.route_download_version = None
-                                        self.status = None
-                                        self.total_encapsulation_size = None
-                                        self.transmit_number_of_bytes_switched = None
-                                        self.transmit_number_of_packets_switched = None
-                                        self.transmit_number_of_tm_bytes_switched = None
-                                        self.transmit_number_of_tm_packets_switched = None
-                                        self.version_priority_valid = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:label-information-detail'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.l3_mtu is not None:
-                                            return True
-
-                                        if self.label_stack is not None:
-                                            for child in self.label_stack:
-                                                if child is not None:
-                                                    return True
-
-                                        if self.mac_size is not None:
-                                            return True
-
-                                        if self.next_hop_interface_name is not None:
-                                            return True
-
-                                        if self.next_hop_protocol is not None:
-                                            return True
-
-                                        if self.next_hop_string is not None:
-                                            return True
-
-                                        if self.nh_id is not None:
-                                            return True
-
-                                        if self.route_download_priority is not None:
-                                            return True
-
-                                        if self.route_download_version is not None:
-                                            return True
-
-                                        if self.status is not None:
-                                            return True
-
-                                        if self.total_encapsulation_size is not None:
-                                            return True
-
-                                        if self.transmit_number_of_bytes_switched is not None:
-                                            return True
-
-                                        if self.transmit_number_of_packets_switched is not None:
-                                            return True
-
-                                        if self.transmit_number_of_tm_bytes_switched is not None:
-                                            return True
-
-                                        if self.transmit_number_of_tm_packets_switched is not None:
-                                            return True
-
-                                        if self.version_priority_valid is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                        return meta._meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo.LabelInformationDetail']['meta_info']
-
-
-                                class MpiInfo(object):
-                                    """
-                                    The MPI info
-                                    
-                                    .. attribute:: backup_is_local
-                                    
-                                    	backup is local
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: bk_tos_mask
-                                    
-                                    	bk tos mask
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: bkup_if_hdl
-                                    
-                                    	bkup if hdl
-                                    	**type**\:  list of int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: bkup_if_node_id
-                                    
-                                    	bkup if node id
-                                    	**type**\:  list of int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: flags
-                                    
-                                    	flags
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: if_hdl
-                                    
-                                    	if hdl
-                                    	**type**\:  list of int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: if_node_id
-                                    
-                                    	if node id
-                                    	**type**\:  list of int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: mcast_id
-                                    
-                                    	mcast id
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: my_node_id
-                                    
-                                    	my node id
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: pd_ts_ms
-                                    
-                                    	pd ts ms
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: pri_tos_mask
-                                    
-                                    	pri tos mask
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: primary_is_local
-                                    
-                                    	primary is local
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: via_label
-                                    
-                                    	via label
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.backup_is_local = None
-                                        self.bk_tos_mask = None
-                                        self.bkup_if_hdl = YLeafList()
-                                        self.bkup_if_hdl.parent = self
-                                        self.bkup_if_hdl.name = 'bkup_if_hdl'
-                                        self.bkup_if_node_id = YLeafList()
-                                        self.bkup_if_node_id.parent = self
-                                        self.bkup_if_node_id.name = 'bkup_if_node_id'
-                                        self.flags = None
-                                        self.if_hdl = YLeafList()
-                                        self.if_hdl.parent = self
-                                        self.if_hdl.name = 'if_hdl'
-                                        self.if_node_id = YLeafList()
-                                        self.if_node_id.parent = self
-                                        self.if_node_id.name = 'if_node_id'
-                                        self.mcast_id = None
-                                        self.my_node_id = None
-                                        self.pd_ts_ms = None
-                                        self.pri_tos_mask = None
-                                        self.primary_is_local = None
-                                        self.via_label = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:mpi-info'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.backup_is_local is not None:
-                                            return True
-
-                                        if self.bk_tos_mask is not None:
-                                            return True
-
-                                        if self.bkup_if_hdl is not None:
-                                            for child in self.bkup_if_hdl:
-                                                if child is not None:
-                                                    return True
-
-                                        if self.bkup_if_node_id is not None:
-                                            for child in self.bkup_if_node_id:
-                                                if child is not None:
-                                                    return True
-
-                                        if self.flags is not None:
-                                            return True
-
-                                        if self.if_hdl is not None:
-                                            for child in self.if_hdl:
-                                                if child is not None:
-                                                    return True
-
-                                        if self.if_node_id is not None:
-                                            for child in self.if_node_id:
-                                                if child is not None:
-                                                    return True
-
-                                        if self.mcast_id is not None:
-                                            return True
-
-                                        if self.my_node_id is not None:
-                                            return True
-
-                                        if self.pd_ts_ms is not None:
-                                            return True
-
-                                        if self.pri_tos_mask is not None:
-                                            return True
-
-                                        if self.primary_is_local is not None:
-                                            return True
-
-                                        if self.via_label is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                        return meta._meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo.MpiInfo']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:fib-mpls-adj-info'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.app_id is not None:
-                                        return True
-
-                                    if self.backup_path_index is not None:
-                                        return True
-
-                                    if self.frr_nh_ptr is not None:
-                                        return True
-
-                                    if self.is_frr_active is not None:
-                                        return True
-
-                                    if self.is_pure_backup is not None:
-                                        return True
-
-                                    if self.is_srte is not None:
-                                        return True
-
-                                    if self.label_bridge_domain_id is not None:
-                                        return True
-
-                                    if self.label_information_detail is not None and self.label_information_detail._has_data():
-                                        return True
-
-                                    if self.label_information_encap_id is not None:
-                                        return True
-
-                                    if self.label_information_next_hop_protocol is not None:
-                                        return True
-
-                                    if self.label_information_next_hop_string is not None:
-                                        return True
-
-                                    if self.label_information_next_hop_table_id is not None:
-                                        return True
-
-                                    if self.label_information_next_hop_type is not None:
-                                        return True
-
-                                    if self.label_information_path_index is not None:
-                                        return True
-
-                                    if self.label_information_route_version is not None:
-                                        return True
-
-                                    if self.label_information_time_in_milli_seconds is not None:
-                                        return True
-
-                                    if self.label_information_type is not None:
-                                        return True
-
-                                    if self.label_pw_xid is not None:
-                                        return True
-
-                                    if self.label_shg_id is not None:
-                                        return True
-
-                                    if self.label_xid is not None:
-                                        return True
-
-                                    if self.li_pointer is not None:
-                                        return True
-
-                                    if self.li_reference_count is not None:
-                                        return True
-
-                                    if self.local_label is not None:
-                                        return True
-
-                                    if self.mpi_info is not None and self.mpi_info._has_data():
-                                        return True
-
-                                    if self.mpls_adjacency_flags is not None:
-                                        return True
-
-                                    if self.nhid is not None:
-                                        return True
-
-                                    if self.outgoing_interface is not None:
-                                        return True
-
-                                    if self.outgoing_label is not None:
-                                        return True
-
-                                    if self.outgoing_physical_interface is not None:
-                                        return True
-
-                                    if self.path_flags is not None:
-                                        return True
-
-                                    if self.path_index is not None:
-                                        return True
-
-                                    if self.pq_flags is not None:
-                                        return True
-
-                                    if self.pq_label is not None:
-                                        return True
-
-                                    if self.pwhe_interface is not None:
-                                        return True
-
-                                    if self.pwhecw_enabled is not None:
-                                        return True
-
-                                    if self.pwhev_ctype is not None:
-                                        return True
-
-                                    if self.sli_from_ldi is not None:
-                                        return True
-
-                                    if self.tunnel_id_present is not None:
-                                        return True
-
-                                    if self.tunnel_interface_name is not None:
-                                        return True
-
-                                    if self.weight is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:label-information'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.fib_mpls_adj_info is not None:
-                                    for child_ref in self.fib_mpls_adj_info:
-                                        if child_ref._has_data():
-                                            return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                return meta._meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation']['meta_info']
-
-
-                        class LdiInformation(object):
-                            """
-                            LDI\-info in FIB leaf
-                            
-                            .. attribute:: ldi_hardware_information
-                            
-                            	Hardware info
-                            	**type**\:  str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            
-
-                            """
-
-                            _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.ldi_hardware_information = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:ldi-information'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.ldi_hardware_information is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                return meta._meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LdiInformation']['meta_info']
-
-
-                        class MulticastInformation(object):
-                            """
-                            The multicast info
-                            
-                            .. attribute:: dependent_tunnel_ifh
-                            
-                            	The interface handle of a dependent tunnel 
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: dependent_tunnel_local_label
-                            
-                            	The Local Label of a dependant Tunnel 
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: label_bridge_domain_id
-                            
-                            	Bridge domain\-ID
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: label_shg_id
-                            
-                            	The SHG\-ID of PW
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: label_xid
-                            
-                            	The XID of PW
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: multicast_encap_id
-                            
-                            	The multicast ENCAP\-ID 
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: multicast_mol_base_flags
-                            
-                            	MOL base flags
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: multicast_mol_flags
-                            
-                            	MOL flags
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: multicast_mol_reference_count
-                            
-                            	MOL reference count
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: multicast_mpls_local_output_paths
-                            
-                            	num multicast mpls local output paths
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: multicast_mpls_output_paths
-                            
-                            	num multicast mpls output paths 
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: multicast_mpls_protocol_output_paths
-                            
-                            	num multicast mpls prot output paths 
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: multicast_platform_data
-                            
-                            	The multicast platform data
-                            	**type**\:  str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            .. attribute:: multicast_platform_data_length
-                            
-                            	The multicast platform data len
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: multicast_rpf_id
-                            
-                            	The multicast RPF\-ID 
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: multicast_tunnel_id
-                            
-                            	multicast mpls P2MP\-TE tunnel id or MLDP Tunnel LSMID on all nodes
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: multicast_tunnel_interface_name
-                            
-                            	multicast mpls tunnel ifh
-                            	**type**\:  str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                            
-                            .. attribute:: multicast_tunnel_lspvif
-                            
-                            	multicast LSPVIF for MLDP Tunnels
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: multicast_tunnel_next_hop_information
-                            
-                            	multicast nhinfo for p2mp TE Head
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: multicast_v4_table_id
-                            
-                            	The multicast IPv4 Table id
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: multicast_v6_table_id
-                            
-                            	The multicast IPv6 Table id
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.dependent_tunnel_ifh = None
-                                self.dependent_tunnel_local_label = None
-                                self.label_bridge_domain_id = None
-                                self.label_shg_id = None
-                                self.label_xid = None
-                                self.multicast_encap_id = None
-                                self.multicast_mol_base_flags = None
-                                self.multicast_mol_flags = None
-                                self.multicast_mol_reference_count = None
-                                self.multicast_mpls_local_output_paths = None
-                                self.multicast_mpls_output_paths = None
-                                self.multicast_mpls_protocol_output_paths = None
-                                self.multicast_platform_data = None
-                                self.multicast_platform_data_length = None
-                                self.multicast_rpf_id = None
-                                self.multicast_tunnel_id = None
-                                self.multicast_tunnel_interface_name = None
-                                self.multicast_tunnel_lspvif = None
-                                self.multicast_tunnel_next_hop_information = None
-                                self.multicast_v4_table_id = None
-                                self.multicast_v6_table_id = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:multicast-information'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.dependent_tunnel_ifh is not None:
-                                    return True
-
-                                if self.dependent_tunnel_local_label is not None:
-                                    return True
-
-                                if self.label_bridge_domain_id is not None:
-                                    return True
-
-                                if self.label_shg_id is not None:
-                                    return True
-
-                                if self.label_xid is not None:
-                                    return True
-
-                                if self.multicast_encap_id is not None:
-                                    return True
-
-                                if self.multicast_mol_base_flags is not None:
-                                    return True
-
-                                if self.multicast_mol_flags is not None:
-                                    return True
-
-                                if self.multicast_mol_reference_count is not None:
-                                    return True
-
-                                if self.multicast_mpls_local_output_paths is not None:
-                                    return True
-
-                                if self.multicast_mpls_output_paths is not None:
-                                    return True
-
-                                if self.multicast_mpls_protocol_output_paths is not None:
-                                    return True
-
-                                if self.multicast_platform_data is not None:
-                                    return True
-
-                                if self.multicast_platform_data_length is not None:
-                                    return True
-
-                                if self.multicast_rpf_id is not None:
-                                    return True
-
-                                if self.multicast_tunnel_id is not None:
-                                    return True
-
-                                if self.multicast_tunnel_interface_name is not None:
-                                    return True
-
-                                if self.multicast_tunnel_lspvif is not None:
-                                    return True
-
-                                if self.multicast_tunnel_next_hop_information is not None:
-                                    return True
-
-                                if self.multicast_v4_table_id is not None:
-                                    return True
-
-                                if self.multicast_v6_table_id is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                return meta._meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.MulticastInformation']['meta_info']
-
-
-                        class Rpf(object):
-                            """
-                            RPF info
-                            
-                            .. attribute:: rpf_create_ts
-                            
-                            	Time when the LRPF was created
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: rpf_flags
-                            
-                            	RPF flags
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: rpf_hardware
-                            
-                            	Platform Hardware info
-                            	**type**\:  str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            .. attribute:: rpf_if
-                            
-                            	Array of interfaces in interface list
-                            	**type**\:  list of str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                            
-                            .. attribute:: rpf_if_map
-                            
-                            	Array of nbr/interface mapping
-                            	**type**\: list of    :py:class:`RpfIfMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfIfMap>`
-                            
-                            .. attribute:: rpf_mod_ts
-                            
-                            	Last time the LRPF modified
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: rpf_pd_ts
-                            
-                            	Last time the PD action was sent for the LRPF
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: rpf_pl_flags
-                            
-                            	RPF pathlist flags
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: rpf_v4_nbr
-                            
-                            	Array of V4 neighbours
-                            	**type**\: list of    :py:class:`RpfV4Nbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfV4Nbr>`
-                            
-                            .. attribute:: rpf_v6_nbr
-                            
-                            	Array of V6 neighbours
-                            	**type**\: list of    :py:class:`RpfV6Nbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfV6Nbr>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.rpf_create_ts = None
-                                self.rpf_flags = None
-                                self.rpf_hardware = None
-                                self.rpf_if = YLeafList()
-                                self.rpf_if.parent = self
-                                self.rpf_if.name = 'rpf_if'
-                                self.rpf_if_map = YList()
-                                self.rpf_if_map.parent = self
-                                self.rpf_if_map.name = 'rpf_if_map'
-                                self.rpf_mod_ts = None
-                                self.rpf_pd_ts = None
-                                self.rpf_pl_flags = None
-                                self.rpf_v4_nbr = YList()
-                                self.rpf_v4_nbr.parent = self
-                                self.rpf_v4_nbr.name = 'rpf_v4_nbr'
-                                self.rpf_v6_nbr = YList()
-                                self.rpf_v6_nbr.parent = self
-                                self.rpf_v6_nbr.name = 'rpf_v6_nbr'
-
-
-                            class RpfV4Nbr(object):
-                                """
-                                Array of V4 neighbours
-                                
-                                .. attribute:: rpf_tbl_id
-                                
-                                	rpf tbl id
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: rpf_v4_addr
-                                
-                                	rpf v4 addr
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                
-
-                                """
-
-                                _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.rpf_tbl_id = None
-                                    self.rpf_v4_addr = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:rpf-v4-nbr'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.rpf_tbl_id is not None:
-                                        return True
-
-                                    if self.rpf_v4_addr is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfV4Nbr']['meta_info']
-
-
-                            class RpfV6Nbr(object):
-                                """
-                                Array of V6 neighbours
-                                
-                                .. attribute:: rpf_tbl_id
-                                
-                                	rpf tbl id
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: rpf_v6_addr
-                                
-                                	rpf v6 addr
-                                	**type**\:  str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
-                                
-
-                                """
-
-                                _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.rpf_tbl_id = None
-                                    self.rpf_v6_addr = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:rpf-v6-nbr'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.rpf_tbl_id is not None:
-                                        return True
-
-                                    if self.rpf_v6_addr is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfV6Nbr']['meta_info']
-
-
-                            class RpfIfMap(object):
-                                """
-                                Array of nbr/interface mapping
-                                
-                                .. attribute:: rpf_ifh
-                                
-                                	rpf ifh
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: rpf_path_index
-                                
-                                	rpf path index
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.rpf_ifh = None
-                                    self.rpf_path_index = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:rpf-if-map'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.rpf_ifh is not None:
-                                        return True
-
-                                    if self.rpf_path_index is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfIfMap']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:rpf'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.rpf_create_ts is not None:
-                                    return True
-
-                                if self.rpf_flags is not None:
-                                    return True
-
-                                if self.rpf_hardware is not None:
-                                    return True
-
-                                if self.rpf_if is not None:
-                                    for child in self.rpf_if:
-                                        if child is not None:
-                                            return True
-
-                                if self.rpf_if_map is not None:
-                                    for child_ref in self.rpf_if_map:
-                                        if child_ref._has_data():
-                                            return True
-
-                                if self.rpf_mod_ts is not None:
-                                    return True
-
-                                if self.rpf_pd_ts is not None:
-                                    return True
-
-                                if self.rpf_pl_flags is not None:
-                                    return True
-
-                                if self.rpf_v4_nbr is not None:
-                                    for child_ref in self.rpf_v4_nbr:
-                                        if child_ref._has_data():
-                                            return True
-
-                                if self.rpf_v6_nbr is not None:
-                                    for child_ref in self.rpf_v6_nbr:
-                                        if child_ref._has_data():
-                                            return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                return meta._meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:forwarding'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.afi_table_id is not None:
-                                return True
-
-                            if self.eos is not None:
-                                return True
-
-                            if self.eos_bit is not None:
-                                return True
-
-                            if self.hardware_information is not None:
-                                return True
-
-                            if self.label_information is not None and self.label_information._has_data():
-                                return True
-
-                            if self.ldi_flags is not None:
-                                return True
-
-                            if self.ldi_information is not None and self.ldi_information._has_data():
-                                return True
-
-                            if self.ldi_pointer is not None:
-                                return True
-
-                            if self.ldi_reference_count is not None:
-                                return True
-
-                            if self.ldi_time_of_last_update_in_msec is not None:
-                                return True
-
-                            if self.ldi_type is not None:
-                                return True
-
-                            if self.leaf_flags is not None:
-                                return True
-
-                            if self.leaf_local_label is not None:
-                                return True
-
-                            if self.leaf_ptr is not None:
-                                return True
-
-                            if self.leaf_reference_count is not None:
-                                return True
-
-                            if self.leaf_time_in_milli_seconds is not None:
-                                return True
-
-                            if self.local_label is not None:
-                                return True
-
-                            if self.lspa_flags is not None:
-                                return True
-
-                            if self.lspa_time_of_last_update_in_msec is not None:
-                                return True
-
-                            if self.lw_ldi_pointer is not None:
-                                return True
-
-                            if self.lw_ldi_reference_count is not None:
-                                return True
-
-                            if self.lw_ldi_type is not None:
-                                return True
-
-                            if self.lw_shared_ldi_pointer is not None:
-                                return True
-
-                            if self.lwldi_time_of_last_update_in_msec is not None:
-                                return True
-
-                            if self.multicast_information is not None and self.multicast_information._has_data():
-                                return True
-
-                            if self.multicast_label is not None:
-                                return True
-
-                            if self.path_list_flags is not None:
-                                return True
-
-                            if self.path_list_ldi_mask is not None:
-                                return True
-
-                            if self.path_list_pointer is not None:
-                                return True
-
-                            if self.path_list_reference_count is not None:
-                                return True
-
-                            if self.pl_time_of_last_update_in_msec is not None:
-                                return True
-
-                            if self.pl_time_stamp_type is not None:
-                                return True
-
-                            if self.pwhe_interface_list_id is not None:
-                                return True
-
-                            if self.pwhe_interface_list_ptr is not None:
-                                return True
-
-                            if self.rpf is not None and self.rpf._has_data():
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                            return meta._meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:forwardings'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.forwarding is not None:
-                            for child_ref in self.forwarding:
-                                if child_ref._has_data():
-                                    return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                        return meta._meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings']['meta_info']
-
-
-                class ForwardingDetails(object):
-                    """
-                    MPLS Forwarding Detail table
-                    
-                    .. attribute:: forwarding_detail
-                    
-                    	FIB MPLS forwarding details
-                    	**type**\: list of    :py:class:`ForwardingDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'fib-common-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.forwarding_detail = YList()
-                        self.forwarding_detail.parent = self
-                        self.forwarding_detail.name = 'forwarding_detail'
-
-
-                    class ForwardingDetail(object):
-                        """
-                        FIB MPLS forwarding details
-                        
-                        .. attribute:: afi_table_id
-                        
-                        	The AFI table ID
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: eos
-                        
-                        	End of stack flag
-                        	**type**\:   :py:class:`EosEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.EosEnum>`
-                        
-                        .. attribute:: eos_bit
-                        
-                        	EOS bit
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: hardware_information
-                        
-                        	Hardware info
-                        	**type**\:  str
-                        
-                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                        
-                        .. attribute:: label_information
-                        
-                        	Label\-info in FIB leaf
-                        	**type**\:   :py:class:`LabelInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation>`
-                        
-                        .. attribute:: ldi_flags
-                        
-                        	The LDI flags
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: ldi_information
-                        
-                        	LDI\-info in FIB leaf
-                        	**type**\:   :py:class:`LdiInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LdiInformation>`
-                        
-                        .. attribute:: ldi_pointer
-                        
-                        	The pointer to the LDI
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: ldi_reference_count
-                        
-                        	Number of references to the LDI
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: ldi_time_of_last_update_in_msec
-                        
-                        	The time of last update for LDI in msec
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: ldi_type
-                        
-                        	The LDI type
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: leaf_flags
-                        
-                        	The leaf flags
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: leaf_local_label
-                        
-                        	Local label
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: leaf_ptr
-                        
-                        	The Leaf pointer
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: leaf_reference_count
-                        
-                        	Number of references to the leaf
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: leaf_time_in_milli_seconds
-                        
-                        	The time of last update in msec
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: local_label
-                        
-                        	Local label value
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: lspa_flags
-                        
-                        	The LSPA flags
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: lspa_time_of_last_update_in_msec
-                        
-                        	The time of last update for LSPA in msec
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: lw_ldi_pointer
-                        
-                        	The pointer to the LW\-LDI
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: lw_ldi_reference_count
-                        
-                        	The LW\-LDI refcounter
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: lw_ldi_type
-                        
-                        	The LW\-LDI type
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: lw_shared_ldi_pointer
-                        
-                        	The pointer to the shared LDI in LW\-LDI
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: lwldi_time_of_last_update_in_msec
-                        
-                        	The time of last update for LW\-LDI in msec
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: multicast_information
-                        
-                        	The multicast info
-                        	**type**\:   :py:class:`MulticastInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.MulticastInformation>`
-                        
-                        .. attribute:: multicast_label
-                        
-                        	The unicast or multicast label
-                        	**type**\:  bool
-                        
-                        .. attribute:: path_list_flags
-                        
-                        	The pathlist flags
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: path_list_ldi_mask
-                        
-                        	The pathlist ldi mask
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: path_list_pointer
-                        
-                        	The pointer to the pathlist
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: path_list_reference_count
-                        
-                        	Number of references to the pathlist
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: pl_time_of_last_update_in_msec
-                        
-                        	The time of last update for PL in msec
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: pl_time_stamp_type
-                        
-                        	The type of time\-stamp on PL
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: pwhe_interface_list_id
-                        
-                        	Interface list associated with PW\-HE VC imposition label
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: pwhe_interface_list_ptr
-                        
-                        	Interface list ptr
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: rpf
-                        
-                        	RPF info
-                        	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'fib-common-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.afi_table_id = None
-                            self.eos = None
-                            self.eos_bit = None
-                            self.hardware_information = None
-                            self.label_information = FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation()
-                            self.label_information.parent = self
-                            self.ldi_flags = None
-                            self.ldi_information = FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LdiInformation()
-                            self.ldi_information.parent = self
-                            self.ldi_pointer = None
-                            self.ldi_reference_count = None
-                            self.ldi_time_of_last_update_in_msec = None
-                            self.ldi_type = None
-                            self.leaf_flags = None
-                            self.leaf_local_label = None
-                            self.leaf_ptr = None
-                            self.leaf_reference_count = None
-                            self.leaf_time_in_milli_seconds = None
-                            self.local_label = None
-                            self.lspa_flags = None
-                            self.lspa_time_of_last_update_in_msec = None
-                            self.lw_ldi_pointer = None
-                            self.lw_ldi_reference_count = None
-                            self.lw_ldi_type = None
-                            self.lw_shared_ldi_pointer = None
-                            self.lwldi_time_of_last_update_in_msec = None
-                            self.multicast_information = FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.MulticastInformation()
-                            self.multicast_information.parent = self
-                            self.multicast_label = None
-                            self.path_list_flags = None
-                            self.path_list_ldi_mask = None
-                            self.path_list_pointer = None
-                            self.path_list_reference_count = None
-                            self.pl_time_of_last_update_in_msec = None
-                            self.pl_time_stamp_type = None
-                            self.pwhe_interface_list_id = None
-                            self.pwhe_interface_list_ptr = None
-                            self.rpf = FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf()
-                            self.rpf.parent = self
-
-
-                        class LabelInformation(object):
-                            """
-                            Label\-info in FIB leaf
-                            
-                            .. attribute:: fib_mpls_adj_info
-                            
-                            	fib mpls adj info
-                            	**type**\: list of    :py:class:`FibMplsAdjInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.fib_mpls_adj_info = YList()
-                                self.fib_mpls_adj_info.parent = self
-                                self.fib_mpls_adj_info.name = 'fib_mpls_adj_info'
-
-
-                            class FibMplsAdjInfo(object):
-                                """
-                                fib mpls adj info
-                                
-                                .. attribute:: app_id
-                                
-                                	App ID
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: backup_path_index
-                                
-                                	backup path index
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: frr_nh_ptr
-                                
-                                	FRR next\-hop object pointer
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: is_frr_active
-                                
-                                	Is FRR active?
-                                	**type**\:  bool
-                                
-                                .. attribute:: is_pure_backup
-                                
-                                	Is pure backup path?
-                                	**type**\:  bool
-                                
-                                .. attribute:: is_srte
-                                
-                                	Is SRTE?
-                                	**type**\:  bool
-                                
-                                .. attribute:: label_bridge_domain_id
-                                
-                                	Bridge domain\-ID
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: label_information_detail
-                                
-                                	Detail label info
-                                	**type**\:   :py:class:`LabelInformationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo.LabelInformationDetail>`
-                                
-                                .. attribute:: label_information_encap_id
-                                
-                                	Encap ID
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: label_information_next_hop_protocol
-                                
-                                	The address family (v4/v6) 
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: label_information_next_hop_string
-                                
-                                	Next hop address in string format
-                                	**type**\:  str
-                                
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                
-                                .. attribute:: label_information_next_hop_table_id
-                                
-                                	NHinfo Table ID
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: label_information_next_hop_type
-                                
-                                	NHinfo Type
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: label_information_path_index
-                                
-                                	LabelInformationPathIndex
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: label_information_route_version
-                                
-                                	The version of the route
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: label_information_time_in_milli_seconds
-                                
-                                	The time of last update in msec
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: label_information_type
-                                
-                                	Label\-Info type
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: label_pw_xid
-                                
-                                	The XID of PW
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: label_shg_id
-                                
-                                	The SHG\-ID of PW
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: label_xid
-                                
-                                	The XID of Xconnect
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: li_pointer
-                                
-                                	The pointer to the LI object
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: li_reference_count
-                                
-                                	The LI object refcounter
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: local_label
-                                
-                                	Local label
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: mpi_info
-                                
-                                	The MPI info
-                                	**type**\:   :py:class:`MpiInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo.MpiInfo>`
-                                
-                                .. attribute:: mpls_adjacency_flags
-                                
-                                	MPLS Adjacency flags
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: nhid
-                                
-                                	Path's NH Id
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: outgoing_interface
-                                
-                                	Outgoing interface
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: outgoing_label
-                                
-                                	Outgoing label
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: outgoing_physical_interface
-                                
-                                	Outgoing Physical Interface
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: path_flags
-                                
-                                	PL path flags
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: path_index
-                                
-                                	path index
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: pq_flags
-                                
-                                	PQ flags
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: pq_label
-                                
-                                	PQ label
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: pwhe_interface
-                                
-                                	PW\-HE interface
-                                	**type**\:  str
-                                
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                
-                                .. attribute:: pwhecw_enabled
-                                
-                                	PW\-HE CW setting
-                                	**type**\:  bool
-                                
-                                .. attribute:: pwhev_ctype
-                                
-                                	PW\-HE VC type
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: sli_from_ldi
-                                
-                                	Path learnt the LDI/used for Forwarding?
-                                	**type**\:  bool
-                                
-                                .. attribute:: tunnel_id_present
-                                
-                                	Tunnel id present?
-                                	**type**\:  bool
-                                
-                                .. attribute:: tunnel_interface_name
-                                
-                                	Tunnel Interface
-                                	**type**\:  str
-                                
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                
-                                .. attribute:: weight
-                                
-                                	Weight or load metric
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.app_id = None
-                                    self.backup_path_index = None
-                                    self.frr_nh_ptr = None
-                                    self.is_frr_active = None
-                                    self.is_pure_backup = None
-                                    self.is_srte = None
-                                    self.label_bridge_domain_id = None
-                                    self.label_information_detail = FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo.LabelInformationDetail()
-                                    self.label_information_detail.parent = self
-                                    self.label_information_encap_id = None
-                                    self.label_information_next_hop_protocol = None
-                                    self.label_information_next_hop_string = None
-                                    self.label_information_next_hop_table_id = None
-                                    self.label_information_next_hop_type = None
-                                    self.label_information_path_index = None
-                                    self.label_information_route_version = None
-                                    self.label_information_time_in_milli_seconds = None
-                                    self.label_information_type = None
-                                    self.label_pw_xid = None
-                                    self.label_shg_id = None
-                                    self.label_xid = None
-                                    self.li_pointer = None
-                                    self.li_reference_count = None
-                                    self.local_label = None
-                                    self.mpi_info = FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo.MpiInfo()
-                                    self.mpi_info.parent = self
-                                    self.mpls_adjacency_flags = None
-                                    self.nhid = None
-                                    self.outgoing_interface = None
-                                    self.outgoing_label = None
-                                    self.outgoing_physical_interface = None
-                                    self.path_flags = None
-                                    self.path_index = None
-                                    self.pq_flags = None
-                                    self.pq_label = None
-                                    self.pwhe_interface = None
-                                    self.pwhecw_enabled = None
-                                    self.pwhev_ctype = None
-                                    self.sli_from_ldi = None
-                                    self.tunnel_id_present = None
-                                    self.tunnel_interface_name = None
-                                    self.weight = None
-
-
-                                class LabelInformationDetail(object):
-                                    """
-                                    Detail label info
-                                    
-                                    .. attribute:: l3_mtu
-                                    
-                                    	L3 MTU
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: label_stack
-                                    
-                                    	Label stack
-                                    	**type**\:  list of int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: mac_size
-                                    
-                                    	Length of L2 encapsulation
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: next_hop_interface_name
-                                    
-                                    	Next hop interface name
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                    
-                                    .. attribute:: next_hop_protocol
-                                    
-                                    	The address family (V4/V6) 
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: next_hop_string
-                                    
-                                    	Next hop address in string format
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                    
-                                    .. attribute:: nh_id
-                                    
-                                    	Nexthop Id
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: route_download_priority
-                                    
-                                    	Priority at which the label was downloaded
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: route_download_version
-                                    
-                                    	Version of the route\-download for the label
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: status
-                                    
-                                    	Status
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    .. attribute:: total_encapsulation_size
-                                    
-                                    	Total encapsulation size\: L2 + MPLS
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: transmit_number_of_bytes_switched
-                                    
-                                    	Number of Bytes switched
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
-                                    
-                                    .. attribute:: transmit_number_of_packets_switched
-                                    
-                                    	Number of packets switched
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: transmit_number_of_tm_bytes_switched
-                                    
-                                    	Number of Traffic\-Matrix Bytes switched
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: byte
-                                    
-                                    .. attribute:: transmit_number_of_tm_packets_switched
-                                    
-                                    	Number of Traffic\-Matrix packets switched
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: version_priority_valid
-                                    
-                                    	Indicates if the version/priority fields are valid
-                                    	**type**\:  bool
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.l3_mtu = None
-                                        self.label_stack = YLeafList()
-                                        self.label_stack.parent = self
-                                        self.label_stack.name = 'label_stack'
-                                        self.mac_size = None
-                                        self.next_hop_interface_name = None
-                                        self.next_hop_protocol = None
-                                        self.next_hop_string = None
-                                        self.nh_id = None
-                                        self.route_download_priority = None
-                                        self.route_download_version = None
-                                        self.status = None
-                                        self.total_encapsulation_size = None
-                                        self.transmit_number_of_bytes_switched = None
-                                        self.transmit_number_of_packets_switched = None
-                                        self.transmit_number_of_tm_bytes_switched = None
-                                        self.transmit_number_of_tm_packets_switched = None
-                                        self.version_priority_valid = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:label-information-detail'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.l3_mtu is not None:
-                                            return True
-
-                                        if self.label_stack is not None:
-                                            for child in self.label_stack:
-                                                if child is not None:
-                                                    return True
-
-                                        if self.mac_size is not None:
-                                            return True
-
-                                        if self.next_hop_interface_name is not None:
-                                            return True
-
-                                        if self.next_hop_protocol is not None:
-                                            return True
-
-                                        if self.next_hop_string is not None:
-                                            return True
-
-                                        if self.nh_id is not None:
-                                            return True
-
-                                        if self.route_download_priority is not None:
-                                            return True
-
-                                        if self.route_download_version is not None:
-                                            return True
-
-                                        if self.status is not None:
-                                            return True
-
-                                        if self.total_encapsulation_size is not None:
-                                            return True
-
-                                        if self.transmit_number_of_bytes_switched is not None:
-                                            return True
-
-                                        if self.transmit_number_of_packets_switched is not None:
-                                            return True
-
-                                        if self.transmit_number_of_tm_bytes_switched is not None:
-                                            return True
-
-                                        if self.transmit_number_of_tm_packets_switched is not None:
-                                            return True
-
-                                        if self.version_priority_valid is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                        return meta._meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo.LabelInformationDetail']['meta_info']
-
-
-                                class MpiInfo(object):
-                                    """
-                                    The MPI info
-                                    
-                                    .. attribute:: backup_is_local
-                                    
-                                    	backup is local
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: bk_tos_mask
-                                    
-                                    	bk tos mask
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: bkup_if_hdl
-                                    
-                                    	bkup if hdl
-                                    	**type**\:  list of int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: bkup_if_node_id
-                                    
-                                    	bkup if node id
-                                    	**type**\:  list of int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: flags
-                                    
-                                    	flags
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: if_hdl
-                                    
-                                    	if hdl
-                                    	**type**\:  list of int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: if_node_id
-                                    
-                                    	if node id
-                                    	**type**\:  list of int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: mcast_id
-                                    
-                                    	mcast id
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: my_node_id
-                                    
-                                    	my node id
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: pd_ts_ms
-                                    
-                                    	pd ts ms
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: pri_tos_mask
-                                    
-                                    	pri tos mask
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: primary_is_local
-                                    
-                                    	primary is local
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: via_label
-                                    
-                                    	via label
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.backup_is_local = None
-                                        self.bk_tos_mask = None
-                                        self.bkup_if_hdl = YLeafList()
-                                        self.bkup_if_hdl.parent = self
-                                        self.bkup_if_hdl.name = 'bkup_if_hdl'
-                                        self.bkup_if_node_id = YLeafList()
-                                        self.bkup_if_node_id.parent = self
-                                        self.bkup_if_node_id.name = 'bkup_if_node_id'
-                                        self.flags = None
-                                        self.if_hdl = YLeafList()
-                                        self.if_hdl.parent = self
-                                        self.if_hdl.name = 'if_hdl'
-                                        self.if_node_id = YLeafList()
-                                        self.if_node_id.parent = self
-                                        self.if_node_id.name = 'if_node_id'
-                                        self.mcast_id = None
-                                        self.my_node_id = None
-                                        self.pd_ts_ms = None
-                                        self.pri_tos_mask = None
-                                        self.primary_is_local = None
-                                        self.via_label = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:mpi-info'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.backup_is_local is not None:
-                                            return True
-
-                                        if self.bk_tos_mask is not None:
-                                            return True
-
-                                        if self.bkup_if_hdl is not None:
-                                            for child in self.bkup_if_hdl:
-                                                if child is not None:
-                                                    return True
-
-                                        if self.bkup_if_node_id is not None:
-                                            for child in self.bkup_if_node_id:
-                                                if child is not None:
-                                                    return True
-
-                                        if self.flags is not None:
-                                            return True
-
-                                        if self.if_hdl is not None:
-                                            for child in self.if_hdl:
-                                                if child is not None:
-                                                    return True
-
-                                        if self.if_node_id is not None:
-                                            for child in self.if_node_id:
-                                                if child is not None:
-                                                    return True
-
-                                        if self.mcast_id is not None:
-                                            return True
-
-                                        if self.my_node_id is not None:
-                                            return True
-
-                                        if self.pd_ts_ms is not None:
-                                            return True
-
-                                        if self.pri_tos_mask is not None:
-                                            return True
-
-                                        if self.primary_is_local is not None:
-                                            return True
-
-                                        if self.via_label is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                        return meta._meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo.MpiInfo']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:fib-mpls-adj-info'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.app_id is not None:
-                                        return True
-
-                                    if self.backup_path_index is not None:
-                                        return True
-
-                                    if self.frr_nh_ptr is not None:
-                                        return True
-
-                                    if self.is_frr_active is not None:
-                                        return True
-
-                                    if self.is_pure_backup is not None:
-                                        return True
-
-                                    if self.is_srte is not None:
-                                        return True
-
-                                    if self.label_bridge_domain_id is not None:
-                                        return True
-
-                                    if self.label_information_detail is not None and self.label_information_detail._has_data():
-                                        return True
-
-                                    if self.label_information_encap_id is not None:
-                                        return True
-
-                                    if self.label_information_next_hop_protocol is not None:
-                                        return True
-
-                                    if self.label_information_next_hop_string is not None:
-                                        return True
-
-                                    if self.label_information_next_hop_table_id is not None:
-                                        return True
-
-                                    if self.label_information_next_hop_type is not None:
-                                        return True
-
-                                    if self.label_information_path_index is not None:
-                                        return True
-
-                                    if self.label_information_route_version is not None:
-                                        return True
-
-                                    if self.label_information_time_in_milli_seconds is not None:
-                                        return True
-
-                                    if self.label_information_type is not None:
-                                        return True
-
-                                    if self.label_pw_xid is not None:
-                                        return True
-
-                                    if self.label_shg_id is not None:
-                                        return True
-
-                                    if self.label_xid is not None:
-                                        return True
-
-                                    if self.li_pointer is not None:
-                                        return True
-
-                                    if self.li_reference_count is not None:
-                                        return True
-
-                                    if self.local_label is not None:
-                                        return True
-
-                                    if self.mpi_info is not None and self.mpi_info._has_data():
-                                        return True
-
-                                    if self.mpls_adjacency_flags is not None:
-                                        return True
-
-                                    if self.nhid is not None:
-                                        return True
-
-                                    if self.outgoing_interface is not None:
-                                        return True
-
-                                    if self.outgoing_label is not None:
-                                        return True
-
-                                    if self.outgoing_physical_interface is not None:
-                                        return True
-
-                                    if self.path_flags is not None:
-                                        return True
-
-                                    if self.path_index is not None:
-                                        return True
-
-                                    if self.pq_flags is not None:
-                                        return True
-
-                                    if self.pq_label is not None:
-                                        return True
-
-                                    if self.pwhe_interface is not None:
-                                        return True
-
-                                    if self.pwhecw_enabled is not None:
-                                        return True
-
-                                    if self.pwhev_ctype is not None:
-                                        return True
-
-                                    if self.sli_from_ldi is not None:
-                                        return True
-
-                                    if self.tunnel_id_present is not None:
-                                        return True
-
-                                    if self.tunnel_interface_name is not None:
-                                        return True
-
-                                    if self.weight is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:label-information'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.fib_mpls_adj_info is not None:
-                                    for child_ref in self.fib_mpls_adj_info:
-                                        if child_ref._has_data():
-                                            return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                return meta._meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation']['meta_info']
-
-
-                        class LdiInformation(object):
-                            """
-                            LDI\-info in FIB leaf
-                            
-                            .. attribute:: ldi_hardware_information
-                            
-                            	Hardware info
-                            	**type**\:  str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            
-
-                            """
-
-                            _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.ldi_hardware_information = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:ldi-information'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.ldi_hardware_information is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                return meta._meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LdiInformation']['meta_info']
-
-
-                        class MulticastInformation(object):
-                            """
-                            The multicast info
-                            
-                            .. attribute:: dependent_tunnel_ifh
-                            
-                            	The interface handle of a dependent tunnel 
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: dependent_tunnel_local_label
-                            
-                            	The Local Label of a dependant Tunnel 
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: label_bridge_domain_id
-                            
-                            	Bridge domain\-ID
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: label_shg_id
-                            
-                            	The SHG\-ID of PW
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: label_xid
-                            
-                            	The XID of PW
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: multicast_encap_id
-                            
-                            	The multicast ENCAP\-ID 
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: multicast_mol_base_flags
-                            
-                            	MOL base flags
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: multicast_mol_flags
-                            
-                            	MOL flags
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: multicast_mol_reference_count
-                            
-                            	MOL reference count
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: multicast_mpls_local_output_paths
-                            
-                            	num multicast mpls local output paths
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: multicast_mpls_output_paths
-                            
-                            	num multicast mpls output paths 
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: multicast_mpls_protocol_output_paths
-                            
-                            	num multicast mpls prot output paths 
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: multicast_platform_data
-                            
-                            	The multicast platform data
-                            	**type**\:  str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            .. attribute:: multicast_platform_data_length
-                            
-                            	The multicast platform data len
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: multicast_rpf_id
-                            
-                            	The multicast RPF\-ID 
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: multicast_tunnel_id
-                            
-                            	multicast mpls P2MP\-TE tunnel id or MLDP Tunnel LSMID on all nodes
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: multicast_tunnel_interface_name
-                            
-                            	multicast mpls tunnel ifh
-                            	**type**\:  str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                            
-                            .. attribute:: multicast_tunnel_lspvif
-                            
-                            	multicast LSPVIF for MLDP Tunnels
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: multicast_tunnel_next_hop_information
-                            
-                            	multicast nhinfo for p2mp TE Head
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: multicast_v4_table_id
-                            
-                            	The multicast IPv4 Table id
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: multicast_v6_table_id
-                            
-                            	The multicast IPv6 Table id
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.dependent_tunnel_ifh = None
-                                self.dependent_tunnel_local_label = None
-                                self.label_bridge_domain_id = None
-                                self.label_shg_id = None
-                                self.label_xid = None
-                                self.multicast_encap_id = None
-                                self.multicast_mol_base_flags = None
-                                self.multicast_mol_flags = None
-                                self.multicast_mol_reference_count = None
-                                self.multicast_mpls_local_output_paths = None
-                                self.multicast_mpls_output_paths = None
-                                self.multicast_mpls_protocol_output_paths = None
-                                self.multicast_platform_data = None
-                                self.multicast_platform_data_length = None
-                                self.multicast_rpf_id = None
-                                self.multicast_tunnel_id = None
-                                self.multicast_tunnel_interface_name = None
-                                self.multicast_tunnel_lspvif = None
-                                self.multicast_tunnel_next_hop_information = None
-                                self.multicast_v4_table_id = None
-                                self.multicast_v6_table_id = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:multicast-information'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.dependent_tunnel_ifh is not None:
-                                    return True
-
-                                if self.dependent_tunnel_local_label is not None:
-                                    return True
-
-                                if self.label_bridge_domain_id is not None:
-                                    return True
-
-                                if self.label_shg_id is not None:
-                                    return True
-
-                                if self.label_xid is not None:
-                                    return True
-
-                                if self.multicast_encap_id is not None:
-                                    return True
-
-                                if self.multicast_mol_base_flags is not None:
-                                    return True
-
-                                if self.multicast_mol_flags is not None:
-                                    return True
-
-                                if self.multicast_mol_reference_count is not None:
-                                    return True
-
-                                if self.multicast_mpls_local_output_paths is not None:
-                                    return True
-
-                                if self.multicast_mpls_output_paths is not None:
-                                    return True
-
-                                if self.multicast_mpls_protocol_output_paths is not None:
-                                    return True
-
-                                if self.multicast_platform_data is not None:
-                                    return True
-
-                                if self.multicast_platform_data_length is not None:
-                                    return True
-
-                                if self.multicast_rpf_id is not None:
-                                    return True
-
-                                if self.multicast_tunnel_id is not None:
-                                    return True
-
-                                if self.multicast_tunnel_interface_name is not None:
-                                    return True
-
-                                if self.multicast_tunnel_lspvif is not None:
-                                    return True
-
-                                if self.multicast_tunnel_next_hop_information is not None:
-                                    return True
-
-                                if self.multicast_v4_table_id is not None:
-                                    return True
-
-                                if self.multicast_v6_table_id is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                return meta._meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.MulticastInformation']['meta_info']
-
-
-                        class Rpf(object):
-                            """
-                            RPF info
-                            
-                            .. attribute:: rpf_create_ts
-                            
-                            	Time when the LRPF was created
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: rpf_flags
-                            
-                            	RPF flags
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: rpf_hardware
-                            
-                            	Platform Hardware info
-                            	**type**\:  str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            .. attribute:: rpf_if
-                            
-                            	Array of interfaces in interface list
-                            	**type**\:  list of str
-                            
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                            
-                            .. attribute:: rpf_if_map
-                            
-                            	Array of nbr/interface mapping
-                            	**type**\: list of    :py:class:`RpfIfMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfIfMap>`
-                            
-                            .. attribute:: rpf_mod_ts
-                            
-                            	Last time the LRPF modified
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: rpf_pd_ts
-                            
-                            	Last time the PD action was sent for the LRPF
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: rpf_pl_flags
-                            
-                            	RPF pathlist flags
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: rpf_v4_nbr
-                            
-                            	Array of V4 neighbours
-                            	**type**\: list of    :py:class:`RpfV4Nbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfV4Nbr>`
-                            
-                            .. attribute:: rpf_v6_nbr
-                            
-                            	Array of V6 neighbours
-                            	**type**\: list of    :py:class:`RpfV6Nbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfV6Nbr>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.rpf_create_ts = None
-                                self.rpf_flags = None
-                                self.rpf_hardware = None
-                                self.rpf_if = YLeafList()
-                                self.rpf_if.parent = self
-                                self.rpf_if.name = 'rpf_if'
-                                self.rpf_if_map = YList()
-                                self.rpf_if_map.parent = self
-                                self.rpf_if_map.name = 'rpf_if_map'
-                                self.rpf_mod_ts = None
-                                self.rpf_pd_ts = None
-                                self.rpf_pl_flags = None
-                                self.rpf_v4_nbr = YList()
-                                self.rpf_v4_nbr.parent = self
-                                self.rpf_v4_nbr.name = 'rpf_v4_nbr'
-                                self.rpf_v6_nbr = YList()
-                                self.rpf_v6_nbr.parent = self
-                                self.rpf_v6_nbr.name = 'rpf_v6_nbr'
-
-
-                            class RpfV4Nbr(object):
-                                """
-                                Array of V4 neighbours
-                                
-                                .. attribute:: rpf_tbl_id
-                                
-                                	rpf tbl id
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: rpf_v4_addr
-                                
-                                	rpf v4 addr
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                
-
-                                """
-
-                                _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.rpf_tbl_id = None
-                                    self.rpf_v4_addr = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:rpf-v4-nbr'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.rpf_tbl_id is not None:
-                                        return True
-
-                                    if self.rpf_v4_addr is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfV4Nbr']['meta_info']
-
-
-                            class RpfV6Nbr(object):
-                                """
-                                Array of V6 neighbours
-                                
-                                .. attribute:: rpf_tbl_id
-                                
-                                	rpf tbl id
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: rpf_v6_addr
-                                
-                                	rpf v6 addr
-                                	**type**\:  str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
-                                
-
-                                """
-
-                                _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.rpf_tbl_id = None
-                                    self.rpf_v6_addr = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:rpf-v6-nbr'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.rpf_tbl_id is not None:
-                                        return True
-
-                                    if self.rpf_v6_addr is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfV6Nbr']['meta_info']
-
-
-                            class RpfIfMap(object):
-                                """
-                                Array of nbr/interface mapping
-                                
-                                .. attribute:: rpf_ifh
-                                
-                                	rpf ifh
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: rpf_path_index
-                                
-                                	rpf path index
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.rpf_ifh = None
-                                    self.rpf_path_index = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:rpf-if-map'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.rpf_ifh is not None:
-                                        return True
-
-                                    if self.rpf_path_index is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfIfMap']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:rpf'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.rpf_create_ts is not None:
-                                    return True
-
-                                if self.rpf_flags is not None:
-                                    return True
-
-                                if self.rpf_hardware is not None:
-                                    return True
-
-                                if self.rpf_if is not None:
-                                    for child in self.rpf_if:
-                                        if child is not None:
-                                            return True
-
-                                if self.rpf_if_map is not None:
-                                    for child_ref in self.rpf_if_map:
-                                        if child_ref._has_data():
-                                            return True
-
-                                if self.rpf_mod_ts is not None:
-                                    return True
-
-                                if self.rpf_pd_ts is not None:
-                                    return True
-
-                                if self.rpf_pl_flags is not None:
-                                    return True
-
-                                if self.rpf_v4_nbr is not None:
-                                    for child_ref in self.rpf_v4_nbr:
-                                        if child_ref._has_data():
-                                            return True
-
-                                if self.rpf_v6_nbr is not None:
-                                    for child_ref in self.rpf_v6_nbr:
-                                        if child_ref._has_data():
-                                            return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                return meta._meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:forwarding-detail'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.afi_table_id is not None:
-                                return True
-
-                            if self.eos is not None:
-                                return True
-
-                            if self.eos_bit is not None:
-                                return True
-
-                            if self.hardware_information is not None:
-                                return True
-
-                            if self.label_information is not None and self.label_information._has_data():
-                                return True
-
-                            if self.ldi_flags is not None:
-                                return True
-
-                            if self.ldi_information is not None and self.ldi_information._has_data():
-                                return True
-
-                            if self.ldi_pointer is not None:
-                                return True
-
-                            if self.ldi_reference_count is not None:
-                                return True
-
-                            if self.ldi_time_of_last_update_in_msec is not None:
-                                return True
-
-                            if self.ldi_type is not None:
-                                return True
-
-                            if self.leaf_flags is not None:
-                                return True
-
-                            if self.leaf_local_label is not None:
-                                return True
-
-                            if self.leaf_ptr is not None:
-                                return True
-
-                            if self.leaf_reference_count is not None:
-                                return True
-
-                            if self.leaf_time_in_milli_seconds is not None:
-                                return True
-
-                            if self.local_label is not None:
-                                return True
-
-                            if self.lspa_flags is not None:
-                                return True
-
-                            if self.lspa_time_of_last_update_in_msec is not None:
-                                return True
-
-                            if self.lw_ldi_pointer is not None:
-                                return True
-
-                            if self.lw_ldi_reference_count is not None:
-                                return True
-
-                            if self.lw_ldi_type is not None:
-                                return True
-
-                            if self.lw_shared_ldi_pointer is not None:
-                                return True
-
-                            if self.lwldi_time_of_last_update_in_msec is not None:
-                                return True
-
-                            if self.multicast_information is not None and self.multicast_information._has_data():
-                                return True
-
-                            if self.multicast_label is not None:
-                                return True
-
-                            if self.path_list_flags is not None:
-                                return True
-
-                            if self.path_list_ldi_mask is not None:
-                                return True
-
-                            if self.path_list_pointer is not None:
-                                return True
-
-                            if self.path_list_reference_count is not None:
-                                return True
-
-                            if self.pl_time_of_last_update_in_msec is not None:
-                                return True
-
-                            if self.pl_time_stamp_type is not None:
-                                return True
-
-                            if self.pwhe_interface_list_id is not None:
-                                return True
-
-                            if self.pwhe_interface_list_ptr is not None:
-                                return True
-
-                            if self.rpf is not None and self.rpf._has_data():
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                            return meta._meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:forwarding-details'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.forwarding_detail is not None:
-                            for child_ref in self.forwarding_detail:
-                                if child_ref._has_data():
-                                    return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                        return meta._meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:label-fib'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.forwarding_details is not None and self.forwarding_details._has_data():
-                        return True
-
-                    if self.forwardings is not None and self.forwardings._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                    return meta._meta_table['FibMpls.Nodes.Node.LabelFib']['meta_info']
-
 
             class Tunnel(object):
                 """
-                Tunnels Operations
+                TE Tunnel information
                 
                 .. attribute:: forwarding_tunnels
                 
-                	Forwarding details
-                	**type**\:   :py:class:`ForwardingTunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels>`
+                	Forwarding details for TE tunnels
+                	**type**\:   :py:class:`ForwardingTunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels>`
                 
                 
 
                 """
 
                 _prefix = 'fib-common-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-01-20'
 
                 def __init__(self):
                     self.parent = None
-                    self.forwarding_tunnels = FibMpls.Nodes.Node.Tunnel.ForwardingTunnels()
+                    self.forwarding_tunnels = MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels()
                     self.forwarding_tunnels.parent = self
 
 
                 class ForwardingTunnels(object):
                     """
-                    Forwarding details
+                    Forwarding details for TE tunnels
                     
                     .. attribute:: forwarding_tunnel
                     
-                    	FIB MPLS Tunnels Interfaces operation
-                    	**type**\: list of    :py:class:`ForwardingTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel>`
+                    	Forwarding information for the TE tunnel
+                    	**type**\: list of    :py:class:`ForwardingTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel>`
                     
                     
 
                     """
 
                     _prefix = 'fib-common-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-01-20'
 
                     def __init__(self):
                         self.parent = None
@@ -21448,7 +20376,7 @@ class FibMpls(object):
 
                     class ForwardingTunnel(object):
                         """
-                        FIB MPLS Tunnels Interfaces operation
+                        Forwarding information for the TE tunnel
                         
                         .. attribute:: interface_name  <key>
                         
@@ -21460,26 +20388,26 @@ class FibMpls(object):
                         .. attribute:: fwdg
                         
                         	Tunnel forwarding information
-                        	**type**\:   :py:class:`Fwdg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg>`
+                        	**type**\:   :py:class:`Fwdg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg>`
                         
                         .. attribute:: tunnel_info
                         
                         	Tunnel head information
-                        	**type**\:   :py:class:`TunnelInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.TunnelInfo>`
+                        	**type**\:   :py:class:`TunnelInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.TunnelInfo>`
                         
                         
 
                         """
 
                         _prefix = 'fib-common-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-01-20'
 
                         def __init__(self):
                             self.parent = None
                             self.interface_name = None
-                            self.fwdg = FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg()
+                            self.fwdg = MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg()
                             self.fwdg.parent = self
-                            self.tunnel_info = FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.TunnelInfo()
+                            self.tunnel_info = MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.TunnelInfo()
                             self.tunnel_info.parent = self
 
 
@@ -21575,7 +20503,7 @@ class FibMpls(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
@@ -21651,7 +20579,7 @@ class FibMpls(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                return meta._meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.TunnelInfo']['meta_info']
+                                return meta._meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.TunnelInfo']['meta_info']
 
 
                         class Fwdg(object):
@@ -21681,8 +20609,8 @@ class FibMpls(object):
                             
                             .. attribute:: label_information
                             
-                            	Label\-info in FIB leaf
-                            	**type**\:   :py:class:`LabelInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation>`
+                            	Label\-infos in FIB leaf
+                            	**type**\: list of    :py:class:`LabelInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation>`
                             
                             .. attribute:: ldi_flags
                             
@@ -21694,7 +20622,7 @@ class FibMpls(object):
                             .. attribute:: ldi_information
                             
                             	LDI\-info in FIB leaf
-                            	**type**\:   :py:class:`LdiInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LdiInformation>`
+                            	**type**\:   :py:class:`LdiInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LdiInformation>`
                             
                             .. attribute:: ldi_pointer
                             
@@ -21703,19 +20631,12 @@ class FibMpls(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: ldi_reference_count
+                            .. attribute:: ldi_referance_count
                             
                             	Number of references to the LDI
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
-                            
-                            .. attribute:: ldi_time_of_last_update_in_msec
-                            
-                            	The time of last update for LDI in msec
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
                             
                             .. attribute:: ldi_type
                             
@@ -21738,14 +20659,7 @@ class FibMpls(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: leaf_ptr
-                            
-                            	The Leaf pointer
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: leaf_reference_count
+                            .. attribute:: leaf_referance_count
                             
                             	Number of references to the leaf
                             	**type**\:  int
@@ -21766,13 +20680,6 @@ class FibMpls(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: lspa_time_of_last_update_in_msec
-                            
-                            	The time of last update for LSPA in msec
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
                             .. attribute:: lw_ldi_pointer
                             
                             	The pointer to the LW\-LDI
@@ -21780,7 +20687,7 @@ class FibMpls(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: lw_ldi_reference_count
+                            .. attribute:: lw_ldi_refernace_count
                             
                             	The LW\-LDI refcounter
                             	**type**\:  int
@@ -21801,17 +20708,10 @@ class FibMpls(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: lwldi_time_of_last_update_in_msec
-                            
-                            	The time of last update for LW\-LDI in msec
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
                             .. attribute:: multicast_information
                             
                             	The multicast info
-                            	**type**\:   :py:class:`MulticastInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.MulticastInformation>`
+                            	**type**\:   :py:class:`MulticastInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.MulticastInformation>`
                             
                             .. attribute:: multicast_label
                             
@@ -21825,1026 +20725,48 @@ class FibMpls(object):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: path_list_ldi_mask
-                            
-                            	The pathlist ldi mask
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: path_list_pointer
-                            
-                            	The pointer to the pathlist
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: path_list_reference_count
+                            .. attribute:: path_list_referance_count
                             
                             	Number of references to the pathlist
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: pl_time_of_last_update_in_msec
-                            
-                            	The time of last update for PL in msec
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: pl_time_stamp_type
-                            
-                            	The type of time\-stamp on PL
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: pwhe_interface_list_id
-                            
-                            	Interface list associated with PW\-HE VC imposition label
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: pwhe_interface_list_ptr
-                            
-                            	Interface list ptr
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: rpf
-                            
-                            	RPF info
-                            	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf>`
-                            
                             
 
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
                                 self.afi_table_id = None
                                 self.eos_bit = None
                                 self.hardware_information = None
-                                self.label_information = FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation()
+                                self.label_information = YList()
                                 self.label_information.parent = self
+                                self.label_information.name = 'label_information'
                                 self.ldi_flags = None
-                                self.ldi_information = FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LdiInformation()
+                                self.ldi_information = MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LdiInformation()
                                 self.ldi_information.parent = self
                                 self.ldi_pointer = None
-                                self.ldi_reference_count = None
-                                self.ldi_time_of_last_update_in_msec = None
+                                self.ldi_referance_count = None
                                 self.ldi_type = None
                                 self.leaf_flags = None
                                 self.leaf_local_label = None
-                                self.leaf_ptr = None
-                                self.leaf_reference_count = None
+                                self.leaf_referance_count = None
                                 self.leaf_time_in_milli_seconds = None
                                 self.lspa_flags = None
-                                self.lspa_time_of_last_update_in_msec = None
                                 self.lw_ldi_pointer = None
-                                self.lw_ldi_reference_count = None
+                                self.lw_ldi_refernace_count = None
                                 self.lw_ldi_type = None
                                 self.lw_shared_ldi_pointer = None
-                                self.lwldi_time_of_last_update_in_msec = None
-                                self.multicast_information = FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.MulticastInformation()
+                                self.multicast_information = MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.MulticastInformation()
                                 self.multicast_information.parent = self
                                 self.multicast_label = None
                                 self.path_list_flags = None
-                                self.path_list_ldi_mask = None
-                                self.path_list_pointer = None
-                                self.path_list_reference_count = None
-                                self.pl_time_of_last_update_in_msec = None
-                                self.pl_time_stamp_type = None
-                                self.pwhe_interface_list_id = None
-                                self.pwhe_interface_list_ptr = None
-                                self.rpf = FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf()
-                                self.rpf.parent = self
-
-
-                            class LabelInformation(object):
-                                """
-                                Label\-info in FIB leaf
-                                
-                                .. attribute:: fib_mpls_adj_info
-                                
-                                	fib mpls adj info
-                                	**type**\: list of    :py:class:`FibMplsAdjInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.fib_mpls_adj_info = YList()
-                                    self.fib_mpls_adj_info.parent = self
-                                    self.fib_mpls_adj_info.name = 'fib_mpls_adj_info'
-
-
-                                class FibMplsAdjInfo(object):
-                                    """
-                                    fib mpls adj info
-                                    
-                                    .. attribute:: app_id
-                                    
-                                    	App ID
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    .. attribute:: backup_path_index
-                                    
-                                    	backup path index
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: frr_nh_ptr
-                                    
-                                    	FRR next\-hop object pointer
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: is_frr_active
-                                    
-                                    	Is FRR active?
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: is_pure_backup
-                                    
-                                    	Is pure backup path?
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: is_srte
-                                    
-                                    	Is SRTE?
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: label_bridge_domain_id
-                                    
-                                    	Bridge domain\-ID
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: label_information_detail
-                                    
-                                    	Detail label info
-                                    	**type**\:   :py:class:`LabelInformationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo.LabelInformationDetail>`
-                                    
-                                    .. attribute:: label_information_encap_id
-                                    
-                                    	Encap ID
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: label_information_next_hop_protocol
-                                    
-                                    	The address family (v4/v6) 
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: label_information_next_hop_string
-                                    
-                                    	Next hop address in string format
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                    
-                                    .. attribute:: label_information_next_hop_table_id
-                                    
-                                    	NHinfo Table ID
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: label_information_next_hop_type
-                                    
-                                    	NHinfo Type
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: label_information_path_index
-                                    
-                                    	LabelInformationPathIndex
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: label_information_route_version
-                                    
-                                    	The version of the route
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: label_information_time_in_milli_seconds
-                                    
-                                    	The time of last update in msec
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: label_information_type
-                                    
-                                    	Label\-Info type
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: label_pw_xid
-                                    
-                                    	The XID of PW
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: label_shg_id
-                                    
-                                    	The SHG\-ID of PW
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: label_xid
-                                    
-                                    	The XID of Xconnect
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: li_pointer
-                                    
-                                    	The pointer to the LI object
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: li_reference_count
-                                    
-                                    	The LI object refcounter
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: local_label
-                                    
-                                    	Local label
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: mpi_info
-                                    
-                                    	The MPI info
-                                    	**type**\:   :py:class:`MpiInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo.MpiInfo>`
-                                    
-                                    .. attribute:: mpls_adjacency_flags
-                                    
-                                    	MPLS Adjacency flags
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: nhid
-                                    
-                                    	Path's NH Id
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: outgoing_interface
-                                    
-                                    	Outgoing interface
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: outgoing_label
-                                    
-                                    	Outgoing label
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: outgoing_physical_interface
-                                    
-                                    	Outgoing Physical Interface
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: path_flags
-                                    
-                                    	PL path flags
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: path_index
-                                    
-                                    	path index
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: pq_flags
-                                    
-                                    	PQ flags
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: pq_label
-                                    
-                                    	PQ label
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: pwhe_interface
-                                    
-                                    	PW\-HE interface
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                    
-                                    .. attribute:: pwhecw_enabled
-                                    
-                                    	PW\-HE CW setting
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: pwhev_ctype
-                                    
-                                    	PW\-HE VC type
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: sli_from_ldi
-                                    
-                                    	Path learnt the LDI/used for Forwarding?
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: tunnel_id_present
-                                    
-                                    	Tunnel id present?
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: tunnel_interface_name
-                                    
-                                    	Tunnel Interface
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                    
-                                    .. attribute:: weight
-                                    
-                                    	Weight or load metric
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.app_id = None
-                                        self.backup_path_index = None
-                                        self.frr_nh_ptr = None
-                                        self.is_frr_active = None
-                                        self.is_pure_backup = None
-                                        self.is_srte = None
-                                        self.label_bridge_domain_id = None
-                                        self.label_information_detail = FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo.LabelInformationDetail()
-                                        self.label_information_detail.parent = self
-                                        self.label_information_encap_id = None
-                                        self.label_information_next_hop_protocol = None
-                                        self.label_information_next_hop_string = None
-                                        self.label_information_next_hop_table_id = None
-                                        self.label_information_next_hop_type = None
-                                        self.label_information_path_index = None
-                                        self.label_information_route_version = None
-                                        self.label_information_time_in_milli_seconds = None
-                                        self.label_information_type = None
-                                        self.label_pw_xid = None
-                                        self.label_shg_id = None
-                                        self.label_xid = None
-                                        self.li_pointer = None
-                                        self.li_reference_count = None
-                                        self.local_label = None
-                                        self.mpi_info = FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo.MpiInfo()
-                                        self.mpi_info.parent = self
-                                        self.mpls_adjacency_flags = None
-                                        self.nhid = None
-                                        self.outgoing_interface = None
-                                        self.outgoing_label = None
-                                        self.outgoing_physical_interface = None
-                                        self.path_flags = None
-                                        self.path_index = None
-                                        self.pq_flags = None
-                                        self.pq_label = None
-                                        self.pwhe_interface = None
-                                        self.pwhecw_enabled = None
-                                        self.pwhev_ctype = None
-                                        self.sli_from_ldi = None
-                                        self.tunnel_id_present = None
-                                        self.tunnel_interface_name = None
-                                        self.weight = None
-
-
-                                    class LabelInformationDetail(object):
-                                        """
-                                        Detail label info
-                                        
-                                        .. attribute:: l3_mtu
-                                        
-                                        	L3 MTU
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: label_stack
-                                        
-                                        	Label stack
-                                        	**type**\:  list of int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: mac_size
-                                        
-                                        	Length of L2 encapsulation
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: next_hop_interface_name
-                                        
-                                        	Next hop interface name
-                                        	**type**\:  str
-                                        
-                                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                        
-                                        .. attribute:: next_hop_protocol
-                                        
-                                        	The address family (V4/V6) 
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: next_hop_string
-                                        
-                                        	Next hop address in string format
-                                        	**type**\:  str
-                                        
-                                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                        
-                                        .. attribute:: nh_id
-                                        
-                                        	Nexthop Id
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: route_download_priority
-                                        
-                                        	Priority at which the label was downloaded
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: route_download_version
-                                        
-                                        	Version of the route\-download for the label
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..18446744073709551615
-                                        
-                                        .. attribute:: status
-                                        
-                                        	Status
-                                        	**type**\:  int
-                                        
-                                        	**range:** \-2147483648..2147483647
-                                        
-                                        .. attribute:: total_encapsulation_size
-                                        
-                                        	Total encapsulation size\: L2 + MPLS
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: transmit_number_of_bytes_switched
-                                        
-                                        	Number of Bytes switched
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..18446744073709551615
-                                        
-                                        	**units**\: byte
-                                        
-                                        .. attribute:: transmit_number_of_packets_switched
-                                        
-                                        	Number of packets switched
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..18446744073709551615
-                                        
-                                        .. attribute:: transmit_number_of_tm_bytes_switched
-                                        
-                                        	Number of Traffic\-Matrix Bytes switched
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..18446744073709551615
-                                        
-                                        	**units**\: byte
-                                        
-                                        .. attribute:: transmit_number_of_tm_packets_switched
-                                        
-                                        	Number of Traffic\-Matrix packets switched
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..18446744073709551615
-                                        
-                                        .. attribute:: version_priority_valid
-                                        
-                                        	Indicates if the version/priority fields are valid
-                                        	**type**\:  bool
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'fib-common-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.l3_mtu = None
-                                            self.label_stack = YLeafList()
-                                            self.label_stack.parent = self
-                                            self.label_stack.name = 'label_stack'
-                                            self.mac_size = None
-                                            self.next_hop_interface_name = None
-                                            self.next_hop_protocol = None
-                                            self.next_hop_string = None
-                                            self.nh_id = None
-                                            self.route_download_priority = None
-                                            self.route_download_version = None
-                                            self.status = None
-                                            self.total_encapsulation_size = None
-                                            self.transmit_number_of_bytes_switched = None
-                                            self.transmit_number_of_packets_switched = None
-                                            self.transmit_number_of_tm_bytes_switched = None
-                                            self.transmit_number_of_tm_packets_switched = None
-                                            self.version_priority_valid = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:label-information-detail'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.l3_mtu is not None:
-                                                return True
-
-                                            if self.label_stack is not None:
-                                                for child in self.label_stack:
-                                                    if child is not None:
-                                                        return True
-
-                                            if self.mac_size is not None:
-                                                return True
-
-                                            if self.next_hop_interface_name is not None:
-                                                return True
-
-                                            if self.next_hop_protocol is not None:
-                                                return True
-
-                                            if self.next_hop_string is not None:
-                                                return True
-
-                                            if self.nh_id is not None:
-                                                return True
-
-                                            if self.route_download_priority is not None:
-                                                return True
-
-                                            if self.route_download_version is not None:
-                                                return True
-
-                                            if self.status is not None:
-                                                return True
-
-                                            if self.total_encapsulation_size is not None:
-                                                return True
-
-                                            if self.transmit_number_of_bytes_switched is not None:
-                                                return True
-
-                                            if self.transmit_number_of_packets_switched is not None:
-                                                return True
-
-                                            if self.transmit_number_of_tm_bytes_switched is not None:
-                                                return True
-
-                                            if self.transmit_number_of_tm_packets_switched is not None:
-                                                return True
-
-                                            if self.version_priority_valid is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                            return meta._meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo.LabelInformationDetail']['meta_info']
-
-
-                                    class MpiInfo(object):
-                                        """
-                                        The MPI info
-                                        
-                                        .. attribute:: backup_is_local
-                                        
-                                        	backup is local
-                                        	**type**\:  bool
-                                        
-                                        .. attribute:: bk_tos_mask
-                                        
-                                        	bk tos mask
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: bkup_if_hdl
-                                        
-                                        	bkup if hdl
-                                        	**type**\:  list of int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: bkup_if_node_id
-                                        
-                                        	bkup if node id
-                                        	**type**\:  list of int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: flags
-                                        
-                                        	flags
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: if_hdl
-                                        
-                                        	if hdl
-                                        	**type**\:  list of int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: if_node_id
-                                        
-                                        	if node id
-                                        	**type**\:  list of int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: mcast_id
-                                        
-                                        	mcast id
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: my_node_id
-                                        
-                                        	my node id
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: pd_ts_ms
-                                        
-                                        	pd ts ms
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..18446744073709551615
-                                        
-                                        .. attribute:: pri_tos_mask
-                                        
-                                        	pri tos mask
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        .. attribute:: primary_is_local
-                                        
-                                        	primary is local
-                                        	**type**\:  bool
-                                        
-                                        .. attribute:: via_label
-                                        
-                                        	via label
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'fib-common-oper'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.backup_is_local = None
-                                            self.bk_tos_mask = None
-                                            self.bkup_if_hdl = YLeafList()
-                                            self.bkup_if_hdl.parent = self
-                                            self.bkup_if_hdl.name = 'bkup_if_hdl'
-                                            self.bkup_if_node_id = YLeafList()
-                                            self.bkup_if_node_id.parent = self
-                                            self.bkup_if_node_id.name = 'bkup_if_node_id'
-                                            self.flags = None
-                                            self.if_hdl = YLeafList()
-                                            self.if_hdl.parent = self
-                                            self.if_hdl.name = 'if_hdl'
-                                            self.if_node_id = YLeafList()
-                                            self.if_node_id.parent = self
-                                            self.if_node_id.name = 'if_node_id'
-                                            self.mcast_id = None
-                                            self.my_node_id = None
-                                            self.pd_ts_ms = None
-                                            self.pri_tos_mask = None
-                                            self.primary_is_local = None
-                                            self.via_label = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:mpi-info'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.backup_is_local is not None:
-                                                return True
-
-                                            if self.bk_tos_mask is not None:
-                                                return True
-
-                                            if self.bkup_if_hdl is not None:
-                                                for child in self.bkup_if_hdl:
-                                                    if child is not None:
-                                                        return True
-
-                                            if self.bkup_if_node_id is not None:
-                                                for child in self.bkup_if_node_id:
-                                                    if child is not None:
-                                                        return True
-
-                                            if self.flags is not None:
-                                                return True
-
-                                            if self.if_hdl is not None:
-                                                for child in self.if_hdl:
-                                                    if child is not None:
-                                                        return True
-
-                                            if self.if_node_id is not None:
-                                                for child in self.if_node_id:
-                                                    if child is not None:
-                                                        return True
-
-                                            if self.mcast_id is not None:
-                                                return True
-
-                                            if self.my_node_id is not None:
-                                                return True
-
-                                            if self.pd_ts_ms is not None:
-                                                return True
-
-                                            if self.pri_tos_mask is not None:
-                                                return True
-
-                                            if self.primary_is_local is not None:
-                                                return True
-
-                                            if self.via_label is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                            return meta._meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo.MpiInfo']['meta_info']
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:fib-mpls-adj-info'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.app_id is not None:
-                                            return True
-
-                                        if self.backup_path_index is not None:
-                                            return True
-
-                                        if self.frr_nh_ptr is not None:
-                                            return True
-
-                                        if self.is_frr_active is not None:
-                                            return True
-
-                                        if self.is_pure_backup is not None:
-                                            return True
-
-                                        if self.is_srte is not None:
-                                            return True
-
-                                        if self.label_bridge_domain_id is not None:
-                                            return True
-
-                                        if self.label_information_detail is not None and self.label_information_detail._has_data():
-                                            return True
-
-                                        if self.label_information_encap_id is not None:
-                                            return True
-
-                                        if self.label_information_next_hop_protocol is not None:
-                                            return True
-
-                                        if self.label_information_next_hop_string is not None:
-                                            return True
-
-                                        if self.label_information_next_hop_table_id is not None:
-                                            return True
-
-                                        if self.label_information_next_hop_type is not None:
-                                            return True
-
-                                        if self.label_information_path_index is not None:
-                                            return True
-
-                                        if self.label_information_route_version is not None:
-                                            return True
-
-                                        if self.label_information_time_in_milli_seconds is not None:
-                                            return True
-
-                                        if self.label_information_type is not None:
-                                            return True
-
-                                        if self.label_pw_xid is not None:
-                                            return True
-
-                                        if self.label_shg_id is not None:
-                                            return True
-
-                                        if self.label_xid is not None:
-                                            return True
-
-                                        if self.li_pointer is not None:
-                                            return True
-
-                                        if self.li_reference_count is not None:
-                                            return True
-
-                                        if self.local_label is not None:
-                                            return True
-
-                                        if self.mpi_info is not None and self.mpi_info._has_data():
-                                            return True
-
-                                        if self.mpls_adjacency_flags is not None:
-                                            return True
-
-                                        if self.nhid is not None:
-                                            return True
-
-                                        if self.outgoing_interface is not None:
-                                            return True
-
-                                        if self.outgoing_label is not None:
-                                            return True
-
-                                        if self.outgoing_physical_interface is not None:
-                                            return True
-
-                                        if self.path_flags is not None:
-                                            return True
-
-                                        if self.path_index is not None:
-                                            return True
-
-                                        if self.pq_flags is not None:
-                                            return True
-
-                                        if self.pq_label is not None:
-                                            return True
-
-                                        if self.pwhe_interface is not None:
-                                            return True
-
-                                        if self.pwhecw_enabled is not None:
-                                            return True
-
-                                        if self.pwhev_ctype is not None:
-                                            return True
-
-                                        if self.sli_from_ldi is not None:
-                                            return True
-
-                                        if self.tunnel_id_present is not None:
-                                            return True
-
-                                        if self.tunnel_interface_name is not None:
-                                            return True
-
-                                        if self.weight is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                        return meta._meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:label-information'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.fib_mpls_adj_info is not None:
-                                        for child_ref in self.fib_mpls_adj_info:
-                                            if child_ref._has_data():
-                                                return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation']['meta_info']
+                                self.path_list_referance_count = None
 
 
                             class LdiInformation(object):
@@ -22863,7 +20785,7 @@ class FibMpls(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
@@ -22891,47 +20813,12 @@ class FibMpls(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LdiInformation']['meta_info']
+                                    return meta._meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LdiInformation']['meta_info']
 
 
                             class MulticastInformation(object):
                                 """
                                 The multicast info
-                                
-                                .. attribute:: dependent_tunnel_ifh
-                                
-                                	The interface handle of a dependent tunnel 
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: dependent_tunnel_local_label
-                                
-                                	The Local Label of a dependant Tunnel 
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: label_bridge_domain_id
-                                
-                                	Bridge domain\-ID
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: label_shg_id
-                                
-                                	The SHG\-ID of PW
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: label_xid
-                                
-                                	The XID of PW
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
                                 
                                 .. attribute:: multicast_encap_id
                                 
@@ -22954,9 +20841,9 @@ class FibMpls(object):
                                 
                                 	**range:** 0..65535
                                 
-                                .. attribute:: multicast_mol_reference_count
+                                .. attribute:: multicast_mol_referance_count
                                 
-                                	MOL reference count
+                                	MOL refcount
                                 	**type**\:  int
                                 
                                 	**range:** 0..65535
@@ -23010,9 +20897,9 @@ class FibMpls(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: multicast_tunnel_interface_name
+                                .. attribute:: multicast_tunnel_interface_handler
                                 
-                                	multicast mpls tunnel ifh
+                                	multicast mpls tunnel
                                 	**type**\:  str
                                 
                                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
@@ -23031,38 +20918,19 @@ class FibMpls(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: multicast_v4_table_id
-                                
-                                	The multicast IPv4 Table id
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: multicast_v6_table_id
-                                
-                                	The multicast IPv6 Table id
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
                                 
 
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.dependent_tunnel_ifh = None
-                                    self.dependent_tunnel_local_label = None
-                                    self.label_bridge_domain_id = None
-                                    self.label_shg_id = None
-                                    self.label_xid = None
                                     self.multicast_encap_id = None
                                     self.multicast_mol_base_flags = None
                                     self.multicast_mol_flags = None
-                                    self.multicast_mol_reference_count = None
+                                    self.multicast_mol_referance_count = None
                                     self.multicast_mpls_local_output_paths = None
                                     self.multicast_mpls_output_paths = None
                                     self.multicast_mpls_protocol_output_paths = None
@@ -23070,11 +20938,9 @@ class FibMpls(object):
                                     self.multicast_platform_data_length = None
                                     self.multicast_rpf_id = None
                                     self.multicast_tunnel_id = None
-                                    self.multicast_tunnel_interface_name = None
+                                    self.multicast_tunnel_interface_handler = None
                                     self.multicast_tunnel_lspvif = None
                                     self.multicast_tunnel_next_hop_information = None
-                                    self.multicast_v4_table_id = None
-                                    self.multicast_v6_table_id = None
 
                                 @property
                                 def _common_path(self):
@@ -23090,21 +20956,6 @@ class FibMpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.dependent_tunnel_ifh is not None:
-                                        return True
-
-                                    if self.dependent_tunnel_local_label is not None:
-                                        return True
-
-                                    if self.label_bridge_domain_id is not None:
-                                        return True
-
-                                    if self.label_shg_id is not None:
-                                        return True
-
-                                    if self.label_xid is not None:
-                                        return True
-
                                     if self.multicast_encap_id is not None:
                                         return True
 
@@ -23114,7 +20965,7 @@ class FibMpls(object):
                                     if self.multicast_mol_flags is not None:
                                         return True
 
-                                    if self.multicast_mol_reference_count is not None:
+                                    if self.multicast_mol_referance_count is not None:
                                         return True
 
                                     if self.multicast_mpls_local_output_paths is not None:
@@ -23138,7 +20989,7 @@ class FibMpls(object):
                                     if self.multicast_tunnel_id is not None:
                                         return True
 
-                                    if self.multicast_tunnel_interface_name is not None:
+                                    if self.multicast_tunnel_interface_handler is not None:
                                         return True
 
                                     if self.multicast_tunnel_lspvif is not None:
@@ -23147,211 +20998,276 @@ class FibMpls(object):
                                     if self.multicast_tunnel_next_hop_information is not None:
                                         return True
 
-                                    if self.multicast_v4_table_id is not None:
-                                        return True
-
-                                    if self.multicast_v6_table_id is not None:
-                                        return True
-
                                     return False
 
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.MulticastInformation']['meta_info']
+                                    return meta._meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.MulticastInformation']['meta_info']
 
 
-                            class Rpf(object):
+                            class LabelInformation(object):
                                 """
-                                RPF info
+                                Label\-infos in FIB leaf
                                 
-                                .. attribute:: rpf_create_ts
+                                .. attribute:: label_information_detail
                                 
-                                	Time when the LRPF was created
-                                	**type**\:  int
+                                	Detail label info
+                                	**type**\:   :py:class:`LabelInformationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.LabelInformationDetail>`
                                 
-                                	**range:** 0..18446744073709551615
+                                .. attribute:: label_information_next_hop_protocol
                                 
-                                .. attribute:: rpf_flags
+                                	The address family (v4/v6) 
+                                	**type**\:   :py:class:`ProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.ProtoEnum>`
                                 
-                                	RPF flags
+                                .. attribute:: label_information_next_hop_string
+                                
+                                	Next hop address in string format
+                                	**type**\:  str
+                                
+                                .. attribute:: label_information_next_hop_type
+                                
+                                	NHinfo Type
+                                	**type**\:   :py:class:`NextHopEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.NextHopEnum>`
+                                
+                                .. attribute:: label_information_path_index
+                                
+                                	LabelInformationPathIndex
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: rpf_hardware
+                                .. attribute:: label_information_route_version
                                 
-                                	Platform Hardware info
+                                	The version of the route
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: label_information_time_in_milli_seconds
+                                
+                                	The time of last update in msec
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: label_information_type
+                                
+                                	Label\-Info type
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: local_label
+                                
+                                	Local label
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: mpls_adjacency_flags
+                                
+                                	MPLS Adjacency flags
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: outgoing_interface
+                                
+                                	Outgoing interface
                                 	**type**\:  str
-                                
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                
-                                .. attribute:: rpf_if
-                                
-                                	Array of interfaces in interface list
-                                	**type**\:  list of str
                                 
                                 	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
-                                .. attribute:: rpf_if_map
+                                .. attribute:: outgoing_interface_string
                                 
-                                	Array of nbr/interface mapping
-                                	**type**\: list of    :py:class:`RpfIfMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfIfMap>`
+                                	Output Interface in string format
+                                	**type**\:  str
                                 
-                                .. attribute:: rpf_mod_ts
+                                .. attribute:: outgoing_label
                                 
-                                	Last time the LRPF modified
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: rpf_pd_ts
-                                
-                                	Last time the PD action was sent for the LRPF
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: rpf_pl_flags
-                                
-                                	RPF pathlist flags
+                                	Outgoing label
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: rpf_v4_nbr
+                                .. attribute:: outgoing_label_string
                                 
-                                	Array of V4 neighbours
-                                	**type**\: list of    :py:class:`RpfV4Nbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfV4Nbr>`
+                                	Output Label in string format
+                                	**type**\:  str
                                 
-                                .. attribute:: rpf_v6_nbr
+                                .. attribute:: outgoing_physical_interface
                                 
-                                	Array of V6 neighbours
-                                	**type**\: list of    :py:class:`RpfV6Nbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfV6Nbr>`
+                                	Outgoing Physical Interface
+                                	**type**\:  str
+                                
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                
+                                .. attribute:: prefix_or_id
+                                
+                                	Prefix Or ID
+                                	**type**\:  str
+                                
+                                .. attribute:: tunnel_id_present
+                                
+                                	Tunnel id present?
+                                	**type**\:  bool
+                                
+                                .. attribute:: tunnel_interface
+                                
+                                	Tunnel Interface
+                                	**type**\:  str
+                                
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                
+                                .. attribute:: tx_bytes
+                                
+                                	Bytes transmitted per LSP
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                .. attribute:: tx_packets
+                                
+                                	Packets transmitted per LSP
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
                                 
                                 
 
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.rpf_create_ts = None
-                                    self.rpf_flags = None
-                                    self.rpf_hardware = None
-                                    self.rpf_if = YLeafList()
-                                    self.rpf_if.parent = self
-                                    self.rpf_if.name = 'rpf_if'
-                                    self.rpf_if_map = YList()
-                                    self.rpf_if_map.parent = self
-                                    self.rpf_if_map.name = 'rpf_if_map'
-                                    self.rpf_mod_ts = None
-                                    self.rpf_pd_ts = None
-                                    self.rpf_pl_flags = None
-                                    self.rpf_v4_nbr = YList()
-                                    self.rpf_v4_nbr.parent = self
-                                    self.rpf_v4_nbr.name = 'rpf_v4_nbr'
-                                    self.rpf_v6_nbr = YList()
-                                    self.rpf_v6_nbr.parent = self
-                                    self.rpf_v6_nbr.name = 'rpf_v6_nbr'
+                                    self.label_information_detail = MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.LabelInformationDetail()
+                                    self.label_information_detail.parent = self
+                                    self.label_information_next_hop_protocol = None
+                                    self.label_information_next_hop_string = None
+                                    self.label_information_next_hop_type = None
+                                    self.label_information_path_index = None
+                                    self.label_information_route_version = None
+                                    self.label_information_time_in_milli_seconds = None
+                                    self.label_information_type = None
+                                    self.local_label = None
+                                    self.mpls_adjacency_flags = None
+                                    self.outgoing_interface = None
+                                    self.outgoing_interface_string = None
+                                    self.outgoing_label = None
+                                    self.outgoing_label_string = None
+                                    self.outgoing_physical_interface = None
+                                    self.prefix_or_id = None
+                                    self.tunnel_id_present = None
+                                    self.tunnel_interface = None
+                                    self.tx_bytes = None
+                                    self.tx_packets = None
 
 
-                                class RpfV4Nbr(object):
+                                class LabelInformationDetail(object):
                                     """
-                                    Array of V4 neighbours
+                                    Detail label info
                                     
-                                    .. attribute:: rpf_tbl_id
+                                    .. attribute:: l3_mtu
                                     
-                                    	rpf tbl id
+                                    	L3 MTU
                                     	**type**\:  int
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: rpf_v4_addr
+                                    .. attribute:: label_stack
                                     
-                                    	rpf v4 addr
+                                    	Label stack
+                                    	**type**\:  list of int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: mac_size
+                                    
+                                    	Length of L2 encapsulation
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: next_hop_interface
+                                    
+                                    	Next hop interface
                                     	**type**\:  str
                                     
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                     
+                                    .. attribute:: next_hop_protocol
                                     
-
-                                    """
-
-                                    _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.rpf_tbl_id = None
-                                        self.rpf_v4_addr = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:rpf-v4-nbr'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.rpf_tbl_id is not None:
-                                            return True
-
-                                        if self.rpf_v4_addr is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                        return meta._meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfV4Nbr']['meta_info']
-
-
-                                class RpfV6Nbr(object):
-                                    """
-                                    Array of V6 neighbours
+                                    	The address family (V4/V6) 
+                                    	**type**\:   :py:class:`ProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.ProtoEnum>`
                                     
-                                    .. attribute:: rpf_tbl_id
+                                    .. attribute:: next_hop_string
                                     
-                                    	rpf tbl id
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: rpf_v6_addr
-                                    
-                                    	rpf v6 addr
+                                    	Next hop address in string format
                                     	**type**\:  str
                                     
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    .. attribute:: status
+                                    
+                                    	Status
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: total_encapsulation_size
+                                    
+                                    	Total encapsulation size\: L2 + MPLS
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: transmit_number_of_bytes_switched
+                                    
+                                    	Number of Bytes switched
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
+                                    
+                                    .. attribute:: transmit_number_of_packets_switched
+                                    
+                                    	Number of packets switched
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
                                     
                                     
 
                                     """
 
                                     _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-20'
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.rpf_tbl_id = None
-                                        self.rpf_v6_addr = None
+                                        self.l3_mtu = None
+                                        self.label_stack = YLeafList()
+                                        self.label_stack.parent = self
+                                        self.label_stack.name = 'label_stack'
+                                        self.mac_size = None
+                                        self.next_hop_interface = None
+                                        self.next_hop_protocol = None
+                                        self.next_hop_string = None
+                                        self.status = None
+                                        self.total_encapsulation_size = None
+                                        self.transmit_number_of_bytes_switched = None
+                                        self.transmit_number_of_packets_switched = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
                                             raise YPYModelError('parent is not set . Cannot derive path.')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:rpf-v6-nbr'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:label-information-detail'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
@@ -23360,68 +21276,36 @@ class FibMpls(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.rpf_tbl_id is not None:
+                                        if self.l3_mtu is not None:
                                             return True
 
-                                        if self.rpf_v6_addr is not None:
+                                        if self.label_stack is not None:
+                                            for child in self.label_stack:
+                                                if child is not None:
+                                                    return True
+
+                                        if self.mac_size is not None:
                                             return True
 
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                        return meta._meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfV6Nbr']['meta_info']
-
-
-                                class RpfIfMap(object):
-                                    """
-                                    Array of nbr/interface mapping
-                                    
-                                    .. attribute:: rpf_ifh
-                                    
-                                    	rpf ifh
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: rpf_path_index
-                                    
-                                    	rpf path index
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.rpf_ifh = None
-                                        self.rpf_path_index = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:rpf-if-map'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.rpf_ifh is not None:
+                                        if self.next_hop_interface is not None:
                                             return True
 
-                                        if self.rpf_path_index is not None:
+                                        if self.next_hop_protocol is not None:
+                                            return True
+
+                                        if self.next_hop_string is not None:
+                                            return True
+
+                                        if self.status is not None:
+                                            return True
+
+                                        if self.total_encapsulation_size is not None:
+                                            return True
+
+                                        if self.transmit_number_of_bytes_switched is not None:
+                                            return True
+
+                                        if self.transmit_number_of_packets_switched is not None:
                                             return True
 
                                         return False
@@ -23429,14 +21313,14 @@ class FibMpls(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                        return meta._meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfIfMap']['meta_info']
+                                        return meta._meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.LabelInformationDetail']['meta_info']
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
                                         raise YPYModelError('parent is not set . Cannot derive path.')
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:rpf'
+                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:label-information'
 
                                 def is_config(self):
                                     ''' Returns True if this instance represents config data else returns False '''
@@ -23445,50 +21329,72 @@ class FibMpls(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.rpf_create_ts is not None:
+                                    if self.label_information_detail is not None and self.label_information_detail._has_data():
                                         return True
 
-                                    if self.rpf_flags is not None:
+                                    if self.label_information_next_hop_protocol is not None:
                                         return True
 
-                                    if self.rpf_hardware is not None:
+                                    if self.label_information_next_hop_string is not None:
                                         return True
 
-                                    if self.rpf_if is not None:
-                                        for child in self.rpf_if:
-                                            if child is not None:
-                                                return True
-
-                                    if self.rpf_if_map is not None:
-                                        for child_ref in self.rpf_if_map:
-                                            if child_ref._has_data():
-                                                return True
-
-                                    if self.rpf_mod_ts is not None:
+                                    if self.label_information_next_hop_type is not None:
                                         return True
 
-                                    if self.rpf_pd_ts is not None:
+                                    if self.label_information_path_index is not None:
                                         return True
 
-                                    if self.rpf_pl_flags is not None:
+                                    if self.label_information_route_version is not None:
                                         return True
 
-                                    if self.rpf_v4_nbr is not None:
-                                        for child_ref in self.rpf_v4_nbr:
-                                            if child_ref._has_data():
-                                                return True
+                                    if self.label_information_time_in_milli_seconds is not None:
+                                        return True
 
-                                    if self.rpf_v6_nbr is not None:
-                                        for child_ref in self.rpf_v6_nbr:
-                                            if child_ref._has_data():
-                                                return True
+                                    if self.label_information_type is not None:
+                                        return True
+
+                                    if self.local_label is not None:
+                                        return True
+
+                                    if self.mpls_adjacency_flags is not None:
+                                        return True
+
+                                    if self.outgoing_interface is not None:
+                                        return True
+
+                                    if self.outgoing_interface_string is not None:
+                                        return True
+
+                                    if self.outgoing_label is not None:
+                                        return True
+
+                                    if self.outgoing_label_string is not None:
+                                        return True
+
+                                    if self.outgoing_physical_interface is not None:
+                                        return True
+
+                                    if self.prefix_or_id is not None:
+                                        return True
+
+                                    if self.tunnel_id_present is not None:
+                                        return True
+
+                                    if self.tunnel_interface is not None:
+                                        return True
+
+                                    if self.tx_bytes is not None:
+                                        return True
+
+                                    if self.tx_packets is not None:
+                                        return True
 
                                     return False
 
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf']['meta_info']
+                                    return meta._meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -23513,8 +21419,10 @@ class FibMpls(object):
                                 if self.hardware_information is not None:
                                     return True
 
-                                if self.label_information is not None and self.label_information._has_data():
-                                    return True
+                                if self.label_information is not None:
+                                    for child_ref in self.label_information:
+                                        if child_ref._has_data():
+                                            return True
 
                                 if self.ldi_flags is not None:
                                     return True
@@ -23525,10 +21433,7 @@ class FibMpls(object):
                                 if self.ldi_pointer is not None:
                                     return True
 
-                                if self.ldi_reference_count is not None:
-                                    return True
-
-                                if self.ldi_time_of_last_update_in_msec is not None:
+                                if self.ldi_referance_count is not None:
                                     return True
 
                                 if self.ldi_type is not None:
@@ -23540,10 +21445,7 @@ class FibMpls(object):
                                 if self.leaf_local_label is not None:
                                     return True
 
-                                if self.leaf_ptr is not None:
-                                    return True
-
-                                if self.leaf_reference_count is not None:
+                                if self.leaf_referance_count is not None:
                                     return True
 
                                 if self.leaf_time_in_milli_seconds is not None:
@@ -23552,22 +21454,16 @@ class FibMpls(object):
                                 if self.lspa_flags is not None:
                                     return True
 
-                                if self.lspa_time_of_last_update_in_msec is not None:
-                                    return True
-
                                 if self.lw_ldi_pointer is not None:
                                     return True
 
-                                if self.lw_ldi_reference_count is not None:
+                                if self.lw_ldi_refernace_count is not None:
                                     return True
 
                                 if self.lw_ldi_type is not None:
                                     return True
 
                                 if self.lw_shared_ldi_pointer is not None:
-                                    return True
-
-                                if self.lwldi_time_of_last_update_in_msec is not None:
                                     return True
 
                                 if self.multicast_information is not None and self.multicast_information._has_data():
@@ -23579,28 +21475,7 @@ class FibMpls(object):
                                 if self.path_list_flags is not None:
                                     return True
 
-                                if self.path_list_ldi_mask is not None:
-                                    return True
-
-                                if self.path_list_pointer is not None:
-                                    return True
-
-                                if self.path_list_reference_count is not None:
-                                    return True
-
-                                if self.pl_time_of_last_update_in_msec is not None:
-                                    return True
-
-                                if self.pl_time_stamp_type is not None:
-                                    return True
-
-                                if self.pwhe_interface_list_id is not None:
-                                    return True
-
-                                if self.pwhe_interface_list_ptr is not None:
-                                    return True
-
-                                if self.rpf is not None and self.rpf._has_data():
+                                if self.path_list_referance_count is not None:
                                     return True
 
                                 return False
@@ -23608,7 +21483,7 @@ class FibMpls(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                return meta._meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg']['meta_info']
+                                return meta._meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -23640,7 +21515,7 @@ class FibMpls(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                            return meta._meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel']['meta_info']
+                            return meta._meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -23666,7 +21541,7 @@ class FibMpls(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                        return meta._meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels']['meta_info']
+                        return meta._meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -23690,300 +21565,76 @@ class FibMpls(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                    return meta._meta_table['FibMpls.Nodes.Node.Tunnel']['meta_info']
+                    return meta._meta_table['MplsForwarding.Nodes.Node.Tunnel']['meta_info']
 
 
             class FrrDatabase(object):
                 """
-                FIB MPLS FRR Database
+                MPLS forwarding FRR Database
                 
                 .. attribute:: frrdb_backup_interface_summaries
                 
-                	FIB MPLS FRR Database Backup Interface Summary Table
-                	**type**\:   :py:class:`FrrdbBackupInterfaceSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries>`
+                	MPLS forwarding FRR Database Backup Interface Summary Table
+                	**type**\:   :py:class:`FrrdbBackupInterfaceSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries>`
                 
                 .. attribute:: frrdb_protected_interface_table_summaries
                 
-                	FIB MPLS FRR Database Protected Interface Summary Table
-                	**type**\:   :py:class:`FrrdbProtectedInterfaceTableSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries>`
+                	MPLS forwarding FRR Database Protected Interface Summary Table
+                	**type**\:   :py:class:`FrrdbProtectedInterfaceTableSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries>`
                 
                 .. attribute:: frrdb_summary
                 
-                	FIB MPLS FRR Database Summary
-                	**type**\:   :py:class:`FrrdbSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbSummary>`
+                	MPLS forwarding FRR Database Summary
+                	**type**\:   :py:class:`FrrdbSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbSummary>`
                 
                 .. attribute:: frrdb_tunnel_head_summary
                 
-                	FIB MPLS FRR Database Tunnel Head Summary
-                	**type**\:   :py:class:`FrrdbTunnelHeadSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeadSummary>`
+                	MPLS forwarding FRR Database Tunnel Head Summary
+                	**type**\:   :py:class:`FrrdbTunnelHeadSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeadSummary>`
                 
                 .. attribute:: frrdb_tunnel_heads
                 
-                	FIB MPLS FRR Database Tunnel Head Table
-                	**type**\:   :py:class:`FrrdbTunnelHeads <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads>`
+                	MPLS forwarding FRR Database Tunnel Head Table
+                	**type**\:   :py:class:`FrrdbTunnelHeads <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads>`
                 
                 .. attribute:: frrdb_tunnel_midpoint_summary
                 
-                	FIB MPLS FRR Database Tunnel Midpoint Summary
-                	**type**\:   :py:class:`FrrdbTunnelMidpointSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpointSummary>`
+                	MPLS forwarding FRR Database Tunnel Midpoint Summary
+                	**type**\:   :py:class:`FrrdbTunnelMidpointSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpointSummary>`
                 
                 .. attribute:: frrdb_tunnel_midpoints
                 
-                	FIB MPLS FRR Database Tunnel Midpoint Table
-                	**type**\:   :py:class:`FrrdbTunnelMidpoints <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints>`
+                	MPLS forwarding FRR Database Tunnel Midpoint Table
+                	**type**\:   :py:class:`FrrdbTunnelMidpoints <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints>`
                 
                 
 
                 """
 
                 _prefix = 'fib-common-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-01-20'
 
                 def __init__(self):
                     self.parent = None
-                    self.frrdb_backup_interface_summaries = FibMpls.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries()
+                    self.frrdb_backup_interface_summaries = MplsForwarding.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries()
                     self.frrdb_backup_interface_summaries.parent = self
-                    self.frrdb_protected_interface_table_summaries = FibMpls.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries()
+                    self.frrdb_protected_interface_table_summaries = MplsForwarding.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries()
                     self.frrdb_protected_interface_table_summaries.parent = self
-                    self.frrdb_summary = FibMpls.Nodes.Node.FrrDatabase.FrrdbSummary()
+                    self.frrdb_summary = MplsForwarding.Nodes.Node.FrrDatabase.FrrdbSummary()
                     self.frrdb_summary.parent = self
-                    self.frrdb_tunnel_head_summary = FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeadSummary()
+                    self.frrdb_tunnel_head_summary = MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeadSummary()
                     self.frrdb_tunnel_head_summary.parent = self
-                    self.frrdb_tunnel_heads = FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads()
+                    self.frrdb_tunnel_heads = MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads()
                     self.frrdb_tunnel_heads.parent = self
-                    self.frrdb_tunnel_midpoint_summary = FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpointSummary()
+                    self.frrdb_tunnel_midpoint_summary = MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpointSummary()
                     self.frrdb_tunnel_midpoint_summary.parent = self
-                    self.frrdb_tunnel_midpoints = FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints()
+                    self.frrdb_tunnel_midpoints = MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints()
                     self.frrdb_tunnel_midpoints.parent = self
-
-
-                class FrrdbTunnelHeadSummary(object):
-                    """
-                    FIB MPLS FRR Database Tunnel Head Summary
-                    
-                    .. attribute:: active
-                    
-                    	Number of FRR rewrites in Active state
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: other
-                    
-                    	Number of FRR rewrites in an unrecognized state
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: partial
-                    
-                    	Number of FRR rewrites in Partial state
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: ready
-                    
-                    	Number of FRR rewrites in Ready state
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'fib-common-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.active = None
-                        self.other = None
-                        self.partial = None
-                        self.ready = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:frrdb-tunnel-head-summary'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.active is not None:
-                            return True
-
-                        if self.other is not None:
-                            return True
-
-                        if self.partial is not None:
-                            return True
-
-                        if self.ready is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                        return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeadSummary']['meta_info']
-
-
-                class FrrdbBackupInterfaceSummaries(object):
-                    """
-                    FIB MPLS FRR Database Backup Interface
-                    Summary Table
-                    
-                    .. attribute:: frrdb_backup_interface_summary
-                    
-                    	FIB MPLS FRR Database Backup Interface Summary
-                    	**type**\: list of    :py:class:`FrrdbBackupInterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries.FrrdbBackupInterfaceSummary>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'fib-common-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.frrdb_backup_interface_summary = YList()
-                        self.frrdb_backup_interface_summary.parent = self
-                        self.frrdb_backup_interface_summary.name = 'frrdb_backup_interface_summary'
-
-
-                    class FrrdbBackupInterfaceSummary(object):
-                        """
-                        FIB MPLS FRR Database Backup Interface
-                        Summary
-                        
-                        .. attribute:: interface_name  <key>
-                        
-                        	Interface Name
-                        	**type**\:  str
-                        
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                        
-                        .. attribute:: active
-                        
-                        	Number of FRR rewrites in Active state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: other
-                        
-                        	Number of FRR rewrites in an unrecognized state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: partial
-                        
-                        	Number of FRR rewrites in Partial state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: ready
-                        
-                        	Number of FRR rewrites in Ready state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'fib-common-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.interface_name = None
-                            self.active = None
-                            self.other = None
-                            self.partial = None
-                            self.ready = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.interface_name is None:
-                                raise YPYModelError('Key property interface_name is None')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:frrdb-backup-interface-summary[Cisco-IOS-XR-fib-common-oper:interface-name = ' + str(self.interface_name) + ']'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.interface_name is not None:
-                                return True
-
-                            if self.active is not None:
-                                return True
-
-                            if self.other is not None:
-                                return True
-
-                            if self.partial is not None:
-                                return True
-
-                            if self.ready is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                            return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries.FrrdbBackupInterfaceSummary']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:frrdb-backup-interface-summaries'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.frrdb_backup_interface_summary is not None:
-                            for child_ref in self.frrdb_backup_interface_summary:
-                                if child_ref._has_data():
-                                    return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                        return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries']['meta_info']
 
 
                 class FrrdbSummary(object):
                     """
-                    FIB MPLS FRR Database Summary
+                    MPLS forwarding FRR Database Summary
                     
                     .. attribute:: active
                     
@@ -24018,7 +21669,7 @@ class FibMpls(object):
                     """
 
                     _prefix = 'fib-common-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-01-20'
 
                     def __init__(self):
                         self.parent = None
@@ -24058,25 +21709,25 @@ class FibMpls(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                        return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbSummary']['meta_info']
+                        return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbSummary']['meta_info']
 
 
                 class FrrdbProtectedInterfaceTableSummaries(object):
                     """
-                    FIB MPLS FRR Database Protected Interface
-                    Summary Table
+                    MPLS forwarding FRR Database Protected
+                    Interface Summary Table
                     
                     .. attribute:: frrdb_protected_interface_table_summary
                     
-                    	FIB MPLS FRR Database Protected Interface Summary
-                    	**type**\: list of    :py:class:`FrrdbProtectedInterfaceTableSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries.FrrdbProtectedInterfaceTableSummary>`
+                    	MPLS forwarding FRR Database Protected Interface Summary
+                    	**type**\: list of    :py:class:`FrrdbProtectedInterfaceTableSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries.FrrdbProtectedInterfaceTableSummary>`
                     
                     
 
                     """
 
                     _prefix = 'fib-common-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-01-20'
 
                     def __init__(self):
                         self.parent = None
@@ -24087,8 +21738,8 @@ class FibMpls(object):
 
                     class FrrdbProtectedInterfaceTableSummary(object):
                         """
-                        FIB MPLS FRR Database Protected Interface
-                        Summary
+                        MPLS forwarding FRR Database Protected
+                        Interface Summary
                         
                         .. attribute:: interface_name  <key>
                         
@@ -24130,7 +21781,7 @@ class FibMpls(object):
                         """
 
                         _prefix = 'fib-common-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-01-20'
 
                         def __init__(self):
                             self.parent = None
@@ -24176,7 +21827,7 @@ class FibMpls(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                            return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries.FrrdbProtectedInterfaceTableSummary']['meta_info']
+                            return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries.FrrdbProtectedInterfaceTableSummary']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -24202,12 +21853,13 @@ class FibMpls(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                        return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries']['meta_info']
+                        return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries']['meta_info']
 
 
                 class FrrdbTunnelMidpointSummary(object):
                     """
-                    FIB MPLS FRR Database Tunnel Midpoint Summary
+                    MPLS forwarding FRR Database Tunnel Midpoint
+                    Summary
                     
                     .. attribute:: active
                     
@@ -24242,7 +21894,7 @@ class FibMpls(object):
                     """
 
                     _prefix = 'fib-common-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-01-20'
 
                     def __init__(self):
                         self.parent = None
@@ -24282,24 +21934,25 @@ class FibMpls(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                        return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpointSummary']['meta_info']
+                        return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpointSummary']['meta_info']
 
 
                 class FrrdbTunnelMidpoints(object):
                     """
-                    FIB MPLS FRR Database Tunnel Midpoint Table
+                    MPLS forwarding FRR Database Tunnel Midpoint
+                    Table
                     
                     .. attribute:: frrdb_tunnel_midpoint
                     
-                    	FIB MPLS FRR Database Tunnel Midpoint Entry
-                    	**type**\: list of    :py:class:`FrrdbTunnelMidpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint>`
+                    	MPLS forwarding FRR Database Tunnel Midpoint Entry
+                    	**type**\: list of    :py:class:`FrrdbTunnelMidpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint>`
                     
                     
 
                     """
 
                     _prefix = 'fib-common-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-01-20'
 
                     def __init__(self):
                         self.parent = None
@@ -24310,319 +21963,50 @@ class FibMpls(object):
 
                     class FrrdbTunnelMidpoint(object):
                         """
-                        FIB MPLS FRR Database Tunnel Midpoint Entry
+                        MPLS forwarding FRR Database Tunnel Midpoint
+                        Entry
                         
                         .. attribute:: local_label  <key>
                         
                         	Local label value
                         	**type**\:  int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 16..1048575
                         
-                        .. attribute:: entry_frr_state
+                        .. attribute:: frr_db
                         
-                        	MPLS FRR entry state
-                        	**type**\:   :py:class:`MgmtFibMplsFrrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsFrrStateEnum>`
+                        	FRR DB
+                        	**type**\:   :py:class:`FrrDb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb>`
                         
-                        .. attribute:: frr_entry_id
+                        .. attribute:: frr_lable_string
                         
-                        	FRR entry ID
-                        	**type**\:   :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId>`
-                        
-                        .. attribute:: frr_interface_name
-                        
-                        	FRR interface
+                        	FRR label in string format
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        .. attribute:: outgoing_lable_string
                         
-                        .. attribute:: frr_label
-                        
-                        	FRR output label
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: frr_next_hop_ipv4_address
-                        
-                        	Next hop IPv4 address
+                        	Output label in string format
                         	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: input_label
-                        
-                        	Input label
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_mldp_lsp
-                        
-                        	MLDP or P2MP\-TE
-                        	**type**\:  bool
-                        
-                        .. attribute:: is_multicast_tunnel
-                        
-                        	Multicast tunnel
-                        	**type**\:  bool
-                        
-                        .. attribute:: multicast_leg
-                        
-                        	MCAST legs
-                        	**type**\: list of    :py:class:`MulticastLeg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg>`
-                        
-                        .. attribute:: multicast_tunnel_legs
-                        
-                        	Number of legs in MCAST tunnel
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: outgoing_interface
-                        
-                        	Outgoing interface
-                        	**type**\:  str
-                        
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                        
-                        .. attribute:: outgoing_label
-                        
-                        	Outgoing label
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: tunnel_interface_name
-                        
-                        	Tunnel interface
-                        	**type**\:  str
-                        
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         
 
                         """
 
                         _prefix = 'fib-common-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-01-20'
 
                         def __init__(self):
                             self.parent = None
                             self.local_label = None
-                            self.entry_frr_state = None
-                            self.frr_entry_id = FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId()
-                            self.frr_entry_id.parent = self
-                            self.frr_interface_name = None
-                            self.frr_label = None
-                            self.frr_next_hop_ipv4_address = None
-                            self.input_label = None
-                            self.is_mldp_lsp = None
-                            self.is_multicast_tunnel = None
-                            self.multicast_leg = YList()
-                            self.multicast_leg.parent = self
-                            self.multicast_leg.name = 'multicast_leg'
-                            self.multicast_tunnel_legs = None
-                            self.outgoing_interface = None
-                            self.outgoing_label = None
-                            self.tunnel_interface_name = None
+                            self.frr_db = MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb()
+                            self.frr_db.parent = self
+                            self.frr_lable_string = None
+                            self.outgoing_lable_string = None
 
 
-                        class FrrEntryId(object):
+                        class FrrDb(object):
                             """
-                            FRR entry ID
-                            
-                            .. attribute:: head
-                            
-                            	head
-                            	**type**\:   :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId.Head>`
-                            
-                            .. attribute:: midpoint
-                            
-                            	midpoint
-                            	**type**\:   :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId.Midpoint>`
-                            
-                            .. attribute:: role
-                            
-                            	Role
-                            	**type**\:   :py:class:`MgmtFibMplsLspRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsLspRoleEnum>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.head = FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId.Head()
-                                self.head.parent = self
-                                self.midpoint = FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId.Midpoint()
-                                self.midpoint.parent = self
-                                self.role = None
-
-
-                            class Head(object):
-                                """
-                                head
-                                
-                                .. attribute:: destination_prefix
-                                
-                                	Destination prefix
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: destination_prefix_length
-                                
-                                	Destination prefix length
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.destination_prefix = None
-                                    self.destination_prefix_length = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:head'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.destination_prefix is not None:
-                                        return True
-
-                                    if self.destination_prefix_length is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId.Head']['meta_info']
-
-
-                            class Midpoint(object):
-                                """
-                                midpoint
-                                
-                                .. attribute:: lspid
-                                
-                                	LSP ID
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: source_address
-                                
-                                	Source IPv4 address
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: tunnel_id
-                                
-                                	Tunnel ID
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.lspid = None
-                                    self.source_address = None
-                                    self.tunnel_id = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:midpoint'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.lspid is not None:
-                                        return True
-
-                                    if self.source_address is not None:
-                                        return True
-
-                                    if self.tunnel_id is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId.Midpoint']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:frr-entry-id'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.head is not None and self.head._has_data():
-                                    return True
-
-                                if self.midpoint is not None and self.midpoint._has_data():
-                                    return True
-
-                                if self.role is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId']['meta_info']
-
-
-                        class MulticastLeg(object):
-                            """
-                            MCAST legs
+                            FRR DB
                             
                             .. attribute:: entry_frr_state
                             
@@ -24632,7 +22016,7 @@ class FibMpls(object):
                             .. attribute:: frr_entry_id
                             
                             	FRR entry ID
-                            	**type**\:   :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId>`
+                            	**type**\:   :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId>`
                             
                             .. attribute:: frr_interface_name
                             
@@ -24667,6 +22051,23 @@ class FibMpls(object):
                             	MLDP or P2MP\-TE
                             	**type**\:  bool
                             
+                            .. attribute:: is_multicast_tunnel
+                            
+                            	Multicast tunnel
+                            	**type**\:  bool
+                            
+                            .. attribute:: multicast_leg
+                            
+                            	MCAST legs
+                            	**type**\: list of    :py:class:`MulticastLeg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg>`
+                            
+                            .. attribute:: multicast_tunnel_legs
+                            
+                            	Number of legs in MCAST tunnel
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: outgoing_interface
                             
                             	Outgoing interface
@@ -24693,18 +22094,23 @@ class FibMpls(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
                                 self.entry_frr_state = None
-                                self.frr_entry_id = FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId()
+                                self.frr_entry_id = MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId()
                                 self.frr_entry_id.parent = self
                                 self.frr_interface_name = None
                                 self.frr_label = None
                                 self.frr_next_hop_ipv4_address = None
                                 self.input_label = None
                                 self.is_mldp_lsp = None
+                                self.is_multicast_tunnel = None
+                                self.multicast_leg = YList()
+                                self.multicast_leg.parent = self
+                                self.multicast_leg.name = 'multicast_leg'
+                                self.multicast_tunnel_legs = None
                                 self.outgoing_interface = None
                                 self.outgoing_label = None
                                 self.tunnel_interface_name = None
@@ -24717,12 +22123,12 @@ class FibMpls(object):
                                 .. attribute:: head
                                 
                                 	head
-                                	**type**\:   :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId.Head>`
+                                	**type**\:   :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId.Head>`
                                 
                                 .. attribute:: midpoint
                                 
                                 	midpoint
-                                	**type**\:   :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId.Midpoint>`
+                                	**type**\:   :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId.Midpoint>`
                                 
                                 .. attribute:: role
                                 
@@ -24734,13 +22140,13 @@ class FibMpls(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.head = FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId.Head()
+                                    self.head = MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId.Head()
                                     self.head.parent = self
-                                    self.midpoint = FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId.Midpoint()
+                                    self.midpoint = MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId.Midpoint()
                                     self.midpoint.parent = self
                                     self.role = None
 
@@ -24768,7 +22174,7 @@ class FibMpls(object):
                                     """
 
                                     _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-20'
 
                                     def __init__(self):
                                         self.parent = None
@@ -24800,7 +22206,7 @@ class FibMpls(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                        return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId.Head']['meta_info']
+                                        return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId.Head']['meta_info']
 
 
                                 class Midpoint(object):
@@ -24833,7 +22239,7 @@ class FibMpls(object):
                                     """
 
                                     _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-20'
 
                                     def __init__(self):
                                         self.parent = None
@@ -24869,7 +22275,7 @@ class FibMpls(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                        return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId.Midpoint']['meta_info']
+                                        return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId.Midpoint']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -24899,14 +22305,347 @@ class FibMpls(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId']['meta_info']
+                                    return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId']['meta_info']
+
+
+                            class MulticastLeg(object):
+                                """
+                                MCAST legs
+                                
+                                .. attribute:: entry_frr_state
+                                
+                                	MPLS FRR entry state
+                                	**type**\:   :py:class:`MgmtFibMplsFrrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsFrrStateEnum>`
+                                
+                                .. attribute:: frr_entry_id
+                                
+                                	FRR entry ID
+                                	**type**\:   :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId>`
+                                
+                                .. attribute:: frr_interface_name
+                                
+                                	FRR interface
+                                	**type**\:  str
+                                
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                
+                                .. attribute:: frr_label
+                                
+                                	FRR output label
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: frr_next_hop_ipv4_address
+                                
+                                	Next hop IPv4 address
+                                	**type**\:  str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: input_label
+                                
+                                	Input label
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: is_mldp_lsp
+                                
+                                	MLDP or P2MP\-TE
+                                	**type**\:  bool
+                                
+                                .. attribute:: outgoing_interface
+                                
+                                	Outgoing interface
+                                	**type**\:  str
+                                
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                
+                                .. attribute:: outgoing_label
+                                
+                                	Outgoing label
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: tunnel_interface_name
+                                
+                                	Tunnel interface
+                                	**type**\:  str
+                                
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                
+                                
+
+                                """
+
+                                _prefix = 'fib-common-oper'
+                                _revision = '2017-01-20'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.entry_frr_state = None
+                                    self.frr_entry_id = MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId()
+                                    self.frr_entry_id.parent = self
+                                    self.frr_interface_name = None
+                                    self.frr_label = None
+                                    self.frr_next_hop_ipv4_address = None
+                                    self.input_label = None
+                                    self.is_mldp_lsp = None
+                                    self.outgoing_interface = None
+                                    self.outgoing_label = None
+                                    self.tunnel_interface_name = None
+
+
+                                class FrrEntryId(object):
+                                    """
+                                    FRR entry ID
+                                    
+                                    .. attribute:: head
+                                    
+                                    	head
+                                    	**type**\:   :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId.Head>`
+                                    
+                                    .. attribute:: midpoint
+                                    
+                                    	midpoint
+                                    	**type**\:   :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId.Midpoint>`
+                                    
+                                    .. attribute:: role
+                                    
+                                    	Role
+                                    	**type**\:   :py:class:`MgmtFibMplsLspRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsLspRoleEnum>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'fib-common-oper'
+                                    _revision = '2017-01-20'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.head = MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId.Head()
+                                        self.head.parent = self
+                                        self.midpoint = MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId.Midpoint()
+                                        self.midpoint.parent = self
+                                        self.role = None
+
+
+                                    class Head(object):
+                                        """
+                                        head
+                                        
+                                        .. attribute:: destination_prefix
+                                        
+                                        	Destination prefix
+                                        	**type**\:  str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        
+                                        .. attribute:: destination_prefix_length
+                                        
+                                        	Destination prefix length
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'fib-common-oper'
+                                        _revision = '2017-01-20'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.destination_prefix = None
+                                            self.destination_prefix_length = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:head'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.destination_prefix is not None:
+                                                return True
+
+                                            if self.destination_prefix_length is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                            return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId.Head']['meta_info']
+
+
+                                    class Midpoint(object):
+                                        """
+                                        midpoint
+                                        
+                                        .. attribute:: lspid
+                                        
+                                        	LSP ID
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: source_address
+                                        
+                                        	Source IPv4 address
+                                        	**type**\:  str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        
+                                        .. attribute:: tunnel_id
+                                        
+                                        	Tunnel ID
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'fib-common-oper'
+                                        _revision = '2017-01-20'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.lspid = None
+                                            self.source_address = None
+                                            self.tunnel_id = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:midpoint'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.lspid is not None:
+                                                return True
+
+                                            if self.source_address is not None:
+                                                return True
+
+                                            if self.tunnel_id is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                            return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId.Midpoint']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:frr-entry-id'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.head is not None and self.head._has_data():
+                                            return True
+
+                                        if self.midpoint is not None and self.midpoint._has_data():
+                                            return True
+
+                                        if self.role is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                        return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:multicast-leg'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.entry_frr_state is not None:
+                                        return True
+
+                                    if self.frr_entry_id is not None and self.frr_entry_id._has_data():
+                                        return True
+
+                                    if self.frr_interface_name is not None:
+                                        return True
+
+                                    if self.frr_label is not None:
+                                        return True
+
+                                    if self.frr_next_hop_ipv4_address is not None:
+                                        return True
+
+                                    if self.input_label is not None:
+                                        return True
+
+                                    if self.is_mldp_lsp is not None:
+                                        return True
+
+                                    if self.outgoing_interface is not None:
+                                        return True
+
+                                    if self.outgoing_label is not None:
+                                        return True
+
+                                    if self.tunnel_interface_name is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                    return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg']['meta_info']
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:multicast-leg'
+                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:frr-db'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
@@ -24936,6 +22675,17 @@ class FibMpls(object):
                                 if self.is_mldp_lsp is not None:
                                     return True
 
+                                if self.is_multicast_tunnel is not None:
+                                    return True
+
+                                if self.multicast_leg is not None:
+                                    for child_ref in self.multicast_leg:
+                                        if child_ref._has_data():
+                                            return True
+
+                                if self.multicast_tunnel_legs is not None:
+                                    return True
+
                                 if self.outgoing_interface is not None:
                                     return True
 
@@ -24950,7 +22700,7 @@ class FibMpls(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg']['meta_info']
+                                return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -24971,45 +22721,13 @@ class FibMpls(object):
                             if self.local_label is not None:
                                 return True
 
-                            if self.entry_frr_state is not None:
+                            if self.frr_db is not None and self.frr_db._has_data():
                                 return True
 
-                            if self.frr_entry_id is not None and self.frr_entry_id._has_data():
+                            if self.frr_lable_string is not None:
                                 return True
 
-                            if self.frr_interface_name is not None:
-                                return True
-
-                            if self.frr_label is not None:
-                                return True
-
-                            if self.frr_next_hop_ipv4_address is not None:
-                                return True
-
-                            if self.input_label is not None:
-                                return True
-
-                            if self.is_mldp_lsp is not None:
-                                return True
-
-                            if self.is_multicast_tunnel is not None:
-                                return True
-
-                            if self.multicast_leg is not None:
-                                for child_ref in self.multicast_leg:
-                                    if child_ref._has_data():
-                                        return True
-
-                            if self.multicast_tunnel_legs is not None:
-                                return True
-
-                            if self.outgoing_interface is not None:
-                                return True
-
-                            if self.outgoing_label is not None:
-                                return True
-
-                            if self.tunnel_interface_name is not None:
+                            if self.outgoing_lable_string is not None:
                                 return True
 
                             return False
@@ -25017,7 +22735,7 @@ class FibMpls(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                            return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint']['meta_info']
+                            return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -25043,24 +22761,25 @@ class FibMpls(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                        return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints']['meta_info']
+                        return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints']['meta_info']
 
 
                 class FrrdbTunnelHeads(object):
                     """
-                    FIB MPLS FRR Database Tunnel Head Table
+                    MPLS forwarding FRR Database Tunnel Head
+                    Table
                     
                     .. attribute:: frrdb_tunnel_head
                     
-                    	FIB MPLS FRR Database Tunnel Head Entry
-                    	**type**\: list of    :py:class:`FrrdbTunnelHead <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead>`
+                    	MPLS forwarding FRR Database Tunnel Head Entry
+                    	**type**\: list of    :py:class:`FrrdbTunnelHead <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead>`
                     
                     
 
                     """
 
                     _prefix = 'fib-common-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-01-20'
 
                     def __init__(self):
                         self.parent = None
@@ -25071,7 +22790,8 @@ class FibMpls(object):
 
                     class FrrdbTunnelHead(object):
                         """
-                        FIB MPLS FRR Database Tunnel Head Entry
+                        MPLS forwarding FRR Database Tunnel Head
+                        Entry
                         
                         .. attribute:: interface_name  <key>
                         
@@ -25080,310 +22800,40 @@ class FibMpls(object):
                         
                         	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
-                        .. attribute:: entry_frr_state
+                        .. attribute:: frr_db
                         
-                        	MPLS FRR entry state
-                        	**type**\:   :py:class:`MgmtFibMplsFrrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsFrrStateEnum>`
+                        	FRR DB
+                        	**type**\:   :py:class:`FrrDb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb>`
                         
-                        .. attribute:: frr_entry_id
+                        .. attribute:: frr_lable_string
                         
-                        	FRR entry ID
-                        	**type**\:   :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId>`
-                        
-                        .. attribute:: frr_interface_name
-                        
-                        	FRR interface
+                        	FRR label in string format
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        .. attribute:: outgoing_lable_string
                         
-                        .. attribute:: frr_label
-                        
-                        	FRR output label
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: frr_next_hop_ipv4_address
-                        
-                        	Next hop IPv4 address
+                        	Output label in string format
                         	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: input_label
-                        
-                        	Input label
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: is_mldp_lsp
-                        
-                        	MLDP or P2MP\-TE
-                        	**type**\:  bool
-                        
-                        .. attribute:: is_multicast_tunnel
-                        
-                        	Multicast tunnel
-                        	**type**\:  bool
-                        
-                        .. attribute:: multicast_leg
-                        
-                        	MCAST legs
-                        	**type**\: list of    :py:class:`MulticastLeg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg>`
-                        
-                        .. attribute:: multicast_tunnel_legs
-                        
-                        	Number of legs in MCAST tunnel
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: outgoing_interface
-                        
-                        	Outgoing interface
-                        	**type**\:  str
-                        
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                        
-                        .. attribute:: outgoing_label
-                        
-                        	Outgoing label
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: tunnel_interface_name
-                        
-                        	Tunnel interface
-                        	**type**\:  str
-                        
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         
 
                         """
 
                         _prefix = 'fib-common-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-01-20'
 
                         def __init__(self):
                             self.parent = None
                             self.interface_name = None
-                            self.entry_frr_state = None
-                            self.frr_entry_id = FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId()
-                            self.frr_entry_id.parent = self
-                            self.frr_interface_name = None
-                            self.frr_label = None
-                            self.frr_next_hop_ipv4_address = None
-                            self.input_label = None
-                            self.is_mldp_lsp = None
-                            self.is_multicast_tunnel = None
-                            self.multicast_leg = YList()
-                            self.multicast_leg.parent = self
-                            self.multicast_leg.name = 'multicast_leg'
-                            self.multicast_tunnel_legs = None
-                            self.outgoing_interface = None
-                            self.outgoing_label = None
-                            self.tunnel_interface_name = None
+                            self.frr_db = MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb()
+                            self.frr_db.parent = self
+                            self.frr_lable_string = None
+                            self.outgoing_lable_string = None
 
 
-                        class FrrEntryId(object):
+                        class FrrDb(object):
                             """
-                            FRR entry ID
-                            
-                            .. attribute:: head
-                            
-                            	head
-                            	**type**\:   :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId.Head>`
-                            
-                            .. attribute:: midpoint
-                            
-                            	midpoint
-                            	**type**\:   :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId.Midpoint>`
-                            
-                            .. attribute:: role
-                            
-                            	Role
-                            	**type**\:   :py:class:`MgmtFibMplsLspRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsLspRoleEnum>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.head = FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId.Head()
-                                self.head.parent = self
-                                self.midpoint = FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId.Midpoint()
-                                self.midpoint.parent = self
-                                self.role = None
-
-
-                            class Head(object):
-                                """
-                                head
-                                
-                                .. attribute:: destination_prefix
-                                
-                                	Destination prefix
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: destination_prefix_length
-                                
-                                	Destination prefix length
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.destination_prefix = None
-                                    self.destination_prefix_length = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:head'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.destination_prefix is not None:
-                                        return True
-
-                                    if self.destination_prefix_length is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId.Head']['meta_info']
-
-
-                            class Midpoint(object):
-                                """
-                                midpoint
-                                
-                                .. attribute:: lspid
-                                
-                                	LSP ID
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: source_address
-                                
-                                	Source IPv4 address
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: tunnel_id
-                                
-                                	Tunnel ID
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.lspid = None
-                                    self.source_address = None
-                                    self.tunnel_id = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:midpoint'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.lspid is not None:
-                                        return True
-
-                                    if self.source_address is not None:
-                                        return True
-
-                                    if self.tunnel_id is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId.Midpoint']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:frr-entry-id'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.head is not None and self.head._has_data():
-                                    return True
-
-                                if self.midpoint is not None and self.midpoint._has_data():
-                                    return True
-
-                                if self.role is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId']['meta_info']
-
-
-                        class MulticastLeg(object):
-                            """
-                            MCAST legs
+                            FRR DB
                             
                             .. attribute:: entry_frr_state
                             
@@ -25393,7 +22843,7 @@ class FibMpls(object):
                             .. attribute:: frr_entry_id
                             
                             	FRR entry ID
-                            	**type**\:   :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId>`
+                            	**type**\:   :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId>`
                             
                             .. attribute:: frr_interface_name
                             
@@ -25428,6 +22878,23 @@ class FibMpls(object):
                             	MLDP or P2MP\-TE
                             	**type**\:  bool
                             
+                            .. attribute:: is_multicast_tunnel
+                            
+                            	Multicast tunnel
+                            	**type**\:  bool
+                            
+                            .. attribute:: multicast_leg
+                            
+                            	MCAST legs
+                            	**type**\: list of    :py:class:`MulticastLeg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg>`
+                            
+                            .. attribute:: multicast_tunnel_legs
+                            
+                            	Number of legs in MCAST tunnel
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: outgoing_interface
                             
                             	Outgoing interface
@@ -25454,18 +22921,23 @@ class FibMpls(object):
                             """
 
                             _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-20'
 
                             def __init__(self):
                                 self.parent = None
                                 self.entry_frr_state = None
-                                self.frr_entry_id = FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId()
+                                self.frr_entry_id = MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId()
                                 self.frr_entry_id.parent = self
                                 self.frr_interface_name = None
                                 self.frr_label = None
                                 self.frr_next_hop_ipv4_address = None
                                 self.input_label = None
                                 self.is_mldp_lsp = None
+                                self.is_multicast_tunnel = None
+                                self.multicast_leg = YList()
+                                self.multicast_leg.parent = self
+                                self.multicast_leg.name = 'multicast_leg'
+                                self.multicast_tunnel_legs = None
                                 self.outgoing_interface = None
                                 self.outgoing_label = None
                                 self.tunnel_interface_name = None
@@ -25478,12 +22950,12 @@ class FibMpls(object):
                                 .. attribute:: head
                                 
                                 	head
-                                	**type**\:   :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId.Head>`
+                                	**type**\:   :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId.Head>`
                                 
                                 .. attribute:: midpoint
                                 
                                 	midpoint
-                                	**type**\:   :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId.Midpoint>`
+                                	**type**\:   :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId.Midpoint>`
                                 
                                 .. attribute:: role
                                 
@@ -25495,13 +22967,13 @@ class FibMpls(object):
                                 """
 
                                 _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-20'
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.head = FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId.Head()
+                                    self.head = MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId.Head()
                                     self.head.parent = self
-                                    self.midpoint = FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId.Midpoint()
+                                    self.midpoint = MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId.Midpoint()
                                     self.midpoint.parent = self
                                     self.role = None
 
@@ -25529,7 +23001,7 @@ class FibMpls(object):
                                     """
 
                                     _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-20'
 
                                     def __init__(self):
                                         self.parent = None
@@ -25561,7 +23033,7 @@ class FibMpls(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                        return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId.Head']['meta_info']
+                                        return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId.Head']['meta_info']
 
 
                                 class Midpoint(object):
@@ -25594,7 +23066,7 @@ class FibMpls(object):
                                     """
 
                                     _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-20'
 
                                     def __init__(self):
                                         self.parent = None
@@ -25630,7 +23102,7 @@ class FibMpls(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                        return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId.Midpoint']['meta_info']
+                                        return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId.Midpoint']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -25660,14 +23132,347 @@ class FibMpls(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId']['meta_info']
+                                    return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId']['meta_info']
+
+
+                            class MulticastLeg(object):
+                                """
+                                MCAST legs
+                                
+                                .. attribute:: entry_frr_state
+                                
+                                	MPLS FRR entry state
+                                	**type**\:   :py:class:`MgmtFibMplsFrrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsFrrStateEnum>`
+                                
+                                .. attribute:: frr_entry_id
+                                
+                                	FRR entry ID
+                                	**type**\:   :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId>`
+                                
+                                .. attribute:: frr_interface_name
+                                
+                                	FRR interface
+                                	**type**\:  str
+                                
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                
+                                .. attribute:: frr_label
+                                
+                                	FRR output label
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: frr_next_hop_ipv4_address
+                                
+                                	Next hop IPv4 address
+                                	**type**\:  str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: input_label
+                                
+                                	Input label
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: is_mldp_lsp
+                                
+                                	MLDP or P2MP\-TE
+                                	**type**\:  bool
+                                
+                                .. attribute:: outgoing_interface
+                                
+                                	Outgoing interface
+                                	**type**\:  str
+                                
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                
+                                .. attribute:: outgoing_label
+                                
+                                	Outgoing label
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: tunnel_interface_name
+                                
+                                	Tunnel interface
+                                	**type**\:  str
+                                
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                
+                                
+
+                                """
+
+                                _prefix = 'fib-common-oper'
+                                _revision = '2017-01-20'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.entry_frr_state = None
+                                    self.frr_entry_id = MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId()
+                                    self.frr_entry_id.parent = self
+                                    self.frr_interface_name = None
+                                    self.frr_label = None
+                                    self.frr_next_hop_ipv4_address = None
+                                    self.input_label = None
+                                    self.is_mldp_lsp = None
+                                    self.outgoing_interface = None
+                                    self.outgoing_label = None
+                                    self.tunnel_interface_name = None
+
+
+                                class FrrEntryId(object):
+                                    """
+                                    FRR entry ID
+                                    
+                                    .. attribute:: head
+                                    
+                                    	head
+                                    	**type**\:   :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId.Head>`
+                                    
+                                    .. attribute:: midpoint
+                                    
+                                    	midpoint
+                                    	**type**\:   :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId.Midpoint>`
+                                    
+                                    .. attribute:: role
+                                    
+                                    	Role
+                                    	**type**\:   :py:class:`MgmtFibMplsLspRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MgmtFibMplsLspRoleEnum>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'fib-common-oper'
+                                    _revision = '2017-01-20'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.head = MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId.Head()
+                                        self.head.parent = self
+                                        self.midpoint = MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId.Midpoint()
+                                        self.midpoint.parent = self
+                                        self.role = None
+
+
+                                    class Head(object):
+                                        """
+                                        head
+                                        
+                                        .. attribute:: destination_prefix
+                                        
+                                        	Destination prefix
+                                        	**type**\:  str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        
+                                        .. attribute:: destination_prefix_length
+                                        
+                                        	Destination prefix length
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'fib-common-oper'
+                                        _revision = '2017-01-20'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.destination_prefix = None
+                                            self.destination_prefix_length = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:head'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.destination_prefix is not None:
+                                                return True
+
+                                            if self.destination_prefix_length is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                            return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId.Head']['meta_info']
+
+
+                                    class Midpoint(object):
+                                        """
+                                        midpoint
+                                        
+                                        .. attribute:: lspid
+                                        
+                                        	LSP ID
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: source_address
+                                        
+                                        	Source IPv4 address
+                                        	**type**\:  str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        
+                                        .. attribute:: tunnel_id
+                                        
+                                        	Tunnel ID
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'fib-common-oper'
+                                        _revision = '2017-01-20'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.lspid = None
+                                            self.source_address = None
+                                            self.tunnel_id = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:midpoint'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.lspid is not None:
+                                                return True
+
+                                            if self.source_address is not None:
+                                                return True
+
+                                            if self.tunnel_id is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                            return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId.Midpoint']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:frr-entry-id'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.head is not None and self.head._has_data():
+                                            return True
+
+                                        if self.midpoint is not None and self.midpoint._has_data():
+                                            return True
+
+                                        if self.role is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                        return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:multicast-leg'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.entry_frr_state is not None:
+                                        return True
+
+                                    if self.frr_entry_id is not None and self.frr_entry_id._has_data():
+                                        return True
+
+                                    if self.frr_interface_name is not None:
+                                        return True
+
+                                    if self.frr_label is not None:
+                                        return True
+
+                                    if self.frr_next_hop_ipv4_address is not None:
+                                        return True
+
+                                    if self.input_label is not None:
+                                        return True
+
+                                    if self.is_mldp_lsp is not None:
+                                        return True
+
+                                    if self.outgoing_interface is not None:
+                                        return True
+
+                                    if self.outgoing_label is not None:
+                                        return True
+
+                                    if self.tunnel_interface_name is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                    return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg']['meta_info']
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:multicast-leg'
+                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:frr-db'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
@@ -25697,6 +23502,17 @@ class FibMpls(object):
                                 if self.is_mldp_lsp is not None:
                                     return True
 
+                                if self.is_multicast_tunnel is not None:
+                                    return True
+
+                                if self.multicast_leg is not None:
+                                    for child_ref in self.multicast_leg:
+                                        if child_ref._has_data():
+                                            return True
+
+                                if self.multicast_tunnel_legs is not None:
+                                    return True
+
                                 if self.outgoing_interface is not None:
                                     return True
 
@@ -25711,7 +23527,7 @@ class FibMpls(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg']['meta_info']
+                                return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -25732,45 +23548,13 @@ class FibMpls(object):
                             if self.interface_name is not None:
                                 return True
 
-                            if self.entry_frr_state is not None:
+                            if self.frr_db is not None and self.frr_db._has_data():
                                 return True
 
-                            if self.frr_entry_id is not None and self.frr_entry_id._has_data():
+                            if self.frr_lable_string is not None:
                                 return True
 
-                            if self.frr_interface_name is not None:
-                                return True
-
-                            if self.frr_label is not None:
-                                return True
-
-                            if self.frr_next_hop_ipv4_address is not None:
-                                return True
-
-                            if self.input_label is not None:
-                                return True
-
-                            if self.is_mldp_lsp is not None:
-                                return True
-
-                            if self.is_multicast_tunnel is not None:
-                                return True
-
-                            if self.multicast_leg is not None:
-                                for child_ref in self.multicast_leg:
-                                    if child_ref._has_data():
-                                        return True
-
-                            if self.multicast_tunnel_legs is not None:
-                                return True
-
-                            if self.outgoing_interface is not None:
-                                return True
-
-                            if self.outgoing_label is not None:
-                                return True
-
-                            if self.tunnel_interface_name is not None:
+                            if self.outgoing_lable_string is not None:
                                 return True
 
                             return False
@@ -25778,7 +23562,7 @@ class FibMpls(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                            return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead']['meta_info']
+                            return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -25804,7 +23588,232 @@ class FibMpls(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                        return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads']['meta_info']
+                        return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads']['meta_info']
+
+
+                class FrrdbTunnelHeadSummary(object):
+                    """
+                    MPLS forwarding FRR Database Tunnel Head
+                    Summary
+                    
+                    .. attribute:: active
+                    
+                    	Number of FRR rewrites in Active state
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: other
+                    
+                    	Number of FRR rewrites in an unrecognized state
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: partial
+                    
+                    	Number of FRR rewrites in Partial state
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: ready
+                    
+                    	Number of FRR rewrites in Ready state
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'fib-common-oper'
+                    _revision = '2017-01-20'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.active = None
+                        self.other = None
+                        self.partial = None
+                        self.ready = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:frrdb-tunnel-head-summary'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.active is not None:
+                            return True
+
+                        if self.other is not None:
+                            return True
+
+                        if self.partial is not None:
+                            return True
+
+                        if self.ready is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                        return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeadSummary']['meta_info']
+
+
+                class FrrdbBackupInterfaceSummaries(object):
+                    """
+                    MPLS forwarding FRR Database Backup Interface
+                    Summary Table
+                    
+                    .. attribute:: frrdb_backup_interface_summary
+                    
+                    	MPLS forwarding FRR Database Backup Interface Summary
+                    	**type**\: list of    :py:class:`FrrdbBackupInterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries.FrrdbBackupInterfaceSummary>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'fib-common-oper'
+                    _revision = '2017-01-20'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.frrdb_backup_interface_summary = YList()
+                        self.frrdb_backup_interface_summary.parent = self
+                        self.frrdb_backup_interface_summary.name = 'frrdb_backup_interface_summary'
+
+
+                    class FrrdbBackupInterfaceSummary(object):
+                        """
+                        MPLS forwarding FRR Database Backup
+                        Interface Summary
+                        
+                        .. attribute:: interface_name  <key>
+                        
+                        	Interface Name
+                        	**type**\:  str
+                        
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        
+                        .. attribute:: active
+                        
+                        	Number of FRR rewrites in Active state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: other
+                        
+                        	Number of FRR rewrites in an unrecognized state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: partial
+                        
+                        	Number of FRR rewrites in Partial state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: ready
+                        
+                        	Number of FRR rewrites in Ready state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'fib-common-oper'
+                        _revision = '2017-01-20'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.interface_name = None
+                            self.active = None
+                            self.other = None
+                            self.partial = None
+                            self.ready = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            if self.interface_name is None:
+                                raise YPYModelError('Key property interface_name is None')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:frrdb-backup-interface-summary[Cisco-IOS-XR-fib-common-oper:interface-name = ' + str(self.interface_name) + ']'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.interface_name is not None:
+                                return True
+
+                            if self.active is not None:
+                                return True
+
+                            if self.other is not None:
+                                return True
+
+                            if self.partial is not None:
+                                return True
+
+                            if self.ready is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                            return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries.FrrdbBackupInterfaceSummary']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:frrdb-backup-interface-summaries'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.frrdb_backup_interface_summary is not None:
+                            for child_ref in self.frrdb_backup_interface_summary:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                        return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -25846,608 +23855,14 @@ class FibMpls(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                    return meta._meta_table['FibMpls.Nodes.Node.FrrDatabase']['meta_info']
-
-
-            class ForwardingSummary(object):
-                """
-                FIB MPLS forwarding summary
-                
-                .. attribute:: deleted_stale_entries
-                
-                	Number of delete stale label entries
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: highest_label
-                
-                	Highest Label in use
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: ignore_protect
-                
-                	Number of TE tunnels treated as non\-protected
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: ipv4_imposition_entries
-                
-                	Number of IPv4 imposition entries
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: label_switched_entries
-                
-                	Number of label swap/disposition entries
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: lowest_label
-                
-                	Lowest label in use
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: lrpf_entries
-                
-                	Number of labels with RPF
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: mte_head_entries
-                
-                	Number of MTE tunnel head entries
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: mte_ll_entries
-                
-                	Number of MTE local entries
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: mte_midpoint_entries
-                
-                	Number of MTE midpoint entries
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: num_lsp
-                
-                	Number of label switch paths
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: protected_label_switched_entries
-                
-                	Number of FRR protected label swap/disposition entries
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: reserved_label_entries
-                
-                	Number of reserved label entries
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: te_frr_head_entries
-                
-                	Number of TE FRR tunnel head imposition entries
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: te_frr_interface_entries
-                
-                	Number of TE FRR protected interface entries
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: te_frr_internal_entries
-                
-                	Number of TE internal forwarding entries
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: te_frr_mid_points_entries
-                
-                	Number of TE FRR MidPoints forwarding entries
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: te_frr_next_hop_entries
-                
-                	Number of TE FRR protected next\-hop entries
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: te_head_entries
-                
-                	Number of TE tunnel head imposition entries
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: te_internal_entries
-                
-                	Number of TE internal forwarding entries
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: te_mid_points_entries
-                
-                	Number of TE MidPoints forwarding entries
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: total_forwarding_update_messages
-                
-                	Total forwarding update messages from LSD to LFDs
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: total_forwarding_updates
-                
-                	Total forwarding updates from LSD to LFDs
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: total_p2mp_forwarding_added_or_modify_messages
-                
-                	Total p2mp forwarding add/modify messages from MRIB to LFDs
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: total_p2mp_forwarding_delete_messages
-                
-                	Total p2mp forwarding del messages from MRIB to LFDs
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: total_p2mp_forwarding_drop_messages
-                
-                	Total p2mp forwarding messages dropped from MRIB to LFDs
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: total_p2mp_forwarding_updates
-                
-                	Total forwarding updates from MRIB to LFDs
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: total_p2mp_iir_forwarding_drop_messages
-                
-                	Total IIR triggered p2mp forwarding MRIB messages dropped
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'fib-common-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.deleted_stale_entries = None
-                    self.highest_label = None
-                    self.ignore_protect = None
-                    self.ipv4_imposition_entries = None
-                    self.label_switched_entries = None
-                    self.lowest_label = None
-                    self.lrpf_entries = None
-                    self.mte_head_entries = None
-                    self.mte_ll_entries = None
-                    self.mte_midpoint_entries = None
-                    self.num_lsp = None
-                    self.protected_label_switched_entries = None
-                    self.reserved_label_entries = None
-                    self.te_frr_head_entries = None
-                    self.te_frr_interface_entries = None
-                    self.te_frr_internal_entries = None
-                    self.te_frr_mid_points_entries = None
-                    self.te_frr_next_hop_entries = None
-                    self.te_head_entries = None
-                    self.te_internal_entries = None
-                    self.te_mid_points_entries = None
-                    self.total_forwarding_update_messages = None
-                    self.total_forwarding_updates = None
-                    self.total_p2mp_forwarding_added_or_modify_messages = None
-                    self.total_p2mp_forwarding_delete_messages = None
-                    self.total_p2mp_forwarding_drop_messages = None
-                    self.total_p2mp_forwarding_updates = None
-                    self.total_p2mp_iir_forwarding_drop_messages = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:forwarding-summary'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.deleted_stale_entries is not None:
-                        return True
-
-                    if self.highest_label is not None:
-                        return True
-
-                    if self.ignore_protect is not None:
-                        return True
-
-                    if self.ipv4_imposition_entries is not None:
-                        return True
-
-                    if self.label_switched_entries is not None:
-                        return True
-
-                    if self.lowest_label is not None:
-                        return True
-
-                    if self.lrpf_entries is not None:
-                        return True
-
-                    if self.mte_head_entries is not None:
-                        return True
-
-                    if self.mte_ll_entries is not None:
-                        return True
-
-                    if self.mte_midpoint_entries is not None:
-                        return True
-
-                    if self.num_lsp is not None:
-                        return True
-
-                    if self.protected_label_switched_entries is not None:
-                        return True
-
-                    if self.reserved_label_entries is not None:
-                        return True
-
-                    if self.te_frr_head_entries is not None:
-                        return True
-
-                    if self.te_frr_interface_entries is not None:
-                        return True
-
-                    if self.te_frr_internal_entries is not None:
-                        return True
-
-                    if self.te_frr_mid_points_entries is not None:
-                        return True
-
-                    if self.te_frr_next_hop_entries is not None:
-                        return True
-
-                    if self.te_head_entries is not None:
-                        return True
-
-                    if self.te_internal_entries is not None:
-                        return True
-
-                    if self.te_mid_points_entries is not None:
-                        return True
-
-                    if self.total_forwarding_update_messages is not None:
-                        return True
-
-                    if self.total_forwarding_updates is not None:
-                        return True
-
-                    if self.total_p2mp_forwarding_added_or_modify_messages is not None:
-                        return True
-
-                    if self.total_p2mp_forwarding_delete_messages is not None:
-                        return True
-
-                    if self.total_p2mp_forwarding_drop_messages is not None:
-                        return True
-
-                    if self.total_p2mp_forwarding_updates is not None:
-                        return True
-
-                    if self.total_p2mp_iir_forwarding_drop_messages is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                    return meta._meta_table['FibMpls.Nodes.Node.ForwardingSummary']['meta_info']
-
-
-            class FrrLogs(object):
-                """
-                FRR Log Table
-                
-                .. attribute:: frr_log
-                
-                	FRR Log information
-                	**type**\: list of    :py:class:`FrrLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrLogs.FrrLog>`
-                
-                
-
-                """
-
-                _prefix = 'fib-common-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.frr_log = YList()
-                    self.frr_log.parent = self
-                    self.frr_log.name = 'frr_log'
-
-
-                class FrrLog(object):
-                    """
-                    FRR Log information
-                    
-                    .. attribute:: event_id  <key>
-                    
-                    	Event ID
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: fast_bundle_member_down_interface
-                    
-                    	Fast Bundle Member Down Interface
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: frr_event_node_id
-                    
-                    	Node on which the FRR event happened
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: main_processing
-                    
-                    	Main Processing for FRR
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: next_hop
-                    
-                    	Next Hop
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: number_of_rewrites_affected
-                    
-                    	Number of rewrites affected
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: protected_frr_interface_name
-                    
-                    	Interface
-                    	**type**\:  str
-                    
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                    
-                    .. attribute:: start_time
-                    
-                    	Time of FRR event processing start, Seconds in UTC, and Nano Seconds
-                    	**type**\:   :py:class:`StartTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMpls.Nodes.Node.FrrLogs.FrrLog.StartTime>`
-                    
-                    .. attribute:: switching_time_nsecs
-                    
-                    	Time to switch rewrites [nsecs]
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: nanosecond
-                    
-                    
-
-                    """
-
-                    _prefix = 'fib-common-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.event_id = None
-                        self.fast_bundle_member_down_interface = None
-                        self.frr_event_node_id = None
-                        self.main_processing = None
-                        self.next_hop = None
-                        self.number_of_rewrites_affected = None
-                        self.protected_frr_interface_name = None
-                        self.start_time = FibMpls.Nodes.Node.FrrLogs.FrrLog.StartTime()
-                        self.start_time.parent = self
-                        self.switching_time_nsecs = None
-
-
-                    class StartTime(object):
-                        """
-                        Time of FRR event processing start, Seconds in
-                        UTC, and Nano Seconds
-                        
-                        .. attribute:: nanoseconds
-                        
-                        	Nanoseconds part of time value
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        	**units**\: nanosecond
-                        
-                        .. attribute:: seconds
-                        
-                        	Seconds part of time valueiin UTC
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        	**units**\: second
-                        
-                        
-
-                        """
-
-                        _prefix = 'fib-common-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.nanoseconds = None
-                            self.seconds = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:start-time'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.nanoseconds is not None:
-                                return True
-
-                            if self.seconds is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                            return meta._meta_table['FibMpls.Nodes.Node.FrrLogs.FrrLog.StartTime']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.event_id is None:
-                            raise YPYModelError('Key property event_id is None')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:frr-log[Cisco-IOS-XR-fib-common-oper:event-id = ' + str(self.event_id) + ']'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.event_id is not None:
-                            return True
-
-                        if self.fast_bundle_member_down_interface is not None:
-                            return True
-
-                        if self.frr_event_node_id is not None:
-                            return True
-
-                        if self.main_processing is not None:
-                            return True
-
-                        if self.next_hop is not None:
-                            return True
-
-                        if self.number_of_rewrites_affected is not None:
-                            return True
-
-                        if self.protected_frr_interface_name is not None:
-                            return True
-
-                        if self.start_time is not None and self.start_time._has_data():
-                            return True
-
-                        if self.switching_time_nsecs is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                        return meta._meta_table['FibMpls.Nodes.Node.FrrLogs.FrrLog']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:frr-logs'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.frr_log is not None:
-                        for child_ref in self.frr_log:
-                            if child_ref._has_data():
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                    return meta._meta_table['FibMpls.Nodes.Node.FrrLogs']['meta_info']
+                    return meta._meta_table['MplsForwarding.Nodes.Node.FrrDatabase']['meta_info']
 
             @property
             def _common_path(self):
                 if self.node_name is None:
                     raise YPYModelError('Key property node_name is None')
 
-                return '/Cisco-IOS-XR-fib-common-oper:fib-mpls/Cisco-IOS-XR-fib-common-oper:nodes/Cisco-IOS-XR-fib-common-oper:node[Cisco-IOS-XR-fib-common-oper:node-name = ' + str(self.node_name) + ']'
+                return '/Cisco-IOS-XR-fib-common-oper:mpls-forwarding/Cisco-IOS-XR-fib-common-oper:nodes/Cisco-IOS-XR-fib-common-oper:node[Cisco-IOS-XR-fib-common-oper:node-name = ' + str(self.node_name) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
@@ -26479,12 +23894,12 @@ class FibMpls(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                return meta._meta_table['FibMpls.Nodes.Node']['meta_info']
+                return meta._meta_table['MplsForwarding.Nodes.Node']['meta_info']
 
         @property
         def _common_path(self):
 
-            return '/Cisco-IOS-XR-fib-common-oper:fib-mpls/Cisco-IOS-XR-fib-common-oper:nodes'
+            return '/Cisco-IOS-XR-fib-common-oper:mpls-forwarding/Cisco-IOS-XR-fib-common-oper:nodes'
 
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
@@ -26503,12 +23918,12 @@ class FibMpls(object):
         @staticmethod
         def _meta_info():
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-            return meta._meta_table['FibMpls.Nodes']['meta_info']
+            return meta._meta_table['MplsForwarding.Nodes']['meta_info']
 
     @property
     def _common_path(self):
 
-        return '/Cisco-IOS-XR-fib-common-oper:fib-mpls'
+        return '/Cisco-IOS-XR-fib-common-oper:mpls-forwarding'
 
     def is_config(self):
         ''' Returns True if this instance represents config data else returns False '''
@@ -26525,6 +23940,6 @@ class FibMpls(object):
     @staticmethod
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-        return meta._meta_table['FibMpls']['meta_info']
+        return meta._meta_table['MplsForwarding']['meta_info']
 
 

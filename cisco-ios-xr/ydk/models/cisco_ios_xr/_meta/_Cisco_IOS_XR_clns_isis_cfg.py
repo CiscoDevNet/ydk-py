@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'IsisSnpAuthEnum' : _MetaInfoEnum('IsisSnpAuthEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg',
         {
@@ -126,6 +125,7 @@ _meta_table = {
             'not-set':'not_set',
             'micro-loop-avoidance-all':'micro_loop_avoidance_all',
             'micro-loop-avoidance-protected':'micro_loop_avoidance_protected',
+            'micro-loop-avoidance-segement-routing':'micro_loop_avoidance_segement_routing',
         }, 'Cisco-IOS-XR-clns-isis-cfg', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg']),
     'IsisAdvTypeExternalEnum' : _MetaInfoEnum('IsisAdvTypeExternalEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg',
         {
@@ -484,6 +484,31 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-clns-isis-cfg',
             'max-link-metrics',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg'
+        ),
+    },
+    'Isis.Instances.Instance.AdjacencyStagger' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.AdjacencyStagger',
+            False, 
+            [
+            _MetaInfoClassMember('initial-nbr', ATTRIBUTE, 'int' , None, None, 
+                [('2', '65000')], [], 
+                '''                Adjacency Stagger: Initial number of
+                neighbors to bring up per area
+                ''',
+                'initial_nbr',
+                'Cisco-IOS-XR-clns-isis-cfg', False),
+            _MetaInfoClassMember('max-nbr', ATTRIBUTE, 'int' , None, None, 
+                [('2', '65000')], [], 
+                '''                Adjacency Stagger: Subsequent simultaneous
+                number of neighbors to bring up
+                ''',
+                'max_nbr',
+                'Cisco-IOS-XR-clns-isis-cfg', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-cfg',
+            'adjacency-stagger',
             _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg'
         ),
@@ -3604,7 +3629,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('topology-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Topology Name
                 ''',
                 'topology_name',
@@ -3940,7 +3965,7 @@ _meta_table = {
                 'dist_inst_id',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
             _MetaInfoClassMember('dist-throttle', ATTRIBUTE, 'int' , None, None, 
-                [('5', '20')], [], 
+                [('1', '20')], [], 
                 '''                Seconds
                 ''',
                 'dist_throttle',
@@ -4089,7 +4114,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('link-group-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 40)], [], 
+                [(1, 40)], [], 
                 '''                Link Group Name
                 ''',
                 'link_group_name',
@@ -4768,6 +4793,41 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg'
         ),
     },
+    'Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears.PrefixAttributeNFlagClear' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears.PrefixAttributeNFlagClear',
+            False, 
+            [
+            _MetaInfoClassMember('level', REFERENCE_ENUM_CLASS, 'IsisInternalLevelEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes', 'IsisInternalLevelEnum', 
+                [], [], 
+                '''                Level to which configuration applies
+                ''',
+                'level',
+                'Cisco-IOS-XR-clns-isis-cfg', True),
+            ],
+            'Cisco-IOS-XR-clns-isis-cfg',
+            'prefix-attribute-n-flag-clear',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg'
+        ),
+    },
+    'Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears',
+            False, 
+            [
+            _MetaInfoClassMember('prefix-attribute-n-flag-clear', REFERENCE_LIST, 'PrefixAttributeNFlagClear' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears.PrefixAttributeNFlagClear', 
+                [], [], 
+                '''                Clear the N flag in prefix attribute flags
+                sub-TLV
+                ''',
+                'prefix_attribute_n_flag_clear',
+                'Cisco-IOS-XR-clns-isis-cfg', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-cfg',
+            'prefix-attribute-n-flag-clears',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg'
+        ),
+    },
     'Isis.Instances.Instance.Interfaces.Interface.HelloIntervals.HelloInterval' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.HelloIntervals.HelloInterval',
             False, 
@@ -5262,6 +5322,47 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg'
         ),
     },
+    'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSspfsid' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSspfsid',
+            False, 
+            [
+            _MetaInfoClassMember('explicit-null', REFERENCE_ENUM_CLASS, 'IsisexplicitNullFlagEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'IsisexplicitNullFlagEnum', 
+                [], [], 
+                '''                Enable/Disable Explicit-NULL flag
+                ''',
+                'explicit_null',
+                'Cisco-IOS-XR-clns-isis-cfg', False),
+            _MetaInfoClassMember('nflag-clear', REFERENCE_ENUM_CLASS, 'NflagClearEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'NflagClearEnum', 
+                [], [], 
+                '''                Clear N-flag for the prefix-SID
+                ''',
+                'nflag_clear',
+                'Cisco-IOS-XR-clns-isis-cfg', False),
+            _MetaInfoClassMember('php', REFERENCE_ENUM_CLASS, 'IsisphpFlagEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'IsisphpFlagEnum', 
+                [], [], 
+                '''                Enable/Disable Penultimate Hop Popping
+                ''',
+                'php',
+                'Cisco-IOS-XR-clns-isis-cfg', False),
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'IsissidEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'IsissidEnum', 
+                [], [], 
+                '''                SID type for the interface
+                ''',
+                'type',
+                'Cisco-IOS-XR-clns-isis-cfg', False),
+            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                [('0', '1048575')], [], 
+                '''                SID value for the interface
+                ''',
+                'value',
+                'Cisco-IOS-XR-clns-isis-cfg', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-cfg',
+            'prefix-sspfsid',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg'
+        ),
+    },
     'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics.AutoMetric' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics.AutoMetric',
             False, 
@@ -5364,7 +5465,7 @@ _meta_table = {
                 'level',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
             _MetaInfoClassMember('link-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 40)], [], 
+                [(1, 40)], [], 
                 '''                Link Group
                 ''',
                 'link_group',
@@ -5539,6 +5640,15 @@ _meta_table = {
                 override the value of ISISPHPFlag
                 ''',
                 'prefix_sid',
+                'Cisco-IOS-XR-clns-isis-cfg', False),
+            _MetaInfoClassMember('prefix-sspfsid', REFERENCE_CLASS, 'PrefixSspfsid' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSspfsid', 
+                [], [], 
+                '''                Assign prefix SSPF SID to an interface,
+                ISISPHPFlag will be rejected if set to
+                disable, ISISEXPLICITNULLFlag will
+                override the value of ISISPHPFlag
+                ''',
+                'prefix_sspfsid',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
             _MetaInfoClassMember('running', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -6015,6 +6125,47 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg'
         ),
     },
+    'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSspfsid' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSspfsid',
+            False, 
+            [
+            _MetaInfoClassMember('explicit-null', REFERENCE_ENUM_CLASS, 'IsisexplicitNullFlagEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'IsisexplicitNullFlagEnum', 
+                [], [], 
+                '''                Enable/Disable Explicit-NULL flag
+                ''',
+                'explicit_null',
+                'Cisco-IOS-XR-clns-isis-cfg', False),
+            _MetaInfoClassMember('nflag-clear', REFERENCE_ENUM_CLASS, 'NflagClearEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'NflagClearEnum', 
+                [], [], 
+                '''                Clear N-flag for the prefix-SID
+                ''',
+                'nflag_clear',
+                'Cisco-IOS-XR-clns-isis-cfg', False),
+            _MetaInfoClassMember('php', REFERENCE_ENUM_CLASS, 'IsisphpFlagEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'IsisphpFlagEnum', 
+                [], [], 
+                '''                Enable/Disable Penultimate Hop Popping
+                ''',
+                'php',
+                'Cisco-IOS-XR-clns-isis-cfg', False),
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'IsissidEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'IsissidEnum', 
+                [], [], 
+                '''                SID type for the interface
+                ''',
+                'type',
+                'Cisco-IOS-XR-clns-isis-cfg', False),
+            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                [('0', '1048575')], [], 
+                '''                SID value for the interface
+                ''',
+                'value',
+                'Cisco-IOS-XR-clns-isis-cfg', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-cfg',
+            'prefix-sspfsid',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg'
+        ),
+    },
     'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics.AutoMetric' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics.AutoMetric',
             False, 
@@ -6117,7 +6268,7 @@ _meta_table = {
                 'level',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
             _MetaInfoClassMember('link-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 40)], [], 
+                [(1, 40)], [], 
                 '''                Link Group
                 ''',
                 'link_group',
@@ -6243,7 +6394,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('topology-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Topology Name
                 ''',
                 'topology_name',
@@ -6298,6 +6449,15 @@ _meta_table = {
                 override the value of ISISPHPFlag
                 ''',
                 'prefix_sid',
+                'Cisco-IOS-XR-clns-isis-cfg', False),
+            _MetaInfoClassMember('prefix-sspfsid', REFERENCE_CLASS, 'PrefixSspfsid' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSspfsid', 
+                [], [], 
+                '''                Assign prefix SSPF SID to an interface,
+                ISISPHPFlag will be rejected if set to
+                disable, ISISEXPLICITNULLFlag will
+                override the value of ISISPHPFlag
+                ''',
+                'prefix_sspfsid',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
             _MetaInfoClassMember('running', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -6589,6 +6749,12 @@ _meta_table = {
                 ''',
                 'point_to_point',
                 'Cisco-IOS-XR-clns-isis-cfg', False),
+            _MetaInfoClassMember('prefix-attribute-n-flag-clears', REFERENCE_CLASS, 'PrefixAttributeNFlagClears' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears', 
+                [], [], 
+                '''                Prefix attribute N flag clear configuration
+                ''',
+                'prefix_attribute_n_flag_clears',
+                'Cisco-IOS-XR-clns-isis-cfg', False),
             _MetaInfoClassMember('priorities', REFERENCE_CLASS, 'Priorities' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'Isis.Instances.Instance.Interfaces.Interface.Priorities', 
                 [], [], 
                 '''                DIS-election priority configuration
@@ -6639,11 +6805,17 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 40)], [], 
+                [(1, 40)], [], 
                 '''                Instance identifier
                 ''',
                 'instance_name',
                 'Cisco-IOS-XR-clns-isis-cfg', True),
+            _MetaInfoClassMember('adjacency-stagger', REFERENCE_CLASS, 'AdjacencyStagger' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'Isis.Instances.Instance.AdjacencyStagger', 
+                [], [], 
+                '''                Stagger ISIS adjacency bring up
+                ''',
+                'adjacency_stagger',
+                'Cisco-IOS-XR-clns-isis-cfg', False),
             _MetaInfoClassMember('afs', REFERENCE_CLASS, 'Afs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg', 'Isis.Instances.Instance.Afs', 
                 [], [], 
                 '''                Per-address-family configuration
@@ -6987,6 +7159,7 @@ _meta_table['Isis.Instances.Instance.Interfaces.Interface.HelloPasswords.HelloPa
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.HelloPaddings.HelloPadding']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface.HelloPaddings']['meta_info']
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers.HelloMultiplier']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers']['meta_info']
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds.LspFastFloodThreshold']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds']['meta_info']
+_meta_table['Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears.PrefixAttributeNFlagClear']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears']['meta_info']
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.HelloIntervals.HelloInterval']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface.HelloIntervals']['meta_info']
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces']['meta_info']
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics']['meta_info']
@@ -7011,6 +7184,7 @@ _meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.Interface
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSid']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData']['meta_info']
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData']['meta_info']
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.MplsLdp']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData']['meta_info']
+_meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSspfsid']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData']['meta_info']
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData']['meta_info']
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData']['meta_info']
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceLinkGroup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData']['meta_info']
@@ -7039,6 +7213,7 @@ _meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.Interface
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSid']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName']['meta_info']
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName']['meta_info']
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.MplsLdp']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName']['meta_info']
+_meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSspfsid']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName']['meta_info']
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName']['meta_info']
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName']['meta_info']
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceLinkGroup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName']['meta_info']
@@ -7058,6 +7233,7 @@ _meta_table['Isis.Instances.Instance.Interfaces.Interface.HelloPasswords']['meta
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.HelloPaddings']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface']['meta_info']
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface']['meta_info']
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface']['meta_info']
+_meta_table['Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface']['meta_info']
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.HelloIntervals']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface']['meta_info']
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface']['meta_info']
 _meta_table['Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces.Interface']['meta_info']
@@ -7068,6 +7244,7 @@ _meta_table['Isis.Instances.Instance.LspGenerationIntervals']['meta_info'].paren
 _meta_table['Isis.Instances.Instance.LspArrivalTimes']['meta_info'].parent =_meta_table['Isis.Instances.Instance']['meta_info']
 _meta_table['Isis.Instances.Instance.TraceBufferSize']['meta_info'].parent =_meta_table['Isis.Instances.Instance']['meta_info']
 _meta_table['Isis.Instances.Instance.MaxLinkMetrics']['meta_info'].parent =_meta_table['Isis.Instances.Instance']['meta_info']
+_meta_table['Isis.Instances.Instance.AdjacencyStagger']['meta_info'].parent =_meta_table['Isis.Instances.Instance']['meta_info']
 _meta_table['Isis.Instances.Instance.Afs']['meta_info'].parent =_meta_table['Isis.Instances.Instance']['meta_info']
 _meta_table['Isis.Instances.Instance.LspRefreshIntervals']['meta_info'].parent =_meta_table['Isis.Instances.Instance']['meta_info']
 _meta_table['Isis.Instances.Instance.Distribute']['meta_info'].parent =_meta_table['Isis.Instances.Instance']['meta_info']

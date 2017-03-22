@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'AaaAuthenticationEnum' : _MetaInfoEnum('AaaAuthenticationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg',
         {
@@ -58,5 +57,10 @@ _meta_table = {
             'cs7':'cs7',
             'default':'default',
             'ef':'ef',
+        }, 'Cisco-IOS-XR-aaa-protocol-radius-cfg', _yang_ns._namespaces['Cisco-IOS-XR-aaa-protocol-radius-cfg']),
+    'AaaDirectionEnum' : _MetaInfoEnum('AaaDirectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg',
+        {
+            'inbound':'inbound',
+            'outbound':'outbound',
         }, 'Cisco-IOS-XR-aaa-protocol-radius-cfg', _yang_ns._namespaces['Cisco-IOS-XR-aaa-protocol-radius-cfg']),
 }

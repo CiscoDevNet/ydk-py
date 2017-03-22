@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'RouterStatic.Vrfs.Vrf.AddressFamily.Vrfipv4.VrfUnicast.Topologies.Topology.VrfPrefixTopologies.VrfPrefixTopology.VrfRoute.VrfNextHopTable.VrfNextHopInterfaceName' : {
         'meta_info' : _MetaInfoClass('RouterStatic.Vrfs.Vrf.AddressFamily.Vrfipv4.VrfUnicast.Topologies.Topology.VrfPrefixTopologies.VrfPrefixTopology.VrfRoute.VrfNextHopTable.VrfNextHopInterfaceName',
@@ -42,6 +41,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -61,7 +66,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -144,6 +149,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -163,7 +174,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -240,6 +251,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -259,7 +276,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -342,6 +359,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -361,7 +384,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -425,6 +448,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -444,7 +473,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -577,6 +606,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -596,7 +631,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -679,6 +714,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -698,7 +739,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -775,6 +816,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -794,7 +841,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -877,6 +924,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -896,7 +949,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -960,6 +1013,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -979,7 +1038,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -1135,6 +1194,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -1154,7 +1219,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -1237,6 +1302,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -1256,7 +1327,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -1333,6 +1404,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -1352,7 +1429,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -1435,6 +1512,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -1454,7 +1537,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -1518,6 +1601,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -1537,7 +1626,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -1781,6 +1870,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -1800,7 +1895,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -1883,6 +1978,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -1902,7 +2003,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -1979,6 +2080,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -1998,7 +2105,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -2081,6 +2188,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -2100,7 +2213,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -2164,6 +2277,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -2183,7 +2302,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -2316,6 +2435,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -2335,7 +2460,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -2418,6 +2543,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -2437,7 +2568,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -2514,6 +2645,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -2533,7 +2670,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -2616,6 +2753,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -2635,7 +2778,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -2699,6 +2842,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -2718,7 +2867,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -2874,6 +3023,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -2893,7 +3048,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -2976,6 +3131,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -2995,7 +3156,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -3072,6 +3233,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -3091,7 +3258,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -3174,6 +3341,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -3193,7 +3366,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -3257,6 +3430,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -3276,7 +3455,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -3480,6 +3659,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -3499,7 +3684,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -3582,6 +3767,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -3601,7 +3792,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -3678,6 +3869,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -3697,7 +3894,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -3780,6 +3977,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -3799,7 +4002,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -3863,6 +4066,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -3882,7 +4091,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -4015,6 +4224,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -4034,7 +4249,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -4117,6 +4332,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -4136,7 +4357,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -4213,6 +4434,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -4232,7 +4459,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -4315,6 +4542,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -4334,7 +4567,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -4398,6 +4631,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -4417,7 +4656,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -4573,6 +4812,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -4592,7 +4837,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -4675,6 +4920,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -4694,7 +4945,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -4771,6 +5022,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -4790,7 +5047,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -4873,6 +5130,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -4892,7 +5155,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -4956,6 +5219,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -4975,7 +5244,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -5225,6 +5494,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -5244,7 +5519,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -5327,6 +5602,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -5346,7 +5627,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -5423,6 +5704,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -5442,7 +5729,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -5525,6 +5812,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -5544,7 +5837,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -5608,6 +5901,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -5627,7 +5926,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -5760,6 +6059,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -5779,7 +6084,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -5862,6 +6167,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -5881,7 +6192,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -5958,6 +6269,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -5977,7 +6294,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -6060,6 +6377,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -6079,7 +6402,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -6143,6 +6466,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -6162,7 +6491,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -6318,6 +6647,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -6337,7 +6672,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -6420,6 +6755,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -6439,7 +6780,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -6516,6 +6857,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -6535,7 +6882,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -6618,6 +6965,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -6637,7 +6990,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -6701,6 +7054,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -6720,7 +7079,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -6964,6 +7323,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -6983,7 +7348,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -7066,6 +7431,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -7085,7 +7456,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -7162,6 +7533,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -7181,7 +7558,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -7264,6 +7641,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -7283,7 +7666,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -7347,6 +7730,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -7366,7 +7755,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -7499,6 +7888,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -7518,7 +7913,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -7601,6 +7996,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -7620,7 +8021,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -7697,6 +8098,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -7716,7 +8123,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -7799,6 +8206,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -7818,7 +8231,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -7882,6 +8295,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -7901,7 +8320,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -8057,6 +8476,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -8076,7 +8501,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -8159,6 +8584,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -8178,7 +8609,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -8255,6 +8686,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -8274,7 +8711,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -8357,6 +8794,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -8376,7 +8819,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -8440,6 +8883,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -8459,7 +8908,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -8663,6 +9112,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -8682,7 +9137,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -8765,6 +9220,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -8784,7 +9245,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -8861,6 +9322,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -8880,7 +9347,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -8963,6 +9430,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -8982,7 +9455,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -9046,6 +9519,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -9065,7 +9544,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -9198,6 +9677,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -9217,7 +9702,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -9300,6 +9785,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -9319,7 +9810,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -9396,6 +9887,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -9415,7 +9912,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -9498,6 +9995,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -9517,7 +10020,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -9581,6 +10084,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -9600,7 +10109,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -9756,6 +10265,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -9775,7 +10290,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -9858,6 +10373,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -9877,7 +10398,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -9954,6 +10475,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -9973,7 +10500,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -10056,6 +10583,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -10075,7 +10608,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -10139,6 +10672,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -10158,7 +10697,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -10431,6 +10970,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -10450,7 +10995,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -10533,6 +11078,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -10552,7 +11103,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -10629,6 +11180,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -10648,7 +11205,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -10731,6 +11288,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -10750,7 +11313,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -10814,6 +11377,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -10833,7 +11402,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -10966,6 +11535,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -10985,7 +11560,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -11068,6 +11643,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -11087,7 +11668,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -11164,6 +11745,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -11183,7 +11770,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -11266,6 +11853,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -11285,7 +11878,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -11349,6 +11942,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -11368,7 +11967,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -11524,6 +12123,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -11543,7 +12148,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -11626,6 +12231,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -11645,7 +12256,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -11722,6 +12333,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -11741,7 +12358,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -11824,6 +12441,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -11843,7 +12466,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -11907,6 +12530,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -11926,7 +12555,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -12170,6 +12799,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -12189,7 +12824,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -12272,6 +12907,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -12291,7 +12932,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -12368,6 +13009,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -12387,7 +13034,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -12470,6 +13117,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -12489,7 +13142,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -12553,6 +13206,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -12572,7 +13231,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -12705,6 +13364,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -12724,7 +13389,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -12807,6 +13472,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -12826,7 +13497,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -12903,6 +13574,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -12922,7 +13599,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -13005,6 +13682,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -13024,7 +13707,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -13088,6 +13771,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -13107,7 +13796,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -13263,6 +13952,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -13282,7 +13977,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -13365,6 +14060,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -13384,7 +14085,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -13461,6 +14162,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -13480,7 +14187,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -13563,6 +14270,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -13582,7 +14295,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -13646,6 +14359,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -13665,7 +14384,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -13869,6 +14588,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -13888,7 +14613,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -13971,6 +14696,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -13990,7 +14721,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -14067,6 +14798,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -14086,7 +14823,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -14169,6 +14906,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -14188,7 +14931,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -14252,6 +14995,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -14271,7 +15020,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -14404,6 +15153,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -14423,7 +15178,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -14506,6 +15261,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -14525,7 +15286,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -14602,6 +15363,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -14621,7 +15388,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -14704,6 +15471,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -14723,7 +15496,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -14787,6 +15560,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -14806,7 +15585,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -14962,6 +15741,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -14981,7 +15766,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -15064,6 +15849,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -15083,7 +15874,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -15160,6 +15951,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -15179,7 +15976,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -15262,6 +16059,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -15281,7 +16084,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -15345,6 +16148,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -15364,7 +16173,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -15614,6 +16423,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -15633,7 +16448,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -15716,6 +16531,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -15735,7 +16556,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -15812,6 +16633,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -15831,7 +16658,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -15914,6 +16741,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -15933,7 +16766,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -15997,6 +16830,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -16016,7 +16855,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -16149,6 +16988,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -16168,7 +17013,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -16251,6 +17096,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -16270,7 +17121,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -16347,6 +17198,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -16366,7 +17223,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -16449,6 +17306,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -16468,7 +17331,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -16532,6 +17395,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -16551,7 +17420,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -16707,6 +17576,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -16726,7 +17601,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -16809,6 +17684,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -16828,7 +17709,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -16905,6 +17786,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -16924,7 +17811,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -17007,6 +17894,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -17026,7 +17919,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -17090,6 +17983,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -17109,7 +18008,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -17353,6 +18252,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -17372,7 +18277,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -17455,6 +18360,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -17474,7 +18385,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -17551,6 +18462,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -17570,7 +18487,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -17653,6 +18570,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -17672,7 +18595,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -17736,6 +18659,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -17755,7 +18684,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -17888,6 +18817,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -17907,7 +18842,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -17990,6 +18925,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -18009,7 +18950,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -18086,6 +19027,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -18105,7 +19052,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -18188,6 +19135,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -18207,7 +19160,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -18271,6 +19224,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -18290,7 +19249,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -18446,6 +19405,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -18465,7 +19430,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -18548,6 +19513,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -18567,7 +19538,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -18644,6 +19615,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -18663,7 +19640,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -18746,6 +19723,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -18765,7 +19748,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -18829,6 +19812,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -18848,7 +19837,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -19052,6 +20041,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -19071,7 +20066,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -19154,6 +20149,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -19173,7 +20174,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -19250,6 +20251,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -19269,7 +20276,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -19352,6 +20359,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -19371,7 +20384,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -19435,6 +20448,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -19454,7 +20473,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -19587,6 +20606,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -19606,7 +20631,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -19689,6 +20714,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -19708,7 +20739,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -19785,6 +20816,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -19804,7 +20841,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -19887,6 +20924,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -19906,7 +20949,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -19970,6 +21013,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -19989,7 +21038,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -20145,6 +21194,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -20164,7 +21219,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -20247,6 +21302,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -20266,7 +21327,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -20343,6 +21404,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -20362,7 +21429,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -20445,6 +21512,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -20464,7 +21537,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -20528,6 +21601,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -20547,7 +21626,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -20883,6 +21962,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -20902,7 +21987,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -20985,6 +22070,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -21004,7 +22095,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -21081,6 +22172,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -21100,7 +22197,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -21183,6 +22280,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -21202,7 +22305,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -21266,6 +22369,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -21285,7 +22394,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -21418,6 +22527,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -21437,7 +22552,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -21520,6 +22635,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -21539,7 +22660,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -21616,6 +22737,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -21635,7 +22762,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -21718,6 +22845,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -21737,7 +22870,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -21801,6 +22934,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -21820,7 +22959,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -21976,6 +23115,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -21995,7 +23140,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -22078,6 +23223,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -22097,7 +23248,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -22174,6 +23325,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -22193,7 +23350,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -22276,6 +23433,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -22295,7 +23458,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -22359,6 +23522,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -22378,7 +23547,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -22622,6 +23791,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -22641,7 +23816,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -22724,6 +23899,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -22743,7 +23924,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -22820,6 +24001,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -22839,7 +24026,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -22922,6 +24109,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -22941,7 +24134,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -23005,6 +24198,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -23024,7 +24223,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -23157,6 +24356,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -23176,7 +24381,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -23259,6 +24464,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -23278,7 +24489,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -23355,6 +24566,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -23374,7 +24591,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -23457,6 +24674,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -23476,7 +24699,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -23540,6 +24763,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -23559,7 +24788,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -23715,6 +24944,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -23734,7 +24969,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -23817,6 +25052,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -23836,7 +25077,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -23913,6 +25154,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -23932,7 +25179,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -24015,6 +25262,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -24034,7 +25287,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -24098,6 +25351,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -24117,7 +25376,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -24321,6 +25580,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -24340,7 +25605,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -24423,6 +25688,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -24442,7 +25713,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -24519,6 +25790,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -24538,7 +25815,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -24621,6 +25898,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -24640,7 +25923,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -24704,6 +25987,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -24723,7 +26012,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -24856,6 +26145,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -24875,7 +26170,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -24958,6 +26253,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -24977,7 +26278,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -25054,6 +26355,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -25073,7 +26380,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -25156,6 +26463,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -25175,7 +26488,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -25239,6 +26552,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -25258,7 +26577,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -25414,6 +26733,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -25433,7 +26758,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -25516,6 +26841,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -25535,7 +26866,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -25612,6 +26943,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -25631,7 +26968,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -25714,6 +27051,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -25733,7 +27076,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -25797,6 +27140,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -25816,7 +27165,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -26066,6 +27415,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -26085,7 +27440,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -26168,6 +27523,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -26187,7 +27548,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -26264,6 +27625,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -26283,7 +27650,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -26366,6 +27733,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -26385,7 +27758,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -26449,6 +27822,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -26468,7 +27847,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -26601,6 +27980,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -26620,7 +28005,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -26703,6 +28088,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -26722,7 +28113,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -26799,6 +28190,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -26818,7 +28215,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -26901,6 +28298,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -26920,7 +28323,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -26984,6 +28387,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -27003,7 +28412,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -27159,6 +28568,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -27178,7 +28593,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -27261,6 +28676,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -27280,7 +28701,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -27357,6 +28778,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -27376,7 +28803,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -27459,6 +28886,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -27478,7 +28911,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -27542,6 +28975,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -27561,7 +29000,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -27805,6 +29244,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -27824,7 +29269,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -27907,6 +29352,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -27926,7 +29377,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -28003,6 +29454,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -28022,7 +29479,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -28105,6 +29562,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -28124,7 +29587,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -28188,6 +29651,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -28207,7 +29676,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -28340,6 +29809,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -28359,7 +29834,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -28442,6 +29917,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -28461,7 +29942,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -28538,6 +30019,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -28557,7 +30044,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -28640,6 +30127,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -28659,7 +30152,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -28723,6 +30216,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -28742,7 +30241,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -28898,6 +30397,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -28917,7 +30422,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -29000,6 +30505,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -29019,7 +30530,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -29096,6 +30607,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -29115,7 +30632,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -29198,6 +30715,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -29217,7 +30740,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -29281,6 +30804,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -29300,7 +30829,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -29504,6 +31033,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -29523,7 +31058,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -29606,6 +31141,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -29625,7 +31166,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -29702,6 +31243,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -29721,7 +31268,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -29804,6 +31351,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -29823,7 +31376,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -29887,6 +31440,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -29906,7 +31465,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -30039,6 +31598,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -30058,7 +31623,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -30141,6 +31706,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -30160,7 +31731,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -30237,6 +31808,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -30256,7 +31833,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -30339,6 +31916,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -30358,7 +31941,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -30422,6 +32005,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -30441,7 +32030,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -30597,6 +32186,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -30616,7 +32211,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -30699,6 +32294,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -30718,7 +32319,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -30795,6 +32396,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -30814,7 +32421,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -30897,6 +32504,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -30916,7 +32529,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -30980,6 +32593,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -30999,7 +32618,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -31272,6 +32891,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -31291,7 +32916,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -31374,6 +32999,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -31393,7 +33024,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -31470,6 +33101,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -31489,7 +33126,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -31572,6 +33209,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -31591,7 +33234,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -31655,6 +33298,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -31674,7 +33323,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -31807,6 +33456,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -31826,7 +33481,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -31909,6 +33564,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -31928,7 +33589,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -32005,6 +33666,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -32024,7 +33691,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -32107,6 +33774,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -32126,7 +33799,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -32190,6 +33863,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -32209,7 +33888,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -32365,6 +34044,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -32384,7 +34069,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -32467,6 +34152,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -32486,7 +34177,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -32563,6 +34254,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -32582,7 +34279,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -32665,6 +34362,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -32684,7 +34387,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -32748,6 +34451,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -32767,7 +34476,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -33011,6 +34720,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -33030,7 +34745,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -33113,6 +34828,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -33132,7 +34853,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -33209,6 +34930,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -33228,7 +34955,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -33311,6 +35038,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -33330,7 +35063,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -33394,6 +35127,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -33413,7 +35152,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -33546,6 +35285,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -33565,7 +35310,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -33648,6 +35393,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -33667,7 +35418,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -33744,6 +35495,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -33763,7 +35520,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -33846,6 +35603,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -33865,7 +35628,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -33929,6 +35692,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -33948,7 +35717,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -34104,6 +35873,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -34123,7 +35898,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -34206,6 +35981,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -34225,7 +36006,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -34302,6 +36083,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -34321,7 +36108,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -34404,6 +36191,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -34423,7 +36216,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -34487,6 +36280,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -34506,7 +36305,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -34710,6 +36509,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -34729,7 +36534,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -34812,6 +36617,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -34831,7 +36642,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -34908,6 +36719,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -34927,7 +36744,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -35010,6 +36827,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -35029,7 +36852,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -35093,6 +36916,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -35112,7 +36941,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -35245,6 +37074,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -35264,7 +37099,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -35347,6 +37182,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -35366,7 +37207,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -35443,6 +37284,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -35462,7 +37309,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -35545,6 +37392,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -35564,7 +37417,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -35628,6 +37481,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -35647,7 +37506,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -35803,6 +37662,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -35822,7 +37687,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -35905,6 +37770,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -35924,7 +37795,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -36001,6 +37872,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -36020,7 +37897,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -36103,6 +37980,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -36122,7 +38005,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -36186,6 +38069,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -36205,7 +38094,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -36455,6 +38344,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -36474,7 +38369,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -36557,6 +38452,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -36576,7 +38477,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -36653,6 +38554,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -36672,7 +38579,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -36755,6 +38662,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -36774,7 +38687,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -36838,6 +38751,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -36857,7 +38776,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -36990,6 +38909,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -37009,7 +38934,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -37092,6 +39017,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -37111,7 +39042,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -37188,6 +39119,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -37207,7 +39144,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -37290,6 +39227,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -37309,7 +39252,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -37373,6 +39316,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -37392,7 +39341,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -37548,6 +39497,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -37567,7 +39522,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -37650,6 +39605,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -37669,7 +39630,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -37746,6 +39707,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -37765,7 +39732,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -37848,6 +39815,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -37867,7 +39840,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -37931,6 +39904,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -37950,7 +39929,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -38194,6 +40173,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -38213,7 +40198,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -38296,6 +40281,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -38315,7 +40306,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -38392,6 +40383,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -38411,7 +40408,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -38494,6 +40491,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -38513,7 +40516,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -38577,6 +40580,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -38596,7 +40605,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -38729,6 +40738,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -38748,7 +40763,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -38831,6 +40846,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -38850,7 +40871,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -38927,6 +40948,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -38946,7 +40973,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -39029,6 +41056,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -39048,7 +41081,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -39112,6 +41145,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -39131,7 +41170,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -39287,6 +41326,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -39306,7 +41351,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -39389,6 +41434,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -39408,7 +41459,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -39485,6 +41536,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -39504,7 +41561,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -39587,6 +41644,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -39606,7 +41669,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -39670,6 +41733,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -39689,7 +41758,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -39893,6 +41962,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -39912,7 +41987,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -39995,6 +42070,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -40014,7 +42095,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -40091,6 +42172,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -40110,7 +42197,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -40193,6 +42280,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -40212,7 +42305,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -40276,6 +42369,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -40295,7 +42394,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -40428,6 +42527,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -40447,7 +42552,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -40530,6 +42635,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -40549,7 +42660,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -40626,6 +42737,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -40645,7 +42762,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -40728,6 +42845,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -40747,7 +42870,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -40811,6 +42934,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -40830,7 +42959,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -40986,6 +43115,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -41005,7 +43140,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -41088,6 +43223,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -41107,7 +43248,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -41184,6 +43325,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -41203,7 +43350,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -41286,6 +43433,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -41305,7 +43458,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',
@@ -41369,6 +43522,12 @@ _meta_table = {
                 ''',
                 'detect_multiplier',
                 'Cisco-IOS-XR-ip-static-cfg', False),
+            _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Nexthop Identifier for OC Yang model
+                ''',
+                'index',
+                'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777214')], [], 
                 '''                UCMP load metric
@@ -41388,7 +43547,7 @@ _meta_table = {
                 'minimum_interval',
                 'Cisco-IOS-XR-ip-static-cfg', False),
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object to track
                 ''',
                 'object_name',

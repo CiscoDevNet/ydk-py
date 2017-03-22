@@ -1646,11 +1646,6 @@ class PlatformInventory(object):
                             	Table of port slots
                             	**type**\:   :py:class:`PortSlots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots>`
                             
-                            .. attribute:: portses
-                            
-                            	Table of spirit port slots
-                            	**type**\:   :py:class:`Portses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses>`
-                            
                             .. attribute:: sensors
                             
                             	Table of sensors
@@ -1679,534 +1674,10 @@ class PlatformInventory(object):
                                 self.hw_components.parent = self
                                 self.port_slots = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots()
                                 self.port_slots.parent = self
-                                self.portses = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses()
-                                self.portses.parent = self
                                 self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors()
                                 self.sensors.parent = self
                                 self.sub_slots = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots()
                                 self.sub_slots.parent = self
-
-
-                            class Portses(object):
-                                """
-                                Table of spirit port slots
-                                
-                                .. attribute:: ports
-                                
-                                	Port number
-                                	**type**\: list of    :py:class:`Ports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'plat-chas-invmgr-oper'
-                                _revision = '2015-01-07'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.ports = YList()
-                                    self.ports.parent = self
-                                    self.ports.name = 'ports'
-
-
-                                class Ports(object):
-                                    """
-                                    Port number
-                                    
-                                    .. attribute:: name  <key>
-                                    
-                                    	Port name
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                                    
-                                    .. attribute:: attributes
-                                    
-                                    	Attributes
-                                    	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'plat-chas-invmgr-oper'
-                                    _revision = '2015-01-07'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.name = None
-                                        self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes()
-                                        self.attributes.parent = self
-
-
-                                    class Attributes(object):
-                                        """
-                                        Attributes
-                                        
-                                        .. attribute:: basic_info
-                                        
-                                        	Entity attributes
-                                        	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.BasicInfo>`
-                                        
-                                        .. attribute:: fru_info
-                                        
-                                        	Field Replaceable Unit (FRU) attributes
-                                        	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'plat-chas-invmgr-oper'
-                                        _revision = '2015-01-07'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.BasicInfo()
-                                            self.basic_info.parent = self
-                                            self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo()
-                                            self.fru_info.parent = self
-
-
-                                        class BasicInfo(object):
-                                            """
-                                            Entity attributes
-                                            
-                                            .. attribute:: description
-                                            
-                                            	describes in user\-readable terms                 what the entity in question does
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..255
-                                            
-                                            .. attribute:: firmware_revision
-                                            
-                                            	firmware revision string
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..255
-                                            
-                                            .. attribute:: hardware_revision
-                                            
-                                            	hw revision string
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..255
-                                            
-                                            .. attribute:: is_field_replaceable_unit
-                                            
-                                            	1 if Field Replaceable Unit 0, if not
-                                            	**type**\:  bool
-                                            
-                                            .. attribute:: model_name
-                                            
-                                            	model name
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..255
-                                            
-                                            .. attribute:: name
-                                            
-                                            	name string for the entity
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..255
-                                            
-                                            .. attribute:: serial_number
-                                            
-                                            	serial number
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..255
-                                            
-                                            .. attribute:: software_revision
-                                            
-                                            	software revision string
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..255
-                                            
-                                            .. attribute:: vendor_type
-                                            
-                                            	maps to the vendor OID string
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..255
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'plat-chas-invmgr-oper'
-                                            _revision = '2015-01-07'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.description = None
-                                                self.firmware_revision = None
-                                                self.hardware_revision = None
-                                                self.is_field_replaceable_unit = None
-                                                self.model_name = None
-                                                self.name = None
-                                                self.serial_number = None
-                                                self.software_revision = None
-                                                self.vendor_type = None
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return False
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.description is not None:
-                                                    return True
-
-                                                if self.firmware_revision is not None:
-                                                    return True
-
-                                                if self.hardware_revision is not None:
-                                                    return True
-
-                                                if self.is_field_replaceable_unit is not None:
-                                                    return True
-
-                                                if self.model_name is not None:
-                                                    return True
-
-                                                if self.name is not None:
-                                                    return True
-
-                                                if self.serial_number is not None:
-                                                    return True
-
-                                                if self.software_revision is not None:
-                                                    return True
-
-                                                if self.vendor_type is not None:
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.BasicInfo']['meta_info']
-
-
-                                        class FruInfo(object):
-                                            """
-                                            Field Replaceable Unit (FRU) attributes
-                                            
-                                            .. attribute:: last_operational_state_change
-                                            
-                                            	Time operational state is   last changed
-                                            	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange>`
-                                            
-                                            .. attribute:: module_administrative_state
-                                            
-                                            	Administrative    state
-                                            	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
-                                            
-                                            .. attribute:: module_monitor_state
-                                            
-                                            	Monitor state
-                                            	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
-                                            
-                                            .. attribute:: module_operational_state
-                                            
-                                            	Operation state
-                                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
-                                            
-                                            .. attribute:: module_power_administrative_state
-                                            
-                                            	Power administrative state
-                                            	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
-                                            
-                                            .. attribute:: module_reset_reason
-                                            
-                                            	Reset reason
-                                            	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
-                                            
-                                            .. attribute:: module_up_time
-                                            
-                                            	Module up time
-                                            	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.ModuleUpTime>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'plat-chas-invmgr-oper'
-                                            _revision = '2015-01-07'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange()
-                                                self.last_operational_state_change.parent = self
-                                                self.module_administrative_state = None
-                                                self.module_monitor_state = None
-                                                self.module_operational_state = None
-                                                self.module_power_administrative_state = None
-                                                self.module_reset_reason = None
-                                                self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.ModuleUpTime()
-                                                self.module_up_time.parent = self
-
-
-                                            class LastOperationalStateChange(object):
-                                                """
-                                                Time operational state is   last changed
-                                                
-                                                .. attribute:: time_in_nano_seconds
-                                                
-                                                	Time Value in Nano\-seconds
-                                                	**type**\:  int
-                                                
-                                                	**range:** \-2147483648..2147483647
-                                                
-                                                	**units**\: nanosecond
-                                                
-                                                .. attribute:: time_in_seconds
-                                                
-                                                	Time Value in Seconds
-                                                	**type**\:  int
-                                                
-                                                	**range:** \-2147483648..2147483647
-                                                
-                                                	**units**\: second
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'plat-chas-invmgr-oper'
-                                                _revision = '2015-01-07'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.time_in_nano_seconds = None
-                                                    self.time_in_seconds = None
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return False
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.time_in_nano_seconds is not None:
-                                                        return True
-
-                                                    if self.time_in_seconds is not None:
-                                                        return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange']['meta_info']
-
-
-                                            class ModuleUpTime(object):
-                                                """
-                                                Module up time
-                                                
-                                                .. attribute:: time_in_nano_seconds
-                                                
-                                                	Time Value in Nano\-seconds
-                                                	**type**\:  int
-                                                
-                                                	**range:** \-2147483648..2147483647
-                                                
-                                                	**units**\: nanosecond
-                                                
-                                                .. attribute:: time_in_seconds
-                                                
-                                                	Time Value in Seconds
-                                                	**type**\:  int
-                                                
-                                                	**range:** \-2147483648..2147483647
-                                                
-                                                	**units**\: second
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'plat-chas-invmgr-oper'
-                                                _revision = '2015-01-07'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.time_in_nano_seconds = None
-                                                    self.time_in_seconds = None
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return False
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.time_in_nano_seconds is not None:
-                                                        return True
-
-                                                    if self.time_in_seconds is not None:
-                                                        return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.ModuleUpTime']['meta_info']
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return False
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
-                                                    return True
-
-                                                if self.module_administrative_state is not None:
-                                                    return True
-
-                                                if self.module_monitor_state is not None:
-                                                    return True
-
-                                                if self.module_operational_state is not None:
-                                                    return True
-
-                                                if self.module_power_administrative_state is not None:
-                                                    return True
-
-                                                if self.module_reset_reason is not None:
-                                                    return True
-
-                                                if self.module_up_time is not None and self.module_up_time._has_data():
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo']['meta_info']
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.basic_info is not None and self.basic_info._has_data():
-                                                return True
-
-                                            if self.fru_info is not None and self.fru_info._has_data():
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes']['meta_info']
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.name is None:
-                                            raise YPYModelError('Key property name is None')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:ports[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.name is not None:
-                                            return True
-
-                                        if self.attributes is not None and self.attributes._has_data():
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:portses'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.ports is not None:
-                                        for child_ref in self.ports:
-                                            if child_ref._has_data():
-                                                return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses']['meta_info']
 
 
                             class HardwareInformation(object):
@@ -3211,10 +2682,10 @@ class PlatformInventory(object):
                                                 	Attributes
                                                 	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes>`
                                                 
-                                                .. attribute:: port
+                                                .. attribute:: portses
                                                 
-                                                	Port
-                                                	**type**\:   :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port>`
+                                                	Table of spirit port slots
+                                                	**type**\:   :py:class:`Portses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses>`
                                                 
                                                 .. attribute:: sensors
                                                 
@@ -3233,20 +2704,20 @@ class PlatformInventory(object):
                                                     self.name = None
                                                     self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes()
                                                     self.attributes.parent = self
-                                                    self.port = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port()
-                                                    self.port.parent = self
+                                                    self.portses = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses()
+                                                    self.portses.parent = self
                                                     self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors()
                                                     self.sensors.parent = self
 
 
-                                                class Port(object):
+                                                class Portses(object):
                                                     """
-                                                    Port
+                                                    Table of spirit port slots
                                                     
-                                                    .. attribute:: attributes
+                                                    .. attribute:: ports
                                                     
-                                                    	Attributes
-                                                    	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes>`
+                                                    	Port number
+                                                    	**type**\: list of    :py:class:`Ports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports>`
                                                     
                                                     
 
@@ -3257,23 +2728,36 @@ class PlatformInventory(object):
 
                                                     def __init__(self):
                                                         self.parent = None
-                                                        self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes()
-                                                        self.attributes.parent = self
+                                                        self.ports = YList()
+                                                        self.ports.parent = self
+                                                        self.ports.name = 'ports'
 
 
-                                                    class Attributes(object):
+                                                    class Ports(object):
                                                         """
-                                                        Attributes
+                                                        Port number
                                                         
-                                                        .. attribute:: basic_info
+                                                        .. attribute:: name  <key>
                                                         
-                                                        	Entity attributes
-                                                        	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.BasicInfo>`
+                                                        	Port name
+                                                        	**type**\:  str
                                                         
-                                                        .. attribute:: fru_info
+                                                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                         
-                                                        	Field Replaceable Unit (FRU) attributes
-                                                        	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo>`
+                                                        .. attribute:: attributes
+                                                        
+                                                        	Attributes
+                                                        	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes>`
+                                                        
+                                                        .. attribute:: hw_components
+                                                        
+                                                        	Table of  HW components 
+                                                        	**type**\:   :py:class:`HwComponents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents>`
+                                                        
+                                                        .. attribute:: sensors
+                                                        
+                                                        	Table of sensors
+                                                        	**type**\:   :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors>`
                                                         
                                                         
 
@@ -3284,76 +2768,23 @@ class PlatformInventory(object):
 
                                                         def __init__(self):
                                                             self.parent = None
-                                                            self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.BasicInfo()
-                                                            self.basic_info.parent = self
-                                                            self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo()
-                                                            self.fru_info.parent = self
+                                                            self.name = None
+                                                            self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes()
+                                                            self.attributes.parent = self
+                                                            self.hw_components = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents()
+                                                            self.hw_components.parent = self
+                                                            self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors()
+                                                            self.sensors.parent = self
 
 
-                                                        class BasicInfo(object):
+                                                        class HwComponents(object):
                                                             """
-                                                            Entity attributes
+                                                            Table of  HW components 
                                                             
-                                                            .. attribute:: description
+                                                            .. attribute:: hw_component
                                                             
-                                                            	describes in user\-readable terms                 what the entity in question does
-                                                            	**type**\:  str
-                                                            
-                                                            	**length:** 0..255
-                                                            
-                                                            .. attribute:: firmware_revision
-                                                            
-                                                            	firmware revision string
-                                                            	**type**\:  str
-                                                            
-                                                            	**length:** 0..255
-                                                            
-                                                            .. attribute:: hardware_revision
-                                                            
-                                                            	hw revision string
-                                                            	**type**\:  str
-                                                            
-                                                            	**length:** 0..255
-                                                            
-                                                            .. attribute:: is_field_replaceable_unit
-                                                            
-                                                            	1 if Field Replaceable Unit 0, if not
-                                                            	**type**\:  bool
-                                                            
-                                                            .. attribute:: model_name
-                                                            
-                                                            	model name
-                                                            	**type**\:  str
-                                                            
-                                                            	**length:** 0..255
-                                                            
-                                                            .. attribute:: name
-                                                            
-                                                            	name string for the entity
-                                                            	**type**\:  str
-                                                            
-                                                            	**length:** 0..255
-                                                            
-                                                            .. attribute:: serial_number
-                                                            
-                                                            	serial number
-                                                            	**type**\:  str
-                                                            
-                                                            	**length:** 0..255
-                                                            
-                                                            .. attribute:: software_revision
-                                                            
-                                                            	software revision string
-                                                            	**type**\:  str
-                                                            
-                                                            	**length:** 0..255
-                                                            
-                                                            .. attribute:: vendor_type
-                                                            
-                                                            	maps to the vendor OID string
-                                                            	**type**\:  str
-                                                            
-                                                            	**length:** 0..255
+                                                            	HW component number
+                                                            	**type**\: list of    :py:class:`HwComponent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent>`
                                                             
                                                             
 
@@ -3364,22 +2795,1021 @@ class PlatformInventory(object):
 
                                                             def __init__(self):
                                                                 self.parent = None
-                                                                self.description = None
-                                                                self.firmware_revision = None
-                                                                self.hardware_revision = None
-                                                                self.is_field_replaceable_unit = None
-                                                                self.model_name = None
-                                                                self.name = None
-                                                                self.serial_number = None
-                                                                self.software_revision = None
-                                                                self.vendor_type = None
+                                                                self.hw_component = YList()
+                                                                self.hw_component.parent = self
+                                                                self.hw_component.name = 'hw_component'
+
+
+                                                            class HwComponent(object):
+                                                                """
+                                                                HW component number
+                                                                
+                                                                .. attribute:: name  <key>
+                                                                
+                                                                	HW component name
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                                                
+                                                                .. attribute:: attributes
+                                                                
+                                                                	Attributes
+                                                                	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes>`
+                                                                
+                                                                .. attribute:: sensors
+                                                                
+                                                                	Table of sensors
+                                                                	**type**\:   :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors>`
+                                                                
+                                                                
+
+                                                                """
+
+                                                                _prefix = 'plat-chas-invmgr-oper'
+                                                                _revision = '2015-01-07'
+
+                                                                def __init__(self):
+                                                                    self.parent = None
+                                                                    self.name = None
+                                                                    self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes()
+                                                                    self.attributes.parent = self
+                                                                    self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors()
+                                                                    self.sensors.parent = self
+
+
+                                                                class Sensors(object):
+                                                                    """
+                                                                    Table of sensors
+                                                                    
+                                                                    .. attribute:: sensor
+                                                                    
+                                                                    	Sensor number
+                                                                    	**type**\: list of    :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor>`
+                                                                    
+                                                                    
+
+                                                                    """
+
+                                                                    _prefix = 'plat-chas-invmgr-oper'
+                                                                    _revision = '2015-01-07'
+
+                                                                    def __init__(self):
+                                                                        self.parent = None
+                                                                        self.sensor = YList()
+                                                                        self.sensor.parent = self
+                                                                        self.sensor.name = 'sensor'
+
+
+                                                                    class Sensor(object):
+                                                                        """
+                                                                        Sensor number
+                                                                        
+                                                                        .. attribute:: name  <key>
+                                                                        
+                                                                        	Sensor name
+                                                                        	**type**\:  str
+                                                                        
+                                                                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                                                        
+                                                                        .. attribute:: attributes
+                                                                        
+                                                                        	Attributes
+                                                                        	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes>`
+                                                                        
+                                                                        
+
+                                                                        """
+
+                                                                        _prefix = 'plat-chas-invmgr-oper'
+                                                                        _revision = '2015-01-07'
+
+                                                                        def __init__(self):
+                                                                            self.parent = None
+                                                                            self.name = None
+                                                                            self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes()
+                                                                            self.attributes.parent = self
+
+
+                                                                        class Attributes(object):
+                                                                            """
+                                                                            Attributes
+                                                                            
+                                                                            .. attribute:: basic_info
+                                                                            
+                                                                            	Entity attributes
+                                                                            	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo>`
+                                                                            
+                                                                            .. attribute:: fru_info
+                                                                            
+                                                                            	Field Replaceable Unit (FRU) attributes
+                                                                            	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo>`
+                                                                            
+                                                                            
+
+                                                                            """
+
+                                                                            _prefix = 'plat-chas-invmgr-oper'
+                                                                            _revision = '2015-01-07'
+
+                                                                            def __init__(self):
+                                                                                self.parent = None
+                                                                                self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo()
+                                                                                self.basic_info.parent = self
+                                                                                self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo()
+                                                                                self.fru_info.parent = self
+
+
+                                                                            class BasicInfo(object):
+                                                                                """
+                                                                                Entity attributes
+                                                                                
+                                                                                .. attribute:: description
+                                                                                
+                                                                                	describes in user\-readable terms                 what the entity in question does
+                                                                                	**type**\:  str
+                                                                                
+                                                                                	**length:** 0..255
+                                                                                
+                                                                                .. attribute:: firmware_revision
+                                                                                
+                                                                                	firmware revision string
+                                                                                	**type**\:  str
+                                                                                
+                                                                                	**length:** 0..255
+                                                                                
+                                                                                .. attribute:: hardware_revision
+                                                                                
+                                                                                	hw revision string
+                                                                                	**type**\:  str
+                                                                                
+                                                                                	**length:** 0..255
+                                                                                
+                                                                                .. attribute:: is_field_replaceable_unit
+                                                                                
+                                                                                	1 if Field Replaceable Unit 0, if not
+                                                                                	**type**\:  bool
+                                                                                
+                                                                                .. attribute:: model_name
+                                                                                
+                                                                                	model name
+                                                                                	**type**\:  str
+                                                                                
+                                                                                	**length:** 0..255
+                                                                                
+                                                                                .. attribute:: name
+                                                                                
+                                                                                	name string for the entity
+                                                                                	**type**\:  str
+                                                                                
+                                                                                	**length:** 0..255
+                                                                                
+                                                                                .. attribute:: serial_number
+                                                                                
+                                                                                	serial number
+                                                                                	**type**\:  str
+                                                                                
+                                                                                	**length:** 0..255
+                                                                                
+                                                                                .. attribute:: software_revision
+                                                                                
+                                                                                	software revision string
+                                                                                	**type**\:  str
+                                                                                
+                                                                                	**length:** 0..255
+                                                                                
+                                                                                .. attribute:: vendor_type
+                                                                                
+                                                                                	maps to the vendor OID string
+                                                                                	**type**\:  str
+                                                                                
+                                                                                	**length:** 0..255
+                                                                                
+                                                                                
+
+                                                                                """
+
+                                                                                _prefix = 'plat-chas-invmgr-oper'
+                                                                                _revision = '2015-01-07'
+
+                                                                                def __init__(self):
+                                                                                    self.parent = None
+                                                                                    self.description = None
+                                                                                    self.firmware_revision = None
+                                                                                    self.hardware_revision = None
+                                                                                    self.is_field_replaceable_unit = None
+                                                                                    self.model_name = None
+                                                                                    self.name = None
+                                                                                    self.serial_number = None
+                                                                                    self.software_revision = None
+                                                                                    self.vendor_type = None
+
+                                                                                @property
+                                                                                def _common_path(self):
+                                                                                    if self.parent is None:
+                                                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
+
+                                                                                def is_config(self):
+                                                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                                                    return False
+
+                                                                                def _has_data(self):
+                                                                                    if not self.is_config():
+                                                                                        return False
+                                                                                    if self.description is not None:
+                                                                                        return True
+
+                                                                                    if self.firmware_revision is not None:
+                                                                                        return True
+
+                                                                                    if self.hardware_revision is not None:
+                                                                                        return True
+
+                                                                                    if self.is_field_replaceable_unit is not None:
+                                                                                        return True
+
+                                                                                    if self.model_name is not None:
+                                                                                        return True
+
+                                                                                    if self.name is not None:
+                                                                                        return True
+
+                                                                                    if self.serial_number is not None:
+                                                                                        return True
+
+                                                                                    if self.software_revision is not None:
+                                                                                        return True
+
+                                                                                    if self.vendor_type is not None:
+                                                                                        return True
+
+                                                                                    return False
+
+                                                                                @staticmethod
+                                                                                def _meta_info():
+                                                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo']['meta_info']
+
+
+                                                                            class FruInfo(object):
+                                                                                """
+                                                                                Field Replaceable Unit (FRU) attributes
+                                                                                
+                                                                                .. attribute:: last_operational_state_change
+                                                                                
+                                                                                	Time operational state is   last changed
+                                                                                	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
+                                                                                
+                                                                                .. attribute:: module_administrative_state
+                                                                                
+                                                                                	Administrative    state
+                                                                                	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                                                                
+                                                                                .. attribute:: module_monitor_state
+                                                                                
+                                                                                	Monitor state
+                                                                                	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                                                                
+                                                                                .. attribute:: module_operational_state
+                                                                                
+                                                                                	Operation state
+                                                                                	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                                                
+                                                                                .. attribute:: module_power_administrative_state
+                                                                                
+                                                                                	Power administrative state
+                                                                                	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                                                
+                                                                                .. attribute:: module_reset_reason
+                                                                                
+                                                                                	Reset reason
+                                                                                	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                                                
+                                                                                .. attribute:: module_up_time
+                                                                                
+                                                                                	Module up time
+                                                                                	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                                                
+                                                                                
+
+                                                                                """
+
+                                                                                _prefix = 'plat-chas-invmgr-oper'
+                                                                                _revision = '2015-01-07'
+
+                                                                                def __init__(self):
+                                                                                    self.parent = None
+                                                                                    self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange()
+                                                                                    self.last_operational_state_change.parent = self
+                                                                                    self.module_administrative_state = None
+                                                                                    self.module_monitor_state = None
+                                                                                    self.module_operational_state = None
+                                                                                    self.module_power_administrative_state = None
+                                                                                    self.module_reset_reason = None
+                                                                                    self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime()
+                                                                                    self.module_up_time.parent = self
+
+
+                                                                                class LastOperationalStateChange(object):
+                                                                                    """
+                                                                                    Time operational state is   last changed
+                                                                                    
+                                                                                    .. attribute:: time_in_nano_seconds
+                                                                                    
+                                                                                    	Time Value in Nano\-seconds
+                                                                                    	**type**\:  int
+                                                                                    
+                                                                                    	**range:** \-2147483648..2147483647
+                                                                                    
+                                                                                    	**units**\: nanosecond
+                                                                                    
+                                                                                    .. attribute:: time_in_seconds
+                                                                                    
+                                                                                    	Time Value in Seconds
+                                                                                    	**type**\:  int
+                                                                                    
+                                                                                    	**range:** \-2147483648..2147483647
+                                                                                    
+                                                                                    	**units**\: second
+                                                                                    
+                                                                                    
+
+                                                                                    """
+
+                                                                                    _prefix = 'plat-chas-invmgr-oper'
+                                                                                    _revision = '2015-01-07'
+
+                                                                                    def __init__(self):
+                                                                                        self.parent = None
+                                                                                        self.time_in_nano_seconds = None
+                                                                                        self.time_in_seconds = None
+
+                                                                                    @property
+                                                                                    def _common_path(self):
+                                                                                        if self.parent is None:
+                                                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
+
+                                                                                    def is_config(self):
+                                                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                                                        return False
+
+                                                                                    def _has_data(self):
+                                                                                        if not self.is_config():
+                                                                                            return False
+                                                                                        if self.time_in_nano_seconds is not None:
+                                                                                            return True
+
+                                                                                        if self.time_in_seconds is not None:
+                                                                                            return True
+
+                                                                                        return False
+
+                                                                                    @staticmethod
+                                                                                    def _meta_info():
+                                                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange']['meta_info']
+
+
+                                                                                class ModuleUpTime(object):
+                                                                                    """
+                                                                                    Module up time
+                                                                                    
+                                                                                    .. attribute:: time_in_nano_seconds
+                                                                                    
+                                                                                    	Time Value in Nano\-seconds
+                                                                                    	**type**\:  int
+                                                                                    
+                                                                                    	**range:** \-2147483648..2147483647
+                                                                                    
+                                                                                    	**units**\: nanosecond
+                                                                                    
+                                                                                    .. attribute:: time_in_seconds
+                                                                                    
+                                                                                    	Time Value in Seconds
+                                                                                    	**type**\:  int
+                                                                                    
+                                                                                    	**range:** \-2147483648..2147483647
+                                                                                    
+                                                                                    	**units**\: second
+                                                                                    
+                                                                                    
+
+                                                                                    """
+
+                                                                                    _prefix = 'plat-chas-invmgr-oper'
+                                                                                    _revision = '2015-01-07'
+
+                                                                                    def __init__(self):
+                                                                                        self.parent = None
+                                                                                        self.time_in_nano_seconds = None
+                                                                                        self.time_in_seconds = None
+
+                                                                                    @property
+                                                                                    def _common_path(self):
+                                                                                        if self.parent is None:
+                                                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
+
+                                                                                    def is_config(self):
+                                                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                                                        return False
+
+                                                                                    def _has_data(self):
+                                                                                        if not self.is_config():
+                                                                                            return False
+                                                                                        if self.time_in_nano_seconds is not None:
+                                                                                            return True
+
+                                                                                        if self.time_in_seconds is not None:
+                                                                                            return True
+
+                                                                                        return False
+
+                                                                                    @staticmethod
+                                                                                    def _meta_info():
+                                                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime']['meta_info']
+
+                                                                                @property
+                                                                                def _common_path(self):
+                                                                                    if self.parent is None:
+                                                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
+
+                                                                                def is_config(self):
+                                                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                                                    return False
+
+                                                                                def _has_data(self):
+                                                                                    if not self.is_config():
+                                                                                        return False
+                                                                                    if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
+                                                                                        return True
+
+                                                                                    if self.module_administrative_state is not None:
+                                                                                        return True
+
+                                                                                    if self.module_monitor_state is not None:
+                                                                                        return True
+
+                                                                                    if self.module_operational_state is not None:
+                                                                                        return True
+
+                                                                                    if self.module_power_administrative_state is not None:
+                                                                                        return True
+
+                                                                                    if self.module_reset_reason is not None:
+                                                                                        return True
+
+                                                                                    if self.module_up_time is not None and self.module_up_time._has_data():
+                                                                                        return True
+
+                                                                                    return False
+
+                                                                                @staticmethod
+                                                                                def _meta_info():
+                                                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo']['meta_info']
+
+                                                                            @property
+                                                                            def _common_path(self):
+                                                                                if self.parent is None:
+                                                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
+
+                                                                            def is_config(self):
+                                                                                ''' Returns True if this instance represents config data else returns False '''
+                                                                                return False
+
+                                                                            def _has_data(self):
+                                                                                if not self.is_config():
+                                                                                    return False
+                                                                                if self.basic_info is not None and self.basic_info._has_data():
+                                                                                    return True
+
+                                                                                if self.fru_info is not None and self.fru_info._has_data():
+                                                                                    return True
+
+                                                                                return False
+
+                                                                            @staticmethod
+                                                                            def _meta_info():
+                                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes']['meta_info']
+
+                                                                        @property
+                                                                        def _common_path(self):
+                                                                            if self.parent is None:
+                                                                                raise YPYModelError('parent is not set . Cannot derive path.')
+                                                                            if self.name is None:
+                                                                                raise YPYModelError('Key property name is None')
+
+                                                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sensor[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
+
+                                                                        def is_config(self):
+                                                                            ''' Returns True if this instance represents config data else returns False '''
+                                                                            return False
+
+                                                                        def _has_data(self):
+                                                                            if not self.is_config():
+                                                                                return False
+                                                                            if self.name is not None:
+                                                                                return True
+
+                                                                            if self.attributes is not None and self.attributes._has_data():
+                                                                                return True
+
+                                                                            return False
+
+                                                                        @staticmethod
+                                                                        def _meta_info():
+                                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor']['meta_info']
+
+                                                                    @property
+                                                                    def _common_path(self):
+                                                                        if self.parent is None:
+                                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sensors'
+
+                                                                    def is_config(self):
+                                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                                        return False
+
+                                                                    def _has_data(self):
+                                                                        if not self.is_config():
+                                                                            return False
+                                                                        if self.sensor is not None:
+                                                                            for child_ref in self.sensor:
+                                                                                if child_ref._has_data():
+                                                                                    return True
+
+                                                                        return False
+
+                                                                    @staticmethod
+                                                                    def _meta_info():
+                                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors']['meta_info']
+
+
+                                                                class Attributes(object):
+                                                                    """
+                                                                    Attributes
+                                                                    
+                                                                    .. attribute:: basic_info
+                                                                    
+                                                                    	Entity attributes
+                                                                    	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo>`
+                                                                    
+                                                                    .. attribute:: fru_info
+                                                                    
+                                                                    	Field Replaceable Unit (FRU) attributes
+                                                                    	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo>`
+                                                                    
+                                                                    
+
+                                                                    """
+
+                                                                    _prefix = 'plat-chas-invmgr-oper'
+                                                                    _revision = '2015-01-07'
+
+                                                                    def __init__(self):
+                                                                        self.parent = None
+                                                                        self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo()
+                                                                        self.basic_info.parent = self
+                                                                        self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo()
+                                                                        self.fru_info.parent = self
+
+
+                                                                    class BasicInfo(object):
+                                                                        """
+                                                                        Entity attributes
+                                                                        
+                                                                        .. attribute:: description
+                                                                        
+                                                                        	describes in user\-readable terms                 what the entity in question does
+                                                                        	**type**\:  str
+                                                                        
+                                                                        	**length:** 0..255
+                                                                        
+                                                                        .. attribute:: firmware_revision
+                                                                        
+                                                                        	firmware revision string
+                                                                        	**type**\:  str
+                                                                        
+                                                                        	**length:** 0..255
+                                                                        
+                                                                        .. attribute:: hardware_revision
+                                                                        
+                                                                        	hw revision string
+                                                                        	**type**\:  str
+                                                                        
+                                                                        	**length:** 0..255
+                                                                        
+                                                                        .. attribute:: is_field_replaceable_unit
+                                                                        
+                                                                        	1 if Field Replaceable Unit 0, if not
+                                                                        	**type**\:  bool
+                                                                        
+                                                                        .. attribute:: model_name
+                                                                        
+                                                                        	model name
+                                                                        	**type**\:  str
+                                                                        
+                                                                        	**length:** 0..255
+                                                                        
+                                                                        .. attribute:: name
+                                                                        
+                                                                        	name string for the entity
+                                                                        	**type**\:  str
+                                                                        
+                                                                        	**length:** 0..255
+                                                                        
+                                                                        .. attribute:: serial_number
+                                                                        
+                                                                        	serial number
+                                                                        	**type**\:  str
+                                                                        
+                                                                        	**length:** 0..255
+                                                                        
+                                                                        .. attribute:: software_revision
+                                                                        
+                                                                        	software revision string
+                                                                        	**type**\:  str
+                                                                        
+                                                                        	**length:** 0..255
+                                                                        
+                                                                        .. attribute:: vendor_type
+                                                                        
+                                                                        	maps to the vendor OID string
+                                                                        	**type**\:  str
+                                                                        
+                                                                        	**length:** 0..255
+                                                                        
+                                                                        
+
+                                                                        """
+
+                                                                        _prefix = 'plat-chas-invmgr-oper'
+                                                                        _revision = '2015-01-07'
+
+                                                                        def __init__(self):
+                                                                            self.parent = None
+                                                                            self.description = None
+                                                                            self.firmware_revision = None
+                                                                            self.hardware_revision = None
+                                                                            self.is_field_replaceable_unit = None
+                                                                            self.model_name = None
+                                                                            self.name = None
+                                                                            self.serial_number = None
+                                                                            self.software_revision = None
+                                                                            self.vendor_type = None
+
+                                                                        @property
+                                                                        def _common_path(self):
+                                                                            if self.parent is None:
+                                                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
+
+                                                                        def is_config(self):
+                                                                            ''' Returns True if this instance represents config data else returns False '''
+                                                                            return False
+
+                                                                        def _has_data(self):
+                                                                            if not self.is_config():
+                                                                                return False
+                                                                            if self.description is not None:
+                                                                                return True
+
+                                                                            if self.firmware_revision is not None:
+                                                                                return True
+
+                                                                            if self.hardware_revision is not None:
+                                                                                return True
+
+                                                                            if self.is_field_replaceable_unit is not None:
+                                                                                return True
+
+                                                                            if self.model_name is not None:
+                                                                                return True
+
+                                                                            if self.name is not None:
+                                                                                return True
+
+                                                                            if self.serial_number is not None:
+                                                                                return True
+
+                                                                            if self.software_revision is not None:
+                                                                                return True
+
+                                                                            if self.vendor_type is not None:
+                                                                                return True
+
+                                                                            return False
+
+                                                                        @staticmethod
+                                                                        def _meta_info():
+                                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo']['meta_info']
+
+
+                                                                    class FruInfo(object):
+                                                                        """
+                                                                        Field Replaceable Unit (FRU) attributes
+                                                                        
+                                                                        .. attribute:: last_operational_state_change
+                                                                        
+                                                                        	Time operational state is   last changed
+                                                                        	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange>`
+                                                                        
+                                                                        .. attribute:: module_administrative_state
+                                                                        
+                                                                        	Administrative    state
+                                                                        	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                                                        
+                                                                        .. attribute:: module_monitor_state
+                                                                        
+                                                                        	Monitor state
+                                                                        	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                                                        
+                                                                        .. attribute:: module_operational_state
+                                                                        
+                                                                        	Operation state
+                                                                        	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                                        
+                                                                        .. attribute:: module_power_administrative_state
+                                                                        
+                                                                        	Power administrative state
+                                                                        	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                                        
+                                                                        .. attribute:: module_reset_reason
+                                                                        
+                                                                        	Reset reason
+                                                                        	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                                        
+                                                                        .. attribute:: module_up_time
+                                                                        
+                                                                        	Module up time
+                                                                        	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime>`
+                                                                        
+                                                                        
+
+                                                                        """
+
+                                                                        _prefix = 'plat-chas-invmgr-oper'
+                                                                        _revision = '2015-01-07'
+
+                                                                        def __init__(self):
+                                                                            self.parent = None
+                                                                            self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange()
+                                                                            self.last_operational_state_change.parent = self
+                                                                            self.module_administrative_state = None
+                                                                            self.module_monitor_state = None
+                                                                            self.module_operational_state = None
+                                                                            self.module_power_administrative_state = None
+                                                                            self.module_reset_reason = None
+                                                                            self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime()
+                                                                            self.module_up_time.parent = self
+
+
+                                                                        class LastOperationalStateChange(object):
+                                                                            """
+                                                                            Time operational state is   last changed
+                                                                            
+                                                                            .. attribute:: time_in_nano_seconds
+                                                                            
+                                                                            	Time Value in Nano\-seconds
+                                                                            	**type**\:  int
+                                                                            
+                                                                            	**range:** \-2147483648..2147483647
+                                                                            
+                                                                            	**units**\: nanosecond
+                                                                            
+                                                                            .. attribute:: time_in_seconds
+                                                                            
+                                                                            	Time Value in Seconds
+                                                                            	**type**\:  int
+                                                                            
+                                                                            	**range:** \-2147483648..2147483647
+                                                                            
+                                                                            	**units**\: second
+                                                                            
+                                                                            
+
+                                                                            """
+
+                                                                            _prefix = 'plat-chas-invmgr-oper'
+                                                                            _revision = '2015-01-07'
+
+                                                                            def __init__(self):
+                                                                                self.parent = None
+                                                                                self.time_in_nano_seconds = None
+                                                                                self.time_in_seconds = None
+
+                                                                            @property
+                                                                            def _common_path(self):
+                                                                                if self.parent is None:
+                                                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
+
+                                                                            def is_config(self):
+                                                                                ''' Returns True if this instance represents config data else returns False '''
+                                                                                return False
+
+                                                                            def _has_data(self):
+                                                                                if not self.is_config():
+                                                                                    return False
+                                                                                if self.time_in_nano_seconds is not None:
+                                                                                    return True
+
+                                                                                if self.time_in_seconds is not None:
+                                                                                    return True
+
+                                                                                return False
+
+                                                                            @staticmethod
+                                                                            def _meta_info():
+                                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange']['meta_info']
+
+
+                                                                        class ModuleUpTime(object):
+                                                                            """
+                                                                            Module up time
+                                                                            
+                                                                            .. attribute:: time_in_nano_seconds
+                                                                            
+                                                                            	Time Value in Nano\-seconds
+                                                                            	**type**\:  int
+                                                                            
+                                                                            	**range:** \-2147483648..2147483647
+                                                                            
+                                                                            	**units**\: nanosecond
+                                                                            
+                                                                            .. attribute:: time_in_seconds
+                                                                            
+                                                                            	Time Value in Seconds
+                                                                            	**type**\:  int
+                                                                            
+                                                                            	**range:** \-2147483648..2147483647
+                                                                            
+                                                                            	**units**\: second
+                                                                            
+                                                                            
+
+                                                                            """
+
+                                                                            _prefix = 'plat-chas-invmgr-oper'
+                                                                            _revision = '2015-01-07'
+
+                                                                            def __init__(self):
+                                                                                self.parent = None
+                                                                                self.time_in_nano_seconds = None
+                                                                                self.time_in_seconds = None
+
+                                                                            @property
+                                                                            def _common_path(self):
+                                                                                if self.parent is None:
+                                                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
+
+                                                                            def is_config(self):
+                                                                                ''' Returns True if this instance represents config data else returns False '''
+                                                                                return False
+
+                                                                            def _has_data(self):
+                                                                                if not self.is_config():
+                                                                                    return False
+                                                                                if self.time_in_nano_seconds is not None:
+                                                                                    return True
+
+                                                                                if self.time_in_seconds is not None:
+                                                                                    return True
+
+                                                                                return False
+
+                                                                            @staticmethod
+                                                                            def _meta_info():
+                                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime']['meta_info']
+
+                                                                        @property
+                                                                        def _common_path(self):
+                                                                            if self.parent is None:
+                                                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
+
+                                                                        def is_config(self):
+                                                                            ''' Returns True if this instance represents config data else returns False '''
+                                                                            return False
+
+                                                                        def _has_data(self):
+                                                                            if not self.is_config():
+                                                                                return False
+                                                                            if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
+                                                                                return True
+
+                                                                            if self.module_administrative_state is not None:
+                                                                                return True
+
+                                                                            if self.module_monitor_state is not None:
+                                                                                return True
+
+                                                                            if self.module_operational_state is not None:
+                                                                                return True
+
+                                                                            if self.module_power_administrative_state is not None:
+                                                                                return True
+
+                                                                            if self.module_reset_reason is not None:
+                                                                                return True
+
+                                                                            if self.module_up_time is not None and self.module_up_time._has_data():
+                                                                                return True
+
+                                                                            return False
+
+                                                                        @staticmethod
+                                                                        def _meta_info():
+                                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo']['meta_info']
+
+                                                                    @property
+                                                                    def _common_path(self):
+                                                                        if self.parent is None:
+                                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
+
+                                                                    def is_config(self):
+                                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                                        return False
+
+                                                                    def _has_data(self):
+                                                                        if not self.is_config():
+                                                                            return False
+                                                                        if self.basic_info is not None and self.basic_info._has_data():
+                                                                            return True
+
+                                                                        if self.fru_info is not None and self.fru_info._has_data():
+                                                                            return True
+
+                                                                        return False
+
+                                                                    @staticmethod
+                                                                    def _meta_info():
+                                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes']['meta_info']
+
+                                                                @property
+                                                                def _common_path(self):
+                                                                    if self.parent is None:
+                                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                                    if self.name is None:
+                                                                        raise YPYModelError('Key property name is None')
+
+                                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:hw-component[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
+
+                                                                def is_config(self):
+                                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                                    return False
+
+                                                                def _has_data(self):
+                                                                    if not self.is_config():
+                                                                        return False
+                                                                    if self.name is not None:
+                                                                        return True
+
+                                                                    if self.attributes is not None and self.attributes._has_data():
+                                                                        return True
+
+                                                                    if self.sensors is not None and self.sensors._has_data():
+                                                                        return True
+
+                                                                    return False
+
+                                                                @staticmethod
+                                                                def _meta_info():
+                                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent']['meta_info']
 
                                                             @property
                                                             def _common_path(self):
                                                                 if self.parent is None:
                                                                     raise YPYModelError('parent is not set . Cannot derive path.')
 
-                                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
+                                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:hw-components'
 
                                                             def is_config(self):
                                                                 ''' Returns True if this instance represents config data else returns False '''
@@ -3388,79 +3818,27 @@ class PlatformInventory(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.description is not None:
-                                                                    return True
-
-                                                                if self.firmware_revision is not None:
-                                                                    return True
-
-                                                                if self.hardware_revision is not None:
-                                                                    return True
-
-                                                                if self.is_field_replaceable_unit is not None:
-                                                                    return True
-
-                                                                if self.model_name is not None:
-                                                                    return True
-
-                                                                if self.name is not None:
-                                                                    return True
-
-                                                                if self.serial_number is not None:
-                                                                    return True
-
-                                                                if self.software_revision is not None:
-                                                                    return True
-
-                                                                if self.vendor_type is not None:
-                                                                    return True
+                                                                if self.hw_component is not None:
+                                                                    for child_ref in self.hw_component:
+                                                                        if child_ref._has_data():
+                                                                            return True
 
                                                                 return False
 
                                                             @staticmethod
                                                             def _meta_info():
                                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.BasicInfo']['meta_info']
+                                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents']['meta_info']
 
 
-                                                        class FruInfo(object):
+                                                        class Sensors(object):
                                                             """
-                                                            Field Replaceable Unit (FRU) attributes
+                                                            Table of sensors
                                                             
-                                                            .. attribute:: last_operational_state_change
+                                                            .. attribute:: sensor
                                                             
-                                                            	Time operational state is   last changed
-                                                            	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange>`
-                                                            
-                                                            .. attribute:: module_administrative_state
-                                                            
-                                                            	Administrative    state
-                                                            	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
-                                                            
-                                                            .. attribute:: module_monitor_state
-                                                            
-                                                            	Monitor state
-                                                            	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
-                                                            
-                                                            .. attribute:: module_operational_state
-                                                            
-                                                            	Operation state
-                                                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
-                                                            
-                                                            .. attribute:: module_power_administrative_state
-                                                            
-                                                            	Power administrative state
-                                                            	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
-                                                            
-                                                            .. attribute:: module_reset_reason
-                                                            
-                                                            	Reset reason
-                                                            	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
-                                                            
-                                                            .. attribute:: module_up_time
-                                                            
-                                                            	Module up time
-                                                            	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime>`
+                                                            	Sensor number
+                                                            	**type**\: list of    :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor>`
                                                             
                                                             
 
@@ -3471,38 +3849,26 @@ class PlatformInventory(object):
 
                                                             def __init__(self):
                                                                 self.parent = None
-                                                                self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange()
-                                                                self.last_operational_state_change.parent = self
-                                                                self.module_administrative_state = None
-                                                                self.module_monitor_state = None
-                                                                self.module_operational_state = None
-                                                                self.module_power_administrative_state = None
-                                                                self.module_reset_reason = None
-                                                                self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime()
-                                                                self.module_up_time.parent = self
+                                                                self.sensor = YList()
+                                                                self.sensor.parent = self
+                                                                self.sensor.name = 'sensor'
 
 
-                                                            class LastOperationalStateChange(object):
+                                                            class Sensor(object):
                                                                 """
-                                                                Time operational state is   last changed
+                                                                Sensor number
                                                                 
-                                                                .. attribute:: time_in_nano_seconds
+                                                                .. attribute:: name  <key>
                                                                 
-                                                                	Time Value in Nano\-seconds
-                                                                	**type**\:  int
+                                                                	Sensor name
+                                                                	**type**\:  str
                                                                 
-                                                                	**range:** \-2147483648..2147483647
+                                                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                                 
-                                                                	**units**\: nanosecond
+                                                                .. attribute:: attributes
                                                                 
-                                                                .. attribute:: time_in_seconds
-                                                                
-                                                                	Time Value in Seconds
-                                                                	**type**\:  int
-                                                                
-                                                                	**range:** \-2147483648..2147483647
-                                                                
-                                                                	**units**\: second
+                                                                	Attributes
+                                                                	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes>`
                                                                 
                                                                 
 
@@ -3513,15 +3879,432 @@ class PlatformInventory(object):
 
                                                                 def __init__(self):
                                                                     self.parent = None
-                                                                    self.time_in_nano_seconds = None
-                                                                    self.time_in_seconds = None
+                                                                    self.name = None
+                                                                    self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes()
+                                                                    self.attributes.parent = self
+
+
+                                                                class Attributes(object):
+                                                                    """
+                                                                    Attributes
+                                                                    
+                                                                    .. attribute:: basic_info
+                                                                    
+                                                                    	Entity attributes
+                                                                    	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo>`
+                                                                    
+                                                                    .. attribute:: fru_info
+                                                                    
+                                                                    	Field Replaceable Unit (FRU) attributes
+                                                                    	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo>`
+                                                                    
+                                                                    
+
+                                                                    """
+
+                                                                    _prefix = 'plat-chas-invmgr-oper'
+                                                                    _revision = '2015-01-07'
+
+                                                                    def __init__(self):
+                                                                        self.parent = None
+                                                                        self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo()
+                                                                        self.basic_info.parent = self
+                                                                        self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo()
+                                                                        self.fru_info.parent = self
+
+
+                                                                    class BasicInfo(object):
+                                                                        """
+                                                                        Entity attributes
+                                                                        
+                                                                        .. attribute:: description
+                                                                        
+                                                                        	describes in user\-readable terms                 what the entity in question does
+                                                                        	**type**\:  str
+                                                                        
+                                                                        	**length:** 0..255
+                                                                        
+                                                                        .. attribute:: firmware_revision
+                                                                        
+                                                                        	firmware revision string
+                                                                        	**type**\:  str
+                                                                        
+                                                                        	**length:** 0..255
+                                                                        
+                                                                        .. attribute:: hardware_revision
+                                                                        
+                                                                        	hw revision string
+                                                                        	**type**\:  str
+                                                                        
+                                                                        	**length:** 0..255
+                                                                        
+                                                                        .. attribute:: is_field_replaceable_unit
+                                                                        
+                                                                        	1 if Field Replaceable Unit 0, if not
+                                                                        	**type**\:  bool
+                                                                        
+                                                                        .. attribute:: model_name
+                                                                        
+                                                                        	model name
+                                                                        	**type**\:  str
+                                                                        
+                                                                        	**length:** 0..255
+                                                                        
+                                                                        .. attribute:: name
+                                                                        
+                                                                        	name string for the entity
+                                                                        	**type**\:  str
+                                                                        
+                                                                        	**length:** 0..255
+                                                                        
+                                                                        .. attribute:: serial_number
+                                                                        
+                                                                        	serial number
+                                                                        	**type**\:  str
+                                                                        
+                                                                        	**length:** 0..255
+                                                                        
+                                                                        .. attribute:: software_revision
+                                                                        
+                                                                        	software revision string
+                                                                        	**type**\:  str
+                                                                        
+                                                                        	**length:** 0..255
+                                                                        
+                                                                        .. attribute:: vendor_type
+                                                                        
+                                                                        	maps to the vendor OID string
+                                                                        	**type**\:  str
+                                                                        
+                                                                        	**length:** 0..255
+                                                                        
+                                                                        
+
+                                                                        """
+
+                                                                        _prefix = 'plat-chas-invmgr-oper'
+                                                                        _revision = '2015-01-07'
+
+                                                                        def __init__(self):
+                                                                            self.parent = None
+                                                                            self.description = None
+                                                                            self.firmware_revision = None
+                                                                            self.hardware_revision = None
+                                                                            self.is_field_replaceable_unit = None
+                                                                            self.model_name = None
+                                                                            self.name = None
+                                                                            self.serial_number = None
+                                                                            self.software_revision = None
+                                                                            self.vendor_type = None
+
+                                                                        @property
+                                                                        def _common_path(self):
+                                                                            if self.parent is None:
+                                                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
+
+                                                                        def is_config(self):
+                                                                            ''' Returns True if this instance represents config data else returns False '''
+                                                                            return False
+
+                                                                        def _has_data(self):
+                                                                            if not self.is_config():
+                                                                                return False
+                                                                            if self.description is not None:
+                                                                                return True
+
+                                                                            if self.firmware_revision is not None:
+                                                                                return True
+
+                                                                            if self.hardware_revision is not None:
+                                                                                return True
+
+                                                                            if self.is_field_replaceable_unit is not None:
+                                                                                return True
+
+                                                                            if self.model_name is not None:
+                                                                                return True
+
+                                                                            if self.name is not None:
+                                                                                return True
+
+                                                                            if self.serial_number is not None:
+                                                                                return True
+
+                                                                            if self.software_revision is not None:
+                                                                                return True
+
+                                                                            if self.vendor_type is not None:
+                                                                                return True
+
+                                                                            return False
+
+                                                                        @staticmethod
+                                                                        def _meta_info():
+                                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo']['meta_info']
+
+
+                                                                    class FruInfo(object):
+                                                                        """
+                                                                        Field Replaceable Unit (FRU) attributes
+                                                                        
+                                                                        .. attribute:: last_operational_state_change
+                                                                        
+                                                                        	Time operational state is   last changed
+                                                                        	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
+                                                                        
+                                                                        .. attribute:: module_administrative_state
+                                                                        
+                                                                        	Administrative    state
+                                                                        	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                                                        
+                                                                        .. attribute:: module_monitor_state
+                                                                        
+                                                                        	Monitor state
+                                                                        	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                                                        
+                                                                        .. attribute:: module_operational_state
+                                                                        
+                                                                        	Operation state
+                                                                        	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                                        
+                                                                        .. attribute:: module_power_administrative_state
+                                                                        
+                                                                        	Power administrative state
+                                                                        	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                                        
+                                                                        .. attribute:: module_reset_reason
+                                                                        
+                                                                        	Reset reason
+                                                                        	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                                        
+                                                                        .. attribute:: module_up_time
+                                                                        
+                                                                        	Module up time
+                                                                        	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                                        
+                                                                        
+
+                                                                        """
+
+                                                                        _prefix = 'plat-chas-invmgr-oper'
+                                                                        _revision = '2015-01-07'
+
+                                                                        def __init__(self):
+                                                                            self.parent = None
+                                                                            self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange()
+                                                                            self.last_operational_state_change.parent = self
+                                                                            self.module_administrative_state = None
+                                                                            self.module_monitor_state = None
+                                                                            self.module_operational_state = None
+                                                                            self.module_power_administrative_state = None
+                                                                            self.module_reset_reason = None
+                                                                            self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime()
+                                                                            self.module_up_time.parent = self
+
+
+                                                                        class LastOperationalStateChange(object):
+                                                                            """
+                                                                            Time operational state is   last changed
+                                                                            
+                                                                            .. attribute:: time_in_nano_seconds
+                                                                            
+                                                                            	Time Value in Nano\-seconds
+                                                                            	**type**\:  int
+                                                                            
+                                                                            	**range:** \-2147483648..2147483647
+                                                                            
+                                                                            	**units**\: nanosecond
+                                                                            
+                                                                            .. attribute:: time_in_seconds
+                                                                            
+                                                                            	Time Value in Seconds
+                                                                            	**type**\:  int
+                                                                            
+                                                                            	**range:** \-2147483648..2147483647
+                                                                            
+                                                                            	**units**\: second
+                                                                            
+                                                                            
+
+                                                                            """
+
+                                                                            _prefix = 'plat-chas-invmgr-oper'
+                                                                            _revision = '2015-01-07'
+
+                                                                            def __init__(self):
+                                                                                self.parent = None
+                                                                                self.time_in_nano_seconds = None
+                                                                                self.time_in_seconds = None
+
+                                                                            @property
+                                                                            def _common_path(self):
+                                                                                if self.parent is None:
+                                                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
+
+                                                                            def is_config(self):
+                                                                                ''' Returns True if this instance represents config data else returns False '''
+                                                                                return False
+
+                                                                            def _has_data(self):
+                                                                                if not self.is_config():
+                                                                                    return False
+                                                                                if self.time_in_nano_seconds is not None:
+                                                                                    return True
+
+                                                                                if self.time_in_seconds is not None:
+                                                                                    return True
+
+                                                                                return False
+
+                                                                            @staticmethod
+                                                                            def _meta_info():
+                                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange']['meta_info']
+
+
+                                                                        class ModuleUpTime(object):
+                                                                            """
+                                                                            Module up time
+                                                                            
+                                                                            .. attribute:: time_in_nano_seconds
+                                                                            
+                                                                            	Time Value in Nano\-seconds
+                                                                            	**type**\:  int
+                                                                            
+                                                                            	**range:** \-2147483648..2147483647
+                                                                            
+                                                                            	**units**\: nanosecond
+                                                                            
+                                                                            .. attribute:: time_in_seconds
+                                                                            
+                                                                            	Time Value in Seconds
+                                                                            	**type**\:  int
+                                                                            
+                                                                            	**range:** \-2147483648..2147483647
+                                                                            
+                                                                            	**units**\: second
+                                                                            
+                                                                            
+
+                                                                            """
+
+                                                                            _prefix = 'plat-chas-invmgr-oper'
+                                                                            _revision = '2015-01-07'
+
+                                                                            def __init__(self):
+                                                                                self.parent = None
+                                                                                self.time_in_nano_seconds = None
+                                                                                self.time_in_seconds = None
+
+                                                                            @property
+                                                                            def _common_path(self):
+                                                                                if self.parent is None:
+                                                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
+
+                                                                            def is_config(self):
+                                                                                ''' Returns True if this instance represents config data else returns False '''
+                                                                                return False
+
+                                                                            def _has_data(self):
+                                                                                if not self.is_config():
+                                                                                    return False
+                                                                                if self.time_in_nano_seconds is not None:
+                                                                                    return True
+
+                                                                                if self.time_in_seconds is not None:
+                                                                                    return True
+
+                                                                                return False
+
+                                                                            @staticmethod
+                                                                            def _meta_info():
+                                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime']['meta_info']
+
+                                                                        @property
+                                                                        def _common_path(self):
+                                                                            if self.parent is None:
+                                                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
+
+                                                                        def is_config(self):
+                                                                            ''' Returns True if this instance represents config data else returns False '''
+                                                                            return False
+
+                                                                        def _has_data(self):
+                                                                            if not self.is_config():
+                                                                                return False
+                                                                            if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
+                                                                                return True
+
+                                                                            if self.module_administrative_state is not None:
+                                                                                return True
+
+                                                                            if self.module_monitor_state is not None:
+                                                                                return True
+
+                                                                            if self.module_operational_state is not None:
+                                                                                return True
+
+                                                                            if self.module_power_administrative_state is not None:
+                                                                                return True
+
+                                                                            if self.module_reset_reason is not None:
+                                                                                return True
+
+                                                                            if self.module_up_time is not None and self.module_up_time._has_data():
+                                                                                return True
+
+                                                                            return False
+
+                                                                        @staticmethod
+                                                                        def _meta_info():
+                                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo']['meta_info']
+
+                                                                    @property
+                                                                    def _common_path(self):
+                                                                        if self.parent is None:
+                                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
+
+                                                                    def is_config(self):
+                                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                                        return False
+
+                                                                    def _has_data(self):
+                                                                        if not self.is_config():
+                                                                            return False
+                                                                        if self.basic_info is not None and self.basic_info._has_data():
+                                                                            return True
+
+                                                                        if self.fru_info is not None and self.fru_info._has_data():
+                                                                            return True
+
+                                                                        return False
+
+                                                                    @staticmethod
+                                                                    def _meta_info():
+                                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes']['meta_info']
 
                                                                 @property
                                                                 def _common_path(self):
                                                                     if self.parent is None:
                                                                         raise YPYModelError('parent is not set . Cannot derive path.')
+                                                                    if self.name is None:
+                                                                        raise YPYModelError('Key property name is None')
 
-                                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
+                                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sensor[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
 
                                                                 def is_config(self):
                                                                     ''' Returns True if this instance represents config data else returns False '''
@@ -3530,72 +4313,10 @@ class PlatformInventory(object):
                                                                 def _has_data(self):
                                                                     if not self.is_config():
                                                                         return False
-                                                                    if self.time_in_nano_seconds is not None:
+                                                                    if self.name is not None:
                                                                         return True
 
-                                                                    if self.time_in_seconds is not None:
-                                                                        return True
-
-                                                                    return False
-
-                                                                @staticmethod
-                                                                def _meta_info():
-                                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange']['meta_info']
-
-
-                                                            class ModuleUpTime(object):
-                                                                """
-                                                                Module up time
-                                                                
-                                                                .. attribute:: time_in_nano_seconds
-                                                                
-                                                                	Time Value in Nano\-seconds
-                                                                	**type**\:  int
-                                                                
-                                                                	**range:** \-2147483648..2147483647
-                                                                
-                                                                	**units**\: nanosecond
-                                                                
-                                                                .. attribute:: time_in_seconds
-                                                                
-                                                                	Time Value in Seconds
-                                                                	**type**\:  int
-                                                                
-                                                                	**range:** \-2147483648..2147483647
-                                                                
-                                                                	**units**\: second
-                                                                
-                                                                
-
-                                                                """
-
-                                                                _prefix = 'plat-chas-invmgr-oper'
-                                                                _revision = '2015-01-07'
-
-                                                                def __init__(self):
-                                                                    self.parent = None
-                                                                    self.time_in_nano_seconds = None
-                                                                    self.time_in_seconds = None
-
-                                                                @property
-                                                                def _common_path(self):
-                                                                    if self.parent is None:
-                                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
-
-                                                                def is_config(self):
-                                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                                    return False
-
-                                                                def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
-                                                                    if self.time_in_nano_seconds is not None:
-                                                                        return True
-
-                                                                    if self.time_in_seconds is not None:
+                                                                    if self.attributes is not None and self.attributes._has_data():
                                                                         return True
 
                                                                     return False
@@ -3603,14 +4324,14 @@ class PlatformInventory(object):
                                                                 @staticmethod
                                                                 def _meta_info():
                                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime']['meta_info']
+                                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor']['meta_info']
 
                                                             @property
                                                             def _common_path(self):
                                                                 if self.parent is None:
                                                                     raise YPYModelError('parent is not set . Cannot derive path.')
 
-                                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
+                                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sensors'
 
                                                             def is_config(self):
                                                                 ''' Returns True if this instance represents config data else returns False '''
@@ -3619,25 +4340,423 @@ class PlatformInventory(object):
                                                             def _has_data(self):
                                                                 if not self.is_config():
                                                                     return False
-                                                                if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
+                                                                if self.sensor is not None:
+                                                                    for child_ref in self.sensor:
+                                                                        if child_ref._has_data():
+                                                                            return True
+
+                                                                return False
+
+                                                            @staticmethod
+                                                            def _meta_info():
+                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors']['meta_info']
+
+
+                                                        class Attributes(object):
+                                                            """
+                                                            Attributes
+                                                            
+                                                            .. attribute:: basic_info
+                                                            
+                                                            	Entity attributes
+                                                            	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo>`
+                                                            
+                                                            .. attribute:: fru_info
+                                                            
+                                                            	Field Replaceable Unit (FRU) attributes
+                                                            	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo>`
+                                                            
+                                                            
+
+                                                            """
+
+                                                            _prefix = 'plat-chas-invmgr-oper'
+                                                            _revision = '2015-01-07'
+
+                                                            def __init__(self):
+                                                                self.parent = None
+                                                                self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo()
+                                                                self.basic_info.parent = self
+                                                                self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo()
+                                                                self.fru_info.parent = self
+
+
+                                                            class BasicInfo(object):
+                                                                """
+                                                                Entity attributes
+                                                                
+                                                                .. attribute:: description
+                                                                
+                                                                	describes in user\-readable terms                 what the entity in question does
+                                                                	**type**\:  str
+                                                                
+                                                                	**length:** 0..255
+                                                                
+                                                                .. attribute:: firmware_revision
+                                                                
+                                                                	firmware revision string
+                                                                	**type**\:  str
+                                                                
+                                                                	**length:** 0..255
+                                                                
+                                                                .. attribute:: hardware_revision
+                                                                
+                                                                	hw revision string
+                                                                	**type**\:  str
+                                                                
+                                                                	**length:** 0..255
+                                                                
+                                                                .. attribute:: is_field_replaceable_unit
+                                                                
+                                                                	1 if Field Replaceable Unit 0, if not
+                                                                	**type**\:  bool
+                                                                
+                                                                .. attribute:: model_name
+                                                                
+                                                                	model name
+                                                                	**type**\:  str
+                                                                
+                                                                	**length:** 0..255
+                                                                
+                                                                .. attribute:: name
+                                                                
+                                                                	name string for the entity
+                                                                	**type**\:  str
+                                                                
+                                                                	**length:** 0..255
+                                                                
+                                                                .. attribute:: serial_number
+                                                                
+                                                                	serial number
+                                                                	**type**\:  str
+                                                                
+                                                                	**length:** 0..255
+                                                                
+                                                                .. attribute:: software_revision
+                                                                
+                                                                	software revision string
+                                                                	**type**\:  str
+                                                                
+                                                                	**length:** 0..255
+                                                                
+                                                                .. attribute:: vendor_type
+                                                                
+                                                                	maps to the vendor OID string
+                                                                	**type**\:  str
+                                                                
+                                                                	**length:** 0..255
+                                                                
+                                                                
+
+                                                                """
+
+                                                                _prefix = 'plat-chas-invmgr-oper'
+                                                                _revision = '2015-01-07'
+
+                                                                def __init__(self):
+                                                                    self.parent = None
+                                                                    self.description = None
+                                                                    self.firmware_revision = None
+                                                                    self.hardware_revision = None
+                                                                    self.is_field_replaceable_unit = None
+                                                                    self.model_name = None
+                                                                    self.name = None
+                                                                    self.serial_number = None
+                                                                    self.software_revision = None
+                                                                    self.vendor_type = None
+
+                                                                @property
+                                                                def _common_path(self):
+                                                                    if self.parent is None:
+                                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
+
+                                                                def is_config(self):
+                                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                                    return False
+
+                                                                def _has_data(self):
+                                                                    if not self.is_config():
+                                                                        return False
+                                                                    if self.description is not None:
+                                                                        return True
+
+                                                                    if self.firmware_revision is not None:
+                                                                        return True
+
+                                                                    if self.hardware_revision is not None:
+                                                                        return True
+
+                                                                    if self.is_field_replaceable_unit is not None:
+                                                                        return True
+
+                                                                    if self.model_name is not None:
+                                                                        return True
+
+                                                                    if self.name is not None:
+                                                                        return True
+
+                                                                    if self.serial_number is not None:
+                                                                        return True
+
+                                                                    if self.software_revision is not None:
+                                                                        return True
+
+                                                                    if self.vendor_type is not None:
+                                                                        return True
+
+                                                                    return False
+
+                                                                @staticmethod
+                                                                def _meta_info():
+                                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo']['meta_info']
+
+
+                                                            class FruInfo(object):
+                                                                """
+                                                                Field Replaceable Unit (FRU) attributes
+                                                                
+                                                                .. attribute:: last_operational_state_change
+                                                                
+                                                                	Time operational state is   last changed
+                                                                	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange>`
+                                                                
+                                                                .. attribute:: module_administrative_state
+                                                                
+                                                                	Administrative    state
+                                                                	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                                                
+                                                                .. attribute:: module_monitor_state
+                                                                
+                                                                	Monitor state
+                                                                	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                                                
+                                                                .. attribute:: module_operational_state
+                                                                
+                                                                	Operation state
+                                                                	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                                
+                                                                .. attribute:: module_power_administrative_state
+                                                                
+                                                                	Power administrative state
+                                                                	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                                
+                                                                .. attribute:: module_reset_reason
+                                                                
+                                                                	Reset reason
+                                                                	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                                
+                                                                .. attribute:: module_up_time
+                                                                
+                                                                	Module up time
+                                                                	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime>`
+                                                                
+                                                                
+
+                                                                """
+
+                                                                _prefix = 'plat-chas-invmgr-oper'
+                                                                _revision = '2015-01-07'
+
+                                                                def __init__(self):
+                                                                    self.parent = None
+                                                                    self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange()
+                                                                    self.last_operational_state_change.parent = self
+                                                                    self.module_administrative_state = None
+                                                                    self.module_monitor_state = None
+                                                                    self.module_operational_state = None
+                                                                    self.module_power_administrative_state = None
+                                                                    self.module_reset_reason = None
+                                                                    self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime()
+                                                                    self.module_up_time.parent = self
+
+
+                                                                class LastOperationalStateChange(object):
+                                                                    """
+                                                                    Time operational state is   last changed
+                                                                    
+                                                                    .. attribute:: time_in_nano_seconds
+                                                                    
+                                                                    	Time Value in Nano\-seconds
+                                                                    	**type**\:  int
+                                                                    
+                                                                    	**range:** \-2147483648..2147483647
+                                                                    
+                                                                    	**units**\: nanosecond
+                                                                    
+                                                                    .. attribute:: time_in_seconds
+                                                                    
+                                                                    	Time Value in Seconds
+                                                                    	**type**\:  int
+                                                                    
+                                                                    	**range:** \-2147483648..2147483647
+                                                                    
+                                                                    	**units**\: second
+                                                                    
+                                                                    
+
+                                                                    """
+
+                                                                    _prefix = 'plat-chas-invmgr-oper'
+                                                                    _revision = '2015-01-07'
+
+                                                                    def __init__(self):
+                                                                        self.parent = None
+                                                                        self.time_in_nano_seconds = None
+                                                                        self.time_in_seconds = None
+
+                                                                    @property
+                                                                    def _common_path(self):
+                                                                        if self.parent is None:
+                                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
+
+                                                                    def is_config(self):
+                                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                                        return False
+
+                                                                    def _has_data(self):
+                                                                        if not self.is_config():
+                                                                            return False
+                                                                        if self.time_in_nano_seconds is not None:
+                                                                            return True
+
+                                                                        if self.time_in_seconds is not None:
+                                                                            return True
+
+                                                                        return False
+
+                                                                    @staticmethod
+                                                                    def _meta_info():
+                                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange']['meta_info']
+
+
+                                                                class ModuleUpTime(object):
+                                                                    """
+                                                                    Module up time
+                                                                    
+                                                                    .. attribute:: time_in_nano_seconds
+                                                                    
+                                                                    	Time Value in Nano\-seconds
+                                                                    	**type**\:  int
+                                                                    
+                                                                    	**range:** \-2147483648..2147483647
+                                                                    
+                                                                    	**units**\: nanosecond
+                                                                    
+                                                                    .. attribute:: time_in_seconds
+                                                                    
+                                                                    	Time Value in Seconds
+                                                                    	**type**\:  int
+                                                                    
+                                                                    	**range:** \-2147483648..2147483647
+                                                                    
+                                                                    	**units**\: second
+                                                                    
+                                                                    
+
+                                                                    """
+
+                                                                    _prefix = 'plat-chas-invmgr-oper'
+                                                                    _revision = '2015-01-07'
+
+                                                                    def __init__(self):
+                                                                        self.parent = None
+                                                                        self.time_in_nano_seconds = None
+                                                                        self.time_in_seconds = None
+
+                                                                    @property
+                                                                    def _common_path(self):
+                                                                        if self.parent is None:
+                                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
+
+                                                                    def is_config(self):
+                                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                                        return False
+
+                                                                    def _has_data(self):
+                                                                        if not self.is_config():
+                                                                            return False
+                                                                        if self.time_in_nano_seconds is not None:
+                                                                            return True
+
+                                                                        if self.time_in_seconds is not None:
+                                                                            return True
+
+                                                                        return False
+
+                                                                    @staticmethod
+                                                                    def _meta_info():
+                                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime']['meta_info']
+
+                                                                @property
+                                                                def _common_path(self):
+                                                                    if self.parent is None:
+                                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
+
+                                                                def is_config(self):
+                                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                                    return False
+
+                                                                def _has_data(self):
+                                                                    if not self.is_config():
+                                                                        return False
+                                                                    if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
+                                                                        return True
+
+                                                                    if self.module_administrative_state is not None:
+                                                                        return True
+
+                                                                    if self.module_monitor_state is not None:
+                                                                        return True
+
+                                                                    if self.module_operational_state is not None:
+                                                                        return True
+
+                                                                    if self.module_power_administrative_state is not None:
+                                                                        return True
+
+                                                                    if self.module_reset_reason is not None:
+                                                                        return True
+
+                                                                    if self.module_up_time is not None and self.module_up_time._has_data():
+                                                                        return True
+
+                                                                    return False
+
+                                                                @staticmethod
+                                                                def _meta_info():
+                                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo']['meta_info']
+
+                                                            @property
+                                                            def _common_path(self):
+                                                                if self.parent is None:
+                                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
+
+                                                            def is_config(self):
+                                                                ''' Returns True if this instance represents config data else returns False '''
+                                                                return False
+
+                                                            def _has_data(self):
+                                                                if not self.is_config():
+                                                                    return False
+                                                                if self.basic_info is not None and self.basic_info._has_data():
                                                                     return True
 
-                                                                if self.module_administrative_state is not None:
-                                                                    return True
-
-                                                                if self.module_monitor_state is not None:
-                                                                    return True
-
-                                                                if self.module_operational_state is not None:
-                                                                    return True
-
-                                                                if self.module_power_administrative_state is not None:
-                                                                    return True
-
-                                                                if self.module_reset_reason is not None:
-                                                                    return True
-
-                                                                if self.module_up_time is not None and self.module_up_time._has_data():
+                                                                if self.fru_info is not None and self.fru_info._has_data():
                                                                     return True
 
                                                                 return False
@@ -3645,14 +4764,16 @@ class PlatformInventory(object):
                                                             @staticmethod
                                                             def _meta_info():
                                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo']['meta_info']
+                                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes']['meta_info']
 
                                                         @property
                                                         def _common_path(self):
                                                             if self.parent is None:
                                                                 raise YPYModelError('parent is not set . Cannot derive path.')
+                                                            if self.name is None:
+                                                                raise YPYModelError('Key property name is None')
 
-                                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
+                                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:ports[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
 
                                                         def is_config(self):
                                                             ''' Returns True if this instance represents config data else returns False '''
@@ -3661,10 +4782,16 @@ class PlatformInventory(object):
                                                         def _has_data(self):
                                                             if not self.is_config():
                                                                 return False
-                                                            if self.basic_info is not None and self.basic_info._has_data():
+                                                            if self.name is not None:
                                                                 return True
 
-                                                            if self.fru_info is not None and self.fru_info._has_data():
+                                                            if self.attributes is not None and self.attributes._has_data():
+                                                                return True
+
+                                                            if self.hw_components is not None and self.hw_components._has_data():
+                                                                return True
+
+                                                            if self.sensors is not None and self.sensors._has_data():
                                                                 return True
 
                                                             return False
@@ -3672,14 +4799,14 @@ class PlatformInventory(object):
                                                         @staticmethod
                                                         def _meta_info():
                                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes']['meta_info']
+                                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports']['meta_info']
 
                                                     @property
                                                     def _common_path(self):
                                                         if self.parent is None:
                                                             raise YPYModelError('parent is not set . Cannot derive path.')
 
-                                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:port'
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:portses'
 
                                                     def is_config(self):
                                                         ''' Returns True if this instance represents config data else returns False '''
@@ -3688,15 +4815,17 @@ class PlatformInventory(object):
                                                     def _has_data(self):
                                                         if not self.is_config():
                                                             return False
-                                                        if self.attributes is not None and self.attributes._has_data():
-                                                            return True
+                                                        if self.ports is not None:
+                                                            for child_ref in self.ports:
+                                                                if child_ref._has_data():
+                                                                    return True
 
                                                         return False
 
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port']['meta_info']
+                                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses']['meta_info']
 
 
                                                 class Sensors(object):
@@ -4656,7 +5785,7 @@ class PlatformInventory(object):
                                                     if self.attributes is not None and self.attributes._has_data():
                                                         return True
 
-                                                    if self.port is not None and self.port._has_data():
+                                                    if self.portses is not None and self.portses._has_data():
                                                         return True
 
                                                     if self.sensors is not None and self.sensors._has_data():
@@ -6134,6 +7263,3188 @@ class PlatformInventory(object):
                                     return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots']['meta_info']
 
 
+                            class PortSlots(object):
+                                """
+                                Table of port slots
+                                
+                                .. attribute:: port_slot
+                                
+                                	Port slot number
+                                	**type**\: list of    :py:class:`PortSlot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'plat-chas-invmgr-oper'
+                                _revision = '2015-01-07'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.port_slot = YList()
+                                    self.port_slot.parent = self
+                                    self.port_slot.name = 'port_slot'
+
+
+                                class PortSlot(object):
+                                    """
+                                    Port slot number
+                                    
+                                    .. attribute:: name  <key>
+                                    
+                                    	Port slot name
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                    
+                                    .. attribute:: attributes
+                                    
+                                    	Attributes
+                                    	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes>`
+                                    
+                                    .. attribute:: portses
+                                    
+                                    	Table of spirit port slots
+                                    	**type**\:   :py:class:`Portses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses>`
+                                    
+                                    .. attribute:: sensors
+                                    
+                                    	Table of sensors
+                                    	**type**\:   :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'plat-chas-invmgr-oper'
+                                    _revision = '2015-01-07'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.name = None
+                                        self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes()
+                                        self.attributes.parent = self
+                                        self.portses = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses()
+                                        self.portses.parent = self
+                                        self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors()
+                                        self.sensors.parent = self
+
+
+                                    class Portses(object):
+                                        """
+                                        Table of spirit port slots
+                                        
+                                        .. attribute:: ports
+                                        
+                                        	Port number
+                                        	**type**\: list of    :py:class:`Ports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'plat-chas-invmgr-oper'
+                                        _revision = '2015-01-07'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.ports = YList()
+                                            self.ports.parent = self
+                                            self.ports.name = 'ports'
+
+
+                                        class Ports(object):
+                                            """
+                                            Port number
+                                            
+                                            .. attribute:: name  <key>
+                                            
+                                            	Port name
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                            
+                                            .. attribute:: attributes
+                                            
+                                            	Attributes
+                                            	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes>`
+                                            
+                                            .. attribute:: hw_components
+                                            
+                                            	Table of  HW components 
+                                            	**type**\:   :py:class:`HwComponents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents>`
+                                            
+                                            .. attribute:: sensors
+                                            
+                                            	Table of sensors
+                                            	**type**\:   :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'plat-chas-invmgr-oper'
+                                            _revision = '2015-01-07'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.name = None
+                                                self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes()
+                                                self.attributes.parent = self
+                                                self.hw_components = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents()
+                                                self.hw_components.parent = self
+                                                self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors()
+                                                self.sensors.parent = self
+
+
+                                            class HwComponents(object):
+                                                """
+                                                Table of  HW components 
+                                                
+                                                .. attribute:: hw_component
+                                                
+                                                	HW component number
+                                                	**type**\: list of    :py:class:`HwComponent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'plat-chas-invmgr-oper'
+                                                _revision = '2015-01-07'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.hw_component = YList()
+                                                    self.hw_component.parent = self
+                                                    self.hw_component.name = 'hw_component'
+
+
+                                                class HwComponent(object):
+                                                    """
+                                                    HW component number
+                                                    
+                                                    .. attribute:: name  <key>
+                                                    
+                                                    	HW component name
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                                    
+                                                    .. attribute:: attributes
+                                                    
+                                                    	Attributes
+                                                    	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes>`
+                                                    
+                                                    .. attribute:: sensors
+                                                    
+                                                    	Table of sensors
+                                                    	**type**\:   :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors>`
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'plat-chas-invmgr-oper'
+                                                    _revision = '2015-01-07'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.name = None
+                                                        self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes()
+                                                        self.attributes.parent = self
+                                                        self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors()
+                                                        self.sensors.parent = self
+
+
+                                                    class Sensors(object):
+                                                        """
+                                                        Table of sensors
+                                                        
+                                                        .. attribute:: sensor
+                                                        
+                                                        	Sensor number
+                                                        	**type**\: list of    :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor>`
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'plat-chas-invmgr-oper'
+                                                        _revision = '2015-01-07'
+
+                                                        def __init__(self):
+                                                            self.parent = None
+                                                            self.sensor = YList()
+                                                            self.sensor.parent = self
+                                                            self.sensor.name = 'sensor'
+
+
+                                                        class Sensor(object):
+                                                            """
+                                                            Sensor number
+                                                            
+                                                            .. attribute:: name  <key>
+                                                            
+                                                            	Sensor name
+                                                            	**type**\:  str
+                                                            
+                                                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                                            
+                                                            .. attribute:: attributes
+                                                            
+                                                            	Attributes
+                                                            	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes>`
+                                                            
+                                                            
+
+                                                            """
+
+                                                            _prefix = 'plat-chas-invmgr-oper'
+                                                            _revision = '2015-01-07'
+
+                                                            def __init__(self):
+                                                                self.parent = None
+                                                                self.name = None
+                                                                self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes()
+                                                                self.attributes.parent = self
+
+
+                                                            class Attributes(object):
+                                                                """
+                                                                Attributes
+                                                                
+                                                                .. attribute:: basic_info
+                                                                
+                                                                	Entity attributes
+                                                                	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo>`
+                                                                
+                                                                .. attribute:: fru_info
+                                                                
+                                                                	Field Replaceable Unit (FRU) attributes
+                                                                	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo>`
+                                                                
+                                                                
+
+                                                                """
+
+                                                                _prefix = 'plat-chas-invmgr-oper'
+                                                                _revision = '2015-01-07'
+
+                                                                def __init__(self):
+                                                                    self.parent = None
+                                                                    self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo()
+                                                                    self.basic_info.parent = self
+                                                                    self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo()
+                                                                    self.fru_info.parent = self
+
+
+                                                                class BasicInfo(object):
+                                                                    """
+                                                                    Entity attributes
+                                                                    
+                                                                    .. attribute:: description
+                                                                    
+                                                                    	describes in user\-readable terms                 what the entity in question does
+                                                                    	**type**\:  str
+                                                                    
+                                                                    	**length:** 0..255
+                                                                    
+                                                                    .. attribute:: firmware_revision
+                                                                    
+                                                                    	firmware revision string
+                                                                    	**type**\:  str
+                                                                    
+                                                                    	**length:** 0..255
+                                                                    
+                                                                    .. attribute:: hardware_revision
+                                                                    
+                                                                    	hw revision string
+                                                                    	**type**\:  str
+                                                                    
+                                                                    	**length:** 0..255
+                                                                    
+                                                                    .. attribute:: is_field_replaceable_unit
+                                                                    
+                                                                    	1 if Field Replaceable Unit 0, if not
+                                                                    	**type**\:  bool
+                                                                    
+                                                                    .. attribute:: model_name
+                                                                    
+                                                                    	model name
+                                                                    	**type**\:  str
+                                                                    
+                                                                    	**length:** 0..255
+                                                                    
+                                                                    .. attribute:: name
+                                                                    
+                                                                    	name string for the entity
+                                                                    	**type**\:  str
+                                                                    
+                                                                    	**length:** 0..255
+                                                                    
+                                                                    .. attribute:: serial_number
+                                                                    
+                                                                    	serial number
+                                                                    	**type**\:  str
+                                                                    
+                                                                    	**length:** 0..255
+                                                                    
+                                                                    .. attribute:: software_revision
+                                                                    
+                                                                    	software revision string
+                                                                    	**type**\:  str
+                                                                    
+                                                                    	**length:** 0..255
+                                                                    
+                                                                    .. attribute:: vendor_type
+                                                                    
+                                                                    	maps to the vendor OID string
+                                                                    	**type**\:  str
+                                                                    
+                                                                    	**length:** 0..255
+                                                                    
+                                                                    
+
+                                                                    """
+
+                                                                    _prefix = 'plat-chas-invmgr-oper'
+                                                                    _revision = '2015-01-07'
+
+                                                                    def __init__(self):
+                                                                        self.parent = None
+                                                                        self.description = None
+                                                                        self.firmware_revision = None
+                                                                        self.hardware_revision = None
+                                                                        self.is_field_replaceable_unit = None
+                                                                        self.model_name = None
+                                                                        self.name = None
+                                                                        self.serial_number = None
+                                                                        self.software_revision = None
+                                                                        self.vendor_type = None
+
+                                                                    @property
+                                                                    def _common_path(self):
+                                                                        if self.parent is None:
+                                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
+
+                                                                    def is_config(self):
+                                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                                        return False
+
+                                                                    def _has_data(self):
+                                                                        if not self.is_config():
+                                                                            return False
+                                                                        if self.description is not None:
+                                                                            return True
+
+                                                                        if self.firmware_revision is not None:
+                                                                            return True
+
+                                                                        if self.hardware_revision is not None:
+                                                                            return True
+
+                                                                        if self.is_field_replaceable_unit is not None:
+                                                                            return True
+
+                                                                        if self.model_name is not None:
+                                                                            return True
+
+                                                                        if self.name is not None:
+                                                                            return True
+
+                                                                        if self.serial_number is not None:
+                                                                            return True
+
+                                                                        if self.software_revision is not None:
+                                                                            return True
+
+                                                                        if self.vendor_type is not None:
+                                                                            return True
+
+                                                                        return False
+
+                                                                    @staticmethod
+                                                                    def _meta_info():
+                                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo']['meta_info']
+
+
+                                                                class FruInfo(object):
+                                                                    """
+                                                                    Field Replaceable Unit (FRU) attributes
+                                                                    
+                                                                    .. attribute:: last_operational_state_change
+                                                                    
+                                                                    	Time operational state is   last changed
+                                                                    	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
+                                                                    
+                                                                    .. attribute:: module_administrative_state
+                                                                    
+                                                                    	Administrative    state
+                                                                    	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                                                    
+                                                                    .. attribute:: module_monitor_state
+                                                                    
+                                                                    	Monitor state
+                                                                    	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                                                    
+                                                                    .. attribute:: module_operational_state
+                                                                    
+                                                                    	Operation state
+                                                                    	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                                    
+                                                                    .. attribute:: module_power_administrative_state
+                                                                    
+                                                                    	Power administrative state
+                                                                    	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                                    
+                                                                    .. attribute:: module_reset_reason
+                                                                    
+                                                                    	Reset reason
+                                                                    	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                                    
+                                                                    .. attribute:: module_up_time
+                                                                    
+                                                                    	Module up time
+                                                                    	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                                    
+                                                                    
+
+                                                                    """
+
+                                                                    _prefix = 'plat-chas-invmgr-oper'
+                                                                    _revision = '2015-01-07'
+
+                                                                    def __init__(self):
+                                                                        self.parent = None
+                                                                        self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange()
+                                                                        self.last_operational_state_change.parent = self
+                                                                        self.module_administrative_state = None
+                                                                        self.module_monitor_state = None
+                                                                        self.module_operational_state = None
+                                                                        self.module_power_administrative_state = None
+                                                                        self.module_reset_reason = None
+                                                                        self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime()
+                                                                        self.module_up_time.parent = self
+
+
+                                                                    class LastOperationalStateChange(object):
+                                                                        """
+                                                                        Time operational state is   last changed
+                                                                        
+                                                                        .. attribute:: time_in_nano_seconds
+                                                                        
+                                                                        	Time Value in Nano\-seconds
+                                                                        	**type**\:  int
+                                                                        
+                                                                        	**range:** \-2147483648..2147483647
+                                                                        
+                                                                        	**units**\: nanosecond
+                                                                        
+                                                                        .. attribute:: time_in_seconds
+                                                                        
+                                                                        	Time Value in Seconds
+                                                                        	**type**\:  int
+                                                                        
+                                                                        	**range:** \-2147483648..2147483647
+                                                                        
+                                                                        	**units**\: second
+                                                                        
+                                                                        
+
+                                                                        """
+
+                                                                        _prefix = 'plat-chas-invmgr-oper'
+                                                                        _revision = '2015-01-07'
+
+                                                                        def __init__(self):
+                                                                            self.parent = None
+                                                                            self.time_in_nano_seconds = None
+                                                                            self.time_in_seconds = None
+
+                                                                        @property
+                                                                        def _common_path(self):
+                                                                            if self.parent is None:
+                                                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
+
+                                                                        def is_config(self):
+                                                                            ''' Returns True if this instance represents config data else returns False '''
+                                                                            return False
+
+                                                                        def _has_data(self):
+                                                                            if not self.is_config():
+                                                                                return False
+                                                                            if self.time_in_nano_seconds is not None:
+                                                                                return True
+
+                                                                            if self.time_in_seconds is not None:
+                                                                                return True
+
+                                                                            return False
+
+                                                                        @staticmethod
+                                                                        def _meta_info():
+                                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange']['meta_info']
+
+
+                                                                    class ModuleUpTime(object):
+                                                                        """
+                                                                        Module up time
+                                                                        
+                                                                        .. attribute:: time_in_nano_seconds
+                                                                        
+                                                                        	Time Value in Nano\-seconds
+                                                                        	**type**\:  int
+                                                                        
+                                                                        	**range:** \-2147483648..2147483647
+                                                                        
+                                                                        	**units**\: nanosecond
+                                                                        
+                                                                        .. attribute:: time_in_seconds
+                                                                        
+                                                                        	Time Value in Seconds
+                                                                        	**type**\:  int
+                                                                        
+                                                                        	**range:** \-2147483648..2147483647
+                                                                        
+                                                                        	**units**\: second
+                                                                        
+                                                                        
+
+                                                                        """
+
+                                                                        _prefix = 'plat-chas-invmgr-oper'
+                                                                        _revision = '2015-01-07'
+
+                                                                        def __init__(self):
+                                                                            self.parent = None
+                                                                            self.time_in_nano_seconds = None
+                                                                            self.time_in_seconds = None
+
+                                                                        @property
+                                                                        def _common_path(self):
+                                                                            if self.parent is None:
+                                                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
+
+                                                                        def is_config(self):
+                                                                            ''' Returns True if this instance represents config data else returns False '''
+                                                                            return False
+
+                                                                        def _has_data(self):
+                                                                            if not self.is_config():
+                                                                                return False
+                                                                            if self.time_in_nano_seconds is not None:
+                                                                                return True
+
+                                                                            if self.time_in_seconds is not None:
+                                                                                return True
+
+                                                                            return False
+
+                                                                        @staticmethod
+                                                                        def _meta_info():
+                                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime']['meta_info']
+
+                                                                    @property
+                                                                    def _common_path(self):
+                                                                        if self.parent is None:
+                                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
+
+                                                                    def is_config(self):
+                                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                                        return False
+
+                                                                    def _has_data(self):
+                                                                        if not self.is_config():
+                                                                            return False
+                                                                        if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
+                                                                            return True
+
+                                                                        if self.module_administrative_state is not None:
+                                                                            return True
+
+                                                                        if self.module_monitor_state is not None:
+                                                                            return True
+
+                                                                        if self.module_operational_state is not None:
+                                                                            return True
+
+                                                                        if self.module_power_administrative_state is not None:
+                                                                            return True
+
+                                                                        if self.module_reset_reason is not None:
+                                                                            return True
+
+                                                                        if self.module_up_time is not None and self.module_up_time._has_data():
+                                                                            return True
+
+                                                                        return False
+
+                                                                    @staticmethod
+                                                                    def _meta_info():
+                                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo']['meta_info']
+
+                                                                @property
+                                                                def _common_path(self):
+                                                                    if self.parent is None:
+                                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
+
+                                                                def is_config(self):
+                                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                                    return False
+
+                                                                def _has_data(self):
+                                                                    if not self.is_config():
+                                                                        return False
+                                                                    if self.basic_info is not None and self.basic_info._has_data():
+                                                                        return True
+
+                                                                    if self.fru_info is not None and self.fru_info._has_data():
+                                                                        return True
+
+                                                                    return False
+
+                                                                @staticmethod
+                                                                def _meta_info():
+                                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes']['meta_info']
+
+                                                            @property
+                                                            def _common_path(self):
+                                                                if self.parent is None:
+                                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                                                if self.name is None:
+                                                                    raise YPYModelError('Key property name is None')
+
+                                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sensor[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
+
+                                                            def is_config(self):
+                                                                ''' Returns True if this instance represents config data else returns False '''
+                                                                return False
+
+                                                            def _has_data(self):
+                                                                if not self.is_config():
+                                                                    return False
+                                                                if self.name is not None:
+                                                                    return True
+
+                                                                if self.attributes is not None and self.attributes._has_data():
+                                                                    return True
+
+                                                                return False
+
+                                                            @staticmethod
+                                                            def _meta_info():
+                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor']['meta_info']
+
+                                                        @property
+                                                        def _common_path(self):
+                                                            if self.parent is None:
+                                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sensors'
+
+                                                        def is_config(self):
+                                                            ''' Returns True if this instance represents config data else returns False '''
+                                                            return False
+
+                                                        def _has_data(self):
+                                                            if not self.is_config():
+                                                                return False
+                                                            if self.sensor is not None:
+                                                                for child_ref in self.sensor:
+                                                                    if child_ref._has_data():
+                                                                        return True
+
+                                                            return False
+
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors']['meta_info']
+
+
+                                                    class Attributes(object):
+                                                        """
+                                                        Attributes
+                                                        
+                                                        .. attribute:: basic_info
+                                                        
+                                                        	Entity attributes
+                                                        	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo>`
+                                                        
+                                                        .. attribute:: fru_info
+                                                        
+                                                        	Field Replaceable Unit (FRU) attributes
+                                                        	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo>`
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'plat-chas-invmgr-oper'
+                                                        _revision = '2015-01-07'
+
+                                                        def __init__(self):
+                                                            self.parent = None
+                                                            self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo()
+                                                            self.basic_info.parent = self
+                                                            self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo()
+                                                            self.fru_info.parent = self
+
+
+                                                        class BasicInfo(object):
+                                                            """
+                                                            Entity attributes
+                                                            
+                                                            .. attribute:: description
+                                                            
+                                                            	describes in user\-readable terms                 what the entity in question does
+                                                            	**type**\:  str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            .. attribute:: firmware_revision
+                                                            
+                                                            	firmware revision string
+                                                            	**type**\:  str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            .. attribute:: hardware_revision
+                                                            
+                                                            	hw revision string
+                                                            	**type**\:  str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            .. attribute:: is_field_replaceable_unit
+                                                            
+                                                            	1 if Field Replaceable Unit 0, if not
+                                                            	**type**\:  bool
+                                                            
+                                                            .. attribute:: model_name
+                                                            
+                                                            	model name
+                                                            	**type**\:  str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            .. attribute:: name
+                                                            
+                                                            	name string for the entity
+                                                            	**type**\:  str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            .. attribute:: serial_number
+                                                            
+                                                            	serial number
+                                                            	**type**\:  str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            .. attribute:: software_revision
+                                                            
+                                                            	software revision string
+                                                            	**type**\:  str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            .. attribute:: vendor_type
+                                                            
+                                                            	maps to the vendor OID string
+                                                            	**type**\:  str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            
+
+                                                            """
+
+                                                            _prefix = 'plat-chas-invmgr-oper'
+                                                            _revision = '2015-01-07'
+
+                                                            def __init__(self):
+                                                                self.parent = None
+                                                                self.description = None
+                                                                self.firmware_revision = None
+                                                                self.hardware_revision = None
+                                                                self.is_field_replaceable_unit = None
+                                                                self.model_name = None
+                                                                self.name = None
+                                                                self.serial_number = None
+                                                                self.software_revision = None
+                                                                self.vendor_type = None
+
+                                                            @property
+                                                            def _common_path(self):
+                                                                if self.parent is None:
+                                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
+
+                                                            def is_config(self):
+                                                                ''' Returns True if this instance represents config data else returns False '''
+                                                                return False
+
+                                                            def _has_data(self):
+                                                                if not self.is_config():
+                                                                    return False
+                                                                if self.description is not None:
+                                                                    return True
+
+                                                                if self.firmware_revision is not None:
+                                                                    return True
+
+                                                                if self.hardware_revision is not None:
+                                                                    return True
+
+                                                                if self.is_field_replaceable_unit is not None:
+                                                                    return True
+
+                                                                if self.model_name is not None:
+                                                                    return True
+
+                                                                if self.name is not None:
+                                                                    return True
+
+                                                                if self.serial_number is not None:
+                                                                    return True
+
+                                                                if self.software_revision is not None:
+                                                                    return True
+
+                                                                if self.vendor_type is not None:
+                                                                    return True
+
+                                                                return False
+
+                                                            @staticmethod
+                                                            def _meta_info():
+                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo']['meta_info']
+
+
+                                                        class FruInfo(object):
+                                                            """
+                                                            Field Replaceable Unit (FRU) attributes
+                                                            
+                                                            .. attribute:: last_operational_state_change
+                                                            
+                                                            	Time operational state is   last changed
+                                                            	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange>`
+                                                            
+                                                            .. attribute:: module_administrative_state
+                                                            
+                                                            	Administrative    state
+                                                            	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                                            
+                                                            .. attribute:: module_monitor_state
+                                                            
+                                                            	Monitor state
+                                                            	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                                            
+                                                            .. attribute:: module_operational_state
+                                                            
+                                                            	Operation state
+                                                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                            
+                                                            .. attribute:: module_power_administrative_state
+                                                            
+                                                            	Power administrative state
+                                                            	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                            
+                                                            .. attribute:: module_reset_reason
+                                                            
+                                                            	Reset reason
+                                                            	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                            
+                                                            .. attribute:: module_up_time
+                                                            
+                                                            	Module up time
+                                                            	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime>`
+                                                            
+                                                            
+
+                                                            """
+
+                                                            _prefix = 'plat-chas-invmgr-oper'
+                                                            _revision = '2015-01-07'
+
+                                                            def __init__(self):
+                                                                self.parent = None
+                                                                self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange()
+                                                                self.last_operational_state_change.parent = self
+                                                                self.module_administrative_state = None
+                                                                self.module_monitor_state = None
+                                                                self.module_operational_state = None
+                                                                self.module_power_administrative_state = None
+                                                                self.module_reset_reason = None
+                                                                self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime()
+                                                                self.module_up_time.parent = self
+
+
+                                                            class LastOperationalStateChange(object):
+                                                                """
+                                                                Time operational state is   last changed
+                                                                
+                                                                .. attribute:: time_in_nano_seconds
+                                                                
+                                                                	Time Value in Nano\-seconds
+                                                                	**type**\:  int
+                                                                
+                                                                	**range:** \-2147483648..2147483647
+                                                                
+                                                                	**units**\: nanosecond
+                                                                
+                                                                .. attribute:: time_in_seconds
+                                                                
+                                                                	Time Value in Seconds
+                                                                	**type**\:  int
+                                                                
+                                                                	**range:** \-2147483648..2147483647
+                                                                
+                                                                	**units**\: second
+                                                                
+                                                                
+
+                                                                """
+
+                                                                _prefix = 'plat-chas-invmgr-oper'
+                                                                _revision = '2015-01-07'
+
+                                                                def __init__(self):
+                                                                    self.parent = None
+                                                                    self.time_in_nano_seconds = None
+                                                                    self.time_in_seconds = None
+
+                                                                @property
+                                                                def _common_path(self):
+                                                                    if self.parent is None:
+                                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
+
+                                                                def is_config(self):
+                                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                                    return False
+
+                                                                def _has_data(self):
+                                                                    if not self.is_config():
+                                                                        return False
+                                                                    if self.time_in_nano_seconds is not None:
+                                                                        return True
+
+                                                                    if self.time_in_seconds is not None:
+                                                                        return True
+
+                                                                    return False
+
+                                                                @staticmethod
+                                                                def _meta_info():
+                                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange']['meta_info']
+
+
+                                                            class ModuleUpTime(object):
+                                                                """
+                                                                Module up time
+                                                                
+                                                                .. attribute:: time_in_nano_seconds
+                                                                
+                                                                	Time Value in Nano\-seconds
+                                                                	**type**\:  int
+                                                                
+                                                                	**range:** \-2147483648..2147483647
+                                                                
+                                                                	**units**\: nanosecond
+                                                                
+                                                                .. attribute:: time_in_seconds
+                                                                
+                                                                	Time Value in Seconds
+                                                                	**type**\:  int
+                                                                
+                                                                	**range:** \-2147483648..2147483647
+                                                                
+                                                                	**units**\: second
+                                                                
+                                                                
+
+                                                                """
+
+                                                                _prefix = 'plat-chas-invmgr-oper'
+                                                                _revision = '2015-01-07'
+
+                                                                def __init__(self):
+                                                                    self.parent = None
+                                                                    self.time_in_nano_seconds = None
+                                                                    self.time_in_seconds = None
+
+                                                                @property
+                                                                def _common_path(self):
+                                                                    if self.parent is None:
+                                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
+
+                                                                def is_config(self):
+                                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                                    return False
+
+                                                                def _has_data(self):
+                                                                    if not self.is_config():
+                                                                        return False
+                                                                    if self.time_in_nano_seconds is not None:
+                                                                        return True
+
+                                                                    if self.time_in_seconds is not None:
+                                                                        return True
+
+                                                                    return False
+
+                                                                @staticmethod
+                                                                def _meta_info():
+                                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime']['meta_info']
+
+                                                            @property
+                                                            def _common_path(self):
+                                                                if self.parent is None:
+                                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
+
+                                                            def is_config(self):
+                                                                ''' Returns True if this instance represents config data else returns False '''
+                                                                return False
+
+                                                            def _has_data(self):
+                                                                if not self.is_config():
+                                                                    return False
+                                                                if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
+                                                                    return True
+
+                                                                if self.module_administrative_state is not None:
+                                                                    return True
+
+                                                                if self.module_monitor_state is not None:
+                                                                    return True
+
+                                                                if self.module_operational_state is not None:
+                                                                    return True
+
+                                                                if self.module_power_administrative_state is not None:
+                                                                    return True
+
+                                                                if self.module_reset_reason is not None:
+                                                                    return True
+
+                                                                if self.module_up_time is not None and self.module_up_time._has_data():
+                                                                    return True
+
+                                                                return False
+
+                                                            @staticmethod
+                                                            def _meta_info():
+                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo']['meta_info']
+
+                                                        @property
+                                                        def _common_path(self):
+                                                            if self.parent is None:
+                                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
+
+                                                        def is_config(self):
+                                                            ''' Returns True if this instance represents config data else returns False '''
+                                                            return False
+
+                                                        def _has_data(self):
+                                                            if not self.is_config():
+                                                                return False
+                                                            if self.basic_info is not None and self.basic_info._has_data():
+                                                                return True
+
+                                                            if self.fru_info is not None and self.fru_info._has_data():
+                                                                return True
+
+                                                            return False
+
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes']['meta_info']
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        if self.name is None:
+                                                            raise YPYModelError('Key property name is None')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:hw-component[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return False
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.name is not None:
+                                                            return True
+
+                                                        if self.attributes is not None and self.attributes._has_data():
+                                                            return True
+
+                                                        if self.sensors is not None and self.sensors._has_data():
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:hw-components'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.hw_component is not None:
+                                                        for child_ref in self.hw_component:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents']['meta_info']
+
+
+                                            class Sensors(object):
+                                                """
+                                                Table of sensors
+                                                
+                                                .. attribute:: sensor
+                                                
+                                                	Sensor number
+                                                	**type**\: list of    :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'plat-chas-invmgr-oper'
+                                                _revision = '2015-01-07'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.sensor = YList()
+                                                    self.sensor.parent = self
+                                                    self.sensor.name = 'sensor'
+
+
+                                                class Sensor(object):
+                                                    """
+                                                    Sensor number
+                                                    
+                                                    .. attribute:: name  <key>
+                                                    
+                                                    	Sensor name
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                                    
+                                                    .. attribute:: attributes
+                                                    
+                                                    	Attributes
+                                                    	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes>`
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'plat-chas-invmgr-oper'
+                                                    _revision = '2015-01-07'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.name = None
+                                                        self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes()
+                                                        self.attributes.parent = self
+
+
+                                                    class Attributes(object):
+                                                        """
+                                                        Attributes
+                                                        
+                                                        .. attribute:: basic_info
+                                                        
+                                                        	Entity attributes
+                                                        	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo>`
+                                                        
+                                                        .. attribute:: fru_info
+                                                        
+                                                        	Field Replaceable Unit (FRU) attributes
+                                                        	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo>`
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'plat-chas-invmgr-oper'
+                                                        _revision = '2015-01-07'
+
+                                                        def __init__(self):
+                                                            self.parent = None
+                                                            self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo()
+                                                            self.basic_info.parent = self
+                                                            self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo()
+                                                            self.fru_info.parent = self
+
+
+                                                        class BasicInfo(object):
+                                                            """
+                                                            Entity attributes
+                                                            
+                                                            .. attribute:: description
+                                                            
+                                                            	describes in user\-readable terms                 what the entity in question does
+                                                            	**type**\:  str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            .. attribute:: firmware_revision
+                                                            
+                                                            	firmware revision string
+                                                            	**type**\:  str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            .. attribute:: hardware_revision
+                                                            
+                                                            	hw revision string
+                                                            	**type**\:  str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            .. attribute:: is_field_replaceable_unit
+                                                            
+                                                            	1 if Field Replaceable Unit 0, if not
+                                                            	**type**\:  bool
+                                                            
+                                                            .. attribute:: model_name
+                                                            
+                                                            	model name
+                                                            	**type**\:  str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            .. attribute:: name
+                                                            
+                                                            	name string for the entity
+                                                            	**type**\:  str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            .. attribute:: serial_number
+                                                            
+                                                            	serial number
+                                                            	**type**\:  str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            .. attribute:: software_revision
+                                                            
+                                                            	software revision string
+                                                            	**type**\:  str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            .. attribute:: vendor_type
+                                                            
+                                                            	maps to the vendor OID string
+                                                            	**type**\:  str
+                                                            
+                                                            	**length:** 0..255
+                                                            
+                                                            
+
+                                                            """
+
+                                                            _prefix = 'plat-chas-invmgr-oper'
+                                                            _revision = '2015-01-07'
+
+                                                            def __init__(self):
+                                                                self.parent = None
+                                                                self.description = None
+                                                                self.firmware_revision = None
+                                                                self.hardware_revision = None
+                                                                self.is_field_replaceable_unit = None
+                                                                self.model_name = None
+                                                                self.name = None
+                                                                self.serial_number = None
+                                                                self.software_revision = None
+                                                                self.vendor_type = None
+
+                                                            @property
+                                                            def _common_path(self):
+                                                                if self.parent is None:
+                                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
+
+                                                            def is_config(self):
+                                                                ''' Returns True if this instance represents config data else returns False '''
+                                                                return False
+
+                                                            def _has_data(self):
+                                                                if not self.is_config():
+                                                                    return False
+                                                                if self.description is not None:
+                                                                    return True
+
+                                                                if self.firmware_revision is not None:
+                                                                    return True
+
+                                                                if self.hardware_revision is not None:
+                                                                    return True
+
+                                                                if self.is_field_replaceable_unit is not None:
+                                                                    return True
+
+                                                                if self.model_name is not None:
+                                                                    return True
+
+                                                                if self.name is not None:
+                                                                    return True
+
+                                                                if self.serial_number is not None:
+                                                                    return True
+
+                                                                if self.software_revision is not None:
+                                                                    return True
+
+                                                                if self.vendor_type is not None:
+                                                                    return True
+
+                                                                return False
+
+                                                            @staticmethod
+                                                            def _meta_info():
+                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo']['meta_info']
+
+
+                                                        class FruInfo(object):
+                                                            """
+                                                            Field Replaceable Unit (FRU) attributes
+                                                            
+                                                            .. attribute:: last_operational_state_change
+                                                            
+                                                            	Time operational state is   last changed
+                                                            	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
+                                                            
+                                                            .. attribute:: module_administrative_state
+                                                            
+                                                            	Administrative    state
+                                                            	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                                            
+                                                            .. attribute:: module_monitor_state
+                                                            
+                                                            	Monitor state
+                                                            	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                                            
+                                                            .. attribute:: module_operational_state
+                                                            
+                                                            	Operation state
+                                                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                            
+                                                            .. attribute:: module_power_administrative_state
+                                                            
+                                                            	Power administrative state
+                                                            	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                            
+                                                            .. attribute:: module_reset_reason
+                                                            
+                                                            	Reset reason
+                                                            	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                            
+                                                            .. attribute:: module_up_time
+                                                            
+                                                            	Module up time
+                                                            	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                            
+                                                            
+
+                                                            """
+
+                                                            _prefix = 'plat-chas-invmgr-oper'
+                                                            _revision = '2015-01-07'
+
+                                                            def __init__(self):
+                                                                self.parent = None
+                                                                self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange()
+                                                                self.last_operational_state_change.parent = self
+                                                                self.module_administrative_state = None
+                                                                self.module_monitor_state = None
+                                                                self.module_operational_state = None
+                                                                self.module_power_administrative_state = None
+                                                                self.module_reset_reason = None
+                                                                self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime()
+                                                                self.module_up_time.parent = self
+
+
+                                                            class LastOperationalStateChange(object):
+                                                                """
+                                                                Time operational state is   last changed
+                                                                
+                                                                .. attribute:: time_in_nano_seconds
+                                                                
+                                                                	Time Value in Nano\-seconds
+                                                                	**type**\:  int
+                                                                
+                                                                	**range:** \-2147483648..2147483647
+                                                                
+                                                                	**units**\: nanosecond
+                                                                
+                                                                .. attribute:: time_in_seconds
+                                                                
+                                                                	Time Value in Seconds
+                                                                	**type**\:  int
+                                                                
+                                                                	**range:** \-2147483648..2147483647
+                                                                
+                                                                	**units**\: second
+                                                                
+                                                                
+
+                                                                """
+
+                                                                _prefix = 'plat-chas-invmgr-oper'
+                                                                _revision = '2015-01-07'
+
+                                                                def __init__(self):
+                                                                    self.parent = None
+                                                                    self.time_in_nano_seconds = None
+                                                                    self.time_in_seconds = None
+
+                                                                @property
+                                                                def _common_path(self):
+                                                                    if self.parent is None:
+                                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
+
+                                                                def is_config(self):
+                                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                                    return False
+
+                                                                def _has_data(self):
+                                                                    if not self.is_config():
+                                                                        return False
+                                                                    if self.time_in_nano_seconds is not None:
+                                                                        return True
+
+                                                                    if self.time_in_seconds is not None:
+                                                                        return True
+
+                                                                    return False
+
+                                                                @staticmethod
+                                                                def _meta_info():
+                                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange']['meta_info']
+
+
+                                                            class ModuleUpTime(object):
+                                                                """
+                                                                Module up time
+                                                                
+                                                                .. attribute:: time_in_nano_seconds
+                                                                
+                                                                	Time Value in Nano\-seconds
+                                                                	**type**\:  int
+                                                                
+                                                                	**range:** \-2147483648..2147483647
+                                                                
+                                                                	**units**\: nanosecond
+                                                                
+                                                                .. attribute:: time_in_seconds
+                                                                
+                                                                	Time Value in Seconds
+                                                                	**type**\:  int
+                                                                
+                                                                	**range:** \-2147483648..2147483647
+                                                                
+                                                                	**units**\: second
+                                                                
+                                                                
+
+                                                                """
+
+                                                                _prefix = 'plat-chas-invmgr-oper'
+                                                                _revision = '2015-01-07'
+
+                                                                def __init__(self):
+                                                                    self.parent = None
+                                                                    self.time_in_nano_seconds = None
+                                                                    self.time_in_seconds = None
+
+                                                                @property
+                                                                def _common_path(self):
+                                                                    if self.parent is None:
+                                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
+
+                                                                def is_config(self):
+                                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                                    return False
+
+                                                                def _has_data(self):
+                                                                    if not self.is_config():
+                                                                        return False
+                                                                    if self.time_in_nano_seconds is not None:
+                                                                        return True
+
+                                                                    if self.time_in_seconds is not None:
+                                                                        return True
+
+                                                                    return False
+
+                                                                @staticmethod
+                                                                def _meta_info():
+                                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime']['meta_info']
+
+                                                            @property
+                                                            def _common_path(self):
+                                                                if self.parent is None:
+                                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
+
+                                                            def is_config(self):
+                                                                ''' Returns True if this instance represents config data else returns False '''
+                                                                return False
+
+                                                            def _has_data(self):
+                                                                if not self.is_config():
+                                                                    return False
+                                                                if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
+                                                                    return True
+
+                                                                if self.module_administrative_state is not None:
+                                                                    return True
+
+                                                                if self.module_monitor_state is not None:
+                                                                    return True
+
+                                                                if self.module_operational_state is not None:
+                                                                    return True
+
+                                                                if self.module_power_administrative_state is not None:
+                                                                    return True
+
+                                                                if self.module_reset_reason is not None:
+                                                                    return True
+
+                                                                if self.module_up_time is not None and self.module_up_time._has_data():
+                                                                    return True
+
+                                                                return False
+
+                                                            @staticmethod
+                                                            def _meta_info():
+                                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo']['meta_info']
+
+                                                        @property
+                                                        def _common_path(self):
+                                                            if self.parent is None:
+                                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
+
+                                                        def is_config(self):
+                                                            ''' Returns True if this instance represents config data else returns False '''
+                                                            return False
+
+                                                        def _has_data(self):
+                                                            if not self.is_config():
+                                                                return False
+                                                            if self.basic_info is not None and self.basic_info._has_data():
+                                                                return True
+
+                                                            if self.fru_info is not None and self.fru_info._has_data():
+                                                                return True
+
+                                                            return False
+
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes']['meta_info']
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        if self.name is None:
+                                                            raise YPYModelError('Key property name is None')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sensor[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return False
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.name is not None:
+                                                            return True
+
+                                                        if self.attributes is not None and self.attributes._has_data():
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sensors'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.sensor is not None:
+                                                        for child_ref in self.sensor:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors']['meta_info']
+
+
+                                            class Attributes(object):
+                                                """
+                                                Attributes
+                                                
+                                                .. attribute:: basic_info
+                                                
+                                                	Entity attributes
+                                                	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo>`
+                                                
+                                                .. attribute:: fru_info
+                                                
+                                                	Field Replaceable Unit (FRU) attributes
+                                                	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'plat-chas-invmgr-oper'
+                                                _revision = '2015-01-07'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo()
+                                                    self.basic_info.parent = self
+                                                    self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo()
+                                                    self.fru_info.parent = self
+
+
+                                                class BasicInfo(object):
+                                                    """
+                                                    Entity attributes
+                                                    
+                                                    .. attribute:: description
+                                                    
+                                                    	describes in user\-readable terms                 what the entity in question does
+                                                    	**type**\:  str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: firmware_revision
+                                                    
+                                                    	firmware revision string
+                                                    	**type**\:  str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: hardware_revision
+                                                    
+                                                    	hw revision string
+                                                    	**type**\:  str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: is_field_replaceable_unit
+                                                    
+                                                    	1 if Field Replaceable Unit 0, if not
+                                                    	**type**\:  bool
+                                                    
+                                                    .. attribute:: model_name
+                                                    
+                                                    	model name
+                                                    	**type**\:  str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: name
+                                                    
+                                                    	name string for the entity
+                                                    	**type**\:  str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: serial_number
+                                                    
+                                                    	serial number
+                                                    	**type**\:  str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: software_revision
+                                                    
+                                                    	software revision string
+                                                    	**type**\:  str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: vendor_type
+                                                    
+                                                    	maps to the vendor OID string
+                                                    	**type**\:  str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'plat-chas-invmgr-oper'
+                                                    _revision = '2015-01-07'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.description = None
+                                                        self.firmware_revision = None
+                                                        self.hardware_revision = None
+                                                        self.is_field_replaceable_unit = None
+                                                        self.model_name = None
+                                                        self.name = None
+                                                        self.serial_number = None
+                                                        self.software_revision = None
+                                                        self.vendor_type = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return False
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.description is not None:
+                                                            return True
+
+                                                        if self.firmware_revision is not None:
+                                                            return True
+
+                                                        if self.hardware_revision is not None:
+                                                            return True
+
+                                                        if self.is_field_replaceable_unit is not None:
+                                                            return True
+
+                                                        if self.model_name is not None:
+                                                            return True
+
+                                                        if self.name is not None:
+                                                            return True
+
+                                                        if self.serial_number is not None:
+                                                            return True
+
+                                                        if self.software_revision is not None:
+                                                            return True
+
+                                                        if self.vendor_type is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo']['meta_info']
+
+
+                                                class FruInfo(object):
+                                                    """
+                                                    Field Replaceable Unit (FRU) attributes
+                                                    
+                                                    .. attribute:: last_operational_state_change
+                                                    
+                                                    	Time operational state is   last changed
+                                                    	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange>`
+                                                    
+                                                    .. attribute:: module_administrative_state
+                                                    
+                                                    	Administrative    state
+                                                    	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                                    
+                                                    .. attribute:: module_monitor_state
+                                                    
+                                                    	Monitor state
+                                                    	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                                    
+                                                    .. attribute:: module_operational_state
+                                                    
+                                                    	Operation state
+                                                    	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                    
+                                                    .. attribute:: module_power_administrative_state
+                                                    
+                                                    	Power administrative state
+                                                    	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                    
+                                                    .. attribute:: module_reset_reason
+                                                    
+                                                    	Reset reason
+                                                    	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                    
+                                                    .. attribute:: module_up_time
+                                                    
+                                                    	Module up time
+                                                    	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime>`
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'plat-chas-invmgr-oper'
+                                                    _revision = '2015-01-07'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange()
+                                                        self.last_operational_state_change.parent = self
+                                                        self.module_administrative_state = None
+                                                        self.module_monitor_state = None
+                                                        self.module_operational_state = None
+                                                        self.module_power_administrative_state = None
+                                                        self.module_reset_reason = None
+                                                        self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime()
+                                                        self.module_up_time.parent = self
+
+
+                                                    class LastOperationalStateChange(object):
+                                                        """
+                                                        Time operational state is   last changed
+                                                        
+                                                        .. attribute:: time_in_nano_seconds
+                                                        
+                                                        	Time Value in Nano\-seconds
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**units**\: nanosecond
+                                                        
+                                                        .. attribute:: time_in_seconds
+                                                        
+                                                        	Time Value in Seconds
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**units**\: second
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'plat-chas-invmgr-oper'
+                                                        _revision = '2015-01-07'
+
+                                                        def __init__(self):
+                                                            self.parent = None
+                                                            self.time_in_nano_seconds = None
+                                                            self.time_in_seconds = None
+
+                                                        @property
+                                                        def _common_path(self):
+                                                            if self.parent is None:
+                                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
+
+                                                        def is_config(self):
+                                                            ''' Returns True if this instance represents config data else returns False '''
+                                                            return False
+
+                                                        def _has_data(self):
+                                                            if not self.is_config():
+                                                                return False
+                                                            if self.time_in_nano_seconds is not None:
+                                                                return True
+
+                                                            if self.time_in_seconds is not None:
+                                                                return True
+
+                                                            return False
+
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange']['meta_info']
+
+
+                                                    class ModuleUpTime(object):
+                                                        """
+                                                        Module up time
+                                                        
+                                                        .. attribute:: time_in_nano_seconds
+                                                        
+                                                        	Time Value in Nano\-seconds
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**units**\: nanosecond
+                                                        
+                                                        .. attribute:: time_in_seconds
+                                                        
+                                                        	Time Value in Seconds
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**units**\: second
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'plat-chas-invmgr-oper'
+                                                        _revision = '2015-01-07'
+
+                                                        def __init__(self):
+                                                            self.parent = None
+                                                            self.time_in_nano_seconds = None
+                                                            self.time_in_seconds = None
+
+                                                        @property
+                                                        def _common_path(self):
+                                                            if self.parent is None:
+                                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
+
+                                                        def is_config(self):
+                                                            ''' Returns True if this instance represents config data else returns False '''
+                                                            return False
+
+                                                        def _has_data(self):
+                                                            if not self.is_config():
+                                                                return False
+                                                            if self.time_in_nano_seconds is not None:
+                                                                return True
+
+                                                            if self.time_in_seconds is not None:
+                                                                return True
+
+                                                            return False
+
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime']['meta_info']
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return False
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
+                                                            return True
+
+                                                        if self.module_administrative_state is not None:
+                                                            return True
+
+                                                        if self.module_monitor_state is not None:
+                                                            return True
+
+                                                        if self.module_operational_state is not None:
+                                                            return True
+
+                                                        if self.module_power_administrative_state is not None:
+                                                            return True
+
+                                                        if self.module_reset_reason is not None:
+                                                            return True
+
+                                                        if self.module_up_time is not None and self.module_up_time._has_data():
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.basic_info is not None and self.basic_info._has_data():
+                                                        return True
+
+                                                    if self.fru_info is not None and self.fru_info._has_data():
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                                if self.name is None:
+                                                    raise YPYModelError('Key property name is None')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:ports[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.name is not None:
+                                                    return True
+
+                                                if self.attributes is not None and self.attributes._has_data():
+                                                    return True
+
+                                                if self.hw_components is not None and self.hw_components._has_data():
+                                                    return True
+
+                                                if self.sensors is not None and self.sensors._has_data():
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:portses'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.ports is not None:
+                                                for child_ref in self.ports:
+                                                    if child_ref._has_data():
+                                                        return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses']['meta_info']
+
+
+                                    class Sensors(object):
+                                        """
+                                        Table of sensors
+                                        
+                                        .. attribute:: sensor
+                                        
+                                        	Sensor number
+                                        	**type**\: list of    :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'plat-chas-invmgr-oper'
+                                        _revision = '2015-01-07'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.sensor = YList()
+                                            self.sensor.parent = self
+                                            self.sensor.name = 'sensor'
+
+
+                                        class Sensor(object):
+                                            """
+                                            Sensor number
+                                            
+                                            .. attribute:: name  <key>
+                                            
+                                            	Sensor name
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                            
+                                            .. attribute:: attributes
+                                            
+                                            	Attributes
+                                            	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'plat-chas-invmgr-oper'
+                                            _revision = '2015-01-07'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.name = None
+                                                self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes()
+                                                self.attributes.parent = self
+
+
+                                            class Attributes(object):
+                                                """
+                                                Attributes
+                                                
+                                                .. attribute:: basic_info
+                                                
+                                                	Entity attributes
+                                                	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo>`
+                                                
+                                                .. attribute:: fru_info
+                                                
+                                                	Field Replaceable Unit (FRU) attributes
+                                                	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'plat-chas-invmgr-oper'
+                                                _revision = '2015-01-07'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo()
+                                                    self.basic_info.parent = self
+                                                    self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo()
+                                                    self.fru_info.parent = self
+
+
+                                                class BasicInfo(object):
+                                                    """
+                                                    Entity attributes
+                                                    
+                                                    .. attribute:: description
+                                                    
+                                                    	describes in user\-readable terms                 what the entity in question does
+                                                    	**type**\:  str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: firmware_revision
+                                                    
+                                                    	firmware revision string
+                                                    	**type**\:  str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: hardware_revision
+                                                    
+                                                    	hw revision string
+                                                    	**type**\:  str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: is_field_replaceable_unit
+                                                    
+                                                    	1 if Field Replaceable Unit 0, if not
+                                                    	**type**\:  bool
+                                                    
+                                                    .. attribute:: model_name
+                                                    
+                                                    	model name
+                                                    	**type**\:  str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: name
+                                                    
+                                                    	name string for the entity
+                                                    	**type**\:  str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: serial_number
+                                                    
+                                                    	serial number
+                                                    	**type**\:  str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: software_revision
+                                                    
+                                                    	software revision string
+                                                    	**type**\:  str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    .. attribute:: vendor_type
+                                                    
+                                                    	maps to the vendor OID string
+                                                    	**type**\:  str
+                                                    
+                                                    	**length:** 0..255
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'plat-chas-invmgr-oper'
+                                                    _revision = '2015-01-07'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.description = None
+                                                        self.firmware_revision = None
+                                                        self.hardware_revision = None
+                                                        self.is_field_replaceable_unit = None
+                                                        self.model_name = None
+                                                        self.name = None
+                                                        self.serial_number = None
+                                                        self.software_revision = None
+                                                        self.vendor_type = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return False
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.description is not None:
+                                                            return True
+
+                                                        if self.firmware_revision is not None:
+                                                            return True
+
+                                                        if self.hardware_revision is not None:
+                                                            return True
+
+                                                        if self.is_field_replaceable_unit is not None:
+                                                            return True
+
+                                                        if self.model_name is not None:
+                                                            return True
+
+                                                        if self.name is not None:
+                                                            return True
+
+                                                        if self.serial_number is not None:
+                                                            return True
+
+                                                        if self.software_revision is not None:
+                                                            return True
+
+                                                        if self.vendor_type is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo']['meta_info']
+
+
+                                                class FruInfo(object):
+                                                    """
+                                                    Field Replaceable Unit (FRU) attributes
+                                                    
+                                                    .. attribute:: last_operational_state_change
+                                                    
+                                                    	Time operational state is   last changed
+                                                    	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
+                                                    
+                                                    .. attribute:: module_administrative_state
+                                                    
+                                                    	Administrative    state
+                                                    	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                                    
+                                                    .. attribute:: module_monitor_state
+                                                    
+                                                    	Monitor state
+                                                    	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                                    
+                                                    .. attribute:: module_operational_state
+                                                    
+                                                    	Operation state
+                                                    	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                    
+                                                    .. attribute:: module_power_administrative_state
+                                                    
+                                                    	Power administrative state
+                                                    	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                    
+                                                    .. attribute:: module_reset_reason
+                                                    
+                                                    	Reset reason
+                                                    	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                    
+                                                    .. attribute:: module_up_time
+                                                    
+                                                    	Module up time
+                                                    	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'plat-chas-invmgr-oper'
+                                                    _revision = '2015-01-07'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange()
+                                                        self.last_operational_state_change.parent = self
+                                                        self.module_administrative_state = None
+                                                        self.module_monitor_state = None
+                                                        self.module_operational_state = None
+                                                        self.module_power_administrative_state = None
+                                                        self.module_reset_reason = None
+                                                        self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime()
+                                                        self.module_up_time.parent = self
+
+
+                                                    class LastOperationalStateChange(object):
+                                                        """
+                                                        Time operational state is   last changed
+                                                        
+                                                        .. attribute:: time_in_nano_seconds
+                                                        
+                                                        	Time Value in Nano\-seconds
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**units**\: nanosecond
+                                                        
+                                                        .. attribute:: time_in_seconds
+                                                        
+                                                        	Time Value in Seconds
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**units**\: second
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'plat-chas-invmgr-oper'
+                                                        _revision = '2015-01-07'
+
+                                                        def __init__(self):
+                                                            self.parent = None
+                                                            self.time_in_nano_seconds = None
+                                                            self.time_in_seconds = None
+
+                                                        @property
+                                                        def _common_path(self):
+                                                            if self.parent is None:
+                                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
+
+                                                        def is_config(self):
+                                                            ''' Returns True if this instance represents config data else returns False '''
+                                                            return False
+
+                                                        def _has_data(self):
+                                                            if not self.is_config():
+                                                                return False
+                                                            if self.time_in_nano_seconds is not None:
+                                                                return True
+
+                                                            if self.time_in_seconds is not None:
+                                                                return True
+
+                                                            return False
+
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange']['meta_info']
+
+
+                                                    class ModuleUpTime(object):
+                                                        """
+                                                        Module up time
+                                                        
+                                                        .. attribute:: time_in_nano_seconds
+                                                        
+                                                        	Time Value in Nano\-seconds
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**units**\: nanosecond
+                                                        
+                                                        .. attribute:: time_in_seconds
+                                                        
+                                                        	Time Value in Seconds
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**units**\: second
+                                                        
+                                                        
+
+                                                        """
+
+                                                        _prefix = 'plat-chas-invmgr-oper'
+                                                        _revision = '2015-01-07'
+
+                                                        def __init__(self):
+                                                            self.parent = None
+                                                            self.time_in_nano_seconds = None
+                                                            self.time_in_seconds = None
+
+                                                        @property
+                                                        def _common_path(self):
+                                                            if self.parent is None:
+                                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
+
+                                                        def is_config(self):
+                                                            ''' Returns True if this instance represents config data else returns False '''
+                                                            return False
+
+                                                        def _has_data(self):
+                                                            if not self.is_config():
+                                                                return False
+                                                            if self.time_in_nano_seconds is not None:
+                                                                return True
+
+                                                            if self.time_in_seconds is not None:
+                                                                return True
+
+                                                            return False
+
+                                                        @staticmethod
+                                                        def _meta_info():
+                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime']['meta_info']
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return False
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
+                                                            return True
+
+                                                        if self.module_administrative_state is not None:
+                                                            return True
+
+                                                        if self.module_monitor_state is not None:
+                                                            return True
+
+                                                        if self.module_operational_state is not None:
+                                                            return True
+
+                                                        if self.module_power_administrative_state is not None:
+                                                            return True
+
+                                                        if self.module_reset_reason is not None:
+                                                            return True
+
+                                                        if self.module_up_time is not None and self.module_up_time._has_data():
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.basic_info is not None and self.basic_info._has_data():
+                                                        return True
+
+                                                    if self.fru_info is not None and self.fru_info._has_data():
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                                if self.name is None:
+                                                    raise YPYModelError('Key property name is None')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sensor[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.name is not None:
+                                                    return True
+
+                                                if self.attributes is not None and self.attributes._has_data():
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sensors'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.sensor is not None:
+                                                for child_ref in self.sensor:
+                                                    if child_ref._has_data():
+                                                        return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors']['meta_info']
+
+
+                                    class Attributes(object):
+                                        """
+                                        Attributes
+                                        
+                                        .. attribute:: basic_info
+                                        
+                                        	Entity attributes
+                                        	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo>`
+                                        
+                                        .. attribute:: fru_info
+                                        
+                                        	Field Replaceable Unit (FRU) attributes
+                                        	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'plat-chas-invmgr-oper'
+                                        _revision = '2015-01-07'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo()
+                                            self.basic_info.parent = self
+                                            self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo()
+                                            self.fru_info.parent = self
+
+
+                                        class BasicInfo(object):
+                                            """
+                                            Entity attributes
+                                            
+                                            .. attribute:: description
+                                            
+                                            	describes in user\-readable terms                 what the entity in question does
+                                            	**type**\:  str
+                                            
+                                            	**length:** 0..255
+                                            
+                                            .. attribute:: firmware_revision
+                                            
+                                            	firmware revision string
+                                            	**type**\:  str
+                                            
+                                            	**length:** 0..255
+                                            
+                                            .. attribute:: hardware_revision
+                                            
+                                            	hw revision string
+                                            	**type**\:  str
+                                            
+                                            	**length:** 0..255
+                                            
+                                            .. attribute:: is_field_replaceable_unit
+                                            
+                                            	1 if Field Replaceable Unit 0, if not
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: model_name
+                                            
+                                            	model name
+                                            	**type**\:  str
+                                            
+                                            	**length:** 0..255
+                                            
+                                            .. attribute:: name
+                                            
+                                            	name string for the entity
+                                            	**type**\:  str
+                                            
+                                            	**length:** 0..255
+                                            
+                                            .. attribute:: serial_number
+                                            
+                                            	serial number
+                                            	**type**\:  str
+                                            
+                                            	**length:** 0..255
+                                            
+                                            .. attribute:: software_revision
+                                            
+                                            	software revision string
+                                            	**type**\:  str
+                                            
+                                            	**length:** 0..255
+                                            
+                                            .. attribute:: vendor_type
+                                            
+                                            	maps to the vendor OID string
+                                            	**type**\:  str
+                                            
+                                            	**length:** 0..255
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'plat-chas-invmgr-oper'
+                                            _revision = '2015-01-07'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.description = None
+                                                self.firmware_revision = None
+                                                self.hardware_revision = None
+                                                self.is_field_replaceable_unit = None
+                                                self.model_name = None
+                                                self.name = None
+                                                self.serial_number = None
+                                                self.software_revision = None
+                                                self.vendor_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.description is not None:
+                                                    return True
+
+                                                if self.firmware_revision is not None:
+                                                    return True
+
+                                                if self.hardware_revision is not None:
+                                                    return True
+
+                                                if self.is_field_replaceable_unit is not None:
+                                                    return True
+
+                                                if self.model_name is not None:
+                                                    return True
+
+                                                if self.name is not None:
+                                                    return True
+
+                                                if self.serial_number is not None:
+                                                    return True
+
+                                                if self.software_revision is not None:
+                                                    return True
+
+                                                if self.vendor_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo']['meta_info']
+
+
+                                        class FruInfo(object):
+                                            """
+                                            Field Replaceable Unit (FRU) attributes
+                                            
+                                            .. attribute:: last_operational_state_change
+                                            
+                                            	Time operational state is   last changed
+                                            	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange>`
+                                            
+                                            .. attribute:: module_administrative_state
+                                            
+                                            	Administrative    state
+                                            	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                            
+                                            .. attribute:: module_monitor_state
+                                            
+                                            	Monitor state
+                                            	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                            
+                                            .. attribute:: module_operational_state
+                                            
+                                            	Operation state
+                                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                            
+                                            .. attribute:: module_power_administrative_state
+                                            
+                                            	Power administrative state
+                                            	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                            
+                                            .. attribute:: module_reset_reason
+                                            
+                                            	Reset reason
+                                            	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                            
+                                            .. attribute:: module_up_time
+                                            
+                                            	Module up time
+                                            	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'plat-chas-invmgr-oper'
+                                            _revision = '2015-01-07'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange()
+                                                self.last_operational_state_change.parent = self
+                                                self.module_administrative_state = None
+                                                self.module_monitor_state = None
+                                                self.module_operational_state = None
+                                                self.module_power_administrative_state = None
+                                                self.module_reset_reason = None
+                                                self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime()
+                                                self.module_up_time.parent = self
+
+
+                                            class LastOperationalStateChange(object):
+                                                """
+                                                Time operational state is   last changed
+                                                
+                                                .. attribute:: time_in_nano_seconds
+                                                
+                                                	Time Value in Nano\-seconds
+                                                	**type**\:  int
+                                                
+                                                	**range:** \-2147483648..2147483647
+                                                
+                                                	**units**\: nanosecond
+                                                
+                                                .. attribute:: time_in_seconds
+                                                
+                                                	Time Value in Seconds
+                                                	**type**\:  int
+                                                
+                                                	**range:** \-2147483648..2147483647
+                                                
+                                                	**units**\: second
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'plat-chas-invmgr-oper'
+                                                _revision = '2015-01-07'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.time_in_nano_seconds = None
+                                                    self.time_in_seconds = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.time_in_nano_seconds is not None:
+                                                        return True
+
+                                                    if self.time_in_seconds is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange']['meta_info']
+
+
+                                            class ModuleUpTime(object):
+                                                """
+                                                Module up time
+                                                
+                                                .. attribute:: time_in_nano_seconds
+                                                
+                                                	Time Value in Nano\-seconds
+                                                	**type**\:  int
+                                                
+                                                	**range:** \-2147483648..2147483647
+                                                
+                                                	**units**\: nanosecond
+                                                
+                                                .. attribute:: time_in_seconds
+                                                
+                                                	Time Value in Seconds
+                                                	**type**\:  int
+                                                
+                                                	**range:** \-2147483648..2147483647
+                                                
+                                                	**units**\: second
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'plat-chas-invmgr-oper'
+                                                _revision = '2015-01-07'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.time_in_nano_seconds = None
+                                                    self.time_in_seconds = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return False
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.time_in_nano_seconds is not None:
+                                                        return True
+
+                                                    if self.time_in_seconds is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return False
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
+                                                    return True
+
+                                                if self.module_administrative_state is not None:
+                                                    return True
+
+                                                if self.module_monitor_state is not None:
+                                                    return True
+
+                                                if self.module_operational_state is not None:
+                                                    return True
+
+                                                if self.module_power_administrative_state is not None:
+                                                    return True
+
+                                                if self.module_reset_reason is not None:
+                                                    return True
+
+                                                if self.module_up_time is not None and self.module_up_time._has_data():
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.basic_info is not None and self.basic_info._has_data():
+                                                return True
+
+                                            if self.fru_info is not None and self.fru_info._has_data():
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                        if self.name is None:
+                                            raise YPYModelError('Key property name is None')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:port-slot[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.name is not None:
+                                            return True
+
+                                        if self.attributes is not None and self.attributes._has_data():
+                                            return True
+
+                                        if self.portses is not None and self.portses._has_data():
+                                            return True
+
+                                        if self.sensors is not None and self.sensors._has_data():
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:port-slots'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.port_slot is not None:
+                                        for child_ref in self.port_slot:
+                                            if child_ref._has_data():
+                                                return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
+                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots']['meta_info']
+
+
                             class HwComponents(object):
                                 """
                                 Table of  HW components 
@@ -7188,1530 +11499,6 @@ class PlatformInventory(object):
                                     return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents']['meta_info']
 
 
-                            class PortSlots(object):
-                                """
-                                Table of port slots
-                                
-                                .. attribute:: port_slot
-                                
-                                	Port slot number
-                                	**type**\: list of    :py:class:`PortSlot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'plat-chas-invmgr-oper'
-                                _revision = '2015-01-07'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.port_slot = YList()
-                                    self.port_slot.parent = self
-                                    self.port_slot.name = 'port_slot'
-
-
-                                class PortSlot(object):
-                                    """
-                                    Port slot number
-                                    
-                                    .. attribute:: name  <key>
-                                    
-                                    	Port slot name
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                                    
-                                    .. attribute:: attributes
-                                    
-                                    	Attributes
-                                    	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes>`
-                                    
-                                    .. attribute:: port
-                                    
-                                    	Port
-                                    	**type**\:   :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port>`
-                                    
-                                    .. attribute:: sensors
-                                    
-                                    	Table of sensors
-                                    	**type**\:   :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'plat-chas-invmgr-oper'
-                                    _revision = '2015-01-07'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.name = None
-                                        self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes()
-                                        self.attributes.parent = self
-                                        self.port = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port()
-                                        self.port.parent = self
-                                        self.sensors = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors()
-                                        self.sensors.parent = self
-
-
-                                    class Port(object):
-                                        """
-                                        Port
-                                        
-                                        .. attribute:: attributes
-                                        
-                                        	Attributes
-                                        	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'plat-chas-invmgr-oper'
-                                        _revision = '2015-01-07'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes()
-                                            self.attributes.parent = self
-
-
-                                        class Attributes(object):
-                                            """
-                                            Attributes
-                                            
-                                            .. attribute:: basic_info
-                                            
-                                            	Entity attributes
-                                            	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.BasicInfo>`
-                                            
-                                            .. attribute:: fru_info
-                                            
-                                            	Field Replaceable Unit (FRU) attributes
-                                            	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'plat-chas-invmgr-oper'
-                                            _revision = '2015-01-07'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.BasicInfo()
-                                                self.basic_info.parent = self
-                                                self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo()
-                                                self.fru_info.parent = self
-
-
-                                            class BasicInfo(object):
-                                                """
-                                                Entity attributes
-                                                
-                                                .. attribute:: description
-                                                
-                                                	describes in user\-readable terms                 what the entity in question does
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..255
-                                                
-                                                .. attribute:: firmware_revision
-                                                
-                                                	firmware revision string
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..255
-                                                
-                                                .. attribute:: hardware_revision
-                                                
-                                                	hw revision string
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..255
-                                                
-                                                .. attribute:: is_field_replaceable_unit
-                                                
-                                                	1 if Field Replaceable Unit 0, if not
-                                                	**type**\:  bool
-                                                
-                                                .. attribute:: model_name
-                                                
-                                                	model name
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..255
-                                                
-                                                .. attribute:: name
-                                                
-                                                	name string for the entity
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..255
-                                                
-                                                .. attribute:: serial_number
-                                                
-                                                	serial number
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..255
-                                                
-                                                .. attribute:: software_revision
-                                                
-                                                	software revision string
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..255
-                                                
-                                                .. attribute:: vendor_type
-                                                
-                                                	maps to the vendor OID string
-                                                	**type**\:  str
-                                                
-                                                	**length:** 0..255
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'plat-chas-invmgr-oper'
-                                                _revision = '2015-01-07'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.description = None
-                                                    self.firmware_revision = None
-                                                    self.hardware_revision = None
-                                                    self.is_field_replaceable_unit = None
-                                                    self.model_name = None
-                                                    self.name = None
-                                                    self.serial_number = None
-                                                    self.software_revision = None
-                                                    self.vendor_type = None
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return False
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.description is not None:
-                                                        return True
-
-                                                    if self.firmware_revision is not None:
-                                                        return True
-
-                                                    if self.hardware_revision is not None:
-                                                        return True
-
-                                                    if self.is_field_replaceable_unit is not None:
-                                                        return True
-
-                                                    if self.model_name is not None:
-                                                        return True
-
-                                                    if self.name is not None:
-                                                        return True
-
-                                                    if self.serial_number is not None:
-                                                        return True
-
-                                                    if self.software_revision is not None:
-                                                        return True
-
-                                                    if self.vendor_type is not None:
-                                                        return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.BasicInfo']['meta_info']
-
-
-                                            class FruInfo(object):
-                                                """
-                                                Field Replaceable Unit (FRU) attributes
-                                                
-                                                .. attribute:: last_operational_state_change
-                                                
-                                                	Time operational state is   last changed
-                                                	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange>`
-                                                
-                                                .. attribute:: module_administrative_state
-                                                
-                                                	Administrative    state
-                                                	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
-                                                
-                                                .. attribute:: module_monitor_state
-                                                
-                                                	Monitor state
-                                                	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
-                                                
-                                                .. attribute:: module_operational_state
-                                                
-                                                	Operation state
-                                                	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
-                                                
-                                                .. attribute:: module_power_administrative_state
-                                                
-                                                	Power administrative state
-                                                	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
-                                                
-                                                .. attribute:: module_reset_reason
-                                                
-                                                	Reset reason
-                                                	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
-                                                
-                                                .. attribute:: module_up_time
-                                                
-                                                	Module up time
-                                                	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime>`
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'plat-chas-invmgr-oper'
-                                                _revision = '2015-01-07'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange()
-                                                    self.last_operational_state_change.parent = self
-                                                    self.module_administrative_state = None
-                                                    self.module_monitor_state = None
-                                                    self.module_operational_state = None
-                                                    self.module_power_administrative_state = None
-                                                    self.module_reset_reason = None
-                                                    self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime()
-                                                    self.module_up_time.parent = self
-
-
-                                                class LastOperationalStateChange(object):
-                                                    """
-                                                    Time operational state is   last changed
-                                                    
-                                                    .. attribute:: time_in_nano_seconds
-                                                    
-                                                    	Time Value in Nano\-seconds
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** \-2147483648..2147483647
-                                                    
-                                                    	**units**\: nanosecond
-                                                    
-                                                    .. attribute:: time_in_seconds
-                                                    
-                                                    	Time Value in Seconds
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** \-2147483648..2147483647
-                                                    
-                                                    	**units**\: second
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'plat-chas-invmgr-oper'
-                                                    _revision = '2015-01-07'
-
-                                                    def __init__(self):
-                                                        self.parent = None
-                                                        self.time_in_nano_seconds = None
-                                                        self.time_in_seconds = None
-
-                                                    @property
-                                                    def _common_path(self):
-                                                        if self.parent is None:
-                                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
-
-                                                    def is_config(self):
-                                                        ''' Returns True if this instance represents config data else returns False '''
-                                                        return False
-
-                                                    def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
-                                                        if self.time_in_nano_seconds is not None:
-                                                            return True
-
-                                                        if self.time_in_seconds is not None:
-                                                            return True
-
-                                                        return False
-
-                                                    @staticmethod
-                                                    def _meta_info():
-                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange']['meta_info']
-
-
-                                                class ModuleUpTime(object):
-                                                    """
-                                                    Module up time
-                                                    
-                                                    .. attribute:: time_in_nano_seconds
-                                                    
-                                                    	Time Value in Nano\-seconds
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** \-2147483648..2147483647
-                                                    
-                                                    	**units**\: nanosecond
-                                                    
-                                                    .. attribute:: time_in_seconds
-                                                    
-                                                    	Time Value in Seconds
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** \-2147483648..2147483647
-                                                    
-                                                    	**units**\: second
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'plat-chas-invmgr-oper'
-                                                    _revision = '2015-01-07'
-
-                                                    def __init__(self):
-                                                        self.parent = None
-                                                        self.time_in_nano_seconds = None
-                                                        self.time_in_seconds = None
-
-                                                    @property
-                                                    def _common_path(self):
-                                                        if self.parent is None:
-                                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
-
-                                                    def is_config(self):
-                                                        ''' Returns True if this instance represents config data else returns False '''
-                                                        return False
-
-                                                    def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
-                                                        if self.time_in_nano_seconds is not None:
-                                                            return True
-
-                                                        if self.time_in_seconds is not None:
-                                                            return True
-
-                                                        return False
-
-                                                    @staticmethod
-                                                    def _meta_info():
-                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime']['meta_info']
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return False
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
-                                                        return True
-
-                                                    if self.module_administrative_state is not None:
-                                                        return True
-
-                                                    if self.module_monitor_state is not None:
-                                                        return True
-
-                                                    if self.module_operational_state is not None:
-                                                        return True
-
-                                                    if self.module_power_administrative_state is not None:
-                                                        return True
-
-                                                    if self.module_reset_reason is not None:
-                                                        return True
-
-                                                    if self.module_up_time is not None and self.module_up_time._has_data():
-                                                        return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo']['meta_info']
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return False
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.basic_info is not None and self.basic_info._has_data():
-                                                    return True
-
-                                                if self.fru_info is not None and self.fru_info._has_data():
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes']['meta_info']
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:port'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.attributes is not None and self.attributes._has_data():
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port']['meta_info']
-
-
-                                    class Sensors(object):
-                                        """
-                                        Table of sensors
-                                        
-                                        .. attribute:: sensor
-                                        
-                                        	Sensor number
-                                        	**type**\: list of    :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'plat-chas-invmgr-oper'
-                                        _revision = '2015-01-07'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.sensor = YList()
-                                            self.sensor.parent = self
-                                            self.sensor.name = 'sensor'
-
-
-                                        class Sensor(object):
-                                            """
-                                            Sensor number
-                                            
-                                            .. attribute:: name  <key>
-                                            
-                                            	Sensor name
-                                            	**type**\:  str
-                                            
-                                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                                            
-                                            .. attribute:: attributes
-                                            
-                                            	Attributes
-                                            	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'plat-chas-invmgr-oper'
-                                            _revision = '2015-01-07'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.name = None
-                                                self.attributes = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes()
-                                                self.attributes.parent = self
-
-
-                                            class Attributes(object):
-                                                """
-                                                Attributes
-                                                
-                                                .. attribute:: basic_info
-                                                
-                                                	Entity attributes
-                                                	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo>`
-                                                
-                                                .. attribute:: fru_info
-                                                
-                                                	Field Replaceable Unit (FRU) attributes
-                                                	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo>`
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'plat-chas-invmgr-oper'
-                                                _revision = '2015-01-07'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo()
-                                                    self.basic_info.parent = self
-                                                    self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo()
-                                                    self.fru_info.parent = self
-
-
-                                                class BasicInfo(object):
-                                                    """
-                                                    Entity attributes
-                                                    
-                                                    .. attribute:: description
-                                                    
-                                                    	describes in user\-readable terms                 what the entity in question does
-                                                    	**type**\:  str
-                                                    
-                                                    	**length:** 0..255
-                                                    
-                                                    .. attribute:: firmware_revision
-                                                    
-                                                    	firmware revision string
-                                                    	**type**\:  str
-                                                    
-                                                    	**length:** 0..255
-                                                    
-                                                    .. attribute:: hardware_revision
-                                                    
-                                                    	hw revision string
-                                                    	**type**\:  str
-                                                    
-                                                    	**length:** 0..255
-                                                    
-                                                    .. attribute:: is_field_replaceable_unit
-                                                    
-                                                    	1 if Field Replaceable Unit 0, if not
-                                                    	**type**\:  bool
-                                                    
-                                                    .. attribute:: model_name
-                                                    
-                                                    	model name
-                                                    	**type**\:  str
-                                                    
-                                                    	**length:** 0..255
-                                                    
-                                                    .. attribute:: name
-                                                    
-                                                    	name string for the entity
-                                                    	**type**\:  str
-                                                    
-                                                    	**length:** 0..255
-                                                    
-                                                    .. attribute:: serial_number
-                                                    
-                                                    	serial number
-                                                    	**type**\:  str
-                                                    
-                                                    	**length:** 0..255
-                                                    
-                                                    .. attribute:: software_revision
-                                                    
-                                                    	software revision string
-                                                    	**type**\:  str
-                                                    
-                                                    	**length:** 0..255
-                                                    
-                                                    .. attribute:: vendor_type
-                                                    
-                                                    	maps to the vendor OID string
-                                                    	**type**\:  str
-                                                    
-                                                    	**length:** 0..255
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'plat-chas-invmgr-oper'
-                                                    _revision = '2015-01-07'
-
-                                                    def __init__(self):
-                                                        self.parent = None
-                                                        self.description = None
-                                                        self.firmware_revision = None
-                                                        self.hardware_revision = None
-                                                        self.is_field_replaceable_unit = None
-                                                        self.model_name = None
-                                                        self.name = None
-                                                        self.serial_number = None
-                                                        self.software_revision = None
-                                                        self.vendor_type = None
-
-                                                    @property
-                                                    def _common_path(self):
-                                                        if self.parent is None:
-                                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
-
-                                                    def is_config(self):
-                                                        ''' Returns True if this instance represents config data else returns False '''
-                                                        return False
-
-                                                    def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
-                                                        if self.description is not None:
-                                                            return True
-
-                                                        if self.firmware_revision is not None:
-                                                            return True
-
-                                                        if self.hardware_revision is not None:
-                                                            return True
-
-                                                        if self.is_field_replaceable_unit is not None:
-                                                            return True
-
-                                                        if self.model_name is not None:
-                                                            return True
-
-                                                        if self.name is not None:
-                                                            return True
-
-                                                        if self.serial_number is not None:
-                                                            return True
-
-                                                        if self.software_revision is not None:
-                                                            return True
-
-                                                        if self.vendor_type is not None:
-                                                            return True
-
-                                                        return False
-
-                                                    @staticmethod
-                                                    def _meta_info():
-                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo']['meta_info']
-
-
-                                                class FruInfo(object):
-                                                    """
-                                                    Field Replaceable Unit (FRU) attributes
-                                                    
-                                                    .. attribute:: last_operational_state_change
-                                                    
-                                                    	Time operational state is   last changed
-                                                    	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
-                                                    
-                                                    .. attribute:: module_administrative_state
-                                                    
-                                                    	Administrative    state
-                                                    	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
-                                                    
-                                                    .. attribute:: module_monitor_state
-                                                    
-                                                    	Monitor state
-                                                    	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
-                                                    
-                                                    .. attribute:: module_operational_state
-                                                    
-                                                    	Operation state
-                                                    	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
-                                                    
-                                                    .. attribute:: module_power_administrative_state
-                                                    
-                                                    	Power administrative state
-                                                    	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
-                                                    
-                                                    .. attribute:: module_reset_reason
-                                                    
-                                                    	Reset reason
-                                                    	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
-                                                    
-                                                    .. attribute:: module_up_time
-                                                    
-                                                    	Module up time
-                                                    	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'plat-chas-invmgr-oper'
-                                                    _revision = '2015-01-07'
-
-                                                    def __init__(self):
-                                                        self.parent = None
-                                                        self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange()
-                                                        self.last_operational_state_change.parent = self
-                                                        self.module_administrative_state = None
-                                                        self.module_monitor_state = None
-                                                        self.module_operational_state = None
-                                                        self.module_power_administrative_state = None
-                                                        self.module_reset_reason = None
-                                                        self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime()
-                                                        self.module_up_time.parent = self
-
-
-                                                    class LastOperationalStateChange(object):
-                                                        """
-                                                        Time operational state is   last changed
-                                                        
-                                                        .. attribute:: time_in_nano_seconds
-                                                        
-                                                        	Time Value in Nano\-seconds
-                                                        	**type**\:  int
-                                                        
-                                                        	**range:** \-2147483648..2147483647
-                                                        
-                                                        	**units**\: nanosecond
-                                                        
-                                                        .. attribute:: time_in_seconds
-                                                        
-                                                        	Time Value in Seconds
-                                                        	**type**\:  int
-                                                        
-                                                        	**range:** \-2147483648..2147483647
-                                                        
-                                                        	**units**\: second
-                                                        
-                                                        
-
-                                                        """
-
-                                                        _prefix = 'plat-chas-invmgr-oper'
-                                                        _revision = '2015-01-07'
-
-                                                        def __init__(self):
-                                                            self.parent = None
-                                                            self.time_in_nano_seconds = None
-                                                            self.time_in_seconds = None
-
-                                                        @property
-                                                        def _common_path(self):
-                                                            if self.parent is None:
-                                                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
-
-                                                        def is_config(self):
-                                                            ''' Returns True if this instance represents config data else returns False '''
-                                                            return False
-
-                                                        def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
-                                                            if self.time_in_nano_seconds is not None:
-                                                                return True
-
-                                                            if self.time_in_seconds is not None:
-                                                                return True
-
-                                                            return False
-
-                                                        @staticmethod
-                                                        def _meta_info():
-                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange']['meta_info']
-
-
-                                                    class ModuleUpTime(object):
-                                                        """
-                                                        Module up time
-                                                        
-                                                        .. attribute:: time_in_nano_seconds
-                                                        
-                                                        	Time Value in Nano\-seconds
-                                                        	**type**\:  int
-                                                        
-                                                        	**range:** \-2147483648..2147483647
-                                                        
-                                                        	**units**\: nanosecond
-                                                        
-                                                        .. attribute:: time_in_seconds
-                                                        
-                                                        	Time Value in Seconds
-                                                        	**type**\:  int
-                                                        
-                                                        	**range:** \-2147483648..2147483647
-                                                        
-                                                        	**units**\: second
-                                                        
-                                                        
-
-                                                        """
-
-                                                        _prefix = 'plat-chas-invmgr-oper'
-                                                        _revision = '2015-01-07'
-
-                                                        def __init__(self):
-                                                            self.parent = None
-                                                            self.time_in_nano_seconds = None
-                                                            self.time_in_seconds = None
-
-                                                        @property
-                                                        def _common_path(self):
-                                                            if self.parent is None:
-                                                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
-
-                                                        def is_config(self):
-                                                            ''' Returns True if this instance represents config data else returns False '''
-                                                            return False
-
-                                                        def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
-                                                            if self.time_in_nano_seconds is not None:
-                                                                return True
-
-                                                            if self.time_in_seconds is not None:
-                                                                return True
-
-                                                            return False
-
-                                                        @staticmethod
-                                                        def _meta_info():
-                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime']['meta_info']
-
-                                                    @property
-                                                    def _common_path(self):
-                                                        if self.parent is None:
-                                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
-
-                                                    def is_config(self):
-                                                        ''' Returns True if this instance represents config data else returns False '''
-                                                        return False
-
-                                                    def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
-                                                        if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
-                                                            return True
-
-                                                        if self.module_administrative_state is not None:
-                                                            return True
-
-                                                        if self.module_monitor_state is not None:
-                                                            return True
-
-                                                        if self.module_operational_state is not None:
-                                                            return True
-
-                                                        if self.module_power_administrative_state is not None:
-                                                            return True
-
-                                                        if self.module_reset_reason is not None:
-                                                            return True
-
-                                                        if self.module_up_time is not None and self.module_up_time._has_data():
-                                                            return True
-
-                                                        return False
-
-                                                    @staticmethod
-                                                    def _meta_info():
-                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo']['meta_info']
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return False
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.basic_info is not None and self.basic_info._has_data():
-                                                        return True
-
-                                                    if self.fru_info is not None and self.fru_info._has_data():
-                                                        return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes']['meta_info']
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
-                                                if self.name is None:
-                                                    raise YPYModelError('Key property name is None')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sensor[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return False
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.name is not None:
-                                                    return True
-
-                                                if self.attributes is not None and self.attributes._has_data():
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor']['meta_info']
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:sensors'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.sensor is not None:
-                                                for child_ref in self.sensor:
-                                                    if child_ref._has_data():
-                                                        return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors']['meta_info']
-
-
-                                    class Attributes(object):
-                                        """
-                                        Attributes
-                                        
-                                        .. attribute:: basic_info
-                                        
-                                        	Entity attributes
-                                        	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo>`
-                                        
-                                        .. attribute:: fru_info
-                                        
-                                        	Field Replaceable Unit (FRU) attributes
-                                        	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'plat-chas-invmgr-oper'
-                                        _revision = '2015-01-07'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.basic_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo()
-                                            self.basic_info.parent = self
-                                            self.fru_info = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo()
-                                            self.fru_info.parent = self
-
-
-                                        class BasicInfo(object):
-                                            """
-                                            Entity attributes
-                                            
-                                            .. attribute:: description
-                                            
-                                            	describes in user\-readable terms                 what the entity in question does
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..255
-                                            
-                                            .. attribute:: firmware_revision
-                                            
-                                            	firmware revision string
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..255
-                                            
-                                            .. attribute:: hardware_revision
-                                            
-                                            	hw revision string
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..255
-                                            
-                                            .. attribute:: is_field_replaceable_unit
-                                            
-                                            	1 if Field Replaceable Unit 0, if not
-                                            	**type**\:  bool
-                                            
-                                            .. attribute:: model_name
-                                            
-                                            	model name
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..255
-                                            
-                                            .. attribute:: name
-                                            
-                                            	name string for the entity
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..255
-                                            
-                                            .. attribute:: serial_number
-                                            
-                                            	serial number
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..255
-                                            
-                                            .. attribute:: software_revision
-                                            
-                                            	software revision string
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..255
-                                            
-                                            .. attribute:: vendor_type
-                                            
-                                            	maps to the vendor OID string
-                                            	**type**\:  str
-                                            
-                                            	**length:** 0..255
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'plat-chas-invmgr-oper'
-                                            _revision = '2015-01-07'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.description = None
-                                                self.firmware_revision = None
-                                                self.hardware_revision = None
-                                                self.is_field_replaceable_unit = None
-                                                self.model_name = None
-                                                self.name = None
-                                                self.serial_number = None
-                                                self.software_revision = None
-                                                self.vendor_type = None
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:basic-info'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return False
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.description is not None:
-                                                    return True
-
-                                                if self.firmware_revision is not None:
-                                                    return True
-
-                                                if self.hardware_revision is not None:
-                                                    return True
-
-                                                if self.is_field_replaceable_unit is not None:
-                                                    return True
-
-                                                if self.model_name is not None:
-                                                    return True
-
-                                                if self.name is not None:
-                                                    return True
-
-                                                if self.serial_number is not None:
-                                                    return True
-
-                                                if self.software_revision is not None:
-                                                    return True
-
-                                                if self.vendor_type is not None:
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo']['meta_info']
-
-
-                                        class FruInfo(object):
-                                            """
-                                            Field Replaceable Unit (FRU) attributes
-                                            
-                                            .. attribute:: last_operational_state_change
-                                            
-                                            	Time operational state is   last changed
-                                            	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange>`
-                                            
-                                            .. attribute:: module_administrative_state
-                                            
-                                            	Administrative    state
-                                            	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
-                                            
-                                            .. attribute:: module_monitor_state
-                                            
-                                            	Monitor state
-                                            	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
-                                            
-                                            .. attribute:: module_operational_state
-                                            
-                                            	Operation state
-                                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
-                                            
-                                            .. attribute:: module_power_administrative_state
-                                            
-                                            	Power administrative state
-                                            	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
-                                            
-                                            .. attribute:: module_reset_reason
-                                            
-                                            	Reset reason
-                                            	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
-                                            
-                                            .. attribute:: module_up_time
-                                            
-                                            	Module up time
-                                            	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'plat-chas-invmgr-oper'
-                                            _revision = '2015-01-07'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.last_operational_state_change = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange()
-                                                self.last_operational_state_change.parent = self
-                                                self.module_administrative_state = None
-                                                self.module_monitor_state = None
-                                                self.module_operational_state = None
-                                                self.module_power_administrative_state = None
-                                                self.module_reset_reason = None
-                                                self.module_up_time = PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime()
-                                                self.module_up_time.parent = self
-
-
-                                            class LastOperationalStateChange(object):
-                                                """
-                                                Time operational state is   last changed
-                                                
-                                                .. attribute:: time_in_nano_seconds
-                                                
-                                                	Time Value in Nano\-seconds
-                                                	**type**\:  int
-                                                
-                                                	**range:** \-2147483648..2147483647
-                                                
-                                                	**units**\: nanosecond
-                                                
-                                                .. attribute:: time_in_seconds
-                                                
-                                                	Time Value in Seconds
-                                                	**type**\:  int
-                                                
-                                                	**range:** \-2147483648..2147483647
-                                                
-                                                	**units**\: second
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'plat-chas-invmgr-oper'
-                                                _revision = '2015-01-07'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.time_in_nano_seconds = None
-                                                    self.time_in_seconds = None
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:last-operational-state-change'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return False
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.time_in_nano_seconds is not None:
-                                                        return True
-
-                                                    if self.time_in_seconds is not None:
-                                                        return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange']['meta_info']
-
-
-                                            class ModuleUpTime(object):
-                                                """
-                                                Module up time
-                                                
-                                                .. attribute:: time_in_nano_seconds
-                                                
-                                                	Time Value in Nano\-seconds
-                                                	**type**\:  int
-                                                
-                                                	**range:** \-2147483648..2147483647
-                                                
-                                                	**units**\: nanosecond
-                                                
-                                                .. attribute:: time_in_seconds
-                                                
-                                                	Time Value in Seconds
-                                                	**type**\:  int
-                                                
-                                                	**range:** \-2147483648..2147483647
-                                                
-                                                	**units**\: second
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'plat-chas-invmgr-oper'
-                                                _revision = '2015-01-07'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.time_in_nano_seconds = None
-                                                    self.time_in_seconds = None
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:module-up-time'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return False
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.time_in_nano_seconds is not None:
-                                                        return True
-
-                                                    if self.time_in_seconds is not None:
-                                                        return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime']['meta_info']
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:fru-info'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return False
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
-                                                    return True
-
-                                                if self.module_administrative_state is not None:
-                                                    return True
-
-                                                if self.module_monitor_state is not None:
-                                                    return True
-
-                                                if self.module_operational_state is not None:
-                                                    return True
-
-                                                if self.module_power_administrative_state is not None:
-                                                    return True
-
-                                                if self.module_reset_reason is not None:
-                                                    return True
-
-                                                if self.module_up_time is not None and self.module_up_time._has_data():
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                                return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo']['meta_info']
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:attributes'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return False
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.basic_info is not None and self.basic_info._has_data():
-                                                return True
-
-                                            if self.fru_info is not None and self.fru_info._has_data():
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                            return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes']['meta_info']
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.name is None:
-                                            raise YPYModelError('Key property name is None')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:port-slot[Cisco-IOS-XR-plat-chas-invmgr-oper:name = ' + str(self.name) + ']'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.name is not None:
-                                            return True
-
-                                        if self.attributes is not None and self.attributes._has_data():
-                                            return True
-
-                                        if self.port is not None and self.port._has_data():
-                                            return True
-
-                                        if self.sensors is not None and self.sensors._has_data():
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                        return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-plat-chas-invmgr-oper:port-slots'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.port_slot is not None:
-                                        for child_ref in self.port_slot:
-                                            if child_ref._has_data():
-                                                return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_plat_chas_invmgr_oper as meta
-                                    return meta._meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots']['meta_info']
-
-
                             class Sensors(object):
                                 """
                                 Table of sensors
@@ -9676,9 +12463,6 @@ class PlatformInventory(object):
                                     return True
 
                                 if self.port_slots is not None and self.port_slots._has_data():
-                                    return True
-
-                                if self.portses is not None and self.portses._has_data():
                                     return True
 
                                 if self.sensors is not None and self.sensors._has_data():

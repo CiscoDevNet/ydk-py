@@ -42,11 +42,17 @@ class NfCacheAgingModeEnum(Enum):
 
     	Permanent, caches never age
 
+    .. data:: immediate = 2
+
+    	Immediate, caches age immediately
+
     """
 
     normal = 0
 
     permanent = 1
+
+    immediate = 2
 
 
     @staticmethod
@@ -151,7 +157,7 @@ class NetFlow(object):
             	Exporter map name
             	**type**\:  str
             
-            	**length:** 0..32
+            	**length:** 1..32
             
             .. attribute:: destination
             
@@ -164,6 +170,13 @@ class NetFlow(object):
             	**type**\:  int
             
             	**range:** 0..63
+            
+            .. attribute:: packet_length
+            
+            	Configure Maximum Value for Export Packet size
+            	**type**\:  int
+            
+            	**range:** 512..1468
             
             .. attribute:: source_interface
             
@@ -195,6 +208,7 @@ class NetFlow(object):
                 self.destination = NetFlow.FlowExporterMaps.FlowExporterMap.Destination()
                 self.destination.parent = self
                 self.dscp = None
+                self.packet_length = None
                 self.source_interface = None
                 self.udp = NetFlow.FlowExporterMaps.FlowExporterMap.Udp()
                 self.udp.parent = self
@@ -564,6 +578,9 @@ class NetFlow(object):
                 if self.dscp is not None:
                     return True
 
+                if self.packet_length is not None:
+                    return True
+
                 if self.source_interface is not None:
                     return True
 
@@ -637,7 +654,7 @@ class NetFlow(object):
             	Sampler map name
             	**type**\:  str
             
-            	**length:** 0..32
+            	**length:** 1..32
             
             .. attribute:: sampling_modes
             
@@ -863,7 +880,7 @@ class NetFlow(object):
             	Monitor map name
             	**type**\:  str
             
-            	**length:** 0..32
+            	**length:** 1..32
             
             .. attribute:: cache_active_aging_timeout
             
@@ -967,9 +984,19 @@ class NetFlow(object):
                 """
                 Specify an option for the flow cache
                 
+                .. attribute:: bgp_attr
+                
+                	Specify if BGP Attributes AS\_PATH STD\_COMM should be exported
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
                 .. attribute:: filtered
                 
                 	Specify whether data should be filtered
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: out_bundle_member
+                
+                	Specify whether to export physical ifh for bundle interface
                 	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: out_phys_int
@@ -986,7 +1013,9 @@ class NetFlow(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.bgp_attr = None
                     self.filtered = None
+                    self.out_bundle_member = None
                     self.out_phys_int = None
 
                 @property
@@ -1003,7 +1032,13 @@ class NetFlow(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.bgp_attr is not None:
+                        return True
+
                     if self.filtered is not None:
+                        return True
+
+                    if self.out_bundle_member is not None:
                         return True
 
                     if self.out_phys_int is not None:
@@ -1051,7 +1086,7 @@ class NetFlow(object):
                     	Exporter name
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     
 
@@ -1133,7 +1168,7 @@ class NetFlow(object):
                 	Flow record format (Either 'ipv4\-raw' ,'ipv4\-peer\-as', 'ipv6', 'mpls', 'mpls\-ipv4', 'mpls\-ipv6', 'mpls\-ipv4\-ipv6', 'ipv6\-peer\-as')
                 	**type**\:  str
                 
-                	**length:** 0..32
+                	**length:** 1..32
                 
                 	**mandatory**\: True
                 
@@ -1294,7 +1329,7 @@ class NetFlow(object):
             	Monitor map name
             	**type**\:  str
             
-            	**length:** 0..32
+            	**length:** 1..32
             
             .. attribute:: cache_active_aging_timeout
             
@@ -1398,9 +1433,19 @@ class NetFlow(object):
                 """
                 Specify an option for the flow cache
                 
+                .. attribute:: bgp_attr
+                
+                	Specify if BGP Attributes AS\_PATH STD\_COMM should be exported
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
                 .. attribute:: filtered
                 
                 	Specify whether data should be filtered
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: out_bundle_member
+                
+                	Specify whether to export physical ifh for bundle interface
                 	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: out_phys_int
@@ -1417,7 +1462,9 @@ class NetFlow(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.bgp_attr = None
                     self.filtered = None
+                    self.out_bundle_member = None
                     self.out_phys_int = None
 
                 @property
@@ -1434,7 +1481,13 @@ class NetFlow(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.bgp_attr is not None:
+                        return True
+
                     if self.filtered is not None:
+                        return True
+
+                    if self.out_bundle_member is not None:
                         return True
 
                     if self.out_phys_int is not None:
@@ -1482,7 +1535,7 @@ class NetFlow(object):
                     	Exporter name
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     
 
@@ -1564,7 +1617,7 @@ class NetFlow(object):
                 	Flow record format (Either 'ipv4\-raw' ,'ipv4\-peer\-as', 'ipv6', 'mpls', 'mpls\-ipv4', 'mpls\-ipv6', 'mpls\-ipv4\-ipv6', 'ipv6\-peer\-as')
                 	**type**\:  str
                 
-                	**length:** 0..32
+                	**length:** 1..32
                 
                 	**mandatory**\: True
                 

@@ -191,6 +191,13 @@ class MacsecCtrlrOper(object):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: secure_mode
+                
+                	Secure Mode
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
                 .. attribute:: state
                 
                 	State
@@ -211,6 +218,7 @@ class MacsecCtrlrOper(object):
                     self.encrypt_sc_status.parent = self
                     self.must_secure = None
                     self.replay_window_size = None
+                    self.secure_mode = None
                     self.state = None
 
 
@@ -571,6 +579,9 @@ class MacsecCtrlrOper(object):
                         return True
 
                     if self.replay_window_size is not None:
+                        return True
+
+                    if self.secure_mode is not None:
                         return True
 
                     if self.state is not None:

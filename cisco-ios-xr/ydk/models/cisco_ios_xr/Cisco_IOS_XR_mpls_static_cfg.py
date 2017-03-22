@@ -78,6 +78,62 @@ class MplsStaticLabelModeEnum(Enum):
         return meta._meta_table['MplsStaticLabelModeEnum']
 
 
+class MplsStaticNhAddressFamilyEnum(Enum):
+    """
+    MplsStaticNhAddressFamilyEnum
+
+    Mpls static nh address family
+
+    .. data:: ipv4 = 1
+
+    	IPv4 Next Hop
+
+    .. data:: ipv6 = 2
+
+    	IPv6 Next Hop
+
+    """
+
+    ipv4 = 1
+
+    ipv6 = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+        return meta._meta_table['MplsStaticNhAddressFamilyEnum']
+
+
+class MplsStaticNhModeEnum(Enum):
+    """
+    MplsStaticNhModeEnum
+
+    Mpls static nh mode
+
+    .. data:: configured = 0
+
+    	Explicitly configured next hop path
+
+    .. data:: resolve = 1
+
+    	Resolvable next hop which will result in a path
+
+    	set
+
+    """
+
+    configured = 0
+
+    resolve = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+        return meta._meta_table['MplsStaticNhModeEnum']
+
+
 class MplsStaticOutLabelTypesEnum(Enum):
     """
     MplsStaticOutLabelTypesEnum
@@ -98,7 +154,11 @@ class MplsStaticOutLabelTypesEnum(Enum):
 
     .. data:: exp_null = 3
 
-    	Exp Null
+    	IPv4 explicit-null
+
+    .. data:: ipv6_explicit_null = 4
+
+    	IPv6 explicit-null
 
     """
 
@@ -109,6 +169,8 @@ class MplsStaticOutLabelTypesEnum(Enum):
     pop = 2
 
     exp_null = 3
+
+    ipv6_explicit_null = 4
 
 
     @staticmethod
@@ -142,6 +204,39 @@ class MplsStaticPathEnum(Enum):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
         return meta._meta_table['MplsStaticPathEnum']
+
+
+class MplsStaticPathRoleEnum(Enum):
+    """
+    MplsStaticPathRoleEnum
+
+    Mpls static path role
+
+    .. data:: primary = 0
+
+    	Path is only for primary traffic
+
+    .. data:: backup = 1
+
+    	Path is only for backup traffic
+
+    .. data:: primary_backup = 2
+
+    	Path is for primary and backup traffic
+
+    """
+
+    primary = 0
+
+    backup = 1
+
+    primary_backup = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+        return meta._meta_table['MplsStaticPathRoleEnum']
 
 
 
@@ -286,6 +381,11 @@ class MplsStatic(object):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    .. attribute:: backup_paths
+                    
+                    	Backup Path Parameters
+                    	**type**\:   :py:class:`BackupPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths>`
+                    
                     .. attribute:: enable
                     
                     	MPLS Static Apply Enable
@@ -311,11 +411,241 @@ class MplsStatic(object):
                     def __init__(self):
                         self.parent = None
                         self.lsp_name = None
+                        self.backup_paths = MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths()
+                        self.backup_paths.parent = self
                         self.enable = None
                         self.in_label = MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel()
                         self.in_label.parent = self
                         self.paths = MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths()
                         self.paths.parent = self
+
+
+                    class BackupPaths(object):
+                        """
+                        Backup Path Parameters
+                        
+                        .. attribute:: path
+                        
+                        	Path Information
+                        	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-static-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.path = YList()
+                            self.path.parent = self
+                            self.path.name = 'path'
+
+
+                        class Path(object):
+                            """
+                            Path Information
+                            
+                            .. attribute:: path_id  <key>
+                            
+                            	Number of paths
+                            	**type**\:  int
+                            
+                            	**range:** 1..16
+                            
+                            .. attribute:: afi
+                            
+                            	Next hop Address Family
+                            	**type**\:   :py:class:`MplsStaticNhAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamilyEnum>`
+                            
+                            	**default value**\: ipv4
+                            
+                            .. attribute:: backup_id
+                            
+                            	Backup ID
+                            	**type**\:  int
+                            
+                            	**range:** 0..16
+                            
+                            	**default value**\: 0
+                            
+                            .. attribute:: interface_name
+                            
+                            	Next hop Interface with form <Interface>R/S/I/P
+                            	**type**\:  str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: label_type
+                            
+                            	Type of label (Outlabel, ExpNull or Pop)
+                            	**type**\:   :py:class:`MplsStaticOutLabelTypesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypesEnum>`
+                            
+                            	**default value**\: none
+                            
+                            .. attribute:: metric
+                            
+                            	NH Path Metric
+                            	**type**\:  int
+                            
+                            	**range:** 0..254
+                            
+                            	**default value**\: 0
+                            
+                            .. attribute:: next_hop_address
+                            
+                            	Next Hop IP Address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**default value**\: 0.0.0.0
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**default value**\: 0.0.0.0
+                            
+                            
+                            ----
+                            .. attribute:: next_hop_label
+                            
+                            	Outgoing/NH Label
+                            	**type**\:  int
+                            
+                            	**range:** 16..1048575
+                            
+                            	**default value**\: 16
+                            
+                            .. attribute:: nh_mode
+                            
+                            	Next hop mode
+                            	**type**\:   :py:class:`MplsStaticNhModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhModeEnum>`
+                            
+                            	**default value**\: configured
+                            
+                            .. attribute:: path_role
+                            
+                            	Path Role
+                            	**type**\:   :py:class:`MplsStaticPathRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRoleEnum>`
+                            
+                            	**default value**\: primary
+                            
+                            .. attribute:: path_type
+                            
+                            	Type of Path (PopAndLookup, CrossConnect)
+                            	**type**\:   :py:class:`MplsStaticPathEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathEnum>`
+                            
+                            	**default value**\: cross-connect
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-static-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.path_id = None
+                                self.afi = None
+                                self.backup_id = None
+                                self.interface_name = None
+                                self.label_type = None
+                                self.metric = None
+                                self.next_hop_address = None
+                                self.next_hop_label = None
+                                self.nh_mode = None
+                                self.path_role = None
+                                self.path_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.path_id is None:
+                                    raise YPYModelError('Key property path_id is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:path[Cisco-IOS-XR-mpls-static-cfg:path-id = ' + str(self.path_id) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.path_id is not None:
+                                    return True
+
+                                if self.afi is not None:
+                                    return True
+
+                                if self.backup_id is not None:
+                                    return True
+
+                                if self.interface_name is not None:
+                                    return True
+
+                                if self.label_type is not None:
+                                    return True
+
+                                if self.metric is not None:
+                                    return True
+
+                                if self.next_hop_address is not None:
+                                    return True
+
+                                if self.next_hop_label is not None:
+                                    return True
+
+                                if self.nh_mode is not None:
+                                    return True
+
+                                if self.path_role is not None:
+                                    return True
+
+                                if self.path_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                                return meta._meta_table['MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:backup-paths'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.path is not None:
+                                for child_ref in self.path:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                            return meta._meta_table['MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths']['meta_info']
 
 
                     class InLabel(object):
@@ -358,6 +688,11 @@ class MplsStatic(object):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        .. attribute:: tlh_mode
+                        
+                        	Top Label Hashing Mode
+                        	**type**\:  bool
+                        
                         
 
                         """
@@ -371,6 +706,7 @@ class MplsStatic(object):
                             self.label_mode = None
                             self.prefix = None
                             self.prefix_length = None
+                            self.tlh_mode = None
 
                         @property
                         def _common_path(self):
@@ -396,6 +732,9 @@ class MplsStatic(object):
                                 return True
 
                             if self.prefix_length is not None:
+                                return True
+
+                            if self.tlh_mode is not None:
                                 return True
 
                             return False
@@ -438,7 +777,23 @@ class MplsStatic(object):
                             	Number of paths
                             	**type**\:  int
                             
-                            	**range:** 0..4294967295
+                            	**range:** 1..16
+                            
+                            .. attribute:: afi
+                            
+                            	Next hop Address Family
+                            	**type**\:   :py:class:`MplsStaticNhAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamilyEnum>`
+                            
+                            	**default value**\: ipv4
+                            
+                            .. attribute:: backup_id
+                            
+                            	Backup ID
+                            	**type**\:  int
+                            
+                            	**range:** 0..16
+                            
+                            	**default value**\: 0
                             
                             .. attribute:: interface_name
                             
@@ -454,9 +809,18 @@ class MplsStatic(object):
                             
                             	**default value**\: none
                             
+                            .. attribute:: metric
+                            
+                            	NH Path Metric
+                            	**type**\:  int
+                            
+                            	**range:** 0..254
+                            
+                            	**default value**\: 0
+                            
                             .. attribute:: next_hop_address
                             
-                            	Next Hop IPv4 Address
+                            	Next Hop IP Address
                             	**type**\: one of the below types:
                             
                             	**type**\:  str
@@ -477,12 +841,26 @@ class MplsStatic(object):
                             ----
                             .. attribute:: next_hop_label
                             
-                            	NH Label
+                            	Outgoing/NH Label
                             	**type**\:  int
                             
                             	**range:** 16..1048575
                             
                             	**default value**\: 16
+                            
+                            .. attribute:: nh_mode
+                            
+                            	Next hop mode
+                            	**type**\:   :py:class:`MplsStaticNhModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhModeEnum>`
+                            
+                            	**default value**\: configured
+                            
+                            .. attribute:: path_role
+                            
+                            	Path Role
+                            	**type**\:   :py:class:`MplsStaticPathRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRoleEnum>`
+                            
+                            	**default value**\: primary
                             
                             .. attribute:: path_type
                             
@@ -501,10 +879,15 @@ class MplsStatic(object):
                             def __init__(self):
                                 self.parent = None
                                 self.path_id = None
+                                self.afi = None
+                                self.backup_id = None
                                 self.interface_name = None
                                 self.label_type = None
+                                self.metric = None
                                 self.next_hop_address = None
                                 self.next_hop_label = None
+                                self.nh_mode = None
+                                self.path_role = None
                                 self.path_type = None
 
                             @property
@@ -526,16 +909,31 @@ class MplsStatic(object):
                                 if self.path_id is not None:
                                     return True
 
+                                if self.afi is not None:
+                                    return True
+
+                                if self.backup_id is not None:
+                                    return True
+
                                 if self.interface_name is not None:
                                     return True
 
                                 if self.label_type is not None:
                                     return True
 
+                                if self.metric is not None:
+                                    return True
+
                                 if self.next_hop_address is not None:
                                     return True
 
                                 if self.next_hop_label is not None:
+                                    return True
+
+                                if self.nh_mode is not None:
+                                    return True
+
+                                if self.path_role is not None:
                                     return True
 
                                 if self.path_type is not None:
@@ -591,6 +989,9 @@ class MplsStatic(object):
                         if not self.is_config():
                             return False
                         if self.lsp_name is not None:
+                            return True
+
+                        if self.backup_paths is not None and self.backup_paths._has_data():
                             return True
 
                         if self.enable is not None:
@@ -891,7 +1292,23 @@ class MplsStatic(object):
                                         	Number of paths
                                         	**type**\:  int
                                         
-                                        	**range:** 0..4294967295
+                                        	**range:** 1..16
+                                        
+                                        .. attribute:: afi
+                                        
+                                        	Next hop Address Family
+                                        	**type**\:   :py:class:`MplsStaticNhAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamilyEnum>`
+                                        
+                                        	**default value**\: ipv4
+                                        
+                                        .. attribute:: backup_id
+                                        
+                                        	Backup ID
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..16
+                                        
+                                        	**default value**\: 0
                                         
                                         .. attribute:: interface_name
                                         
@@ -907,9 +1324,18 @@ class MplsStatic(object):
                                         
                                         	**default value**\: none
                                         
+                                        .. attribute:: metric
+                                        
+                                        	NH Path Metric
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..254
+                                        
+                                        	**default value**\: 0
+                                        
                                         .. attribute:: next_hop_address
                                         
-                                        	Next Hop IPv4 Address
+                                        	Next Hop IP Address
                                         	**type**\: one of the below types:
                                         
                                         	**type**\:  str
@@ -930,12 +1356,26 @@ class MplsStatic(object):
                                         ----
                                         .. attribute:: next_hop_label
                                         
-                                        	NH Label
+                                        	Outgoing/NH Label
                                         	**type**\:  int
                                         
                                         	**range:** 16..1048575
                                         
                                         	**default value**\: 16
+                                        
+                                        .. attribute:: nh_mode
+                                        
+                                        	Next hop mode
+                                        	**type**\:   :py:class:`MplsStaticNhModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhModeEnum>`
+                                        
+                                        	**default value**\: configured
+                                        
+                                        .. attribute:: path_role
+                                        
+                                        	Path Role
+                                        	**type**\:   :py:class:`MplsStaticPathRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRoleEnum>`
+                                        
+                                        	**default value**\: primary
                                         
                                         .. attribute:: path_type
                                         
@@ -954,10 +1394,15 @@ class MplsStatic(object):
                                         def __init__(self):
                                             self.parent = None
                                             self.path_id = None
+                                            self.afi = None
+                                            self.backup_id = None
                                             self.interface_name = None
                                             self.label_type = None
+                                            self.metric = None
                                             self.next_hop_address = None
                                             self.next_hop_label = None
+                                            self.nh_mode = None
+                                            self.path_role = None
                                             self.path_type = None
 
                                         @property
@@ -979,16 +1424,31 @@ class MplsStatic(object):
                                             if self.path_id is not None:
                                                 return True
 
+                                            if self.afi is not None:
+                                                return True
+
+                                            if self.backup_id is not None:
+                                                return True
+
                                             if self.interface_name is not None:
                                                 return True
 
                                             if self.label_type is not None:
                                                 return True
 
+                                            if self.metric is not None:
+                                                return True
+
                                             if self.next_hop_address is not None:
                                                 return True
 
                                             if self.next_hop_label is not None:
+                                                return True
+
+                                            if self.nh_mode is not None:
+                                                return True
+
+                                            if self.path_role is not None:
                                                 return True
 
                                             if self.path_type is not None:
@@ -1279,7 +1739,23 @@ class MplsStatic(object):
                                     	Number of paths
                                     	**type**\:  int
                                     
-                                    	**range:** 0..4294967295
+                                    	**range:** 1..16
+                                    
+                                    .. attribute:: afi
+                                    
+                                    	Next hop Address Family
+                                    	**type**\:   :py:class:`MplsStaticNhAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamilyEnum>`
+                                    
+                                    	**default value**\: ipv4
+                                    
+                                    .. attribute:: backup_id
+                                    
+                                    	Backup ID
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..16
+                                    
+                                    	**default value**\: 0
                                     
                                     .. attribute:: interface_name
                                     
@@ -1295,9 +1771,18 @@ class MplsStatic(object):
                                     
                                     	**default value**\: none
                                     
+                                    .. attribute:: metric
+                                    
+                                    	NH Path Metric
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..254
+                                    
+                                    	**default value**\: 0
+                                    
                                     .. attribute:: next_hop_address
                                     
-                                    	Next Hop IPv4 Address
+                                    	Next Hop IP Address
                                     	**type**\: one of the below types:
                                     
                                     	**type**\:  str
@@ -1318,12 +1803,26 @@ class MplsStatic(object):
                                     ----
                                     .. attribute:: next_hop_label
                                     
-                                    	NH Label
+                                    	Outgoing/NH Label
                                     	**type**\:  int
                                     
                                     	**range:** 16..1048575
                                     
                                     	**default value**\: 16
+                                    
+                                    .. attribute:: nh_mode
+                                    
+                                    	Next hop mode
+                                    	**type**\:   :py:class:`MplsStaticNhModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhModeEnum>`
+                                    
+                                    	**default value**\: configured
+                                    
+                                    .. attribute:: path_role
+                                    
+                                    	Path Role
+                                    	**type**\:   :py:class:`MplsStaticPathRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRoleEnum>`
+                                    
+                                    	**default value**\: primary
                                     
                                     .. attribute:: path_type
                                     
@@ -1342,10 +1841,15 @@ class MplsStatic(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.path_id = None
+                                        self.afi = None
+                                        self.backup_id = None
                                         self.interface_name = None
                                         self.label_type = None
+                                        self.metric = None
                                         self.next_hop_address = None
                                         self.next_hop_label = None
+                                        self.nh_mode = None
+                                        self.path_role = None
                                         self.path_type = None
 
                                     @property
@@ -1367,16 +1871,31 @@ class MplsStatic(object):
                                         if self.path_id is not None:
                                             return True
 
+                                        if self.afi is not None:
+                                            return True
+
+                                        if self.backup_id is not None:
+                                            return True
+
                                         if self.interface_name is not None:
                                             return True
 
                                         if self.label_type is not None:
                                             return True
 
+                                        if self.metric is not None:
+                                            return True
+
                                         if self.next_hop_address is not None:
                                             return True
 
                                         if self.next_hop_label is not None:
+                                            return True
+
+                                        if self.nh_mode is not None:
+                                            return True
+
+                                        if self.path_role is not None:
                                             return True
 
                                         if self.path_type is not None:
@@ -1755,6 +2274,11 @@ class MplsStatic(object):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                .. attribute:: backup_paths
+                
+                	Backup Path Parameters
+                	**type**\:   :py:class:`BackupPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths>`
+                
                 .. attribute:: enable
                 
                 	MPLS Static Apply Enable
@@ -1780,11 +2304,241 @@ class MplsStatic(object):
                 def __init__(self):
                     self.parent = None
                     self.lsp_name = None
+                    self.backup_paths = MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths()
+                    self.backup_paths.parent = self
                     self.enable = None
                     self.in_label = MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel()
                     self.in_label.parent = self
                     self.paths = MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths()
                     self.paths.parent = self
+
+
+                class BackupPaths(object):
+                    """
+                    Backup Path Parameters
+                    
+                    .. attribute:: path
+                    
+                    	Path Information
+                    	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'mpls-static-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.path = YList()
+                        self.path.parent = self
+                        self.path.name = 'path'
+
+
+                    class Path(object):
+                        """
+                        Path Information
+                        
+                        .. attribute:: path_id  <key>
+                        
+                        	Number of paths
+                        	**type**\:  int
+                        
+                        	**range:** 1..16
+                        
+                        .. attribute:: afi
+                        
+                        	Next hop Address Family
+                        	**type**\:   :py:class:`MplsStaticNhAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamilyEnum>`
+                        
+                        	**default value**\: ipv4
+                        
+                        .. attribute:: backup_id
+                        
+                        	Backup ID
+                        	**type**\:  int
+                        
+                        	**range:** 0..16
+                        
+                        	**default value**\: 0
+                        
+                        .. attribute:: interface_name
+                        
+                        	Next hop Interface with form <Interface>R/S/I/P
+                        	**type**\:  str
+                        
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        
+                        .. attribute:: label_type
+                        
+                        	Type of label (Outlabel, ExpNull or Pop)
+                        	**type**\:   :py:class:`MplsStaticOutLabelTypesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypesEnum>`
+                        
+                        	**default value**\: none
+                        
+                        .. attribute:: metric
+                        
+                        	NH Path Metric
+                        	**type**\:  int
+                        
+                        	**range:** 0..254
+                        
+                        	**default value**\: 0
+                        
+                        .. attribute:: next_hop_address
+                        
+                        	Next Hop IP Address
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**default value**\: 0.0.0.0
+                        
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**default value**\: 0.0.0.0
+                        
+                        
+                        ----
+                        .. attribute:: next_hop_label
+                        
+                        	Outgoing/NH Label
+                        	**type**\:  int
+                        
+                        	**range:** 16..1048575
+                        
+                        	**default value**\: 16
+                        
+                        .. attribute:: nh_mode
+                        
+                        	Next hop mode
+                        	**type**\:   :py:class:`MplsStaticNhModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhModeEnum>`
+                        
+                        	**default value**\: configured
+                        
+                        .. attribute:: path_role
+                        
+                        	Path Role
+                        	**type**\:   :py:class:`MplsStaticPathRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRoleEnum>`
+                        
+                        	**default value**\: primary
+                        
+                        .. attribute:: path_type
+                        
+                        	Type of Path (PopAndLookup, CrossConnect)
+                        	**type**\:   :py:class:`MplsStaticPathEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathEnum>`
+                        
+                        	**default value**\: cross-connect
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-static-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.path_id = None
+                            self.afi = None
+                            self.backup_id = None
+                            self.interface_name = None
+                            self.label_type = None
+                            self.metric = None
+                            self.next_hop_address = None
+                            self.next_hop_label = None
+                            self.nh_mode = None
+                            self.path_role = None
+                            self.path_type = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            if self.path_id is None:
+                                raise YPYModelError('Key property path_id is None')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:path[Cisco-IOS-XR-mpls-static-cfg:path-id = ' + str(self.path_id) + ']'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.path_id is not None:
+                                return True
+
+                            if self.afi is not None:
+                                return True
+
+                            if self.backup_id is not None:
+                                return True
+
+                            if self.interface_name is not None:
+                                return True
+
+                            if self.label_type is not None:
+                                return True
+
+                            if self.metric is not None:
+                                return True
+
+                            if self.next_hop_address is not None:
+                                return True
+
+                            if self.next_hop_label is not None:
+                                return True
+
+                            if self.nh_mode is not None:
+                                return True
+
+                            if self.path_role is not None:
+                                return True
+
+                            if self.path_type is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                            return meta._meta_table['MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-cfg:backup-paths'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.path is not None:
+                            for child_ref in self.path:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_cfg as meta
+                        return meta._meta_table['MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths']['meta_info']
 
 
                 class InLabel(object):
@@ -1827,6 +2581,11 @@ class MplsStatic(object):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    .. attribute:: tlh_mode
+                    
+                    	Top Label Hashing Mode
+                    	**type**\:  bool
+                    
                     
 
                     """
@@ -1840,6 +2599,7 @@ class MplsStatic(object):
                         self.label_mode = None
                         self.prefix = None
                         self.prefix_length = None
+                        self.tlh_mode = None
 
                     @property
                     def _common_path(self):
@@ -1865,6 +2625,9 @@ class MplsStatic(object):
                             return True
 
                         if self.prefix_length is not None:
+                            return True
+
+                        if self.tlh_mode is not None:
                             return True
 
                         return False
@@ -1907,7 +2670,23 @@ class MplsStatic(object):
                         	Number of paths
                         	**type**\:  int
                         
-                        	**range:** 0..4294967295
+                        	**range:** 1..16
+                        
+                        .. attribute:: afi
+                        
+                        	Next hop Address Family
+                        	**type**\:   :py:class:`MplsStaticNhAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamilyEnum>`
+                        
+                        	**default value**\: ipv4
+                        
+                        .. attribute:: backup_id
+                        
+                        	Backup ID
+                        	**type**\:  int
+                        
+                        	**range:** 0..16
+                        
+                        	**default value**\: 0
                         
                         .. attribute:: interface_name
                         
@@ -1923,9 +2702,18 @@ class MplsStatic(object):
                         
                         	**default value**\: none
                         
+                        .. attribute:: metric
+                        
+                        	NH Path Metric
+                        	**type**\:  int
+                        
+                        	**range:** 0..254
+                        
+                        	**default value**\: 0
+                        
                         .. attribute:: next_hop_address
                         
-                        	Next Hop IPv4 Address
+                        	Next Hop IP Address
                         	**type**\: one of the below types:
                         
                         	**type**\:  str
@@ -1946,12 +2734,26 @@ class MplsStatic(object):
                         ----
                         .. attribute:: next_hop_label
                         
-                        	NH Label
+                        	Outgoing/NH Label
                         	**type**\:  int
                         
                         	**range:** 16..1048575
                         
                         	**default value**\: 16
+                        
+                        .. attribute:: nh_mode
+                        
+                        	Next hop mode
+                        	**type**\:   :py:class:`MplsStaticNhModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhModeEnum>`
+                        
+                        	**default value**\: configured
+                        
+                        .. attribute:: path_role
+                        
+                        	Path Role
+                        	**type**\:   :py:class:`MplsStaticPathRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRoleEnum>`
+                        
+                        	**default value**\: primary
                         
                         .. attribute:: path_type
                         
@@ -1970,10 +2772,15 @@ class MplsStatic(object):
                         def __init__(self):
                             self.parent = None
                             self.path_id = None
+                            self.afi = None
+                            self.backup_id = None
                             self.interface_name = None
                             self.label_type = None
+                            self.metric = None
                             self.next_hop_address = None
                             self.next_hop_label = None
+                            self.nh_mode = None
+                            self.path_role = None
                             self.path_type = None
 
                         @property
@@ -1995,16 +2802,31 @@ class MplsStatic(object):
                             if self.path_id is not None:
                                 return True
 
+                            if self.afi is not None:
+                                return True
+
+                            if self.backup_id is not None:
+                                return True
+
                             if self.interface_name is not None:
                                 return True
 
                             if self.label_type is not None:
                                 return True
 
+                            if self.metric is not None:
+                                return True
+
                             if self.next_hop_address is not None:
                                 return True
 
                             if self.next_hop_label is not None:
+                                return True
+
+                            if self.nh_mode is not None:
+                                return True
+
+                            if self.path_role is not None:
                                 return True
 
                             if self.path_type is not None:
@@ -2058,6 +2880,9 @@ class MplsStatic(object):
                     if not self.is_config():
                         return False
                     if self.lsp_name is not None:
+                        return True
+
+                    if self.backup_paths is not None and self.backup_paths._has_data():
                         return True
 
                     if self.enable is not None:
@@ -2356,7 +3181,23 @@ class MplsStatic(object):
                                     	Number of paths
                                     	**type**\:  int
                                     
-                                    	**range:** 0..4294967295
+                                    	**range:** 1..16
+                                    
+                                    .. attribute:: afi
+                                    
+                                    	Next hop Address Family
+                                    	**type**\:   :py:class:`MplsStaticNhAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamilyEnum>`
+                                    
+                                    	**default value**\: ipv4
+                                    
+                                    .. attribute:: backup_id
+                                    
+                                    	Backup ID
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..16
+                                    
+                                    	**default value**\: 0
                                     
                                     .. attribute:: interface_name
                                     
@@ -2372,9 +3213,18 @@ class MplsStatic(object):
                                     
                                     	**default value**\: none
                                     
+                                    .. attribute:: metric
+                                    
+                                    	NH Path Metric
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..254
+                                    
+                                    	**default value**\: 0
+                                    
                                     .. attribute:: next_hop_address
                                     
-                                    	Next Hop IPv4 Address
+                                    	Next Hop IP Address
                                     	**type**\: one of the below types:
                                     
                                     	**type**\:  str
@@ -2395,12 +3245,26 @@ class MplsStatic(object):
                                     ----
                                     .. attribute:: next_hop_label
                                     
-                                    	NH Label
+                                    	Outgoing/NH Label
                                     	**type**\:  int
                                     
                                     	**range:** 16..1048575
                                     
                                     	**default value**\: 16
+                                    
+                                    .. attribute:: nh_mode
+                                    
+                                    	Next hop mode
+                                    	**type**\:   :py:class:`MplsStaticNhModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhModeEnum>`
+                                    
+                                    	**default value**\: configured
+                                    
+                                    .. attribute:: path_role
+                                    
+                                    	Path Role
+                                    	**type**\:   :py:class:`MplsStaticPathRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRoleEnum>`
+                                    
+                                    	**default value**\: primary
                                     
                                     .. attribute:: path_type
                                     
@@ -2419,10 +3283,15 @@ class MplsStatic(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.path_id = None
+                                        self.afi = None
+                                        self.backup_id = None
                                         self.interface_name = None
                                         self.label_type = None
+                                        self.metric = None
                                         self.next_hop_address = None
                                         self.next_hop_label = None
+                                        self.nh_mode = None
+                                        self.path_role = None
                                         self.path_type = None
 
                                     @property
@@ -2444,16 +3313,31 @@ class MplsStatic(object):
                                         if self.path_id is not None:
                                             return True
 
+                                        if self.afi is not None:
+                                            return True
+
+                                        if self.backup_id is not None:
+                                            return True
+
                                         if self.interface_name is not None:
                                             return True
 
                                         if self.label_type is not None:
                                             return True
 
+                                        if self.metric is not None:
+                                            return True
+
                                         if self.next_hop_address is not None:
                                             return True
 
                                         if self.next_hop_label is not None:
+                                            return True
+
+                                        if self.nh_mode is not None:
+                                            return True
+
+                                        if self.path_role is not None:
                                             return True
 
                                         if self.path_type is not None:
@@ -2744,7 +3628,23 @@ class MplsStatic(object):
                                 	Number of paths
                                 	**type**\:  int
                                 
-                                	**range:** 0..4294967295
+                                	**range:** 1..16
+                                
+                                .. attribute:: afi
+                                
+                                	Next hop Address Family
+                                	**type**\:   :py:class:`MplsStaticNhAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamilyEnum>`
+                                
+                                	**default value**\: ipv4
+                                
+                                .. attribute:: backup_id
+                                
+                                	Backup ID
+                                	**type**\:  int
+                                
+                                	**range:** 0..16
+                                
+                                	**default value**\: 0
                                 
                                 .. attribute:: interface_name
                                 
@@ -2760,9 +3660,18 @@ class MplsStatic(object):
                                 
                                 	**default value**\: none
                                 
+                                .. attribute:: metric
+                                
+                                	NH Path Metric
+                                	**type**\:  int
+                                
+                                	**range:** 0..254
+                                
+                                	**default value**\: 0
+                                
                                 .. attribute:: next_hop_address
                                 
-                                	Next Hop IPv4 Address
+                                	Next Hop IP Address
                                 	**type**\: one of the below types:
                                 
                                 	**type**\:  str
@@ -2783,12 +3692,26 @@ class MplsStatic(object):
                                 ----
                                 .. attribute:: next_hop_label
                                 
-                                	NH Label
+                                	Outgoing/NH Label
                                 	**type**\:  int
                                 
                                 	**range:** 16..1048575
                                 
                                 	**default value**\: 16
+                                
+                                .. attribute:: nh_mode
+                                
+                                	Next hop mode
+                                	**type**\:   :py:class:`MplsStaticNhModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhModeEnum>`
+                                
+                                	**default value**\: configured
+                                
+                                .. attribute:: path_role
+                                
+                                	Path Role
+                                	**type**\:   :py:class:`MplsStaticPathRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRoleEnum>`
+                                
+                                	**default value**\: primary
                                 
                                 .. attribute:: path_type
                                 
@@ -2807,10 +3730,15 @@ class MplsStatic(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.path_id = None
+                                    self.afi = None
+                                    self.backup_id = None
                                     self.interface_name = None
                                     self.label_type = None
+                                    self.metric = None
                                     self.next_hop_address = None
                                     self.next_hop_label = None
+                                    self.nh_mode = None
+                                    self.path_role = None
                                     self.path_type = None
 
                                 @property
@@ -2832,16 +3760,31 @@ class MplsStatic(object):
                                     if self.path_id is not None:
                                         return True
 
+                                    if self.afi is not None:
+                                        return True
+
+                                    if self.backup_id is not None:
+                                        return True
+
                                     if self.interface_name is not None:
                                         return True
 
                                     if self.label_type is not None:
                                         return True
 
+                                    if self.metric is not None:
+                                        return True
+
                                     if self.next_hop_address is not None:
                                         return True
 
                                     if self.next_hop_label is not None:
+                                        return True
+
+                                    if self.nh_mode is not None:
+                                        return True
+
+                                    if self.path_role is not None:
                                         return True
 
                                     if self.path_type is not None:

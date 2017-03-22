@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'NextHopTypeEnum' : _MetaInfoEnum('NextHopTypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_cfg',
         {
@@ -30,6 +29,14 @@ _meta_table = {
                 for any.
                 ''',
                 'source_address',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('source-prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [('0', '32')], [], 
+                '''                Prefix length to apply to source address 
+                (if specified), leave unspecified for no 
+                wildcarding.
+                ''',
+                'source_prefix_length',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('source-wild-card-bits', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
@@ -56,6 +63,14 @@ _meta_table = {
                 was specified), leave unspecified for any.
                 ''',
                 'destination_address',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('destination-prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [('0', '32')], [], 
+                '''                Prefix length to apply to destination address 
+                (if specified), leave unspecified for no 
+                wildcarding.
+                ''',
+                'destination_prefix_length',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('destination-wild-card-bits', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
@@ -249,7 +264,7 @@ _meta_table = {
                         'tcp_bits',
                         'Cisco-IOS-XR-ipv4-acl-cfg', False),
                     _MetaInfoClassMember('tcp-bits', ATTRIBUTE, 'int' , None, None, 
-                        [('0', '32')], [], 
+                        [('0', '63')], [], 
                         '''                        TCP bits to match.
                         Leave unspecified if comparison of TCP bits is
                         not required.
@@ -274,7 +289,7 @@ _meta_table = {
                         'tcp_bits_mask',
                         'Cisco-IOS-XR-ipv4-acl-cfg', False),
                     _MetaInfoClassMember('tcp-bits-mask', ATTRIBUTE, 'int' , None, None, 
-                        [('0', '32')], [], 
+                        [('0', '63')], [], 
                         '''                        TCP bits mask to use for flexible TCP matching.
                         Leave unspecified if tcp-bits-match-operator is 
                         unspecified.
@@ -365,6 +380,43 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-ipv4-acl-cfg',
             'time-to-live',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_cfg'
+        ),
+    },
+    'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.FragmentOffset' : {
+        'meta_info' : _MetaInfoClass('Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.FragmentOffset',
+            False, 
+            [
+            _MetaInfoClassMember('fragment-offset-1', ATTRIBUTE, 'int' , None, None, 
+                [('0', '8191')], [], 
+                '''                Fragment-offset value for comparison or first 
+                fragment-offset value for fragment-offset range 
+                comparision, leave unspecified if fragment-offset
+                classification is not required.
+                ''',
+                'fragment_offset_1',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('fragment-offset-2', ATTRIBUTE, 'int' , None, None, 
+                [('0', '8191')], [], 
+                '''                Second fragment-offset value for comparion, 
+                leave unspecified if fragment-offset comparison is
+                not to be performed or if only the first fragment-offset
+                should be considered.
+                ''',
+                'fragment_offset_2',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('fragment-offset-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclOperatorEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclOperatorEnumEnum', 
+                [], [], 
+                '''                Fragment-offset operator if fragment-offset is
+                to be compared. Leave unspecified if fragment-offset
+                classification is not required.
+                ''',
+                'fragment_offset_operator',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-acl-cfg',
+            'fragment-offset',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv4-acl-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_cfg'
         ),
@@ -615,6 +667,12 @@ _meta_table = {
                 ''',
                 'dscp',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('fragment-offset', REFERENCE_CLASS, 'FragmentOffset' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.FragmentOffset', 
+                [], [], 
+                '''                Fragment-offset settings.
+                ''',
+                'fragment_offset',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('fragments', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Check non-initial fragments. Item is mutually 
@@ -727,6 +785,38 @@ _meta_table = {
                         'protocol',
                         'Cisco-IOS-XR-ipv4-acl-cfg', False),
                 ]),
+            _MetaInfoClassMember('protocol2', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Protocol2 to match.
+                ''',
+                'protocol2',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False, [
+                    _MetaInfoClassMember('protocol2', REFERENCE_ENUM_CLASS, 'Ipv4AclProtocolNumberEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclProtocolNumberEnum', 
+                        [], [], 
+                        '''                        Protocol2 to match.
+                        ''',
+                        'protocol2',
+                        'Cisco-IOS-XR-ipv4-acl-cfg', False),
+                    _MetaInfoClassMember('protocol2', ATTRIBUTE, 'int' , None, None, 
+                        [('0', '255')], [], 
+                        '''                        Protocol2 to match.
+                        ''',
+                        'protocol2',
+                        'Cisco-IOS-XR-ipv4-acl-cfg', False),
+                ]),
+            _MetaInfoClassMember('protocol-operator', REFERENCE_ENUM_CLASS, 'Ipv4AclOperatorEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes', 'Ipv4AclOperatorEnumEnum', 
+                [], [], 
+                '''                Protocol operator. Leave unspecified
+                if no protocol comparison is to be done.
+                ''',
+                'protocol_operator',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('qos-group', ATTRIBUTE, 'int' , None, None, 
+                [('0', '512')], [], 
+                '''                Set qos-group number
+                ''',
+                'qos_group',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('remark', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Comments or a description for the access list.
@@ -1057,6 +1147,7 @@ _meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEn
 _meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Tcp']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
+_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.FragmentOffset']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Dscp']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
 _meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info'].parent =_meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries']['meta_info']

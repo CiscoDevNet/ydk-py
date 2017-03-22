@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'LogEnum' : _MetaInfoEnum('LogEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper',
         {
@@ -687,10 +686,16 @@ _meta_table = {
                 'fast_hello_interval_enabled_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('frame-period-threshold-high', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                Frame period event high threshold
                 ''',
                 'frame_period_threshold_high',
+                'Cisco-IOS-XR-ethernet-link-oam-oper', False),
+            _MetaInfoClassMember('frame-period-threshold-high-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Frame period event threshold high multiplier
+                ''',
+                'frame_period_threshold_high_multiplier',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('frame-period-threshold-high-overridden', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -700,10 +705,16 @@ _meta_table = {
                 'frame_period_threshold_high_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('frame-period-threshold-low', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                Frame period event low threshold
                 ''',
                 'frame_period_threshold_low',
+                'Cisco-IOS-XR-ethernet-link-oam-oper', False),
+            _MetaInfoClassMember('frame-period-threshold-low-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Frame period event threshold low multiplier
+                ''',
+                'frame_period_threshold_low_multiplier',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('frame-period-threshold-low-overridden', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -712,11 +723,23 @@ _meta_table = {
                 ''',
                 'frame_period_threshold_low_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
+            _MetaInfoClassMember('frame-period-threshold-units', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Frame period event threshold units
+                ''',
+                'frame_period_threshold_units',
+                'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('frame-period-window', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Frame period event window size
                 ''',
                 'frame_period_window',
+                'Cisco-IOS-XR-ethernet-link-oam-oper', False),
+            _MetaInfoClassMember('frame-period-window-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Frame period event window multiplier
+                ''',
+                'frame_period_window_multiplier',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('frame-period-window-overridden', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -725,8 +748,14 @@ _meta_table = {
                 ''',
                 'frame_period_window_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
+            _MetaInfoClassMember('frame-period-window-units', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Frame period event window units
+                ''',
+                'frame_period_window_units',
+                'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('frame-seconds-threshold-high', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                Frame seconds event high threshold
                 ''',
                 'frame_seconds_threshold_high',
@@ -739,7 +768,7 @@ _meta_table = {
                 'frame_seconds_threshold_high_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('frame-seconds-threshold-low', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                Frame seconds event high threshold
                 ''',
                 'frame_seconds_threshold_low',
@@ -765,10 +794,16 @@ _meta_table = {
                 'frame_seconds_window_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('frame-threshold-high', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                Frame event high threshold
                 ''',
                 'frame_threshold_high',
+                'Cisco-IOS-XR-ethernet-link-oam-oper', False),
+            _MetaInfoClassMember('frame-threshold-high-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Frame event threshold high multiplier
+                ''',
+                'frame_threshold_high_multiplier',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('frame-threshold-high-overridden', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -778,10 +813,16 @@ _meta_table = {
                 'frame_threshold_high_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('frame-threshold-low', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                Frame event low threshold
                 ''',
                 'frame_threshold_low',
+                'Cisco-IOS-XR-ethernet-link-oam-oper', False),
+            _MetaInfoClassMember('frame-threshold-low-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Frame period event threshold low multiplier
+                ''',
+                'frame_threshold_low_multiplier',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('frame-threshold-low-overridden', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -977,9 +1018,15 @@ _meta_table = {
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('symbol-period-threshold-high', ATTRIBUTE, 'int' , None, None, 
                 [('0', '18446744073709551615')], [], 
-                '''                High symbol period event threshold
+                '''                Symbol period event high threshold
                 ''',
                 'symbol_period_threshold_high',
+                'Cisco-IOS-XR-ethernet-link-oam-oper', False),
+            _MetaInfoClassMember('symbol-period-threshold-high-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Symbol period event threshold high multiplier
+                ''',
+                'symbol_period_threshold_high_multiplier',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('symbol-period-threshold-high-overridden', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -990,9 +1037,15 @@ _meta_table = {
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('symbol-period-threshold-low', ATTRIBUTE, 'int' , None, None, 
                 [('0', '18446744073709551615')], [], 
-                '''                Low symbol period event threshold
+                '''                Symbol period event low threshold
                 ''',
                 'symbol_period_threshold_low',
+                'Cisco-IOS-XR-ethernet-link-oam-oper', False),
+            _MetaInfoClassMember('symbol-period-threshold-low-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Symbol period event threshold low multiplier
+                ''',
+                'symbol_period_threshold_low_multiplier',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('symbol-period-threshold-low-overridden', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -1001,11 +1054,23 @@ _meta_table = {
                 ''',
                 'symbol_period_threshold_low_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
+            _MetaInfoClassMember('symbol-period-threshold-units', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Symbol period event threshold units
+                ''',
+                'symbol_period_threshold_units',
+                'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('symbol-period-window', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Symbol period event window size
                 ''',
                 'symbol_period_window',
+                'Cisco-IOS-XR-ethernet-link-oam-oper', False),
+            _MetaInfoClassMember('symbol-period-window-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Symbol period event window multiplier
+                ''',
+                'symbol_period_window_multiplier',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('symbol-period-window-overridden', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -1013,6 +1078,12 @@ _meta_table = {
                 override?
                 ''',
                 'symbol_period_window_overridden',
+                'Cisco-IOS-XR-ethernet-link-oam-oper', False),
+            _MetaInfoClassMember('symbol-period-window-units', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Symbol period event window units
+                ''',
+                'symbol_period_window_units',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('udlf-enabled', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -1300,7 +1371,8 @@ _meta_table = {
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('local-high-threshold-config-units', ATTRIBUTE, 'int' , None, None, 
                 [('0', '18446744073709551615')], [], 
-                '''                The local high threshold in configuration units
+                '''                The local high threshold in the units that are
+                currently configured
                 ''',
                 'local_high_threshold_config_units',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
@@ -1331,9 +1403,17 @@ _meta_table = {
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('threshold-config-units', ATTRIBUTE, 'int' , None, None, 
                 [('0', '18446744073709551615')], [], 
-                '''                The threshold in configuration units
+                '''                The threshold in the units that are currently
+                configured
                 ''',
                 'threshold_config_units',
+                'Cisco-IOS-XR-ethernet-link-oam-oper', False),
+            _MetaInfoClassMember('threshold-units', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                The units in which the threshold size is
+                configured.
+                ''',
+                'threshold_units',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('timestamp', ATTRIBUTE, 'int' , None, None, 
                 [('0', '18446744073709551615')], [], 
@@ -1356,7 +1436,8 @@ _meta_table = {
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('value-config-units', ATTRIBUTE, 'int' , None, None, 
                 [('0', '18446744073709551615')], [], 
-                '''                The breaching value in configuration units
+                '''                The breaching value in the units that are
+                currently configured
                 ''',
                 'value_config_units',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
@@ -1368,9 +1449,17 @@ _meta_table = {
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('window-config-units', ATTRIBUTE, 'int' , None, None, 
                 [('0', '18446744073709551615')], [], 
-                '''                The window in configuration units
+                '''                The window in the units that are currently
+                configured
                 ''',
                 'window_config_units',
+                'Cisco-IOS-XR-ethernet-link-oam-oper', False),
+            _MetaInfoClassMember('window-units', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                The units in which the window size is configured
+                .
+                ''',
+                'window_units',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-link-oam-oper',

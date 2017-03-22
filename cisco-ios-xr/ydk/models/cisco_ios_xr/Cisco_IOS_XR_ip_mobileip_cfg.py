@@ -286,7 +286,7 @@ class MobileIp(object):
             	Domain Name
             	**type**\:  str
             
-            	**length:** 0..125
+            	**length:** 1..125
             
             .. attribute:: authenticate_option
             
@@ -366,7 +366,7 @@ class MobileIp(object):
                     	MAG Identifier
                     	**type**\:  str
                     
-                    	**length:** 0..125
+                    	**length:** 1..125
                     
                     
 
@@ -464,35 +464,35 @@ class MobileIp(object):
                     	MN Identifier
                     	**type**\:  str
                     
-                    	**length:** 0..125
+                    	**length:** 1..125
                     
                     .. attribute:: apn
                     
                     	Access point network for this MN
                     	**type**\:  str
                     
-                    	**length:** 0..125
+                    	**length:** 1..125
                     
                     .. attribute:: customer
                     
                     	Customer name for this MN
                     	**type**\:  str
                     
-                    	**length:** 0..125
+                    	**length:** 1..125
                     
                     .. attribute:: lma
                     
                     	LMA for this MN
                     	**type**\:  str
                     
-                    	**length:** 0..125
+                    	**length:** 1..125
                     
                     .. attribute:: network
                     
                     	Network name (Address pool) for this MN
                     	**type**\:  str
                     
-                    	**length:** 0..125
+                    	**length:** 1..125
                     
                     .. attribute:: service
                     
@@ -592,7 +592,7 @@ class MobileIp(object):
                 	ASCII string
                 	**type**\:  str
                 
-                	**length:** 0..125
+                	**length:** 1..125
                 
                 .. attribute:: spi
                 
@@ -673,7 +673,7 @@ class MobileIp(object):
                     	LMA Identifier
                     	**type**\:  str
                     
-                    	**length:** 0..125
+                    	**length:** 1..125
                     
                     
 
@@ -834,14 +834,14 @@ class MobileIp(object):
             	Domain name
             	**type**\:  str
             
-            	**length:** 0..125
+            	**length:** 1..125
             
             .. attribute:: lma_name  <key>
             
             	LMA name
             	**type**\:  str
             
-            	**length:** 0..125
+            	**length:** 1..125
             
             .. attribute:: aaa
             
@@ -868,7 +868,7 @@ class MobileIp(object):
             	Default MN profile for LMA
             	**type**\:  str
             
-            	**length:** 0..125
+            	**length:** 1..125
             
             .. attribute:: dscp
             
@@ -927,7 +927,7 @@ class MobileIp(object):
             	Mobile Map for this LMA
             	**type**\:  str
             
-            	**length:** 0..125
+            	**length:** 1..125
             
             .. attribute:: mobile_route_ad
             
@@ -1917,14 +1917,14 @@ class MobileIp(object):
                     	Domain name
                     	**type**\:  str
                     
-                    	**length:** 0..125
+                    	**length:** 1..125
                     
                     .. attribute:: mag_name  <key>
                     
                     	MAG identifier
                     	**type**\:  str
                     
-                    	**length:** 0..125
+                    	**length:** 1..125
                     
                     .. attribute:: authenticate_option
                     
@@ -1993,7 +1993,7 @@ class MobileIp(object):
                         	ASCII string
                         	**type**\:  str
                         
-                        	**length:** 0..125
+                        	**length:** 1..125
                         
                         .. attribute:: spi
                         
@@ -2184,7 +2184,7 @@ class MobileIp(object):
                 	access list to apply for tunnel
                 	**type**\:  str
                 
-                	**length:** 0..125
+                	**length:** 1..125
                 
                 .. attribute:: mtu
                 
@@ -2371,14 +2371,14 @@ class MobileIp(object):
                             	Customer name
                             	**type**\:  str
                             
-                            	**length:** 0..125
+                            	**length:** 1..125
                             
                             .. attribute:: vrf_name  <key>
                             
                             	VRF name
                             	**type**\:  str
                             
-                            	**length:** 0..125
+                            	**length:** 1..125
                             
                             .. attribute:: authenticate_option
                             
@@ -2511,7 +2511,7 @@ class MobileIp(object):
                                 	ASCII string
                                 	**type**\:  str
                                 
-                                	**length:** 0..125
+                                	**length:** 1..125
                                 
                                 .. attribute:: spi
                                 
@@ -2661,7 +2661,7 @@ class MobileIp(object):
                                     	VRF Name
                                     	**type**\:  str
                                     
-                                    	**length:** 0..125
+                                    	**length:** 1..125
                                     
                                     .. attribute:: ipv4_address
                                     
@@ -2809,7 +2809,7 @@ class MobileIp(object):
                                         	ASCII string
                                         	**type**\:  str
                                         
-                                        	**length:** 0..125
+                                        	**length:** 1..125
                                         
                                         .. attribute:: pool_attributes
                                         
@@ -3810,7 +3810,7 @@ class MobileIp(object):
                     	Network name
                     	**type**\:  str
                     
-                    	**length:** 0..125
+                    	**length:** 1..125
                     
                     .. attribute:: pool_attributes
                     
